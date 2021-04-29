@@ -1,0 +1,412 @@
+@section('js_pos')
+    <script type="text/babel">
+
+        const initalState = {
+            categories: [],
+            attributes: [],
+            loading: false,
+            language: LANG_VI,
+        }
+        const App = () => {
+            const [state, setState] = useState(initalState);
+            const [checkedKeys, setCheckedKeys] = useState([]);
+            const [form] = Form.useForm();
+            const [defaultFileList, setDefaultFileList] = useState([]);
+            const [progress, setProgress] = useState(0);
+            const onSubmit = async (data) => {
+                if (typeof data.id == "undefined") {
+                    await Products.create(data);
+                } else {
+                    await Products.update(data);
+                }
+            }
+            const changeContent = text => {
+                form.setFieldsValue({
+                    content: text
+                });
+            }
+            const slugChange = (e) => {
+                form.setFieldsValue({
+                    slug: toSlug(e.target.value)
+                });
+            }
+            useEffect(async () => {
+
+                initTinymce(changeContent);
+                const id = getParams('id');
+
+                if (id) {
+                    const {data} = await Products.view(id);
+
+                    const {meta, media_id, archives} = data;
+
+                    let cats = archives.map(item => {
+                        return item.archive_id;
+                    });
+                    setCheckedKeys(cats);
+                    form.setFieldsValue({
+                        ...data,
+                        media_id: media_id,
+                        archive_id: cats,
+                        meta_title: meta ? meta.meta_title : null,
+                        meta_keyword: meta ? meta.meta_keyword : null,
+                        meta_description: meta ? meta.meta_description : null
+                    });
+                    data.avatar ? setDefaultFileList([{
+                        uid: data.id,
+                        name: data.name,
+                        status: 'done',
+                        url: data.avatar
+                    }]) : setDefaultFileList([]);
+                }
+                const res = await fetchArchive({language: form.getFieldValue('language')});
+                const attr = await Attributes.fetch({page: -1});
+                setState({
+                    ...state,
+                    ...{
+                        categories: convertTreeSelect(res.data),
+                        attributes: attr.data
+                    }
+                });
+
+            }, []);
+            const setLanguage = async (e) => {
+                const res = await fetchArchive({language: e});
+                form.setFieldsValue({
+                    default_archive: null
+                })
+                setState({
+                    ...state,
+                    ...{
+                        language: e,
+                        categories: convertTreeSelect(res.data)
+                    }
+                });
+
+            }
+            const handleOnChange = ({file, fileList, event}) => {
+                setDefaultFileList(fileList);
+            };
+            const fetchArchive = async (params = {}) => {
+                return await Archives.fetch(Object.assign({page: -1, type: ARCHIVE_TYPE_PRODUCT}, params));
+            }
+            const onUpload = (options, type = 'avatar') => {
+                const {onSuccess, onError, file, onProgress} = options;
+                setState({
+                    ...state,
+                    ...{
+                        uploading: true
+                    }
+                });
+                onUploadMedia(file, data => {
+                    let thumbnails = typeof form.getFieldValue('thumbnails') == "undefined" ? [] : form.getFieldValue('thumbnails');
+                    if (type === 'thumbnails') {
+                        thumbnails.push(data.id);
+                        form.setFieldsValue({
+                            thumbnails: thumbnails
+                        });
+                    } else {
+                        form.setFieldsValue({
+                            media_id: data.id
+                        });
+                    }
+
+                    onSuccess();
+                }, onError, (event) => {
+                    const percent = Math.floor((event.loaded / event.total) * 100);
+                    setProgress(percent);
+                    if (percent === 100) {
+                        setTimeout(() => setProgress(0), 1000);
+                    }
+                    onProgress({percent: (event.loaded / event.total) * 100});
+                }, MEDIA_TYPE_PRODUCT);
+            }
+            const onSelectArchive = (selectKey) => {
+                form.setFieldsValue({
+                    default_archive: selectKey[0]
+                })
+            };
+            const onCheckArchive = (checkedKeysValue, info) => {
+                setCheckedKeys(checkedKeysValue);
+                form.setFieldsValue({
+                    archive_id: checkedKeysValue
+                });
+            }
+
+            return (
+                <div className="mb-5">
+                    <Form onFinish={onSubmit} form={form} layout="vertical">
+                        <Row gutter={[8, 0]}>
+                            <Col md={18}>
+                                <Card title="Chi tiết">
+                                    <Form.Item
+                                        hidden
+                                        name={`id`}
+                                    >
+                                        <Input/>
+                                    </Form.Item>
+                                    <Form.Item
+                                        onChange={slugChange}
+                                        label="Tên sản phẩm"
+                                        name={`name`}
+                                        rules={[{required: true, message: 'Tên sản phẩm bắt buộc!'}]}
+                                    >
+                                        <Input/>
+                                        <small>Tối đa 255 kí tự</small>
+                                    </Form.Item>
+                                    <Form.Item
+                                        label="Slug"
+                                        name={`slug`}
+                                        rules={[{required: true, message: 'Slug bắt buộc!'}]}
+                                    >
+                                        <Input disabled/>
+                                    </Form.Item>
+                                    <Form.Item
+                                        label="Mô tả"
+                                        name={`excerpt`}
+                                    >
+                                        <Input.TextArea/>
+                                    </Form.Item>
+
+                                    <Form.Item
+                                        label="Nội dung sản phẩm"
+                                        name="content">
+                                        <Input.TextArea className={`editor`}/>
+                                    </Form.Item>
+                                    <Row gutter={[8, 0]}>
+                                        <Col xs={24} md={6}>
+                                            <Form.Item
+                                                label="Mã sản phẩm"
+                                                name={`sku`}
+                                            >
+                                                <Input/>
+                                            </Form.Item>
+                                        </Col>
+                                        <Col xs={24} md={6}>
+                                            <Form.Item
+                                                initialValue={0}
+                                                label="Giá bán"
+                                                name={`default_price`}
+                                            >
+                                                <InputNumber
+                                                    style={getSize('100%')}
+                                                    formatter={value => `đ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+                                                    parser={value => value.replace(/\đ\s?|(,*)/g, '')}
+                                                />
+                                            </Form.Item>
+                                        </Col>
+                                        <Col xs={24} md={6}>
+                                            <Form.Item
+                                                initialValue={0}
+                                                label="Giá giảm"
+                                                name={`default_sale_price`}
+                                            >
+                                                <InputNumber
+                                                    style={getSize('100%')}
+                                                    formatter={value => `đ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+                                                    parser={value => value.replace(/\đ\s?|(,*)/g, '')}
+                                                />
+                                            </Form.Item>
+                                        </Col>
+                                    </Row>
+                                </Card>
+                                <div className="my-5">
+                                    <Card title="Thuộc tính sản phẩm">
+                                        <Row>
+                                            <Col xs={24}>
+                                                <Form.List name="attrs">
+                                                    {(fields, {add, remove}) => (
+                                                        <div>
+                                                            {fields.map(field => (
+                                                                <Row gutter={[8, 0]}>
+                                                                    <Col md={6}>
+                                                                        <Form.Item
+                                                                            {...field}
+                                                                            name={[field.name, 'name']}
+                                                                            fieldKey={[field.fieldKey, 'name']}
+                                                                            rules={[{
+                                                                                required: true,
+                                                                                message: 'Missing first name'
+                                                                            }]}
+                                                                        >
+                                                                            <Select
+                                                                                className={`w-100`}
+                                                                                allowClear
+                                                                                placeholder="Chọn thuộc tính">
+                                                                                {state.attributes ? state.attributes.map(item => {
+                                                                                    return <Select.Option
+                                                                                        value={item.slug}>{item.name}</Select.Option>
+                                                                                }) : null}
+                                                                            </Select>
+                                                                        </Form.Item>
+
+                                                                    </Col>
+                                                                    <Col md={14}>
+                                                                        <Form.Item
+                                                                            {...field}
+                                                                            name={[field.name, 'last']}
+                                                                            fieldKey={[field.fieldKey, 'last']}
+                                                                            rules={[{
+                                                                                required: true,
+                                                                                message: 'Missing last name'
+                                                                            }]}
+                                                                        >
+                                                                            <Select mode="multiple"
+                                                                                    allowClear
+                                                                                    placeholder="Chọn thuộc tính">
+                                                                                {state.attributes ? state.attributes.map(item => {
+                                                                                    return <Select.Option
+                                                                                        value={item.slug}>{item.name}</Select.Option>
+                                                                                }) : null}
+                                                                            </Select>
+                                                                        </Form.Item>
+                                                                    </Col>
+                                                                    <Col>
+                                                                        <Button onClick={() => remove(field.name)}>
+                                                                            <i className="icon-trash"/>
+                                                                        </Button>
+                                                                    </Col>
+                                                                </Row>
+                                                            ))}
+                                                            <Button type="dashed" onClick={() => add()} block>
+                                                                Thêm thuộc tính khác
+                                                            </Button>
+                                                        </div>
+                                                    )}
+                                                </Form.List>
+                                            </Col>
+                                            <Col xs={24}>
+
+                                            </Col>
+                                        </Row>
+                                    </Card>
+                                </div>
+                                <Card title="SEO Meta">
+                                    <Form.Item
+                                        label="Meta title"
+                                        name={`meta_tile`}
+                                    >
+                                        <Input/>
+                                    </Form.Item>
+                                    <Form.Item
+                                        label="Meta keywords"
+                                        name={`meta_keyword`}
+                                    >
+                                        <Input/>
+                                    </Form.Item>
+                                    <Form.Item
+                                        label="Meta description"
+                                        name={`meta_description`}
+                                    >
+                                        <Input.TextArea/>
+                                    </Form.Item>
+                                </Card>
+                            </Col>
+                            <Col md={6}>
+                                <div className="sticky-top">
+                                    <Card title="Danh mục"
+                                          extra={<Button type="primary" size="small" htmlType="submit">Lưu</Button>}>
+                                        <small>* Nhấn tên danh mục để chọn mặc định</small>
+                                        <br/>
+                                        <small>* Check box chọn danh mục</small>
+                                        <hr/>
+                                        <Form.Item
+                                            name="archive_id"
+                                            multiple
+                                            rules={[{required: true, message: 'Danh mục bắt buộc', type: 'array'}]}
+                                        >
+                                            <Tree
+                                                checkable
+                                                expandedKeys={checkedKeys}
+                                                checkedKeys={checkedKeys}
+                                                defaultSelectedKeys={[form.getFieldValue('default_archive')]}
+                                                onCheck={onCheckArchive}
+                                                onSelect={onSelectArchive}
+                                                treeData={state.categories}
+                                            />
+                                        </Form.Item>
+                                        <Form.Item
+                                            hidden
+                                            rules={[{required: true, message: 'chọn danh mục mặc định'}]}
+                                            name={`default_archive`}
+                                        >
+                                            <Input/>
+                                        </Form.Item>
+                                    </Card>
+                                    <Card title="Thiết lập">
+                                        <Form.Item
+                                            name={`status`}
+                                            rules={[{required: true, message: 'Trangj thái bắt buộc'}]}
+                                            initialValue='public'
+                                            label="Trạng thái"
+                                        >
+                                            <Select>
+                                                <Select.Option value={`public`}>Công khai</Select.Option>
+                                                <Select.Option value={`draft`}>Nháp</Select.Option>
+                                            </Select>
+                                        </Form.Item>
+                                        <Form.Item
+                                            name="language"
+                                            initialValue={LANG_VI}
+                                            label="Ngôn ngữ"
+                                            rules={[{required: true, message: 'Hãy chọn ngôn ngữ!'}]}
+                                        >
+                                            <Select onChange={setLanguage}>
+                                                <Select.Option value={LANG_VI}>Tiếng Việt</Select.Option>
+                                                <Select.Option value={LANG_EN}>Tiếng Anh</Select.Option>
+                                            </Select>
+                                        </Form.Item>
+                                        <Form.Item
+                                            name={`avatar`}
+                                            label="Ảnh đại diện"
+                                            rules={[{required: true, message: 'Ảnh đại diện bắt buộc!'}]}
+                                        >
+                                            <Upload
+                                                accept="image/*"
+                                                customRequest={onUpload}
+                                                onChange={handleOnChange}
+                                                listType="picture"
+                                                onRemove={() =>
+                                                    onRemoveMedia(form.getFieldValue('media_id'))
+                                                }
+                                                fileList={defaultFileList}
+                                                className="avatar-uploader single"
+                                            >
+                                                {defaultFileList.length >= 1 ? null :
+                                                    <Button><i className="icon-upload mr-2"/> Chọn ảnh</Button>}
+                                            </Upload>
+                                        </Form.Item>
+                                        <Form.Item
+                                            name="media_id"
+                                            hidden>
+                                            <Input/>
+                                        </Form.Item>
+                                        <Form.Item
+                                            name="thumbnails"
+                                            rules={[{type: 'array'}]}
+                                            hidden>
+                                            <Input/>
+                                        </Form.Item>
+                                        <Form.Item
+                                            label="Ảnh thumbnail (max 5)"
+                                        >
+                                            <Upload
+                                                accept="image/*"
+                                                listType="picture"
+                                                maxCount={5}
+                                                customRequest={options => onUpload(options, 'thumbnails')}
+                                                multiple
+                                            >
+                                                <Button><i className="icon-upload mr-2"/> Chọn ảnh</Button>
+                                            </Upload>
+                                        </Form.Item>
+                                    </Card>
+                                </div>
+                            </Col>
+                        </Row>
+                    </Form>
+                </div>
+            )
+        }
+    </script>
+@stop

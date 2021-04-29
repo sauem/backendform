@@ -1,0 +1,188 @@
+<?php
+$view->title = 'Danh mục sản phẩm';
+?>
+@section('js_pos')
+    <script type="text/babel">
+
+
+        const App = () => {
+            const initialState = {
+                modalTitle: '',
+                modalVisible: false,
+                attributes: [],
+                pagination: {},
+                uploading: false,
+                loading: false,
+                searchValue: ''
+            }
+            const [state, setState] = useState(initialState);
+            const [form] = Form.useForm();
+            const onSubmit = async (data) => {
+                if (typeof data.id !== "undefined") {
+                    await Attributes.update(data);
+                } else {
+                    await Attributes.create(data);
+                }
+                await updateState({loading: false});
+                form.resetFields();
+            }
+            const onUpdate = async (archive) => {
+                form.setFieldsValue(archive);
+            }
+            const handleSlug = evt => {
+                form.setFieldsValue({
+                    slug: toSlug(evt.target.value)
+                })
+            }
+            const changePage = async ({current}) => {
+                await updateState({}, current);
+            }
+            const updateState = async (obj = {}, page = 1) => {
+                setState({
+                    ...state,
+                    ...{
+                        loading: true
+                    }
+                });
+                const {pagination, data} = await Attributes.fetch(
+                    Object.assign({page}, obj)
+                );
+                setState({
+                    ...state,
+                    ...Object.assign({
+                        attributes: data,
+                        pagination: pagination,
+                        loading: false
+                    }, obj)
+                });
+            }
+            const onDelete = async (id) => {
+                Attributes.delete(id).then(() => updateState());
+            }
+            const setSearchValue = e => {
+                setState({
+                    ...state,
+                    ...{
+                        searchValue: e.target.value
+                    }
+                })
+            }
+            const searchArchive = async () => {
+                await updateState({
+                    name: state.searchValue
+                });
+            }
+            useEffect(async () => {
+                await updateState();
+            }, []);
+
+            return (
+                <Row gutter={[8, 0]}>
+                    <Col md={8}>
+                        <Card title="Thêm thuộc tính">
+                            <Form layout={`vertical`} onFinish={onSubmit} form={form} id={'categoryForm'}>
+                                <Form.Item name={'id'} hidden><Input/></Form.Item>
+                                <Form.Item
+                                    name={'name'}
+                                    label={`Tên danh mục`}
+                                    onChange={handleSlug}
+                                    rules={[{required: true, message: 'Danh mục bắt buộc!'}]}
+                                >
+                                    <Input/>
+                                </Form.Item>
+                                <Form.Item
+                                    name={'slug'}
+                                    label={`Slug`}
+                                    rules={[{required: true, message: 'Slug bắt buộc!'}]}
+                                >
+                                    <Input disabled/>
+                                </Form.Item>
+                                <Form.Item
+                                    initialValue="select"
+                                    name={'type'}
+                                    label={`Trạng thái`}
+                                >
+                                    <Select>
+                                        <Select.Option value="select">Lựa chọn</Select.Option>
+                                        <Select.Option value="color">Màu sắc</Select.Option>
+                                        <Select.Option value="button">Nút</Select.Option>
+                                    </Select>
+                                </Form.Item>
+                                <Form.Item
+                                    name={'description'}
+                                    label={`Ghi chú`}
+                                >
+                                    <Input.TextArea/>
+                                </Form.Item>
+                                <Divider/>
+                                <div className="text-right">
+                                    <small className="text-danger mr-2">* thông tin bắt buộc</small>
+                                    <Button htmlType={`submit`}>Lưu</Button>
+                                </div>
+                            </Form>
+                        </Card>
+                    </Col>
+                    <Col md={16}>
+                        <Card title={`Các thuộc tính`}
+                              extra={
+                                  <div className="d-flex">
+                                      <Input onChange={setSearchValue} placeholder="Tìm kiếm tên....." name="s"/>
+                                      <Button onClick={searchArchive} className="ml-2"><i
+                                          className="icon-search"/></Button>
+                                  </div>
+                              }
+                        >
+                            <Spin tip="Loading..." spinning={state.loading}>
+                                <Table
+                                    size={`small`}
+                                    dataSource={state.attributes}
+                                    pagination={state.pagination}
+                                    onChange={changePage}
+                                    columns={[
+                                        {title: 'Tên', dataIndex: 'name', key: 'name'},
+                                        {title: 'Đường dẫn tĩnh', dataIndex: 'slug', key: 'slug'},
+                                        {title: 'Loại', dataIndex: 'type', key: 'type'},
+                                        {
+                                            title: 'Tên chủng loại', key: 'variants',
+                                            render: raw => {
+                                                return (
+                                                    <div>
+                                                        <p>{raw.variants ? raw.variants.map(item => {
+                                                            return `${item.name},`;
+                                                        }) : null}</p>
+                                                        <a href={`/product/attribute-view?id=${raw.id}`}>
+                                                            Cấu hình chủng loại</a>
+                                                    </div>
+                                                )
+                                            }
+                                        },
+                                        {
+                                            title: '', dataIndex: 'action', key: 'action', render: (text, raw) => {
+                                                return (
+                                                    <div>
+                                                        <Button onClick={() => onUpdate(raw)} type="primary"
+                                                                className={`mr-1`} size={`small`}><i
+                                                            className="icon icon-edit"/></Button>
+                                                        <Popconfirm
+                                                            title="Xóa thuộc tính hiện tại"
+                                                            onConfirm={() => onDelete(raw.id)}
+                                                            okText="Xóa"
+                                                            cancelText="Hủy"
+                                                        >
+                                                            <Button type="dashed" danger size={`small`}><i
+                                                                className="icon icon-trash"/></Button>
+                                                        </Popconfirm>
+                                                    </div>
+                                                )
+                                            }
+                                        },
+                                    ]}
+                                />
+                            </Spin>
+                        </Card>
+                    </Col>
+                </Row>
+            )
+        }
+    </script>
+@stop

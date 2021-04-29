@@ -1,0 +1,157 @@
+.ui-autocomplete {
+  top: 38% !important;
+  left: 32% !important; }
+
+.dt-header--fixed .dt-header {
+  z-index: 1000; }
+
+.text-1 {
+  word-break: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  max-width: 500px;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical; }
+
+.fixed-scrollbar {
+  height: 500px;
+  max-height: calc(100% - 120px); }
+
+.sticky-sidebar {
+  position: sticky;
+  top: 3.2rem; }
+
+.badge-sm {
+  font-size: 10px;
+  padding: 4px 6px; }
+
+.ant-upload-picture-card-wrapper.single .ant-upload {
+  width: 100%; }
+
+.select-file {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
+.ant-tabs-nav {
+  margin: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji' !important; }
+
+form label {
+  font-weight: normal; }
+
+.upload-area.avatar {
+  width: 120px;
+  height: 120px;
+  border: dashed 1px #ccc;
+  position: relative;
+  border-radius: 5px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  .upload-area.avatar:hover .actions {
+    opacity: 1; }
+  .upload-area.avatar .actions {
+    transition: 0.5s;
+    width: 100%;
+    height: 100%;
+    display: none;
+    opacity: 0;
+    border-radius: 5px;
+    border: dashed 1px #ccc;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.5); }
+    .upload-area.avatar .actions button {
+      background: none;
+      color: white; }
+      .upload-area.avatar .actions button:first-child {
+        margin-right: 5px; }
+      .upload-area.avatar .actions button:last-child {
+        margin-left: 5px; }
+  .upload-area.avatar input {
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    top: -5px;
+    left: 0;
+    position: absolute; }
+  .upload-area.avatar p {
+    margin: 0;
+    padding: 0; }
+  .upload-area.avatar .image {
+    width: 100%; }
+    .upload-area.avatar .image img {
+      display: flex;
+      object-fit: cover;
+      object-position: center; }
+
+.dd-list .dd-item .dd-handle {
+  border: none;
+  padding: 8px 16px;
+  height: auto;
+  font-weight: 600;
+  border-radius: 3px;
+  background: #f3f7f9;
+  color: #6c757d; }
+
+.dd-list .dd-item .dd-handle:hover {
+  color: #6658dd; }
+
+.dd-list .dd-item button {
+  height: 36px;
+  font-size: 17px;
+  margin: 0;
+  color: #98a6ad;
+  width: 36px; }
+
+.dd-list .dd3-item {
+  margin: 5px 0; }
+
+.dd-list .dd3-item .dd-item button {
+  width: 36px;
+  height: 36px; }
+
+.dd-list .dd3-handle {
+  margin: 0;
+  height: 36px !important;
+  float: left; }
+
+.dd-list .dd3-content {
+  height: auto;
+  border: none;
+  padding: 8px 16px 8px 46px;
+  background: #f3f7f9;
+  color: #6c757d;
+  font-weight: 600;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
+
+.dd-list .dd-item button {
+  position: absolute;
+  top: 8px; }
+
+.dd-list .dd3-content:hover {
+  color: #6658dd; }
+
+.dd-list .dd3-handle:before {
+  content: "\F035C";
+  font-family: "Material Design Icons";
+  color: #adb5bd; }
+
+.dd-empty, .dd-placeholder {
+  background: rgba(206, 212, 218, 0.2); }
+
+.dd-dragel .dd-handle {
+  box-shadow: 0 0 35px 0 rgba(154, 161, 171, 0.15); }
+
+/*# sourceMappingURL=customize.css.map */

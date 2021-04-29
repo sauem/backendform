@@ -1,0 +1,125 @@
+<?php
+
+use dosamigos\tinymce\TinyMce;use yii\helpers\Html;
+use yii\widgets\ActiveForm;
+use common\helper\HelperFunction;
+?>
+@section("content")
+    <?php $form = ActiveForm::begin() ?>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <div class="action-tools">
+                        <button type="submit" class="btn btn-sm btn-primary">Lưu</button>
+                    </div>
+                    <h4 class="card-title">Thiết lập website</h4>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <?= $form->field($model, 'site_name')->label('Tên website')?>
+                                    <?= $form->field($model, 'site_name_en')->label('Tên website (en)')?>
+                                    <?= $form->field($model, 'site_description')->textarea()->label('Giới thiệu ngắn')?>
+                                    <?= $form->field($model, 'site_description_en')->textarea()->label('Giới thiệu ngắn (en)')?>
+                                    <?= $form->field($model, 'email')->label('Email')?>
+                                </div>
+                                <div class="col-md-3">
+                                    <?= $form->field($model, 'address_1')->label('Địa chỉ 1')?>
+                                    <?= $form->field($model, 'address_2')->label('Địa chỉ 2')?>
+                                    <?= $form->field($model, 'address_1_en')->label('Địa chỉ 1 (en)')?>
+                                    <?= $form->field($model, 'address_2_en')->label('Địa chỉ 2 (en)')?>
+                                </div>
+                                <div class="col-md-3">
+                                    <?= $form->field($model, 'hotline_1')->label('Hotline 1')?>
+                                    <?= $form->field($model, 'hotline_2')->label('Hotline 2')?>
+                                </div>
+                                <div class="col-12">
+                                    <?= $form->field($model, 'about_us')->widget(TinyMce::className(), [
+                                        'options' => ['rows' => 6],
+                                        'language' => 'es',
+                                        'clientOptions' => [
+                                            'plugins' => [
+                                                "advlist autolink lists link charmap print preview anchor",
+                                                "searchreplace visualblocks code fullscreen",
+                                                "insertdatetime media table contextmenu paste"
+                                            ],
+                                            'toolbar' => "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
+                                        ]
+                                    ])->label('Giới thiệu')?>
+                                    <?= $form->field($model, 'about_us_en')->widget(TinyMce::className(), [
+                                        'options' => ['rows' => 6],
+                                        'language' => 'es',
+                                        'clientOptions' => [
+                                            'plugins' => [
+                                                "advlist autolink lists link charmap print preview anchor",
+                                                "searchreplace visualblocks code fullscreen",
+                                                "insertdatetime media table contextmenu paste"
+                                            ],
+                                            'toolbar' => "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
+                                        ]
+                                    ])->label('Giới thiệu (en)')?>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <label>Logo header</label>
+
+                            <div class="upload-area avatar">
+                                <div class="img">
+                                    <img onerror="defaultImage(this)" id="Common[logo_header]"
+                                         src="<?= HelperFunction::getImage(null, HelperFunction::setting('logo_header'))?>"/>
+                                    <?= $form->field($model, 'logo_header')->hiddenInput()->label(false)?>
+                                    <input data-key="Common[logo_header]"
+                                           onchange="new HandleUpload(this).onChoseFile();"
+                                           type="file" name="file">
+                                    <p>Chọn ảnh</p>
+                                </div>
+                                <div class="actions">
+                                    <button type="button" class="btn"><i class="icon-trash"></i></button>
+                                </div>
+                            </div>
+                            <hr>
+                            <label>Logo footer</label>
+                            <div class="upload-area avatar mt-3">
+                                <div class="img">
+                                    <img onerror="defaultImage(this)"
+                                         src="<?= HelperFunction::getImage(null, HelperFunction::setting('logo_footer'))?>"
+                                         id="Common[logo_footer]"/>
+                                    <?= $form->field($model, 'logo_footer')->hiddenInput()->label(false)?>
+                                    <input data-key="Common[logo_footer]"
+                                           onchange="new HandleUpload(this).onChoseFile();"
+                                           type="file" name="file">
+                                    <p>Chọn ảnh</p>
+                                </div>
+                                <div class="actions">
+                                    <button type="button" class="btn"><i class="icon-trash"></i></button>
+                                </div>
+                            </div>
+                            <hr>
+                            <label>Favicon</label>
+                            <div class="upload-area avatar mt-3">
+                                <div class="img">
+                                    <img onerror="defaultImage(this)"
+                                         src="<?= HelperFunction::getImage(null, HelperFunction::setting('favicon'))?>"
+                                         id="Common[favicon]"/>
+                                    <?= $form->field($model, 'favicon')->hiddenInput()->label(false)?>
+                                    <input data-key="Common[favicon]"
+                                           onchange="new HandleUpload(this).onChoseFile();"
+                                           type="file" name="file">
+                                    <p>Chọn ảnh</p>
+                                </div>
+                                <div class="actions">
+                                    <button type="button" class="btn"><i class="icon-trash"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <?php ActiveForm::end() ?>
+@stop

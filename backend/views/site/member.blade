@@ -1,0 +1,132 @@
+@section('js_pos')
+    <script type="text/babel">
+        const App = () => {
+            const initialState = {
+                modalTitle: '',
+                modalVisible: false,
+                categories: [],
+                pagination: {},
+                uploading: false,
+                loading: false,
+                searchValue: ''
+            }
+            const [state, setState] = useState(initialState);
+            const [defaultFileList, setDefaultFileList] = useState([]);
+            const [progress, setProgress] = useState(0);
+            const [form] = Form.useForm();
+
+            const onUpload = options => {
+                const {onSuccess, onError, file, onProgress} = options;
+                setState({
+                    ...state,
+                    ...{
+                        uploading: true
+                    }
+                });
+                onUploadMedia(file, data => {
+                    form.setFieldsValue({
+                        media_id: data.id
+                    })
+                    onSuccess();
+                }, onError, (event) => {
+                    const percent = Math.floor((event.loaded / event.total) * 100);
+                    setProgress(percent);
+                    if (percent === 100) {
+                        setTimeout(() => setProgress(0), 1000);
+                    }
+                    onProgress({percent: (event.loaded / event.total) * 100});
+                });
+            }
+            const handleOnChange = ({file, fileList, event}) => {
+                setDefaultFileList(fileList);
+            };
+            const onSubmit = data => {
+                console.log('data', data);
+            }
+            return (
+                <Row gutter={[8, 8]}>
+                    <Col md={16}>
+                        <Card title="Danh sách thành viên">
+
+                        </Card>
+                    </Col>
+                    <Col md={8}>
+                        <Card title="Thêm thành viên mới">
+                            <Form layout={`vertical`} onFinish={onSubmit} form={form} id={'memberForm'}>
+                                <Form.Item name={'id'} hidden><Input/></Form.Item>
+                                <Form.Item name={'media_id'} hidden><Input/></Form.Item>
+                                <Form.Item
+                                    name={'name'}
+                                    label={`Tên thành viên`}
+                                    rules={[{required: true, message: 'Danh mục bắt buộc!'}]}
+                                >
+                                    <Input/>
+                                </Form.Item>
+
+                                <Form.Item
+                                    initialValue={1}
+                                    name={'active'}
+                                    label={`Trạng thái`}
+                                >
+                                    <Select>
+                                        <Select.Option value={1}>Kích hoạt</Select.Option>
+                                        <Select.Option value={0}>Ẩn</Select.Option>
+                                    </Select>
+                                </Form.Item>
+                                <Form.Item
+                                    name={'description'}
+                                    label={`Mô tả`}
+                                >
+                                    <Input.TextArea/>
+                                </Form.Item>
+                                <Form.Item
+                                    name={'facbook'}
+                                    label={`Facebook`}
+                                >
+                                    <Input/>
+                                </Form.Item>
+                                <Form.Item
+                                    name={'instagram'}
+                                    label={`Instagram`}
+                                >
+                                    <Input/>
+                                </Form.Item>
+                                <Form.Item
+                                    name={'linkedin'}
+                                    label={`LinkedIn`}
+                                >
+                                    <Input/>
+                                </Form.Item>
+                                <Form.Item
+                                    name={'twitter'}
+                                    label={`Twitter`}
+                                >
+                                    <Input/>
+                                </Form.Item>
+                                <Form.Item>
+
+                                    <Upload
+                                        accept="image/*"
+                                        customRequest={onUpload}
+                                        onChange={handleOnChange}
+                                        listType="picture-card"
+                                        fileList={defaultFileList}
+                                        className="avatar-uploader single"
+                                    >
+                                        {defaultFileList.length >= 1 ? null : <div>Chọn ảnh</div>}
+                                    </Upload>
+                                    {progress > 0 ? <Progress percent={progress}/> : null}
+                                </Form.Item>
+                                <Divider/>
+                                <div className="text-right">
+                                    <small className="text-danger mr-2">* thông tin bắt buộc</small>
+                                    <Button htmlType={`submit`}>Lưu</Button>
+                                </div>
+                            </Form>
+                        </Card>
+                    </Col>
+                </Row>
+            )
+        }
+    </script>
+@stop

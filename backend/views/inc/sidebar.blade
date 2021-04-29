@@ -1,0 +1,99 @@
+<?php
+
+use mdm\admin\components\MenuHelper;
+use yii\helpers\Url;
+
+$callback = function ($menu) {
+    return [
+        'label' => $menu['name'],
+        'url' => [$menu['route']],
+        'icon' => $menu['data'],
+        'items' => $menu['children']
+    ];
+};
+$root = 1;
+$menus = MenuHelper::getAssignedMenu(Yii::$app->user->id, $root, $callback);
+$currentRoute = Yii::$app->controller->getRoute();
+$currentPath = array_filter(explode('/', $currentRoute));
+
+$activeController = Yii::$app->controller->id;
+$activeAction = Yii::$app->controller->action->id;
+?>
+<aside id="main-sidebar" class="dt-sidebar">
+    <div class="dt-sidebar__container">
+
+        <!-- Sidebar Notification -->
+        <div class="dt-sidebar__notification  d-none d-lg-block">
+            <!-- Dropdown -->
+            <div class="dropdown mb-6" id="user-menu-dropdown">
+
+                <!-- Dropdown Link -->
+                <a href="javascript:void(0)" class="dt-avatar-wrapper text-body">
+                    <span class="dt-avatar-info">
+
+                    </span>
+                </a>
+                <!-- /dropdown link -->
+            </div>
+            <!-- /dropdown -->
+
+            <ul class="dt-list dt-list-xl">
+                <li class="dt-list__item pl-5 pr-5">
+                    <form method="POST" action="{{\yii\helpers\Url::toRoute(['logout'])}}">
+                        <input name="_csrf" type="hidden" value="{{Yii::$app->request->csrfToken}}">
+                        <button class="btn dt-list__link m-0 p-0" type="submit">
+                            <i class="icon-xl icon icon-signin icon-fw"></i> Logout
+                        </button>
+                    </form>
+                </li>
+            </ul>
+        </div>
+        <!-- /sidebar notification -->
+
+        <!-- Sidebar Navigation -->
+        <ul class="dt-side-nav">
+
+            <!-- Menu Header -->
+            <li class="dt-side-nav__item dt-side-nav__header">
+                <span class="dt-side-nav__text">Menu</span>
+            </li>
+            <!-- /menu header -->
+            <?php if (!empty($menus)) { ?>
+            <?php foreach ($menus
+
+            as $k => $menu) {
+            $items = empty($menu['items']) ? false : $menu['items'];
+            $activeMenu = array_filter(explode('/', $menu['url'][0]));
+            ?>
+            <li class="dt-side-nav__item <?= (in_array($activeController, $activeMenu) ? 'open selected' : '')?>">
+                <a href="<?= empty($items) ? $menu['url'][0] : 'javascript:void(0)' ?>"
+                   class="dt-side-nav__link <?= empty($items) ? '' : 'dt-side-nav__arrow' ?>"
+                   title="<?= $menu['label'] ?>">
+                    <i class="icon <?= $menu['icon'] ?> icon-fw icon-xl"></i> <span class="dt-side-nav__text">
+                                <?= $menu['label'] ?>
+                            </span>
+                </a>
+                <?php if (!empty($items)) { ?>
+                <ul class="dt-side-nav__sub-menu">
+
+                    <?php foreach ($items as $item) {
+
+                    ?>
+                    <li class="dt-side-nav__item <?= $currentRoute == substr($item['url'][0], 1) ? 'open selected' : ''?>">
+                        <a href="<?= $item['url'][0] ?>"
+                           class="dt-side-nav__link <?= $currentRoute == substr($item['url'][0], 1) ? 'active' : ''?>"
+                           title="<?= $item['label'] ?>">
+                            <i class="icon <?= $item['icon'] ? $item['icon'] : 'icon-chevron-right' ?> icon-fw icon-sm"></i>
+                            <span class="dt-side-nav__text"><?= $item['label'] ?></span> </a>
+                    </li>
+                    <?php } ?>
+                </ul>
+                <?php } ?>
+            </li>
+            <?php } ?>
+            <?php } ?>
+        </ul>
+        <!-- /sidebar navigation -->
+
+    </div>
+</aside>
