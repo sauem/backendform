@@ -559,3 +559,61 @@ const Testimonials = {
         }
     },
 }
+const Members = {
+    create: async (member) => {
+        try {
+            const {data} = await Server.post(ROUTE.MEMBER.CREATE, member).catch(axiosCatch);
+            return data;
+        } catch (e) {
+            message.error(e.message);
+        }
+    },
+    update: async (member) => {
+        try {
+            const {data} = await Server.put(ROUTE.MEMBER.UPDATE + `?id=${member.id}`, member).catch(axiosCatch);
+            return data;
+        } catch (e) {
+            message.error(e.message);
+        }
+    },
+    delete: async (id) => {
+        try {
+            const {data} = await Server.delete(`${ROUTE.TESTIMONIAL.DELETE}?id=${id}`).catch(axiosCatch);
+            message.success('Xóa nhận xét hiện tại!');
+            return data;
+        } catch (e) {
+            message.error(e.message);
+        }
+    },
+    fetch: async (params) => {
+        try {
+            const res = await Server.get(ROUTE.MEMBER.INDEX, {
+                params: {
+                    ...params,
+                    sort: '-created_at',
+                    expand: 'avatar,children',
+                    "per-page": 6
+                }
+            }).catch(axiosCatch);
+            const {data, headers} = res;
+            const current = headers['x-pagination-current-page'],
+                totalPage = headers['x-pagination-page-count'],
+                pageSize = headers['x-pagination-per-page'],
+                total = headers['x-pagination-total-count'],
+                pagination = {
+                    total, current, pageSize, totalPage
+                };
+            return {data, pagination};
+        } catch (e) {
+            message.error(e.message);
+        }
+    },
+    view: async (id) => {
+        try {
+            const {data} = await Server.get(`${ROUTE.MEMBER.VIEW}?id=${id}`).catch(axiosCatch);
+            return data;
+        } catch (e) {
+            message.error(e.message);
+        }
+    },
+}

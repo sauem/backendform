@@ -119,6 +119,13 @@ const ROUTE = {
         DELETE: 'archive/delete',
         VIEW: 'archive/view',
     },
+    MEMBER: {
+        INDEX: 'member/index',
+        CREATE: 'member/create',
+        UPDATE: 'member/update',
+        DELETE: 'member/delete',
+        VIEW: 'member/view',
+    },
     TESTIMONIAL: {
         INDEX: 'testimonial/index',
         CREATE: 'testimonial/create',
