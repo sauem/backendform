@@ -1,19 +1,5 @@
 @section('js_pos')
     <script type="text/babel">
-        let st = {
-            'new': {
-                type: '',
-                label: 'Chờ xử lý'
-            },
-            'in_process': {
-                type: 'warning',
-                label: 'Đang xử lý'
-            },
-            'done': {
-                type: 'success',
-                label: 'Hoàn tất'
-            }
-        }
 
         const App = () => {
             const initalState = {
@@ -46,6 +32,7 @@
                         briefs: data,
                     }, obj)
                 });
+
                 form.resetFields();
             }
             useEffect(() => {
@@ -67,14 +54,29 @@
             const hideModal = () => setState({...state, modalVisible: false})
             const updateStatus = async (data) => {
                 try {
-                    const res = await Contacts.update(data);
+                    await Contacts.update(data);
                     await updateSate();
-                    setState({...state, modalVisible: false, current: {}});
                     message.success('Cập nhật trạng thái thành công!');
                 } catch (e) {
                     message.error(e.message);
                 }
             }
+
+            let st = {
+                'new': {
+                    type: '',
+                    label: 'Chờ xử lý'
+                },
+                'in_process': {
+                    type: 'warning',
+                    label: 'Đang xử lý'
+                },
+                'done': {
+                    type: 'success',
+                    label: 'Hoàn tất'
+                }
+            }
+
             return (
                 <div>
                     <Modal
@@ -131,14 +133,14 @@
                                     {
                                         title: 'Tên', dataIndex: 'name', render: (name, raw) => {
                                             return (
-                                                <div>
-                                                    <span>{name}</span>
-                                                    <br/>
-                                                    <span><a href={`mailto:${raw.email}}`}>{raw.email}</a></span>
-                                                    <br/>
-                                                    <span><a href={`mailto:${raw.phone}}`}>{raw.phone}</a></span>
-                                                </div>
-                                            )
+                                        <div>
+                                        <span>{name}</span>
+                                        <br/>
+                                        <span><a href={`mailto:${raw.email}}`}>{raw.email}</a></span>
+                                        <br/>
+                                        <span><a href={`mailto:${raw.phone}}`}>{raw.phone}</a></span>
+                                        </div>
+                                        )
                                         }
                                     },
                                     {title: 'Sản phẩm quan tâm', dataIndex: 'message'},
@@ -148,23 +150,26 @@
                                     {
                                         title: 'Trạng thái', dataIndex: 'status', key: 'status', render: stt => {
                                             return (
-                                                <span
-                                                    className={`badge badge-pill badge-${st[stt].type}`}>{st[stt].label}</span>
-                                            )
+                                        <span
+                                        className={`badge badge-pill badge-${st[stt].type}`}>
+                                        {st[stt].label}
+                                        </span>
+                                        )
                                         }
                                     },
                                     {
                                         title: 'Hành động', key: 'action', render: raw => {
                                             return (
-                                                <div>
-                                                    <Button onClick={() => onUpdate(raw)} type="primary"
-                                                            className={`mr-1`} size={`small`}><i
-                                                        className="icon icon-edit"/></Button>
-                                                    <Button onClick={() => onDelete(raw.id)} type="danger"
-                                                            className={`mr-1`} size={`small`}><i
-                                                        className="icon icon-trash"/></Button>
-                                                </div>
-                                            );
+                                        <div>
+                                        <Button onClick={() => onUpdate(raw)} type="primary"
+                                        className={`mr-1`} size={`small`}><i
+                                        className="icon icon-edit"/></Button>
+                                        <Button onClick={() => onDelete(raw.id)} type="danger"
+                                        className={`mr-1`} size={`small`}><i
+                                        className="icon icon-trash"/></Button>
+                                        </div>
+                                        )
+                                            ;
                                         }
                                     },
                                 ]}
