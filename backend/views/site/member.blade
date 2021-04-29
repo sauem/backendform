@@ -40,14 +40,78 @@
             const handleOnChange = ({file, fileList, event}) => {
                 setDefaultFileList(fileList);
             };
-            const onSubmit = data => {
-                console.log('data', data);
+            const onUpdate = member => {
+                form.setFieldsValue(member);
+
+                member.avatar ? setDefaultFileList([{
+                    uid: '-1',
+                    name: member.name,
+                    status: 'done',
+                    url: member.avatar
+                }]) : setDefaultFileList([]);
             }
+            const onDelete = async (id) => {
+                await Members.delete(id);
+                await getMember();
+            }
+            const onSubmit = async (data) => {
+                if (typeof data.id !== "undefined") {
+                    await Members.update(data);
+                } else {
+                    await Members.create(data);
+                }
+                await getMember({loading: false});
+                form.resetFields();
+            }
+            const getMember = async (params) => {
+                try {
+                    const {data, pagination} = await Members.fetch(params);
+                    setState({
+                        ...state,
+                        ...{
+                            members: data,
+                            pagination: pagination
+                        }
+                    })
+                } catch (e) {
+                    message.error(e.message);
+                }
+            }
+            useEffect(() => {
+                getMember();
+            }, []);
             return (
                 <Row gutter={[8, 8]}>
                     <Col md={16}>
                         <Card title="Danh sách thành viên">
-
+                            <Table
+                                dataSource={state.members}
+                                pagination={state.pagination}
+                                columns={[
+                                    {title: 'Tên thành viên', dataIndex: 'name', key: 'name'},
+                                    {title: 'Giới thiệu', dataIndex: 'description', key: 'description'},
+                                    {
+                                        title: 'Hành động', key: 'action', render: raw => {
+                                            return (
+                                        <div>
+                                        <Button onClick={() => onUpdate(raw)} type="primary"
+                                        className={`mr-1`} size={`small`}><i
+                                        className="icon icon-edit"/></Button>
+                                        <Popconfirm
+                                        title="Xóa nhận xét hiện tại"
+                                        onConfirm={() => onDelete(raw.id)}
+                                        okText="Xóa"
+                                        cancelText="Hủy"
+                                        >
+                                        <Button type="dashed" danger size={`small`}><i
+                                        className="icon icon-trash"/></Button>
+                                        </Popconfirm>
+                                        </div>
+                                        )
+                                        }
+                                    },
+                                ]}
+                            />
                         </Card>
                     </Col>
                     <Col md={8}>
@@ -63,16 +127,6 @@
                                     <Input/>
                                 </Form.Item>
 
-                                <Form.Item
-                                    initialValue={1}
-                                    name={'active'}
-                                    label={`Trạng thái`}
-                                >
-                                    <Select>
-                                        <Select.Option value={1}>Kích hoạt</Select.Option>
-                                        <Select.Option value={0}>Ẩn</Select.Option>
-                                    </Select>
-                                </Form.Item>
                                 <Form.Item
                                     name={'description'}
                                     label={`Mô tả`}

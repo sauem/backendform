@@ -578,8 +578,8 @@ const Members = {
     },
     delete: async (id) => {
         try {
-            const {data} = await Server.delete(`${ROUTE.TESTIMONIAL.DELETE}?id=${id}`).catch(axiosCatch);
-            message.success('Xóa nhận xét hiện tại!');
+            const {data} = await Server.delete(`${ROUTE.MEMBER.DELETE}?id=${id}`).catch(axiosCatch);
+            message.success('Xóa thành viên hiện tại!');
             return data;
         } catch (e) {
             message.error(e.message);
@@ -591,7 +591,7 @@ const Members = {
                 params: {
                     ...params,
                     sort: '-created_at',
-                    expand: 'avatar,children',
+                    expand: 'avatar',
                     "per-page": 6
                 }
             }).catch(axiosCatch);

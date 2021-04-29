@@ -5,6 +5,7 @@ namespace backend\modules\controllers;
 
 
 use common\models\Member;
+use common\models\MemberSearch;
 
 class MemberController extends BaseActiveFilterController
 {
@@ -19,7 +20,7 @@ class MemberController extends BaseActiveFilterController
 
     public function prepareDataProvider($action, $filter)
     {
-        $searchModel = new Member();
+        $searchModel = new MemberSearch();
         return $searchModel->search(\Yii::$app->request->queryParams);
     }
 
