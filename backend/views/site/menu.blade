@@ -4,8 +4,8 @@
             return (
 
                 <li className="dd-item dd3-item"
-                    data-id={props.value}
-                    data-key={props.value}
+                    data-id={props.key}
+                    data-key={props.key}
                     data-title={props.title}
                     data-slug={props.slug}
                     data-type={props.type}>
@@ -37,13 +37,13 @@
 
             const [form] = Form.useForm();
             const onRemoveItem = item => {
-                let items = state.items.filter(key => key.id !== item.id);
+                let items = state.items.filter(key => key.key !== item.key);
                 setState({
                     ...state,
                     ...{
                         items
                     }
-                })
+                });
             }
             const submitForm = async (data) => {
                 let items = state.items;
