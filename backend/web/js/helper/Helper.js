@@ -55,7 +55,7 @@ const toSlug = (str) => {
     slug = slug.replace(/ý|ỳ|ỷ|ỹ|ỵ/gi, 'y');
     slug = slug.replace(/đ/gi, 'd');
     //Xóa các ký tự đặt biệt
-    slug = slug.replace(/\`|\~|\!|\@|\#|\||\$|\%|\^|\&|\*|\(|\)|\+|\=|\,|\.|\/|\?|\>|\<|\'|\"|\:|\;|_/gi, '');
+    slug = slug.replace(/\`|\’|\~|\!|\@|\#|\||\$|\%|\^|\&|\*|\(|\)|\+|\=|\,|\.|\/|\?|\>|\<|\'|\"|\:|\;|_/gi, '');
     //Đổi khoảng trắng thành ký tự gạch ngang
     slug = slug.replace(/ /gi, "-");
     //Đổi nhiều ký tự gạch ngang liên tiếp thành 1 ký tự gạch ngang
