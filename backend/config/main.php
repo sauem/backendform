@@ -1,9 +1,10 @@
 <?php
+require __DIR__ . '/const.php';
+
 $params = array_merge(
     require __DIR__ . '/../../common/config/params.php',
     require __DIR__ . '/params.php'
 );
-
 return [
     'id' => 'app-backend',
     'basePath' => dirname(__DIR__),
@@ -21,7 +22,7 @@ return [
     'components' => [
         'jwt' => [
             'class' => \sizeg\jwt\Jwt::class,
-            'key'   => 'secret',
+            'key' => 'secret',
         ],
         'view' => [
             'class' => 'yii\web\View',

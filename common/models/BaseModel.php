@@ -4,12 +4,12 @@
 namespace common\models;
 
 
+use common\helper\HelperFunction;
 use yii\db\ActiveRecord;
 use function Webmozart\Assert\Tests\StaticAnalysis\null;
 
 class BaseModel extends ActiveRecord
 {
-
 
     /**
      * @param bool $insert

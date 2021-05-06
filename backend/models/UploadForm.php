@@ -8,6 +8,7 @@ use common\models\Media;
 use common\models\Medias;
 use yii\base\Model;
 use yii\helpers\ArrayHelper;
+use yii\helpers\Url;
 use yii\web\BadRequestHttpException;
 use yii\web\UploadedFile;
 
@@ -32,8 +33,8 @@ class UploadForm extends Model
     {
         return [
             [['fileType'], 'required'],
-            [['url', 'alt','type','fileType'], 'safe'],
-           # ['fileType', 'validateFileType'],
+            [['url', 'alt', 'type', 'fileType'], 'safe'],
+            # ['fileType', 'validateFileType'],
             [['imageFile'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpeg, jpg, mp4'],
         ];
     }
@@ -59,10 +60,12 @@ class UploadForm extends Model
         }
 
         if ($this->fileType !== self::TYPE_IMAGE_BASE64) {
-            $basePath = "/" . date("Ydm") . "/";
+            $domain = HelperFunction::getDomain();
+            $basePath = "/" . $domain . '/' . date("Ydm") . "/";
+
             $uploadFolder = UPLOAD_PATH . $basePath;
             if (!is_dir($uploadFolder)) {
-                mkdir($uploadFolder);
+                mkdir($uploadFolder, 775, TRUE);
             }
             $fileName = $this->imageFile->getBaseName() . "_" . \Yii::$app->security->generateRandomString(10);
             $this->url = $basePath . $fileName . "." . $this->imageFile->getExtension();

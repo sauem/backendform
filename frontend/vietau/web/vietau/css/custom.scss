@@ -1,0 +1,146 @@
+$default: #21409a;
+$red: #de2d2b;
+.header-top, .btn-style-one, {
+  background: $default;
+}
+
+.banner-section .content-column h1 span,
+.service-block .inner-box .icon-box,
+.reputation-section-two .form-column h5,
+.testimonial-block .inner-box .quote,
+.sec-title h2 span {
+  color: $red;
+}
+
+.service-block .inner-box:hover {
+  border-color: $default;
+}
+
+.testimonial-block .inner-box:before {
+  background-color: $red;
+}
+
+.main-menu .navigation > li:hover > a, .main-menu .navigation > li.current > a {
+  color: $red;
+}
+
+.text-1 {
+  word-break: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  line-height: 24px; /* fallback */
+  max-height: 50px; /* fallback */
+  -webkit-line-clamp: 1; /* number of lines to show */
+  -webkit-box-orient: vertical;
+}
+
+.text-2 {
+  word-break: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  line-height: 24px; /* fallback */
+  max-height: 50px; /* fallback */
+  -webkit-line-clamp: 2; /* number of lines to show */
+  -webkit-box-orient: vertical;
+}
+
+.text-3 {
+  word-break: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  line-height: 24px; /* fallback */
+  max-height: 50px; /* fallback */
+  -webkit-line-clamp: 3; /* number of lines to show */
+  -webkit-box-orient: vertical;
+}
+
+.text-4 {
+  word-break: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  line-height: 24px; /* fallback */
+  max-height: 50px; /* fallback */
+  -webkit-line-clamp: 4; /* number of lines to show */
+  -webkit-box-orient: vertical;
+}
+
+.text-5 {
+  word-break: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  line-height: 24px; /* fallback */
+  max-height: 50px; /* fallback */
+  -webkit-line-clamp: 5; /* number of lines to show */
+  -webkit-box-orient: vertical;
+}
+
+.blog-index {
+  background: white;
+  margin-top: 15px;
+  margin-bottom: 15px;
+
+  .image {
+    width: 100% !important;
+    max-height: 230px;
+    overflow: hidden;
+  }
+
+  .blog-text {
+    padding: 20px;
+    margin-top: 30px;
+
+    .desc {
+      margin-top: 5px;
+      word-break: break-word;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      min-height: 55px;
+      line-height: 18px; /* fallback */
+      max-height: 55px; /* fallback */
+      -webkit-line-clamp: 3; /* number of lines to show */
+      -webkit-box-orient: vertical;
+    }
+
+    .title {
+      word-break: break-word;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      line-height: 24px; /* fallback */
+      max-height: 55px; /* fallback */
+      -webkit-line-clamp: 2; /* number of lines to show */
+      -webkit-box-orient: vertical;
+
+      a {
+        color: $red;
+      }
+
+      font-size: 20px;
+    }
+  }
+}
+
+.news-block-three {
+  .image {
+    max-height: 193px;
+  }
+}
+
+.sidebar-widget {
+  .post-thumb {
+    max-height: 55px;
+    overflow: hidden;
+  }
+}
+.news-block-three {
+  position: relative;
+  padding-bottom: 30px!important;
+  margin-bottom: 30px!important;
+  border-bottom: 1px solid #dbdbdb!important;
+}

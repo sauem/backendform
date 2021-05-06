@@ -1,5 +1,13 @@
 <?php
-return [
+
+use common\helper\HelperFunction;
+use yii\helpers\ArrayHelper;
+
+$databases = require __DIR__ . '/db.php';
+Yii::$container->set('mdm\admin\components\Configs', [
+    'db' => ArrayHelper::getValue($databases, HelperFunction::getHost()),
+]);
+$main = [
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
         '@npm' => '@vendor/npm-asset',
@@ -26,7 +34,7 @@ return [
         'cache' => [
             #'class' => 'yii\caching\FileCache',
             'class' => 'yii\redis\Cache',
-            'keyPrefix' => 'smileup_'
+            'keyPrefix' => HelperFunction::getHost(true) . "_"
         ],
         'redis' => [
             'class' => 'yii\redis\Connection',
@@ -43,20 +51,6 @@ return [
                 ],
             ],
         ],
-        'db' => [
-            'class' => 'yii\db\Connection',
-            'dsn' => SQL_HOST,
-            'username' => SQL_USER_NAME,
-            'password' => SQL_PASSWORD,
-            'charset' => 'utf8',
-            'enableSchemaCache' => true,
-            // Duration of schema cache.
-            'schemaCacheDuration' => 3600,
-            // Name of the cache component used to store schema information
-            'schemaCache' => 'cache',
-            'queryCache' => 'cache',
-            'enableQueryCache' => true,
-        ],
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
             'viewPath' => '@common/mail',
@@ -67,3 +61,6 @@ return [
         ],
     ],
 ];
+$components = array_merge($main['components'], $databases);
+$main['components'] = $components;
+return $main;

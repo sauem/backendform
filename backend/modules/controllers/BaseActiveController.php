@@ -4,6 +4,7 @@
 namespace backend\modules\controllers;
 
 
+use common\helper\HelperFunction;
 use common\models\ArchivesSearch;
 use mdm\admin\components\AccessControl;
 use yii\filters\auth\CompositeAuth;
@@ -16,6 +17,7 @@ class BaseActiveController extends ActiveController
 {
     public function init()
     {
+        \Yii::$app->set('db', HelperFunction::getDb());
         parent::init();
         $this->enableCsrfValidation = false;
     }
@@ -43,7 +45,6 @@ class BaseActiveController extends ActiveController
 
         return $behaviors;
     }
-
 
 
     /**
