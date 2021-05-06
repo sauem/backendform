@@ -17,7 +17,6 @@ class BaseActiveController extends ActiveController
 {
     public function init()
     {
-        \Yii::$app->set('db', HelperFunction::getDb());
         parent::init();
         $this->enableCsrfValidation = false;
     }

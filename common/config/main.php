@@ -7,6 +7,7 @@ $databases = require __DIR__ . '/db.php';
 Yii::$container->set('mdm\admin\components\Configs', [
     'db' => ArrayHelper::getValue($databases, HelperFunction::getHost()),
 ]);
+
 $main = [
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
@@ -34,7 +35,7 @@ $main = [
         'cache' => [
             #'class' => 'yii\caching\FileCache',
             'class' => 'yii\redis\Cache',
-            'keyPrefix' => HelperFunction::getHost(true) . "_"
+            'keyPrefix' => HelperFunction::getHost() . "_"
         ],
         'redis' => [
             'class' => 'yii\redis\Connection',
@@ -61,6 +62,9 @@ $main = [
         ],
     ],
 ];
+
 $components = array_merge($main['components'], $databases);
 $main['components'] = $components;
+$main['components']['db'] = ArrayHelper::getValue($databases, HelperFunction::getHost());
+#$main['components']['db'] = HelperFunction::getDb();
 return $main;

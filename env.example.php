@@ -1,8 +1,9 @@
 <?php
 
-define("SQL_HOST", "mysql:host=127.0.0.1;dbname=hakota");
-define("SQL_USER_NAME", "sauem");
-define("SQL_PASSWORD", "123");
+//yii migrate --migrationPath=@mdm/admin/migrations
+//yii migrate --migrationPath=@yii/rbac/migrations
+//php yii migrate --migrationPath=@vendor/yii2mod/yii2-settings/migrations
+
 define("ADMIN_URL", "/");
 
 define("REDIS_HOST", "127.0.0.1");
@@ -23,7 +24,7 @@ define('EMAIL_PRIVATE_KEY', '27e6c8a174e12ebb96f3368272418b10-c27bf672-3390aa1d'
 define("COOKIE_VALID_BACKEND", "X0XA3Wzms68GfLNLtbW1");
 define("COOKIE_VALID_FRONTEND", "c9eBMdt5xbEiroK8brAV");
 
-define("UPLOAD_PATH", "D:/website/hokado/uploads");
+define("UPLOAD_PATH", "D:/website/outsource/backend/uploads");
 
 define("FILESYSTEM_CLOUD", "google");
 define("GOOGLE_DRIVE_CLIENT_ID", "406123247192-btg4gtt9a65j1s4oo6cqcromjl2utlth.apps.googleusercontent.com");

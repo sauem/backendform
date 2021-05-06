@@ -46,6 +46,14 @@ $activeAction = Yii::$app->controller->action->id;
                         </button>
                     </form>
                 </li>
+                <li class="dt-list__item pl-5 pr-5">
+                    <i class="icon-xl icon icon-user icon-fw"></i>
+                    <?php if (Yii::$app->user->isGuest) {
+                        echo 'Guest';
+                    } else {
+                        echo Yii::$app->user->identity->username;
+                    } ?>
+                </li>
             </ul>
         </div>
         <!-- /sidebar notification -->
