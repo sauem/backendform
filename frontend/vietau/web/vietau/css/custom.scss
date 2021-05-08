@@ -1,6 +1,6 @@
 $default: #21409a;
 $red: #de2d2b;
-.header-top, .btn-style-one, {
+.header-top, .btn-style-one, .search-popup .close-search {
   background: $default;
 }
 
@@ -10,6 +10,18 @@ $red: #de2d2b;
 .testimonial-block .inner-box .quote,
 .sec-title h2 span {
   color: $red;
+}
+
+.main-menu .navigation > li > a {
+  font-size: 14px;
+}
+
+.main-menu .navigation > li > ul > li:hover > a {
+  color: $default;
+}
+
+.main-menu .navigation > li > ul > li > a {
+  font-size: 13px;
 }
 
 .service-block .inner-box:hover {
@@ -138,9 +150,18 @@ $red: #de2d2b;
     overflow: hidden;
   }
 }
+
 .news-block-three {
   position: relative;
-  padding-bottom: 30px!important;
-  margin-bottom: 30px!important;
-  border-bottom: 1px solid #dbdbdb!important;
+  padding-bottom: 30px !important;
+  margin-bottom: 30px !important;
+  border-bottom: 1px solid #dbdbdb !important;
+}
+
+.main-header.fixed-header .main-menu .navigation > li.current > a, .main-header.fixed-header .main-menu .navigation > li:hover > a {
+  color: $default;
+}
+
+.main-menu .navigation > li > ul > li:hover > a::before {
+  text-shadow: 8px 0 $default, -8px 0 $default;
 }

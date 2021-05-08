@@ -1,4 +1,4 @@
-.header-top, .btn-style-one {
+.header-top, .btn-style-one, .search-popup .close-search {
   background: #21409a; }
 
 .banner-section .content-column h1 span,
@@ -7,6 +7,15 @@
 .testimonial-block .inner-box .quote,
 .sec-title h2 span {
   color: #de2d2b; }
+
+.main-menu .navigation > li > a {
+  font-size: 14px; }
+
+.main-menu .navigation > li > ul > li:hover > a {
+  color: #21409a; }
+
+.main-menu .navigation > li > ul > li > a {
+  font-size: 13px; }
 
 .service-block .inner-box:hover {
   border-color: #21409a; }
@@ -135,5 +144,11 @@
   padding-bottom: 30px !important;
   margin-bottom: 30px !important;
   border-bottom: 1px solid #dbdbdb !important; }
+
+.main-header.fixed-header .main-menu .navigation > li.current > a, .main-header.fixed-header .main-menu .navigation > li:hover > a {
+  color: #21409a; }
+
+.main-menu .navigation > li > ul > li:hover > a::before {
+  text-shadow: 8px 0 #21409a, -8px 0 #21409a; }
 
 /*# sourceMappingURL=custom.css.map */

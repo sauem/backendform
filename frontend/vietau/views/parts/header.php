@@ -102,6 +102,24 @@ if ($menu) {
                                         <?php ?>
                                     <?php } ?>
                                 <?php } ?>
+                                <li class="dropdown">
+                                    <a href="javascript:;" class="d-flex">
+                                        <img src="/vietau/images/icons/<?= HelperFunction::Language('vi-VN') ? 'vi.svg' : 'en.svg' ?>"/>
+                                        <span class="ml-1"></span><?= HelperFunction::Language('vi-VN') ? 'VI' : 'EN' ?>
+                                    </a>
+                                    <ul>
+                                        <li>
+                                            <a>
+                                                <img src="/vietau/images/icons/vi.svg"/>
+                                                <span class="ml-1"></span>VN
+                                            </a>
+                                            <a>
+                                                <img src="/vietau/images/icons/en.svg"/>
+                                                <span class="ml-1"></span>EN
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
                             </ul>
                         </div>
 
