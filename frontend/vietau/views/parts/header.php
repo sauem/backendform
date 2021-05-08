@@ -103,18 +103,19 @@ if ($menu) {
                                     <?php } ?>
                                 <?php } ?>
                                 <li class="dropdown">
-                                    <a href="javascript:;" class="d-flex">
-                                        <img src="/vietau/images/icons/<?= HelperFunction::Language('vi-VN') ? 'vi.svg' : 'en.svg' ?>"/>
-                                        <span class="ml-1"></span><?= HelperFunction::Language('vi-VN') ? 'VI' : 'EN' ?>
+                                    <a href="javascript:;" class="lang-icon">
+                                        <span><img width="24"
+                                                   src="/vietau/images/icons/<?= HelperFunction::Language('vi-VN') ? 'vi.svg' : 'en.svg' ?>"/></span>
+                                        <span><?= HelperFunction::Language('vi-VN') ? 'VI' : 'EN' ?></span>
                                     </a>
                                     <ul>
                                         <li>
-                                            <a>
-                                                <img src="/vietau/images/icons/vi.svg"/>
+                                            <a href="javascript:;" onclick="switchLanguage('<?= LANG_VI ?>')">
+                                                <img width="16" src="/vietau/images/icons/vi.svg"/>
                                                 <span class="ml-1"></span>VN
                                             </a>
-                                            <a>
-                                                <img src="/vietau/images/icons/en.svg"/>
+                                            <a href="javascript:void(0)" onclick="switchLanguage('<?= LANG_EN ?>')">
+                                                <img width="16" src="/vietau/images/icons/en.svg"/>
                                                 <span class="ml-1"></span>EN
                                             </a>
                                         </li>

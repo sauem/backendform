@@ -8,6 +8,10 @@
 .sec-title h2 span {
   color: #de2d2b; }
 
+.lang-icon {
+  align-items: center;
+  justify-content: space-between; }
+
 .main-menu .navigation > li > a {
   font-size: 14px; }
 
