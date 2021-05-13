@@ -1,5 +1,5 @@
 <?php
-
+//demo
 //yii migrate --migrationPath=@mdm/admin/migrations
 //yii migrate --migrationPath=@yii/rbac/migrations
 //php yii migrate --migrationPath=@vendor/yii2mod/yii2-settings/migrations
