@@ -10,6 +10,7 @@ use common\models\ArticlesSearch;
 use common\models\Banners;
 use common\models\Contact;
 use common\models\Medias;
+use common\models\Member;
 use common\models\Products;
 use common\models\ProductsSearch;
 use frontend\models\ResendVerificationEmailForm;
@@ -334,6 +335,7 @@ class SiteController extends BaseController
      */
     public function actionArticleDetail($archive, $slug)
     {
+        HelperFunction::printf(HelperFunction::getLanguage());
         $archiveModel = Archives::findOne(['slug' => $archive, 'language' => HelperFunction::getLanguage()]);
         if (!$archiveModel) {
             throw new NotFoundHttpException(Yii::t('app', 'not_found_archive'));
@@ -343,16 +345,19 @@ class SiteController extends BaseController
             throw new NotFoundHttpException(Yii::t('app', 'not_found_article'));
         }
         $categories = Archives::find()
+            ->where(['language' => HelperFunction::getLanguage()])
             ->andFilterWhere(['IS', 'parent_id', new Expression('NULL')])
             ->all();
         $nextPost = Articles::find()
             ->filterWhere([
                 'archive_id' => $archiveModel->id,
+                'language' => HelperFunction::getLanguage()
             ])->andFilterWhere(['>', 'id', $model->id])
             ->orderBy('created_at DESC')
             ->one();
         $prevPost = Articles::find()
             ->filterWhere([
+                'language' => HelperFunction::getLanguage(),
                 'archive_id' => $archiveModel->id])
             ->andFilterWhere(['<', 'id', $model->id])
             ->orderBy('created_at DESC')
@@ -374,9 +379,11 @@ class SiteController extends BaseController
 
     public function actionOurTeam()
     {
-
+        $members = Member::find()
+            ->where(['language' => HelperFunction::getLanguage()])
+            ->all();
         return $this->render('member', [
-
+            'members' => $members
         ]);
     }
 
