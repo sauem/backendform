@@ -35,7 +35,7 @@ $main = [
         'cache' => [
             #'class' => 'yii\caching\FileCache',
             'class' => 'yii\redis\Cache',
-            'keyPrefix' => HelperFunction::getHost() . "_"
+            'keyPrefix' => HelperFunction::getHost(true) . "_"
         ],
         'redis' => [
             'class' => 'yii\redis\Connection',
@@ -66,5 +66,5 @@ $main = [
 $components = array_merge($main['components'], $databases);
 $main['components'] = $components;
 $main['components']['db'] = ArrayHelper::getValue($databases, HelperFunction::getHost());
-#$main['components']['db'] = HelperFunction::getDb();
+//HelperFunction::printf($components);
 return $main;

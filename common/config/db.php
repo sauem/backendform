@@ -1,5 +1,5 @@
 <?php
-$params = require __DIR__ . '/params.php';
+$params = require __DIR__ . '/params-local.php';
 $db = \yii\helpers\ArrayHelper::getValue($params, 'db');
 $databases = [];
 if (!empty($db)) {
