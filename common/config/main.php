@@ -3,7 +3,7 @@
 use common\helper\HelperFunction;
 use yii\helpers\ArrayHelper;
 
-$databases = require __DIR__ . '/db.php';
+$databases = include __DIR__ . '/db.php';
 Yii::$container->set('mdm\admin\components\Configs', [
     'db' => ArrayHelper::getValue($databases, HelperFunction::getHost()),
 ]);
