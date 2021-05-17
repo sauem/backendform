@@ -4,7 +4,7 @@
             return (
 
                 <li className="dd-item dd3-item"
-                    data-id={props.key}
+                    data-id={props.id}
                     data-key={props.key}
                     data-title={props.title}
                     data-slug={props.slug}
@@ -12,15 +12,15 @@
                     <div className="dd3-content">
                         <i className="icon-menu dd-handle"/>
                         {props.title}
-                        <a className="btn" onClick={() => props.removeItem(props, props.key)}><i
+                        <a className="btn" onClick={props.removeItem}><i
                             className="icon-trash"/></a>
                     </div>
                     {
                         props.children ? props.children.map((item, index) => {
                             return (
                                 <ol className="dd-list">
-                                    <ItemMenu key={`child-${index}`}
-                                              removeItem={() => props.removeItem(item, props.key, index)} {...item}/>
+                                    <ItemMenu key={index}
+                                              removeItem={props.removeItem} {...item}/>
                                 </ol>
                             )
                         }) : null
@@ -38,39 +38,29 @@
             });
 
             const [form] = Form.useForm();
-            const onRemoveItem = (item, parent = null, key = null) => {
-                let items = state.items;
-                if (parent) {
-                    delete items[parent];
-                } else if (parent && key) {
-                    items = items[parent].filter(index => index.slug !== item.slug)
-                }
-                setState({
-                    ...state,
-                    ...{
-                        items
-                    }
-                });
+
+            const onRemoveItem = (evt) => {
+                $(evt.target).closest('.dd-item').remove();
             }
             const submitForm = async (data) => {
                 let items = state.items;
                 if (data.link === 'outer_link' || typeof data.link === 'string') {
                     let item = {
                         title: data.title,
-                        key: data.key === 'outer_link' ? 'outer_link' : state.currentItem.key,
-                        value: typeof data.outer_link ? data.outer_link : state.currentItem.link,
-                        type: typeof state.currentItem.type === "undefined" ? 'custom' : state.currentItem.type,
-                        slug: state.currentItem.slug
+                        id: state.currentItem.key,
+                        type: state.currentItem.type,
+                        key: state.currentItem.key,
+                        slug: state.currentItem.type === 'custom' ? data.outer_link : state.currentItem.slug
                     };
                     items.push(item);
                 } else {
                     let item = await Archives.view(data.link);
                     items.push({
                         title: data.title,
+                        id: item.id,
+                        type: item.type,
                         key: item.id,
-                        slug: item.slug,
-                        value: item.id,
-                        type: item.type
+                        slug: item.slug
                     });
                 }
                 setState({

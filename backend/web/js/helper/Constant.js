@@ -187,7 +187,8 @@ const ROUTE = {
         DETAIL: 'menu/index'
     }
 }
-const customPages = (categories = []) => {
+
+let usvnStaticPage = function (categories = []) {
     return [
         {
             title: 'Link tùy chỉnh',
@@ -217,7 +218,49 @@ const customPages = (categories = []) => {
             value: 'product-and-brief',
             slug: 'product-and-brief'
         }
-    ]
+    ];
+}
+const vietauStaticPage = (categories = []) => {
+    return [
+        {
+            title: 'Link tùy chỉnh',
+            key: categories.length + 1,
+            type: 'custom',
+            value: 'outer_link',
+            slug: '/'
+        },
+        {
+            title: 'Danh sách hội viên',
+            key: categories.length + 2,
+            type: 'page',
+            value: 'our-team',
+            slug: 'our-team'
+        },
+        {
+            title: 'Liên hệ',
+            key: categories.length + 3,
+            type: 'page',
+            value: 'contact',
+            slug: 'contact'
+        },
+    ];
+}
+
+
+const customPages = (categories = []) => {
+    let domain = window.location.hostname;
+    domain = domain.replace('admin.', '');
+    domain = domain.replace('.', '');
+    switch (domain) {
+        case 'vietaucom':
+        case 'vietaulocal':
+            return vietauStaticPage(categories);
+        case 'usvnglobalsupplycom':
+        case 'usvnlocal':
+            return usvnStaticPage(categories);
+        default:
+            return [];
+    }
 }
 const styleTreeSelect = {
     width: '100%'

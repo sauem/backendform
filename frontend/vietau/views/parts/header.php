@@ -38,10 +38,10 @@ if ($menu) {
                     <!-- Social Box -->
                     <ul class="social-box">
                         <li class="share">Our Social</li>
-                        <li><a href="https://twitter.com/" class="icofont-twitter"></a></li>
-                        <li><a href="http://facebook.com/" class="icofont-facebook"></a></li>
-                        <li><a href="https://www.instagram.com/" class="icofont-instagram"></a></li>
-                        <li><a href="https://www.youtube.com/" class="icofont-play-alt-1"></a></li>
+                        <li><a href="<?= HelperFunction::setting('twitter')?>" class="icofont-twitter"></a></li>
+                        <li><a href="<?= HelperFunction::setting('facebook')?>" class="icofont-facebook"></a></li>
+                        <li><a href="<?= HelperFunction::setting('instagram')?>" class="icofont-instagram"></a></li>
+                        <li><a href="<?= HelperFunction::setting('youtube')?>" class="icofont-play-alt-1"></a></li>
                     </ul>
                 </div>
 
@@ -80,7 +80,9 @@ if ($menu) {
                             <ul class="navigation clearfix">
                                 <?php if (!empty($menuItems)) { ?>
                                     <?php foreach ($menuItems as $item) {
+
                                         $children = ArrayHelper::getValue($item, 'children', []);
+
                                         ?>
                                         <li class="<?= !empty($children) ? 'dropdown' : '' ?>">
                                             <a href="<?= !empty($children) ? '#' : HelperFunction::Link($item['type'], $item) ?>">
