@@ -1,4 +1,3 @@
-
 function switchLanguage(lang) {
     this.setLang = async (lang) => {
         return $.ajax({

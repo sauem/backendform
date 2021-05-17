@@ -28,13 +28,10 @@ class HelperFunction
         return $domain;
     }
 
-    static function getDomain($frontend = false)
+    static function getDomain()
     {
-        $domain = preg_replace('/\.|\//', '', Url::base(''));
-        if ($frontend) {
-            return $domain;
-        }
-        $domain = substr($domain, 5);
+        $domain = preg_replace('/\.|\//', '', $_SERVER['HTTP_HOST']);
+        $domain = str_replace('admin', '', $domain);
         return $domain;
     }
 
@@ -82,6 +79,11 @@ class HelperFunction
             return '/theme/images/logo.png';
         }
         return "/static/$media->path";
+    }
+
+    public static function cache()
+    {
+
     }
 
     public static function setting($key, $getLang = false)

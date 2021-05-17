@@ -11,7 +11,7 @@ return [
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'controllerNamespace' => 'frontend\vietau\controllers',
-    //'language' => 'en-Us',
+    'language' => 'vi-VN',
     'timeZone' => 'Asia/Ho_Chi_Minh',
     'components' => [
         'request' => [
@@ -35,7 +35,7 @@ return [
         ],
         'session' => [
             // this is the name of the session cookie used for login on the frontend
-            'name' => 'advanced-frontend',
+            'name' => 'vietau-frontend',
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
