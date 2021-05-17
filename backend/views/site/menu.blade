@@ -12,13 +12,15 @@
                     <div className="dd3-content">
                         <i className="icon-menu dd-handle"/>
                         {props.title}
-                        <a className="btn" onClick={() => props.removeItem(props)}><i className="icon-trash"/></a>
+                        <a className="btn" onClick={() => props.removeItem(props, props.key)}><i
+                            className="icon-trash"/></a>
                     </div>
                     {
-                        props.children ? props.children.map(item => {
+                        props.children ? props.children.map((item, index) => {
                             return (
                                 <ol className="dd-list">
-                                    <ItemMenu removeItem={() => props.removeItem(item)} {...item}/>
+                                    <ItemMenu key={`child-${index}`}
+                                              removeItem={() => props.removeItem(item, props.key, index)} {...item}/>
                                 </ol>
                             )
                         }) : null
@@ -36,8 +38,13 @@
             });
 
             const [form] = Form.useForm();
-            const onRemoveItem = item => {
-                let items = state.items.filter(key => key.key !== item.key);
+            const onRemoveItem = (item, parent = null, key = null) => {
+                let items = state.items;
+                if (parent) {
+                    delete items[parent];
+                } else if (parent && key) {
+                    items = items[parent].filter(index => index.slug !== item.slug)
+                }
                 setState({
                     ...state,
                     ...{
@@ -121,6 +128,9 @@
                     });
                     initSortable();
                 } catch (e) {
+                    setState({
+                        items: []
+                    });
                     console.warn(e);
                 }
             }
@@ -238,7 +248,10 @@
                                 <div id="menu-sortable" className="custom-dd dd">
                                     <ol className="dd-list">
                                         {state.items.length > 0 ?
-                                            state.items.map(item => <ItemMenu removeItem={onRemoveItem} {...item}/>) :
+                                            state.items.map((item, index) =>
+                                                <ItemMenu key={index}
+                                                          removeItem={onRemoveItem}
+                                                          {...item}/>) :
                                             null
                                         }
                                     </ol>

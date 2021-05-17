@@ -7,11 +7,11 @@ $params = array_merge(
 );
 
 return [
-    'id' => 'app-frontend',
+    'id' => 'frontend-vietau',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'controllerNamespace' => 'frontend\vietau\controllers',
-    'language' => 'en-Us',
+    //'language' => 'en-Us',
     'timeZone' => 'Asia/Ho_Chi_Minh',
     'components' => [
         'request' => [

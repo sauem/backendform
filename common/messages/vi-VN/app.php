@@ -32,5 +32,10 @@ return [
     'contact_preference' => 'Phương thức hỗ trợ',
     'recent_product' => 'Cùng danh mục',
     'recent_post' => 'Cùng danh mục',
-    'search' => 'Tìm kiếm'
+    'search' => 'Tìm kiếm',
+    'category_support' => 'Các mặt hàng hỗ trợ xuất khẩu',
+    'mission' => 'Sứ mệnh',
+    'core_value' => 'Giá trị cốt lõi',
+    'international_market' => 'Thị trường quốc tế',
+    'schedule' => 'Lịch hoạt động'
 ];

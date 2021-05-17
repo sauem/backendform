@@ -21,7 +21,7 @@ Yii::$app->params['footer_type'] = 'light';
     <div class="services-section">
         <div class="auto-container">
             <div class="sec-title">
-                <h2><span>Các mặt hàng</span> Hỗ trợ xuất khẩu</h2>
+                <h2><?= Yii::t('app', 'category_support') ?></h2>
             </div>
             <div class="inner-container">
                 <div class="row g-0">
@@ -63,7 +63,8 @@ Yii::$app->params['footer_type'] = 'light';
                 <div class="image-column col-lg-6">
                     <div class="about-image">
                         <div class="about-inner-image">
-                            <img src="/vietau/images/about/home-about.png" alt="about">
+                            <img src="<?= HelperFunction::setting('about-image', true) ? HelperFunction::setting('about-image', true) : '/vietau/images/about/home-about.png' ?>"
+                                 alt="about">
                         </div>
                     </div>
                 </div>
@@ -72,7 +73,7 @@ Yii::$app->params['footer_type'] = 'light';
                 <div class="content-column col-lg-6 col-md-12 col-sm-12 mb-0">
                     <div class="about-column">
                         <div class="sec-title">
-                            <h2><span>Sứ mệnh</span></h2>
+                            <h2><?= Yii::t('app','mission')?></h2>
                         </div>
                         <div class="text">
                             <?= HelperFunction::setting('about_us') ?>
@@ -94,7 +95,7 @@ Yii::$app->params['footer_type'] = 'light';
 
             <!-- Sec Title -->
             <div class="sec-title">
-                <h2><span>Giá trị cốt lõi</span></h2>
+                <h2><?= Yii::t('app','core_value')?></h2>
             </div>
             <div class="testimonial-carousel owl-carousel owl-theme">
 
@@ -204,12 +205,12 @@ Yii::$app->params['footer_type'] = 'light';
             <div class="content-column col-lg-7 col-md-12 col-sm-12">
                 <div class="inner-column">
                     <div class="sec-title">
-                        <h2><span>Lịch hoạt động</span></h2>
+                        <h2><?= Yii::t('app','schedule') ?></h2>
                     </div>
                     <div class="blocks-outer">
 
                         <!-- Reputation Block -->
-                        <?= HelperFunction::setting('about_us_en') ?>
+                        <?= HelperFunction::setting('about_us',true) ?>
 
                     </div>
                 </div>
@@ -226,8 +227,8 @@ Yii::$app->params['footer_type'] = 'light';
         <div class="auto-container">
             <!-- Sec Title -->
             <div class="sec-title centered">
-                <div class="title">Tin tức</div>
-                <h2><span>Thị trường </span>Quốc tế</h2>
+                <div class="title"><?= Yii::t('app','news')?></div>
+                <h2><?= Yii::t('app','international_market')?></h2>
             </div>
             <div class="inner-container">
                 <div class="row">

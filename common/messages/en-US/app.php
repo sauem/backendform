@@ -32,6 +32,10 @@ return [
     'contact_preference' => 'Contact preference',
     'recent_product' => 'Recent products',
     'recent_post' => 'Recent post',
-    'search' => 'Search'
-
+    'search' => 'Search',
+    'category_support' => 'Export Supported Items',
+    'mission' => 'Mission',
+    'core_value' => 'Core values',
+    'international_market' => 'International market',
+    'schedule' => 'Schedule of activities'
 ];
