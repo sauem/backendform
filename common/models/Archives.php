@@ -18,6 +18,7 @@ use Yii;
  * @property int|null $parent_id
  * @property string|null $language
  * @property string|null $type
+ * @property string|null $icon
  */
 class Archives extends \yii\db\ActiveRecord
 {
@@ -40,7 +41,7 @@ class Archives extends \yii\db\ActiveRecord
         return [
             [['active', 'created_at', 'updated_at', 'parent_id'], 'integer'],
             [['description'], 'string'],
-            [['name', 'slug', 'type'], 'string', 'max' => 255],
+            [['name', 'slug', 'type', 'icon'], 'string', 'max' => 255],
             [['language'], 'string', 'max' => 50],
             [['slug'], 'unique'],
             [['avatar', 'media_id'], 'safe'],
