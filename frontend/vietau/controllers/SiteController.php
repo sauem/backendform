@@ -335,7 +335,6 @@ class SiteController extends BaseController
      */
     public function actionArticleDetail($archive, $slug)
     {
-        HelperFunction::printf(HelperFunction::getLanguage());
         $archiveModel = Archives::findOne(['slug' => $archive, 'language' => HelperFunction::getLanguage()]);
         if (!$archiveModel) {
             throw new NotFoundHttpException(Yii::t('app', 'not_found_archive'));
