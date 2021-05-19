@@ -133,9 +133,6 @@
                 const {data} = await Archives.fetch({page: -1});
                 let categories = convertTreeSelect(data);
                 categories = categories.concat(customPages(categories));
-                alert('13221');
-
-                console.log('categories: ', categories);
                 setState({
                     ...state,
                     ...{
