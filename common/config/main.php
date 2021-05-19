@@ -35,7 +35,7 @@ $main = [
         'cache' => [
             #'class' => 'yii\caching\FileCache',
             'class' => 'yii\redis\Cache',
-            'keyPrefix' => HelperFunction::getDomain() . '_'
+            'keyPrefix' => HelperFunction::getDomain() .'_'
         ],
         'redis' => [
             'class' => 'yii\redis\Connection',

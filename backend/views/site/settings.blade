@@ -10,7 +10,7 @@ use common\helper\HelperFunction;
     <script type="text/babel">
         const App = () => {
             const initalState = {
-                categories: [],
+                setting: null,
                 attributes: [],
                 loading: false,
                 language: LANG_VI,
@@ -40,7 +40,6 @@ use common\helper\HelperFunction;
                     }
                 });
                 onUploadMedia(file, data => {
-                    console.log('data UPLOAD', data);
                     form.setFieldsValue({
                         [type]: data.id
                     });
@@ -56,19 +55,36 @@ use common\helper\HelperFunction;
             }
             const submitSetting = async data => {
                 try {
-
-                    // const altObj = Object.fromEntries(
-                    //     Object.entries(data).map(([key, value]) =>
-                    //         // Modify key here
-                    //         [`Common[${key}]`, value]
-                    //     )
-                    // );
-
                     const res = await Setting(data);
+                    message.success('Lưu cài đặt thành công!');
                 } catch (e) {
                     message.error(e.message);
                 }
             }
+            const getSetting = async () => {
+                try {
+                    const res = await SettingData();
+                    setState({
+                        setting: res
+                    });
+                    let defaultList = defaultFileList;
+                    ['logo_header', 'logo_footer', 'favicon'].map((key, index) => {
+                        defaultList[key].push({
+                            uid: index,
+                            name: key.replace('_', '').toUpperCase(),
+                            status: 'done',
+                            url: res[`${key}_context`]
+                        });
+                    });
+                    setDefaultFileList(defaultList);
+                    form.setFieldsValue(res);
+                } catch (e) {
+                    message.error(e.message);
+                }
+            }
+            useEffect(() => {
+                getSetting();
+            }, []);
             return (
                 <Card title="Cài đăt website"
                       extra={<Button htmlType="submit" form="setting-form">Lưu</Button>}
@@ -169,7 +185,7 @@ use common\helper\HelperFunction;
                                         onChange={evt => handleOnChange('logo_header', evt)}
                                         listType="picture"
                                         onRemove={() =>
-                                            onRemoveMedia(form.getFieldValue('media_id'))
+                                            onRemoveMedia(form.getFieldValue('logo_header'))
                                         }
                                         fileList={defaultFileList.logo_header}
                                         className="avatar-uploader single"
@@ -188,7 +204,7 @@ use common\helper\HelperFunction;
                                         onChange={evt => handleOnChange('favicon', evt)}
                                         listType="picture"
                                         onRemove={() =>
-                                            onRemoveMedia(form.getFieldValue('media_id'))
+                                            onRemoveMedia(form.getFieldValue('favicon'))
                                         }
                                         fileList={defaultFileList.favicon}
                                         className="avatar-uploader single"
@@ -207,7 +223,7 @@ use common\helper\HelperFunction;
                                         onChange={evt => handleOnChange('logo_footer', evt)}
                                         listType="picture"
                                         onRemove={() =>
-                                            onRemoveMedia(form.getFieldValue('media_id'))
+                                            onRemoveMedia(form.getFieldValue('logo_footer'))
                                         }
                                         fileList={defaultFileList.logo_footer}
                                         className="avatar-uploader single"
@@ -223,13 +239,13 @@ use common\helper\HelperFunction;
                                     label="About us (vi)"
                                     name="about_us"
                                 >
-                                    <Input.TextArea/>
+                                    <Input.TextArea rows={10}/>
                                 </Form.Item>
                                 <Form.Item
                                     label="About us (en)"
                                     name="about_us_en"
                                 >
-                                    <Input.TextArea/>
+                                    <Input.TextArea rows={10}/>
                                 </Form.Item>
                             </Col>
                             <Col md={24}>

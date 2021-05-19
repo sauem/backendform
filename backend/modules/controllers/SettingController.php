@@ -24,7 +24,16 @@ class SettingController extends BaseActiveController
 
     public function actionIndex()
     {
-        return \Yii::$app->settings->getAllBySection('Common');
+        $data = \Yii::$app->settings->getAllBySection('Common');
+        if (empty($data)) {
+            return [];
+        }
+        foreach ($data as $key => $value) {
+            if (in_array($key, ['logo_header', 'logo_footer', 'favicon'])) {
+                $data[$key . '_context'] = HelperFunction::getImage(null, $value);
+            }
+        }
+        return $data;
     }
 
     public function actionCreate()
@@ -34,7 +43,7 @@ class SettingController extends BaseActiveController
             $settings = \Yii::$app->settings;
             if (!empty($commons)) {
                 foreach ($commons as $key => $value) {
-                    if ($key === 'logo_header_context |logo_footer_context | favicon_context') {
+                    if (in_array($key, ['logo_header_context', 'logo_footer_context', 'favicon_context'])) {
                         continue;
                     }
                     $settings->set('Common', $key, $value);

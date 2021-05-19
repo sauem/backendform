@@ -567,6 +567,15 @@ const Setting = async (data) => {
         message.error(e.message);
     }
 }
+
+const SettingData = async () => {
+    try {
+        const res = await Server.get(ROUTE.SETTINGS_INDEX).catch(axiosCatch);
+        return res.data;
+    } catch (e) {
+        message.error(e.message);
+    }
+}
 const Members = {
     create: async (member) => {
         try {
