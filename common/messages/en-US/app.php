@@ -37,5 +37,8 @@ return [
     'mission' => 'Mission',
     'core_value' => 'Core values',
     'international_market' => 'International market',
-    'schedule' => 'Schedule of activities'
+    'schedule' => 'Schedule of activities',
+    'who_we_are' => 'Who we are?',
+    'market_news' => 'Market News',
+    'event' => 'Events',
 ];

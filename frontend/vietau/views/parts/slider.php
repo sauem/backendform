@@ -21,7 +21,7 @@ if (!empty($sliders)) {
                                     </div>
                                     <div class="btn-box">
                                         <a href="<?= $slider->href ?>" class="theme-btn btn-style-one">
-                                            <span class="txt">Tìm hiểu thêm...</span></a>
+                                            <span class="txt"><?= Yii::t('app','read_more') ?></span></a>
                                     </div>
                                 </div>
                             </div>

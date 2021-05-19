@@ -95,6 +95,9 @@
   /* number of lines to show */
   -webkit-box-orient: vertical; }
 
+.style-two {
+  background: white; }
+
 .blog-index {
   background: white;
   margin-top: 15px;

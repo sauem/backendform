@@ -11,6 +11,7 @@ $red: #de2d2b;
 .sec-title h2 span {
   color: $red;
 }
+
 //hell
 .lang-icon {
   align-items: center;
@@ -94,6 +95,10 @@ $red: #de2d2b;
   max-height: 50px; /* fallback */
   -webkit-line-clamp: 5; /* number of lines to show */
   -webkit-box-orient: vertical;
+}
+
+.style-two {
+  background: white;
 }
 
 .blog-index {
