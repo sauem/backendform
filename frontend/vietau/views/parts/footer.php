@@ -111,11 +111,10 @@ if ($menu) {
 
                         <div class="col-lg-4 col-md-12 col-sm-12">
                             <ul class="social-nav">
-                                <li><a href="https://twitter.com/" class="icofont-twitter"></a></li>
-                                <li><a href="http://facebook.com/" class="icofont-facebook"></a></li>
-                                <li><a href="https://www.instagram.com/" class="icofont-instagram"></a></li>
-                                <li><a href="https://rss.com/" class="icofont-rss"></a></li>
-                                <li><a href="https://www.youtube.com/" class="icofont-play-alt-1"></a></li>
+                                <li><a href="<?= HelperFunction::setting('twitter')?>" class="icofont-twitter"></a></li>
+                                <li><a href="<?= HelperFunction::setting('facebook')?>" class="icofont-facebook"></a></li>
+                                <li><a href="<?= HelperFunction::setting('instagram')?>" class="icofont-instagram"></a></li>
+                                <li><a href="<?= HelperFunction::setting('youtube')?>" class="icofont-play-alt-1"></a></li>
                             </ul>
                         </div>
 
