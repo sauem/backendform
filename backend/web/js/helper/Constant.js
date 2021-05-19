@@ -201,28 +201,28 @@ let usvnStaticPage = function (categories = []) {
     return [
         {
             title: 'Link tùy chỉnh',
-            key: categories.length + 1,
+            key: categories.length + 9991,
             type: 'custom',
             value: 'outer_link',
             slug: ''
         },
         {
             title: 'Hướng dẫn',
-            key: categories.length + 2,
+            key: categories.length + 9992,
             type: 'page',
             value: 'guide',
             slug: 'guide'
         },
         {
             title: 'Liên hệ',
-            key: categories.length + 3,
+            key: categories.length + 9993,
             type: 'page',
             value: 'contact',
             slug: 'contact'
         },
         {
             title: 'Sản phẩm & Yêu cầu đặt hàng',
-            key: categories.length + 4,
+            key: categories.length + 9994,
             type: 'page',
             value: 'product-and-brief',
             slug: 'product-and-brief'
@@ -233,21 +233,21 @@ const vietauStaticPage = (categories = []) => {
     return [
         {
             title: 'Link tùy chỉnh',
-            key: categories.length + 1,
+            key: categories.length + 9991,
             type: 'custom',
             value: 'outer_link',
             slug: '/'
         },
         {
             title: 'Danh sách hội viên',
-            key: categories.length + 2,
+            key: categories.length + 9992,
             type: 'page',
             value: 'our-team',
             slug: 'our-team'
         },
         {
             title: 'Liên hệ',
-            key: categories.length + 3,
+            key: categories.length + 9993,
             type: 'page',
             value: 'contact',
             slug: 'contact'
