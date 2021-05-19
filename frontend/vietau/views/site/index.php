@@ -37,7 +37,7 @@ Yii::$app->params['footer_type'] = 'light';
                             <h2><?= Yii::t('app', 'who_we_are') ?></h2>
                         </div>
                         <div class="text">
-                            <p><?= HelperFunction::setting('about_us') ?></p>
+                            <p><?= HelperFunction::setting('about_us', true) ?></p>
                         </div>
                     </div>
                 </div>
@@ -55,19 +55,7 @@ Yii::$app->params['footer_type'] = 'light';
                     <h2><?= Yii::t('app', 'event') ?></h2>
                 </div>
                 <div class="blocks-outer">
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-                        has
-                        been the industry's standard dummy text ever since the 1500s, when an unknown printer
-                        took a
-                        galley of type and scrambled it to make a type specimen book. It has survived not only
-                        five
-                        centuries, but also the leap into electronic typesetting, remaining essentially
-                        unchanged.
-                        It was popularised in the 1960s with the release of Letraset sheets containing Lorem
-                        Ipsum
-                        passages, and more recently with desktop publishing software like Aldus PageMaker
-                        including
-                        versions of Lorem Ipsum</p>
+                    <p><?= HelperFunction::setting('event_desc', true) ?></p>
                     <!-- Reputation Block -->
                 </div>
             </div>

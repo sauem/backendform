@@ -29,7 +29,7 @@ class SettingController extends BaseActiveController
             return [];
         }
         foreach ($data as $key => $value) {
-            if (in_array($key, ['logo_header', 'logo_footer', 'favicon'])) {
+            if (in_array($key, ['logo_header', 'logo_footer', 'event_image', 'event_image_us', 'about_image', 'favicon'])) {
                 $data[$key . '_context'] = HelperFunction::getImage(null, $value);
             }
         }
@@ -43,7 +43,9 @@ class SettingController extends BaseActiveController
             $settings = \Yii::$app->settings;
             if (!empty($commons)) {
                 foreach ($commons as $key => $value) {
-                    if (in_array($key, ['logo_header_context', 'logo_footer_context', 'favicon_context'])) {
+                    if (in_array($key, ['logo_header_context',
+                        'event_image_context', 'event_image_en_context', 'about_image_context'
+                        , 'logo_footer_context', 'favicon_context'])) {
                         continue;
                     }
                     $settings->set('Common', $key, $value);

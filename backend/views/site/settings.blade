@@ -19,7 +19,10 @@ use common\helper\HelperFunction;
             const [defaultFileList, setDefaultFileList] = useState({
                 logo_footer: [],
                 logo_header: [],
-                favicon: []
+                favicon: [],
+                about_image: [],
+                event_image: [],
+                event_image_en: [],
             });
             const [form] = Form.useForm();
             const [progress, setProgress] = useState(0);
@@ -68,7 +71,7 @@ use common\helper\HelperFunction;
                         setting: res
                     });
                     let defaultList = defaultFileList;
-                    ['logo_header', 'logo_footer', 'favicon'].map((key, index) => {
+                    ['logo_header', 'logo_footer', 'about_image', 'event_image', 'event_image_en', 'favicon'].map((key, index) => {
                         defaultList[key].push({
                             uid: index,
                             name: key.replace('_', '').toUpperCase(),
@@ -162,10 +165,55 @@ use common\helper\HelperFunction;
                                         >
                                             <Input/>
                                         </Form.Item>
+                                        <Form.Item
+                                            label="About us (vi)"
+                                            name="about_us"
+                                        >
+                                            <Input.TextArea rows={8}/>
+                                        </Form.Item>
+                                        <Form.Item
+                                            label="About us (en)"
+                                            name="about_us_en"
+                                        >
+                                            <Input.TextArea rows={8}/>
+                                        </Form.Item>
+                                        <Form.Item
+                                            label="Event description (vi)"
+                                            name="event_desc"
+                                        >
+                                            <Input.TextArea rows={8}/>
+                                        </Form.Item>
+                                        <Form.Item
+                                            label="Event description (en)"
+                                            name="event_desc_en"
+                                        >
+                                            <Input.TextArea rows={8}/>
+                                        </Form.Item>
+                                        <Form.Item
+                                            label="Map iframe"
+                                            name="map_iframe"
+                                        >
+                                            <Input.TextArea/>
+                                        </Form.Item>
+                                        <Form.Item
+                                            label="Fanpage script"
+                                            name="fanpage_script"
+                                        >
+                                            <Input.TextArea/>
+                                        </Form.Item>
                                     </Col>
                                 </Row>
                             </Col>
                             <Col md={6}>
+                                <Form.Item name="event_image" hidden>
+                                    <Input/>
+                                </Form.Item>
+                                <Form.Item name="event_image_en" hidden>
+                                    <Input/>
+                                </Form.Item>
+                                <Form.Item name="about_image" hidden>
+                                    <Input/>
+                                </Form.Item>
                                 <Form.Item name="logo_header" hidden>
                                     <Input/>
                                 </Form.Item>
@@ -232,36 +280,63 @@ use common\helper\HelperFunction;
                                             <Button><i className="icon-upload mr-2"/> Chọn ảnh</Button>}
                                     </Upload>
                                 </Form.Item>
-
-                            </Col>
-                            <Col md={24}>
                                 <Form.Item
-                                    label="About us (vi)"
-                                    name="about_us"
+                                    name={`about_image_context`}
+                                    label="About banner"
                                 >
-                                    <Input.TextArea rows={10}/>
+                                    <Upload
+                                        accept="image/*"
+                                        customRequest={opts => onUpload(opts, 'about_image')}
+                                        onChange={evt => handleOnChange('about_image', evt)}
+                                        listType="picture"
+                                        onRemove={() =>
+                                            onRemoveMedia(form.getFieldValue('about_image'))
+                                        }
+                                        fileList={defaultFileList.about_image}
+                                        className="avatar-uploader single"
+                                    >
+                                        {defaultFileList.about_image.length >= 1 ? null :
+                                            <Button><i className="icon-upload mr-2"/> Chọn ảnh</Button>}
+                                    </Upload>
                                 </Form.Item>
                                 <Form.Item
-                                    label="About us (en)"
-                                    name="about_us_en"
+                                    name={`event_image_context`}
+                                    label="Event banner (vi)"
                                 >
-                                    <Input.TextArea rows={10}/>
+                                    <Upload
+                                        accept="image/*"
+                                        customRequest={opts => onUpload(opts, 'event_image')}
+                                        onChange={evt => handleOnChange('event_image', evt)}
+                                        listType="picture"
+                                        onRemove={() =>
+                                            onRemoveMedia(form.getFieldValue('event_image'))
+                                        }
+                                        fileList={defaultFileList.event_image}
+                                        className="avatar-uploader single"
+                                    >
+                                        {defaultFileList.event_image.length >= 1 ? null :
+                                            <Button><i className="icon-upload mr-2"/> Chọn ảnh</Button>}
+                                    </Upload>
                                 </Form.Item>
-                            </Col>
-                            <Col md={24}>
                                 <Form.Item
-                                    label="Map iframe"
-                                    name="map_iframe"
+                                    name={`event_image_en_context`}
+                                    label="Event banner (en)"
                                 >
-                                    <Input.TextArea/>
+                                    <Upload
+                                        accept="image/*"
+                                        customRequest={opts => onUpload(opts, 'event_image_en')}
+                                        onChange={evt => handleOnChange('event_image_en', evt)}
+                                        listType="picture"
+                                        onRemove={() =>
+                                            onRemoveMedia(form.getFieldValue('event_image_en'))
+                                        }
+                                        fileList={defaultFileList.event_image_en}
+                                        className="avatar-uploader single"
+                                    >
+                                        {defaultFileList.event_image_en.length >= 1 ? null :
+                                            <Button><i className="icon-upload mr-2"/> Chọn ảnh</Button>}
+                                    </Upload>
                                 </Form.Item>
-                                <Form.Item
-                                    label="Fanpage script"
-                                    name="fanpage_script"
-                                >
-                                    <Input.TextArea/>
-                                </Form.Item>
-
                             </Col>
                         </Row>
                     </Form>
