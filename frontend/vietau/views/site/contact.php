@@ -18,7 +18,7 @@ $this->params['header_type'] = 'light';
 <div class="map-section">
     <div class="contact-map-area">
         <iframe class="contact-map"
-                src="<?= HelperFunction::setting('address_1') ?>"
+                src="<?= HelperFunction::setting('map_iframe') ?>"
                 allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
     </div>
 </div>
@@ -42,8 +42,8 @@ $this->params['header_type'] = 'light';
 
                 <!-- Column -->
                 <div class="column col-lg-6 col-md-6 col-sm-12">
-                    <div class="call">Call directly:<br><a href="tel:<?=HelperFunction::setting('hotline_1')?>">
-                            <?=HelperFunction::setting('hotline_1')?>
+                    <div class="call">Call directly:<br><a href="tel:<?= HelperFunction::setting('hotline_1') ?>">
+                            <?= HelperFunction::setting('hotline_1') ?>
                         </a></div>
                     <ul class="location-list">
                         <li><span>Work Hours:</span>Mon - Sat: 8.00 - 17.00, Sunday closed</li>
