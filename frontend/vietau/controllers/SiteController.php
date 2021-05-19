@@ -383,9 +383,7 @@ class SiteController extends BaseController
 
     public function actionOurTeam()
     {
-        $members = Member::find()
-            ->where(['language' => HelperFunction::getLanguage()])
-            ->all();
+        $members = Member::find()->all();
         return $this->render('member', [
             'members' => $members
         ]);
