@@ -33,18 +33,19 @@ $this->params['header_type'] = 'light';
 
                 <!-- Column -->
                 <div class="column col-lg-6 col-md-6 col-sm-12">
-                    <h2>Brooklyn, <span>New York</span></h2>
-                    <div class="text">849 Diamond Str, 07th Floor, NY 10012, New York, <br> United State America</div>
-                    <div class="email">Email: <a href="mailto:infor@consulte.co">infor@consulte.co</a></div>
+                    <h2><?= HelperFunction::setting('site_name', true) ?></h2>
+                    <div class="text"><?= HelperFunction::setting('address_1', true) ?></div>
+                    <div class="email">Email: <a href="mailto:<?= HelperFunction::setting('email') ?>">
+                            <?= HelperFunction::setting('email') ?>
+                        </a></div>
                 </div>
 
                 <!-- Column -->
                 <div class="column col-lg-6 col-md-6 col-sm-12">
-                    <div class="call">Call directly:<br><a href="#">+1 212-226-3126</a></div>
+                    <div class="call">Call directly:<br><a href="tel:<?=HelperFunction::setting('hotline_1')?>">
+                            <?=HelperFunction::setting('hotline_1')?>
+                        </a></div>
                     <ul class="location-list">
-                        <li><span>Brand Offices:</span>Allentown PA | Allanta, GA | Chicago, IL | Dallas, TX, <br>
-                            Edison, NJ | Houston, TX
-                        </li>
                         <li><span>Work Hours:</span>Mon - Sat: 8.00 - 17.00, Sunday closed</li>
                     </ul>
                 </div>
