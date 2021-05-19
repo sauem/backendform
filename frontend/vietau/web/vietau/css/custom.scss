@@ -180,6 +180,10 @@ $red: #de2d2b;
   text-shadow: 8px 0 $default, -8px 0 $default;
 }
 
+.contact-page-section .contact-info-boxed {
+  background: $default;
+}
+
 .team-block .inner-box .image .social-box li a:hover {
   color: $default;
 }
