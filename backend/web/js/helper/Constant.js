@@ -16,6 +16,7 @@ const LANG_EN = 'en';
 const DEVICE_DESKTOP = 'desktop';
 const DEVICE_MOBILE = 'mobile';
 const POSITION_HOME_SLIDER = 'home_slider';
+const POSITION_LOGO_PARTNER = 'logo_partner';
 const POSITION_TOP_HEADER = 'top_header';
 const POSITION_SIDEBAR_LEFT_TOP = 'sidebar_left_top';
 const POSITION_SIDEBAR_LEFT_BOTTOM = 'sidebar_left_bottom';
@@ -48,6 +49,7 @@ const BANNER_TYPES = [
     {name: 'Video', slug: FILE_TYPE_VIDEO},
 ];
 const BANNER_POSITIONS = [
+
     {
         name: 'Slider trang chủ',
         slug: POSITION_HOME_SLIDER
@@ -75,6 +77,10 @@ const BANNER_POSITIONS = [
     {
         name: 'Trên footer',
         slug: POSITION_TOP_FOOTER
+    },
+    {
+        name: 'Logo đối tác',
+        slug: POSITION_LOGO_PARTNER
     },
 ];
 const BANNER_DEVICES = [

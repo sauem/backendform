@@ -63,11 +63,16 @@ class SiteController extends BaseController
                 'language' => HelperFunction::getLanguage()
             ])->limit(6)->orderBy('created_at DESC')->all();
         $contactForm = new Contact();
+        $logos = Banners::findAll([
+            'active' => Banners::BANNER_ACTIVE,
+            'position' => 'logo_partner'
+        ]);
         return $this->render('index', [
             'sliders' => $sliders,
             'categories' => $categories,
             'articles' => $articles,
             'products' => $products,
+            'logos' => $logos,
             'contactForm' => $contactForm
         ]);
     }

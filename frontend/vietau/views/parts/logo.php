@@ -1,22 +1,28 @@
 <?php
 ?>
+<?php if (!empty($logos)) { ?>
+    <div class="sponsors-section">
+        <div class="auto-container">
 
-<div class="sponsors-section">
-    <div class="auto-container">
+            <div class="carousel-outer">
+                <!--Sponsors Slider-->
+                <ul class="sponsors-carousel owl-carousel owl-theme">
+                    <?php foreach ($logos as $logo) {
+                        ?>
+                        <li>
+                            <div class="image-box">
+                                <a href="<?= $logo->href ?>">
+                                    <img src="<?= $logo->avatar ?>"
+                                         alt="<?= $logo->name ?>"></a>
+                            </div>
+                        </li>
+                        <?php
+                    } ?>
 
-        <div class="carousel-outer">
-            <!--Sponsors Slider-->
-            <ul class="sponsors-carousel owl-carousel owl-theme">
-                <li><div class="image-box"><a href="#"><img src="/vietau/images/clients/1.png" alt=""></a></div></li>
-                <li><div class="image-box"><a href="#"><img src="/vietau/images/clients/2.png" alt=""></a></div></li>
-                <li><div class="image-box"><a href="#"><img src="/vietau/images/clients/3.png" alt=""></a></div></li>
-                <li><div class="image-box"><a href="#"><img src="/vietau/images/clients/4.png" alt=""></a></div></li>
-                <li><div class="image-box"><a href="#"><img src="/vietau/images/clients/5.png" alt=""></a></div></li>
-                <li><div class="image-box"><a href="#"><img src="/vietau/images/clients/1.png" alt=""></a></div></li>
-                <li><div class="image-box"><a href="#"><img src="/vietau/images/clients/2.png" alt=""></a></div></li>
-                <li><div class="image-box"><a href="#"><img src="/vietau/images/clients/3.png" alt=""></a></div></li>
-            </ul>
+
+                </ul>
+            </div>
+
         </div>
-
     </div>
-</div>
+<?php } ?>

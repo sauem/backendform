@@ -202,4 +202,6 @@ Yii::$app->params['footer_type'] = 'light';
         </div>
     </div>
 <?php } ?>
-<?= $this->render('../parts/logo') ?>
+<?= $this->render('../parts/logo',[
+        'logos' => $logos
+]) ?>
