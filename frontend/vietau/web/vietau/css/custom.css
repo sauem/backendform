@@ -161,7 +161,7 @@
 .main-menu .navigation > li > ul > li:hover > a::before {
   text-shadow: 8px 0 #21409a, -8px 0 #21409a; }
 
-.contact-page-section .contact-info-boxed {
+.contact-page-section .contact-info-boxed, .scroll-to-top:hover {
   background: #21409a; }
 
 .team-block .inner-box .image .social-box li a:hover {
