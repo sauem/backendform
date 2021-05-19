@@ -161,6 +161,10 @@ $red: #de2d2b;
   }
 }
 
+.sidebar .search-box .form-group button {
+  background: $default;
+}
+
 .news-block-three {
   position: relative;
   padding-bottom: 30px !important;
@@ -176,10 +180,19 @@ $red: #de2d2b;
   text-shadow: 8px 0 $default, -8px 0 $default;
 }
 
+.team-block .inner-box .image .social-box li a:hover {
+  color: $default;
+}
+
 .call {
-  p{
+  a {
+    color: $default;
+  }
+
+  p {
     margin: 5px 0;
-    span{
+
+    span {
       font-size: 20px;
     }
   }

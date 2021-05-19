@@ -146,6 +146,9 @@
   max-height: 55px;
   overflow: hidden; }
 
+.sidebar .search-box .form-group button {
+  background: #21409a; }
+
 .news-block-three {
   position: relative;
   padding-bottom: 30px !important;
@@ -158,6 +161,11 @@
 .main-menu .navigation > li > ul > li:hover > a::before {
   text-shadow: 8px 0 #21409a, -8px 0 #21409a; }
 
+.team-block .inner-box .image .social-box li a:hover {
+  color: #21409a; }
+
+.call a {
+  color: #21409a; }
 .call p {
   margin: 5px 0; }
   .call p span {
