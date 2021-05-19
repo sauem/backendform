@@ -133,7 +133,7 @@ class HelperFunction
         if (is_array($slug)) {
             switch ($slug['type']) {
                 case 'custom':
-                    return ArrayHelper::getValue($slug, 'key', '/');
+                    return ArrayHelper::getValue($slug, 'slug', '/');
                 case 'page':
                     return "/" . ArrayHelper::getValue($slug, 'slug', '/');
                 case 'article':
