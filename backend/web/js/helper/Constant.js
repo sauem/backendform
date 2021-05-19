@@ -3,6 +3,7 @@ const FILE_TYPE_VIDEO = 'video';
 const FILE_TYPE_BASE64 = 'base64';
 const MEDIA_TYPE_ARCHIVE = 'archive';
 const MEDIA_TYPE_PRODUCT = 'product';
+const MEDIA_TYPE_LOGO = 'logo';
 const MEDIA_TYPE_BANNER = 'banner';
 const MEDIA_TYPE_BLOG = 'article';
 const MEDIA_TYPE_TESTIMONIAL = 'testimonial';
@@ -182,6 +183,8 @@ const ROUTE = {
         VIEW: 'user/view'
     },
     UPLOAD: 'api/upload',
+    SETTINGS: '/setting/create',
+    SETTINGS_INDEX: '/setting/index',
     MENU: {
         SAVE: 'menu/create',
         DETAIL: 'menu/index'

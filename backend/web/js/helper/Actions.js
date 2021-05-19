@@ -559,6 +559,14 @@ const Testimonials = {
         }
     },
 }
+const Setting = async (data) => {
+    try {
+        const res = await Server.post(ROUTE.SETTINGS, data).catch(axiosCatch);
+        console.log(res);
+    } catch (e) {
+        message.error(e.message);
+    }
+}
 const Members = {
     create: async (member) => {
         try {

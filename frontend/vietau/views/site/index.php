@@ -11,11 +11,11 @@ $this->title = HelperFunction::getLanguage() == 'vi' ?
 Yii::$app->params['footer_type'] = 'light';
 ?>
 
-<!-- Services Section -->
+    <!-- Services Section -->
 <?= $this->render('../parts/slider', [
     'sliders' => $sliders
 ]) ?>
-<!-- Services Section -->
+    <!-- Services Section -->
 <?php if (!empty($categories)) {
     ?>
     <div class="services-section">
@@ -51,184 +51,188 @@ Yii::$app->params['footer_type'] = 'light';
     <?php
 } ?>
 
-<!-- End Services Section -->
+    <!-- End Services Section -->
 
 
-<!-- About Section -->
-<div class="about-section">
-    <div class="auto-container">
-        <div class="inner-container">
-            <div class="row align-items-center clearfix">
-                <!-- Image Column -->
-                <div class="image-column col-lg-6">
-                    <div class="about-image">
-                        <div class="about-inner-image">
-                            <img src="<?= HelperFunction::setting('about-image', true) ? HelperFunction::setting('about-image', true) : '/vietau/images/about/home-about.png' ?>"
-                                 alt="about">
+    <!-- About Section -->
+    <div class="about-section">
+        <div class="auto-container">
+            <div class="inner-container">
+                <div class="row align-items-center clearfix">
+                    <!-- Image Column -->
+                    <div class="image-column col-lg-6">
+                        <div class="about-image">
+                            <div class="about-inner-image">
+                                <img src="<?= HelperFunction::setting('about-image', true) ? HelperFunction::setting('about-image', true) : '/vietau/images/about/home-about.png' ?>"
+                                     alt="about">
+                            </div>
                         </div>
+                    </div>
+
+                    <!-- Content Column -->
+                    <div class="content-column col-lg-6 col-md-12 col-sm-12 mb-0">
+                        <div class="about-column">
+                            <div class="sec-title">
+                                <h2><?= Yii::t('app', 'mission') ?></h2>
+                            </div>
+                            <div class="text">
+                                <?= HelperFunction::setting('about_us') ?>
+                            </div>
+                            <div class="signature">CEO <span>Viet Au</span></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End About Section -->
+
+    <!-- Project Section -->
+    <div class="testimonial-section style-two">
+        <div class="auto-container">
+            <div class="inner-container">
+
+                <!-- Sec Title -->
+                <div class="sec-title">
+                    <h2><?= Yii::t('app', 'core_value') ?></h2>
+                </div>
+                <div class="testimonial-carousel owl-carousel owl-theme">
+
+                    <!-- Testimonial Block -->
+                    <div class="testimonial-block">
+                        <div class="inner-box">
+                            <div class="quote icofont-quote-right"></div>
+                            <div class="author">Gắn kết<span></span></div>
+                            <div class="text">Sed elit quam, iaculis sed semper sit amet udin vitae nibh. Rubino at
+                                magna
+                                akal semperFusce commodo molestie luctus.Lorem ipsum Dolor tusima olatiup.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial Block -->
+                    <div class="testimonial-block">
+                        <div class="inner-box">
+                            <div class="quote icofont-quote-right"></div>
+                            <div class="author">Trách nhiệm <span>/ Director at Spotify</span></div>
+                            <div class="text">Sed elit quam, iaculis sed semper sit amet udin vitae nibh. Rubino at
+                                magna
+                                akal semperFusce commodo molestie luctus.Lorem ipsum Dolor tusima olatiup.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial Block -->
+                    <div class="testimonial-block">
+                        <div class="inner-box">
+                            <div class="quote icofont-quote-right"></div>
+                            <div class="author">Kết nối <span>/ Director at Chobham Manor</span></div>
+                            <div class="text">Sed elit quam, iaculis sed semper sit amet udin vitae nibh. Rubino at
+                                magna
+                                akal semperFusce commodo molestie luctus.Lorem ipsum Dolor tusima olatiup.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial Block -->
+                    <div class="testimonial-block">
+                        <div class="inner-box">
+                            <div class="quote icofont-quote-right"></div>
+                            <div class="author">Tiếp cận <span>/ Director at Spotify</span></div>
+                            <div class="text">Sed elit quam, iaculis sed semper sit amet udin vitae nibh. Rubino at
+                                magna
+                                akal semperFusce commodo molestie luctus.Lorem ipsum Dolor tusima olatiup.
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- End Project Section -->
+
+    <!-- Reputation Section Two -->
+    <div class="reputation-section-two style-two">
+        <div class="auto-container">
+            <div class="row clearfix">
+
+                <!-- Form Column -->
+                <div class="form-column col-lg-5 col-md-12 col-sm-12">
+                    <div class="inner-column">
+                        <div class="form-boxed">
+                            <h5>free consulation</h5>
+
+                            <div class="consult-form">
+                                <?php $form = ActiveForm::begin([
+                                    'id' => 'request-form'
+                                ]) ?>
+
+                                <?= $form->field($contactForm, 'name')
+                                    ->textInput([
+                                        'class' => '',
+                                    ])->label(Yii::t('app', 'fullname')) ?>
+                                <?= $form->field($contactForm, 'type')
+                                    ->hiddenInput(['value' => 'contact'])->label(false) ?>
+
+                                <?= $form->field($contactForm, 'email')
+                                    ->textInput([
+                                        'class' => '',
+                                    ])->label('Email') ?>
+                                <?= $form->field($contactForm, 'phone')
+                                    ->textInput([
+                                        'class' => '',
+                                    ])->label(Yii::t('app', 'phone')) ?>
+                                <!--Form Group-->
+                                <?= $form->field($contactForm, 'message')
+                                    ->textarea([
+                                        'class' => '',
+                                    ])->label(Yii::t('app', 'message')) ?>
+                                <div class="form-group">
+                                    <button class="theme-btn btn-request-form btn-style-one" type="submit"
+                                            name="submit-form"><span
+                                                class="txt">
+                                        <?= Yii::t('app', 'submit_req') ?>
+                                    </span></button>
+                                </div>
+                                <?php ActiveForm::end(); ?>
+
+                            </div>
+                        </div>
+
                     </div>
                 </div>
 
                 <!-- Content Column -->
-                <div class="content-column col-lg-6 col-md-12 col-sm-12 mb-0">
-                    <div class="about-column">
+                <div class="content-column col-lg-7 col-md-12 col-sm-12">
+                    <div class="inner-column">
                         <div class="sec-title">
-                            <h2><?= Yii::t('app','mission')?></h2>
+                            <h2><?= Yii::t('app', 'schedule') ?></h2>
                         </div>
-                        <div class="text">
-                            <?= HelperFunction::setting('about_us') ?>
+                        <div class="blocks-outer">
+
+                            <!-- Reputation Block -->
+                            <?= HelperFunction::setting('about_us', true) ?>
+
                         </div>
-                        <div class="signature">CEO <span>Viet Au</span></div>
                     </div>
                 </div>
 
             </div>
         </div>
     </div>
-</div>
-<!-- End About Section -->
+    <!-- End Reputation Section -->
 
-<!-- Project Section -->
-<div class="testimonial-section style-two">
-    <div class="auto-container">
-        <div class="inner-container">
-
-            <!-- Sec Title -->
-            <div class="sec-title">
-                <h2><?= Yii::t('app','core_value')?></h2>
-            </div>
-            <div class="testimonial-carousel owl-carousel owl-theme">
-
-                <!-- Testimonial Block -->
-                <div class="testimonial-block">
-                    <div class="inner-box">
-                        <div class="quote icofont-quote-right"></div>
-                        <div class="author">Gắn kết<span></span></div>
-                        <div class="text">Sed elit quam, iaculis sed semper sit amet udin vitae nibh. Rubino at magna
-                            akal semperFusce commodo molestie luctus.Lorem ipsum Dolor tusima olatiup.
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Testimonial Block -->
-                <div class="testimonial-block">
-                    <div class="inner-box">
-                        <div class="quote icofont-quote-right"></div>
-                        <div class="author">Trách nhiệm <span>/ Director at Spotify</span></div>
-                        <div class="text">Sed elit quam, iaculis sed semper sit amet udin vitae nibh. Rubino at magna
-                            akal semperFusce commodo molestie luctus.Lorem ipsum Dolor tusima olatiup.
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Testimonial Block -->
-                <div class="testimonial-block">
-                    <div class="inner-box">
-                        <div class="quote icofont-quote-right"></div>
-                        <div class="author">Kết nối <span>/ Director at Chobham Manor</span></div>
-                        <div class="text">Sed elit quam, iaculis sed semper sit amet udin vitae nibh. Rubino at magna
-                            akal semperFusce commodo molestie luctus.Lorem ipsum Dolor tusima olatiup.
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Testimonial Block -->
-                <div class="testimonial-block">
-                    <div class="inner-box">
-                        <div class="quote icofont-quote-right"></div>
-                        <div class="author">Tiếp cận <span>/ Director at Spotify</span></div>
-                        <div class="text">Sed elit quam, iaculis sed semper sit amet udin vitae nibh. Rubino at magna
-                            akal semperFusce commodo molestie luctus.Lorem ipsum Dolor tusima olatiup.
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-    </div>
-</div>
-<!-- End Project Section -->
-
-<!-- Reputation Section Two -->
-<div class="reputation-section-two style-two">
-    <div class="auto-container">
-        <div class="row clearfix">
-
-            <!-- Form Column -->
-            <div class="form-column col-lg-5 col-md-12 col-sm-12">
-                <div class="inner-column">
-                    <div class="form-boxed">
-                        <h5>free consulation</h5>
-
-                        <div class="consult-form">
-                            <?php $form = ActiveForm::begin([
-                                'id' => 'request-form'
-                            ]) ?>
-
-                            <?= $form->field($contactForm, 'name')
-                                ->textInput([
-                                    'class' => '',
-                                ])->label(Yii::t('app', 'fullname')) ?>
-                            <?= $form->field($contactForm, 'type')
-                                ->hiddenInput(['value' => 'contact'])->label(false) ?>
-
-                            <?= $form->field($contactForm, 'email')
-                                ->textInput([
-                                    'class' => '',
-                                ])->label('Email') ?>
-                            <?= $form->field($contactForm, 'phone')
-                                ->textInput([
-                                    'class' => '',
-                                ])->label(Yii::t('app', 'phone')) ?>
-                            <!--Form Group-->
-                            <?= $form->field($contactForm, 'message')
-                                ->textarea([
-                                    'class' => '',
-                                ])->label(Yii::t('app', 'message')) ?>
-                            <div class="form-group">
-                                <button class="theme-btn btn-request-form btn-style-one" type="submit"
-                                        name="submit-form"><span
-                                            class="txt">
-                                        <?= Yii::t('app', 'submit_req') ?>
-                                    </span></button>
-                            </div>
-                            <?php ActiveForm::end(); ?>
-
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-            <!-- Content Column -->
-            <div class="content-column col-lg-7 col-md-12 col-sm-12">
-                <div class="inner-column">
-                    <div class="sec-title">
-                        <h2><?= Yii::t('app','schedule') ?></h2>
-                    </div>
-                    <div class="blocks-outer">
-
-                        <!-- Reputation Block -->
-                        <?= HelperFunction::setting('about_us',true) ?>
-
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</div>
-<!-- End Reputation Section -->
-
-<!-- Blog Section -->
+    <!-- Blog Section -->
 <?php if (isset($articles) && !empty($articles)) { ?>
     <div class="blog-section">
         <div class="auto-container">
             <!-- Sec Title -->
             <div class="sec-title centered">
-                <div class="title"><?= Yii::t('app','news')?></div>
-                <h2><?= Yii::t('app','international_market')?></h2>
+                <div class="title"><?= Yii::t('app', 'news') ?></div>
+                <h2><?= Yii::t('app', 'international_market') ?></h2>
             </div>
             <div class="inner-container">
                 <div class="row">
@@ -262,3 +266,4 @@ Yii::$app->params['footer_type'] = 'light';
         </div>
     </div>
 <?php } ?>
+<?= $this->render('../parts/logo') ?>
