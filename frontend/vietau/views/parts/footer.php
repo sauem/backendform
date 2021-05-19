@@ -30,15 +30,17 @@ if ($menu) {
                             <?= HelperFunction::setting('site_description') ?>
                         </div>
                         <div class="call">
-                            <a class="phone" href="tel:<?= HelperFunction::setting('hotline_1') ?>">
-                                <?= HelperFunction::setting('hotline_1') ?>
-                            </a>
-                            <a class="phone" href="tel:<?= HelperFunction::setting('hotline_2') ?>">
-                                <?= HelperFunction::setting('hotline_2') ?>
-                            </a>
-                            <a class="email" href="mailto:<?= HelperFunction::setting('email') ?>">
-                                <?= HelperFunction::setting('email') ?>
-                            </a>
+                            <p>
+                                <a href="tel:<?= HelperFunction::setting('hotline_1') ?>">
+                                    <span class="icofont-phone"></span> <?= HelperFunction::setting('hotline_1') ?>
+                                </a>
+                            </p>
+                            <p>
+                                <span class="icofont-location-pin"></span> <?= HelperFunction::setting('address_1', true) ?>
+                            </p>
+                            <p class="email" href="mailto:<?= HelperFunction::setting('email') ?>">
+                                <span class="icofont-email"></span> <?= HelperFunction::setting('email') ?>
+                            </p>
                         </div>
                     </div>
                 </div>

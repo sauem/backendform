@@ -16,7 +16,7 @@ class AppAsset extends AssetBundle
         '/vietau/css/bootstrap.min.css',
         '/vietau/css/main.css',
         '/vietau/css/responsive.css',
-        '/vietau/css/custom.css?v=1.5',
+        '/vietau/css/custom.css?v=1.6',
     ];
     public $js = [
         '//cdn.jsdelivr.net/npm/sweetalert2@10',

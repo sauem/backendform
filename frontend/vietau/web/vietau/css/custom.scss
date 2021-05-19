@@ -175,3 +175,12 @@ $red: #de2d2b;
 .main-menu .navigation > li > ul > li:hover > a::before {
   text-shadow: 8px 0 $default, -8px 0 $default;
 }
+
+.call {
+  p{
+    margin: 5px 0;
+    span{
+      font-size: 20px;
+    }
+  }
+}
