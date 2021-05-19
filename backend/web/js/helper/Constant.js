@@ -262,6 +262,7 @@ const customPages = (categories = []) => {
     domain = domain.replace('.', '');
     switch (domain) {
         case 'vietaucom':
+        case 'thangdevorg':
         case 'vietaulocal':
             return vietauStaticPage(categories);
         case 'usvnglobalsupplycom':
