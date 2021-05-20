@@ -14,7 +14,7 @@ class AppAsset extends AssetBundle
     public $css = [
         'https://fonts.googleapis.com/css2?family=Work+Sans:wght@100;200;300;400;500;600;700;800;900&amp;display=swap',
         '/vietau/css/bootstrap.min.css',
-        '/vietau/css/main.css',
+        '/vietau/css/main.css?v=1.2',
         '/vietau/css/responsive.css',
         '/vietau/css/custom.css?v=1.6',
     ];
