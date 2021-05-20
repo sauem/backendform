@@ -31,6 +31,13 @@ class Common extends Model
     public $event_desc;
     public $event_image;
     public $event_image_en;
+    public $facebook;
+    public $instagram;
+    public $twitter;
+    public $youtube;
+    public $linkedin;
+    public $schedule;
+    public $schedule_en;
 
     public static function tableName()
     {
@@ -44,9 +51,9 @@ class Common extends Model
                 'hotline_2', 'address_1', 'address_2',
                 'logo_header', 'logo_footer', 'site_description',
                 'address_1_en', 'site_name_en', 'site_description_en',
-                'address_2_en', 'event_desc_en', '$event_desc',
+                'address_2_en', 'event_desc_en', '$event_desc', 'schedule_en', 'schedule',
                 'favicon', 'map_iframe', 'fanpage_script', 'event_image', 'event_image_en',
-                'about_us', 'about_us_en', 'about_image'
+                'about_us', 'about_us_en', 'about_image', 'youtube', 'facebook', 'twitter', 'linkedin', 'instagram'
             ], 'string']
         ];
     }

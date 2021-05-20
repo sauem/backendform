@@ -143,8 +143,7 @@ Yii::$app->params['footer_type'] = 'light';
         <div class="auto-container">
             <!-- Sec Title -->
             <div class="sec-title centered">
-                <div class="title"><?= Yii::t('app', 'news') ?></div>
-                <h2><?= Yii::t('app', 'market_news') ?></h2>
+                <h2><?= Yii::t('app', 'news') ?></h2>
             </div>
             <div class="inner-container">
                 <div class="row">

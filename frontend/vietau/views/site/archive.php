@@ -9,7 +9,7 @@ Yii::$app->params['header_style'] = true;
 
 
 <?= $this->render('../parts/page-title', [
-    'title' => $this->title,
+    'title' => $model->archive->name,
     'description' => ''
 ]) ?>
 <div class="sidebar-page-container padding-top">

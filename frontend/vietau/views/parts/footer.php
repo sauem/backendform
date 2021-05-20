@@ -19,7 +19,7 @@ if ($menu) {
             <div class="row clearfix">
 
                 <!-- Column -->
-                <div class="big-column col-md-4">
+                <div class="big-column col-md-3">
                     <div class="footer-widget logo-widget">
                         <div class="logo">
                             <a href="/">
@@ -27,7 +27,7 @@ if ($menu) {
                                      alt="<?= HelperFunction::setting('site_name') ?>"/>
                             </a>
                             <br>
-                            <?= HelperFunction::setting('site_description') ?>
+                            <?= nl2br(HelperFunction::setting('site_description')) ?>
                         </div>
                         <div class="call">
                             <p>
@@ -52,7 +52,7 @@ if ($menu) {
                             foreach ($menuItems as $menuItem) {
                                 $childrens = ArrayHelper::getValue($menuItem, 'children');
                                 ?>
-                                <div class="col-md-4">
+                                <div class="col-md-6">
                                     <div class="footer-widget links-widget">
                                         <h5><?= $menuItem['title'] ?></h5>
                                         <ul class="list-link">
@@ -75,23 +75,11 @@ if ($menu) {
                         } ?>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <div class="footer-widget newsletter-widget">
                         <h5>Fanpage</h5>
                         <!-- Newsletter Form -->
-                        <div class="newsletter-form">
-                            <div class="fb-page" data-href="https://www.facebook.com/DEMO-1790822874558285" data-tabs=""
-                                 data-width="" data-height="" data-small-header="false"
-                                 data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
-                                <blockquote cite="https://www.facebook.com/DEMO-1790822874558285"
-                                            class="fb-xfbml-parse-ignore"><a
-                                            href="https://www.facebook.com/DEMO-1790822874558285">DEMO</a></blockquote>
-                            </div>
-                            <div id="fb-root"></div>
-                            <script async defer crossorigin="anonymous"
-                                    src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v10.0&appId=2069666556634206&autoLogAppEvents=1"
-                                    nonce="QdbvfnwA"></script>
-                        </div>
+                        <?= HelperFunction::setting('fanpage_script')?>
                     </div>
                 </div>
             </div>
@@ -111,10 +99,14 @@ if ($menu) {
 
                         <div class="col-lg-4 col-md-12 col-sm-12">
                             <ul class="social-nav">
-                                <li><a href="<?= HelperFunction::setting('twitter')?>" class="icofont-twitter"></a></li>
-                                <li><a href="<?= HelperFunction::setting('facebook')?>" class="icofont-facebook"></a></li>
-                                <li><a href="<?= HelperFunction::setting('instagram')?>" class="icofont-instagram"></a></li>
-                                <li><a href="<?= HelperFunction::setting('youtube')?>" class="icofont-play-alt-1"></a></li>
+                                <li><a href="<?= HelperFunction::setting('twitter') ?>" class="icofont-twitter"></a>
+                                </li>
+                                <li><a href="<?= HelperFunction::setting('facebook') ?>" class="icofont-facebook"></a>
+                                </li>
+                                <li><a href="<?= HelperFunction::setting('linkedin') ?>" class="icofont-linkedin"></a>
+                                </li>
+                                <li><a href="<?= HelperFunction::setting('youtube') ?>" class="icofont-play-alt-1"></a>
+                                </li>
                             </ul>
                         </div>
 

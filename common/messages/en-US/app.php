@@ -41,4 +41,7 @@ return [
     'who_we_are' => 'Who we are?',
     'market_news' => 'Market News',
     'event' => 'Events',
+    'home' => 'Home',
+    'members_list' => "Members list",
+    'organizational_structure' => 'Organizational structure'
 ];

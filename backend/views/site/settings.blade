@@ -121,6 +121,12 @@ use common\helper\HelperFunction;
                                         >
                                             <Input/>
                                         </Form.Item>
+                                        <Form.Item
+                                            label="Facebook"
+                                            name="facebook"
+                                        >
+                                            <Input/>
+                                        </Form.Item>
                                     </Col>
                                     <Col md={8}>
                                         <Form.Item
@@ -135,8 +141,18 @@ use common\helper\HelperFunction;
                                         >
                                             <Input/>
                                         </Form.Item>
-
-
+                                        <Form.Item
+                                            label="LinkedIn"
+                                            name="linkedin"
+                                        >
+                                            <Input/>
+                                        </Form.Item>
+                                        <Form.Item
+                                            label="Twitter"
+                                            name="twitter"
+                                        >
+                                            <Input/>
+                                        </Form.Item>
                                     </Col>
                                     <Col md={8}>
                                         <Form.Item
@@ -151,19 +167,31 @@ use common\helper\HelperFunction;
                                         >
                                             <Input/>
                                         </Form.Item>
+                                        <Form.Item
+                                            label="Instagram"
+                                            name="instagram"
+                                        >
+                                            <Input/>
+                                        </Form.Item>
+                                        <Form.Item
+                                            label="Youtube"
+                                            name="youtube"
+                                        >
+                                            <Input/>
+                                        </Form.Item>
                                     </Col>
                                     <Col md={24}>
                                         <Form.Item
                                             label="Site description (vi)"
                                             name="site_description"
                                         >
-                                            <Input/>
+                                            <Input.TextArea/>
                                         </Form.Item>
                                         <Form.Item
                                             label="Site description (en)"
                                             name="site_description_en"
                                         >
-                                            <Input/>
+                                            <Input.TextArea/>
                                         </Form.Item>
                                         <Form.Item
                                             label="About us (vi)"
@@ -190,6 +218,24 @@ use common\helper\HelperFunction;
                                             <Input.TextArea rows={8}/>
                                         </Form.Item>
                                         <Form.Item
+                                            label="Lịch hoạt động (vi)"
+                                            name="schedule"
+                                        >
+                                            <Input.TextArea rows={8}/>
+                                        </Form.Item>
+                                        <Form.Item
+                                            label="Lịch hoạt động (en)"
+                                            name="schedule_en"
+                                        >
+                                            <Input.TextArea rows={8}/>
+                                        </Form.Item>
+                                        <Form.Item
+                                            label="Event description (en)"
+                                            name="event_desc_en"
+                                        >
+                                            <Input.TextArea rows={8}/>
+                                        </Form.Item>
+                                        <Form.Item
                                             label="Map iframe"
                                             name="map_iframe"
                                         >
@@ -199,7 +245,7 @@ use common\helper\HelperFunction;
                                             label="Fanpage script"
                                             name="fanpage_script"
                                         >
-                                            <Input.TextArea/>
+                                            <Input.TextArea rows={8}/>
                                         </Form.Item>
                                     </Col>
                                 </Row>

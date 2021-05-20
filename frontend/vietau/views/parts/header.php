@@ -40,7 +40,7 @@ if ($menu) {
                         <li class="share">Our Social</li>
                         <li><a href="<?= HelperFunction::setting('twitter')?>" class="icofont-twitter"></a></li>
                         <li><a href="<?= HelperFunction::setting('facebook')?>" class="icofont-facebook"></a></li>
-                        <li><a href="<?= HelperFunction::setting('instagram')?>" class="icofont-instagram"></a></li>
+                        <li><a href="<?= HelperFunction::setting('linkedin')?>" class="icofont-linkedin"></a></li>
                         <li><a href="<?= HelperFunction::setting('youtube')?>" class="icofont-play-alt-1"></a></li>
                     </ul>
                 </div>

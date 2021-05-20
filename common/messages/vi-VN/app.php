@@ -37,8 +37,11 @@ return [
     'mission' => 'Sứ mệnh',
     'core_value' => 'Giá trị cốt lõi',
     'international_market' => 'Thị trường quốc tế',
-    'schedule' => 'Lịch hoạt động chi hội',
+    'schedule' => 'Lịch hoạt động',
     'who_we_are' => 'Chúng tôi là ai?',
     'market_news' => 'Tin tức thị trường',
     'event' => 'Sự kiện',
+    'home' => 'Trang chủ',
+    'members_list' => 'Danh sách thành viên',
+    'organizational_structure' => 'Cơ cấu tổ chức'
 ];
