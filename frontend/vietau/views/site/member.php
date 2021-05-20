@@ -1,7 +1,10 @@
 <?php
 Yii::$app->params['header_style'] = true;
 ?>
-
+<?= $this->render('../parts/page-title', [
+    'title' => Yii::t('app', 'members_list'),
+    'description' => ''
+]) ?>
 <div class="experts-section">
     <div class="auto-container">
 
@@ -9,7 +12,7 @@ Yii::$app->params['header_style'] = true;
         <div class="sec-title">
             <div class="clearfix">
                 <div class="pull-left">
-                    <h2><?= Yii::t('app','organizational_structure')?></span></h2>
+                    <h2><?= Yii::t('app', 'organizational_structure') ?></span></h2>
                 </div>
             </div>
         </div>
@@ -53,7 +56,7 @@ Yii::$app->params['header_style'] = true;
         <div class="sec-title">
             <div class="clearfix">
                 <div class="pull-left">
-                    <h2><?= Yii::t('app','members_list')?></span></h2>
+                    <h2><?= Yii::t('app', 'members_list') ?></span></h2>
                 </div>
             </div>
         </div>
@@ -97,7 +100,7 @@ Yii::$app->params['header_style'] = true;
         <div class="sec-title">
             <div class="clearfix">
                 <div class="pull-left">
-                    <h2><?= Yii::t('app','product')?></span></h2>
+                    <h2><?= Yii::t('app', 'product') ?></span></h2>
                 </div>
             </div>
         </div>
