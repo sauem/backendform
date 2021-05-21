@@ -53,7 +53,7 @@ $this->params['header_type'] = 'light';
                                         </div>
                                         <div class="lower-content">
                                             <div class="title">
-                                                <?= $relatedProduct->archive->name ?>
+                                                <?= $relatedProduct->defaultArchive->name ?>
                                             </div>
                                             <h4>
                                                 <a href="<?= HelperFunction::Link(PRODUCT, $relatedProduct->slug, $relatedProduct->defaultArchive->slug) ?>">
