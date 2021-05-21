@@ -318,7 +318,7 @@ class SiteController extends BaseController
         $relatedProducts = Products::find()
             ->innerJoin('products_archive', 'products_archive.product_id = products.id')
             ->innerJoin('archives', 'archives.id = products_archive.archive_id')
-            ->where(['archives.id' => $model->firstArchive->archive->id])
+            ->where(['archives.id' => $model->defaultArchive->id])
             ->andFilterWhere(['products.language' => HelperFunction::getLanguage()])
             ->andFilterWhere(['<>', 'products.id', $model->id])
             ->orderBy('products.created_at DESC')
