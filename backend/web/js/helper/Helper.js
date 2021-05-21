@@ -112,7 +112,7 @@ function initTinymce(callback) {
 
     tinymce.init({
         selector: 'textarea.editor',
-        plugins: 'print preview powerpaste casechange importcss tinydrive searchreplace autolink autosave save directionality advcode visualblocks visualchars fullscreen image link media mediaembed template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists checklist wordcount tinymcespellchecker a11ychecker imagetools textpattern noneditable help formatpainter permanentpen pageembed charmap mentions quickbars linkchecker emoticons advtable',
+        plugins: 'print preview importcss tinydrive searchreplace autolink autosave save directionality  visualblocks visualchars fullscreen image link media template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists  wordcount imagetools textpattern noneditable help charmap quickbars emoticons',
         tinydrive_token_provider: (success, failure) => {
             return fetch('/jwt', {
                 method: 'GET',
