@@ -5,15 +5,10 @@ use common\helper\HelperFunction;
 $this->title = $model->name;
 Yii::$app->params['header_style'] = true;
 ?>
-<div class="page-title-section style-two">
-    <div class="auto-container">
-        <ul class="post-meta">
-            <li><a href="/"><? Yii::t('app','home')?></a></li>
-            <li><?= $model->archive->name?></li>
-        </ul>
-        <h2><?= $model->name ?></h2>
-    </div>
-</div>
+<?= $this->render('../parts/page-title', [
+    'title' => $model->archive->name,
+    'description' => ''
+]) ?>
 <!-- End Page Title Section -->
 
 <!--Sidebar Page Container-->
@@ -29,6 +24,7 @@ Yii::$app->params['header_style'] = true;
                             <img src="<?= $model->avatar ?>" alt="<?= $model->name ?>"/>
                         </div>
                         <div class="lower-content">
+                            <h2><?= $model->name ?></h2>
                             <div class="post-info"><span><?= date('d/m/Y', $model->created_at) ?></span></div>
                             <?= $model->content ?>
 
