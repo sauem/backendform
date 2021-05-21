@@ -3,18 +3,15 @@
 use common\helper\HelperFunction;
 
 $this->title = $model->name;
-$this->params['header_type'] = 'light';
+
+Yii::$app->params['header_style'] = true;
 ?>
 
-<div class="page-title-section style-two">
-    <div class="auto-container">
-        <ul class="post-meta">
-            <li><a href="/"><? Yii::t('app', 'home') ?></a></li>
-            <li><?= $model->defaultArchive->name ?></li>
-        </ul>
-        <h2><?= $model->name ?></h2>
-    </div>
-</div>
+
+<?= $this->render('../parts/page-title', [
+    'title' => $model->defaultArchive->name,
+    'description' => ''
+]) ?>
 <div class="sidebar-page-container padding-top style-two">
     <div class="auto-container">
         <div class="row clearfix">
