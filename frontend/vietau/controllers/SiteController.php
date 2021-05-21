@@ -412,7 +412,7 @@ class SiteController extends BaseController
         ])->orderBy('created_at ASC')
             ->limit(12)
             ->all();
-        return $this->render('member', [
+        return $this->render('partner', [
             'partners' => $partners,
             'products' => $products
         ]);
