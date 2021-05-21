@@ -37,7 +37,7 @@ Yii::$app->params['footer_type'] = 'light';
                             <h2><?= Yii::t('app', 'who_we_are') ?></h2>
                         </div>
                         <div class="text">
-                            <p><?= HelperFunction::setting('about_us', true) ?></p>
+                            <p><?= nl2br(HelperFunction::setting('about_us', true)) ?></p>
                         </div>
                     </div>
                 </div>
@@ -55,7 +55,7 @@ Yii::$app->params['footer_type'] = 'light';
                     <h2><?= Yii::t('app', 'event') ?></h2>
                 </div>
                 <div class="blocks-outer">
-                    <p><?= HelperFunction::setting('event_desc', true) ?></p>
+                    <p><?= nl2br(HelperFunction::setting('event_desc', true)) ?></p>
                     <!-- Reputation Block -->
                 </div>
             </div>
@@ -126,7 +126,7 @@ Yii::$app->params['footer_type'] = 'light';
                     </div>
                     <div class="blocks-outer">
                         <!-- Reputation Block -->
-                        <?= HelperFunction::setting('schedule', true) ?>
+                        <?= nl2br(HelperFunction::setting('schedule', true)) ?>
 
                     </div>
                 </div>
