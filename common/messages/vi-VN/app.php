@@ -43,6 +43,8 @@ return [
     'event' => 'Sự kiện',
     'home' => 'Trang chủ',
     'partners' => 'Đối tác',
+    'related_post' => 'Bài viết liên quan',
+    'hot_new' => 'Tin mới',
     'members_list' => 'Danh sách thành viên',
     'organizational_structure' => 'Cơ cấu tổ chức'
 ];
