@@ -13,7 +13,7 @@ use common\helper\HelperFunction;
             </div>
             <form method="post" action="#">
                 <div class="form-group">
-                    <input type="search" name="search-field" value="" placeholder="Tên bài viết..." required>
+                    <input type="search" name="search-field" value="" placeholder="Search blog..." required>
                     <button type="submit"><span class="icon fa fa-search"></span></button>
                 </div>
             </form>

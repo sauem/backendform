@@ -400,6 +400,7 @@ class SiteController extends BaseController
             'products' => $products
         ]);
     }
+
     public function actionPartner()
     {
 

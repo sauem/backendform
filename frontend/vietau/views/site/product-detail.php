@@ -6,95 +6,77 @@ $this->title = $model->name;
 $this->params['header_type'] = 'light';
 ?>
 
+<div class="page-title-section style-two">
+    <div class="auto-container">
+        <ul class="post-meta">
+            <li><a href="/"><? Yii::t('app', 'home') ?></a></li>
+            <li><?= $model->defaultArchive->name ?></li>
+        </ul>
+        <h2><?= $model->name ?></h2>
+    </div>
+</div>
+<div class="sidebar-page-container padding-top style-two">
+    <div class="auto-container">
+        <div class="row clearfix">
 
-<section class="page-title page-title-layout15 text-center">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-12">
-                <nav>
-                    <ol class="breadcrumb justify-content-center mb-0">
-                        <li class="breadcrumb-item"><a href="/">Home</a></li>
-                        <li class="breadcrumb-item"><a href="<?= PRODUCT_AND_BRIEF ?>">product</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">
-                            <?= $model->name ?>
-                        </li>
-                    </ol>
-                </nav>
-            </div><!-- /.col-xl-6 -->
-        </div><!-- /.row -->
-    </div><!-- /.container -->
-</section>
-<section class="blog blog-single pt-0 pb-70">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12 col-md-12 col-lg-8">
-                <div class="post-item mb-0">
-                    <div class="post__img">
-                        <a href="#">
-                            <img src="/usvn/images/blog/single/1.jpg" alt="blog image">
-                        </a>
-                    </div><!-- /.post-img -->
-                    <div class="post__content">
-                        <div class="post__meta d-inline-flex flex-wrap align-items-center mb-0">
-                            <span class="post__meta-date">
-                              <i class="icon-calendar-new"></i>  <?= date('d/m/Y', $model->created_at) ?>
-                            </span>
+            <!-- Content Side -->
+            <div class="content-side col-lg-9 col-md-12 col-sm-12">
+                <div class="blog-detail">
+                    <div class="inner-box">
+                        <div class="image">
+                            <img src="<?= $model->avatar ?>" alt="<?= $model->name ?>"/>
                         </div>
-                        <h1 class="post__title">
-                            <?= $model->name ?>
-                        </h1>
-                        <div class="post__desc">
+                        <div class="lower-content">
+                            <div class="post-info"><span><?= date('d/m/Y', $model->created_at) ?></span></div>
                             <?= $model->content ?>
+
                         </div>
-                        <a href="/<?= PRODUCT_AND_BRIEF ?>" class="btn btn__secondary btn__bordered btn__icon">
-                            <span><?= Yii::t('app', 'product_and_brief') ?></span>
-                            <i class="icon-arrow-right"></i>
-                        </a>
                     </div>
                 </div>
-                <hr>
-                <div class="widget-nav d-flex justify-content-between mb-40">
-                    <?php if ($prevProduct) {
-                        ?>
-                        <a href="<?= HelperFunction::Link(PRODUCT, $prevProduct->slug) ?>"
-                           class="widget-nav__prev d-flex flex-wrap">
-                            <div class="widget-nav__img">
-                                <div class="widget-nav__overlay"></div>
-                                <img src="<?= $prevProduct->avatar ?>" alt="<?= $prevProduct->name ?>">
-                            </div>
-                            <div class="widget-nav__content">
-                                <span><?= Yii::t('app', 'prev',['type'  => 'Sản phẩm']) ?></span>
-                                <h5 class="fz-16 mb-0 text-2">
-                                    <?= $prevProduct->name ?>
-                                </h5>
-                            </div>
-                        </a>
-                        <?php
-                    } ?>
-                    <?php if ($nextProduct) {
-                        ?>
-                        <a href="<?= HelperFunction::Link(PRODUCT, $nextProduct->slug) ?>"
-                           class="widget-nav__next d-flex flex-wrap">
-                            <div class="widget-nav__img">
-                                <div class="widget-nav__overlay"></div>
-                                <img src="<?= $nextProduct->avatar ?>" alt="<?= $nextProduct->name ?>">
-                            </div>
-                            <div class="widget-nav__content">
-                                <span><?= Yii::t('app', 'next', ['type' => Yii::t('app', 'product')]) ?></span>
-                                <h5 class="fz-16 mb-0 text-2">
-                                    <?= $nextProduct->name ?>
-                                </h5>
-                            </div>
-                        </a>
-                    <?php } ?>
-                </div>
+                <?php if (!empty($relatedProducts)) { ?>
+                    <!-- Related Projects -->
+                    <div class="related-projects">
+                        <div class="title-box">
+                            <h3><?= Yii::t('app','recent_product')?></h3>
+                        </div>
+                        <div class="row clearfix">
+                            <?php foreach ($relatedProducts as $k => $relatedProduct) {
+                                if ($k == 2) {
+                                    break;
+                                } ?>
+                                <div class="news-block-four col-lg-6 col-md-6 col-sm-12">
+                                    <div class="inner-box">
+                                        <div class="image">
+                                            <a href="<?= HelperFunction::Link(PRODUCT, $relatedProduct->slug, $relatedProduct->defaultArchive->slug) ?>">
+                                                <img src="<?= $relatedProduct->avatar ?>" alt=""/>
+                                            </a>
+                                        </div>
+                                        <div class="lower-content">
+                                            <div class="title">
+                                                <?= $relatedProduct->archive->name ?>
+                                            </div>
+                                            <h4>
+                                                <a href="<?= HelperFunction::Link(PRODUCT, $relatedProduct->slug, $relatedProduct->defaultArchive->slug) ?>">
+                                                    <?= $relatedProduct->name ?>
+                                                </a>
+                                            </h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            <?php } ?>
+
+                        </div>
+                    </div>
+                <?php } ?>
+
             </div>
-            <div class="col-sm-12 col-md-12 col-lg-4">
-                <?= $this->render('../parts/sidebar-product', [
-                    'categories' => $categories,
-                    'relatedProducts' => $relatedProducts
-                ]) ?>
-            </div>
+
+            <?= $this->render('../parts/sidebar-product', [
+                'categories' => $categories,
+                'relatedPosts' => $relatedProducts
+            ]) ?>
+
         </div>
     </div>
-</section>
+    <hr>
+</div>

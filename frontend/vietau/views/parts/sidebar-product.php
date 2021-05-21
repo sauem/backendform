@@ -8,7 +8,7 @@ use common\helper\HelperFunction;
         <h5 class="widget__title"><?= Yii::t('app', 'search') ?></h5>
         <div class="widget__content">
             <form class="widget__form-search">
-                <input type="text" class="form-control" placeholder="Search...">
+                <input type="text" class="form-control" placeholder="Search product...">
                 <button class="btn" type="submit"><i class="icon-search"></i></button>
             </form>
         </div><!-- /.widget-content -->
