@@ -68,7 +68,7 @@ Yii::$app->params['footer_type'] = 'light';
     </div>
 </div>
 <!-- Reputation Section Two -->
-<div class="reputation-section-two style-two">
+<div class="reputation-section-two py-4 style-two">
     <div class="auto-container">
         <div class="row clearfix">
 
@@ -139,7 +139,7 @@ Yii::$app->params['footer_type'] = 'light';
 
 <!-- Blog Section -->
 <?php if (isset($articles) && !empty($articles)) { ?>
-    <div class="blog-section">
+    <div class="blog-section py-5">
         <div class="auto-container">
             <!-- Sec Title -->
             <div class="sec-title centered">
