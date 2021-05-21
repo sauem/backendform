@@ -3,72 +3,63 @@
 use common\helper\HelperFunction;
 
 ?>
-<aside class="sidebar">
-    <div class="widget widget-search">
-        <h5 class="widget__title"><?= Yii::t('app', 'search') ?></h5>
-        <div class="widget__content">
-            <form class="widget__form-search">
-                <input type="text" class="form-control" placeholder="Search product...">
-                <button class="btn" type="submit"><i class="icon-search"></i></button>
-            </form>
-        </div><!-- /.widget-content -->
-    </div><!-- /.widget-search -->
-    <?php if (isset($relatedProducts) && !empty($relatedProducts)) {
-        ?>
-        <div class="widget widget-posts">
-            <h5 class="widget__title"><?= Yii::t('app', 'recent_product') ?></h5>
-            <div class="widget__content">
-                <?php foreach ($relatedProducts as $product) {
-                    ?>
-                    <div class="widget-post-item d-flex align-items-center">
-                        <div class="widget-post__img">
-                            <a href="<?= HelperFunction::Link(PRODUCT, $product->slug, HelperFunction::fistArchive($product)) ?>">
-                                <img src="<?= $product->avatar ?>" alt="<?= $product->name ?>">
-                            </a>
-                        </div><!-- /.widget-post-img -->
-                        <div class="widget-post__content">
-                            <h4 class="widget-post__title text-2">
-                                <a href="<?= HelperFunction::Link(PRODUCT, $product->slug, HelperFunction::fistArchive($product)) ?>">
-                                    <?= $product->name ?>
-                                </a>
-                            </h4>
-                            <span class="widget-post__date">
-                                <?= date('d/m/Y', $product->created_at) ?>
-                            </span>
-                        </div><!-- /.widget-post-content -->
-                    </div>
-                    <?php
-                } ?>
+<div class="sidebar-side col-lg-3 col-md-12 col-sm-12">
+    <aside class="sidebar sticky-top margin-left">
+
+        <!-- Search -->
+        <div class="sidebar-widget search-box">
+            <div class="sidebar-title">
+                <h4><?= Yii::t('app', 'search') ?></h4>
             </div>
+            <form method="post" action="#">
+                <div class="form-group">
+                    <input type="search" name="search-field" value="" placeholder="Search..." required>
+                    <button type="submit"><span class="icon fa fa-search"></span></button>
+                </div>
+            </form>
         </div>
-        <?php
-    } ?>
-    <?php if (isset($categories) && !empty($categories)) { ?>
-        <div class="widget widget-categories">
-            <h5 class="widget__title"><?= Yii::t('app', 'category') ?></h5>
-            <div class="widget-content">
-                <ul class="list-unstyled">
+        <?php if (isset($categories) && !empty($categories)) { ?>
+            <!--Category Blog-->
+            <div class="sidebar-widget categories-blog">
+                <div class="sidebar-title">
+                    <h4><?= Yii::t('app', 'category') ?></h4>
+                </div>
+                <ul>
                     <?php foreach ($categories as $category) { ?>
                         <li>
                             <a href="<?= HelperFunction::Link(ARCHIVE, $category->slug) ?>">
-                                <span><?= $category->name ?></span>
+                                <?= $category->name ?>
                             </a>
                         </li>
                     <?php } ?>
                 </ul>
-            </div><!-- /.widget-content -->
-        </div>
-    <?php } ?>
-    <!--    <div class="widget widget-tags">-->
-    <!--        <h5 class="widget__title">Tags</h5>-->
-    <!--        <div class="widget-content">-->
-    <!--            <ul class="list-unstyled d-flex flex-wrap">-->
-    <!--                <li><a href="#">Insights</a></li>-->
-    <!--                <li><a href="#">Industry</a></li>-->
-    <!--                <li><a href="#">Modern</a></li>-->
-    <!--                <li><a href="#">Corporate</a></li>-->
-    <!--                <li><a href="#">Business</a></li>-->
-    <!--            </ul>-->
-    <!--        </div>-->
-    <!--    </div>-->
-</aside>
+            </div>
+        <?php } ?>
+        <?php if (!empty($relatedPosts)) { ?>
+            <!-- Popular Posts -->
+            <div class="sidebar-widget popular-posts">
+                <div class="sidebar-title">
+                    <h4><?= Yii::t('app', 'hot_new') ?></h4>
+                </div>
+                <div class="widget-content">
+                    <?php foreach ($relatedPosts as $relatedPost) { ?>
+                        <div class="post">
+                            <figure class="post-thumb">
+                                <a href="<?= HelperFunction::Link(BLOG, $relatedPost->slug, $relatedPost->archive->slug) ?>">
+                                    <img height="55" src="<?= $relatedPost->avatar ?>"
+                                         alt="<?= $relatedPost->name ?>">
+                                </a>
+                            </figure>
+                            <div class="text">
+                                <a class="text-2"
+                                   href="<?= HelperFunction::Link(BLOG, $relatedPost->slug, $relatedPost->archive->slug) ?>">
+                                    <?= $relatedPost->name ?>
+                                </a>
+                            </div>
+                        </div>
+                    <?php } ?>
+                </div>
+            </div>
+        <?php } ?>
+    </aside>
+</div>

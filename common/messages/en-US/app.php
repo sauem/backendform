@@ -43,6 +43,8 @@ return [
     'event' => 'Events',
     'home' => 'Home',
     'partners' => 'Partners',
+    'related_post' => 'Related posts',
+    'hot_new' => 'Hot news',
     'members_list' => "Members list",
     'organizational_structure' => 'Organizational structure'
 ];

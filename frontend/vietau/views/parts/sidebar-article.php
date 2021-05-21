@@ -9,7 +9,7 @@ use common\helper\HelperFunction;
         <!-- Search -->
         <div class="sidebar-widget search-box">
             <div class="sidebar-title">
-                <h4>Tìm kiếm</h4>
+                <h4><?= Yii::t('app', 'search') ?></h4>
             </div>
             <form method="post" action="#">
                 <div class="form-group">
@@ -22,7 +22,7 @@ use common\helper\HelperFunction;
             <!--Category Blog-->
             <div class="sidebar-widget categories-blog">
                 <div class="sidebar-title">
-                    <h4>Danh mục</h4>
+                    <h4><?= Yii::t('app', 'category') ?></h4>
                 </div>
                 <ul>
                     <?php foreach ($categories as $category) { ?>
@@ -39,7 +39,7 @@ use common\helper\HelperFunction;
             <!-- Popular Posts -->
             <div class="sidebar-widget popular-posts">
                 <div class="sidebar-title">
-                    <h4>Bài viết liên quan</h4>
+                    <h4><?= Yii::t('app', 'related_post') ?></h4>
                 </div>
                 <div class="widget-content">
                     <?php foreach ($relatedPosts

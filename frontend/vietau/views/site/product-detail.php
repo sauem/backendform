@@ -20,7 +20,7 @@ $this->params['header_type'] = 'light';
         <div class="row clearfix">
 
             <!-- Content Side -->
-            <div class="content-side col-lg-9 col-md-12 col-sm-12">
+            <div class="content-side col-md-9 col-sm-12">
                 <div class="blog-detail">
                     <div class="inner-box">
                         <div class="image">
@@ -73,7 +73,7 @@ $this->params['header_type'] = 'light';
 
             <?= $this->render('../parts/sidebar-product', [
                 'categories' => $categories,
-                'relatedPosts' => $relatedProducts
+                'relatedPosts' => $relatedPosts
             ]) ?>
 
         </div>

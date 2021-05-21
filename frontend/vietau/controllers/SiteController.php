@@ -323,12 +323,18 @@ class SiteController extends BaseController
             ->andFilterWhere(['<>', 'products.id', $model->id])
             ->orderBy('products.created_at DESC')
             ->limit(4)->all();
+
+        $relatedPosts = Articles::find()->filterWhere(['language' => HelperFunction::getLanguage()])
+            ->andFilterWhere(['<>', 'id', $model->id])
+            ->orderBy('created_at DESC')
+            ->limit(6)->all();
         return $this->render('product-detail', [
             'model' => $model,
             'categories' => $categories,
             'nextProduct' => $nextProduct,
             'prevProduct' => $prevProduct,
-            'relatedProducts' => $relatedProducts
+            'relatedProducts' => $relatedProducts,
+            'relatedPosts' => $relatedPosts
         ]);
     }
 
