@@ -12,7 +12,7 @@ Yii::$app->params['header_style'] = true;
     'title' => $model->name,
     'description' => ''
 ]) ?>
-<div class="sidebar-page-container padding-top">
+<div class="sidebar-page-container pt-5">
     <div class="auto-container">
         <div class="row clearfix">
 
