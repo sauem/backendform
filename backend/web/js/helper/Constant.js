@@ -252,6 +252,13 @@ const vietauStaticPage = (categories = []) => {
             value: 'contact',
             slug: 'contact'
         },
+        {
+            title: 'Đối tác',
+            key: categories.length + 9995,
+            type: 'page',
+            value: 'partner',
+            slug: 'partner'
+        },
     ];
 }
 
