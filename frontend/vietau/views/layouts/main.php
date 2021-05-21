@@ -52,9 +52,9 @@ AppAsset::register($this);
     <div class="search-popup">
         <button class="close-search style-two"><span class="icofont-brand-nexus"></span></button>
         <button class="close-search"><span class="icofont-arrow-up"></span></button>
-        <form method="post" action="https://htmldemo.hasthemes.com/consultix/consultix/blog.html">
+        <form method="GET" action="/<?= SEARCH?>">
             <div class="form-group">
-                <input type="search" name="search-field" value="" placeholder="Search Here" required="">
+                <input type="search" name="s" value="" placeholder="Search Here" required="">
                 <button type="submit"><i class="fa fa-search"></i></button>
             </div>
         </form>

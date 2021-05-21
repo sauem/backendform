@@ -3,27 +3,18 @@
 use yii\helpers\ArrayHelper;
 use common\helper\HelperFunction;
 
-$archives = $model->archives;
-$firstArchive = array_shift($archives);
-$firstArchive = $firstArchive->archive->slug;
 ?>
-<div class="portfolio-item">
-    <div class="portfolio__img">
-        <img src="<?= $model->avatar ?>" alt="<?= $model->name ?>">
-    </div>
-    <div class="portfolio__content">
-        <h4 class="portfolio__title text-2">
-            <a href="<?= HelperFunction::Link(PRODUCT, $model->slug, $firstArchive) ?>">
-                <?= $model->name ?>
+<div class="news-block-three">
+    <div class="inner-box">
+        <div class="image">
+            <a href="<?= HelperFunction::Link(BLOG, $model->slug, $model->defaultArchive->slug) ?>">
+                <img src="<?= $model->avatar ?>" alt="<?= $model->name ?>">
             </a>
-        </h4>
-        <p class="portfolio__desc text-3">
-            <?= $model->excerpt ?>
-        </p>
-        <a href="<?= HelperFunction::Link(PRODUCT, $model->slug, $firstArchive) ?>"
-           class="btn btn__secondary btn__link">
-            <span><?= Yii::t('app', 'detail') ?></span>
-            <i class="icon-arrow-right"></i>
-        </a>
+        </div>
+        <div class="title"><?= $model->defaultArchive->name ?></div>
+        <h4><a href="<?= HelperFunction::Link(BLOG, $model->slug, $model->defaultArchive->slug) ?>">
+                <?= $model->name ?>
+            </a></h4>
+        <div class="post-date"><?= date('d/m/Y', $model->created_at) ?></div>
     </div>
 </div>

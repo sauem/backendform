@@ -44,7 +44,9 @@ return [
     'home' => 'Home',
     'partners' => 'Partners',
     'related_post' => 'Related posts',
+    'post' => 'Blog posts',
     'hot_new' => 'Hot news',
     'members_list' => "Members list",
-    'organizational_structure' => 'Organizational structure'
+    'organizational_structure' => 'Organizational structure',
+    'search_for' => 'search for: ',
 ];

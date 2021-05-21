@@ -28,6 +28,7 @@ use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
 use yii\web\NotFoundHttpException;
+use yii\web\Request;
 use yii\web\Response;
 
 /**
@@ -422,6 +423,37 @@ class SiteController extends BaseController
         return $this->render('partner', [
             'partners' => $partners,
             'products' => $products
+        ]);
+    }
+
+    public function actionSearch()
+    {
+        $key = Yii::$app->request->get('s');
+        $categories = Archives::find()
+            ->filterWhere(['language' => HelperFunction::getLanguage()])
+            ->andFilterWhere(['IS', 'parent_id', new Expression('NULL')])
+            ->all();
+        $productSearch = new ProductsSearch();
+        $productProvider = $productSearch->search([
+            'ProductsSearch' => [
+                'name' => $key
+            ]
+        ]);
+
+        $articleSearch = new ArticlesSearch();
+        $articleProvider = $articleSearch->search([
+            'ArticlesSearch' => [
+                'name' => $key
+            ]
+        ]);
+        $relatedPosts = Articles::find()->filterWhere(['language' => HelperFunction::getLanguage()])
+            ->orderBy('created_at DESC')
+            ->limit(6)->all();
+        return $this->render('search', [
+            'categories' => $categories,
+            'productProvider' => $productProvider,
+            'articleProvider' => $articleProvider,
+            'relatedPosts' => $relatedPosts
         ]);
     }
 }

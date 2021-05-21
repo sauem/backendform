@@ -11,9 +11,9 @@ use common\helper\HelperFunction;
             <div class="sidebar-title">
                 <h4><?= Yii::t('app', 'search') ?></h4>
             </div>
-            <form method="post" action="#">
+            <form method="GET" action="/<?= SEARCH ?>">
                 <div class="form-group">
-                    <input type="search" name="search-field" value="" placeholder="Search blog..." required>
+                    <input type="search" name="s" value="" placeholder="Search..." required>
                     <button type="submit"><span class="icon fa fa-search"></span></button>
                 </div>
             </form>
