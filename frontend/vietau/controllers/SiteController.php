@@ -400,5 +400,21 @@ class SiteController extends BaseController
             'products' => $products
         ]);
     }
+    public function actionPartner()
+    {
 
+        $partners = Member::find()
+            ->where(['type' => 'partner'])
+            ->all();
+
+        $products = Products::find()->where([
+            'language' => HelperFunction::getLanguage()
+        ])->orderBy('created_at ASC')
+            ->limit(12)
+            ->all();
+        return $this->render('member', [
+            'partners' => $partners,
+            'products' => $products
+        ]);
+    }
 }

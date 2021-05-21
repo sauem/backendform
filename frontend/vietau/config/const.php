@@ -9,4 +9,5 @@ define('PRODUCT', 'product');
 define('CONTACT', 'contact');
 define('PRODUCT_AND_BRIEF', 'product-and-brief');
 define('OUR_TEAM', 'our-team');
+define('PARTNER', 'partner');
 
