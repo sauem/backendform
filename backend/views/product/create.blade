@@ -14,6 +14,7 @@
             const [defaultFileList, setDefaultFileList] = useState([]);
             const [progress, setProgress] = useState(0);
             const onSubmit = async (data) => {
+                console.log('DÂT', data);
                 if (typeof data.id == "undefined") {
                     await Products.create(data);
                 } else {
@@ -152,8 +153,8 @@
                                         rules={[{required: true, message: 'Tên sản phẩm bắt buộc!'}]}
                                     >
                                         <Input/>
-                                        <small>Tối đa 255 kí tự</small>
                                     </Form.Item>
+
                                     <Form.Item
                                         label="Slug"
                                         name={`slug`}

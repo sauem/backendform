@@ -16,6 +16,11 @@ return [
             'database' => 'usvn',
             'username' => 'sauem',
             'password' => '123',
+        ],
+        'brouchurelocal' => [
+            'database' => 'usvn',
+            'username' => 'sauem',
+            'password' => '123',
         ]
     ]
 ];

@@ -383,9 +383,21 @@ class SiteController extends BaseController
 
     public function actionOurTeam()
     {
-        $members = Member::find()->all();
+        $members = Member::find()
+            ->where(['type' => 'member'])
+            ->all();
+        $bods = Member::find()
+            ->where(['type' => 'bod'])
+            ->all();
+        $products = Products::find()->where([
+            'language' => HelperFunction::getLanguage()
+        ])->orderBy('created_at ASC')
+            ->limit(12)
+            ->all();
         return $this->render('member', [
-            'members' => $members
+            'members' => $members,
+            'bods' => $bods,
+            'products' => $products
         ]);
     }
 

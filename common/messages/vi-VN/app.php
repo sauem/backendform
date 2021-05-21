@@ -42,6 +42,7 @@ return [
     'market_news' => 'Tin tức thị trường',
     'event' => 'Sự kiện',
     'home' => 'Trang chủ',
+    'partners' => 'Đối tác',
     'members_list' => 'Danh sách thành viên',
     'organizational_structure' => 'Cơ cấu tổ chức'
 ];

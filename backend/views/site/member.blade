@@ -126,7 +126,23 @@
                                 >
                                     <Input/>
                                 </Form.Item>
-
+                                <Form.Item
+                                    name={'desc'}
+                                    label={`Vị trí tổ chức`}
+                                >
+                                    <Input/>
+                                </Form.Item>
+                                <Form.Item
+                                    initialValue={`member`}
+                                    name={'type'}
+                                    label={`Xếp loại`}
+                                >
+                                    <Select>
+                                        <Select.Option value={`bod`}>Ban điều hành</Select.Option>
+                                        <Select.Option value={`member`}>Thành viên</Select.Option>
+                                        <Select.Option value={`partner`}>Đối tác</Select.Option>
+                                    </Select>
+                                </Form.Item>
                                 <Form.Item
                                     name={'description'}
                                     label={`Mô tả`}
@@ -157,6 +173,7 @@
                                 >
                                     <Input/>
                                 </Form.Item>
+
                                 <Form.Item>
 
                                     <Upload

@@ -19,6 +19,8 @@ use Yii;
  * @property string|null $linkedin
  * @property int $created_at
  * @property int $updated_at
+ * @property string $type
+ * @property string $desc
  */
 class Member extends BaseModel
 {
@@ -47,7 +49,7 @@ class Member extends BaseModel
         return [
             [['media_id', 'created_at', 'updated_at'], 'integer'],
             [['name'], 'required'],
-            [['name', 'description', 'facebook', 'twitter', 'instagram', 'youtube', 'linkedin'], 'string', 'max' => 255],
+            [['name', 'description', 'facebook', 'type', 'desc', 'twitter', 'instagram', 'youtube', 'linkedin'], 'string', 'max' => 255],
         ];
     }
 

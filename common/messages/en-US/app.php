@@ -42,6 +42,7 @@ return [
     'market_news' => 'Market News',
     'event' => 'Events',
     'home' => 'Home',
+    'partners' => 'Partners',
     'members_list' => "Members list",
     'organizational_structure' => 'Organizational structure'
 ];

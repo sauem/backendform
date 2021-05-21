@@ -126,7 +126,7 @@ Yii::$app->params['footer_type'] = 'light';
                     </div>
                     <div class="blocks-outer">
                         <!-- Reputation Block -->
-                        <?= HelperFunction::setting('about_us', true) ?>
+                        <?= HelperFunction::setting('schedule', true) ?>
 
                     </div>
                 </div>
