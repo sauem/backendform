@@ -1,6 +1,7 @@
 <?php
 $this->title = $model->name ? $model->name : 'Archive';
 
+use common\helper\HelperFunction;
 use yii\widgets\ListView;
 
 Yii::$app->params['header_style'] = true;
@@ -24,33 +25,32 @@ Yii::$app->params['header_style'] = true;
         </div>
         <div class="inner-container">
             <div class="row g-0">
-                <?php foreach ($products as $model) {
-                    ?>
-                    <div class="service-block col-lg-3 col-md-6 col-sm-12">
-                        <div class="inner-box p-3">
-                            <div class="icon-box">
-                                <?php if ($model->avatar) { ?>
-                                    <img class="img-fluid" src="<?= $model->avatar ?>"/>
-                                <?php } else { ?>
-                                    <span class="icon ti-stats-up"></span>
-                                <?php } ?>
-                            </div>
-                            <h5>
-                                <a href="<?= HelperFunction::Link(PRODUCT, $model->slug, $model->defaultArchive->slug) ?>">
-                                    <?= $model->name ?>
-                                </a>
-                            </h5>
-                            <div class="text text-3"> <?= $model->excerpt ?></div>
-                            <a class="read-more"
-                               href="<?= HelperFunction::Link(PRODUCT, $model->slug, $model->defaultArchive->slug) ?>">
-                                <?= Yii::t('app', 'detail') ?>
-                                <span class="ti-angle-right"></span></a>
-                        </div>
-                    </div>
-                    <?php
-                } ?>
+                <?= ListView::widget([
+                    'dataProvider' => $dataProvider,
+                    'itemView' => '../parts/_item_archive_product',
+                    'emptyText' => 'No results.',
+                    'viewParams' => [
+                        'archive' => $model
+                    ],
+                    'options' => ['class' => 'row'],
+                    'itemOptions' => [
+                        'tag' => 'article',
+                        # 'class' => 'col-12 col-md-4 mix',
+                    ],
+                    'summary' => false,
+                    'pager' => [
+                        'firstPageLabel' => false,
+                        'lastPageLabel' => false,
+                        'prevPageLabel' => '<i class="icon-arrow-left"></i>',
+                        'nextPageLabel' => '<i class="icon-arrow-right"></i>',
+                        'maxButtonCount' => 3,
+                        'disabledPageCssClass' => 'd-none',
+                        'activePageCssClass' => 'current'
+                    ],
+                ])
+                ?>
             </div>
         </div>
     </div>
 </div>
-<?= $this->render('../parts/logo',['logos' => $logos])?>
+<?= $this->render('../parts/logo', ['logos' => $logos]) ?>
