@@ -35,7 +35,7 @@ Yii::$app->params['header_style'] = true;
                     'options' => ['class' => 'row'],
                     'itemOptions' => [
                         'tag' => 'article',
-                        # 'class' => 'col-12 col-md-4 mix',
+                        'class' => 'service-block col-lg-3 col-md-6 col-sm-12',
                     ],
                     'summary' => false,
                     'pager' => [
