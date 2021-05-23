@@ -246,15 +246,22 @@ const vietauStaticPage = (categories = []) => {
             slug: 'our-team'
         },
         {
-            title: 'Liên hệ',
+            title: 'Cơ cấu tổ chức',
             key: categories.length + 9993,
+            type: 'page',
+            value: 'organizational-structure',
+            slug: 'organizational -structure'
+        },
+        {
+            title: 'Liên hệ',
+            key: categories.length + 9994,
             type: 'page',
             value: 'contact',
             slug: 'contact'
         },
         {
             title: 'Đối tác',
-            key: categories.length + 9995,
+            key: categories.length + 9996,
             type: 'page',
             value: 'partner',
             slug: 'partner'
