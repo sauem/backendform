@@ -6,6 +6,7 @@ return [
     PARTNER => 'site/partner',
     GUIDE => 'site/guide',
     SEARCH => 'site/search',
+    STRUCTURE => 'site/organizational-structure',
     CONTACT => 'site/contact',
     PRODUCT . '/<slug:[0-9a-zA-Z\-]+>' => 'site/archive',
     PRODUCT . '/<archive:[0-9a-zA-Z\-]+>/<slug:[0-9a-zA-Z\-]+>' => 'site/product-detail',

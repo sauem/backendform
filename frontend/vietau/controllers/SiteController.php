@@ -263,6 +263,12 @@ class SiteController extends BaseController
                 'language' => HelperFunction::getLanguage()
             ])->orderBy('created_at DESC')
             ->limit(6)->all();
+        $template = 'archive';
+        $logos = Banners::findAll([
+            'active' => Banners::BANNER_ACTIVE,
+            'position' => 'logo_partner'
+        ]);
+
         switch ($model->type) {
             case BLOG:
                 $searchModel = new ArticlesSearch();
@@ -276,10 +282,13 @@ class SiteController extends BaseController
                 $dataProvider = $searchModel->search(Yii::$app->request->queryParams, [
                     'language' => HelperFunction::getLanguage()
                 ]);
+
+                $template = 'archive-product';
                 break;
         }
-        return $this->render('archive', [
+        return $this->render($template, [
             'model' => $model,
+            'logos' => $logos,
             'dataProvider' => $dataProvider,
             'searchModel' => $searchModel,
             'relatedPosts' => $relatedPosts,
@@ -388,14 +397,22 @@ class SiteController extends BaseController
         ]);
     }
 
+    public function actionOrganizationalStructure()
+    {
+        $bods = Member::find()
+            ->where(['type' => 'bod'])
+            ->all();
+        return $this->render('member', [
+            'bods' => $bods,
+        ]);
+    }
+
     public function actionOurTeam()
     {
         $members = Member::find()
             ->where(['type' => 'member'])
             ->all();
-        $bods = Member::find()
-            ->where(['type' => 'bod'])
-            ->all();
+
         $products = Products::find()->where([
             'language' => HelperFunction::getLanguage()
         ])->orderBy('created_at ASC')
@@ -403,7 +420,6 @@ class SiteController extends BaseController
             ->all();
         return $this->render('member', [
             'members' => $members,
-            'bods' => $bods,
             'products' => $products
         ]);
     }

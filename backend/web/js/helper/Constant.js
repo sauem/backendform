@@ -250,7 +250,7 @@ const vietauStaticPage = (categories = []) => {
             key: categories.length + 9993,
             type: 'page',
             value: 'organizational-structure',
-            slug: 'organizational -structure'
+            slug: 'organizational-structure'
         },
         {
             title: 'Liên hệ',

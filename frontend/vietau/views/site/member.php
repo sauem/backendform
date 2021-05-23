@@ -8,24 +8,18 @@ Yii::$app->params['header_style'] = true;
     'title' => Yii::t('app', 'members_list'),
     'description' => ''
 ]) ?>
-<div class="experts-section p-0">
-    <div class="auto-container">
-
-        <!-- Sec Title -->
-        <div class="sec-title">
-            <div class="clearfix">
-                <div class="pull-left">
-                    <h2><?= Yii::t('app', 'organizational_structure') ?></span></h2>
+<?php if (!empty($bods)) { ?>
+    <div class="experts-section p-0">
+        <div class="auto-container">
+            <div class="sec-title">
+                <div class="clearfix">
+                    <div class="pull-left">
+                        <h2><?= Yii::t('app', 'organizational_structure') ?></span></h2>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="row clearfix">
-            <div class="col-12">
-                <img src="/vietau/images/ctt.png" width="100%">
-            </div>
-            <?php if (!empty($bods)) {
-                foreach ($bods as $bod) {
-                    ?>
+            <div class="row clearfix">
+                <?php foreach ($bods as $bod) { ?>
                     <div class="team-block col-lg-4 col-md-6 col-sm-6 col-12">
                         <div class="inner-box wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
                             <div class="image">
@@ -49,13 +43,13 @@ Yii::$app->params['header_style'] = true;
                             </div>
                         </div>
                     </div>
-                    <?php
-                }
-            } ?>
+                <?php } ?>
+            </div>
         </div>
-
     </div>
-</div>
+<?php } ?>
+
+
 <?php if (!empty($members)) { ?>
     <div class="experts-section p-0">
         <div class="auto-container">
