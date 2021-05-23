@@ -24,32 +24,29 @@ Yii::$app->params['header_style'] = true;
             </div>
         </div>
         <div class="inner-container">
-            <div class="row g-0">
-                <?= ListView::widget([
-                    'dataProvider' => $dataProvider,
-                    'itemView' => '../parts/_item_archive_product',
-                    'emptyText' => 'No results.',
-                    'viewParams' => [
-                        'archive' => $model
-                    ],
-                    'options' => ['class' => 'row'],
-                    'itemOptions' => [
-                        'tag' => 'article',
-                        'class' => 'service-block col-lg-3 col-md-6 col-sm-12',
-                    ],
-                    'summary' => false,
-                    'pager' => [
-                        'firstPageLabel' => false,
-                        'lastPageLabel' => false,
-                        'prevPageLabel' => '<i class="icon-arrow-left"></i>',
-                        'nextPageLabel' => '<i class="icon-arrow-right"></i>',
-                        'maxButtonCount' => 3,
-                        'disabledPageCssClass' => 'd-none',
-                        'activePageCssClass' => 'current'
-                    ],
-                ])
-                ?>
-            </div>
+            <?= ListView::widget([
+                'dataProvider' => $dataProvider,
+                'itemView' => '../parts/_item_archive_product',
+                'emptyText' => 'No results.',
+                'viewParams' => [
+                    'archive' => $model
+                ],
+                'options' => ['class' => 'row g-0'],
+                'itemOptions' => [
+                    'tag' => 'article',
+                    'class' => 'service-block col-lg-3 col-md-6 col-sm-12',
+                ],
+                'summary' => false,
+                'pager' => [
+                    'firstPageLabel' => false,
+                    'lastPageLabel' => false,
+                    'prevPageLabel' => '<i class="icon-arrow-left"></i>',
+                    'nextPageLabel' => '<i class="icon-arrow-right"></i>',
+                    'maxButtonCount' => 3,
+                    'disabledPageCssClass' => 'd-none',
+                    'activePageCssClass' => 'current'
+                ],
+            ]) ?>
         </div>
     </div>
 </div>
