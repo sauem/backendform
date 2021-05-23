@@ -283,7 +283,7 @@ class SiteController extends BaseController
                     'language' => HelperFunction::getLanguage()
                 ]);
 
-                $template = 'archive-product';
+                $template = '../parts/archive-product';
                 break;
         }
         return $this->render($template, [
