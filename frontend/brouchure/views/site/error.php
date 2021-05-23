@@ -10,21 +10,13 @@ use yii\helpers\Html;
 $this->title = $name;
 ?>
 
-<section class="page-404 mt--100 py-0 bg-overlay">
-    <div class="bg-img"><img src="/usvn/images/banners/2.jpg" alt="background"></div>
+<section class="error-404 bg-img3">
     <div class="container">
-        <div class="row">
-            <div class="col-sm-12 col-md-12 col-lg-12 d-flex justify-content-center align-items-center vh-100">
-                <div class="error-wrapper text-center">
-                    <h1 class="error-code">404</h1>
-                    <p class="error__desc">The page requested couldn't be found. This could be a spelling error in the
-                        URL or a removed page.
-                    </p>
-                    <a href="/" class="btn btn__primary btn__icon">
-                        <span>Back To Home</span> <i class="icon-arrow-right"></i>
-                    </a>
-                </div>
-            </div><!-- /.col-12 -->
-        </div><!-- /.row -->
-    </div><!-- /.container -->
+        <div class="ttm-big-icon ttm-textcolor-skincolor">
+            <i class="fa fa-thumbs-o-down"></i>
+        </div>
+        <header class="page-header"><h1 class="page-title">404 ERROR</h1></header>
+        <div class="page-content"> <p>This page may have been moved or deleted. Be sure to check your spelling.</p></div>
+        <a class="ttm-btn ttm-btn-size-md ttm-btn-shape-rounded ttm-btn-style-border ttm-btn-color-dark" href="/">Back To Home</a>
+    </div>
 </section>

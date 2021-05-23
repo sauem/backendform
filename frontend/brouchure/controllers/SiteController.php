@@ -381,11 +381,11 @@ class SiteController extends BaseController
         ]);
     }
 
-    public function actionOurTeam()
+    public function actionServices()
     {
         $members = Member::find()->all();
-        return $this->render('member', [
-            'members' => $members
+        return $this->render('services', [
+            'services' => $members
         ]);
     }
 

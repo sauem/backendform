@@ -1,0 +1,185 @@
+<?php
+Yii::$app->params['header_style'] = true;
+?>
+<?= $this->render('../parts/page-title', [
+    'title' => Yii::t('app', 'members_list'),
+    'description' => ''
+]) ?>
+<div class="ttm-page-title-row">
+    <div class="ttm-page-title-row-inner ttm-bgcolor-darkgrey">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <div class="page-title-heading">
+                        <h2 class="title">Our Services</h2>
+                    </div>
+                    <div class="breadcrumb-wrapper">
+                                <span>
+                                    <i class="ti ti-home margin_right1"></i>
+                                    <a title="Homepage" href="index.html">Home</a>
+                                </span>
+                        <span>Services 2</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<section class="ttm-row grid-section clearfix">
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <div class="col-lg-4 col-md-6">
+                <!--featured-imagebox-->
+                <div class="featured-imagebox featured-imagebox-services style2">
+                    <div class="featured-content">
+                        <div class="ser_cate">Knowledge</div>
+                        <div class="featured-title">
+                            <h3><a href="strategy-planning.html">Strategy & Planning</a></h3>
+                        </div>
+                    </div>
+                    <div class="ttm-box-view-overlay border-rad_6">
+                        <!-- featured-thumbnail -->
+                        <div class="featured-thumbnail">
+                            <img class="img-fluid" src="/images/services/services-01-1200x800.jpg" alt="image">
+                        </div><!-- featured-thumbnail end-->
+                        <div class="featured-hover-content">
+                            <div class="featured-desc">
+                                <p>We are specialists in botmics and information tnologies and we apply our full ran</p>
+                            </div>
+                            <div class="bottom-footer">
+                                <a class="ttm-btn btn-inline ttm-btn-size-sm ttm-btn-color-skincolor" href="strategy-planning.html">read more</a>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- featured-imagebox end-->
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <!--featured-imagebox-->
+                <div class="featured-imagebox featured-imagebox-services style2">
+                    <div class="featured-content">
+                        <div class="ser_cate">Knowledge</div>
+                        <div class="featured-title">
+                            <h3><a href="advance-report.html">Advance Report</a></h3>
+                        </div>
+                    </div>
+                    <div class="ttm-box-view-overlay border-rad_6">
+                        <!-- featured-thumbnail -->
+                        <div class="featured-thumbnail">
+                            <img class="img-fluid" src="/images/services/services-02-1200x800.jpg" alt="image">
+                        </div><!-- featured-thumbnail end-->
+                        <div class="featured-hover-content">
+                            <div class="featured-desc">
+                                <p>We are specialists in botmics and information tnologies and we apply our full ran</p>
+                            </div>
+                            <div class="bottom-footer">
+                                <a class="ttm-btn btn-inline ttm-btn-size-sm ttm-btn-color-skincolor" href="advance-report.html">read more</a>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- featured-imagebox end-->
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <!--featured-imagebox-->
+                <div class="featured-imagebox featured-imagebox-services style2">
+                    <div class="featured-content">
+                        <div class="ser_cate">Knowledge</div>
+                        <div class="featured-title">
+                            <h3><a href="bussiness-gowth.html">Bussiness Gowth</a></h3>
+                        </div>
+                    </div>
+                    <div class="ttm-box-view-overlay border-rad_6">
+                        <!-- featured-thumbnail -->
+                        <div class="featured-thumbnail">
+                            <img class="img-fluid" src="/images/services/services-03-1200x800.jpg" alt="image">
+                        </div><!-- featured-thumbnail end-->
+                        <div class="featured-hover-content">
+                            <div class="featured-desc">
+                                <p>We are specialists in botmics and information tnologies and we apply our full ran</p>
+                            </div>
+                            <div class="bottom-footer">
+                                <a class="ttm-btn btn-inline ttm-btn-size-sm ttm-btn-color-skincolor" href="bussiness-gowth.html">read more</a>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- featured-imagebox end-->
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <!--featured-imagebox-->
+                <div class="featured-imagebox featured-imagebox-services style2">
+                    <div class="featured-content">
+                        <div class="ser_cate">Knowledge</div>
+                        <div class="featured-title">
+                            <h3><a href="smart-self-services.html">Smart Self Services</a></h3>
+                        </div>
+                    </div>
+                    <div class="ttm-box-view-overlay border-rad_6">
+                        <!-- featured-thumbnail -->
+                        <div class="featured-thumbnail">
+                            <img class="img-fluid" src="/images/services/services-04-1200x800.jpg" alt="image">
+                        </div><!-- featured-thumbnail end-->
+                        <div class="featured-hover-content">
+                            <div class="featured-desc">
+                                <p>We are specialists in botmics and information tnologies and we apply our full ran</p>
+                            </div>
+                            <div class="bottom-footer">
+                                <a class="ttm-btn btn-inline ttm-btn-size-sm ttm-btn-color-skincolor" href="bussiness-gowth.html">read more</a>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- featured-imagebox end-->
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <!--featured-imagebox-->
+                <div class="featured-imagebox featured-imagebox-services style2">
+                    <div class="featured-content">
+                        <div class="ser_cate">Knowledge</div>
+                        <div class="featured-title">
+                            <h3><a href="smart-self-services.html">Smart Self Services</a></h3>
+                        </div>
+                    </div>
+                    <div class="ttm-box-view-overlay border-rad_6">
+                        <!-- featured-thumbnail -->
+                        <div class="featured-thumbnail">
+                            <img class="img-fluid" src="/images/services/services-05-1200x800.jpg" alt="image">
+                        </div><!-- featured-thumbnail end-->
+                        <div class="featured-hover-content">
+                            <div class="featured-desc">
+                                <p>We are specialists in botmics and information tnologies and we apply our full ran</p>
+                            </div>
+                            <div class="bottom-footer">
+                                <a class="ttm-btn btn-inline ttm-btn-size-sm ttm-btn-color-skincolor" href="smart-self-services.html">read more</a>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- featured-imagebox end-->
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <!--featured-imagebox-->
+                <div class="featured-imagebox featured-imagebox-services style2">
+                    <div class="featured-content">
+                        <div class="ser_cate">Knowledge</div>
+                        <div class="featured-title">
+                            <h3><a href="advance-report.html">Advance Report</a></h3>
+                        </div>
+                    </div>
+                    <div class="ttm-box-view-overlay border-rad_6">
+                        <!-- featured-thumbnail -->
+                        <div class="featured-thumbnail">
+                            <img class="img-fluid" src="/images/services/services-02-1200x800.jpg" alt="image">
+                        </div><!-- featured-thumbnail end-->
+                        <div class="featured-hover-content">
+                            <div class="featured-desc">
+                                <p>We are specialists in botmics and information tnologies and we apply our full ran</p>
+                            </div>
+                            <div class="bottom-footer">
+                                <a class="ttm-btn btn-inline ttm-btn-size-sm ttm-btn-color-skincolor" href="advance-report.html">read more</a>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- featured-imagebox end-->
+            </div>
+        </div>
+        <!-- row end -->
+    </div>
+</section>

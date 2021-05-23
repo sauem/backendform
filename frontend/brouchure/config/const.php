@@ -5,8 +5,8 @@ define('HOME', '/');
 define('ARCHIVE', 'archive');
 define('BLOG', 'article');
 define('GUIDE', 'guide');
+define('SERVICES', 'services');
+define('ABOUT_US', 'about-us');
 define('PRODUCT', 'product');
 define('CONTACT', 'contact');
-define('PRODUCT_AND_BRIEF', 'product-and-brief');
-define('OUR_TEAM', 'our-team');
 

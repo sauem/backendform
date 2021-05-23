@@ -3,6 +3,7 @@ require __DIR__ . '/const.php';
 $rules = require __DIR__ . '/rules.php';
 $params = array_merge(
     require __DIR__ . '/../../../common/config/params.php',
+    require __DIR__ . '/params-local.php',
     require __DIR__ . '/params.php'
 );
 
@@ -10,7 +11,7 @@ return [
     'id' => 'frontend-vietau',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
-    'controllerNamespace' => 'frontend\vietau\controllers',
+    'controllerNamespace' => 'frontend\brouchure\controllers',
     'language' => 'vi-VN',
     'timeZone' => 'Asia/Ho_Chi_Minh',
     'components' => [
