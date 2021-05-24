@@ -4,6 +4,7 @@
 
 /* @var $content string */
 
+use common\helper\HelperFunction;
 use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
@@ -22,19 +23,22 @@ AppAsset::register($this);
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta property="og:locale" content="en_US"/>
     <meta property="og:type" content="website"/>
-    <meta property="og:title" content="<?= $this->title?>"/>
-    <meta property="og:url" content="<?= \Yii::$app->homeUrl;?>"/>
+    <meta property="og:title" content="<?= $this->title ?>"/>
+    <meta property="og:url" content="<?= \Yii::$app->homeUrl; ?>"/>
     <meta property="og:site_name" content="SITE_NAME"/>
+    <link rel="icon" href="<?= HelperFunction::getLogo('favicon') ?>" type="image/gif" sizes="16x16">
     <!-- For the og:image content, replace the # with a link of an image -->
-    <meta property="og:image" content="#"/>
+    <meta property="og:image" content="<?= HelperFunction::getLogo('header') ?>"/>
     <meta property="og:description" content=""/>
     <script type="application/ld+json">
         {
             "@context": "http://schema.org",
             "@type": "WebSite",
-            "name": "<?= $this->title?>",
-            "url": "<?= \Yii::$app->homeUrl;?>"
+            "name": "<?= $this->title ?>",
+            "url": "<?= \Yii::$app->homeUrl; ?>"
         }
+
+
     </script>
     <?php $this->registerCsrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
@@ -52,7 +56,7 @@ AppAsset::register($this);
     <div class="search-popup">
         <button class="close-search style-two"><span class="icofont-brand-nexus"></span></button>
         <button class="close-search"><span class="icofont-arrow-up"></span></button>
-        <form method="GET" action="/<?= SEARCH?>">
+        <form method="GET" action="/<?= SEARCH ?>">
             <div class="form-group">
                 <input type="search" name="s" value="" placeholder="Search Here" required="">
                 <button type="submit"><i class="fa fa-search"></i></button>
