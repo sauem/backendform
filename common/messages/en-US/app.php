@@ -47,6 +47,7 @@ return [
     'post' => 'Blog posts',
     'hot_new' => 'Hot news',
     'members_list' => "Members list",
+    'member' => "Members",
     'organizational_structure' => 'Organizational structure',
     'search_for' => 'search for: ',
 ];

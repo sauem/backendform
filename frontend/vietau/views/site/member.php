@@ -5,7 +5,7 @@ use common\helper\HelperFunction;
 Yii::$app->params['header_style'] = true;
 ?>
 <?= $this->render('../parts/page-title', [
-    'title' => Yii::t('app', 'members_list'),
+    'title' => Yii::t('app', 'member'),
     'description' => ''
 ]) ?>
 <?php if (!empty($bods)) { ?>

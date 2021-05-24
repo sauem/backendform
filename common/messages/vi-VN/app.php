@@ -46,6 +46,7 @@ return [
     'related_post' => 'Bài viết liên quan',
     'post' => 'Bài viết',
     'hot_new' => 'Tin mới',
+    'member' => "Thành viên",
     'members_list' => 'Danh sách thành viên',
     'organizational_structure' => 'Cơ cấu tổ chức',
     'search_for' => 'Tìm kiếm từ khóa: '

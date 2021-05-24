@@ -10,7 +10,7 @@ Yii::$app->params['header_style'] = true;
 
 
 <?= $this->render('../parts/page-title', [
-    'title' => $model->name,
+    'title' => Yii::t('app', 'member'),
     'description' => ''
 ]) ?>
 <div class="services-section p-0">
