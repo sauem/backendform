@@ -26,7 +26,7 @@ AppAsset::register($this);
     <meta property="og:title" content="<?= $this->title ?>"/>
     <meta property="og:url" content="<?= \Yii::$app->homeUrl; ?>"/>
     <meta property="og:site_name" content="SITE_NAME"/>
-    <link rel="shortcut icon" href="<?= HelperFunction::getLogo('favicon') ?>">
+    <link rel="shortcut icon" href="<?= HelperFunction::Favicon() ?>">
     <!-- For the og:image content, replace the # with a link of an image -->
     <meta property="og:image" content="<?= HelperFunction::getLogo('header') ?>"/>
     <meta property="og:description" content=""/>
