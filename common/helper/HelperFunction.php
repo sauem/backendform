@@ -128,6 +128,7 @@ class HelperFunction
 
     public static function getLanguage()
     {
+        return 'vi';
         return \Yii::$app->language === 'vi-VN' ? 'vi' : 'en';
     }
 
