@@ -7,9 +7,9 @@ define('BLOG', 'article');
 define('GUIDE', 'guide');
 define('PRODUCT', 'product');
 define('CONTACT', 'contact');
-define('PRODUCT_AND_BRIEF', 'product-and-brief');
-define('OUR_TEAM', 'our-team');
-define('PARTNER', 'partner');
+define('ARTICLES', 'articles');
 define('SEARCH', 'search');
-define('STRUCTURE', 'organizational-structure');
+define('FAQS', 'faqs');
+define('CART', 'cart');
+define('CHECKOUT', 'checkout');
 

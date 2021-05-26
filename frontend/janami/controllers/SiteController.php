@@ -9,26 +9,20 @@ use common\models\Articles;
 use common\models\ArticlesSearch;
 use common\models\Banners;
 use common\models\Contact;
-use common\models\Medias;
 use common\models\Member;
 use common\models\Products;
 use common\models\ProductsSearch;
+use janami\controllers\BaseController;
 use frontend\models\ResendVerificationEmailForm;
 use frontend\models\VerifyEmailForm;
 use Yii;
 use yii\base\InvalidArgumentException;
 use yii\db\Expression;
 use yii\web\BadRequestHttpException;
-use yii\web\Controller;
-use yii\filters\VerbFilter;
-use yii\filters\AccessControl;
-use common\models\LoginForm;
 use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
-use frontend\models\ContactForm;
 use yii\web\NotFoundHttpException;
-use yii\web\Request;
 use yii\web\Response;
 
 /**
@@ -397,50 +391,6 @@ class SiteController extends BaseController
         ]);
     }
 
-    public function actionOrganizationalStructure()
-    {
-        $bods = Member::find()
-            ->where(['type' => 'bod'])
-            ->all();
-        return $this->render('member', [
-            'bods' => $bods,
-        ]);
-    }
-
-    public function actionOurTeam()
-    {
-        $members = Member::find()
-            ->where(['type' => 'member'])
-            ->all();
-
-        $products = Products::find()->where([
-            'language' => HelperFunction::getLanguage()
-        ])->orderBy('created_at ASC')
-            ->limit(12)
-            ->all();
-        return $this->render('member', [
-            'members' => $members,
-            'products' => $products
-        ]);
-    }
-
-    public function actionPartner()
-    {
-
-        $partners = Member::find()
-            ->where(['type' => 'partner'])
-            ->all();
-
-        $products = Products::find()->where([
-            'language' => HelperFunction::getLanguage()
-        ])->orderBy('created_at ASC')
-            ->limit(12)
-            ->all();
-        return $this->render('partner', [
-            'partners' => $partners,
-            'products' => $products
-        ]);
-    }
 
     public function actionSearch()
     {
@@ -471,5 +421,29 @@ class SiteController extends BaseController
             'articleProvider' => $articleProvider,
             'relatedPosts' => $relatedPosts
         ]);
+    }
+
+    public function actionProduct()
+    {
+        return $this->render('product');
+    }
+
+    public function actionFaqs()
+    {
+        return $this->render('faqs');
+    }
+
+    public function actionArticles()
+    {
+        return $this->render('articles');
+    }
+
+    public function actionCart()
+    {
+        return $this->render('cart');
+    }
+    public function actionCheckout()
+    {
+        return $this->render('checkout');
     }
 }

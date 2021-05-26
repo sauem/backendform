@@ -7,10 +7,10 @@ $params = array_merge(
 );
 
 return [
-    'id' => 'frontend-vietau',
+    'id' => 'frontend-janami',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
-    'controllerNamespace' => 'frontend\vietau\controllers',
+    'controllerNamespace' => 'janami\controllers',
     'language' => 'vi-VN',
     'timeZone' => 'Asia/Ho_Chi_Minh',
     'components' => [

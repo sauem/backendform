@@ -13,7 +13,7 @@ if ($menu) {
 <footer id="footer-1" class="bg-color-01 footer division">
     <div class="container">
         <div class="row">
-            <div class="col-md-6 col-lg-4 col-xl-5">
+            <div class="col-md-3 col-12">
                 <div class="footer-info mb-40">
                     <img height="60" width="240" src="<?= HelperFunction::getLogo('footer') ?>"
                          alt="<?= HelperFunction::setting('site_name') ?>"/>
@@ -38,7 +38,7 @@ if ($menu) {
                     $childrens = ArrayHelper::getValue($menuItem, 'children');
                     ?>
 
-                    <div class="col-md-3 col-lg-2">
+                    <div class="col-md-3 col-12">
                         <div class="footer-links mb-40">
                             <h6 class="h6-lg txt-color-01"><?= $menuItem['title'] ?></h6>
                             <ul class="clearfix txt-color-05">
@@ -63,7 +63,7 @@ if ($menu) {
                     <?php
                 }
             } ?>
-            <div class="col-md-8 col-lg-4 col-xl-3">
+            <div class="col-md-3">
                 <div class="footer-form mb-20">
                     <h6 class="h6-lg txt-color-01">Fanpage:</h6>
                     <?= HelperFunction::setting('fanpage_script') ?>

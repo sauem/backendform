@@ -64,7 +64,7 @@ class BaseController extends Controller
     public function init()
     {
         \Yii::$app->set('db', HelperFunction::getDb(true));
-        \Yii::$app->language = \Yii::$app->cache->get('language');
+        \Yii::$app->language = 'vi-VN'; //\Yii::$app->cache->get('language');
         $menus = MenuConfig::find()
             ->where([
                 'language' => HelperFunction::getLanguage()
