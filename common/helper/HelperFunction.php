@@ -30,6 +30,9 @@ class HelperFunction
 
     static function getDomain()
     {
+        if (\Yii::$app instanceof Application) {
+            return 'console';
+        }
         $domain = preg_replace('/\.|\//', '', $_SERVER['HTTP_HOST']);
         $domain = str_replace('admin', '', $domain);
         return $domain;

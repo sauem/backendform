@@ -140,41 +140,4 @@ class SiteController extends BaseController
         return $this->render('member.blade');
     }
 
-    public function actionCommand()
-    {
-        $migrations = [
-            [
-                'command' => 'migrate/up',
-                'params' => [
-                    'migrationPath' => 'console/migrations',
-                    '--db' => HelperFunction::getDomain(),
-                    'interactive' => false
-                ]
-            ],
-            [
-                'command' => 'migrate/up',
-                'params' => [
-                    'migrationPath' => '@mdm/admin/migrations',
-                    '--db' => HelperFunction::getDomain(),
-                    'interactive' => false
-                ]
-            ],
-            [
-                'command' => 'migrate/up',
-                'params' => [
-                    'migrationPath' => '@yii/rbac/migrations',
-                    '--db' => HelperFunction::getDomain(),
-                    'interactive' => false
-                ]
-            ],
-            [
-                'command' => 'migrate/up',
-                'params' => [
-                    'migrationPath' => '@vendor/yii2mod/yii2-settings/migrations',
-                    '--db' => HelperFunction::getDomain(),
-                    'interactive' => false
-                ]
-            ]
-        ];
-    }
 }

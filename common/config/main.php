@@ -4,9 +4,6 @@ use common\helper\HelperFunction;
 use yii\helpers\ArrayHelper;
 
 $databases = include __DIR__ . '/db.php';
-Yii::$container->set('mdm\admin\components\Configs', [
-    'db' => ArrayHelper::getValue($databases, HelperFunction::getHost()),
-]);
 
 $main = [
     'aliases' => [
@@ -19,7 +16,7 @@ $main = [
         'rbac' => [
             'class' => 'mdm\admin\Module',
             'layout' => 'left-menu',
-            'mainLayout' => '@backend/views/layouts/main.blade'
+            'mainLayout' => '@backend/views/layouts/main.blade',
         ],
         'settings' => [
             'class' => 'yii2mod\settings\Module',
@@ -35,7 +32,7 @@ $main = [
         'cache' => [
             #'class' => 'yii\caching\FileCache',
             'class' => 'yii\redis\Cache',
-            'keyPrefix' => HelperFunction::getDomain() .'_'
+            'keyPrefix' => HelperFunction::getDomain() . '_'
         ],
         'redis' => [
             'class' => 'yii\redis\Connection',
@@ -79,5 +76,10 @@ $main = [
 $components = array_merge($main['components'], $databases);
 $main['components'] = $components;
 $main['components']['db'] = ArrayHelper::getValue($databases, HelperFunction::getHost());
+if (\Yii::$app instanceof \yii\console\Application) {
+    \Yii::$container->set('mdm\admin\components\Configs', [
+        'db' => ArrayHelper::getValue($databases, HelperFunction::getHost()),
+    ]);
+}
 //HelperFunction::printf($components);
 return $main;

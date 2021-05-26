@@ -94,7 +94,7 @@ if ($menu) {
                                             <a href="/<?= SERVICES ?>">Services</a>
                                         </li>
                                         <li class="mega-menu-item">
-                                            <a href="/<?= BLOG ?>">News</a>
+                                            <a href="/<?= ARCHIVE ?>/news">News</a>
                                         </li>
                                         <li class="mega-menu-item">
                                             <a href="/<?= CONTACT ?>">Contact</a>
