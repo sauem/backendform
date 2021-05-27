@@ -423,19 +423,19 @@ class SiteController extends BaseController
         ]);
     }
 
-    public function actionProduct()
+    public function actionShop()
     {
-        return $this->render('product.blade');
+        return $this->render('shop.blade');
     }
 
     public function actionFaqs()
     {
-        return $this->render('faqs');
+        return $this->render('faqs.blade');
     }
 
     public function actionArticles()
     {
-        return $this->render('articles');
+        return $this->render('articles.blade');
     }
 
     public function actionCart()

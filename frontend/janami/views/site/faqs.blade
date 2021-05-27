@@ -1,0 +1,134 @@
+<?php
+
+use common\helper\HelperFunction;
+
+Yii::$app->params['header_style'] = true;
+$view->title = 'FAQs';
+?>
+@section("content")
+
+    <?= $view->render('../parts/page-title.blade', [
+        'title' => $view->title,
+        'text' => ''
+    ])?>
+    <section id="faqs-1" class="bg-color-01 wide-100 faqs-section division">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-10 offset-lg-1">
+                    <div class="section-title mb-60 text-center">
+                        <h2 class="tra-header txt-color-02">Need Help</h2>
+                        <h3 class="h3-xl txt-color-01">Frequently Asked Questions</h3>
+                        <p class="p-lg txt-color-05">Aliquam a augue suscipit, luctus neque purus ipsum neque undo dolor
+                            primis libero tempus, blandit a cursus varius at magna tempor
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+            <div class="faqs-1-questions pc-15">
+                <div class="row">
+
+                    <div class="col-lg-6">
+                        <div class="questions-wrapper pc-30">
+                            <div class="question">
+                                <h5 class="h5-xs txt-color-01"><span>1.</span> Getting started with Treko</h5>
+                                <p class="txt-color-05">Etiam amet mauris suscipit in odio. Integer congue undo metus.
+                                    Vitae arcu mollis
+                                    blandit ultrice ligula egestas and magna suscipit lectus magna suscipit luctus
+                                    blandit
+                                </p>
+
+                            </div>
+                            <div class="question">
+                                <h5 class="h5-xs txt-color-01"><span>2.</span> How do I schedule an appointment?</h5>
+                                <ul class="simple-list txt-color-05">
+
+                                    <li class="list-item">
+                                        <p>Aliqum mullam blandit and tempor sapien donec ipsum at gravida porta. Velna
+                                            vitae
+                                            auctor congue
+                                        </p>
+                                    </li>
+
+                                    <li class="list-item">
+                                        <p>Quaerat sodales and sapien euismod blandit a purus luctus neque purus
+                                            sagittis
+                                            sapien undo sodales and luctus
+                                        </p>
+                                    </li>
+
+                                </ul>
+
+                            </div>
+
+                            <div class="question">
+                                <h5 class="h5-xs txt-color-01"><span>3.</span> Can I bring my kids to The Spa?</h5>
+                                <p class="txt-color-05">Praesent semper lacus sed cursus porta, feugiat primis luctus in
+                                    ligula eros ac
+                                    ligula massa and faucibus orci a luctus aliquet and molestie purus venenatis aliquam
+                                    eget lacinia
+                                </p>
+
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="questions-wrapper pc-30">
+
+                            <div class="question">
+                                <h5 class="h5-xs txt-color-01"><span>4.</span> What if I have lost my gift certificate?
+                                </h5>
+                                <ul class="simple-list txt-color-05">
+
+                                    <li class="list-item">
+                                        <p>Aliqum mullam blandit and tempor sapien donec ipsum at gravida porta. Velna
+                                            vitae
+                                            auctor congue tristique
+                                        </p>
+                                    </li>
+
+                                    <li class="list-item">
+                                        <p>Cubilia laoreet augue egestas a luctus donec diam quaerat sodales and sapien
+                                            euismod blandit
+                                            a purus luctus neque purus sagittis sapien undo sodales and luctus
+                                        </p>
+                                    </li>
+
+                                </ul>
+
+                            </div>
+                            <div class="question">
+                                <h5 class="h5-xs txt-color-01"><span>5.</span> What if I have special medical
+                                    conditions?</h5>
+                                <p class="txt-color-05">Cubilia laoreet augue egestas a luctus donec diam curabite vitae
+                                    dapibus libero
+                                    quisque tristique and neque blandit
+                                </p>
+                            </div>
+                            <div class="question">
+                                <h5 class="h5-xs txt-color-01"><span>6.</span> What if I′m late?</h5>
+                                <p class="txt-color-05">Praesent semper lacus sed cursus porta, feugiat primis luctus in
+                                    ligula eros ac
+                                    ligula massa in faucibus orci luctus an ultrices posuere ante ipsum primis in
+                                    faucibus odio.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="more-questions-btn text-center">
+                        <a href="contacts.html" class="btn btn-md btn-color-02 tra-02-hover">Still Have A Question?</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <?= $view->render('../parts/banner.blade')?>
+@stop

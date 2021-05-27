@@ -48,28 +48,30 @@ if ($menu) {
                         <li aria-haspopup="true"><a href="#">Sản phẩm <span class="wsarrow"></span></a>
                             <ul class="sub-menu">
                                 <li aria-haspopup="true">
-                                    <a href="/product">Dòng bảo vệ <span class="wsarrow"></span></a>
+                                    <a href="/<?= SHOP ?>">Dòng bảo vệ <span class="wsarrow"></span></a>
                                     <ul class="sub-menu">
-                                        <li aria-haspopup="true"><a href="#">Bella the sun</a></li>
-                                        <li aria-haspopup="true"><a href="#">Bihaku</a></li>
+                                        <li aria-haspopup="true"><a href="/<?= SHOP ?>">Bella the sun</a></li>
+                                        <li aria-haspopup="true"><a href="/<?= SHOP ?>">Bihaku</a></li>
                                     </ul>
                                 </li>
-                                <li aria-haspopup="true"><a href="/product">Dòng phục hổi <span class="wsarrow"></span></a>
-                                    <ul class="sub-menu">
-                                        <li aria-haspopup="true"><a href="#">Ketoskin</a></li>
-                                    </ul>
-                                </li>
-                                <li aria-haspopup="true"><a href="/product">Dòng chữa trị <span class="wsarrow"></span></a>
-                                    <ul class="sub-menu">
-                                        <li aria-haspopup="true"><a href="#">Skinicer</a></li>
-                                        <li aria-haspopup="true"><a href="#">Spirularin</a></li>
-                                        <li aria-haspopup="true"><a href="#">Skinmd</a></li>
-                                    </ul>
-                                </li>
-                                <li aria-haspopup="true"><a href="/product">Dòng làm đẹp <span
+                                <li aria-haspopup="true"><a href="/<?= SHOP ?>">Dòng phục hổi <span
                                                 class="wsarrow"></span></a>
                                     <ul class="sub-menu">
-                                        <li aria-haspopup="true"><a href="#">Bella Fora</a></li>
+                                        <li aria-haspopup="true"><a href="/<?= SHOP ?>">Ketoskin</a></li>
+                                    </ul>
+                                </li>
+                                <li aria-haspopup="true"><a href="/<?= SHOP ?>">Dòng chữa trị <span
+                                                class="wsarrow"></span></a>
+                                    <ul class="sub-menu">
+                                        <li aria-haspopup="true"><a href="/<?= SHOP ?>">Skinicer</a></li>
+                                        <li aria-haspopup="true"><a href="/<?= SHOP ?>">Spirularin</a></li>
+                                        <li aria-haspopup="true"><a href="/<?= SHOP ?>">Skinmd</a></li>
+                                    </ul>
+                                </li>
+                                <li aria-haspopup="true"><a href="/<?= SHOP ?>">Dòng làm đẹp <span
+                                                class="wsarrow"></span></a>
+                                    <ul class="sub-menu">
+                                        <li aria-haspopup="true"><a href="/<?= SHOP ?>">Bella Fora</a></li>
                                     </ul>
                                 </li>
 

@@ -110,7 +110,11 @@ $view->title = 'Sản phẩm';
                                                         </div>
                                                     </div>
                                                     <a href={`/${product.defaultArchive.slug}/${product.slug}`}
-                                                       className="btn p-sm btn-tra-01 color-02-hover mt-20">Chi tiết</a>
+                                                       className="btn p-sm btn-tra-01 color-02-hover mt-20 mr-2">Chi
+                                                        tiết</a>
+                                                    <a onClick={() => setCart(product, 1)}
+                                                       className="btn p-sm btn-tra-01 color-02-hover mt-20">Thêm vào
+                                                        giỏ <i className="fas fa-shopping-cart"/></a>
                                                 </div>
                                             </div>
                                         </div>
