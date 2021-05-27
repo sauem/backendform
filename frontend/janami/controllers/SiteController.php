@@ -157,7 +157,22 @@ class SiteController extends BaseController
 
     public function actionArchiveProduct($archive, $slug)
     {
-        return $this->render('product-archive.blade');
+        $temp = 'product-detail.blade';
+        $product = Products::findOne(['slug' => $slug]);
+        if (!$product) {
+            $temp = 'product-archive.blade';
+        }
+        $category = Archives::findOne(['slug' => $archive]);
+        $searchModel = new ProductsSearch();
+        $dataProvider = $searchModel->search(array_merge_recursive(Yii::$app->request->queryParams, [
+            'ProductsSearch' => [
+                'archives' => $category->id
+            ]
+        ]));
+        return $this->render($temp, [
+            'dataProvider' => $dataProvider,
+            'model' => $product
+        ]);
     }
 
     public function actionArchiveBlog($archive, $slug)

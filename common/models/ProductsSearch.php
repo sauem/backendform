@@ -15,11 +15,13 @@ class ProductsSearch extends Products
     /**
      * {@inheritdoc}
      */
+    public $archives;
+
     public function rules()
     {
         return [
             [['id', 'created_at', 'updated_at'], 'integer'],
-            [['name', 'slug', 'status', 'content', 'language', 'excerpt', 'attributes'], 'safe'],
+            [['name', 'slug', 'status', 'content', 'language', 'excerpt', 'attributes', 'archives'], 'safe'],
             [['default_price', 'default_sale_type', 'default_sale_price'], 'number'],
         ];
     }
@@ -71,6 +73,12 @@ class ProductsSearch extends Products
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
         ]);
+        if ($this->archives) {
+            $query->innerJoin('products_archive', 'products_archive.product_id = products.id')
+                ->innerJoin('archives', 'archives.id = products_archive.archive_id')
+                ->where(['archives.id' => $this->archives])
+                ->andFilterWhere(['products.language' => HelperFunction::getLanguage()]);
+        }
 
         $query->andFilterWhere(['like', 'name', $this->name])
             ->andFilterWhere(['like', 'slug', $this->slug])
