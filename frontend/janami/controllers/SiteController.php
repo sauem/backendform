@@ -81,7 +81,7 @@ class SiteController extends BaseController
     public function actionContact()
     {
         $model = new Contact();
-        return $this->render('contact', [
+        return $this->render('contact.blade', [
             'model' => $model,
         ]);
     }
