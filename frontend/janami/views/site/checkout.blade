@@ -1,0 +1,134 @@
+<?php
+
+/* @var $this yii\web\View */
+
+use yii\helpers\Html;
+
+$view->title = 'Đặt hàng';
+?>
+@section('content')
+    <?= $view->render('../parts/page-title.blade', [
+        'text' => '',
+        'title' => $view->title
+    ]) ?>
+    <section id="pricing-1" class="bg-color-01 wide-60 pricing-section division">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div id="checout-area"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+@stop
+@section('js_end')
+    <script type="text/babel">
+        const Checkout = () => {
+            const [form] = Form.useForm();
+            const [state, setState] = useState();
+            const onSubmit = async (data) => {
+
+            }
+            return (
+                <Form
+                    onFinish={Checkout}
+                    form={form}
+                    layout="vertical"
+                >
+                    <Row gutter={[16, 16]}>
+                        <Col md={14}>
+                            <h2>Thông tin đặt hàng</h2>
+                            <Row gutter={[8, 0]}>
+                                <Col md={12}>
+                                    <Form.Item
+                                        rules={[{required: true, message: 'Hãy nhập tên của bạn'}]}
+                                        label="Họ và tên"
+                                        name="fullname"
+                                    >
+                                        <Input className="form-control"/>
+                                    </Form.Item>
+                                </Col>
+                                <Col md={12}>
+                                    <Form.Item
+                                        label="Email"
+                                        name="email"
+                                    >
+                                        <Input className="form-control"/>
+                                    </Form.Item>
+
+                                </Col>
+                                <Col md={12}>
+                                    <Form.Item
+                                        rules={[{required: true, message: 'Hãy nhập số điện thoại'}]}
+                                        label="Số điện thoại"
+                                        name="phone"
+                                    >
+                                        <Input className="form-control"/>
+                                    </Form.Item>
+                                </Col>
+                                <Col md={12}>
+                                    <Form.Item
+                                        rules={[{required: true, message: 'Hãy nhập địa chỉ'}]}
+                                        label="Địa chỉ"
+                                        name="address"
+                                    >
+                                        <Input className="form-control"/>
+                                    </Form.Item>
+                                </Col>
+                                <Col md={24}>
+                                    <Form.Item
+                                        label="Ghi chú"
+                                        name="note"
+                                    >
+                                        <Input.TextArea rows={3} className="form-control"/>
+                                    </Form.Item>
+                                </Col>
+                            </Row>
+                        </Col>
+                        <Col md={10}>
+                            <h2>Sản phẩm</h2>
+                            <table className="table table-bordered">
+                                <tr>
+                                    <td>Sản phẩm 1 x 1</td>
+                                    <td>20.000đ</td>
+                                </tr>
+                                <tr>
+                                    <td>Sản phẩm 1 x 1</td>
+                                    <td>20.000đ</td>
+                                </tr>
+                                <tfoot>
+                                <tr>
+                                    <th>Tổng cộng</th>
+                                </tr>
+                                </tfoot>
+                            </table>
+                            <div className="bg-color-02 p-3">
+                                <h3>Hình thức thanh toán</h3>
+                                <p>Chọn hình thức thanh toán của bạn</p>
+                                <Form.Item
+                                    rules={[{required: true, message: 'Chọn hình thức thanh toán'}]}
+                                    initialValue="cod"
+                                    name="paymen_method"
+                                >
+                                    <Radio.Group>
+                                        <Space direction="vertical">
+                                            <Radio value={'cod'}>Ship hàng COD</Radio>
+                                            <Radio value={'transfer'}>Chuyển khoản ngân hàng</Radio>
+                                            <Radio value={'showroom'}>Nhận hàng tại showroom</Radio>
+                                        </Space>
+                                    </Radio.Group>
+                                </Form.Item>
+                            </div>
+                            <div className="text-right mt-2">
+                                <button type="submit" className="btn btn-md btn-color-02">Đặt hàng</button>
+                            </div>
+                        </Col>
+                    </Row>
+                </Form>
+
+            )
+        }
+        ReactDOM.render(<Checkout/>, document.getElementById('checout-area'))
+    </script>
+@stop

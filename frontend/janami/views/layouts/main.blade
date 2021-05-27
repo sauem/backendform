@@ -1,6 +1,6 @@
 <?php
 
-/* @var $this \yii\web\View */
+/* @var $view \yii\web\View */
 
 /* @var $content string */
 
@@ -12,21 +12,20 @@ use yii\widgets\Breadcrumbs;
 use janami\assets\AppAsset;
 use common\widgets\Alert;
 
-AppAsset::register($this);
+AppAsset::register($view);
 ?>
-<?php $this->beginPage() ?>
-<!DOCTYPE html>
+<?php $view->beginPage() ?>
+        <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>">
 <head>
     <meta charset="<?= Yii::$app->charset ?>">
-
 
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta property="og:locale" content="en_US"/>
     <meta property="og:type" content="website"/>
-    <meta property="og:title" content="<?= $this->title ?>"/>
+    <meta property="og:title" content="<?= $view->title ?>"/>
     <meta property="og:url" content="<?= \Yii::$app->homeUrl; ?>"/>
     <meta property="og:site_name" content="SITE_NAME"/>
     <link rel="shortcut icon" href="<?= HelperFunction::Favicon() ?>" type="image/x-icon">
@@ -42,19 +41,41 @@ AppAsset::register($this);
         {
             "@context": "http://schema.org",
             "@type": "WebSite",
-            "name": "<?= $this->title ?>",
+            "name": "<?= $view->title ?>",
             "url": "<?= \Yii::$app->homeUrl; ?>"
         }
 
 
 
+
+
+
+
+
+
+
+
+
+
+
     </script>
-    <?php $this->registerCsrfMetaTags() ?>
-    <title><?= Html::encode($this->title) ?></title>
-    <?php $this->head() ?>
+    <?php $view->registerCsrfMetaTags() ?>
+    <title><?= Html::encode($view->title) ?></title>
+    <?php $view->head() ?>
+    <script type="text/babel">
+        const {useState, useEffect, useRef, useForceUpdate} = React;
+        const {
+            Descriptions, message, Pagination,
+            Modal, Skeleton, Input, Divider, Spin, Row, Radio,
+            Upload, Progress, Checkbox, TreeSelect, Tabs, Tree, Space,
+            Select, Col, Card, Form, Popconfirm, Table, Button, InputNumber
+        } = antd;
+        const {TabPane} = Tabs;
+    </script>
+    @yield('js_head')
 </head>
 <body>
-<?php $this->beginBody() ?>
+<?php $view->beginBody() ?>
 <div id="loader-wrapper">
     <div id="loading">
         <div class="cssload-loader">
@@ -69,11 +90,14 @@ AppAsset::register($this);
 
 
 <div id="page" class="page">
-    <?= $this->render('../parts/header') ?>
-    <?= $content ?>
-    <?= $this->render('../parts/footer') ?>
+    <?= $view->render('../parts/header') ?>
+    <?= isset($content) ? $content : ''?>
+    @yield('content')
+    <?= $view->render('../parts/footer') ?>
 </div>
-<?php $this->endBody() ?>
+<?php $view->endBody() ?>
+@yield('js_end')
 </body>
 </html>
-<?php $this->endPage() ?>
+<?php $view->endPage() ?>
+

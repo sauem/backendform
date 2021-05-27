@@ -6,6 +6,7 @@ namespace janami\controllers;
 
 use common\helper\HelperFunction;
 use common\models\Contact;
+use common\models\Products;
 use frontend\models\ContactForm;
 use yii\web\BadRequestHttpException;
 use yii\web\Response;

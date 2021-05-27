@@ -98,7 +98,7 @@ if ($menu) {
                         <li class="nl-simple cart txt-color-03 header-socials clearfix" aria-haspopup="true">
                             <span>
                                 <a href="/<?= CART ?>" class="ico-cart"><i class="fas fa-shopping-bag"></i>
-                                <span>2</span>
+                                <span id="cart-mini">0</span>
                                 </a>
                             </span>
                         </li>

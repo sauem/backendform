@@ -12,6 +12,7 @@ class AppAsset extends AssetBundle
     public $basePath = '@webroot';
     public $baseUrl = '@web';
     public $css = [
+        'https://unpkg.com/antd/dist/antd.css',
         'https://fonts.googleapis.com/css2?family=Lustria&amp;display=swap',
         'https://fonts.googleapis.com/css2?family=Alex+Brush&amp;display=swap',
         'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&amp;display=swap',
@@ -27,13 +28,18 @@ class AppAsset extends AssetBundle
         '/css/owl.theme.default.min.css',
         '/css/jquery.datetimepicker.min.css',
         '/css/pink-theme.css',
-       // '/css/rose-theme.css',
-       // '/css/silk-theme.css',
-       // '/css/gold-theme.css',
+        // '/css/rose-theme.css',
+        // '/css/silk-theme.css',
+        // '/css/gold-theme.css',
         '/css/responsive.css',
-        '/css/custom.css?v=1.1',
+        '/css/custom.css?v=1.4',
     ];
     public $js = [
+        ['https://unpkg.com/react@17/umd/react.production.min.js', 'crossorigin'],
+        ['https://unpkg.com/react-dom@17/umd/react-dom.production.min.js', 'crossorigin'],
+        'https://cdnjs.cloudflare.com/ajax/libs/antd/4.16.0/antd.min.js',
+        'https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js',
+        'https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js',
         '/js/bootstrap.min.js',
         '/js/modernizr.custom.js',
         '/js/jquery.easing.js',
@@ -54,7 +60,9 @@ class AppAsset extends AssetBundle
         '/js/booking-form.js',
         '/js/jquery.datetimepicker.full.js',
         '/js/jquery.ajaxchimp.min.js',
-        '/js/custom.js'
+        '/js/custom.js',
+        ['/js/action.js', 'type' => 'text/babel'],
+        ['/js/cart.js', 'type' => 'text/babel']
     ];
     public $depends = [
         'yii\web\YiiAsset',

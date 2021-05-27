@@ -1,3 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Charmonman:wght@700&display=swap");
+.tra-header {
+  font-family: 'Charmonman', cursive !important; }
+
+html, body, a, p, h1, h2, h3, h4, h5, h6 {
+  font-family: 'Baloo Da 2', cursive; }
+
+nav a {
+  font-weight: 600; }
+
 .cart .ico-cart {
   position: relative; }
   .cart .ico-cart i {
@@ -18,5 +29,44 @@
     font-size: 15px;
     font-weight: bold;
     justify-content: center; }
+
+.page-pagination {
+  padding-bottom: 100px; }
+  .page-pagination .page-link {
+    color: #efa697;
+    font-weight: 600;
+    padding: 9px 16px;
+    margin: 0 3px;
+    background-color: transparent;
+    border-color: transparent;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -o-border-radius: 3px;
+    border-radius: 3px; }
+  .page-pagination .page-item:first-child .page-link {
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px; }
+  .page-pagination .page-item:last-child .page-link {
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px; }
+  .page-pagination .page-item.disabled .page-link {
+    color: #aaa;
+    background-color: transparent;
+    border-color: transparent; }
+  .page-pagination .next-page.page-link1 {
+    margin-left: 30px; }
+  .page-pagination .page-link:hover,
+  .page-pagination .page-item.active .page-link {
+    background-color: #efa697;
+    color: #fff;
+    border-color: #efa697;
+    -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+    -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05); }
+  .page-pagination .page-link:focus {
+    background-color: transparent;
+    color: #666;
+    border-color: transparent;
+    box-shadow: 0 0; }
 
 /*# sourceMappingURL=custom.css.map */

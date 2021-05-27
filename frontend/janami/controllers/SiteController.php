@@ -425,7 +425,7 @@ class SiteController extends BaseController
 
     public function actionProduct()
     {
-        return $this->render('product');
+        return $this->render('product.blade');
     }
 
     public function actionFaqs()
@@ -440,10 +440,11 @@ class SiteController extends BaseController
 
     public function actionCart()
     {
-        return $this->render('cart');
+        return $this->render('cart.blade');
     }
+
     public function actionCheckout()
     {
-        return $this->render('checkout');
+        return $this->render('checkout.blade');
     }
 }

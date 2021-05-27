@@ -6,6 +6,7 @@ namespace janami\controllers;
 
 use common\helper\HelperFunction;
 use common\models\MenuConfig;
+use cyneek\yii2\blade\BladeBehavior;
 use yii\db\Exception;
 use yii\db\Expression;
 use yii\filters\AccessControl;
@@ -20,6 +21,9 @@ class BaseController extends Controller
     public function behaviors()
     {
         return [
+            'blade' => [
+                'class' => BladeBehavior::class
+            ],
             'access' => [
                 'class' => AccessControl::className(),
                 'only' => ['logout', 'signup'],

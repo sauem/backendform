@@ -1,0 +1,48 @@
+<?php
+
+use yii\helpers\Html;
+
+$view->title = 'Giỏ hàng';
+?>
+
+@section('content')
+    <?= $view->render('../parts/page-title.blade', [
+        'text' => '',
+        'title' => $view->title
+    ]) ?>
+    <section id="pricing-1" class="bg-color-01 wide-70 pricing-section division">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>Giỏ hàng</h2>
+                    <div id="table-cart"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+@stop
+@section('js_end')
+    <script type="text/babel">
+        const Cart = () => {
+            return (
+                <div>
+                    <Table
+                        dataSource={[]}
+                        columns={[
+                            {title: 'Sản phẩm'},
+                            {title: 'Số lượng'},
+                            {title: 'Đơn giá'},
+                            {title: 'Tổng cộng'},
+                        ]}
+                    />
+                    <div className="mt-10 d-flex justify-content-between">
+                        <a href="/san-pham" className="btn btn-md btn-color-02"><i className="fas mr-2 fa-arrow-left"/> Tiếp tục mua hàng</a>
+                        <a href="/checkout" className="btn btn-md btn-color-02">Đặt hàng <i className="fas ml-2 fa-arrow-right"/></a>
+                    </div>
+                </div>
+
+            )
+        }
+        ReactDOM.render(<Cart/>, document.getElementById('table-cart'));
+    </script>
+@stop
