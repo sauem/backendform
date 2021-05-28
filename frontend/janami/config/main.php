@@ -24,6 +24,11 @@ return [
                 ],
             ],
         ],
+        'cache' => [
+            #'class' => 'yii\caching\FileCache',
+            'class' => 'yii\redis\Cache',
+            'keyPrefix' => 'lucycosmeticcom_'
+        ],
         'request' => [
             'enableCookieValidation' => true,
             'enableCsrfValidation' => false,
