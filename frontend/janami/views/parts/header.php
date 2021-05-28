@@ -17,7 +17,9 @@ if ($menu) {
 
         <!-- MOBILE HEADER -->
         <div class="wsmobileheader clearfix">
-            <span class="smllogo"><img src="/images/logo-01.png" width="170" height="50" alt="mobile-logo"/></span>
+            <span class="smllogo">
+                <img src="<?= HelperFunction::getLogo('header')?>" width="170" height="50" alt="<?= HelperFunction::setting('site_name')?>"/>
+            </span>
             <a id="wsnavtoggle" class="wsanimated-arrow"><span></span></a>
         </div>
 
@@ -29,14 +31,14 @@ if ($menu) {
 
                 <!-- LOGO IMAGE -->
                 <!-- For Retina Ready displays take a image with double the amount of pixels that your image will be displayed (e.g 346 x 100 pixels) -->
-                <div class="desktoplogo"><a href="/" class="logo-black"><img src="/images/logo-01.png" width="170"
-                                                                             height="50" alt="header-logo"></a>
+                <div class="desktoplogo"><a href="/" class="logo-black">
+                        <img src="<?= HelperFunction::getLogo('header')?>" width="170" height="50" alt="<?= HelperFunction::setting('site_name')?>">
+                    </a>
                 </div>
-                <div class="desktoplogo"><a href="/" class="logo-white"><img src="/images/logo-white.png"
-                                                                             width="170" height="50"
-                                                                             alt="header-logo"></a></div>
-
-
+                <div class="desktoplogo"><a href="/" class="logo-white">
+                        <img src="<?= HelperFunction::getLogo('header')?>" width="170" height="50" alt="<?= HelperFunction::setting('site_name')?>">
+                    </a>
+                </div>
                 <!-- MAIN MENU -->
                 <nav class="wsmenu clearfix">
                     <ul class="wsmenu-list">
