@@ -399,11 +399,15 @@ class SiteController extends BaseController
 
     public function actionOrganizationalStructure()
     {
+        $advisories = Member::find()
+            ->where(['type' => 'advisory_board'])
+            ->all();
         $bods = Member::find()
-            ->where(['type' => 'structure'])
+            ->where(['type' => 'bod'])
             ->all();
         return $this->render('member', [
-            'bods' => $bods,
+            'executives' => $bods,
+            'advisories' => $advisories
         ]);
     }
     public function actionExecutiveBoard()
