@@ -20,7 +20,7 @@ Yii::$app->params['header_style'] = true;
             </div>
             <div class="row clearfix">
                 <?php foreach ($bods as $bod) { ?>
-                    <div class="team-block cold-md-3 col-12">
+                    <div class="team-block col-md-3 col-12">
                         <div class="inner-box wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
                             <div class="image">
                                 <a href="#"><img src="<?= $bod->avatar ?>" alt=""/></a>
@@ -61,7 +61,7 @@ Yii::$app->params['header_style'] = true;
             </div>
             <div class="row clearfix">
                 <?php foreach ($executives as $bod) { ?>
-                    <div class="team-block cold-md-3 col-12">
+                    <div class="team-block col-md-3 col-12">
                         <div class="inner-box wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
                             <div class="image">
                                 <a href="#"><img src="<?= $bod->avatar ?>" alt=""/></a>
@@ -101,7 +101,7 @@ Yii::$app->params['header_style'] = true;
             </div>
             <div class="row clearfix">
                 <?php foreach ($advisories as $bod) { ?>
-                    <div class="team-block cold-md-3 col-12">
+                    <div class="team-block col-md-3 col-12">
                         <div class="inner-box wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
                             <div class="image">
                                 <a href="#"><img src="<?= $bod->avatar ?>" alt=""/></a>
@@ -191,7 +191,7 @@ Yii::$app->params['header_style'] = true;
                 <div class="row g-0">
                     <?php foreach ($products as $model) {
                         ?>
-                        <div class="service-block col-lg-3 col-md-6 col-sm-12">
+                        <div class="service-block  col-md-3 col-sm-12">
                             <div class="inner-box p-3">
                                 <div class="icon-box">
                                     <?php if ($model->avatar) { ?>
