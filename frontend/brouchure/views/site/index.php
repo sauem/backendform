@@ -3,6 +3,7 @@
 /* @var $this yii\web\View */
 
 use common\helper\HelperFunction;
+use yii\helpers\ArrayHelper;
 use yii\widgets\ActiveForm;
 
 $this->title = HelperFunction::getLanguage() == 'vi' ?
@@ -19,103 +20,52 @@ Yii::$app->params['footer_type'] = 'light';
 <!--services-section-->
 <section class="ttm-row services-section clearfix">
     <div class="container">
-        <!-- row -->
         <div class="row">
             <div class="col-lg-12">
-                <!-- section title -->
                 <div class="section-title without-seperator title-style-center_text">
                     <div class="title-header">
-                        <h2 class="title">Our Services & Commitments</h2>
+                        <h2 class="title"><?= Yii::t('app', 'service_and_commit') ?></h2>
                     </div>
                     <div class="title-desc">
-                        <p>We are specialists in both economics and information technologies and we apply our full range
-                            of talent to creating the perfect solution for each client’s needs.</p>
+                        <p><?= ArrayHelper::getValue(Yii::$app->params, 'service_commit_' . HelperFunction::getLanguage()) ?></p>
                     </div>
-                </div><!-- section title end -->
+                </div>
             </div>
-        </div><!-- row end -->
-        <!-- row -->
+        </div>
         <div class="row row-equal-height">
-            <div class="col-lg-3 col-md-6 col-sm-6">
-                <!--featured-icon-box-->
-                <div class="featured-icon-box icon-align-top-content style1">
-                    <div class="featured-icon">
-                        <div class="ttm-icon ttm-icon_element-fill ttm-icon_element-style-rounded ttm-icon_element-color-skincolor ttm-icon_element-size-md">
-                            <i class="flaticon flaticon-management"></i>
-                        </div>
+            <?php
+            $services = ArrayHelper::getValue(Yii::$app->params, 'service_commit_items.' . HelperFunction::getLanguage());
+            if (!empty($services)) {
+                foreach ($services as $service) {
+                    ?>
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <!--featured-icon-box-->
+                        <div class="featured-icon-box icon-align-top-content style1">
+                            <div class="featured-icon">
+                                <div class="ttm-icon ttm-icon_element-fill ttm-icon_element-style-rounded ttm-icon_element-color-skincolor ttm-icon_element-size-md">
+                                    <i class="flaticon <?= $service['icon']?>"></i>
+                                </div>
+                            </div>
+                            <div class="featured-content">
+                                <div class="featured-title">
+                                    <h3><?= $service['title']?></h3>
+                                </div>
+                                <div class="featured-desc">
+                                    <p><?= $service['desc']?></p>
+                                </div>
+                            </div>
+                        </div><!-- featured-icon-box end-->
                     </div>
-                    <div class="featured-content">
-                        <div class="featured-title">
-                            <h3>Understanding</h3>
-                        </div>
-                        <div class="featured-desc">
-                            <p>Deep understanding of manufacturing industry
-                                and relating government regulations</p>
-                        </div>
-                    </div>
-                </div><!-- featured-icon-box end-->
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6">
-                <!--featured-icon-box-->
-                <div class="featured-icon-box icon-align-top-content style1">
-                    <div class="featured-icon">
-                        <div class="ttm-icon ttm-icon_element-fill ttm-icon_element-style-rounded ttm-icon_element-color-skincolor ttm-icon_element-size-md">
-                            <i class="flaticon flaticon-idea-2"></i>
-                        </div>
-                    </div>
-                    <div class="featured-content">
-                        <div class="featured-title">
-                            <h3>Faster</h3>
-                        </div>
-                        <div class="featured-desc">
-                            <p>Intensive network within the local market</p>
-                        </div>
-                    </div>
-                </div><!-- featured-icon-box end-->
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6">
-                <!--featured-icon-box-->
-                <div class="featured-icon-box icon-align-top-content style1">
-                    <div class="featured-icon">
-                        <div class="ttm-icon ttm-icon_element-fill ttm-icon_element-style-rounded ttm-icon_element-color-skincolor ttm-icon_element-size-md">
-                            <i class="flaticon flaticon-document"></i>
-                        </div>
-                    </div>
-                    <div class="featured-content">
-                        <div class="featured-title">
-                            <h3>Value</h3>
-                        </div>
-                        <div class="featured-desc">
-                            <p>Promising value to customer</p>
-                        </div>
-                    </div>
-                </div><!-- featured-icon-box end-->
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6">
-                <!--featured-icon-box-->
-                <div class="featured-icon-box icon-align-top-content style1">
-                    <div class="featured-icon">
-                        <div class="ttm-icon ttm-icon_element-fill ttm-icon_element-style-rounded ttm-icon_element-color-skincolor ttm-icon_element-size-md">
-                            <i class="flaticon flaticon-corporate-1"></i>
-                        </div>
-                    </div>
-                    <div class="featured-content">
-                        <div class="featured-title">
-                            <h3>Support</h3>
-                        </div>
-                        <div class="featured-desc">
-                            <p>Expert team help your company ex more solution</p>
-                        </div>
-                    </div>
-                </div><!-- featured-icon-box end-->
-            </div>
-        </div><!-- row end -->
+                    <?php
+                }
+                ?>
+                <?php
+            }
+            ?>
+        </div>
     </div>
 </section>
-<!--services-section-->
 
-
-<!--padding_bottom_zero-section-->
 <section class="ttm-row padding_bottom_zero-section bg-layer bg-layer-equal-height mt_20 clearfix">
     <div class="container">
         <div class="row">

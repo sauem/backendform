@@ -52,4 +52,7 @@ return [
     'executive_board' => 'Executive Board',
     'advisory_board' => 'Advisory Board',
     'search_for' => 'search for: ',
+    'advisory' => 'Support advisory',
+    'hotline' => 'Hotline',
+    'service_and_commit' => 'Our Services & Commitments'
 ];

@@ -37,6 +37,7 @@ class AppAsset extends AssetBundle
         '/js/imagesloaded.min.js',
         '/js/jquery-isotope.js',
         '/js/main.js',
+        '/js/temp.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',

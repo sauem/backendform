@@ -2,29 +2,10 @@
 Yii::$app->params['header_style'] = true;
 ?>
 <?= $this->render('../parts/page-title', [
-    'title' => Yii::t('app', 'members_list'),
+    'title' => $model->title,
     'description' => ''
 ]) ?>
-<div class="ttm-page-title-row">
-    <div class="ttm-page-title-row-inner ttm-bgcolor-darkgrey">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-12">
-                    <div class="page-title-heading">
-                        <h2 class="title">Our Services</h2>
-                    </div>
-                    <div class="breadcrumb-wrapper">
-                                <span>
-                                    <i class="ti ti-home margin_right1"></i>
-                                    <a title="Homepage" href="index.html">Home</a>
-                                </span>
-                        <span>Services 2</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+
 <section class="ttm-row grid-section clearfix">
     <div class="container">
         <!-- row -->

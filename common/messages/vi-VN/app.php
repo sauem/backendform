@@ -51,5 +51,8 @@ return [
     'organizational_structure' => 'Cơ cấu tổ chức',
     'executive_board' => 'Ban điều hành',
     'advisory_board' => 'Ban cố vấn',
-    'search_for' => 'Tìm kiếm từ khóa: '
+    'search_for' => 'Tìm kiếm từ khóa: ',
+    'advisory' => 'Hỗ trợ tư vấn',
+    'hotline' => 'Hotline',
+    'service_and_commit' => 'Dịch vụ & Cam kết của chúng tôi'
 ];
