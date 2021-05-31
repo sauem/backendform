@@ -412,7 +412,7 @@ class SiteController extends BaseController
             ->where(['type' => 'bod'])
             ->all();
         return $this->render('member', [
-            'bods' => $bods,
+            'executives' => $bods,
         ]);
     }
     public function actionAdvisoryBoard()
@@ -421,7 +421,7 @@ class SiteController extends BaseController
             ->where(['type' => 'advisory_board'])
             ->all();
         return $this->render('member', [
-            'bods' => $bods,
+            'advisories' => $bods,
         ]);
     }
     public function actionOurTeam()

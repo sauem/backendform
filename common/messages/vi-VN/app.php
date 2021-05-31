@@ -49,5 +49,7 @@ return [
     'member' => "Thành viên",
     'members_list' => 'Danh sách thành viên',
     'organizational_structure' => 'Cơ cấu tổ chức',
+    'executive_board' => 'Ban điều hành',
+    'advisory_board' => 'Ban cố vấn',
     'search_for' => 'Tìm kiếm từ khóa: '
 ];

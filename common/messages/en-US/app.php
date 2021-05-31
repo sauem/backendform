@@ -49,5 +49,7 @@ return [
     'members_list' => "Members list",
     'member' => "Members",
     'organizational_structure' => 'Organizational structure',
+    'executive_board' => 'Executive Board',
+    'advisory_board' => 'Advisory Board',
     'search_for' => 'search for: ',
 ];
