@@ -12,4 +12,6 @@ define('OUR_TEAM', 'our-team');
 define('PARTNER', 'partner');
 define('SEARCH', 'search');
 define('STRUCTURE', 'organizational-structure');
+define('EXECUTIVE', 'executive-board');
+define('ADVISORY', 'advisory-board');
 

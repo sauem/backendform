@@ -400,13 +400,30 @@ class SiteController extends BaseController
     public function actionOrganizationalStructure()
     {
         $bods = Member::find()
+            ->where(['type' => 'structure'])
+            ->all();
+        return $this->render('member', [
+            'bods' => $bods,
+        ]);
+    }
+    public function actionExecutiveBoard()
+    {
+        $bods = Member::find()
             ->where(['type' => 'bod'])
             ->all();
         return $this->render('member', [
             'bods' => $bods,
         ]);
     }
-
+    public function actionAdvisoryBoard()
+    {
+        $bods = Member::find()
+            ->where(['type' => 'advisory_board'])
+            ->all();
+        return $this->render('member', [
+            'bods' => $bods,
+        ]);
+    }
     public function actionOurTeam()
     {
         $members = Member::find()

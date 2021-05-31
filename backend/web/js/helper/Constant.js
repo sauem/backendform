@@ -253,6 +253,20 @@ const vietauStaticPage = (categories = []) => {
             slug: 'organizational-structure'
         },
         {
+            title: 'Ban cố vấn',
+            key: categories.length + 9998,
+            type: 'page',
+            value: 'advisory-board',
+            slug: 'advisory-board'
+        },
+        {
+            title: 'Ban điều hành',
+            key: categories.length + 9997,
+            type: 'page',
+            value: 'executive-board',
+            slug: 'executive-board'
+        },
+        {
             title: 'Liên hệ',
             key: categories.length + 9994,
             type: 'page',

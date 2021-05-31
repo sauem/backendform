@@ -3,6 +3,8 @@ return [
     HOME => 'site/index',
     PRODUCT_AND_BRIEF => 'site/product-and-brief',
     OUR_TEAM => 'site/our-team',
+    ADVISORY => 'site/advisory-board',
+    EXECUTIVE => 'site/executive-board',
     PARTNER => 'site/partner',
     GUIDE => 'site/guide',
     SEARCH => 'site/search',
