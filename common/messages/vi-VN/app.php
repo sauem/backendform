@@ -54,5 +54,7 @@ return [
     'search_for' => 'Tìm kiếm từ khóa: ',
     'advisory' => 'Hỗ trợ tư vấn',
     'hotline' => 'Hotline',
-    'service_and_commit' => 'Dịch vụ & Cam kết của chúng tôi'
+    'service_and_commit' => 'Dịch vụ & Cam kết của chúng tôi',
+    'how_can_help' => 'Chúng tôi có thể giúp bạn',
+    'why_chose_us' => 'Lý do chọn MK Viêt Nam?',
 ];

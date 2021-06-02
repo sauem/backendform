@@ -57,5 +57,14 @@ return [
                 'desc' => 'Expert team help your company ex more solution'
             ],
         ]
+    ],
+    'while_chose_us_vi' => [
+        'Deep understanding of manufacturing industry and relating government regulations',
+        ' Intensive network within the local market',
+        'Promising value to customer',
+        'Expert team'
+    ],
+    'while_chose_us_en' => [
+
     ]
 ];

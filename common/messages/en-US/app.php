@@ -54,5 +54,7 @@ return [
     'search_for' => 'search for: ',
     'advisory' => 'Support advisory',
     'hotline' => 'Hotline',
-    'service_and_commit' => 'Our Services & Commitments'
+    'service_and_commit' => 'Our Services & Commitments',
+    'how_can_help' => 'How We Can Help',
+    'why_chose_us' => 'Why chose use?',
 ];

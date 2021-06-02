@@ -43,15 +43,15 @@ Yii::$app->params['footer_type'] = 'light';
                         <div class="featured-icon-box icon-align-top-content style1">
                             <div class="featured-icon">
                                 <div class="ttm-icon ttm-icon_element-fill ttm-icon_element-style-rounded ttm-icon_element-color-skincolor ttm-icon_element-size-md">
-                                    <i class="flaticon <?= $service['icon']?>"></i>
+                                    <i class="flaticon <?= $service['icon'] ?>"></i>
                                 </div>
                             </div>
                             <div class="featured-content">
                                 <div class="featured-title">
-                                    <h3><?= $service['title']?></h3>
+                                    <h3><?= $service['title'] ?></h3>
                                 </div>
                                 <div class="featured-desc">
-                                    <p><?= $service['desc']?></p>
+                                    <p><?= $service['desc'] ?></p>
                                 </div>
                             </div>
                         </div><!-- featured-icon-box end-->
@@ -90,37 +90,16 @@ Yii::$app->params['footer_type'] = 'light';
                                 <!-- section title -->
                                 <div class="section-title">
                                     <div class="title-header">
-                                        <h2 class="title">How we can help</h2>
+                                        <h2 class="title"><?= Yii::t('app', 'how_can_help') ?></h2>
                                     </div>
                                     <div class="title-desc">
-                                        <p>
-                                            We are a Hanoi-based consulting firm specializing in
-                                            Manufacturing Industry in Vietnam. We offer various
-                                            advisory and professional services for manufacturers
-                                            such as investment advisory, supporting industry
-                                            incentives, tax services and best practices you need to
-                                            achieve immediate value today as you build toward
-                                            your long-term vision.<br>
-                                            With a broad network in the market and deep
-                                            experiences of Vietnam law and regulation system,
-                                            we offer comprehensive services to support
-                                            businesses investing in Vietnam from the investment
-                                            idea to the post-investment activities. Our featured
-                                            service is to assist companies in applying for CIT
-                                            exemption/reduction through preferential policies of
-                                            Vietnam Government such as Supporting Industry
-                                            Incentives, High-Tech incentives, Investment
-                                            incentives and so on. We have helped many
-                                            companies successfully achieving these incentives.<br>
-                                            Make an appointment with our consultants to find out
-                                            more.
-                                        </p>
+                                        <?= nl2br(HelperFunction::setting('event_desc')) ?>
                                     </div>
                                 </div><!-- section title end -->
                                 <div class="padding_top15 padding_bottom30 res-991-padding_bottom30">
                                     <!-- featured-icon-box -->
                                     <div class="featured-icon-box icon-align-before-content style2 icon-ver_align-top">
-                                        <h3>Why chosse us?</h3>
+                                        <h3><?= Yii::t('app','why_chose_us')?></h3>
                                         <div class="featured-icon">
                                             <p><i class="ti ti-angle-right margin_left0"></i>
                                                 Deep understanding of manufacturing industry
