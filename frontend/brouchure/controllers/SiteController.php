@@ -13,6 +13,7 @@ use common\models\Medias;
 use common\models\Member;
 use common\models\Products;
 use common\models\ProductsSearch;
+use common\models\Testimonials;
 use frontend\models\ResendVerificationEmailForm;
 use frontend\models\VerifyEmailForm;
 use Yii;
@@ -67,12 +68,18 @@ class SiteController extends BaseController
             'active' => Banners::BANNER_ACTIVE,
             'position' => 'logo_partner'
         ]);
+        $testimonials = Testimonials::find()
+            ->where([
+                'language' => HelperFunction::getLanguage()
+            ])
+            ->all();
         return $this->render('index', [
             'sliders' => $sliders,
             'categories' => $categories,
             'articles' => $articles,
             'products' => $products,
             'logos' => $logos,
+            'testimonials' => $testimonials,
             'contactForm' => $contactForm
         ]);
     }

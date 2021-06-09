@@ -57,4 +57,6 @@ return [
     'service_and_commit' => 'Dịch vụ & Cam kết của chúng tôi',
     'how_can_help' => 'Chúng tôi có thể giúp bạn',
     'why_chose_us' => 'Lý do chọn MK Viêt Nam?',
+    'customer_say' => 'Khách hàng nói gì về MK Viêt Nam?',
+    'more_news' => 'Xem thêm',
 ];

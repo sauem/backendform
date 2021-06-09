@@ -80,7 +80,12 @@ $view->title = 'Danh mục sản phẩm';
             return (
                 <Row gutter={[8, 0]}>
                     <Col md={8}>
-                        <Card title={`Thêm biến thể ${state.attribute.name}`}>
+                        <Card title={<div className="d-flex justify-content-between">
+                            <Button type="dashed" className="mb-2">
+                                <a href="/product/attribute"><i className="icon icon-arrow-left"/> Danh sách </a>
+                            </Button>
+                            <p>Biến thể {state.attribute.name}</p>
+                        </div>}>
                             <Form layout={`vertical`} onFinish={onSubmit} form={form} id={'categoryForm'}>
                                 <Form.Item name={'id'} hidden><Input/></Form.Item>
                                 <Form.Item initialValue={getParams('id')}

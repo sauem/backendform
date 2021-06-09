@@ -17,6 +17,12 @@ use function Webmozart\Assert\Tests\StaticAnalysis\null;
 class HelperFunction
 {
 
+    static function params($key)
+    {
+        $params = \Yii::$app->params;
+        return ArrayHelper::getValue($params, $key . "_" . HelperFunction::getLanguage(), '');
+    }
+
     static function getHost($frontend = false, $db = null)
     {
         $host = isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : $db;

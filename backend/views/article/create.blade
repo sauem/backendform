@@ -19,13 +19,15 @@
                         loading: true
                     }
                 });
-                let res = false;
+                let res = true;
                 if (typeof article.id === "undefined") {
-                    await Articles.create(article);
+                    res = await Articles.create(article);
                     message.success('Thêm bài viết thành công!');
                 } else {
-                    await Articles.update(article);
+                    res = await Articles.update(article);
                     message.success('Cập nhật bài viết thành công!');
+                }
+                if (res) {
                     updateState();
                 }
             }
@@ -99,13 +101,14 @@
 
             return (
                 <div className="mb-5">
+                    <Button type="dashed" className="mb-2"><a href="/article/index">
+                        <i className="icon icon-arrow-left"/> Danh sách bài viết</a>
+                    </Button>
                     <Form onFinish={onSubmit} form={form} layout="vertical">
                         <Row gutter={[8, 0]}>
                             <Col md={18} xs={24}>
                                 <Card bordered={false}>
-                                    <Form.Item name={`media_id`} hidden>
-                                        <Input/>
-                                    </Form.Item>
+
                                     <Form.Item name={`id`} hidden>
                                         <Input/>
                                     </Form.Item>
@@ -162,7 +165,8 @@
                             <Col md={6} xs={24}>
                                 <div className={`sticky-sidebar`}>
                                     <Card title="Thiết lập"
-                                          extra={<Button htmlType="submit" type="primary" size="small">Lưu</Button>}>
+                                          extra={<Button htmlType="submit" type="primary"
+                                                         size="small">Lưu</Button>}>
                                         <Form.Item
                                             label={`Danh mục`}
                                             name="archive_id"
@@ -199,6 +203,7 @@
                                         </Form.Item>
                                         <Form.Item
                                             name="avatar"
+                                            rules={[{required: true,message:'avatar bắt buộc'}]}
                                             label="Ảnh"
                                         >
                                             <Upload
@@ -216,6 +221,11 @@
                                                     <Button><i className="icon-upload mr-2"/> Chọn ảnh</Button>}
                                             </Upload>
                                             {progress > 0 ? <Progress percent={progress}/> : null}
+                                        </Form.Item>
+                                        <Form.Item name={`media_id`}
+                                                   rules={[{required: true,message:'avatar bắt buộc'}]}
+                                                   hidden>
+                                            <Input/>
                                         </Form.Item>
                                     </Card>
                                 </div>

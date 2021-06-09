@@ -22,6 +22,10 @@
   max-height: calc(100% - 120px);
 }
 
+.sticky-top {
+  z-index: 99;
+}
+
 .sticky-sidebar {
   position: sticky;
   top: 3.2rem;

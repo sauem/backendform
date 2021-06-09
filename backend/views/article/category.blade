@@ -13,7 +13,8 @@ $view->title = 'Danh mục sản phẩm';
                 pagination: {},
                 uploading: false,
                 loading: false,
-                searchValue: ''
+                searchValue: '',
+                searchLang: ''
             }
             const __r = (args = []) => {
                 let a = [];
@@ -33,6 +34,7 @@ $view->title = 'Danh mục sản phẩm';
             const [defaultFileList, setDefaultFileList] = useState([]);
             const [progress, setProgress] = useState(0);
             const [form] = Form.useForm();
+            const [formSearch] = Form.useForm();
             const onSubmit = async (data) => {
                 if (typeof data.id !== "undefined") {
                     await Archives.update(data);
@@ -111,21 +113,29 @@ $view->title = 'Danh mục sản phẩm';
             const setSearchValue = e => {
                 setState({
                     ...state,
-                    ...{
-                        searchValue: e.target.value
-                    }
+                    searchValue: e.target.value
                 })
             }
-            const searchArchive = async () => {
+            const searchArchive = async (obj = {}) => {
                 await updateState({
-                    name: state.searchValue
+                    name: state.searchValue,
+                    language: state.searchLang,
+                    ...obj
+                });
+            }
+            const onChangeLanguage = async (value) => {
+                setState({
+                    ...state,
+                    searchLang: value
+                });
+                await searchArchive({
+                    language: value
                 });
             }
             useEffect(async () => {
                 await updateState();
-                console.log(__r(state.categories));
-
             }, []);
+
 
             return (
                 <Row gutter={[8, 0]}>
@@ -183,7 +193,7 @@ $view->title = 'Danh mục sản phẩm';
                                             name={'language'}
                                             label={`Ngôn ngữ`}
                                         >
-                                            <Select>
+                                            <Select onChange={onChangeLanguage}>
                                                 {LANGUAGES.map(item => {
                                                     return <Select.Option value={item.lang}>{item.name}</Select.Option>;
                                                 })}
@@ -223,12 +233,15 @@ $view->title = 'Danh mục sản phẩm';
                         <Card title={`Danh mục sản phẩm`}
                               extra={
                                   <div className="d-flex">
-                                      <Select defaultValue={LANG_VI} style={getStyles({width:'100%',marginRight:5})}>
+                                      <Select onChange={onChangeLanguage}
+                                              defaultValue={LANG_VI}
+                                              style={getStyles({width: '100%', marginRight: 5})}>
                                           <Select.Option value={LANG_VI}>Tiếng Việt</Select.Option>
                                           <Select.Option value={LANG_EN}>Tiếng Anh</Select.Option>
                                       </Select>
-                                      <Input onChange={setSearchValue} placeholder="Tìm kiếm tên....." name="s"/>
-                                      <Button onClick={searchArchive} className="ml-2"><i
+                                      <Input onChange={setSearchValue}
+                                             placeholder="Tìm kiếm tên....." name="s"/>
+                                      <Button onClick={() => searchArchive(null)} className="ml-2"><i
                                           className="icon-search"/></Button>
                                   </div>
                               }

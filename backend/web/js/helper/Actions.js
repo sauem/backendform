@@ -452,7 +452,7 @@ const Products = {
                 params: {
                     ...params,
                     sort: '-created_at',
-                    expand: 'avatar,archives,thumbs',
+                    expand: 'avatar,archives,thumbs,defaultArchive',
                     "per-page": 20
                 }
             }).catch(axiosCatch);

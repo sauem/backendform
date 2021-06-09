@@ -99,7 +99,7 @@ Yii::$app->params['footer_type'] = 'light';
                                 <div class="padding_top15 padding_bottom30 res-991-padding_bottom30">
                                     <!-- featured-icon-box -->
                                     <div class="featured-icon-box icon-align-before-content style2 icon-ver_align-top">
-                                        <h3><?= Yii::t('app','why_chose_us')?></h3>
+                                        <h3><?= Yii::t('app', 'why_chose_us') ?></h3>
                                         <div class="featured-icon">
                                             <p><i class="ti ti-angle-right margin_left0"></i>
                                                 Deep understanding of manufacturing industry
@@ -392,123 +392,51 @@ Yii::$app->params['footer_type'] = 'light';
                 <!-- section-title -->
                 <div class="section-title title-style-center_text">
                     <div class="title-header">
-                        <h3>TESTIMONIALS</h3>
-                        <h2 class="title">What Our Clients Say?</h2>
+                        <h2 class="title"><?= Yii::t('app', 'customer_say') ?></h2>
                     </div>
-                    <div class="title-desc">
-                        <p>We are specialists in both economics and information technologies and we apply our full range
-                            of talent to creating the perfect solution for each client’s needs.</p>
-                    </div>
+
                 </div><!-- section-title end -->
             </div>
         </div><!-- row end -->
         <div class="row slick_slider"
              data-slick='{"slidesToShow": 2, "slidesToScroll": 1, "arrows":false, "autoplay":false, "dots":false, "infinite":true, "responsive":[{"breakpoint":992,"settings":{"slidesToShow": 2}},{"breakpoint":840,"settings":{"slidesToShow": 1}}]}'>
-            <div class="col-lg-6">
-                <!-- testimonials -->
-                <div class="testimonials ttm-testimonial-box-view-style1">
-                    <div class="testimonial-content">
-                        <div class="testimonial-content-inner">
-                            <div class="d-flex align-items-center">
-                                <div class="testimonial-avatar">
-                                    <!-- testimonials-img -->
-                                    <div class="testimonial-img">
-                                        <img class="img-center" src="images/testimonial/01.jpg" alt="testimonial-img">
-                                    </div><!-- testimonials-img end-->
+
+            <?php if (!empty($testimonials)) {
+                foreach ($testimonials as $testimonial) {
+                    ?>
+                    <div class="col-lg-6">
+                        <!-- testimonials -->
+                        <div class="testimonials ttm-testimonial-box-view-style1">
+                            <div class="testimonial-content">
+                                <div class="testimonial-content-inner">
+                                    <div class="d-flex align-items-center">
+                                        <div class="testimonial-avatar">
+                                            <!-- testimonials-img -->
+                                            <div class="testimonial-img">
+                                                <img class="img-center" src="<?= $testimonial->avatar ?>"
+                                                     alt="testimonial-img">
+                                            </div><!-- testimonials-img end-->
+                                        </div>
+                                        <!-- testimonials-caption -->
+                                        <div class="testimonial-caption">
+
+                                            <h3><?= $testimonial->name ?></h3>
+                                            <label><?= $testimonial->position ?></label>
+                                        </div>
+                                    </div><!-- testimonials-caption end -->
                                 </div>
-                                <!-- testimonials-caption -->
-                                <div class="testimonial-caption">
-                                    <div class="star-ratings">
-                                        <ul class="rating">
-                                            <li class="active"><i class="fa fa-star"></i></li>
-                                            <li class="active"><i class="fa fa-star"></i></li>
-                                            <li class="active"><i class="fa fa-star"></i></li>
-                                            <li class="active"><i class="fa fa-star"></i></li>
-                                            <li class="active"><i class="fa fa-star-half-o"></i></li>
-                                        </ul>
-                                    </div>
-                                    <h3>Raymon Myers</h3>
-                                    <label>CEO At Laboratory</label>
-                                </div>
-                            </div><!-- testimonials-caption end -->
+                                <blockquote>
+                                    <?= $testimonial->message ?>
+                                </blockquote>
+                            </div>
                         </div>
-                        <blockquote>Analysts have done an excellent job presenting the analysis and insights. I am
-                            confident in saying that they have helped move business!
-                        </blockquote>
+                        <!-- testimonials END -->
                     </div>
-                </div>
-                <!-- testimonials END -->
-            </div>
-            <div class="col-lg-6">
-                <!-- testimonials -->
-                <div class="testimonials ttm-testimonial-box-view-style1">
-                    <div class="testimonial-content">
-                        <div class="testimonial-content-inner">
-                            <div class="d-flex align-items-center">
-                                <div class="testimonial-avatar">
-                                    <!-- testimonials-img -->
-                                    <div class="testimonial-img">
-                                        <img class="img-center" src="images/testimonial/02.jpg" alt="testimonial-img">
-                                    </div><!-- testimonials-img end-->
-                                </div>
-                                <!-- testimonials-caption -->
-                                <div class="testimonial-caption">
-                                    <div class="star-ratings">
-                                        <ul class="rating">
-                                            <li class="active"><i class="fa fa-star"></i></li>
-                                            <li class="active"><i class="fa fa-star"></i></li>
-                                            <li class="active"><i class="fa fa-star"></i></li>
-                                            <li class="active"><i class="fa fa-star"></i></li>
-                                            <li class="active"><i class="fa fa-star-half-o"></i></li>
-                                        </ul>
-                                    </div>
-                                    <h3>Rayan Methew</h3>
-                                    <label>Business man</label>
-                                </div>
-                            </div><!-- testimonials-caption end-->
-                        </div>
-                        <blockquote>I would like to thank you for your excellent efforts and commitment in assisting us
-                            to obtain 510(k) clearance. I am impressed
-                        </blockquote>
-                    </div>
-                </div>
-                <!-- testimonials END -->
-            </div>
-            <div class="col-lg-6">
-                <!-- testimonials -->
-                <div class="testimonials ttm-testimonial-box-view-style1">
-                    <!-- testimonials-content -->
-                    <div class="testimonial-content">
-                        <div class="testimonial-content-inner">
-                            <div class="d-flex align-items-center">
-                                <div class="testimonial-avatar">
-                                    <!-- testimonials-img -->
-                                    <div class="testimonial-img">
-                                        <img class="img-center" src="images/testimonial/03.jpg" alt="testimonial-img">
-                                    </div><!-- testimonials-img end-->
-                                </div>
-                                <!-- testimonials-caption -->
-                                <div class="testimonial-caption">
-                                    <div class="star-ratings">
-                                        <ul class="rating">
-                                            <li class="active"><i class="fa fa-star"></i></li>
-                                            <li class="active"><i class="fa fa-star"></i></li>
-                                            <li class="active"><i class="fa fa-star"></i></li>
-                                            <li class="active"><i class="fa fa-star"></i></li>
-                                            <li class="active"><i class="fa fa-star-half-o"></i></li>
-                                        </ul>
-                                    </div>
-                                    <h3>khon Martin</h3>
-                                    <label>Los Angeles</label>
-                                </div>
-                            </div><!-- testimonials-caption end-->
-                        </div>
-                        <blockquote>The Axacus team are ultimate rock stars! They are a highly educated,&amp;
-                            experienced team that is dedicated to helping..
-                        </blockquote>
-                    </div>
-                </div>
-            </div>
+                    <?php
+                }
+            } ?>
+
+
         </div>
     </div>
 </section>
@@ -524,13 +452,13 @@ Yii::$app->params['footer_type'] = 'light';
                 <!-- section-title -->
                 <div class="section-title">
                     <div class="title-header">
-                        <h3 class="font-weight-normal">More Than 50,000 Happy Client</h3>
-                        <h2 class="title">We Provide Best Digital Marketing Solutions Enjoy Full-Service Digital
-                            Expertise</h2>
+                        <h2 class="title">
+                            <?= HelperFunction::params('video_intro_title') ?>
+                        </h2>
                     </div>
                 </div><!-- section-title end -->
                 <div class="d-inline-block">
-                    <a href="https://youtu.be/dk9uNWPP7EA" target="_self"
+                    <a href="<?= Yii::$app->params['video_intro'] ?>" target="_self"
                        class="ttm_prettyphoto ttm-btn-color-white  ttm-btn btn-inline ttm-btn-size-md">
                                     <span class="ttm-icon ttm-icon_element-border ttm-icon_element-color-white ttm-textcolor-white ttm-icon_element-size-xs ttm-icon_element-style-rounded margin_right10 margin_bottom0">
                                         <i class="ti ti-control-play margin_left0 padding_left1"></i>
@@ -768,112 +696,53 @@ Yii::$app->params['footer_type'] = 'light';
                 <!-- section title -->
                 <div class="section-title style2">
                     <div class="title-header">
-                        <h3>Latest News</h3>
-                        <h2 class="title">Our News And Insights</h2>
+                        <h2 class="title"><?= Yii::t('app', 'news') ?></h2>
                     </div>
                     <div class="title-desc">
-                        <p>Our results solution combines implementation support, capability building and
-                            state-of-the-art diagnostic and analytic tools sally change.</p>
+                        <p>
+                            <?= HelperFunction::params('new_desc') ?>
+                        </p>
                     </div>
                 </div><!-- section title end -->
             </div>
         </div>
         <div class="row slick_slider"
              data-slick='{"slidesToShow": 3, "slidesToScroll": 1, "arrows":false, "dots":false, "autoplay":true, "infinite":true, "responsive": [{"breakpoint":1024,"settings":{"slidesToShow": 3}} , {"breakpoint":900,"settings":{"slidesToShow": 2}}, {"breakpoint":575,"settings":{"slidesToShow": 1}}]}'>
-            <div class="col-lg-4">
-                <!-- featured-imagebox-post -->
-                <div class="featured-imagebox featured-imagebox-post style1">
-                    <div class="featured-thumbnail">
-                        <img class="img-fluid" src="images/blog/blog-01-1200x800.jpg" alt="">
+            <?php if (!empty($articles)) {
+                foreach ($articles as $article) {
+                    ?>
+                    <div class="col-lg-4">
+                        <!-- featured-imagebox-post -->
+                        <div class="featured-imagebox featured-imagebox-post style1">
+                            <div class="featured-thumbnail">
+                                <img class="img-fluid" src="<?= $article->avatar ?>" alt="">
+                            </div>
+                            <div class="featured-content">
+                                <div class="post-title featured-title">
+                                    <h3><a href="/<?= BLOG ?>"><?= $article->name ?></a></h3>
+                                    <small><i class="ti ti-calendar"></i>  <?= date('d/m/Y', $article->created_at) ?></small>
+
+                                    <p><?= $article->excerpt ?></p>
+                                </div>
+                                <a class="ttm-btn ttm-btn-size-md ttm-btn-color-darkgrey btn-inline"
+                                   href="/<?= BLOG ?>"
+                                   tabindex="-1">
+                                    <?= Yii::t('app', 'read_more') ?>
+                                </a>
+                            </div>
+                        </div><!-- featured-imagebox-post end -->
                     </div>
-                    <div class="featured-content">
-                        <div class="post-header">
-                            <!-- ttm-box-post-date -->
-                            <div class="ttm-box-post-date">
-                                            <span class="ttm-entry-date">
-                                                <time class="entry-date" datetime="2019-01-16T07:07:55+00:00">17<span
-                                                            class="entry-month entry-year">APR</span></time>
-                                            </span>
-                            </div><!-- ttm-box-post-date end -->
-                            <div class="post-meta">
-                                            <span class="ttm-meta-line comments-link"><i class="fa fa-comments"></i>Comments
-                                            </span>
-                                <span class="ttm-meta-line byline"><i class="fa fa-user"></i>Admin</span>
-                            </div><!-- post-meta end -->
-                        </div>
-                        <div class="post-title featured-title">
-                            <h3><a href="blog-single.html">5 Effective Ways to Hire More Workers</a></h3>
-                        </div>
-                        <a class="ttm-btn ttm-btn-size-md ttm-btn-color-darkgrey btn-inline" href="blog-single.html"
-                           tabindex="-1">Read More</a>
-                    </div>
-                </div><!-- featured-imagebox-post end -->
-            </div>
-            <div class="col-lg-4">
-                <!-- featured-imagebox-post -->
-                <div class="featured-imagebox featured-imagebox-post style1">
-                    <div class="featured-thumbnail">
-                        <img class="img-fluid" src="images/blog/blog-02-1200x800.jpg" alt="">
-                    </div>
-                    <div class="featured-content">
-                        <div class="post-header">
-                            <!-- ttm-box-post-date -->
-                            <div class="ttm-box-post-date">
-                                            <span class="ttm-entry-date">
-                                                <time class="entry-date" datetime="2019-01-16T07:07:55+00:00">17<span
-                                                            class="entry-month entry-year">APR</span></time>
-                                            </span>
-                            </div><!-- ttm-box-post-date end -->
-                            <div class="post-meta">
-                                            <span class="ttm-meta-line comments-link"><i class="fa fa-comments"></i>Comments
-                                            </span>
-                                <span class="ttm-meta-line byline"><i class="fa fa-user"></i>Admin</span>
-                            </div><!-- post-meta end -->
-                        </div>
-                        <div class="post-title featured-title">
-                            <h3><a href="blog-single.html">Does My Business Need a Director of Training?</a></h3>
-                        </div>
-                        <a class="ttm-btn ttm-btn-size-md ttm-btn-color-darkgrey btn-inline" href="blog-single.html"
-                           tabindex="-1">Read More</a>
-                    </div>
-                </div><!-- featured-imagebox-post end -->
-            </div>
-            <div class="col-lg-4">
-                <!-- featured-imagebox-post -->
-                <div class="featured-imagebox featured-imagebox-post style1">
-                    <div class="featured-thumbnail">
-                        <img class="img-fluid" src="images/blog/blog-03-1200x800.jpg" alt="">
-                    </div>
-                    <div class="featured-content">
-                        <div class="post-header">
-                            <!-- ttm-box-post-date -->
-                            <div class="ttm-box-post-date">
-                                            <span class="ttm-entry-date">
-                                                <time class="entry-date" datetime="2019-01-16T07:07:55+00:00">17<span
-                                                            class="entry-month entry-year">APR</span></time>
-                                            </span>
-                            </div><!-- ttm-box-post-date end -->
-                            <div class="post-meta">
-                                            <span class="ttm-meta-line comments-link"><i class="fa fa-comments"></i>Comments
-                                            </span>
-                                <span class="ttm-meta-line byline"><i class="fa fa-user"></i>Admin</span>
-                            </div><!-- post-meta end -->
-                        </div>
-                        <div class="post-title featured-title">
-                            <h3><a href="blog-single.html">How to Manage Business’s Online Reputation</a></h3>
-                        </div>
-                        <a class="ttm-btn ttm-btn-size-md ttm-btn-color-darkgrey btn-inline" href="blog-single.html"
-                           tabindex="-1">Read More</a>
-                    </div>
-                </div><!-- featured-imagebox-post end -->
-            </div>
+                    <?php
+                }
+            } ?>
+
         </div>
         <div class="row">
             <div class="col-lg-12">
                 <div class="margin_top35 res-991-margin_top30 text-center">
-                    <a href="blog.html" class="end_button">
+                    <a href="/<?= BLOG ?>" class="end_button">
                         <span>+</span>
-                    </a><span class="end_button_txt ttm-textcolor-darkgrey">Explore More News</span>
+                    </a><span class="end_button_txt ttm-textcolor-darkgrey"><?= Yii::t('app', 'more_news') ?></span>
                 </div>
             </div>
         </div>

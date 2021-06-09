@@ -47,17 +47,12 @@
                         columns={[
                             {title: 'Sản phẩm', dataIndex: 'name'},
                             {
-                                title: 'Danh mục', dataIndex: 'archives',
-                                render: archives => {
-                                    if (!archives) {
+                                title: 'Danh mục mặc định', dataIndex: 'id', key: 'id',
+                                render: (id, raw) => {
+                                    if (!raw.defaultArchive) {
                                         return '---';
                                     }
-                                    return archives.map(item => {
-                                        let categories = state.categories;
-                                        let index = categories.indexOf(archive => archive.id == item.archive_id);
-                                        console.log(categories);
-                                        return '---';
-                                    })
+                                    return raw.defaultArchive.name;
                                 }
                             },
                             {title: 'Giá sản phẩm', dataIndex: 'name'},

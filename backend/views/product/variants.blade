@@ -1,0 +1,101 @@
+<script type="text/babel">
+    const VariantDrawer = ({...props}) => {
+        const {visible, onClose, variants, form} = props;
+        const [listVariant, setListVariant] = useState({});
+        const createCustom = () => {
+
+        }
+        return (
+            <Drawer
+                title={
+                    <Space>
+                        <span>Tạo biến thể</span>
+                        <Button onClick={createCustom}>Thêm tùy biến</Button>
+                    </Space>
+                }
+                width={500}
+                onClose={onClose}
+                visible={visible}>
+                <Row>
+                    <Col md={24}>
+                        <Form.List name="custom">
+                            {(fields, {add, remove}) => {
+                                return (
+                                    <div>
+                                        {fields.map((field, index) => (
+
+                                            <Row gutter={[8, 0]}>
+                                                <Col md={7}>
+                                                    <Form.Item
+                                                        {...field}
+                                                        name={[field.name, 'attr']}
+                                                        fieldKey={[field.fieldKey, 'name']}
+                                                        rules={[{
+                                                            required: true,
+                                                            message: 'Missing attr'
+                                                        }]}
+                                                    >
+                                                        <Select
+                                                            className={`w-100`}
+                                                            allowClear
+                                                            placeholder="Chọn thuộc tính">
+
+                                                        </Select>
+                                                    </Form.Item>
+
+                                                </Col>
+                                                <Col md={7}>
+                                                    <Form.Item
+                                                        {...field}
+                                                        name={[field.name, 'variant']}
+                                                        fieldKey={[field.fieldKey, 'variant']}
+                                                        rules={[{
+                                                            required: true,
+                                                            message: 'Missing variant'
+                                                        }]}
+                                                    >
+                                                        <Select mode="multiple"
+                                                                allowClear
+                                                                placeholder="Chọn biến thể">
+
+                                                        </Select>
+                                                    </Form.Item>
+                                                </Col>
+                                                <Col md={7}>
+                                                    <Form.Item
+                                                        {...field}
+                                                        name={[field.name, 'variant']}
+                                                        fieldKey={[field.fieldKey, 'variant']}
+                                                        rules={[{
+                                                            required: true,
+                                                            message: 'Missing variant'
+                                                        }]}
+                                                    >
+                                                        <Select mode="multiple"
+                                                                allowClear
+                                                                placeholder="Chọn biến thể">
+
+                                                        </Select>
+                                                    </Form.Item>
+                                                </Col>
+                                                <Col>
+                                                    <Button onClick={() => remove(field.name)}>
+                                                        <i className="icon-trash"/>
+                                                    </Button>
+                                                </Col>
+                                            </Row>
+                                        ))}
+                                        <Button type="dashed" onClick={() => add()} block>
+                                            Thêm thuộc tính khác
+                                        </Button>
+                                    </div>
+                                )
+                            }}
+                        </Form.List>
+                    </Col>
+                </Row>
+            </Drawer>
+        )
+    }
+</script>
+

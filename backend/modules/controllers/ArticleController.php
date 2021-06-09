@@ -22,7 +22,7 @@ class ArticleController extends BaseActiveFilterController
     {
         $actions = parent::actions();
         unset($actions['create']);
-       # unset($actions['update']);
+        # unset($actions['update']);
         $actions['index']['prepareDataProvider'] = [$this, 'prepareDataProvider'];
         return $actions;
     }
@@ -72,8 +72,9 @@ class ArticleController extends BaseActiveFilterController
                     'meta_description' => ArrayHelper::getValue($post, 'meta_description', null),
                 ], $model->isNewRecord);
                 $transaction->commit();
-                return true;
             }
+            return true;
+
         } catch (\Exception $exception) {
             $transaction->rollBack();
             throw new BadRequestHttpException($exception->getMessage());

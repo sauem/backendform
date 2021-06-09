@@ -1,4 +1,5 @@
 @section('js_pos')
+    <?= $view->render('variants.blade')?>
     <script type="text/babel">
 
         const initalState = {
@@ -6,12 +7,15 @@
             attributes: [],
             loading: false,
             language: LANG_VI,
+            variantVisible: false,
+            variants: null
         }
         const App = () => {
             const [state, setState] = useState(initalState);
             const [checkedKeys, setCheckedKeys] = useState([]);
             const [form] = Form.useForm();
             const [defaultFileList, setDefaultFileList] = useState([]);
+            const [attr, setAttr] = useState({});
             const [progress, setProgress] = useState(0);
             const onSubmit = async (data) => {
                 console.log('DÂT', data);
@@ -133,6 +137,21 @@
                     archive_id: checkedKeysValue
                 });
             }
+            const addVariant = () => {
+                setState({
+                    ...state,
+                    variantVisible: true,
+                    variants: form.getFieldValue('attrs')
+                })
+            }
+            const setVariant = (index, slug) => {
+                const attrs = state.attributes;
+                const obj = attrs.find(item => item.slug === slug);
+                setAttr({
+                    ...attr,
+                    [index]: obj.variants
+                });
+            }
 
             return (
                 <div className="mb-5">
@@ -212,68 +231,79 @@
                                     </Row>
                                 </Card>
                                 <div className="my-5">
-                                    <Card title="Thuộc tính sản phẩm">
+                                    <Card title={
+                                        <div className="d-flex justify-content-between">
+                                            <p>Thuộc tính sản phẩm</p>
+                                            <Button onClick={addVariant} type="dashed" danger>
+                                                Thêm biến thể
+                                            </Button>
+                                        </div>
+                                    }>
                                         <Row>
                                             <Col xs={24}>
                                                 <Form.List name="attrs">
-                                                    {(fields, {add, remove}) => (
-                                                        <div>
-                                                            {fields.map(field => (
-                                                                <Row gutter={[8, 0]}>
-                                                                    <Col md={6}>
-                                                                        <Form.Item
-                                                                            {...field}
-                                                                            name={[field.name, 'name']}
-                                                                            fieldKey={[field.fieldKey, 'name']}
-                                                                            rules={[{
-                                                                                required: true,
-                                                                                message: 'Missing first name'
-                                                                            }]}
-                                                                        >
-                                                                            <Select
-                                                                                className={`w-100`}
-                                                                                allowClear
-                                                                                placeholder="Chọn thuộc tính">
-                                                                                {state.attributes ? state.attributes.map(item => {
-                                                                                    return <Select.Option
-                                                                                        value={item.slug}>{item.name}</Select.Option>
-                                                                                }) : null}
-                                                                            </Select>
-                                                                        </Form.Item>
+                                                    {(fields, {add, remove}) => {
+                                                        return (
+                                                            <div>
+                                                                {fields.map((field, index) => (
 
-                                                                    </Col>
-                                                                    <Col md={14}>
-                                                                        <Form.Item
-                                                                            {...field}
-                                                                            name={[field.name, 'last']}
-                                                                            fieldKey={[field.fieldKey, 'last']}
-                                                                            rules={[{
-                                                                                required: true,
-                                                                                message: 'Missing last name'
-                                                                            }]}
-                                                                        >
-                                                                            <Select mode="multiple"
+                                                                    <Row gutter={[8, 0]}>
+                                                                        <Col md={6}>
+                                                                            <Form.Item
+                                                                                {...field}
+                                                                                name={[field.name, 'attr']}
+                                                                                fieldKey={[field.fieldKey, 'name']}
+                                                                                rules={[{
+                                                                                    required: true,
+                                                                                    message: 'Missing attr'
+                                                                                }]}
+                                                                            >
+                                                                                <Select
+                                                                                    onChange={attr => setVariant(index, attr)}
+                                                                                    className={`w-100`}
                                                                                     allowClear
                                                                                     placeholder="Chọn thuộc tính">
-                                                                                {state.attributes ? state.attributes.map(item => {
-                                                                                    return <Select.Option
-                                                                                        value={item.slug}>{item.name}</Select.Option>
-                                                                                }) : null}
-                                                                            </Select>
-                                                                        </Form.Item>
-                                                                    </Col>
-                                                                    <Col>
-                                                                        <Button onClick={() => remove(field.name)}>
-                                                                            <i className="icon-trash"/>
-                                                                        </Button>
-                                                                    </Col>
-                                                                </Row>
-                                                            ))}
-                                                            <Button type="dashed" onClick={() => add()} block>
-                                                                Thêm thuộc tính khác
-                                                            </Button>
-                                                        </div>
-                                                    )}
+                                                                                    {state.attributes ? state.attributes.map(item => {
+                                                                                        return <Select.Option
+                                                                                            value={item.slug}>{item.name}</Select.Option>
+                                                                                    }) : null}
+                                                                                </Select>
+                                                                            </Form.Item>
+
+                                                                        </Col>
+                                                                        <Col md={14}>
+                                                                            <Form.Item
+                                                                                {...field}
+                                                                                name={[field.name, 'variant']}
+                                                                                fieldKey={[field.fieldKey, 'variant']}
+                                                                                rules={[{
+                                                                                    required: true,
+                                                                                    message: 'Missing variant'
+                                                                                }]}
+                                                                            >
+                                                                                <Select mode="multiple"
+                                                                                        allowClear
+                                                                                        placeholder="Chọn biến thể">
+                                                                                    {attr[index] ? attr[index].map(item => {
+                                                                                        return <Select.Option
+                                                                                            value={item.slug}>{item.name}</Select.Option>
+                                                                                    }) : null}
+                                                                                </Select>
+                                                                            </Form.Item>
+                                                                        </Col>
+                                                                        <Col>
+                                                                            <Button onClick={() => remove(field.name)}>
+                                                                                <i className="icon-trash"/>
+                                                                            </Button>
+                                                                        </Col>
+                                                                    </Row>
+                                                                ))}
+                                                                <Button type="dashed" onClick={() => add()} block>
+                                                                    Thêm thuộc tính khác
+                                                                </Button>
+                                                            </div>
+                                                        )
+                                                    }}
                                                 </Form.List>
                                             </Col>
                                             <Col xs={24}>
@@ -405,6 +435,11 @@
                                 </div>
                             </Col>
                         </Row>
+                        <VariantDrawer
+                            form={form}
+                            variants={state.variants}
+                            onClose={() => setState({...state, variantVisible: false})}
+                            visible={state.variantVisible}/>
                     </Form>
                 </div>
             )
