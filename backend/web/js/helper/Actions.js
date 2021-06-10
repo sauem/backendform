@@ -68,10 +68,10 @@ const Archives = {
         try {
             const res = await Server.get(ROUTE.ARCHIVE.INDEX, {
                 params: {
-                    ...params,
                     sort: '-created_at',
                     expand: 'avatar,children',
-                    "per-page": 6
+                    "per-page": 6,
+                    ...params
                 }
             }).catch(axiosCatch);
             const {data, headers} = res;

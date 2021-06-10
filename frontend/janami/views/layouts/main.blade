@@ -1,9 +1,5 @@
 <?php
 
-/* @var $view \yii\web\View */
-
-/* @var $content string */
-
 use common\helper\HelperFunction;
 use yii\helpers\Html;
 use yii\bootstrap\Nav;
@@ -27,7 +23,7 @@ AppAsset::register($view);
     <meta property="og:type" content="website"/>
     <meta property="og:title" content="<?= $view->title ?>"/>
     <meta property="og:url" content="<?= \Yii::$app->homeUrl; ?>"/>
-    <meta property="og:site_name" content="SITE_NAME"/>
+    <meta property="og:site_name" content="<?= HelperFunction::setting('site_name', true)?>"/>
     <link rel="shortcut icon" href="<?= HelperFunction::Favicon() ?>" type="image/x-icon">
     <link rel="icon" href="<?= HelperFunction::Favicon() ?>" type="image/x-icon">
     <link rel="apple-touch-icon" sizes="152x152" href="<?= HelperFunction::Favicon() ?>">
@@ -36,7 +32,7 @@ AppAsset::register($view);
     <link rel="apple-touch-icon" href="<?= HelperFunction::Favicon() ?> ">
     <!-- For the og:image content, replace the # with a link of an image -->
     <meta property="og:image" content="<?= HelperFunction::getLogo('header') ?>"/>
-    <meta property="og:description" content=""/>
+    <meta property="og:description" content="<?= $view->title ?>"/>
     <script type="application/ld+json">
         {
             "@context": "http://schema.org",
@@ -44,18 +40,6 @@ AppAsset::register($view);
             "name": "<?= $view->title ?>",
             "url": "<?= \Yii::$app->homeUrl; ?>"
         }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     </script>
@@ -90,9 +74,11 @@ AppAsset::register($view);
 
 
 <div id="page" class="page">
-    <?= $view->render('../parts/header') ?>
-    <?= isset($content) ? $content : ''?>
+
+    <?= $view->render('../parts/header.blade') ?>
+
     @yield('content')
+    <?= isset($content) ? $content : ''?>
     <?= $view->render('../parts/footer') ?>
 </div>
 <?php $view->endBody() ?>

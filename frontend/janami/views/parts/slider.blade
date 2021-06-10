@@ -1,0 +1,54 @@
+@if(isset($sliders) && !empty($sliders))
+    <section id="hero-8" class="hero-section division">
+        <div class="slideshow mt-80">
+            <div class="slideshow-inner">
+                <div class="slides">
+                    @foreach($sliders as $k =>$slider)
+                        <div class="slide {{$k ===0 ? 'is-active' : ''}}">
+
+                            <!-- Slide Content -->
+                            <div class="slide-content">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-md-12 col-lg-10 offset-lg-1">
+                                            <div class="caption white-color">
+
+                                                <!-- Title -->
+                                                <div class="title"><h3>
+                                                        {{$slider->name}}
+                                                    </h3>
+                                                </div>
+
+                                                <!-- Text -->
+                                                <div class="text">
+
+                                                    <p>{{$slider->description}}</p>
+
+                                                    <!-- Button -->
+                                                    <a href="{{$slider->href}}"
+                                                       class="btn btn-md btn-color-02 tra-white-hover">{{Yii::t('app', 'read_more') }}</a>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>    <!-- End Slide Content -->
+
+                            <div class="image-container">
+                                <img class="img-fluid" src="{{$slider->avatar}}" alt="{{$slider->name}}">
+                            </div>
+
+                        </div>
+                    @endforeach
+                </div>
+                <div class="arrows ico-45 white-color">
+                    <div class="arrow prev"><span class="flaticon-back"> </span></div>
+                    <div class="arrow next"><span class="flaticon-next"> </span></div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+@endif

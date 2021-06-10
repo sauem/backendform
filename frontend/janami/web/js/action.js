@@ -9,6 +9,9 @@ const formatNum = (num) => {
     }
     return '' + num.toFixed(0).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
 }
+const dateTime = (time) => {
+    return moment.unix(time).format('DD/MM/YYYY');
+}
 const renderPrice = (product) => {
     const {default_sale_price, default_price, default_sale_type} = product;
     if (default_sale_price > 0) {
@@ -46,6 +49,32 @@ const getProduct = async (params = {}) => {
         message.error(e.message);
     }
 }
+
+const getPost = async (params = {}) => {
+    try {
+        const res = await AJAX.get('/blog-filter', {
+            params: {
+                ...params,
+                sort: '-created_at',
+                expand: 'avatar,archive',
+                "per-page": 12
+            }
+        });
+
+        const {data, headers} = res;
+        const current = headers['x-pagination-current-page'],
+            totalPage = headers['x-pagination-page-count'],
+            pageSize = headers['x-pagination-per-page'],
+            total = headers['x-pagination-total-count'],
+            pagination = {
+                total, current, pageSize, totalPage
+            };
+        return {data, pagination};
+    } catch (e) {
+        message.error(e.message);
+    }
+}
+
 const renderPaginate = (pagination, callback) => {
     const {totalPage, pageSize, current} = pagination;
     return (

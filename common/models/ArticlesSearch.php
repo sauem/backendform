@@ -48,29 +48,29 @@ class ArticlesSearch extends Articles
             'query' => $query,
         ]);
 
-        $this->load($params);
+        $this->load($params, '');
 
         if (!$this->validate()) {
             // uncomment the following line if you do not want to return any records when validation fails
             // $query->where('0=1');
             return $dataProvider;
         }
-        if($filter){
+        if ($filter) {
             $query->andFilterWhere($filter);
         }
         // grid filtering conditions
-        $query->andFilterWhere([
-            'id' => $this->id,
-            'created_at' => $this->created_at,
-            'updated_at' => $this->updated_at,
-            'archive_id' => $this->archive_id,
-            'media_id' => $this->media_id,
-        ]);
-
+//        $query->andFilterWhere([
+//            'id' => $this->id,
+//            'created_at' => $this->created_at,
+//            'updated_at' => $this->updated_at,
+//            'archive_id' => $this->archive_id,
+//            'media_id' => $this->media_id,
+//        ]);
         $query->andFilterWhere(['like', 'name', $this->name])
             ->andFilterWhere(['like', 'slug', $this->slug])
             ->andFilterWhere(['like', 'content', $this->content])
             ->andFilterWhere(['like', 'excerpt', $this->excerpt])
+            ->andFilterWhere(['=', 'archive_id', $this->archive_id])
             ->andFilterWhere(['like', 'status', $this->status])
             ->andFilterWhere(['like', 'language', $this->language]);
 

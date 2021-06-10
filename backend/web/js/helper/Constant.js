@@ -301,6 +301,31 @@ const brouchure = (categories = []) => {
         }
     ];
 }
+const janami = (categories = []) => {
+    return [
+        {
+            title: 'Link tùy chỉnh',
+            key: categories.length + 9991,
+            type: 'custom',
+            value: 'outer_link',
+            slug: '/'
+        },
+        {
+            title: 'Liên hệ',
+            key: categories.length + 9994,
+            type: 'page',
+            value: 'contact',
+            slug: 'contact'
+        },
+        {
+            title: 'Công ty',
+            key: categories.length + 9996,
+            type: 'page',
+            value: 'contact',
+            slug: 'contact'
+        }
+    ];
+}
 
 const customPages = (categories = []) => {
     let domain = window.location.hostname;
@@ -317,6 +342,9 @@ const customPages = (categories = []) => {
         case 'brouchurelocal':
         case 'thangcodeinfo':
             return brouchure(categories);
+        case 'lucycosmeticcom':
+        case 'janamilocal':
+            return janami(categories);
         default:
             return [];
     }

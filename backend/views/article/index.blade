@@ -44,6 +44,9 @@
                                 {
                                     title: 'Danh mục', dataIndex: 'archive_id', key: 'archive_id',
                                     render: (archive_id, raw) => {
+                                        if (!raw.archive) {
+                                            return '---';
+                                        }
                                         return raw.archive.name;
                                     }
                                 },

@@ -79,8 +79,10 @@ if ($menu) {
                 </div>
                 <div class="col-lg-6">
                     <ul class="bottom-footer-list text-right clearfix">
-                        <li><p class="first-list-link"><a href="<?= HelperFunction::setting('facebook') ?>"><i
-                                            class="fab fa-facebook-f"></i> Facebook</a></p>
+                        <li><p class="first-list-link">
+                                <a href="<?= HelperFunction::setting('facebook') ?>">
+                                    <i class="fab fa-facebook-f"></i> Facebook</a>
+                            </p>
                         </li>
                         <li><p><a href="<?= HelperFunction::setting('twitter') ?>"><i class="fab fa-twitter"></i>
                                     Twitter</a></p></li>

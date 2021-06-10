@@ -1,0 +1,112 @@
+<?php
+
+use common\helper\HelperFunction;
+use yii\helpers\Json;
+use yii\helpers\ArrayHelper;
+
+$menu = HelperFunction::getMenu();
+$menuItems = [];
+if ($menu) {
+    $menuItems = Json::decode(ArrayHelper::getValue($menu, 'items'));
+}
+
+?>
+<header id="header" class="header white-menu navbar-dark">
+    <div class="header-wrapper">
+
+
+        <!-- MOBILE HEADER -->
+        <div class="wsmobileheader clearfix">
+            <span class="smllogo">
+                <img src="<?= HelperFunction::getLogo('header')?>" width="170" height="50"
+                     alt="<?= HelperFunction::setting('site_name')?>"/>
+            </span>
+            <a id="wsnavtoggle" class="wsanimated-arrow"><span></span></a>
+        </div>
+
+
+        <!-- NAVIGATION MENU -->
+        <div class="wsmainfull menu clearfix">
+            <div class="wsmainwp clearfix">
+
+
+                <!-- LOGO IMAGE -->
+                <!-- For Retina Ready displays take a image with double the amount of pixels that your image will be displayed (e.g 346 x 100 pixels) -->
+                <div class="desktoplogo"><a href="/" class="logo-black">
+                        <img src="<?= HelperFunction::getLogo('header')?>" width="170" height="50"
+                             alt="<?= HelperFunction::setting('site_name')?>">
+                    </a>
+                </div>
+                <div class="desktoplogo"><a href="/" class="logo-white">
+                        <img src="<?= HelperFunction::getLogo('header')?>" width="170" height="50"
+                             alt="<?= HelperFunction::setting('site_name')?>">
+                    </a>
+                </div>
+                <!-- MAIN MENU -->
+                <nav class="wsmenu clearfix">
+                    <ul class="wsmenu-list">
+
+                        @if(!empty($menuItems))
+                            @foreach($menuItems as $menuItem)
+                                @php
+                                    $childrens = isset($menuItem['children']) ? $menuItem['children'] : [];
+                                @endphp
+                                <li class="nl-simple" aria-haspopup="true">
+                                    <a href="<?= HelperFunction::Link($menuItem['type'], $menuItem)?>">
+                                        {{$menuItem['title']}}
+                                        @if (!empty($childrens))
+                                            <span class="wsarrow"></span>
+                                        @endif
+                                    </a>
+                                    @if (!empty($childrens))
+                                        <ul class="sub-menu">
+                                            @foreach($childrens as $children)
+                                                @php
+                                                    $subChildren = isset($children['children']) ? $children['children'] : [];
+                                                @endphp
+                                                <li aria-haspopup="true">
+                                                    <a href="<?= HelperFunction::Link($children['type'], $children)?>">
+                                                        {{$children['title']}}
+                                                        @if (!empty($subChildren))
+                                                            <span class="wsarrow"></span>
+
+                                                        @endif
+                                                    </a>
+                                                    @if (!empty($subChildren))
+                                                        <ul class="sub-menu">
+                                                            @foreach($subChildren as $sub)
+                                                                <li aria-haspopup="true">
+                                                                    <a href="<?= HelperFunction::Link($sub['type'], $sub)?>">
+                                                                        {{$sub['title']}}
+                                                                    </a>
+                                                                </li>
+                                                            @endforeach
+                                                        </ul>
+                                                    @endif
+                                                </li>
+                                            @endforeach
+                                        </ul>
+                                    @endif
+                                </li>
+                            @endforeach
+                        @endif
+                        <li class="nl-simple header-phone" aria-haspopup="true">
+                            <a href="tel:<?= HelperFunction::setting('hotline_1') ?>"><span class="bg-color-09 white-color">
+                                    <i class="fas fa-phone"></i></span><?= HelperFunction::setting('hotline_1')?></a>
+                        </li>
+                        <li class="nl-simple cart txt-color-03 header-socials clearfix" aria-haspopup="true">
+                            <span>
+                                <a href="/<?= CART ?>" class="ico-cart"><i class="fas fa-shopping-bag"></i>
+                                <span id="cart-mini">0</span>
+                                </a>
+                            </span>
+                        </li>
+                    </ul>
+                </nav>    <!-- END MAIN MENU -->
+
+            </div>
+        </div>    <!-- END NAVIGATION MENU -->
+
+
+    </div>     <!-- End header-wrapper -->
+</header>

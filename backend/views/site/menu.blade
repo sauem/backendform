@@ -130,7 +130,7 @@
                 await getMenu(name, lang);
             }
             useEffect(async () => {
-                const {data} = await Archives.fetch({page: -1});
+                const {data} = await Archives.fetch({page: -1, "per-page" : 99});
                 let categories = convertTreeSelect(data);
                 categories = categories.concat(customPages(categories));
                 console.log('category: ', categories);

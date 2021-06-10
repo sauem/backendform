@@ -62,7 +62,7 @@ class SiteController extends BaseController
             'active' => Banners::BANNER_ACTIVE,
             'position' => 'logo_partner'
         ]);
-        return $this->render('index', [
+        return $this->render('index.blade', [
             'sliders' => $sliders,
             'categories' => $categories,
             'articles' => $articles,
@@ -155,44 +155,32 @@ class SiteController extends BaseController
         return $this->render('checkout.blade');
     }
 
-    public function actionArchiveProduct($archive, $slug)
+    public function actionArchive($archive)
     {
-        $temp = 'product-detail.blade';
-        $product = Products::findOne(['slug' => $slug]);
-        if (!$product) {
-            $temp = 'product-archive.blade';
+        if (!$archive) {
+            return $this->actionShop();
         }
-        $category = Archives::findOne(['slug' => $archive]);
-        $searchModel = new ProductsSearch();
-        $dataProvider = $searchModel->search(array_merge_recursive(Yii::$app->request->queryParams, [
-            'ProductsSearch' => [
-                'archives' => $category->id
-            ]
-        ]));
-        return $this->render($temp, [
-            'dataProvider' => $dataProvider,
-            'model' => $product
-        ]);
-    }
+        $model = Archives::findOne(['slug' => $archive]);
+        if (!$model) {
+            throw new BadRequestHttpException('Không tồn tại danh mục!');
+        }
+        //default template
 
-    public function actionArchiveBlog($archive, $slug)
-    {
-        $view = 'blog-archive.blade';
-        $category = Archives::findOne(['slug' => $slug]);
-        if (!$category) {
-            $category = Archives::findOne(['slug' => $archive]);
-            if (!$category) {
-                throw new NotFoundHttpException('Không tìm thấy danh mục!');
-            }
+        switch ($model->type) {
+            case Archives::STYLE_PRODUCT:
+                $modelSearch = new ProductsSearch();
+                $dataProvider = $modelSearch->search(Yii::$app->request->queryParams);
+                $template = 'product-archive.blade';
+                break;
+            default:
+                $template = 'blog-archive.blade';
+                $modelSearch = new ArchivesSearch();
+                $dataProvider = $modelSearch->search(Yii::$app->request->queryParams);
+                break;
         }
-        $blogs = new ArticlesSearch();
-        $blogs = $blogs->search(array_merge_recursive(Yii::$app->request->queryParams, [
-            'ArticlesSearch' => [
-                'archive_id' => $archive->id
-            ]
-        ]));
-        return $this->render('blog-archive.blade', [
-            'blogs' => $blogs
+        return $this->render($template, [
+            'model' => $model,
+            'dataProvider' => $dataProvider
         ]);
     }
 
