@@ -12,11 +12,11 @@ class AppAsset extends AssetBundle
     public $basePath = '@webroot';
     public $baseUrl = '@web';
     public $css = [
-        'https://unpkg.com/antd/dist/antd.css',
         'https://fonts.googleapis.com/css2?family=Lustria&amp;display=swap',
         'https://fonts.googleapis.com/css2?family=Alex+Brush&amp;display=swap',
         'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&amp;display=swap',
         '/css/bootstrap.min.css',
+        'https://unpkg.com/antd/dist/antd.css',
         'https://use.fontawesome.com/releases/v5.11.0/css/all.css',
         '/css/flaticon.css',
         '/css/menu.css',

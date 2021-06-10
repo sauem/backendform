@@ -165,7 +165,22 @@ class SiteController extends BaseController
             throw new BadRequestHttpException('Không tồn tại danh mục!');
         }
         //default template
-
+        $categories = Archives::find()
+            ->where([
+                'language' => HelperFunction::getLanguage(),
+                'type' => Archives::STYLE_BLOG
+            ])
+            ->limit(6)
+            ->orderBy('id DESC')
+            ->all();
+        $latestBlog = Articles::find()
+            ->where([
+                'language' => HelperFunction::getLanguage(),
+            ])
+            ->andFilterWhere(['!=', 'archive_id', $model->id])
+            ->limit(5)
+            ->orderBy('id DESC')
+            ->all();
         switch ($model->type) {
             case Archives::STYLE_PRODUCT:
                 $modelSearch = new ProductsSearch();
@@ -180,7 +195,9 @@ class SiteController extends BaseController
         }
         return $this->render($template, [
             'model' => $model,
-            'dataProvider' => $dataProvider
+            'dataProvider' => $dataProvider,
+            'categories' => $categories,
+            'latestBlog' => $latestBlog,
         ]);
     }
 

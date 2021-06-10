@@ -37,59 +37,41 @@ Yii::$app->params['header_style'] = true;
                     <div class="blog-categories sidebar-div mb-50">
                         <h5 class="h5-sm txt-color-01">Danh mục</h5>
                         <ul class="blog-category-list txt-color-05 clearfix">
-                            <li><a href="#">Bella the sun</a> <span>(9)</span></li>
-                            <li><a href="#">Bihaku</a> <span>(5)</span></li>
-                            <li><a href="#">Ketoskin</a> <span>(13)</span></li>
-                            <li><a href="#">Skinicer</a> <span>(12)</span></li>
-                            <li><a href="#">Skinmd</a> <span>(12)</span></li>
+                            @if(isset($categories) && !empty($categories))
+                                @foreach($categories as $category)
+
+                                    <li>
+                                        <a href="<?= HelperFunction::Link(ARTICLE, $category->slug)?>">
+                                            {{$category->name}}
+                                        </a>
+                                        <span>({{count($category->articles)}})</span></li>
+                                @endforeach
+                            @endif
                         </ul>
                     </div>
                     <div class="image-widget sidebar-div mb-50">
-
                         <a href="#"><img class="img-fluid" src="/images/blog/image-widget.jpg" alt="image-widget"/></a>
                     </div>
                     <div class="popular-posts sidebar-div mb-50">
-                        <h5 class="h5-sm txt-color-01">Mẹo mới</h5>
+                        <h5 class="h5-sm txt-color-01">Latest Beauty Tips</h5>
                         <ul class="popular-posts">
-                            <li class="clearfix d-flex align-items-center">
-                                <img class="img-fluid" src="/images/blog/latest-post-1.jpg" alt="blog-post-preview"/>
-                                <div class="post-summary">
-                                    <a href="single-post.html" class="txt-color-05">Etiam sapien accumsan molestie ante
-                                        empor ...</a>
-                                    <p class="txt-color-03">24/5/2021</p>
-                                </div>
+                            @if(isset($latestBlog) && !empty($latestBlog))
+                                @foreach($latestBlog as $blog)
+                                    <li class="clearfix d-flex align-items-center">
+                                        <img class="img-fluid" src="{{$blog->avatar}}" alt="{{$blog->name}}"/>
+                                        <div class="post-summary">
+                                            <a href="<?= HelperFunction::Link(ARTICLE, $blog->slug)?>"
+                                               class="txt-color-05">
+                                                {{$blog->name}}
+                                            </a>
+                                            <p class="txt-color-03">{{date('d/m/Y', $blog->created_at)}}</p>
+                                        </div>
 
-                            </li>
+                                    </li>
 
-                            <!-- Popular post #2 -->
-                            <li class="clearfix d-flex align-items-center">
+                                @endforeach
+                            @endif
 
-                                <!-- Image -->
-                                <img class="img-fluid" src="/images/blog/latest-post-2.jpg" alt="blog-post-preview"/>
-
-                                <!-- Text -->
-                                <div class="post-summary">
-                                    <a href="single-post.html" class="txt-color-05">Blandit tempor sapien ipsum, porta
-                                        justo ...</a>
-                                    <p class="txt-color-03">24/5/2021</p>
-                                </div>
-
-                            </li>
-
-                            <!-- Popular post #3 -->
-                            <li class="clearfix d-flex align-items-center">
-
-                                <!-- Image -->
-                                <img class="img-fluid" src="/images/blog/latest-post-3.jpg" alt="blog-post-preview"/>
-
-                                <!-- Text -->
-                                <div class="post-summary">
-                                    <a href="single-post.html" class="txt-color-05">Cursus risus laoreet turpis auctor
-                                        varius ...</a>
-                                    <p class="txt-color-03">24/5/2021</p>
-                                </div>
-
-                            </li>
                         </ul>
 
                     </div>

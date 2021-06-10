@@ -3,6 +3,9 @@ const __ = (style = {}) => {
         ...style
     }
 }
+const defaultImage = () => {
+    return 'https://pinkladies24-7.com/assets/images/defaultimg.png';
+}
 const formatNum = (num) => {
     if (!num) {
         return 0;

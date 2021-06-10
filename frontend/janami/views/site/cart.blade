@@ -24,21 +24,124 @@ $view->title = 'Giỏ hàng';
 @section('js_end')
     <script type="text/babel">
         const Cart = () => {
+            const [state, setState] = useState({
+                cart: [],
+                loading: false
+            });
+
+            const changeQty = async (product, qty) => {
+                setState({
+                    ...state,
+                    loading: true
+                });
+                await setCart(product, qty, true);
+                setState({
+                    ...state,
+                    loading: false,
+                    cart: getCart()
+                });
+            }
+            const deleteItem = async (raw) => {
+                setState({
+                    ...state,
+                    loading: true
+                });
+                await deleteCartItem(raw);
+                setState({
+                    ...state,
+                    loading: false,
+                    cart: getCart()
+                });
+            }
+            useEffect(() => {
+                setState({
+                    ...state,
+                    cart: getCart()
+                })
+            }, [])
             return (
                 <div>
-                    <Table
-                        dataSource={[]}
-                        columns={[
-                            {title: 'Sản phẩm'},
-                            {title: 'Số lượng'},
-                            {title: 'Đơn giá'},
-                            {title: 'Tổng cộng'},
-                        ]}
-                    />
-                    <div className="mt-10 d-flex justify-content-between">
-                        <a href="/san-pham" className="btn btn-md btn-color-02"><i className="fas mr-2 fa-arrow-left"/> Tiếp tục mua hàng</a>
-                        <a href="/checkout" className="btn btn-md btn-color-02">Đặt hàng <i className="fas ml-2 fa-arrow-right"/></a>
-                    </div>
+                    <Spin spinning={state.loading}>
+                        <Table
+                            dataSource={state.cart.items}
+                            columns={[
+                                {
+                                    title: 'Sản phẩm', dataIndex: 'name', key: 'name', render: (name, raw) => {
+                                        return (
+                                            <Space>
+                                                <Image
+                                                    width={50}
+                                                    height={50}
+                                                    fallback={defaultImage()}
+                                                    src={raw.avatar}
+                                                />
+                                                <Space size={1} direction="vertical">
+                                                    <a href={`/shop/${raw.defaultArchive.slug}/${raw.slug}`}>
+                                                        <h6 className="m-0 p-0">{name}</h6>
+                                                    </a>
+                                                    <span>SKU: {raw.sku ? raw.sku : '--'}</span>
+                                                </Space>
+                                            </Space>
+                                        )
+                                    }
+                                },
+                                {
+                                    title: 'Số lượng', dataIndex: 'quantity', key: 'quantity',
+                                    render: (qty, raw) => {
+                                        return (
+                                            <InputNumber onChange={number => changeQty(raw, number)}
+                                                         defaultValue={qty}/>
+                                        )
+                                    }
+                                },
+                                {
+                                    title: 'Đơn giá', dataIndex: 'price', key: 'price', render: (price, raw) => {
+                                        return renderPrice(raw);
+                                    }
+                                },
+                                {
+                                    title: 'Tổng cộng', render: raw => {
+                                        return (
+                                            <h6>
+                                                {raw.default_sale_price > 0 ?
+                                                    formatNum(raw.default_sale_price * raw.quantity) :
+                                                    formatNum(raw.defaut_price * raw.quantity)
+                                                }đ
+                                            </h6>
+                                        )
+                                    }
+                                },
+                                {
+                                    title: '', key: 'delete', render: raw => {
+                                        return (
+                                            <Popconfirm
+                                                title="Xoá sản phảm khỏi giỏ hàng?"
+                                                onConfirm={() => deleteItem(raw)}
+                                            >
+                                                <Button size="small" type={`dashed`} danger>
+                                                    <i className="fas fa-trash"/>
+                                                </Button>
+                                            </Popconfirm>
+                                        )
+                                    }
+                                }
+                            ]}
+                            footer={() => {
+                                return (
+                                    <div className="d-flex justify-content-between">
+                                        <h6>Tổng cộng:</h6>
+                                        <h6>{`${formatNum(state.cart.total)}đ`}</h6>
+                                    </div>
+                                )
+                            }}
+                        />
+                        <div className="mt-10 d-flex justify-content-between">
+                            <a href="/san-pham" className="btn btn-md btn-color-02"><i
+                                className="fas mr-2 fa-arrow-left"/> Tiếp tục mua hàng</a>
+                            <a href="/checkout" className="btn btn-md btn-color-02">Đặt hàng <i
+                                className="fas ml-2 fa-arrow-right"/></a>
+                        </div>
+                    </Spin>
                 </div>
 
             )

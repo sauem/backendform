@@ -115,4 +115,8 @@ class Archives extends \yii\db\ActiveRecord
         return $this->hasOne(SeoMeta::className(), ['obj_id' => 'id'])
             ->where(['obj_type' => SeoMeta::META_ARCHIVE]);
     }
+    public function getArticles(){
+        return $this->hasMany(Articles::className(), ['archive_id' => 'id']);
+    }
+
 }
