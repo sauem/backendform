@@ -28,9 +28,9 @@ const AJAX = axios.create({
         'Content-Type': 'application/json',
     },
 });
-const getProduct = async (params = {}) => {
+const getProduct = async (params = {}, link = '/product-filter') => {
     try {
-        const res = await AJAX.get('/product-filter', {
+        const res = await AJAX.get(link, {
             params: {
                 ...params,
                 sort: '-created_at',

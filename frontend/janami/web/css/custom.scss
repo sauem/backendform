@@ -98,3 +98,39 @@ nav {
   }
 }
 
+.ant-btn {
+  &.custom {
+    display: flex;
+    align-items: center;
+    padding: 22px;
+
+    &:hover {
+      background: transparent;
+      color: #efa697 !important;
+    }
+  }
+}
+
+.ant-input-number {
+  &.custom {
+    height: 40px;
+    line-height: 40px;
+    font-size: 20px;
+
+    &:hover, &:focus {
+      border-color: #efa697;
+      box-shadow: 0 0 0 2px rgba(239, 166, 151, 0.2);
+    }
+  }
+}
+
+.tab-custom {
+  .nav-link {
+    border: unset;
+    background-color: #f7f4f0 !important;
+
+    &:active {
+      background-color: #f7f4f0 !important;
+    }
+  }
+}

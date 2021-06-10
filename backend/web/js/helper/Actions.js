@@ -473,7 +473,7 @@ const Products = {
         try {
             return await Server.get(`${ROUTE.PRODUCT.VIEW}?id=${id}`, {
                 params: {
-                    expand: 'media,avatar,meta,archives,thumbs,media_id',
+                    expand: 'media,avatar,meta,defaultArchive,thumbs,media_id',
                 }
             }).catch(axiosCatch);
         } catch (e) {

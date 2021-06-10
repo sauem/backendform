@@ -22,6 +22,7 @@ use yii\helpers\Json;
  * @property string|null $type
  * @property string|null $position
  * @property string|null $device
+ * @property string|null $sub_title
  */
 class Banners extends BaseModel
 {
@@ -45,15 +46,14 @@ class Banners extends BaseModel
     public function rules()
     {
         return [
-            ['page_show', 'safe'],
-            [['href', 'avatar'], 'string'],
+            [['page_show'],'safe'],
+            [['href'], 'string'],
             [['created_at', 'updated_at', 'media_id'], 'integer'],
             [['name'], 'string', 'max' => 100],
-            [['description'], 'string', 'max' => 255],
+            [['description', 'sub_title'], 'string', 'max' => 255],
             [['active', 'language', 'type', 'position', 'device'], 'string', 'max' => 50],
         ];
     }
-
     /**
      * {@inheritdoc}
      */
@@ -78,6 +78,7 @@ class Banners extends BaseModel
             'type' => 'Type',
             'position' => 'Position',
             'device' => 'Device',
+            'sub_title' => 'Sub Title',
         ];
     }
 

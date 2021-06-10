@@ -65,14 +65,14 @@ class ProductsSearch extends Products
         }
 
         // grid filtering conditions
-        $query->andFilterWhere([
-            'id' => $this->id,
-            'default_price' => $this->default_price,
-            'default_sale_type' => $this->default_sale_type,
-            'default_sale_price' => $this->default_sale_price,
-            'created_at' => $this->created_at,
-            'updated_at' => $this->updated_at,
-        ]);
+//        $query->andFilterWhere([
+//            'id' => $this->id,
+//            'default_price' => $this->default_price,
+//            'default_sale_type' => $this->default_sale_type,
+//            'default_sale_price' => $this->default_sale_price,
+//            'created_at' => $this->created_at,
+//            'updated_at' => $this->updated_at,
+//        ]);
         if ($this->archives) {
             $query->innerJoin('products_archive', 'products_archive.product_id = products.id')
                 ->innerJoin('archives', 'archives.id = products_archive.archive_id')
@@ -82,6 +82,7 @@ class ProductsSearch extends Products
 
         $query->andFilterWhere(['like', 'name', $this->name])
             ->andFilterWhere(['like', 'slug', $this->slug])
+            //->andFilterWhere(['=', 'id', $this->id])
             ->andFilterWhere(['like', 'status', $this->status])
             ->andFilterWhere(['like', 'content', $this->content])
             ->andFilterWhere(['like', 'excerpt', $this->excerpt])

@@ -201,4 +201,57 @@ class SiteController extends BaseController
         ]);
     }
 
+    public function actionDetail($archive, $slug)
+    {
+        $archive = Archives::findOne(['slug' => $archive]);
+        if (!$archive) {
+            throw new BadRequestHttpException('Không tồn tại trang!');
+        }
+
+
+        switch ($archive->type) {
+            case Archives::STYLE_PRODUCT:
+                $template = 'product-detail.blade';
+                $model = Products::findOne(['slug' => $slug]);
+                $related = Products::find()
+                    ->where(['default_archive' => $model->default_archive])
+                    ->andFilterWhere(['!=', 'id', $model->id])
+                    ->limit(6)->all();
+                break;
+            default:
+                $template = 'blog-detail.blade';
+                $model = Articles::findOne(['slug' => $slug]);
+                $related = Articles::find()
+                    ->where(['archive_id' => $model->archive_id])
+                    ->andFilterWhere(['!=', 'id', $model->id])
+                    ->limit(6)->all();
+                break;
+        }
+        if (!$model) {
+            throw new BadRequestHttpException('Không tồn tại trang!');
+        }
+
+        $categories = Archives::find()
+            ->where([
+                'language' => HelperFunction::getLanguage()
+            ])->limit(6)
+            ->orderBy('id DESC')
+            ->all();
+        $latestBlog = Articles::find()
+            ->where([
+                'language' => HelperFunction::getLanguage(),
+            ])
+            ->andFilterWhere(['!=', 'id', $model->id])
+            ->limit(5)
+            ->orderBy('id DESC')
+            ->all();
+
+        return $this->render($template, [
+            'model' => $model,
+            'categories' => $categories,
+            'latestBlog' => $latestBlog,
+            'related' => $related
+        ]);
+    }
+
 }

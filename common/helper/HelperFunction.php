@@ -182,4 +182,19 @@ class HelperFunction
             }
         }
     }
+
+    static function getBanner($position, $pages = [], $single = false)
+    {
+        $banners = \Yii::$app->params['globalBanners'];
+        $group = [];
+        foreach ($banners as $k => $banner) {
+            if ($banner->position === $position && in_array($pages, [$banner->page_show], true)) {
+                if ($single) {
+                    return $banner;
+                }
+                array_push($group, $banner);
+            }
+        }
+        return $group;
+    }
 }

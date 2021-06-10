@@ -130,6 +130,7 @@
                                             return (
                                                 <div>
                                                     <p>{name}</p>
+                                                    <p>{raw.sub_title}</p>
                                                     <p>{raw.description}</p>
                                                 </div>
                                             )
@@ -230,6 +231,12 @@
                                     <Form.Item
                                         label="Tiêu đề"
                                         name="name"
+                                    >
+                                        <Input/>
+                                    </Form.Item>
+                                    <Form.Item
+                                        label="Tiêu đề phụ"
+                                        name="sub_title"
                                     >
                                         <Input/>
                                     </Form.Item>

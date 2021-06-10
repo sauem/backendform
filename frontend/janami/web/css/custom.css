@@ -69,4 +69,26 @@ nav a {
     border-color: transparent;
     box-shadow: 0 0; }
 
+.ant-btn.custom {
+  display: flex;
+  align-items: center;
+  padding: 22px; }
+  .ant-btn.custom:hover {
+    background: transparent;
+    color: #efa697 !important; }
+
+.ant-input-number.custom {
+  height: 40px;
+  line-height: 40px;
+  font-size: 20px; }
+  .ant-input-number.custom:hover, .ant-input-number.custom:focus {
+    border-color: #efa697;
+    box-shadow: 0 0 0 2px rgba(239, 166, 151, 0.2); }
+
+.tab-custom .nav-link {
+  border: unset;
+  background-color: #f7f4f0 !important; }
+  .tab-custom .nav-link:active {
+    background-color: #f7f4f0 !important; }
+
 /*# sourceMappingURL=custom.css.map */
