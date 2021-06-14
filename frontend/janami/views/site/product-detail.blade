@@ -47,11 +47,11 @@ Yii::$app->params['header_style'] = true;
                                             <div class="blog-post-txt">
 
                                                 <!-- Post Data -->
-                                                <span class="txt-color-06">{{$post->archive->name}}</span>
+                                                <span class="txt-color-06">{{$post->defaultArchive->name}}</span>
 
                                                 <!-- Post Title -->
                                                 <h6 class="h6-md txt-color-01">
-                                                    <a href="<?= HelperFunction::Link(ARTICLE, $model->slug, $model->archive->slug)?>">{{$post->name}}</a>
+                                                    <a href="<?= HelperFunction::Link(ARTICLE, $model->slug, $model->defaultArchive->slug)?>">{{$post->name}}</a>
                                                 </h6>
                                             </div>
 
