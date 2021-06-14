@@ -56,7 +56,7 @@ class SiteController extends BaseController
             ->where([
                 'status' => Articles::STATUS_ACTIVE,
                 'language' => HelperFunction::getLanguage()
-            ])->limit(6)->orderBy('created_at DESC')->all();
+            ])->limit(9)->orderBy('created_at DESC')->all();
         $contactForm = new Contact();
         $logos = Banners::findAll([
             'active' => Banners::BANNER_ACTIVE,

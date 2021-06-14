@@ -136,11 +136,12 @@ $view->title = 'Giỏ hàng';
                             }}
                         />
                         <div className="mt-10 d-flex justify-content-between">
-                            <a href="/san-pham" className="btn btn-md btn-color-02"><i
+                            <a href="/shop" className="btn btn-md btn-color-02"><i
                                 className="fas mr-2 fa-arrow-left"/> Tiếp tục mua hàng</a>
-                            <a href="/checkout" className="btn btn-md btn-color-02">Đặt hàng <i
+                            <a disabled={state.cart.totalItems === 0} href="/checkout" className="btn btn-md btn-color-02">Đặt hàng <i
                                 className="fas ml-2 fa-arrow-right"/></a>
                         </div>
+                        <Divider/>
                     </Spin>
                 </div>
 

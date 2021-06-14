@@ -1,0 +1,56 @@
+@section("js_pos")
+    <script type="text/babel">
+        const App = () => {
+            const deleteBilling = (billingId) => {
+
+            }
+            return (
+                <Card title="Danh sách đơn đặt hàng">
+
+                    <Table
+                        dataSource={[
+                            {
+                                id: 1,
+                                status: 'new',
+                                payment_status: 'ip',
+                                customer_name: 'Đình thắng',
+                                sub_total: 10000,
+                                created_at: 102313124
+                            }
+                        ]}
+                        columns={[
+                            {
+                                title: 'Mã đơn',
+                                dataIndex: 'id',
+                                key: 'id',
+                                render: id => <a href={`/billing/${id}`}>#J{id}</a>
+                            },
+                            {title: 'Trạng thái', dataIndex: 'status', key: 'status'},
+                            {title: 'Thanh toán', dataIndex: 'payment_status', key: 'payment_status'},
+                            {title: 'Khách hàng', dataIndex: 'customer_name', key: 'customer_name'},
+                            {title: 'Tổng đơn', dataIndex: 'sub_total', key: 'sub_total'},
+                            {title: 'Ngày đặt hàng', dataIndex: 'created_at', key: 'created_at'},
+                            {
+                                title: 'Actions', key: 'action', render: raw => {
+                                    return (
+                                        <Space>
+                                            <a className="btn btn-xs btn-primary mr-2 text-white"
+                                               href={`/billing/update?id=${raw.id}`}>
+                                                <i className="icon icon-edit"/>
+                                            </a>
+                                            <Popconfirm
+                                                title="Xóa đơn hàng này?"
+                                                onConfirm={() => deleteBilling(raw.id)}>
+                                                <Button size="small" danger type="dashed">
+                                                    <i className="icon icon-trash"/></Button>
+                                            </Popconfirm>
+                                        </Space>)
+                                }
+                            },
+                        ]}
+                    />
+                </Card>
+            )
+        }
+    </script>
+@stop

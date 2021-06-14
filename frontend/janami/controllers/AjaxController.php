@@ -40,4 +40,10 @@ class AjaxController extends BaseController
         }
         return false;
     }
+
+    function actionCreateOrder()
+    {
+        $post = \Yii::$app->request->post();
+        
+    }
 }

@@ -471,9 +471,8 @@ $(document).ready(function() {
 				minlength: 1,
 				maxlength: 16,
 			},
-			email:{
+			phone:{
 				required: true,
-				email: true,
 			},
 			message:{
 				required: true,
@@ -482,11 +481,10 @@ $(document).ready(function() {
 		},
 		messages:{
 			name:{
-				required: "Please enter no less than (1) characters"
+				required: "hãy nhập tên bạn"
 			},
-			email:{
-				required: "We need your email address to contact you",
-				email: "Your email address must be in the format of name@domain.com"
+			phone:{
+				required: "Số điện thoại bắt buộc",
 			},
 			message:{
 				required: "Please enter no less than (2) characters"

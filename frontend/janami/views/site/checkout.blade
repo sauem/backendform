@@ -26,9 +26,17 @@ $view->title = 'Đặt hàng';
     <script type="text/babel">
         const Checkout = () => {
             const [form] = Form.useForm();
-            const [state, setState] = useState();
+            const [state, setState] = useState({
+                cart: getCart()
+            });
+            useEffect(() => {
+                setState({
+                    ...state,
+                    cart: getCart()
+                })
+            }, []);
             const onSubmit = async (data) => {
-
+                alert(data);
             }
             return (
                 <Form
@@ -84,24 +92,27 @@ $view->title = 'Đặt hàng';
                                         <Input.TextArea rows={3} className="form-control"/>
                                     </Form.Item>
                                 </Col>
+                                <Col md={24}>
+                                    <a href="/shop" className="btn btn-md btn-color-02"><i
+                                        className="fas fa-shopping-cart mr-1"/>Mua hàng</a>
+                                </Col>
                             </Row>
                         </Col>
                         <Col md={10}>
                             <h2>Sản phẩm</h2>
                             <table className="table table-bordered">
-                                <tr>
-                                    <td>Sản phẩm 1 x 1</td>
-                                    <td>20.000đ</td>
-                                </tr>
-                                <tr>
-                                    <td>Sản phẩm 1 x 1</td>
-                                    <td>20.000đ</td>
-                                </tr>
-                                <tfoot>
-                                <tr>
-                                    <th>Tổng cộng</th>
-                                </tr>
-                                </tfoot>
+                                {state.cart.items.length > 0 ? state.cart.items.map(item => {
+                                    return (
+                                        <tr>
+                                            <td>{item.name} x {item.quantity}</td>
+                                            <td>{formatNum(item.buying_price)}đ</td>
+                                        </tr>
+                                    )
+                                }) : <tr>
+                                    <td colSpan="2">
+                                        Giỏ hàng rỗng!
+                                    </td>
+                                </tr>}
                             </table>
                             <div className="bg-color-02 p-3">
                                 <h3>Hình thức thanh toán</h3>
@@ -120,11 +131,14 @@ $view->title = 'Đặt hàng';
                                     </Radio.Group>
                                 </Form.Item>
                             </div>
-                            <div className="text-right mt-2">
-                                <button type="submit" className="btn btn-md btn-color-02">Đặt hàng</button>
+                            <div className="mt-2 text-right">
+                                <button disabled={state.cart.totalItems === 0} type="submit"
+                                        className="btn btn-md btn-color-02">Đặt hàng
+                                </button>
                             </div>
                         </Col>
                     </Row>
+                    <Divider/>
                 </Form>
 
             )

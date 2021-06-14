@@ -19,64 +19,259 @@ Yii::$app->params['footer_type'] = 'light';
     ]) ?>
 
     <!--Hot news-->
-    <section id="about-2" class="bg-color-01 wide-60 about-section division">
-        <div class="container">
-            <div class="row d-flex align-items-center m-row">
+    {{--    <section id="about-2" class="bg-color-01 wide-60 about-section division">--}}
+    {{--        <div class="container">--}}
+    {{--            <div class="row d-flex align-items-center m-row">--}}
 
 
-                <!-- TEXT BLOCK -->
-                <div class="col-md-7 col-lg-6 m-bottom">
-                    <div class="txt-block left-column pc-15 mb-40">
+    {{--                <!-- TEXT BLOCK -->--}}
+    {{--                <div class="col-md-7 col-lg-6 m-bottom">--}}
+    {{--                    <div class="txt-block left-column pc-15 mb-40">--}}
 
-                        <!-- Title -->
-                        <h3 class="h3-md txt-color-01">Làn da bị thiếu dưỡng chất do makeup</h3>
+    {{--                        <!-- Title -->--}}
+    {{--                        <h3 class="h3-md txt-color-01">Làn da bị thiếu dưỡng chất do makeup</h3>--}}
 
-                        <!-- Text -->
-                        <p class="txt-color-05">Porta semper lacus cursus, feugiat primis ultrice a ligula risus auctor an
-                            tempus
-                            feugiat dolor lacinia cubilia curae integer orci congue and metus mollislorem primis in integer
-                            metus
-                            mollis faucibus. Nullam a tempor sapien gravida donec pretium ipsum porta lacinia ultrice
-                        </p>
+    {{--                        <!-- Text -->--}}
+    {{--                        <p class="txt-color-05">Porta semper lacus cursus, feugiat primis ultrice a ligula risus auctor an--}}
+    {{--                            tempus--}}
+    {{--                            feugiat dolor lacinia cubilia curae integer orci congue and metus mollislorem primis in integer--}}
+    {{--                            metus--}}
+    {{--                            mollis faucibus. Nullam a tempor sapien gravida donec pretium ipsum porta lacinia ultrice--}}
+    {{--                        </p>--}}
 
-                        <!-- List -->
-                        <ul class="txt-list txt-color-05">
+    {{--                        <!-- List -->--}}
+    {{--                        <ul class="txt-list txt-color-05">--}}
 
-                            <li class="list-item">
-                                <i class="fas fa-genderless"></i>
-                                <p>Fringilla risus nec, luctus mauris orci auctor purus euismod at pretium purus
-                                    pretium ligula rutrum tempor sapien
-                                </p>
-                            </li>
+    {{--                            <li class="list-item">--}}
+    {{--                                <i class="fas fa-genderless"></i>--}}
+    {{--                                <p>Fringilla risus nec, luctus mauris orci auctor purus euismod at pretium purus--}}
+    {{--                                    pretium ligula rutrum tempor sapien--}}
+    {{--                                </p>--}}
+    {{--                            </li>--}}
 
-                            <li class="list-item">
-                                <i class="fas fa-genderless"></i>
-                                <p>Nemo ipsam egestas volute turpis dolores ut aliquam quaerat sodales sapien
-                                    undo pretium purus
-                                </p>
-                            </li>
+    {{--                            <li class="list-item">--}}
+    {{--                                <i class="fas fa-genderless"></i>--}}
+    {{--                                <p>Nemo ipsam egestas volute turpis dolores ut aliquam quaerat sodales sapien--}}
+    {{--                                    undo pretium purus--}}
+    {{--                                </p>--}}
+    {{--                            </li>--}}
 
-                        </ul>
+    {{--                        </ul>--}}
 
-                    </div>
-                </div>    <!-- END TEXT BLOCK -->
-
-
-                <!-- IMAGE BLOCK -->
-                <div class="col-md-5 col-lg-6 m-top">
-                    <div class="img-block right-column pc-15 mb-40">
-                        <img class="img-fluid" src="/images/image-03.png" alt="about-image">
-                    </div>
-                </div>
+    {{--                    </div>--}}
+    {{--                </div>    <!-- END TEXT BLOCK -->--}}
 
 
-            </div>      <!-- End row -->
-        </div>       <!-- End container -->
-    </section>    <!-- END ABOUT-2 -->
+    {{--                <!-- IMAGE BLOCK -->--}}
+    {{--                <div class="col-md-5 col-lg-6 m-top">--}}
+    {{--                    <div class="img-block right-column pc-15 mb-40">--}}
+    {{--                        <img class="img-fluid" src="/images/image-03.png" alt="about-image">--}}
+    {{--                    </div>--}}
+    {{--                </div>--}}
+
+
+    {{--            </div>      <!-- End row -->--}}
+    {{--        </div>       <!-- End container -->--}}
+    {{--    </section>    <!-- END ABOUT-2 -->--}}
 
 
     <!--sản phẩm-->
-    <section id="services-18" class="bg-color-01 services-section pb-60 division">
+    @if(isset($products) && !empty($products))
+
+        <section id="services-18" class="bg-color-01 services-section wide-30 division">
+            <div class="container">
+
+
+                <!-- SECTION TITLE -->
+                <div class="row">
+                    <div class="col-lg-10 offset-lg-1">
+                        <div class="section-title mb-60 text-center">
+
+                            <!-- Transparent Header -->
+                            <h2 class="tra-header txt-color-02">Product</h2>
+
+                            <!-- Title 	-->
+                            <h3 class="h3-xl txt-color-01">Sản phẩm chăm sóc da</h3>
+
+                            <!-- Text -->
+                            <p class="p-lg txt-color-05">
+                                Từ bây giờ hãy chăm sóc làn da của bạn khoa học và tiện lợi nhất bằng các sản phẩm hỗ
+                                trợ
+                                bên dưới
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- SERVICES-18 WRAPPER -->
+                <div class="sbox-18-wrapper">
+                    <div class="row">
+                        @foreach($products as $product)
+                            <div class="col-md-6 col-lg-4">
+                                <div class="sbox-18 bg-white text-center">
+
+                                    <!-- Image -->
+                                    <div class="sbox-10-img">
+                                        <div class="hover-overlay">
+                                            <img class="img-fluid" src="{{$product->avatar}}" alt="{{$product->name}}"/>
+                                        </div>
+                                    </div>
+
+                                    <!-- Text -->
+                                    <div class="sbox-18-txt">
+
+                                        <!-- Title -->
+                                        <h5 class="h5-sm txt-color-01">{{$product->name}}</h5>
+
+                                        <!-- Text -->
+                                        <p class="p-md txt-color-05">{{$product->defaultArchive->name}}</p>
+
+                                        <!-- Rating -->
+                                        <div class="txt-block-rating">
+                                            <div class="stars-rating">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star-half-alt"></i>
+                                            </div>
+                                            <span class="txt-color-01">
+                                                <?= HelperFunction::htmlPrice($product)?>
+                                            </span>
+                                        </div>
+
+                                        <!-- Button -->
+                                        <a href="/shop/<?= $product->defaultArchive->slug ?>/<?= $product->slug?>"
+                                           class="btn p-sm btn-tra-01 color-02-hover mt-20">
+                                            Chi tiết
+                                        </a>
+                                    </div>
+
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>  <!-- End row -->
+                </div>    <!-- END SERVICES-18 WRAPPER -->
+
+
+            </div>       <!-- End container -->
+        </section>    <!-- END SERVICES-18 -->
+    @endif
+
+    {{--    <section id="contacts-2" class="bg-color-02 wide-60 contacts-section division">--}}
+    {{--        <div class="container">--}}
+
+
+    {{--            <!-- SECTION TITLE -->--}}
+    {{--            <div class="row">--}}
+    {{--                <div class="col-lg-10 offset-lg-1">--}}
+    {{--                    <div class="section-title mb-60 text-center">--}}
+
+    {{--                        <!-- Transparent Header -->--}}
+    {{--                        <h2 class="tra-header txt-color-02">Liên hệ</h2>--}}
+
+    {{--                        <!-- Title 	-->--}}
+    {{--                        <h3 class="h3-xl txt-color-01">Tư vấn và thắc mắc?</h3>--}}
+
+    {{--                        <!-- Text -->--}}
+    {{--                        <p class="p-lg txt-color-05">--}}
+    {{--                            Hãy đặt câu hỏi cho chúng tôi, chúng tôi sẽ giải đáp thắc mắc cho bạn--}}
+    {{--                        </p>--}}
+
+    {{--                    </div>--}}
+    {{--                </div>--}}
+    {{--            </div>--}}
+
+
+    {{--            <div class="row">--}}
+
+
+    {{--                <!-- CONTACT FORM -->--}}
+    {{--                <div class="col-md-7 col-lg-8">--}}
+    {{--                    <div class="form-holder mb-40 pc-25">--}}
+    {{--                        <form name="contactform" class="row contact-form">--}}
+
+    {{--                            <!-- Form Input -->--}}
+    {{--                            <div class="col-lg-6">--}}
+    {{--                                <input type="text" name="name" class="form-control name" placeholder="Your Name*">--}}
+    {{--                            </div>--}}
+
+    {{--                            <!-- Form Input -->--}}
+    {{--                            <div class="col-lg-6">--}}
+    {{--                                <input type="email" name="email" class="form-control email"--}}
+    {{--                                       placeholder="Email Address*">--}}
+    {{--                            </div>--}}
+
+    {{--                            <!-- Form Input -->--}}
+    {{--                            <div class="col-md-12">--}}
+    {{--                                <input type="text" name="subject" class="form-control subject"--}}
+    {{--                                       placeholder="What's this about?">--}}
+    {{--                            </div>--}}
+
+    {{--                            <!-- Form Textarea -->--}}
+    {{--                            <div class="col-md-12">--}}
+    {{--                            <textarea name="message" class="form-control message" rows="6"--}}
+    {{--                                      placeholder="Your Message ..."></textarea>--}}
+    {{--                            </div>--}}
+
+    {{--                            <!-- Form Button -->--}}
+    {{--                            <div class="col-md-12 mt-5 text-right">--}}
+    {{--                                <button type="submit" class="btn btn-md btn-color-02 tra-02-hover submit">Send Message--}}
+    {{--                                </button>--}}
+    {{--                            </div>--}}
+
+    {{--                            <!-- Form Message -->--}}
+    {{--                            <div class="col-md-12 contact-form-msg text-center">--}}
+    {{--                                <div class="sending-msg"><span class="loading"></span></div>--}}
+    {{--                            </div>--}}
+
+    {{--                        </form>--}}
+    {{--                    </div>--}}
+    {{--                </div>    <!-- END CONTACT FORM -->--}}
+
+
+    {{--                <!-- CONTACTS INFO -->--}}
+    {{--                <div class="col-md-5 col-lg-4">--}}
+    {{--                    <div class="contacts-info pc-25 mb-40 txt-color-05">--}}
+
+    {{--                        <!-- LOCATION -->--}}
+    {{--                        <div class="cbox-1 mb-30">--}}
+    {{--                            <h5 class="h5-sm">Cửa hàng</h5>--}}
+    {{--                            <p class="p-md">121 King Street, Melbourne,</p>--}}
+    {{--                            <p class="p-md">Victoria 3000 Australia</p>--}}
+    {{--                        </div>--}}
+
+    {{--                        <!-- PHONES -->--}}
+    {{--                        <div class="cbox-1 mb-30">--}}
+    {{--                            <h5 class="h5-sm">Thông tin liên hệ</h5>--}}
+    {{--                            <p class="p-md"><span>Phone :</span> +12 3 3456 7890</p>--}}
+    {{--                            <p class="p-md"><span>Email :</span> <a--}}
+    {{--                                        href="mailto:yourdomain@mail.com">hello@yourdomain.com</a></p>--}}
+    {{--                            <p class="p-md"><span>Skype :</span> <a href="tel:123456789">support.spamagic</a></p>--}}
+    {{--                        </div>--}}
+
+    {{--                        <!-- EMAILS -->--}}
+    {{--                        <div class="cbox-1">--}}
+    {{--                            <h5 class="h5-sm">Giờ mở cửa</h5>--}}
+    {{--                            <p class="p-md"><span>Mon – Fri :</span> 9:00 AM - 7:00 PM</p>--}}
+    {{--                            <p class="p-md"><span>Saturday :</span> 9:00 AM - 6:00 PM</p>--}}
+    {{--                            <p class="p-md"><span>Sunday :</span> Closed</p>--}}
+    {{--                        </div>--}}
+
+    {{--                    </div>--}}
+    {{--                </div>    <!-- END CONTACTS INFO -->--}}
+
+
+    {{--            </div>    <!-- End row -->--}}
+
+
+    {{--        </div>       <!-- End container -->--}}
+    {{--    </section>    <!-- END CONTACTS-2 -->--}}
+
+
+    <section id="faqs-1" class="bg-color-01 wide-30 faqs-section division">
         <div class="container">
 
 
@@ -86,14 +281,14 @@ Yii::$app->params['footer_type'] = 'light';
                     <div class="section-title mb-60 text-center">
 
                         <!-- Transparent Header -->
-                        <h2 class="tra-header txt-color-02">Sản phẩm</h2>
+                        <h2 class="tra-header txt-color-02">Resion</h2>
 
                         <!-- Title 	-->
-                        <h3 class="h3-xl txt-color-01">Sản phẩm chăm sóc da</h3>
+                        <h3 class="h3-xl txt-color-01">Các lý do chọn Janani Beauty</h3>
 
                         <!-- Text -->
                         <p class="p-lg txt-color-05">
-                            Từ bây giờ hãy chăm sóc làn da của bạn khoa học và tiện lợi nhất bằng các sản phẩm hỗ trợ bên dưới
+                            6 lý do bạn nên chọn Janami Beauty để chăm sóc làn da của bạn.
                         </p>
 
                     </div>
@@ -101,531 +296,156 @@ Yii::$app->params['footer_type'] = 'light';
             </div>
 
 
-            <!-- SERVICES-18 WRAPPER -->
-            <div class="sbox-18-wrapper">
+            <!-- FAQs-1 QUESTIONS -->
+            <div class="faqs-1-questions pc-15">
                 <div class="row">
 
 
-                    <!-- SERVICE BOX #1 -->
-                    <div class="col-md-6 col-lg-4">
-                        <div class="sbox-18 bg-white text-center">
+                    <!-- QUESTIONS WRAPPER -->
+                    <div class="col-lg-6">
+                        <div class="questions-wrapper pc-30">
 
-                            <!-- Image -->
-                            <div class="sbox-10-img">
-                                <div class="hover-overlay">
-                                    <img class="img-fluid" src="/images/serv-13.jpg" alt="service-image"/>
-                                </div>
-                            </div>
 
-                            <!-- Text -->
-                            <div class="sbox-18-txt">
+                            <!-- QUESTION #1 -->
+                            <div class="question">
 
-                                <!-- Title -->
-                                <h5 class="h5-sm txt-color-01">Traditional Massage</h5>
+                                <!-- Question -->
+                                <h5 class="h5-xs txt-color-01"><span>1.</span> Getting started with Treko</h5>
 
-                                <!-- Text -->
-                                <p class="p-md txt-color-05">Massage, Spa Services</p>
-
-                                <!-- Rating -->
-                                <div class="txt-block-rating">
-                                    <div class="stars-rating">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star-half-alt"></i>
-                                        <span class="txt-color-01">$86.00</span>
-                                    </div>
-                                </div>
-
-                                <!-- Button -->
-                                <a href="#" class="btn p-sm btn-tra-01 color-02-hover mt-20">Find Out More</a>
+                                <!-- Answer -->
+                                <p class="txt-color-05">Etiam amet mauris suscipit in odio. Integer congue undo metus.
+                                    Vitae arcu mollis
+                                    blandit ultrice ligula egestas and magna suscipit lectus magna suscipit luctus
+                                    blandit
+                                </p>
 
                             </div>
+
+
+                            <!-- QUESTION #2 -->
+                            <div class="question">
+
+                                <!-- Question -->
+                                <h5 class="h5-xs txt-color-01"><span>2.</span> How do I schedule an appointment?</h5>
+
+                                <!-- Answer -->
+                                <ul class="simple-list txt-color-05">
+
+                                    <li class="list-item">
+                                        <p>Aliqum mullam blandit and tempor sapien donec ipsum at gravida porta. Velna
+                                            vitae
+                                            auctor congue
+                                        </p>
+                                    </li>
+
+                                    <li class="list-item">
+                                        <p>Quaerat sodales and sapien euismod blandit a purus luctus neque purus
+                                            sagittis
+                                            sapien undo sodales and luctus
+                                        </p>
+                                    </li>
+
+                                </ul>
+
+                            </div>
+
+
+                            <!-- QUESTION #3 -->
+                            <div class="question">
+
+                                <!-- Question -->
+                                <h5 class="h5-xs txt-color-01"><span>3.</span> Can I bring my kids to The Spa?</h5>
+
+                                <!-- Answer -->
+                                <p class="txt-color-05">Praesent semper lacus sed cursus porta, feugiat primis luctus in
+                                    ligula eros ac
+                                    ligula massa and faucibus orci a luctus aliquet and molestie purus venenatis aliquam
+                                    eget lacinia
+                                </p>
+
+                            </div>
+
 
                         </div>
-                    </div>
+                    </div>    <!-- END QUESTIONS WRAPPER -->
 
 
-                    <!-- SERVICE BOX #2 -->
-                    <div class="col-md-6 col-lg-4">
-                        <div class="sbox-18 bg-white text-center">
+                    <!-- QUESTIONS WRAPPER -->
+                    <div class="col-lg-6">
+                        <div class="questions-wrapper pc-30">
 
-                            <!-- Image -->
-                            <div class="sbox-10-img">
-                                <div class="hover-overlay">
-                                    <img class="img-fluid" src="/images/serv-14.jpg" alt="service-image"/>
-                                </div>
-                            </div>
 
-                            <!-- Text -->
-                            <div class="sbox-18-txt">
+                            <!-- QUESTION #4 -->
+                            <div class="question">
 
-                                <!-- Title -->
-                                <h5 class="h5-sm txt-color-01">Aromatherapy Facial</h5>
+                                <!-- Question -->
+                                <h5 class="h5-xs txt-color-01"><span>4.</span> What if I have lost my gift certificate?
+                                </h5>
 
-                                <!-- Text -->
-                                <p class="p-md txt-color-05">Herbal Care, Aromatherapy</p>
+                                <!-- Answer -->
+                                <ul class="simple-list txt-color-05">
 
-                                <!-- Rating -->
-                                <div class="txt-block-rating">
-                                    <div class="stars-rating">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star-half-alt"></i>
-                                        <span class="txt-color-01">$95.00</span>
-                                    </div>
-                                </div>
+                                    <li class="list-item">
+                                        <p>Aliqum mullam blandit and tempor sapien donec ipsum at gravida porta. Velna
+                                            vitae
+                                            auctor congue tristique
+                                        </p>
+                                    </li>
 
-                                <!-- Button -->
-                                <a href="#" class="btn p-sm btn-tra-01 color-02-hover mt-20">Find Out More</a>
+                                    <li class="list-item">
+                                        <p>Cubilia laoreet augue egestas a luctus donec diam quaerat sodales and sapien
+                                            euismod blandit
+                                            a purus luctus neque purus sagittis sapien undo sodales and luctus
+                                        </p>
+                                    </li>
+
+                                </ul>
 
                             </div>
+
+
+                            <!-- QUESTION #5 -->
+                            <div class="question">
+
+                                <!-- Question -->
+                                <h5 class="h5-xs txt-color-01"><span>5.</span> What if I have special medical
+                                    conditions?</h5>
+
+                                <!-- Answer -->
+                                <p class="txt-color-05">Cubilia laoreet augue egestas a luctus donec diam curabite vitae
+                                    dapibus libero
+                                    quisque tristique and neque blandit
+                                </p>
+
+                            </div>
+
+
+                            <!-- QUESTION #6 -->
+                            <div class="question">
+
+                                <!-- Question -->
+                                <h5 class="h5-xs txt-color-01"><span>6.</span> What if I′m late?</h5>
+
+                                <!-- Answer -->
+                                <p class="txt-color-05">Praesent semper lacus sed cursus porta, feugiat primis luctus in
+                                    ligula eros ac
+                                    ligula massa in faucibus orci luctus an ultrices posuere ante ipsum primis in
+                                    faucibus odio.
+                                </p>
+
+                            </div>
+
 
                         </div>
-                    </div>
+                    </div>    <!-- END QUESTIONS WRAPPER -->
 
 
-                    <!-- SERVICE BOX #3 -->
-                    <div class="col-md-6 col-lg-4">
-                        <div class="sbox-18 bg-white text-center">
+                </div>    <!-- End row -->
+            </div>    <!-- END FAQs-1 QUESTIONS -->
 
-                            <!-- Image -->
-                            <div class="sbox-10-img">
-                                <div class="hover-overlay">
-                                    <img class="img-fluid" src="/images/serv-15.jpg" alt="service-image"/>
-                                </div>
-                            </div>
+        </div>     <!-- End container -->
+    </section>    <!-- END FAQs-1 -->
 
-                            <!-- Text -->
-                            <div class="sbox-18-txt">
-
-                                <!-- Title -->
-                                <h5 class="h5-sm txt-color-01">Deep Tissue Massage</h5>
-
-                                <!-- Text -->
-                                <p class="p-md txt-color-05">Massage, Spa Services</p>
-
-                                <!-- Rating -->
-                                <div class="txt-block-rating">
-                                    <div class="stars-rating">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <span class="txt-color-01">$120.00</span>
-                                    </div>
-                                </div>
-
-                                <!-- Button -->
-                                <a href="#" class="btn p-sm btn-tra-01 color-02-hover mt-20">Find Out More</a>
-
-                            </div>
-
-                        </div>
-                    </div>
-
-
-                    <!-- SERVICE BOX #4 -->
-                    <div class="col-md-6 col-lg-4">
-                        <div class="sbox-18 bg-white text-center">
-
-                            <!-- Image -->
-                            <div class="sbox-10-img">
-                                <div class="hover-overlay">
-                                    <img class="img-fluid" src="/images/serv-18.jpg" alt="service-image"/>
-                                </div>
-                            </div>
-
-                            <!-- Text -->
-                            <div class="sbox-18-txt">
-
-                                <!-- Title -->
-                                <h5 class="h5-sm txt-color-01">Oils & Aromatherapy</h5>
-
-                                <!-- Text -->
-                                <p class="p-md txt-color-05">Wellness, Aromatherapy</p>
-
-                                <!-- Rating -->
-                                <div class="txt-block-rating">
-                                    <div class="stars-rating">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <span class="txt-color-01">$72.00</span>
-                                    </div>
-                                </div>
-
-                                <!-- Button -->
-                                <a href="#" class="btn p-sm btn-tra-01 color-02-hover mt-20">Find Out More</a>
-
-                            </div>
-
-                        </div>
-                    </div>
-
-
-                    <!-- SERVICE BOX #5 -->
-                    <div class="col-md-6 col-lg-4">
-                        <div class="sbox-18 bg-white text-center">
-
-                            <!-- Image -->
-                            <div class="sbox-10-img">
-                                <div class="hover-overlay">
-                                    <img class="img-fluid" src="/images/serv-17.jpg" alt="service-image"/>
-                                </div>
-                            </div>
-
-                            <!-- Text -->
-                            <div class="sbox-18-txt">
-
-                                <!-- Title -->
-                                <h5 class="h5-sm txt-color-01">Hydrotherapy</h5>
-
-                                <!-- Text -->
-                                <p class="p-md txt-color-05">Treatments, Spa Services</p>
-
-                                <!-- Rating -->
-                                <div class="txt-block-rating">
-                                    <div class="stars-rating">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <span class="txt-color-01">$68.00</span>
-                                    </div>
-                                </div>
-
-                                <!-- Button -->
-                                <a href="#" class="btn p-sm btn-tra-01 color-02-hover mt-20">Find Out More</a>
-
-                            </div>
-
-                        </div>
-                    </div>
-
-
-                    <!-- SERVICE BOX #6 -->
-                    <div class="col-md-6 col-lg-4">
-                        <div class="sbox-18 bg-white text-center">
-
-                            <!-- Image -->
-                            <div class="sbox-10-img">
-                                <div class="hover-overlay">
-                                    <img class="img-fluid" src="/images/serv-16.jpg" alt="service-image"/>
-                                </div>
-                            </div>
-
-                            <!-- Text -->
-                            <div class="sbox-18-txt">
-
-                                <!-- Title -->
-                                <h5 class="h5-sm txt-color-01">Supreme Skicare</h5>
-
-                                <!-- Text -->
-                                <p class="p-md txt-color-05">Massage, Herbal Care</p>
-
-                                <!-- Rating -->
-                                <div class="txt-block-rating">
-                                    <div class="stars-rating">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <span class="txt-color-01">$90.00</span>
-                                    </div>
-                                </div>
-
-                                <!-- Button -->
-                                <a href="#" class="btn p-sm btn-tra-01 color-02-hover mt-20">Find Out More</a>
-
-                            </div>
-
-                        </div>
-                    </div>
-
-
-                </div>  <!-- End row -->
-            </div>    <!-- END SERVICES-18 WRAPPER -->
-
-
-        </div>       <!-- End container -->
-    </section>    <!-- END SERVICES-18 -->
-
-
-    <section id="contacts-2" class="bg-color-02 wide-60 contacts-section division">
-        <div class="container">
-
-
-            <!-- SECTION TITLE -->
-            <div class="row">
-                <div class="col-lg-10 offset-lg-1">
-                    <div class="section-title mb-60 text-center">
-
-                        <!-- Transparent Header -->
-                        <h2 class="tra-header txt-color-02">Liên hệ</h2>
-
-                        <!-- Title 	-->
-                        <h3 class="h3-xl txt-color-01">Tư vấn và thắc mắc?</h3>
-
-                        <!-- Text -->
-                        <p class="p-lg txt-color-05">
-                            Hãy đặt câu hỏi cho chúng tôi, chúng tôi sẽ giải đáp thắc mắc cho bạn
-                        </p>
-
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="row">
-
-
-                <!-- CONTACT FORM -->
-                <div class="col-md-7 col-lg-8">
-                    <div class="form-holder mb-40 pc-25">
-                        <form name="contactform" class="row contact-form">
-
-                            <!-- Form Input -->
-                            <div class="col-lg-6">
-                                <input type="text" name="name" class="form-control name" placeholder="Your Name*">
-                            </div>
-
-                            <!-- Form Input -->
-                            <div class="col-lg-6">
-                                <input type="email" name="email" class="form-control email" placeholder="Email Address*">
-                            </div>
-
-                            <!-- Form Input -->
-                            <div class="col-md-12">
-                                <input type="text" name="subject" class="form-control subject"
-                                       placeholder="What's this about?">
-                            </div>
-
-                            <!-- Form Textarea -->
-                            <div class="col-md-12">
-                            <textarea name="message" class="form-control message" rows="6"
-                                      placeholder="Your Message ..."></textarea>
-                            </div>
-
-                            <!-- Form Button -->
-                            <div class="col-md-12 mt-5 text-right">
-                                <button type="submit" class="btn btn-md btn-color-02 tra-02-hover submit">Send Message
-                                </button>
-                            </div>
-
-                            <!-- Form Message -->
-                            <div class="col-md-12 contact-form-msg text-center">
-                                <div class="sending-msg"><span class="loading"></span></div>
-                            </div>
-
-                        </form>
-                    </div>
-                </div>    <!-- END CONTACT FORM -->
-
-
-                <!-- CONTACTS INFO -->
-                <div class="col-md-5 col-lg-4">
-                    <div class="contacts-info pc-25 mb-40 txt-color-05">
-
-                        <!-- LOCATION -->
-                        <div class="cbox-1 mb-30">
-                            <h5 class="h5-sm">Cửa hàng</h5>
-                            <p class="p-md">121 King Street, Melbourne,</p>
-                            <p class="p-md">Victoria 3000 Australia</p>
-                        </div>
-
-                        <!-- PHONES -->
-                        <div class="cbox-1 mb-30">
-                            <h5 class="h5-sm">Thông tin liên hệ</h5>
-                            <p class="p-md"><span>Phone :</span> +12 3 3456 7890</p>
-                            <p class="p-md"><span>Email :</span> <a
-                                        href="mailto:yourdomain@mail.com">hello@yourdomain.com</a></p>
-                            <p class="p-md"><span>Skype :</span> <a href="tel:123456789">support.spamagic</a></p>
-                        </div>
-
-                        <!-- EMAILS -->
-                        <div class="cbox-1">
-                            <h5 class="h5-sm">Giờ mở cửa</h5>
-                            <p class="p-md"><span>Mon – Fri :</span> 9:00 AM - 7:00 PM</p>
-                            <p class="p-md"><span>Saturday :</span> 9:00 AM - 6:00 PM</p>
-                            <p class="p-md"><span>Sunday :</span> Closed</p>
-                        </div>
-
-                    </div>
-                </div>    <!-- END CONTACTS INFO -->
-
-
-            </div>    <!-- End row -->
-
-
-        </div>       <!-- End container -->
-    </section>    <!-- END CONTACTS-2 -->
-
-
-    <section id="services-10" class="bg-color-01 wide-60 services-section division">
-        <div class="container">
-
-
-            <!-- SECTION TITLE -->
-            <div class="row">
-                <div class="col-lg-10 offset-lg-1">
-                    <div class="section-title mb-60 text-center">
-
-                        <!-- Transparent Header -->
-                        <h2 class="tra-header txt-color-02">Tips</h2>
-
-                        <!-- Title 	-->
-                        <h3 class="h3-xl txt-color-01">Chăm sóc da tại nhà</h3>
-
-                        <!-- Text -->
-                        <p class="p-lg txt-color-05">
-                            Bạt mí các bí quyết chăm sóc da tại nhà với nguyên liệu tự nhiên
-                        </p>
-
-                    </div>
-                </div>
-            </div>
-
-
-            <!-- SERVICES-10 WRAPPER -->
-            <div class="sbox-10-wrapper">
-                <div class="row">
-
-
-                    <!-- SERVICE BOX #1 -->
-                    <div class="col-md-6 col-lg-3">
-                        <div class="sbox-10 bg-white text-center">
-
-                            <!-- Image -->
-                            <div class="sbox-10-img">
-                                <div class="hover-overlay">
-                                    <img class="img-fluid" src="/images/serv-13.jpg" alt="service-image"/>
-                                </div>
-                            </div>
-
-                            <!-- Text -->
-                            <div class="sbox-10-txt">
-
-                                <!-- Title -->
-                                <h5 class="h5-sm txt-color-01">Combination Massage</h5>
-
-                                <!-- Text -->
-                                <p class="txt-color-05">Aliquam an augue suscipit luctus neque purus magna ipsum neque
-                                    dolor</p>
-
-                                <!-- Button -->
-                                <a href="services.html" class="btn p-sm btn-tra-01 color-02-hover">Find Out More</a>
-
-                            </div>
-
-                        </div>
-                    </div>
-
-
-                    <!-- SERVICE BOX #2 -->
-                    <div class="col-md-6 col-lg-3">
-                        <div class="sbox-10 bg-white text-center">
-
-                            <!-- Image -->
-                            <div class="sbox-10-img">
-                                <div class="hover-overlay">
-                                    <img class="img-fluid" src="/images/serv-14.jpg" alt="service-image"/>
-                                </div>
-                            </div>
-
-                            <!-- Text -->
-                            <div class="sbox-10-txt">
-
-
-                                <!-- Title -->
-                                <h5 class="h5-sm txt-color-01">Special Care Solutions</h5>
-
-                                <!-- Text -->
-                                <p class="txt-color-05">Aliquam an augue suscipit luctus neque purus magna ipsum neque
-                                    dolor</p>
-
-                                <!-- Button -->
-                                <a href="services.html" class="btn p-sm btn-tra-01 color-02-hover">Find Out More</a>
-
-                            </div>
-
-                        </div>
-                    </div>
-
-
-                    <!-- SERVICE BOX #3 -->
-                    <div class="col-md-6 col-lg-3">
-                        <div class="sbox-10 bg-white text-center">
-
-                            <!-- Image -->
-                            <div class="sbox-10-img">
-                                <div class="hover-overlay">
-                                    <img class="img-fluid" src="/images/serv-15.jpg" alt="service-image"/>
-                                </div>
-                            </div>
-
-                            <!-- Text -->
-                            <div class="sbox-10-txt">
-
-                                <!-- Title -->
-                                <h5 class="h5-sm txt-color-01">Relaxing & Body Treatments</h5>
-
-                                <!-- Text -->
-                                <p class="txt-color-05">Aliquam an augue suscipit luctus neque purus magna ipsum neque
-                                    dolor</p>
-
-                                <!-- Button -->
-                                <a href="services.html" class="btn p-sm btn-tra-01 color-02-hover">Find Out More</a>
-
-                            </div>
-
-                        </div>
-                    </div>
-
-
-                    <!-- SERVICE BOX #4 -->
-                    <div class="col-md-6 col-lg-3">
-                        <div class="sbox-10 bg-white text-center">
-
-                            <!-- Image -->
-                            <div class="sbox-10-img">
-                                <div class="hover-overlay">
-                                    <img class="img-fluid" src="/images/serv-16.jpg" alt="service-image"/>
-                                </div>
-                            </div>
-
-                            <!-- Text -->
-                            <div class="sbox-10-txt">
-
-                                <!-- Title -->
-                                <h5 class="h5-sm txt-color-01">Oils & Aromatherapy</h5>
-
-                                <!-- Text -->
-                                <p class="txt-color-05">Aliquam an augue suscipit luctus neque purus magna ipsum neque
-                                    dolor</p>
-
-                                <!-- Button -->
-                                <a href="services.html" class="btn p-sm btn-tra-01 color-02-hover">Find Out More</a>
-
-                            </div>
-
-                        </div>
-                    </div>
-
-
-                </div>  <!-- End row -->
-            </div>    <!-- END SERVICES-10 WRAPPER -->
-
-
-        </div>       <!-- End container -->
-    </section>    <!-- END SERVICES-10 -->
 
     <section id="reviews-1" class="bg-color-01 wide-100 reviews-section division">
         <div class="container">
@@ -637,7 +457,7 @@ Yii::$app->params['footer_type'] = 'light';
                     <div class="section-title mb-60 text-center">
 
                         <!-- Transparent Header -->
-                        <h2 class="tra-header txt-color-02">Đánh giá</h2>
+                        <h2 class="tra-header txt-color-02">Evaluate</h2>
 
                         <!-- Title 	-->
                         <h3 class="h3-xl txt-color-01">Khách hàng nói gì về Janami?</h3>
@@ -722,7 +542,8 @@ Yii::$app->params['footer_type'] = 'light';
 
                             <!-- Testimonial Text -->
                             <div class="review-1-txt txt-color-05">
-                                <p>Etiam sapien sem accumsan sagittis congue. Suscipit egestas at lobortis magna, porttitor
+                                <p>Etiam sapien sem accumsan sagittis congue. Suscipit egestas at lobortis magna,
+                                    porttitor
                                     sodales vitae aenean mauris tempor risus lectus aenean diam aenean mauris
                                 </p>
                             </div>
@@ -746,7 +567,8 @@ Yii::$app->params['footer_type'] = 'light';
 
                             <!-- Testimonial Text -->
                             <div class="review-1-txt txt-color-05">
-                                <p>Egestas egestas magna ipsum vitae purus efficitur ipsum primis in cubilia laoreet augue
+                                <p>Egestas egestas magna ipsum vitae purus efficitur ipsum primis in cubilia laoreet
+                                    augue
                                     congue. An egestas lobortis magna, sodales vitae
                                 </p>
                             </div>
@@ -770,7 +592,8 @@ Yii::$app->params['footer_type'] = 'light';
 
                             <!-- Testimonial Text -->
                             <div class="review-1-txt txt-color-05">
-                                <p>An orci nullam tempor sapien, eget orci gravida donec enim ipsum porta justo integer and
+                                <p>An orci nullam tempor sapien, eget orci gravida donec enim ipsum porta justo integer
+                                    and
                                     odio velna auctor. Egestas magna ipsum vitae purus ipsum primis in laoreet augue
                                 </p>
                             </div>
@@ -794,7 +617,8 @@ Yii::$app->params['footer_type'] = 'light';
 
                             <!-- Testimonial Text -->
                             <div class="review-1-txt txt-color-05">
-                                <p>Mauris donec ociis et magnis sapien an etiam sapien sem sagittis congue augue. An orci
+                                <p>Mauris donec ociis et magnis sapien an etiam sapien sem sagittis congue augue. An
+                                    orci
                                     nullam
                                     tempor sapien, eget orci gravida donec porta
                                 </p>
@@ -819,7 +643,8 @@ Yii::$app->params['footer_type'] = 'light';
 
                             <!-- Testimonial Text -->
                             <div class="review-1-txt txt-color-05">
-                                <p>At sagittis congue augue egestas egestas magna ipsum vitae purus ipsum primis in cubilia
+                                <p>At sagittis congue augue egestas egestas magna ipsum vitae purus ipsum primis in
+                                    cubilia
                                     laoreet augue diam ociis nullam tempor
                                 </p>
                             </div>
@@ -982,7 +807,8 @@ Yii::$app->params['footer_type'] = 'light';
                             <span class="txt-color-06">Aromatherapy</span>
 
                             <!-- Post Title -->
-                            <h5 class="h5-sm txt-color-01"><a href="single-post.html">Neque dolor primis a libero tempus an
+                            <h5 class="h5-sm txt-color-01"><a href="single-post.html">Neque dolor primis a libero tempus
+                                    an
                                     impedit
                                     tempor</a>
                             </h5>

@@ -7,13 +7,14 @@ const getCart = () => {
 }
 const calculateTotal = async (items = [], subTotalPrice = 0, totalItems = 0) => {
 
-    items.length > 0 && items.map(item => {
+    items.length > 0 && items.map((item, index) => {
         totalItems += item.quantity;
         if (item.default_sale_price > 0) {
             subTotalPrice += item.default_sale_price * item.quantity;
         } else {
             subTotalPrice += item.default_price * item.quantity;
         }
+        items[index].buying_price = subTotalPrice;
     });
 
     await localStorage.setItem('cart', JSON.stringify({
