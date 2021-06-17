@@ -3,6 +3,12 @@
 .tra-header {
   font-family: 'Charmonman', cursive !important; }
 
+.bg-color-09, .btn-color-02 {
+  background: #F16687; }
+
+.ico-cart {
+  color: #F16687; }
+
 html, body, a, p, h1, h2, h3, h4, h5, h6 {
   font-family: 'Baloo Da 2', cursive; }
 
