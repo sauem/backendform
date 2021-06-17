@@ -12,6 +12,26 @@
 .fancy-spinner .dot {
   background: #F16687 !important; }
 
+.ant-pagination-item-active {
+  border-color: #F16687;
+  color: #F16687; }
+  .ant-pagination-item-active a {
+    color: #F16687; }
+
+.ant-pagination-item-active:focus-visible, .ant-pagination-item-active:hover {
+  border-color: #F16687; }
+
+.ant-input-number:focus, .ant-input-number-focused, .ant-input-number:hover {
+  border-color: #367765;
+  box-shadow: 0 0 0 2px rgba(54, 119, 101, 0.2); }
+
+.ant-pagination-item-active:focus-visible a, .ant-pagination-item-active:hover a {
+  color: #F16687; }
+
+.ant-btn-dangerous {
+  color: #F16687;
+  border-color: #F16687; }
+
 .tra-header {
   font-family: 'Charmonman', cursive !important;
   color: #EEA731; }

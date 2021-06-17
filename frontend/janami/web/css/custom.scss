@@ -13,22 +13,53 @@ $bg-green2: #f2f7e8;
 $bg-blue: #D5E2E9;
 $bg-yellow: #f3f5cb;
 $bg-purple: #E1E9F6;
-.wsmenu > .wsmenu-list > li > ul.sub-menu > li > a:before, .wsmenu > .wsmenu-list > li > .wsmegamenu .link-list li a:before, .wsmenu > .wsmenu-list > li > .wsmegamenu.halfmenu .link-list > li > a:before{
+.wsmenu > .wsmenu-list > li > ul.sub-menu > li > a:before, .wsmenu > .wsmenu-list > li > .wsmegamenu .link-list li a:before, .wsmenu > .wsmenu-list > li > .wsmegamenu.halfmenu .link-list > li > a:before {
   color: $pink;
 }
-.fancy-spinner{
-  .ring:nth-child(1){
-    border-left-color: $pink!important;
-    border-right-color: $pink!important;
+
+.fancy-spinner {
+  .ring:nth-child(1) {
+    border-left-color: $pink !important;
+    border-right-color: $pink !important;
   }
-  .ring:nth-child(2){
-    border-top-color: $pink!important;
-    border-bottom-color: $pink!important;
+
+  .ring:nth-child(2) {
+    border-top-color: $pink !important;
+    border-bottom-color: $pink !important;
   }
-  .dot{
-    background: $pink!important;
+
+  .dot {
+    background: $pink !important;
   }
 }
+
+.ant-pagination-item-active {
+  a {
+    color: $pink;
+  }
+
+  border-color: $pink;
+  color: $pink;
+}
+
+.ant-pagination-item-active:focus-visible, .ant-pagination-item-active:hover {
+  border-color: $pink;
+}
+
+.ant-input-number:focus, .ant-input-number-focused, .ant-input-number:hover {
+  border-color: $bg-green;
+  box-shadow: 0 0 0 2px rgba(54, 119, 101, 0.2);
+}
+
+.ant-pagination-item-active:focus-visible a, .ant-pagination-item-active:hover a {
+  color: $pink;
+}
+
+.ant-btn-dangerous {
+  color: $pink;
+  border-color: $pink;
+}
+
 .tra-header {
   font-family: 'Charmonman', cursive !important;
   color: $yellow;
