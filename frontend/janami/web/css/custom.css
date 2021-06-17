@@ -1,12 +1,57 @@
 @import url("https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Charmonman:wght@700&display=swap");
+.wsmenu > .wsmenu-list > li > ul.sub-menu > li > a:before, .wsmenu > .wsmenu-list > li > .wsmegamenu .link-list li a:before, .wsmenu > .wsmenu-list > li > .wsmegamenu.halfmenu .link-list > li > a:before {
+  color: #F16687; }
+
 .tra-header {
-  font-family: 'Charmonman', cursive !important; }
+  font-family: 'Charmonman', cursive !important;
+  color: #EEA731; }
+
+.txt-color-01, .txt-color-05 {
+  color: #883F71; }
+  .txt-color-01 span, .txt-color-01 a, .txt-color-05 span, .txt-color-05 a {
+    color: #883F71; }
+
+.txt-color-06, .txt-color-03 {
+  color: #F599B1; }
+  .txt-color-06 a, .txt-color-03 a {
+    color: #883F71; }
+
+.stars-rating i {
+  color: #F16687; }
+
+.btn-tra-01 {
+  border-color: #F16687 !important;
+  color: #F16687 !important; }
+  .btn-tra-01.color-02-hover:hover {
+    background: #F16687; }
+
+.btn-color-02, .scroll .btn-color-02, .white-color .btn-color-02, .color-02-hover:hover, .scroll .color-02-hover:hover, .white-color .color-02-hover:hover {
+  background-color: #F16687;
+  border-color: #F16687; }
+
+.owl-theme .owl-dots .owl-dot.active span {
+  background: #EEA731; }
+.owl-theme .owl-dots .owl-dot span {
+  border: 2px solid #EEA731; }
+  .owl-theme .owl-dots .owl-dot span:hover {
+    background: #EEA731; }
+
+#scrollUp {
+  background-color: #E4F0D5; }
+  #scrollUp:hover {
+    background-color: #367765; }
+
+.bg-color-02 {
+  background: #D5E2E9; }
 
 .bg-color-09, .btn-color-02 {
-  background: #F16687; }
+  background-color: #F16687;
+  border-color: #F16687 !important; }
+  .bg-color-09.color-01-hover:hover, .btn-color-02.color-01-hover:hover {
+    background-color: #F599B1; }
 
-.ico-cart {
+.ico-cart i, .ico-cart span {
   color: #F16687; }
 
 html, body, a, p, h1, h2, h3, h4, h5, h6 {
