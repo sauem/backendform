@@ -16,6 +16,19 @@ $bg-purple: #E1E9F6;
 .wsmenu > .wsmenu-list > li > ul.sub-menu > li > a:before, .wsmenu > .wsmenu-list > li > .wsmegamenu .link-list li a:before, .wsmenu > .wsmenu-list > li > .wsmegamenu.halfmenu .link-list > li > a:before{
   color: $pink;
 }
+.fancy-spinner{
+  .ring:nth-child(1){
+    border-left-color: $pink!important;
+    border-right-color: $pink!important;
+  }
+  .ring:nth-child(2){
+    border-top-color: $pink!important;
+    border-bottom-color: $pink!important;
+  }
+  .dot{
+    background: $pink!important;
+  }
+}
 .tra-header {
   font-family: 'Charmonman', cursive !important;
   color: $yellow;

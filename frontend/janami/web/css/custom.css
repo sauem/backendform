@@ -3,6 +3,15 @@
 .wsmenu > .wsmenu-list > li > ul.sub-menu > li > a:before, .wsmenu > .wsmenu-list > li > .wsmegamenu .link-list li a:before, .wsmenu > .wsmenu-list > li > .wsmegamenu.halfmenu .link-list > li > a:before {
   color: #F16687; }
 
+.fancy-spinner .ring:nth-child(1) {
+  border-left-color: #F16687 !important;
+  border-right-color: #F16687 !important; }
+.fancy-spinner .ring:nth-child(2) {
+  border-top-color: #F16687 !important;
+  border-bottom-color: #F16687 !important; }
+.fancy-spinner .dot {
+  background: #F16687 !important; }
+
 .tra-header {
   font-family: 'Charmonman', cursive !important;
   color: #EEA731; }
