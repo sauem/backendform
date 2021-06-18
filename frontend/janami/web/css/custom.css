@@ -34,11 +34,14 @@
 
 .tra-header {
   font-family: 'Charmonman', cursive !important;
-  color: #EEA731; }
+  color: #367765; }
 
-.txt-color-01, .txt-color-05 {
+.txt-color-01 {
+  color: #F16687; }
+
+.txt-color-05 {
   color: #883F71; }
-  .txt-color-01 span, .txt-color-01 a, .txt-color-05 span, .txt-color-05 a {
+  .txt-color-05 span, .txt-color-05 a {
     color: #883F71; }
 
 .txt-color-06, .txt-color-03 {
