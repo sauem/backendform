@@ -719,118 +719,45 @@ Yii::$app->params['footer_type'] = 'light';
 
             <!-- BLOG POSTS HOLDER -->
             <div class="row">
+                @if(!empty($posts))
+                    @foreach($posts as $post)
+                        <div class="col-md-6 col-lg-4">
+                            <div class="blog-post">
 
+                                <!-- BLOG POST IMAGE -->
+                                <div class="blog-post-img">
+                                    <img class="img-fluid" src="{{$post->avatar}}" alt="{{$post->name}}"/>
+                                </div>
 
-                <!-- BLOG POST #1 -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="blog-post">
+                                <!-- BLOG POST TITLE -->
+                                <div class="blog-post-txt">
 
-                        <!-- BLOG POST IMAGE -->
-                        <div class="blog-post-img">
-                            <img class="img-fluid" src="/images/blog/img-01.jpg" alt="blog-post-image"/>
+                                    <!-- Post Data -->
+                                    <span class="txt-color-06">{{$post->archive->name}}</span>
+
+                                    <!-- Post Title -->
+                                    <h5 class="h5-sm text-3 txt-color-01">
+                                        <a href="<?= HelperFunction::Link(ARTICLE, $post->slug, $post->archive->slug)?>">
+                                            {{$post->name}}
+                                        </a>
+                                    </h5>
+
+                                    <!-- Post Text -->
+                                    <p class="txt-color-05">
+                                        {{$post->excerpt}}
+                                    </p>
+
+                                    <!-- Post Author -->
+                                    <p class="post-author txt-color-05">{{date('d/m/Y', $post->created_at)}}</p>
+
+                                </div>
+
+                            </div>
                         </div>
-
-                        <!-- BLOG POST TITLE -->
-                        <div class="blog-post-txt">
-
-                            <!-- Post Data -->
-                            <span class="txt-color-06">Skincare</span>
-
-                            <!-- Post Title -->
-                            <h5 class="h5-sm txt-color-01">
-                                <a href="single-post.html">Quaerat neque purus ipsum neque dolor primis libero</a>
-                            </h5>
-
-                            <!-- Post Text -->
-                            <p class="txt-color-05">Quaerat neque purus ipsum neque dolor primis libero tempus impedit
-                                tempor at
-                                blandit sapien gravida donec ipsum undo porta justo...
-                            </p>
-
-                            <!-- Post Author -->
-                            <p class="post-author txt-color-05">Jane Smith - Sep 07, 2020</p>
-
-                        </div>
-
-                    </div>
-                </div>    <!-- END  BLOG POST #1 -->
-
-
-                <!-- BLOG POST #2 -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="blog-post">
-
-                        <!-- BLOG POST IMAGE -->
-                        <div class="blog-post-img">
-                            <img class="img-fluid" src="/images/blog/img-02.jpg" alt="blog-post-image"/>
-                        </div>
-
-                        <!-- BLOG POST TEXT -->
-                        <div class="blog-post-txt">
-
-                            <!-- Post Data -->
-                            <span class="txt-color-06">Massage Therapy</span>
-
-                            <!-- Post Title -->
-                            <h5 class="h5-sm txt-color-01">
-                                <a href="single-post.html">Tempor blandit sapien at gravida donec ipsum</a>
-                            </h5>
-
-                            <!-- Post Text -->
-                            <p class="txt-color-05">Quaerat neque purus ipsum neque dolor primis libero tempus impedit
-                                tempor at
-                                blandit sapien gravida donec ipsum undo porta justo...
-                            </p>
-
-                            <!-- Post Author -->
-                            <p class="post-author txt-color-05">Wendy T. - Aug 31, 2020</p>
-
-                        </div>
-
-                    </div>
-                </div>    <!-- END  BLOG POST #2 -->
-
-
-                <!-- BLOG POST #3 -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="blog-post">
-
-                        <!-- BLOG POST IMAGE -->
-                        <div class="blog-post-img">
-                            <img class="img-fluid" src="/images/blog/img-03.jpg" alt="blog-post-image"/>
-                        </div>
-
-                        <!-- BLOG POST TEXT -->
-                        <div class="blog-post-txt">
-
-                            <!-- Post Data -->
-                            <span class="txt-color-06">Aromatherapy</span>
-
-                            <!-- Post Title -->
-                            <h5 class="h5-sm txt-color-01"><a href="single-post.html">Neque dolor primis a libero tempus
-                                    an
-                                    impedit
-                                    tempor</a>
-                            </h5>
-
-                            <!-- Post Text -->
-                            <p class="txt-color-05">Quaerat neque purus ipsum neque dolor primis libero tempus impedit
-                                tempor at
-                                blandit sapien gravida donec ipsum undo porta justo...
-                            </p>
-
-                            <!-- Post Author -->
-                            <p class="post-author txt-color-05">Stacey Richardson - Aug 19, 2020</p>
-
-                        </div>
-
-                    </div>
-                </div>    <!-- END  BLOG POST #3 -->
-
+                @endforeach
+            @endif
 
             </div>    <!-- END BLOG POSTS HOLDER -->
-
-
         </div>       <!-- End container -->
     </section>
 

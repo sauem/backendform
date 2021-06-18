@@ -65,7 +65,7 @@ class SiteController extends BaseController
         return $this->render('index.blade', [
             'sliders' => $sliders,
             'categories' => $categories,
-            'articles' => $articles,
+            'posts' => $articles,
             'products' => $products,
             'logos' => $logos,
             'contactForm' => $contactForm
