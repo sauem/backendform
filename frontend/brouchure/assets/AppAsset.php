@@ -23,6 +23,7 @@ class AppAsset extends AssetBundle
         '/css/main.css',
         '/css/megamenu.css',
         '/css/responsive.css',
+        '/css/custom.css',
     ];
     public $js = [
         '//cdn.jsdelivr.net/npm/sweetalert2@10',

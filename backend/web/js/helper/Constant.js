@@ -339,8 +339,8 @@ const customPages = (categories = []) => {
         case 'usvnglobalsupplycom':
         case 'usvnlocal':
             return usvnStaticPage(categories);
-        case 'brouchurelocal':
-        case 'thangcodeinfo':
+        case 'mkvietnamlocal':
+        case 'mkconsultancyvn':
             return brouchure(categories);
         case 'lucycosmeticcom':
         case 'janamilocal':

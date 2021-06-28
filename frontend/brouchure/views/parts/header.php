@@ -105,7 +105,8 @@ if ($menu) {
                                         } ?>
                                         <li class="mega-menu-item">
                                             <a href="#" class="mega-menu-link">
-                                                <img width="24" src="/images/<?= HelperFunction::getLanguage() == 'en' ? 'en' : 'vi'?>.svg"/> EN
+                                                <img width="24" src="/images/<?= HelperFunction::getLanguage() == 'en' ? 'en' : 'vi'?>.svg"/>
+                                                <?= HelperFunction::getLanguage() === 'en' ? 'EN' : 'VI'?>
                                             </a>
                                             <ul class="mega-submenu">
                                                 <li>

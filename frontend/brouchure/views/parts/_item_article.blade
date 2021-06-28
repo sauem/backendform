@@ -1,0 +1,21 @@
+<?php
+
+use common\helper\HelperFunction;
+
+?>
+<div class="featured-imagebox featured-imagebox-post style1">
+    <div class="featured-thumbnail">
+        <img class="img-fluid" src="{{$model->avatar}}" alt="">
+    </div>
+    <div class="featured-content">
+        <div class="post-header">
+            <!-- ttm-box-post-date -->
+            <span>20/10/2012</span>
+        </div>
+        <div class="post-title featured-title">
+            <h3><a href="<?= HelperFunction::Link(BLOG, $model->slug,$archive->slug)?>">{{$model->name}}</a></h3>
+        </div>
+        <a class="ttm-btn ttm-btn-size-md ttm-btn-color-darkgrey btn-inline"
+           href="<?= HelperFunction::Link(BLOG, $model->slug,$archive->slug)?>"><?= Yii::t('app', 'read_more')?></a>
+    </div>
+</div>

@@ -1,16 +1,16 @@
 <?php
 
-/* @var $this \yii\web\View */
+/* @var $view \yii\web\View */
 
 /* @var $content string */
 
 use yii\helpers\Html;
 use frontend\brouchure\assets\AppAsset;
 
-AppAsset::register($this);
+AppAsset::register($view);
 ?>
-<?php $this->beginPage() ?>
-<!DOCTYPE html>
+<?php $view->beginPage() ?>
+        <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>">
 <head>
     <meta charset="<?= Yii::$app->charset ?>">
@@ -18,7 +18,7 @@ AppAsset::register($this);
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta property="og:locale" content="en_US"/>
     <meta property="og:type" content="website"/>
-    <meta property="og:title" content="<?= $this->title ?>"/>
+    <meta property="og:title" content="<?= $view->title ?>"/>
     <meta property="og:url" content="<?= \Yii::$app->homeUrl; ?>"/>
     <meta property="og:site_name" content="SITE_NAME"/>
     <!-- For the og:image content, replace the # with a link of an image -->
@@ -28,30 +28,34 @@ AppAsset::register($this);
         {
             "@context": "http://schema.org",
             "@type": "WebSite",
-            "name": "<?= $this->title ?>",
+            "name": "<?= $view->title ?>",
             "url": "<?= \Yii::$app->homeUrl; ?>"
         }
 
+
     </script>
-    <?php $this->registerCsrfMetaTags() ?>
-    <title><?= Html::encode($this->title) ?></title>
-    <?php $this->head() ?>
+    <?php $view->registerCsrfMetaTags() ?>
+    <title><?= Html::encode($view->title) ?></title>
+    <?php $view->head() ?>
+    @yield("js_head")
 </head>
 <body>
-<?php $this->beginBody() ?>
+<?php $view->beginBody() ?>
 
 <div class="page">
     <div id="preloader" class="blobs-wrapper">
         <div class="ttm-bgcolor-skincolor loader-blob"></div>
     </div>
-    <?= $this->render('../parts/header') ?>
+    <?= $view->render('../parts/header') ?>
     <div class="site-main">
-        <?= $content ?>
+        <?= isset($content) ? $content : "" ?>
+        @yield("content")
     </div>
-    <?= $this->render('../parts/footer') ?>
+    <?= $view->render('../parts/footer') ?>
 
 </div>
-<?php $this->endBody() ?>
+@yield("js_foot")
+<?php $view->endBody() ?>
 </body>
 </html>
-<?php $this->endPage() ?>
+<?php $view->endPage() ?>

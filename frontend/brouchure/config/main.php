@@ -13,7 +13,17 @@ return [
     'controllerNamespace' => 'frontend\brouchure\controllers',
     'language' => 'vi-VN',
     'timeZone' => 'Asia/Ho_Chi_Minh',
+    'layout' => 'main.blade',
     'components' => [
+        'view' => [
+            'class' => 'yii\web\View',
+            'renderers' => [
+                'blade' => [
+                    'class' => '\cyneek\yii2\blade\ViewRenderer',
+                    'cachePath' => '@runtime/blade_cache',
+                ],
+            ],
+        ],
         'request' => [
             'enableCookieValidation' => true,
             'enableCsrfValidation' => false,

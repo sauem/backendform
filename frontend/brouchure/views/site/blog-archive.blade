@@ -1,0 +1,38 @@
+<?php
+use yii\widgets\ListView;
+?>
+@section("content")
+    <?= $view->render('../parts/page-title.blade', [
+        'title' => $view->title
+    ])?>
+    <section class="ttm-row grid-section ttm-bgcolor-grey clearfix">
+        <div class="container">
+
+            <?= ListView::widget([
+                'dataProvider' => $dataProvider,
+                'itemView' => '../parts/' . ($model->type === 'product' ? '_item_product' : '_item_article.blade'),
+                'emptyText' => 'No results.',
+                'viewParams' => [
+                    'archive' => $model
+                ],
+                'options' => ['class' => 'row '],
+                'itemOptions' => [
+                    'tag' => 'article',
+                    'class' => 'col-12 col-md-4 mix',
+                ],
+                'summary' => false,
+                'pager' => [
+                    'firstPageLabel' => false,
+                    'lastPageLabel' => false,
+                    'prevPageLabel' => '<i class="icon-arrow-left"></i>',
+                    'nextPageLabel' => '<i class="icon-arrow-right"></i>',
+                    'maxButtonCount' => 3,
+                    'disabledPageCssClass' => 'd-none',
+                    'activePageCssClass' => 'current'
+                ],
+            ])
+            ?>
+
+        </div>
+    </section>
+@stop
