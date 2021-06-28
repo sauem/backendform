@@ -31,7 +31,7 @@ $this->params['header_type'] = 'light';
                 <div class="post-item mb-0">
                     <div class="post__img">
                         <a href="#">
-                            <img src="/usvn/images/blog/single/1.jpg" alt="blog image">
+                            <img src="<?= $model->avatar?>" alt="blog image">
                         </a>
                     </div><!-- /.post-img -->
                     <div class="post__content">
