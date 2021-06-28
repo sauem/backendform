@@ -56,7 +56,7 @@ $this->params['header_type'] = 'light';
                 <div class="widget-nav d-flex justify-content-between mb-40">
                     <?php if ($prevProduct) {
                         ?>
-                        <a href="<?= HelperFunction::Link(PRODUCT, $prevProduct->slug) ?>"
+                        <a href="<?= HelperFunction::Link(PRODUCT, $prevProduct->slug,$prevProduct->defaultArchive->slug) ?>"
                            class="widget-nav__prev d-flex flex-wrap">
                             <div class="widget-nav__img">
                                 <div class="widget-nav__overlay"></div>
@@ -73,7 +73,7 @@ $this->params['header_type'] = 'light';
                     } ?>
                     <?php if ($nextProduct) {
                         ?>
-                        <a href="<?= HelperFunction::Link(PRODUCT, $nextProduct->slug) ?>"
+                        <a href="<?= HelperFunction::Link(PRODUCT, $nextProduct->slug,$nextProduct->defaultArchive->slug ) ?>"
                            class="widget-nav__next d-flex flex-wrap">
                             <div class="widget-nav__img">
                                 <div class="widget-nav__overlay"></div>

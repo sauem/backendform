@@ -16,7 +16,7 @@ class AppAsset extends AssetBundle
         '/usvn/css/all.css',
         '/usvn/css/libraries.css',
         '/usvn/css/style.css',
-        '/usvn/css/custom.css',
+        '/usvn/css/custom.css?v=1.2',
     ];
     public $js = [
         '//cdn.jsdelivr.net/npm/sweetalert2@10',

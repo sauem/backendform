@@ -74,4 +74,12 @@
 
 .service-item .service__content {
   padding: 15px;
+  .service__icon{
+    img{
+      max-height: 115px;
+      display: flex;
+      object-fit: cover;
+      overflow: hidden;
+    }
+  }
 }
