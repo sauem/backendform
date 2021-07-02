@@ -40,12 +40,12 @@ Yii::$app->params['footer_type'] = 'light';
                                 </div><!-- /.portfolio-img -->
                                 <div class="portfolio__content">
                                     <h4 class="portfolio__title text-2">
-                                        <a href="">
+                                        <a href="<?= HelperFunction::Link(BLOG, $article->slug, $article->archive->slug) ?>">
                                             <?= \yii\helpers\StringHelper::truncateWords($article->name, 20, '...') ?>
                                         </a>
                                     </h4>
                                     <p class="portfolio__desc text-4"><?= $article->excerpt ?></p>
-                                    <a href=""
+                                    <a href="<?= HelperFunction::Link(BLOG, $article->slug, $article->archive->slug) ?>"
                                        class="btn btn__secondary btn__link">
                                         <span><?= Yii::t('app', 'read_more') ?></span>
                                         <i class="icon-arrow-right"></i>
@@ -84,44 +84,49 @@ Yii::$app->params['footer_type'] = 'light';
                     </a>
                 </div>
             </div><!-- /.col-lg-6 -->
-            <?php if(HelperFunction::getLanguage() == 'vi'){ ?>
-            <div class="col-sm-12 col-md-12 col-lg-6">
-                <p>
-                    Trong bối cảnh nền kinh tế phát triển và nhu cầu hàng hóa gia tăng, USVN cung cấp giải pháp vận
-                    chuyển và phân phối hàng hóa tối ưu cho mọi khách hàng và đối tác.
-                    USVN luôn coi nguồn nhân lực là yếu tố cốt lõi và tài sản quý giá. Chúng tôi xây dựng đội ngũ nhân
-                    sự với nhân viên và chuyên gia chăm chỉ, chuyên nghiệp, có trình độ cao và nhiều kinh nghiệm.
-                    Với mong muốn đem đến cho khách hàng trải nghiệm dịch vụ tuyệt vời, USVN không ngừng cố gắng, đổi
-                    mới và sáng tạo để đáp ứng mọi sự mong đợi của đối tác và khách hàng.
-                    Tầm nhìn
-                    <br/>
-                    Trở thành công ty logistics chất lượng dành cho Việt Nam và đối tác tin cậy cho mọi khách hàng
-                    Nhiệm vụ
-                </p>
-                <div class="row">
-                    <div class="col-sm-12 col-md-12 d-flex flex-column justify-content-between">
-                        <ul class="list-items list-items-layout2 list-horizontal list-unstyled d-flex flex-wrap mt-40">
-                            <li>Hỗ trợ và cung cấp dịch vụ logistics nhanh, an toàn và hiệu quả</li>
-                            <li>Giúp cho mọi đối tác hoạt động hiệu quả và thành công hơn</li>
-                            <li>Mang đến sự tiện lợi cho mọi đối tác và khách hàng</li>
-                            <li>Cống hiến cho xã hội ngày một tốt hơn</li>
-                        </ul>
+            <?php if (HelperFunction::getLanguage() == 'vi') { ?>
+                <div class="col-sm-12 col-md-12 col-lg-6">
+                    <p>
+                        Trong bối cảnh nền kinh tế phát triển và nhu cầu hàng hóa gia tăng, USVN cung cấp giải pháp vận
+                        chuyển và phân phối hàng hóa tối ưu cho mọi khách hàng và đối tác.
+                        USVN luôn coi nguồn nhân lực là yếu tố cốt lõi và tài sản quý giá. Chúng tôi xây dựng đội ngũ
+                        nhân
+                        sự với nhân viên và chuyên gia chăm chỉ, chuyên nghiệp, có trình độ cao và nhiều kinh nghiệm.
+                        Với mong muốn đem đến cho khách hàng trải nghiệm dịch vụ tuyệt vời, USVN không ngừng cố gắng,
+                        đổi
+                        mới và sáng tạo để đáp ứng mọi sự mong đợi của đối tác và khách hàng.
+                        Tầm nhìn
+                        <br/>
+                        Trở thành công ty logistics chất lượng dành cho Việt Nam và đối tác tin cậy cho mọi khách hàng
+                        Nhiệm vụ
+                    </p>
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12 d-flex flex-column justify-content-between">
+                            <ul class="list-items list-items-layout2 list-horizontal list-unstyled d-flex flex-wrap mt-40">
+                                <li>Hỗ trợ và cung cấp dịch vụ logistics nhanh, an toàn và hiệu quả</li>
+                                <li>Giúp cho mọi đối tác hoạt động hiệu quả và thành công hơn</li>
+                                <li>Mang đến sự tiện lợi cho mọi đối tác và khách hàng</li>
+                                <li>Cống hiến cho xã hội ngày một tốt hơn</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <?php }else{?>
-            <div class="col-sm-12 col-md-12 col-lg-6">
-                <p>
-                    In the context of the developing economy and increasing commodity needs, USVN provides an optimal solution for goods delivery and distribution for all customers and partners
-                    USVN considers that our human resources are the essence and valueble asset. We have built a team of staff and specialists who are hard-working, professional, high-level and experienced.
-                    With the aim of creating amazing customer service experience, USVN always tries its best to innovate and create to meet the expectation of all partners and customers
-                    Vision<br/>
-                    To become a quality logistics company for Vietnam and a reliable partner for all customers
-                    Support and provide a fast, safe, and effective logistics service
-                    Focus on the convenience for all partners and customers
-                    Contribute for the better society
-                </p>
-            </div>
+            <?php } else { ?>
+                <div class="col-sm-12 col-md-12 col-lg-6">
+                    <p>
+                        In the context of the developing economy and increasing commodity needs, USVN provides an
+                        optimal solution for goods delivery and distribution for all customers and partners
+                        USVN considers that our human resources are the essence and valueble asset. We have built a team
+                        of staff and specialists who are hard-working, professional, high-level and experienced.
+                        With the aim of creating amazing customer service experience, USVN always tries its best to
+                        innovate and create to meet the expectation of all partners and customers
+                        Vision<br/>
+                        To become a quality logistics company for Vietnam and a reliable partner for all customers
+                        Support and provide a fast, safe, and effective logistics service
+                        Focus on the convenience for all partners and customers
+                        Contribute for the better society
+                    </p>
+                </div>
             <?php } ?>
         </div><!-- /.row -->
     </div><!-- /.container -->
