@@ -14,7 +14,7 @@ $this->params['header_type'] = 'light';
                 <nav>
                     <ol class="breadcrumb justify-content-center mb-0">
                         <li class="breadcrumb-item"><a href="/"><?= Yii::t('app','home') ?></a></li>
-                        <li class="breadcrumb-item"><a href="<?= PRODUCT_AND_BRIEF ?>"><?= Yii::t('app','archive')?></a></li>
+                        <li class="breadcrumb-item"><a href="<?= PRODUCT_AND_BRIEF ?>"><?= Yii::t('app','news')?></a></li>
                         <li class="breadcrumb-item active" aria-current="page">
                             <?= $model->name ?>
                         </li>
