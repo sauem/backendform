@@ -13,8 +13,9 @@ $this->params['header_type'] = 'light';
             <div class="col-12">
                 <nav>
                     <ol class="breadcrumb justify-content-center mb-0">
-                        <li class="breadcrumb-item"><a href="/">Home</a></li>
-                        <li class="breadcrumb-item"><a href="<?= PRODUCT_AND_BRIEF ?>">product</a></li>
+                        <li class="breadcrumb-item"><a href="/"><?= Yii::t('app', 'home') ?></a></li>
+                        <li class="breadcrumb-item"><a
+                                    href="<?= PRODUCT_AND_BRIEF ?>"><?= Yii::t('app', 'product') ?></a></li>
                         <li class="breadcrumb-item active" aria-current="page">
                             <?= $model->name ?>
                         </li>
@@ -31,7 +32,7 @@ $this->params['header_type'] = 'light';
                 <div class="post-item mb-0">
                     <div class="post__img">
                         <a href="#">
-                            <img src="<?= $model->avatar?>" alt="blog image">
+                            <img src="<?= $model->avatar ?>" alt="blog image">
                         </a>
                     </div><!-- /.post-img -->
                     <div class="post__content">
@@ -56,14 +57,14 @@ $this->params['header_type'] = 'light';
                 <div class="widget-nav d-flex justify-content-between mb-40">
                     <?php if ($prevProduct) {
                         ?>
-                        <a href="<?= HelperFunction::Link(PRODUCT, $prevProduct->slug,$prevProduct->defaultArchive->slug) ?>"
+                        <a href="<?= HelperFunction::Link(PRODUCT, $prevProduct->slug, $prevProduct->defaultArchive->slug) ?>"
                            class="widget-nav__prev d-flex flex-wrap">
                             <div class="widget-nav__img">
                                 <div class="widget-nav__overlay"></div>
                                 <img src="<?= $prevProduct->avatar ?>" alt="<?= $prevProduct->name ?>">
                             </div>
                             <div class="widget-nav__content">
-                                <span><?= Yii::t('app', 'prev',['type'  => 'Sản phẩm']) ?></span>
+                                <span><?= Yii::t('app', 'prev', ['type' => 'Sản phẩm']) ?></span>
                                 <h5 class="fz-16 mb-0 text-2">
                                     <?= $prevProduct->name ?>
                                 </h5>
@@ -73,7 +74,7 @@ $this->params['header_type'] = 'light';
                     } ?>
                     <?php if ($nextProduct) {
                         ?>
-                        <a href="<?= HelperFunction::Link(PRODUCT, $nextProduct->slug,$nextProduct->defaultArchive->slug ) ?>"
+                        <a href="<?= HelperFunction::Link(PRODUCT, $nextProduct->slug, $nextProduct->defaultArchive->slug) ?>"
                            class="widget-nav__next d-flex flex-wrap">
                             <div class="widget-nav__img">
                                 <div class="widget-nav__overlay"></div>

@@ -14,6 +14,7 @@ Yii::$app->params['footer_type'] = 'light';
 <?= $this->render('../parts/slider', [
     'sliders' => $sliders
 ]) ?>
+
 <?php if (!empty($articles)) { ?>
     <section class="portfolio-grid portfolio-grid-carousel pb-40">
         <div class="container">
@@ -39,12 +40,12 @@ Yii::$app->params['footer_type'] = 'light';
                                 </div><!-- /.portfolio-img -->
                                 <div class="portfolio__content">
                                     <h4 class="portfolio__title text-2">
-                                        <a href="<?= HelperFunction::Link(BLOG, $article->slug, $article->archive->slug) ?>">
+                                        <a href="">
                                             <?= \yii\helpers\StringHelper::truncateWords($article->name, 20, '...') ?>
                                         </a>
                                     </h4>
                                     <p class="portfolio__desc text-4"><?= $article->excerpt ?></p>
-                                    <a href="<?= HelperFunction::Link(BLOG, $article->slug, $article->archive->slug) ?>"
+                                    <a href=""
                                        class="btn btn__secondary btn__link">
                                         <span><?= Yii::t('app', 'read_more') ?></span>
                                         <i class="icon-arrow-right"></i>
@@ -58,6 +59,7 @@ Yii::$app->params['footer_type'] = 'light';
         </div><!-- /.container -->
     </section>
 <?php } ?>
+
 <section class="about-layout4 pt-50 pb-0">
     <div class="container">
         <div class="row heading">
@@ -70,11 +72,11 @@ Yii::$app->params['footer_type'] = 'light';
             <div class="col-sm-12 col-md-12 col-lg-6">
                 <h3 class="heading__title mb-40"><?= Yii::t('app', 'company_name') ?></h3>
                 <div class="about__img">
-                    <img src="/usvn/images/about/2.jpg" alt="about">
+                    <img src="/usvn/images/export.jpg" alt="about">
                 </div><!-- /.about-img -->
                 <div class="video__btn-wrapper">
                     <a class="video__btn video__btn-white popup-video"
-                       href="https://www.youtube.com/watch?v=nrJtHemSPW4">
+                       href="/usvn/images/logo-clip.mp4">
                         <div class="video__player">
                             <i class="fa fa-play"></i>
                         </div>
@@ -82,28 +84,45 @@ Yii::$app->params['footer_type'] = 'light';
                     </a>
                 </div>
             </div><!-- /.col-lg-6 -->
+            <?php if(HelperFunction::getLanguage() == 'vi'){ ?>
             <div class="col-sm-12 col-md-12 col-lg-6">
-                <p>Với hơn 10 năm kinh nghiệp xuất nhập khẩu, chúng tôi luôn hướng tới </p>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
-                    the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
-                    of type and scrambled it to make a type specimen book. It has survived not only five centuries,
-                    but also the leap into electronic typesetting, remaining essentially unchanged. It was
-                    popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
-                    and more recently with desktop publishing software like Aldus PageMaker including versions of
-                    Lorem Ipsum.</p>
+                <p>
+                    Trong bối cảnh nền kinh tế phát triển và nhu cầu hàng hóa gia tăng, USVN cung cấp giải pháp vận
+                    chuyển và phân phối hàng hóa tối ưu cho mọi khách hàng và đối tác.
+                    USVN luôn coi nguồn nhân lực là yếu tố cốt lõi và tài sản quý giá. Chúng tôi xây dựng đội ngũ nhân
+                    sự với nhân viên và chuyên gia chăm chỉ, chuyên nghiệp, có trình độ cao và nhiều kinh nghiệm.
+                    Với mong muốn đem đến cho khách hàng trải nghiệm dịch vụ tuyệt vời, USVN không ngừng cố gắng, đổi
+                    mới và sáng tạo để đáp ứng mọi sự mong đợi của đối tác và khách hàng.
+                    Tầm nhìn
+                    <br/>
+                    Trở thành công ty logistics chất lượng dành cho Việt Nam và đối tác tin cậy cho mọi khách hàng
+                    Nhiệm vụ
+                </p>
                 <div class="row">
                     <div class="col-sm-12 col-md-12 d-flex flex-column justify-content-between">
                         <ul class="list-items list-items-layout2 list-horizontal list-unstyled d-flex flex-wrap mt-40">
-                            <li>Eliminate Repeat Entry</li>
-                            <li>Simpliy Communication</li>
-                            <li>Drive Business Process</li>
-                            <li>Speed Up Transactions</li>
-                            <li>Structure Data &amp; Docs</li>
-                            <li>Automate Workflows</li>
+                            <li>Hỗ trợ và cung cấp dịch vụ logistics nhanh, an toàn và hiệu quả</li>
+                            <li>Giúp cho mọi đối tác hoạt động hiệu quả và thành công hơn</li>
+                            <li>Mang đến sự tiện lợi cho mọi đối tác và khách hàng</li>
+                            <li>Cống hiến cho xã hội ngày một tốt hơn</li>
                         </ul>
                     </div>
                 </div>
             </div>
+            <?php }else{?>
+            <div class="col-sm-12 col-md-12 col-lg-6">
+                <p>
+                    In the context of the developing economy and increasing commodity needs, USVN provides an optimal solution for goods delivery and distribution for all customers and partners
+                    USVN considers that our human resources are the essence and valueble asset. We have built a team of staff and specialists who are hard-working, professional, high-level and experienced.
+                    With the aim of creating amazing customer service experience, USVN always tries its best to innovate and create to meet the expectation of all partners and customers
+                    Vision<br/>
+                    To become a quality logistics company for Vietnam and a reliable partner for all customers
+                    Support and provide a fast, safe, and effective logistics service
+                    Focus on the convenience for all partners and customers
+                    Contribute for the better society
+                </p>
+            </div>
+            <?php } ?>
         </div><!-- /.row -->
     </div><!-- /.container -->
 </section>

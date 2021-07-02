@@ -43,7 +43,7 @@
                     const {data} = await Products.view(id);
 
                     const {meta, media_id, archives} = data;
-
+                    
                     let cats = archives.map(item => {
                         return item.archive_id;
                     });

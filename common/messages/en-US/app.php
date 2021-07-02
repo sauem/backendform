@@ -53,7 +53,7 @@ return [
     'advisory_board' => 'Advisory Board',
     'search_for' => 'search for: ',
     'advisory' => 'Support advisory',
-    'hotline' => 'Hotline',
+    'archive' => 'Archive',
     'service_and_commit' => 'Our Services & Commitments',
     'how_can_help' => 'How We Can Help',
     'why_chose_us' => 'Why chose use?',
