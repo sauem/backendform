@@ -8,9 +8,8 @@ use yii\widgets\ActiveForm;
 ]) ?>
 <div class="row">
     <div class="col-12">
-        <h4 class="contact-panel__title mb-20">Yêu cầu sản phẩm</h4>
-        <p class="contact-panel__desc mb-30">Thông tin yêu cầu sản phẩm của bạn sẽ được đội ngũ
-            tư vấn lưu lại hồ sơ chăm sóc khách hàg và bảo mật hoàn toàn</p>
+        <h4 class="contact-panel__title mb-20"><?= Yii::t('app','product_and_brief')?></h4>
+        <p class="contact-panel__desc mb-30"></p>
     </div> <!-- /.col-12 -->
     <div class="col-sm-6 col-md-6 col-lg-6">
         <?= $form->field($model, 'name')->textInput([
