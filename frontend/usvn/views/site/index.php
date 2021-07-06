@@ -95,10 +95,9 @@ Yii::$app->params['footer_type'] = 'light';
                         Với mong muốn đem đến cho khách hàng trải nghiệm dịch vụ tuyệt vời, USVN không ngừng cố gắng,
                         đổi
                         mới và sáng tạo để đáp ứng mọi sự mong đợi của đối tác và khách hàng.
-                        Tầm nhìn
                         <br/>
+                        <b>Tầm nhìn</b>
                         Trở thành công ty logistics chất lượng dành cho Việt Nam và đối tác tin cậy cho mọi khách hàng
-                        Nhiệm vụ
                     </p>
                     <div class="row">
                         <div class="col-sm-12 col-md-12 d-flex flex-column justify-content-between">
