@@ -15,10 +15,13 @@ $this->params['breadcrumbs'][] = $this->title;
 $this->params['header_type'] = 'light';
 ?>
 <section class="google-map py-0">
-    <div id="map" class="height-500"></div>
-    <script src="/usvn/js/google-map.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCqrqPZOVegy1VIdyIcndxZY9YGoK-x0Yo&amp;callback=initMap"
-            async defer></script>
+<!--    <div id="map" class="height-500"></div>-->
+<!--    <script src="/usvn/js/google-map.js"></script>-->
+<!--    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCqrqPZOVegy1VIdyIcndxZY9YGoK-x0Yo&amp;callback=initMap"-->
+<!--            async defer></script>-->
+
+    <iframe src="<?= HelperFunction::setting('map_iframe') ?>" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+
 </section><!-- /.GoogleMap -->
 
 <!-- ==========================
