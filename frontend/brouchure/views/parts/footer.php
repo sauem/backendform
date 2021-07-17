@@ -98,7 +98,7 @@ if ($menu) {
                             <div class="cpy-text">Copyright © 2021 <a href="#">Axacus</a>. All rights reserved.</div>
                         </div>
                         <div class="order-2 footer-logo">
-                            <img class="img-fluid" src="/images/mk.png" alt="logo">
+                            <img width="100px" class="img-fluid" src="/images/mk.png" alt="logo">
                         </div>
                         <div class="order-3">
                             <div class="social-icons">
