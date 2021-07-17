@@ -15,7 +15,7 @@ class AppAsset extends AssetBundle
         'https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700;800;900&amp;family=Roboto:wght@400;700&amp;display=swap',
         '/usvn/css/all.css',
         '/usvn/css/libraries.css',
-        '/usvn/css/style.css',
+        '/usvn/css/style.css?v=1.1',
         '/usvn/css/custom.css?v=1.2',
     ];
     public $js = [

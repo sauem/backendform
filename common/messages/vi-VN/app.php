@@ -7,7 +7,7 @@ return [
     'products' => 'Sản phẩm',
     'product' => 'Sản phẩm',
     'video_intro' => 'Video giới thiệu',
-    'company_name' => 'CTYTNHH Xuất nhập khẩu USVN',
+    'company_name' => 'CTYTNHH USVN export logistics',
     'products_new' => 'Mặt hàng mới',
     'product_items' => 'Các mặt hàng xuất khẩu',
     'detail' => 'Chi tiết',

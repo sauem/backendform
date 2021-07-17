@@ -87,43 +87,76 @@ Yii::$app->params['footer_type'] = 'light';
             <?php if (HelperFunction::getLanguage() == 'vi') { ?>
                 <div class="col-sm-12 col-md-12 col-lg-6">
                     <p>
-                        Trong bối cảnh nền kinh tế phát triển và nhu cầu hàng hóa gia tăng, USVN cung cấp giải pháp vận
-                        chuyển và phân phối hàng hóa tối ưu cho mọi khách hàng và đối tác.
-                        USVN luôn coi nguồn nhân lực là yếu tố cốt lõi và tài sản quý giá. Chúng tôi xây dựng đội ngũ
-                        nhân
-                        sự với nhân viên và chuyên gia chăm chỉ, chuyên nghiệp, có trình độ cao và nhiều kinh nghiệm.
-                        Với mong muốn đem đến cho khách hàng trải nghiệm dịch vụ tuyệt vời, USVN không ngừng cố gắng,
-                        đổi
-                        mới và sáng tạo để đáp ứng mọi sự mong đợi của đối tác và khách hàng.
-                        <br/>
-                        <b>Tầm nhìn</b>
-                        Trở thành công ty logistics chất lượng dành cho Việt Nam và đối tác tin cậy cho mọi khách hàng
+                        <b>Lĩnh vực hoạt động</b><br>
+                        Trong bối cảnh nền kinh tế phát triển và nhu cầu hàng hóa gia tăng, Công ty TNHH USVN EXPORT
+                        LOGISTICS được thành lập năm 2020, chuyên quản lý chuỗi cung ứng, thu mua và hỗ trợ các hoạt
+                        động Xuất - Nhập khẩu.
+                        <br>
+                        <b>Sản phẩm/Dịch vụ</b><br>
+                        Công ty TNHH USVN EXPORT LOGISTICS tập trung vào các sản phẩm PPE, khoáng sản, kim loại quý, gỗ
+                        và vật liệu xây dựng cần thiết cho thị trường Châu Á và quốc tế, đặc biệt là Hoa Kỳ.
+                        <br>
+                        <b>Phương châm</b><br>
+                        Với phương châm ""Mang nước Mỹ và Việt Nam cùng nhau"", USVN không ngừng cố gắng, đổi mới và
+                        sáng tạo để phát triển mối quan hệ giữa Việt Nam và Hoa Kỳ, đem đến cho khách hàng trải nghiệm
+                        tuyệt vời và đáp ứng mọi sự mong đợi của đối tác, khách hàng.
+                        <br>
+                        <b>Giá trị cốt lõi</b><br>
+                        Mang đến giải pháp quản lý chuỗi cung ứng, sản xuất và cung cấp sản phẩm uy tín, chất lượng.
+                        <br>
+                        <b>Tầm nhìn</b><br>
+                        Tận dụng sự dịch chuyển của chuỗi cung ứng toàn cầu để mang lại lợi thế cho cả Việt Nam và Hoa
+                        Kỳ. <br>
+                        Mở rộng hợp tác kinh tế với các nước trên toàn cầu.
+                        <br>
+                        <b> Sứ mệnh</b><br>
+                        Tận dụng chuỗi cung ứng toàn cầu thay đổi, USVN EXPORT LOGISTICS mang các cơ hội của thế kỷ 21
+                        cho các thị trường mới nổi và các thị trường phát triển. <br>
+                        Tập trung đưa Việt Nam và khu vực Đông Nam Á vươn tầm thể giới, sánh vai với Hoa Kỳ và các nước
+                        phương Tây. <br>
+                        Mang vẻ đẹp Chân thành - Thiện lương - Nhẫn nại của USVN EXPORT LOGISTICS ra thể giới.
+                        <br>
+                        <b> Cam kết</b><br>
+                        Giúp phát triển chuỗi cung ứng sản xuất và các nhà máy sản xuất tại Việt Nam và Đông Nam Á cung
+                        cấp cho thị trường Mỹ và phương Tây. <br>
+                        Vượt chỉ tiêu kim ngạch Xuất - Nhập khẩu của Việt Nam. <br>
+                        Sản phẩm chất lượng. <br>
+                        Dịch vụ nhanh, an toàn và cẩn thận. <br>
+                        Phong cách Chân thật - Thiện lương - Nhẫn nại.
+
                     </p>
-                    <div class="row">
-                        <div class="col-sm-12 col-md-12 d-flex flex-column justify-content-between">
-                            <ul class="list-items list-items-layout2 list-horizontal list-unstyled d-flex flex-wrap mt-40">
-                                <li>Hỗ trợ và cung cấp dịch vụ logistics nhanh, an toàn và hiệu quả</li>
-                                <li>Giúp cho mọi đối tác hoạt động hiệu quả và thành công hơn</li>
-                                <li>Mang đến sự tiện lợi cho mọi đối tác và khách hàng</li>
-                                <li>Cống hiến cho xã hội ngày một tốt hơn</li>
-                            </ul>
-                        </div>
-                    </div>
+
                 </div>
             <?php } else { ?>
                 <div class="col-sm-12 col-md-12 col-lg-6">
                     <p>
-                        In the context of the developing economy and increasing commodity needs, USVN provides an
-                        optimal solution for goods delivery and distribution for all customers and partners
-                        USVN considers that our human resources are the essence and valueble asset. We have built a team
-                        of staff and specialists who are hard-working, professional, high-level and experienced.
-                        With the aim of creating amazing customer service experience, USVN always tries its best to
-                        innovate and create to meet the expectation of all partners and customers
-                        Vision<br/>
-                        To become a quality logistics company for Vietnam and a reliable partner for all customers
-                        Support and provide a fast, safe, and effective logistics service
-                        Focus on the convenience for all partners and customers
-                        Contribute for the better society
+                        <b>Field operations</b><br>
+                        In the context of the developing economy and increasing commodity needs, USVN EXPORT LOGISTICS was established in 2020 and specialized in managing supply chains, purchase, and support Import - Export activities.
+                        <br>
+                        <b>Product/Service</b><br>
+                        USVN EXPORT LOGISTICS focuses on products such as PPE, minerals, valueble metal, wood, and essential building materials for Asia and international market, especially the U.S.
+                        <br>
+                        <b>Motto</b><br>
+                        With the ""Bring America and Vietnam together"" motto, USVN always tries its best to innovate and create to strengthen the relationship between America and Vietnam, create amazing customer experience, and meet the expectation of all partners and customers.
+                        <br>
+                        <b>Core value</b><br>
+                        A solution for managing supply chains, production, and provide reliable and quality products.
+                        <br>
+                        <b>Vision</b><br>
+                        To make use of changes in the global supply chain to bring enormous benefits to Vietnam and the U.S.<br>
+                        To expand economic operations with other countries in the world.
+                        <br>
+                        <b>Mission</b><br>
+                        Make use of changes in the global supply chain, USVN creates opportunities for new emerging markets and developing markets.<br>
+                        Focus on facilitating Vietnam and Southeast Asia to reach out to the world, to be well-matched with the U.S and Western countries.<br>
+                        Share the ""Truthfulness - Benevolence - Forbearance"" beauty of USVN to the world<br>
+
+                        <b>Commitments</b><br>
+                        Help to develop the supply chains and factories in Vietnam and Southeast Asian which provide for American and Western markets.<br>
+                        Overcome the Import - Export turnover target of Vietnam.<br>
+                        Quality products.<br>
+                        Fast, safe, and careful service<br>
+                        Truthfulness - Benevolence - Forbearance<br>
                     </p>
                 </div>
             <?php } ?>
