@@ -6,7 +6,7 @@
 
 use yii\helpers\Html;
 use frontend\brouchure\assets\AppAsset;
-
+use common\helper\HelperFunction;
 AppAsset::register($view);
 ?>
 <?php $view->beginPage() ?>
@@ -20,7 +20,7 @@ AppAsset::register($view);
     <meta property="og:type" content="website"/>
     <meta property="og:title" content="<?= $view->title ?>"/>
     <meta property="og:url" content="<?= \Yii::$app->homeUrl; ?>"/>
-    <meta property="og:site_name" content="SITE_NAME"/>
+    <meta property="og:site_name" content="<?= HelperFunction::setting('site_name')?>"/>
     <!-- For the og:image content, replace the # with a link of an image -->
     <meta property="og:image" content="#"/>
     <meta property="og:description" content=""/>

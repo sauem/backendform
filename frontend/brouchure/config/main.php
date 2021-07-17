@@ -7,7 +7,7 @@ $params = array_merge(
 );
 
 return [
-    'id' => 'frontend-vietau',
+    'id' => 'frontend-mkvietnam',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'controllerNamespace' => 'frontend\brouchure\controllers',
