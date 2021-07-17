@@ -1,5 +1,5 @@
 <section class="page-title page-title-layout10 bg-overlay bg-overlay-gradient bg-parallax">
-    <div class="bg-img"><img src="/usvn/images/page-titles/8.jpg" alt="background"></div>
+    <div class="bg-img"><img src="/usvn/images/banner.jpeg" alt="background"></div>
     <div class="container">
         <div class="row align-items-center">
             <div class="col-sm-12 col-md-12 col-lg-12 col-xl-6">
