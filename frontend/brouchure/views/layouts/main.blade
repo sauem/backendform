@@ -43,9 +43,9 @@ AppAsset::register($view);
 <?php $view->beginBody() ?>
 
 <div class="page">
-    <div id="preloader" class="blobs-wrapper">
-        <div class="ttm-bgcolor-skincolor loader-blob"></div>
-    </div>
+{{--    <div id="preloader" class="blobs-wrapper">--}}
+{{--        <div class="ttm-bgcolor-skincolor loader-blob"></div>--}}
+{{--    </div>--}}
     <?= $view->render('../parts/header') ?>
     <div class="site-main">
         <?= isset($content) ? $content : "" ?>
