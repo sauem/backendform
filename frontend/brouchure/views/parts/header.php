@@ -80,7 +80,7 @@ if ($menu) {
                                 <a class="home-link" href="/" title="<?= HelperFunction::setting('site_name', true) ?>"
                                    rel="home">
                                     <img id="logo-img" height="45" width="175" class="img-fluid auto_size"
-                                         src="<?= HelperFunction::getLogo('header') ?>"
+                                         src="/images/mk.png"
                                          alt="<?= HelperFunction::setting('site_name', true) ?>">
                                 </a>
                             </div><!-- site-branding end -->
