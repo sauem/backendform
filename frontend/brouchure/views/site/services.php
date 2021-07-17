@@ -2,7 +2,7 @@
 Yii::$app->params['header_style'] = true;
 ?>
 <?= $this->render('../parts/page-title', [
-    'title' => $model->title,
+    'title' => 'Dịch vụ',
     'description' => ''
 ]) ?>
 
