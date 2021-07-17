@@ -1079,11 +1079,11 @@ select {
 }
 
 .bg-overlay-primary:before {
-  background-color: rgba(71, 161, 69, 0.9);
+  background-color: rgba(88, 119, 157, 0.9);
 }
 
 .bg-overlay-primary-2:before {
-  background-color: rgba(71, 161, 69, 0.8);
+  background-color: rgba(88, 119, 157, 0.8);
 }
 
 /*-------------------------

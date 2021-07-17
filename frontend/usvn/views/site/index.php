@@ -72,7 +72,7 @@ Yii::$app->params['footer_type'] = 'light';
             <div class="col-sm-12 col-md-12 col-lg-6">
                 <h3 class="heading__title mb-40"><?= Yii::t('app', 'company_name') ?></h3>
                 <div class="about__img">
-                    <img src="/usvn/images/export.jpg" alt="about">
+                    <img src="/usvn/images/videoimg.jpeg" alt="about">
                 </div><!-- /.about-img -->
                 <div class="video__btn-wrapper">
                     <a class="video__btn video__btn-white popup-video"

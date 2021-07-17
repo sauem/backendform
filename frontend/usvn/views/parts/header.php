@@ -16,8 +16,8 @@ if ($menu) {
         <div class="container">
 
             <a class="navbar-brand" href="/">
-                <img width="80" src="<?= HelperFunction::getLogo('header') ?>" class="logo-light" alt="logo">
-                <img width="80" src="<?= HelperFunction::getLogo('header') ?>" class="logo-dark" alt="logo">
+                <img width="100" src="<?= HelperFunction::getLogo('header') ?>" class="logo-light" alt="logo">
+                <img width="100" src="<?= HelperFunction::getLogo('header') ?>" class="logo-dark" alt="logo">
             </a>
             <button class="navbar-toggler" type="button">
                 <span class="menu-lines"><span></span></span>
