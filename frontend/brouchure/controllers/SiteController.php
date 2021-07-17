@@ -147,7 +147,7 @@ class SiteController extends BaseController
     public function actionServices()
     {
         $members = Member::find()->all();
-        return $this->render('services', [
+        return $this->render('services.blade', [
             'services' => $members
         ]);
     }
