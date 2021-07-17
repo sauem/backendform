@@ -1,7 +1,7 @@
 <?php
 Yii::$app->params['header_style'] = true;
 ?>
-<?= $this->render('../parts/page-title', [
+<?= $this->render('../parts/page-title.blade', [
     'title' => 'Dịch vụ',
     'description' => ''
 ]) ?>
