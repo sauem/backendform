@@ -236,7 +236,7 @@ Yii::$app->params['footer_type'] = 'light';
                 <div>
                     <div class="heading heading-light">
                         <h3 class="heading__title mb-30"><?= Yii::t('app', 'usvn_info') ?></h3>
-                        <p class="heading__desc mb-30">
+                        <p class="heading__desc">
                             <strong><?= Yii::t('app', 'address') ?> :
                                 <?= HelperFunction::setting('address_1', true) ?>
                                 <br>
@@ -244,14 +244,14 @@ Yii::$app->params['footer_type'] = 'light';
                             </strong>
                         </p>
 
-                        <p class="heading__desc mb-30">
+                        <p class="heading__desc">
                             <strong><?= Yii::t('app', 'email') ?> :
                                 <a class="text-white"
                                    href="mailto:<?= HelperFunction::setting('email') ?>">
                                     <?= HelperFunction::setting('email') ?></a>
                             </strong>
                         </p>
-                        <p class="heading__desc mb-30">
+                        <p class="heading__desc">
                             <strong><?= Yii::t('app', 'hotline') ?> :
                                 <a class="text-white" href="tel:<?= HelperFunction::setting('hotline_1') ?>">
                                     <?= HelperFunction::setting('hotline_1') ?>
