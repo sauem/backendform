@@ -131,28 +131,37 @@ Yii::$app->params['footer_type'] = 'light';
                 <div class="col-sm-12 col-md-12 col-lg-6">
                     <p>
                         <b>Field operations</b><br>
-                        In the context of the developing economy and increasing commodity needs, USVN EXPORT LOGISTICS was established in 2020 and specialized in managing supply chains, purchase, and support Import - Export activities.
+                        In the context of the developing economy and increasing commodity needs, USVN EXPORT LOGISTICS
+                        was established in 2020 and specialized in managing supply chains, purchase, and support Import
+                        - Export activities.
                         <br>
                         <b>Product/Service</b><br>
-                        USVN EXPORT LOGISTICS focuses on products such as PPE, minerals, valueble metal, wood, and essential building materials for Asia and international market, especially the U.S.
+                        USVN EXPORT LOGISTICS focuses on products such as PPE, minerals, valueble metal, wood, and
+                        essential building materials for Asia and international market, especially the U.S.
                         <br>
                         <b>Motto</b><br>
-                        With the ""Bring America and Vietnam together"" motto, USVN always tries its best to innovate and create to strengthen the relationship between America and Vietnam, create amazing customer experience, and meet the expectation of all partners and customers.
+                        With the ""Bring America and Vietnam together"" motto, USVN always tries its best to innovate
+                        and create to strengthen the relationship between America and Vietnam, create amazing customer
+                        experience, and meet the expectation of all partners and customers.
                         <br>
                         <b>Core value</b><br>
                         A solution for managing supply chains, production, and provide reliable and quality products.
                         <br>
                         <b>Vision</b><br>
-                        To make use of changes in the global supply chain to bring enormous benefits to Vietnam and the U.S.<br>
+                        To make use of changes in the global supply chain to bring enormous benefits to Vietnam and the
+                        U.S.<br>
                         To expand economic operations with other countries in the world.
                         <br>
                         <b>Mission</b><br>
-                        Make use of changes in the global supply chain, USVN creates opportunities for new emerging markets and developing markets.<br>
-                        Focus on facilitating Vietnam and Southeast Asia to reach out to the world, to be well-matched with the U.S and Western countries.<br>
+                        Make use of changes in the global supply chain, USVN creates opportunities for new emerging
+                        markets and developing markets.<br>
+                        Focus on facilitating Vietnam and Southeast Asia to reach out to the world, to be well-matched
+                        with the U.S and Western countries.<br>
                         Share the ""Truthfulness - Benevolence - Forbearance"" beauty of USVN to the world<br>
 
                         <b>Commitments</b><br>
-                        Help to develop the supply chains and factories in Vietnam and Southeast Asian which provide for American and Western markets.<br>
+                        Help to develop the supply chains and factories in Vietnam and Southeast Asian which provide for
+                        American and Western markets.<br>
                         Overcome the Import - Export turnover target of Vietnam.<br>
                         Quality products.<br>
                         Fast, safe, and careful service<br>
@@ -256,11 +265,11 @@ Yii::$app->params['footer_type'] = 'light';
                     </div><!-- /.heading -->
                     <div class="d-flex align-items-center mb-40">
                         <a href="#" class="btn btn__white btn__icon mr-30">
-                            <span><?= \Yii::t('contact')?></span>
+                            <span><?= \Yii::t('app', 'contact') ?></span>
                             <i class="icon-arrow-right"></i>
                         </a>
                         <a href="#" class="btn btn__white btn__bordered btn__icon mr-30">
-                            <span><?= \Yii::t('call_hotline')?></span>
+                            <span><?= \Yii::t('app', 'call_hotline') ?></span>
                             <i class="icon-phone"></i>
                         </a>
                     </div>
