@@ -8,4 +8,4 @@ define('GUIDE', 'guide');
 define('PRODUCT', 'product');
 define('CONTACT', 'contact');
 define('PRODUCT_AND_BRIEF', 'product-and-brief');
-
+define('GALLERY', 'galleries');

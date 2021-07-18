@@ -8,6 +8,7 @@ use common\models\ArchivesSearch;
 use common\models\Articles;
 use common\models\ArticlesSearch;
 use common\models\Banners;
+use common\models\BannersSearch;
 use common\models\Contact;
 use common\models\Medias;
 use common\models\Products;
@@ -378,6 +379,19 @@ class SiteController extends BaseController
             ->limit(12)->all();
         return $this->render('guide', [
             'products' => $products,
+            'dataProvider' => $dataProvider
+        ]);
+    }
+
+    public function actionGalleries()
+    {
+        $searchModel = new BannersSearch();
+        $dataProvider = $searchModel->search(array_merge_recursive(Yii::$app->request->queryParams, [
+            'BannersSearch' => [
+                'position' => 'gallery'
+            ]
+        ]));
+        return $this->render('gallery', [
             'dataProvider' => $dataProvider
         ]);
     }

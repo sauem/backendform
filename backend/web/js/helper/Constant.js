@@ -82,6 +82,10 @@ const BANNER_POSITIONS = [
         name: 'Logo đối tác',
         slug: POSITION_LOGO_PARTNER
     },
+    {
+        name: 'Thư viện ảnh',
+        slug: 'gallery'
+    },
 ];
 const BANNER_DEVICES = [
     {name: 'Desktop', slug: DEVICE_DESKTOP},
@@ -221,6 +225,13 @@ let usvnStaticPage = function (categories = []) {
             slug: 'contact'
         },
         {
+            title: 'Thư viện ảnh',
+            key: categories.length + 9993,
+            type: 'page',
+            value: 'galleries',
+            slug: 'galleries'
+        },
+        {
             title: 'Sản phẩm & Yêu cầu đặt hàng',
             key: categories.length + 9994,
             type: 'page',
@@ -340,6 +351,7 @@ const customPages = (categories = []) => {
         case 'usvnlocal':
             return usvnStaticPage(categories);
         case 'mkvietnamlocal':
+        case 'chillingneoncom':
         case 'mkconsultancyvn':
             return brouchure(categories);
         case 'lucycosmeticcom':

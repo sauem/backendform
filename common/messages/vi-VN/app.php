@@ -61,4 +61,5 @@ return [
     'why_chose_us' => 'Lý do chọn MK Viêt Nam?',
     'customer_say' => 'Khách hàng nói gì về MK Viêt Nam?',
     'more_news' => 'Xem thêm',
+    'gallery' => 'Thư viện ảnh',
 ];

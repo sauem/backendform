@@ -61,4 +61,5 @@ return [
     'why_chose_us' => 'Why chose use?',
     'customer_say' => 'What Our Clients Say?',
     'more_news' => 'More news',
+    'gallery' => 'Galleries',
 ];
