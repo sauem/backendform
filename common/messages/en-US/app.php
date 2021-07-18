@@ -21,6 +21,8 @@ return [
     'usvn_info' => 'USVN information',
     'address' => 'Adress',
     'hotline' => 'Hotline ',
+    'call_hotline' => 'Call hotline',
+    'contact' => 'Contact us',
     'not_found_product' => 'Product request not founded!',
     'not_found_archive' => 'Archive request not founded!',
     'next' => 'Next {type}',

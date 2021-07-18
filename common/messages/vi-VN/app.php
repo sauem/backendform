@@ -21,6 +21,8 @@ return [
     'usvn_info' => 'Thông tin USVN',
     'address' => 'Địa chỉ ',
     'hotline' => 'Hotline ',
+    'call_hotline' => 'Gọi tư vấn',
+    'contact' => 'Liên hệ',
     'not_found_product' => 'Không tìm thấy sản phẩm này!',
     'not_found_archive' => 'Danh mục không tồn tại!',
     'next' => '{type} kế tiếp',
