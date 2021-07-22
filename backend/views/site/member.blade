@@ -63,7 +63,7 @@
                 await getMember({loading: false});
                 form.resetFields();
             }
-            const getMember = async (params) => {
+            const getMember = async (params = {}) => {
                 try {
                     const {data, pagination} = await Members.fetch(params);
                     setState({
@@ -86,6 +86,7 @@
                         <Card title="Danh sách thành viên">
                             <Table
                                 dataSource={state.members}
+                                onChange={(number) => getMember({page: number})}
                                 pagination={state.pagination}
                                 columns={[
                                     {title: 'Tên thành viên', dataIndex: 'name', key: 'name'},
@@ -93,21 +94,21 @@
                                     {
                                         title: 'Hành động', key: 'action', render: raw => {
                                             return (
-                                        <div>
-                                        <Button onClick={() => onUpdate(raw)} type="primary"
-                                        className={`mr-1`} size={`small`}><i
-                                        className="icon icon-edit"/></Button>
-                                        <Popconfirm
-                                        title="Xóa nhận xét hiện tại"
-                                        onConfirm={() => onDelete(raw.id)}
-                                        okText="Xóa"
-                                        cancelText="Hủy"
-                                        >
-                                        <Button type="dashed" danger size={`small`}><i
-                                        className="icon icon-trash"/></Button>
-                                        </Popconfirm>
-                                        </div>
-                                        )
+                                                <div>
+                                                    <Button onClick={() => onUpdate(raw)} type="primary"
+                                                            className={`mr-1`} size={`small`}><i
+                                                        className="icon icon-edit"/></Button>
+                                                    <Popconfirm
+                                                        title="Xóa nhận xét hiện tại"
+                                                        onConfirm={() => onDelete(raw.id)}
+                                                        okText="Xóa"
+                                                        cancelText="Hủy"
+                                                    >
+                                                        <Button type="dashed" danger size={`small`}><i
+                                                            className="icon icon-trash"/></Button>
+                                                    </Popconfirm>
+                                                </div>
+                                            )
                                         }
                                     },
                                 ]}
@@ -142,7 +143,7 @@
                                         <Select.Option value={`member`}>Thành viên</Select.Option>
                                         <Select.Option value={`partner`}>Đối tác</Select.Option>
                                         <Select.Option value={`advisory_board`}>Ban cố vấn</Select.Option>
-                                       
+
                                     </Select>
                                 </Form.Item>
                                 <Form.Item

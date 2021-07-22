@@ -609,7 +609,7 @@ const Members = {
                     ...params,
                     sort: '-created_at',
                     expand: 'avatar',
-                    "per-page": 6
+                    "per-page": 20
                 }
             }).catch(axiosCatch);
             const {data, headers} = res;
