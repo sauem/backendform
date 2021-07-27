@@ -343,7 +343,7 @@ const customPages = (categories = []) => {
     domain = domain.replace('admin.', '');
     domain = domain.replace('.', '');
     switch (domain) {
-        case 'vietaucom':
+        case 'vieteutradecom':
         case 'thangdevorg':
         case 'vietaulocal':
             return vietauStaticPage(categories);
