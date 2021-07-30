@@ -211,15 +211,8 @@ let usvnStaticPage = function (categories = []) {
             slug: ''
         },
         {
-            title: 'Hướng dẫn',
-            key: categories.length + 9992,
-            type: 'page',
-            value: 'guide',
-            slug: 'guide'
-        },
-        {
             title: 'Liên hệ',
-            key: categories.length + 9993,
+            key: categories.length + 9992,
             type: 'page',
             value: 'contact',
             slug: 'contact'
@@ -232,11 +225,11 @@ let usvnStaticPage = function (categories = []) {
             slug: 'galleries'
         },
         {
-            title: 'Sản phẩm & Yêu cầu đặt hàng',
+            title: 'Về chúng tôi',
             key: categories.length + 9994,
             type: 'page',
-            value: 'product-and-brief',
-            slug: 'product-and-brief'
+            value: 'about-us',
+            slug: 'about-us'
         }
     ];
 }

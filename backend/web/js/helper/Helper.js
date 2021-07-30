@@ -37,7 +37,7 @@ const axiosCatch = (error) => {
 };
 
 const Server = axios.create({
-    baseURL: BASE_URL + 'api',
+    baseURL: '/api',
     headers: {
         'Content-Type': 'application/json',
     },
@@ -112,7 +112,7 @@ function initTinymce(callback) {
 
     tinymce.init({
         selector: 'textarea.editor',
-        plugins: 'print preview importcss tinydrive searchreplace autolink autosave save directionality  visualblocks visualchars fullscreen image link media template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists  wordcount imagetools textpattern noneditable help charmap quickbars emoticons',
+        plugins: 'print preview importcss tinydrive searchreplace autolink autosave save directionality  visualblocks visualchars fullscreen image link media table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists  wordcount imagetools textpattern noneditable help charmap quickbars emoticons',
         tinydrive_token_provider: (success, failure) => {
             return fetch('/jwt', {
                 method: 'GET',
@@ -125,7 +125,7 @@ function initTinymce(callback) {
         //Client secret : f3qxGcKzmedcugkyBVdmuFss
         tinydrive_google_drive_key: 'AIzaSyA7eNIKKZ8p8opmrVGgpXfqT-qpBnxr6ZU',
         tinydrive_google_drive_client_id: '858328145650-fo8uhfbs3m2am2lqovacbs5l2ke39a1m.apps.googleusercontent.com',
-        images_upload_url: BASE_URL + ROUTE.UPLOAD,
+        images_upload_url: '/' + ROUTE.UPLOAD,
         file_picker_callback: function (cb, value, meta) {
             let input = document.createElement('input');
             input.setAttribute('type', 'file');
@@ -142,11 +142,11 @@ function initTinymce(callback) {
 
             input.click();
         },
-        mobile: {
-            plugins: 'print preview powerpaste casechange importcss tinydrive searchreplace autolink autosave save directionality advcode visualblocks visualchars fullscreen image link media mediaembed template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists checklist wordcount tinymcespellchecker a11ychecker textpattern noneditable help formatpainter pageembed charmap mentions quickbars linkchecker emoticons advtable'
+        file_browser_callback: function (field_name, url, type, win) {
+            win.document.getElementById(field_name).value = 'my browser value';
         },
         menubar: 'file edit view insert format tools table tc help',
-        toolbar: 'undo redo | bold italic underline strikethrough | fontselect fontsizeselect formatselect | alignleft aligncenter alignright alignjustify | outdent indent |  numlist bullist checklist | forecolor backcolor casechange permanentpen formatpainter removeformat | pagebreak | charmap emoticons | fullscreen  preview save print | insertfile image media pageembed template link anchor codesample | a11ycheck ltr rtl | showcomments addcomment',
+        toolbar: 'undo redo | bold italic code underline strikethrough | fontselect fontsizeselect formatselect | alignleft aligncenter alignright alignjustify | outdent indent |  numlist bullist checklist | forecolor backcolor casechange permanentpen formatpainter removeformat | pagebreak | charmap emoticons | fullscreen  preview save print | insertfile image media pageembed link anchor | a11ycheck ltr rtl | showcomments addcomment',
         autosave_ask_before_unload: true,
         autosave_interval: '30s',
         autosave_prefix: '{path}{query}-{id}-',

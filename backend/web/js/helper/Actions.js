@@ -13,7 +13,7 @@ const onUploadMedia = (file, successCallback, errorCallBack, onUploadProgress, t
     formData.append('fileType', FILE_TYPE_IMAGE);
     formData.append('type', type);
     axios.create({
-        baseURL: BASE_URL,
+        baseURL: '/',
         headers: {
             'Content-Type': 'multipart/form-data',
         },

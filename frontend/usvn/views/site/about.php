@@ -1,16 +1,32 @@
 <?php
 
-/* @var $this yii\web\View */
+use common\helper\HelperFunction;
 
-use yii\helpers\Html;
-
-$this->title = 'About';
-$this->params['breadcrumbs'][] = $this->title;
+$this->title = Yii::t('app', 'about');
+$this->params['header_type'] = 'light';
 ?>
-<div class="site-about">
-    <h1><?= Html::encode($this->title) ?></h1>
 
-    <p>This is the About page. You may modify the following file to customize its content:</p>
 
-    <code><?= __FILE__ ?></code>
-</div>
+<section class="page-title page-title-layout15 text-center">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-12">
+                <nav>
+                    <ol class="breadcrumb justify-content-center mb-0">
+                        <li class="breadcrumb-item"><a href="/"><?= Yii::t('app', 'home') ?></a></li>
+                        <li class="breadcrumb-item active" aria-current="page">
+                            <?= $this->title ?>
+                        </li>
+                    </ol>
+                </nav>
+            </div><!-- /.col-xl-6 -->
+        </div><!-- /.row -->
+    </div><!-- /.container -->
+</section>
+<section class="blog blog-single pt-0 pb-70">
+    <div class="container">
+        <div class="row">
+            <?= HelperFunction::setting('about_us', true) ?>
+        </div>
+    </div>
+</section>

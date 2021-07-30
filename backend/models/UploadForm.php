@@ -65,7 +65,12 @@ class UploadForm extends Model
 
             $uploadFolder = UPLOAD_PATH . $basePath;
             if (!is_dir($uploadFolder)) {
-                mkdir($uploadFolder, 775, TRUE);
+                $mkdir = mkdir($uploadFolder, 0775, TRUE);
+                chmod($uploadFolder, 0775);
+
+                if (!$mkdir) {
+                    throw new BadRequestHttpException("Can't make dir $uploadFolder");
+                }
             }
             $fileName = $this->imageFile->getBaseName() . "_" . \Yii::$app->security->generateRandomString(10);
             $this->url = $basePath . $fileName . "." . $this->imageFile->getExtension();

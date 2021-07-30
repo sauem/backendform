@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Charmonman:wght@700&display=swap');
 
+$icon-color: #636363;
+$active-color: #E44126;
 $pink: #F16687;
 $pink-2: #F599B1;
 $yellow: #EEA731;
@@ -14,7 +16,11 @@ $bg-blue: #D5E2E9;
 $bg-yellow: #f3f5cb;
 $bg-purple: #E1E9F6;
 .wsmenu > .wsmenu-list > li > ul.sub-menu > li > a:before, .wsmenu > .wsmenu-list > li > .wsmegamenu .link-list li a:before, .wsmenu > .wsmenu-list > li > .wsmegamenu.halfmenu .link-list > li > a:before {
-  color: $pink;
+  color: $icon-color;
+}
+
+.navbar-dark .wsmenu > .wsmenu-list > li > a {
+  color: $icon-color;
 }
 
 .fancy-spinner {
@@ -64,9 +70,11 @@ $bg-purple: #E1E9F6;
   font-family: 'Charmonman', cursive !important;
   color: $bg-green;
 }
-.txt-color-01{
+
+.txt-color-01 {
   color: $pink;
 }
+
 .txt-color-05 {
   color: $purple;
 

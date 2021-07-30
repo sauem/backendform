@@ -4,6 +4,7 @@ define('LANG_EN', 'en');
 define('HOME', '/');
 define('ARCHIVE', 'archive');
 define('BLOG', 'article');
+define('ABOUT_US', 'about-us');
 define('GUIDE', 'guide');
 define('PRODUCT', 'product');
 define('CONTACT', 'contact');

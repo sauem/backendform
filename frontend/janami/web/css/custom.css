@@ -1,7 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Charmonman:wght@700&display=swap");
 .wsmenu > .wsmenu-list > li > ul.sub-menu > li > a:before, .wsmenu > .wsmenu-list > li > .wsmegamenu .link-list li a:before, .wsmenu > .wsmenu-list > li > .wsmegamenu.halfmenu .link-list > li > a:before {
-  color: #F16687; }
+  color: #636363; }
+
+.navbar-dark .wsmenu > .wsmenu-list > li > a {
+  color: #636363; }
 
 .fancy-spinner .ring:nth-child(1) {
   border-left-color: #F16687 !important;
