@@ -244,21 +244,23 @@ class SiteController extends BaseController
     public function actionArchive($slug)
     {
         $model = Archives::findOne(['slug' => $slug, 'language' => HelperFunction::getLanguage()]);
+
         if (!$model) {
             throw new NotFoundHttpException(Yii::t('app', 'not_found_archive'));
         }
         switch ($model->type) {
             case BLOG:
                 $searchModel = new ArticlesSearch();
-                $dataProvider = $searchModel->search(Yii::$app->request->queryParams, [
+                $dataProvider = $searchModel->search(null, [
                     'language' => HelperFunction::getLanguage(),
                     'archive_id' => $model->id
                 ]);
                 break;
             default:
                 $searchModel = new ProductsSearch();
-                $dataProvider = $searchModel->search(Yii::$app->request->queryParams, [
-                    'language' => HelperFunction::getLanguage()
+                $dataProvider = $searchModel->search(null, [
+                    'language' => HelperFunction::getLanguage(),
+                    'default_archive' => $model->id
                 ]);
                 break;
         }

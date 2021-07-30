@@ -53,6 +53,28 @@ $this->params['header_type'] = 'light';
                         </a>
                     </div>
                 </div>
+                <?php if (!empty($model->thumbs)) {
+                    ?>
+                    <hr>
+                    <div class="row gallery">
+                        <div class="col-12">
+                            <h5 class="post__title">
+                                Thư viện:
+                            </h5>
+                        </div>
+                        <?php foreach ($model->thumbs as $key => $thumb) {
+                            ?>
+                            <div class="col-md-4 px-2 mb-3">
+                                <a href="<?= HelperFunction::getImage($thumb->path) ?>">
+                                    <img class="img-fluid" src="<?= HelperFunction::getImage($thumb->path) ?>">
+                                </a>
+                            </div>
+                            <?php
+                        } ?>
+                    </div>
+                    <?php
+                } ?>
+
                 <hr>
                 <div class="widget-nav d-flex justify-content-between mb-40">
                     <?php if ($prevProduct) {

@@ -22,7 +22,7 @@ class ProductsSearch extends Products
         return [
             [['id', 'created_at', 'updated_at'], 'integer'],
             [['name', 'slug', 'status', 'content', 'language', 'excerpt', 'attributes', 'archives'], 'safe'],
-            [['default_price', 'default_sale_type', 'default_sale_price'], 'number'],
+            [['default_price', 'default_archive', 'default_sale_type', 'default_sale_price'], 'number'],
         ];
     }
 
@@ -87,7 +87,8 @@ class ProductsSearch extends Products
             ->andFilterWhere(['like', 'content', $this->content])
             ->andFilterWhere(['like', 'excerpt', $this->excerpt])
             ->andFilterWhere(['like', 'attributes', $this->attributes])
-            ->andFilterWhere(['=', 'language', $this->language]);
+            ->andFilterWhere(['=', 'language', $this->language])
+            ->andFilterWhere(['=', 'default_archive', $this->default_archive]);
 
         return $dataProvider;
     }

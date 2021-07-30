@@ -13,8 +13,11 @@
         const App = () => {
             const [state, setState] = useState(initalState);
             const [checkedKeys, setCheckedKeys] = useState([]);
+            const [cats, setCats] = useState([]);
+            const [defaultKey, setDefaultKey] = useState(null);
             const [form] = Form.useForm();
             const [defaultFileList, setDefaultFileList] = useState([]);
+            const [defaultThumbList, setDefaultThumbList] = useState([]);
             const [attr, setAttr] = useState({});
             const [progress, setProgress] = useState(0);
             const onSubmit = async (data) => {
@@ -41,6 +44,7 @@
 
                 if (id) {
                     const {data} = await Products.view(id);
+                    await setLanguage(data.language);
 
                     const {meta, media_id, archives} = data;
 
@@ -48,6 +52,7 @@
                         return item.archive_id;
                     });
                     setCheckedKeys(cats);
+
                     form.setFieldsValue({
                         ...data,
                         media_id: media_id,
@@ -56,21 +61,34 @@
                         meta_keyword: meta ? meta.meta_keyword : null,
                         meta_description: meta ? meta.meta_description : null
                     });
+
                     data.avatar ? setDefaultFileList([{
                         uid: data.id,
                         name: data.name,
                         status: 'done',
                         url: data.avatar
                     }]) : setDefaultFileList([]);
+
+                    if (data.thumbs.length > 0) {
+                        const newThumbs = [];
+                        data.thumbs.map(item => {
+                            newThumbs.push({
+                                uid: item.id,
+                                name: `thumb-${item.id}`,
+                                status: 'done',
+                                url: `/static/${item.path}`
+                            })
+                        });
+                        setDefaultThumbList(newThumbs);
+                    }
+                } else {
+                    await setLanguage(LANG_VI);
                 }
-                const res = await fetchArchive({language: form.getFieldValue('language')});
+
                 const attr = await Attributes.fetch({page: -1});
                 setState({
                     ...state,
-                    ...{
-                        categories: convertTreeSelect(res.data),
-                        attributes: attr.data
-                    }
+                    attributes: attr.data
                 });
 
             }, []);
@@ -78,13 +96,11 @@
                 const res = await fetchArchive({language: e});
                 form.setFieldsValue({
                     default_archive: null
-                })
+                });
+                setCats(convertTreeSelect(res.data));
                 setState({
                     ...state,
-                    ...{
-                        language: e,
-                        categories: convertTreeSelect(res.data)
-                    }
+                    language: e,
                 });
 
             }
@@ -354,10 +370,10 @@
                                                 checkable
                                                 expandedKeys={checkedKeys}
                                                 checkedKeys={checkedKeys}
-                                                defaultSelectedKeys={[form.getFieldValue('default_archive')]}
+                                                defaultSelectedKeys={defaultKey}
                                                 onCheck={onCheckArchive}
                                                 onSelect={onSelectArchive}
-                                                treeData={state.categories}
+                                                treeData={cats}
                                             />
                                         </Form.Item>
                                         <Form.Item
@@ -429,6 +445,7 @@
                                                 accept="image/*"
                                                 listType="picture"
                                                 maxCount={5}
+                                                fileList={defaultThumbList}
                                                 customRequest={options => onUpload(options, 'thumbnails')}
                                                 multiple
                                             >

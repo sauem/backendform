@@ -16,6 +16,7 @@ class AppAsset extends AssetBundle
         '/usvn/css/all.css',
         '/usvn/css/libraries.css',
         '/usvn/css/style.css?v=1.1',
+        '/usvn/css/magnific-popup.css',
         '/usvn/css/custom.css?v=1.2',
     ];
     public $js = [
@@ -24,8 +25,9 @@ class AppAsset extends AssetBundle
         '/usvn/js/handlebars.js',
         '/usvn/js/handlebars-helper.js',
         '/usvn/js/plugins.js',
+        '/usvn/js/jquery.magnific-popup.min.js',
         '/usvn/js/main.js',
-        '/usvn/js/templ.js?v=2.7',
+        '/usvn/js/templ.js?v=2.8',
     ];
     public $depends = [
         'yii\web\YiiAsset',
