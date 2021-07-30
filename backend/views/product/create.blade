@@ -417,8 +417,8 @@
                                                 customRequest={onUpload}
                                                 onChange={handleOnChange}
                                                 listType="picture"
-                                                onRemove={() =>
-                                                    onRemoveMedia(form.getFieldValue('media_id'))
+                                                onRemove={(file) =>
+                                                    onRemoveMedia(file.uid)
                                                 }
                                                 fileList={defaultFileList}
                                                 className="avatar-uploader single"
@@ -445,6 +445,12 @@
                                                 accept="image/*"
                                                 listType="picture"
                                                 maxCount={5}
+                                                onRemove={(file) => {
+                                                    onRemoveMedia(file.uid);
+                                                    message.success('Xóa thành công!');
+                                                    setDefaultThumbList(defaultThumbList.filter(thumb => thumb.uid !== file.uid))
+                                                }
+                                                }
                                                 fileList={defaultThumbList}
                                                 customRequest={options => onUpload(options, 'thumbnails')}
                                                 multiple
