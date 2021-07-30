@@ -62,106 +62,44 @@ $this->title = 'Products and brief';
             <div class="col-sm-12 col-md-12 col-lg-12 col-xl-6 col-inner d-flex flex-column justify-content-between">
                 <div>
                     <div class="heading heading-light">
-                        <h3 class="heading__title mb-30">Giải pháp tiền năng cho doanh nghiệp của bạn!</h3>
-                        <p class="heading__desc mb-30">We are experienced professionals who understand that It services
-                            is
-                            changing,
-                            and are partners who care about your success. As one of the world's largest IT Service
-                            Providers,
-                            our
-                            deep pool of certified engineers and IT staff are ready to help.
+                        <h3 class="heading__title mb-30"><?= Yii::t('app', 'usvn_info') ?></h3>
+                        <p class="heading__desc">
+                            <strong><?= Yii::t('app', 'address') ?> :
+                                <?= HelperFunction::setting('address_1', true) ?>
+                                <br>
+                                <?= HelperFunction::setting('address_2', true) ?>
+                            </strong>
+                        </p>
+
+                        <p class="heading__desc">
+                            <strong><?= Yii::t('app', 'email') ?> :
+                                <a class="text-white"
+                                   href="mailto:<?= HelperFunction::setting('email') ?>">
+                                    <?= HelperFunction::setting('email') ?></a>
+                            </strong>
+                        </p>
+                        <p class="heading__desc">
+                            <strong><?= Yii::t('app', 'hotline') ?> :
+                                <a class="text-white" href="tel:<?= HelperFunction::setting('hotline_1') ?>">
+                                    <?= HelperFunction::setting('hotline_1') ?>
+                                </a>
+                                <br>
+                                <a class="text-white" href="tel:<?= HelperFunction::setting('hotline_2') ?>">
+                                    <?= HelperFunction::setting('hotline_2') ?>
+                                </a>
+                            </strong>
                         </p>
                     </div><!-- /.heading -->
                     <div class="d-flex align-items-center mb-40">
                         <a href="#" class="btn btn__white btn__icon mr-30">
-                            <span>Liên hệ</span>
+                            <span><?= \Yii::t('app', 'contact') ?></span>
                             <i class="icon-arrow-right"></i>
                         </a>
                         <a href="#" class="btn btn__white btn__bordered btn__icon mr-30">
-                            <span>Gọi hotline</span>
+                            <span><?= \Yii::t('app', 'call_hotline') ?></span>
                             <i class="icon-phone"></i>
                         </a>
                     </div>
-                </div>
-                <div class="testimonials testimonials-wrapper">
-                    <div class="slider-with-navs">
-                        <!-- Testimonial #1 -->
-                        <div class="testimonial-item">
-                            <p class="testimonial__desc color-white">If you’re looking for a rewarding career and the
-                                chance to make an
-                                impact, you’ve come to the right place. We will transform your business through our
-                                techniques!
-                            </p>
-                            <div class="testimonial__meta">
-                                <h4 class="testimonial__meta-title">Ahmed Abdallah</h4>
-                                <p class="testimonial__meta-desc">Digital Media Manager</p>
-                            </div><!-- /.testimonial-meta -->
-                        </div><!-- /. testimonial-item -->
-                        <!-- Testimonial #2 -->
-                        <div class="testimonial-item">
-                            <p class="testimonial__desc color-white"> If you’re looking for a rewarding career and the
-                                chance to
-                                make an impact, you’ve come to the right place. We will transform your business through
-                                our
-                                techniques! </p>
-                            <div class="testimonial__meta">
-                                <h4 class="testimonial__meta-title">John Peter</h4>
-                                <p class="testimonial__meta-desc">7oroof Inc</p>
-                            </div><!-- /.testimonial-meta -->
-                        </div><!-- /. testimonial-item -->
-                        <!-- Testimonial #3 -->
-                        <div class="testimonial-item">
-                            <p class="testimonial__desc color-white">If you’re looking for a rewarding career and the
-                                chance to make an
-                                impact, you’ve come to the right place. We will transform your business through our
-                                techniques!
-                            </p>
-                            <div class="testimonial__meta">
-                                <h4 class="testimonial__meta-title">Ayman</h4>
-                                <p class="testimonial__meta-desc">7oroof Inc</p>
-                            </div><!-- /.testimonial-meta -->
-                        </div><!-- /. testimonial-item -->
-                        <!-- Testimonial #2 -->
-                        <div class="testimonial-item">
-                            <p class="testimonial__desc color-white"> If you’re looking for a rewarding career and the
-                                chance to
-                                make an impact, you’ve come to the right place. We will transform your business through
-                                our
-                                techniques! </p>
-                            <div class="testimonial__meta">
-                                <h4 class="testimonial__meta-title">John Peter</h4>
-                                <p class="testimonial__meta-desc">7oroof Inc</p>
-                            </div><!-- /.testimonial-meta -->
-                        </div><!-- /. testimonial-item -->
-                        <!-- Testimonial #3 -->
-                        <div class="testimonial-item">
-                            <p class="testimonial__desc color-white">My project was a simple & small task, but the
-                                persistence and
-                                determination turned it into an awesome and great project which make me happy .
-                            </p>
-                            <div class="testimonial__meta">
-                                <h4 class="testimonial__meta-title">John Peter</h4>
-                                <p class="testimonial__meta-desc">7oroof Inc</p>
-                            </div><!-- /.testimonial-meta -->
-                        </div><!-- /. testimonial-item -->
-                    </div>
-                    <div class="slider-nav">
-                        <div class="testimonial__thumb">
-                            <img src="/usvn/images/testimonials/thumbs/1.png" alt="author thumb">
-                        </div><!-- /.testimonial-thumb -->
-                        <div class="testimonial__thumb">
-                            <img src="/usvn/images/testimonials/thumbs/2.png" alt="author thumb">
-                        </div><!-- /.testimonial-thumb -->
-                        <div class="testimonial__thumb">
-                            <img src="/usvn/images/testimonials/thumbs/3.png" alt="author thumb">
-                        </div><!-- /.testimonial-thumb -->
-                        <div class="testimonial__thumb">
-                            <img src="/usvn/images/testimonials/thumbs/2.png" alt="author thumb">
-                        </div><!-- /.testimonial-thumb -->
-                        <div class="testimonial__thumb">
-                            <img src="/usvn/images/testimonials/thumbs/3.png" alt="author thumb">
-                        </div><!-- /.testimonial-thumb -->
-                    </div><!-- /.slcik-nav -->
                 </div>
             </div><!-- /.col-xl-6 -->
             <div class="col-sm-12 col-md-12 col-lg-12 col-xl-6">
