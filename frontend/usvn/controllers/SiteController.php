@@ -287,11 +287,13 @@ class SiteController extends BaseController
             throw new NotFoundHttpException(Yii::t('app', 'not_found_product'));
         }
         $nextProduct = Products::find()
+            ->with('defaultArchive')
             ->filterWhere(['language' => HelperFunction::getLanguage()])
             ->andFilterWhere(['>', 'id', $model->id])
             ->orderBy('created_at DESC')
             ->one();
         $prevProduct = Products::find()
+            ->with('defaultArchive')
             ->filterWhere(['language' => HelperFunction::getLanguage()])
             ->andFilterWhere(['<', 'id', $model->id])
             ->orderBy('created_at DESC')

@@ -32,7 +32,7 @@ class AppAsset extends AssetBundle
         '/vietau/js/jquery-ui.js',
         '/vietau/js/script.js',
         '/vietau/js/const.js',
-        '/vietau/js/templ.js',
+        '/vietau/js/templ.js?v=1.2',
     ];
     public $depends = [
         'yii\web\YiiAsset',

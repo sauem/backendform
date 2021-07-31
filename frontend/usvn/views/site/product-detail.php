@@ -65,9 +65,11 @@ $this->params['header_type'] = 'light';
                         <?php foreach ($model->thumbs as $key => $thumb) {
                             ?>
                             <div class="col-md-4 px-2 mb-3">
-                                <a href="<?= HelperFunction::getImage($thumb->path) ?>">
-                                    <img class="img-fluid" src="<?= HelperFunction::getImage($thumb->path) ?>">
-                                </a>
+                               <div class="gallery-item">
+                                   <a href="<?= HelperFunction::getImage($thumb->path) ?>">
+                                       <img class="img-fluid" src="<?= HelperFunction::getImage($thumb->path) ?>">
+                                   </a>
+                               </div>
                             </div>
                             <?php
                         } ?>
@@ -77,9 +79,10 @@ $this->params['header_type'] = 'light';
 
                 <hr>
                 <div class="widget-nav d-flex justify-content-between mb-40">
-                    <?php if ($prevProduct) {
+                    <?php if ($prevProduct && isset($prevProduct->defaultArchive)) {
+
                         ?>
-                        <a href="<?= HelperFunction::Link(PRODUCT, $prevProduct->slug, $prevProduct->defaultArchive->slug) ?>"
+                        <a href="<?= HelperFunction::Link(PRODUCT, $prevProduct->slug,$prevProduct->defaultArchive->slug) ?>"
                            class="widget-nav__prev d-flex flex-wrap">
                             <div class="widget-nav__img">
                                 <div class="widget-nav__overlay"></div>
@@ -94,7 +97,7 @@ $this->params['header_type'] = 'light';
                         </a>
                         <?php
                     } ?>
-                    <?php if ($nextProduct) {
+                    <?php if ($nextProduct && isset($nextProduct->defaultArchive)) {
                         ?>
                         <a href="<?= HelperFunction::Link(PRODUCT, $nextProduct->slug, $nextProduct->defaultArchive->slug) ?>"
                            class="widget-nav__next d-flex flex-wrap">

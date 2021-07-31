@@ -76,6 +76,22 @@
   /* number of lines to show */
   -webkit-box-orient: vertical; }
 
+.gallery .gallery-item {
+  width: 100%;
+  max-height: 150px;
+  overflow: hidden;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  .gallery .gallery-item img {
+    display: flex;
+    object-fit: cover; }
+  .gallery .gallery-item:hover {
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.05); }
+
 .service-item .service__content {
   padding: 15px; }
   .service-item .service__content .service__icon img {
