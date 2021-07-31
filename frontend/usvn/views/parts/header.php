@@ -62,7 +62,7 @@ if ($menu) {
                 <ul class="navbar-actions list-unstyled mb-0 d-flex align-items-center">
                     <li class="nav__item language has-dropdown">
                         <a href="#" data-toggle="dropdown" class="dropdown-toggle nav__item-link">
-                            <img src="/usvn/images/flags/<?= HelperFunction::Language('vi-VN') ? 'vi.svg' : 'fr.png' ?>"/>
+                            <img src="/usvn/images/flags/<?= HelperFunction::Language('vi-VN') ? 'vi.svg' : 'america.svg' ?>"/>
                             <span class="ml-1"></span><?= HelperFunction::Language('vi-VN') ? 'VI' : 'EN' ?> </a>
                         <ul class="dropdown-menu">
                             <li class="nav__item">
@@ -73,7 +73,7 @@ if ($menu) {
                             <li class="nav__item">
                                 <a href="javascript:void(0)" onclick="switchLanguage('<?= LANG_EN ?>')"
                                    class="nav__item-link">
-                                    <img width="24" src="/usvn/images/flags/fr.png"/> English</a>
+                                    <img width="24" src="/usvn/images/flags/america.svg"/> America</a>
                             </li><!-- /.nav-item -->
                         </ul><!-- /.dropdown-menu -->
                     </li>

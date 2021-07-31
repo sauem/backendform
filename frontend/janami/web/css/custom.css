@@ -25,7 +25,7 @@
   border-color: #F16687; }
 
 .ant-input-number:focus, .ant-input-number-focused, .ant-input-number:hover {
-  border-color: #367765;
+  border-color: #F2F7E8;
   box-shadow: 0 0 0 2px rgba(54, 119, 101, 0.2); }
 
 .ant-pagination-item-active:focus-visible a, .ant-pagination-item-active:hover a {
@@ -37,7 +37,7 @@
 
 .tra-header {
   font-family: 'Charmonman', cursive !important;
-  color: #367765; }
+  color: #F2F7E8; }
 
 .txt-color-01 {
   color: #F16687; }
@@ -66,19 +66,21 @@
   border-color: #F16687; }
 
 .owl-theme .owl-dots .owl-dot.active span {
-  background: #EEA731; }
+  background: white;
+  width: 35px; }
 .owl-theme .owl-dots .owl-dot span {
-  border: 2px solid #EEA731; }
+  border: 2px solid white;
+  transition: 0.5s; }
   .owl-theme .owl-dots .owl-dot span:hover {
-    background: #EEA731; }
+    background: white; }
 
 #scrollUp {
   background-color: #E4F0D5; }
   #scrollUp:hover {
-    background-color: #367765; }
+    background-color: #F2F7E8; }
 
 .bg-color-02 {
-  background: #D5E2E9; }
+  background: #E2EBF7; }
 
 .bg-color-09, .btn-color-02 {
   background-color: #F16687;
@@ -176,5 +178,21 @@ nav a {
   background-color: #f7f4f0 !important; }
   .tab-custom .nav-link:active {
     background-color: #f7f4f0 !important; }
+
+.slideshow2 {
+  position: relative; }
+
+.owl-dots {
+  position: absolute;
+  bottom: 2%;
+  left: 0;
+  right: 0; }
+
+.bg-img03 {
+  background: url("../img/bg/bg.png") center center no-repeat, url("../img/bg/la1.png") top right no-repeat, url("../img/bg/la2.png") bottom left no-repeat;
+  background-size: cover, contain, contain; }
+
+.bg-green {
+  background-color: #F2F7E8; }
 
 /*# sourceMappingURL=custom.css.map */

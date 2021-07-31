@@ -8,13 +8,19 @@ $pink-2: #F599B1;
 $yellow: #EEA731;
 $yellow-2: #FFCD5B;
 $purple: #883F71;
-$bg-green: #367765;
+
 $bg-green1: #E4F0D5;
 $bg-green2: #f2f7e8;
 
-$bg-blue: #D5E2E9;
 $bg-yellow: #f3f5cb;
 $bg-purple: #E1E9F6;
+
+//new version design
+$bg-blue: #E2EBF7;
+$bg-green: #F2F7E8;
+$color-green: #367766;
+$color-purple: #50254A;
+
 .wsmenu > .wsmenu-list > li > ul.sub-menu > li > a:before, .wsmenu > .wsmenu-list > li > .wsmegamenu .link-list li a:before, .wsmenu > .wsmenu-list > li > .wsmegamenu.halfmenu .link-list > li > a:before {
   color: $icon-color;
 }
@@ -115,15 +121,17 @@ $bg-purple: #E1E9F6;
 .owl-theme .owl-dots .owl-dot {
   &.active {
     span {
-      background: $yellow;
+      background: white;
+      width: 35px;
     }
   }
 
   span {
-    border: 2px solid $yellow;
+    border: 2px solid white;
+    transition: 0.5s;
 
     &:hover {
-      background: $yellow;
+      background: white;
     }
   }
 }
@@ -285,5 +293,32 @@ nav {
     &:active {
       background-color: #f7f4f0 !important;
     }
+  }
+}
+
+.slideshow2 {
+  position: relative;
+}
+
+.owl-dots {
+  position: absolute;
+  bottom: 2%;
+  left: 0;
+  right: 0;
+}
+
+.bg-img03 {
+  background: url('../img/bg/bg.png') center center no-repeat,
+  url('../img/bg/la1.png') top right no-repeat,
+  url('../img/bg/la2.png') bottom left no-repeat;
+  background-size: cover, contain, contain;
+
+}
+
+.bg-green {
+  background-color: $bg-green;
+
+  &.img-product {
+
   }
 }

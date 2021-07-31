@@ -12,7 +12,7 @@
     03- Sticky Navbar
     04- Scroll Top Button
     05- Close Topbar
-    06- Set Background-img to section 
+    06- Set Background-img to section
     07- Add active class to accordions
     08- Contact Form validation
     09- Slick Carousel
@@ -20,7 +20,7 @@
     11- CounterUp
     12- NiceSelect Plugin
     13- portfolio Filtering and Sorting
-     
+
  ----------------------------*/
 
 $(function () {
@@ -138,6 +138,7 @@ $(function () {
     }
 
     /*==========  Open and Close Popup   ==========*/
+
     // open Popup
     function openPopup(popupTriggerBtn, popup, addedClass, removedClass) {
         $(popupTriggerBtn).on('click', function (e) {
@@ -145,12 +146,14 @@ $(function () {
             $(popup).toggleClass(addedClass, removedClass).removeClass(removedClass);
         });
     }
+
     // Close Popup
     function closePopup(closeBtn, popup, addedClass, removedClass) {
         $(closeBtn).on('click', function () {
             $(popup).removeClass(addedClass).addClass(removedClass);
         });
     }
+
     // close popup when clicking on an other place on the Document
     function closePopupFromOutside(popup, stopPropogationElement, popupTriggerBtn, removedClass, addedClass) {
         $(document).on('mouseup', function (e) {
@@ -159,6 +162,7 @@ $(function () {
             }
         });
     }
+
     openPopup('.action__btn-search', '.search-popup', 'active', 'inActive') // Open sidenav popup
     closePopup('.search-popup__close', '.search-popup', 'active', 'inActive') // Close sidenav popup
     openPopup('.action__btn-burgerMenu', '.burger-menu', 'active', 'inActive') // Open sidenav popup

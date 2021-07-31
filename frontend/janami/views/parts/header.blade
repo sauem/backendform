@@ -90,14 +90,22 @@ if ($menu) {
                                 </li>
                             @endforeach
                         @endif
-                        <li class="nl-simple header-phone" aria-haspopup="true">
-                            <a href="tel:<?= HelperFunction::setting('hotline_1') ?>"><span class="bg-color-09 white-color">
-                                    <i class="fas fa-phone"></i></span><?= HelperFunction::setting('hotline_1')?></a>
-                        </li>
+
                         <li class="nl-simple cart txt-color-03 header-socials clearfix" aria-haspopup="true">
                             <span>
-                                <a href="/<?= CART ?>" class="ico-cart"><i class="fas fa-shopping-bag"></i>
-                                <span id="cart-mini">0</span>
+                                <a href="/<?= CART ?>" class="ico-cart">
+                                    <img src="/img/icons/search.svg" width="32"/>
+                                </a>
+                            </span>
+                            <span>
+                                <a href="/<?= CART ?>" class="ico-cart">
+                                    <img src="/img/icons/wish.svg" width="32"/>
+                                </a>
+                            </span>
+                            <span>
+                                <a href="/<?= CART ?>" class="ico-cart">
+                                    <img src="/img/icons/cart.svg" width="32"/>
+                                    <span id="cart-mini">0</span>
                                 </a>
                             </span>
                         </li>
