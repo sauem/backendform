@@ -49,13 +49,11 @@ if ($menu) {
                     <h6 class="footer-widget__title">Facebook Fanpage</h6>
                     <div class="footer-widget__content">
                         <?= HelperFunction::setting('fanpage_script')?>
-                        <div class="col-sm-12 col-md-5 col-lg-5 d-flex flex-wrap justify-content-end align-items-center">
-                            <ul class="social-icons list-unstyled mb-0 mr-30">
-                                <li><a href="<?= HelperFunction::setting('facebook')?>"><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a href="<?= HelperFunction::setting('instagram')?>"><i class="fab fa-instagram"></i></a></li>
-                                <li><a href="<?= HelperFunction::setting('twitter')?>"><i class="fab fa-twitter"></i></a></li>
-                            </ul><!-- /.social-icons -->
-                        </div>
+                        <ul class="social-icons text-center list-unstyled mb-0 mr-30">
+                            <li><a href="<?= HelperFunction::setting('facebook')?>"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="<?= HelperFunction::setting('instagram')?>"><i class="fab fa-instagram"></i></a></li>
+                            <li><a href="<?= HelperFunction::setting('twitter')?>"><i class="fab fa-twitter"></i></a></li>
+                        </ul>
                     </div><!-- /.footer-widget__content -->
                 </div><!-- /.col-lg-3 -->
             </div><!-- /.row -->
