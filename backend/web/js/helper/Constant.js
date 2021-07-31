@@ -305,6 +305,11 @@ const brouchure = (categories = []) => {
         }
     ];
 }
+const janamiIcons = [
+    {icon: '/images/icon/tim.svg', key: 'tim', title: 'Tím'},
+    {icon: '/images/icon/xanh.svg', key: 'xanh', title: 'Xanh'},
+    {icon: '/images/icon/do.svg', key: 'do', title: 'Đỏ'},
+];
 const janami = (categories = []) => {
     return [
         {
@@ -367,3 +372,4 @@ const getSize = (width = '100%', height = '100%') => {
 const getStyles = style => {
     return typeof style == 'object' ? style : JSON.parse(style);
 }
+

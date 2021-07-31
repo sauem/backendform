@@ -41,9 +41,10 @@ class ArchivesSearch extends Archives
      *
      * @return ActiveDataProvider
      */
+
     public function search($params, $filter = null)
     {
-        $query = Archives::find();
+        $query = Archives::find()->with('media');
 
         // add conditions that should always apply here
 

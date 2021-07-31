@@ -297,11 +297,11 @@ use common\helper\HelperFunction;
                                         customRequest={opts => onUpload(opts, 'favicon')}
                                         onChange={evt => handleOnChange('favicon', evt)}
                                         listType="picture"
-                                        onRemove={() =>
-                                            onRemoveMedia(form.getFieldValue('favicon'))
+                                        className="avatar-uploader single"
+                                        onRemove={(file) =>
+                                            onRemoveMedia(file.uid)
                                         }
                                         fileList={defaultFileList.favicon}
-                                        className="avatar-uploader single"
                                     >
                                         {defaultFileList.favicon.length >= 1 ? null :
                                             <Button><i className="icon-upload mr-2"/> Chọn ảnh</Button>}

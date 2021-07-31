@@ -50,7 +50,7 @@ class AppAsset extends AssetBundle
         '/js/menu.js',
         '/js/materialize.js',
         '/js/tweenmax.min.js',
-       #'/js/slideshow.js',
+        #'/js/slideshow.js',
         '/js/imagesloaded.pkgd.min.js',
         '/js/isotope.pkgd.min.js',
         '/js/jquery.flexslider.js',
@@ -69,6 +69,6 @@ class AppAsset extends AssetBundle
     ];
     public $depends = [
         //'yii\web\YiiAsset',
-        #  'yii\bootstrap\BootstrapAsset',
+        //'yii\bootstrap\BootstrapAsset',
     ];
 }

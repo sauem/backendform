@@ -62,12 +62,19 @@ class SiteController extends BaseController
             'active' => Banners::BANNER_ACTIVE,
             'position' => 'logo_partner'
         ]);
+        $sliderBottoms = Banners::findAll([
+            'active' => Banners::BANNER_ACTIVE,
+            'position' => 'top_footer',
+            'language' => HelperFunction::getLanguage()
+        ]);
+        //HelperFunction::printf($logos);
         return $this->render('index.blade', [
             'sliders' => $sliders,
             'categories' => $categories,
             'posts' => $articles,
             'products' => $products,
             'logos' => $logos,
+            'sliderBottoms' => $sliderBottoms,
             'contactForm' => $contactForm
         ]);
     }

@@ -28,6 +28,31 @@ const AJAX = axios.create({
         'Content-Type': 'application/json',
     },
 });
+const getArchive = async (params = {}, link = '/archive-filter') => {
+    try {
+        const res = await AJAX.get(link, {
+            params: {
+                ...params,
+                sort: '-created_at',
+                show_home: 1,
+                expand: 'avatar,products,',
+                "per-page": 6
+            }
+        });
+
+        const {data, headers} = res;
+        const current = headers['x-pagination-current-page'],
+            totalPage = headers['x-pagination-page-count'],
+            pageSize = headers['x-pagination-per-page'],
+            total = headers['x-pagination-total-count'],
+            pagination = {
+                total, current, pageSize, totalPage
+            };
+        return {data, pagination};
+    } catch (e) {
+        message.error(e.message);
+    }
+}
 const getProduct = async (params = {}, link = '/product-filter') => {
     try {
         const res = await AJAX.get(link, {

@@ -69,7 +69,7 @@ const Archives = {
             const res = await Server.get(ROUTE.ARCHIVE.INDEX, {
                 params: {
                     sort: '-created_at',
-                    expand: 'avatar,children',
+                    expand: 'avatar,children,media',
                     "per-page": 6,
                     ...params
                 }

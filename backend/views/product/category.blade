@@ -22,6 +22,7 @@ $view->title = 'Danh mục sản phẩm';
             const onSubmit = async (data) => {
                 if (typeof data.id !== "undefined") {
                     await Archives.update(data);
+                    message.success('Cập nhật thành công!');
                 } else {
                     await Archives.create(data);
                 }
@@ -30,9 +31,8 @@ $view->title = 'Danh mục sản phẩm';
             }
             const onUpdate = async (archive) => {
                 form.setFieldsValue(archive);
-
                 archive.avatar ? setDefaultFileList([{
-                    uid: '-1',
+                    uid: archive.media.id,
                     name: archive.name,
                     status: 'done',
                     url: archive.avatar
@@ -80,7 +80,11 @@ $view->title = 'Danh mục sản phẩm';
                     }
                 });
                 const {pagination, data} = await Archives.fetch(
-                    Object.assign({page, type: ARCHIVE_TYPE_PRODUCT}, obj)
+                    {
+                        page,
+                        type: ARCHIVE_TYPE_PRODUCT,
+                        ...obj
+                    }
                 );
                 setState({
                     ...state,
@@ -148,6 +152,31 @@ $view->title = 'Danh mục sản phẩm';
                                         }) : null}
                                     </Select>
                                 </Form.Item>
+                                <Form.Item
+                                    name={'icon'}
+                                    label={`Icon`}
+                                >
+                                    <Select>
+                                        {janamiIcons && janamiIcons.map(item => {
+                                            return (
+                                                <Select.Option value={item.key}>
+                                                    <img width="24" src={item.icon}/>
+                                                    <span className="ml-1"> {item.title}</span>
+                                                </Select.Option>
+                                            )
+                                        })}
+                                    </Select>
+                                </Form.Item>
+                                <Form.Item
+                                    initialValue={0}
+                                    name={'show_home'}
+                                    label={`Hiển thị trang chủ`}
+                                >
+                                    <Select>
+                                        <Select.Option value={0}>Ẩn</Select.Option>
+                                        <Select.Option value={1}>Hiển thị</Select.Option>
+                                    </Select>
+                                </Form.Item>
                                 <Row gutter={[8, 0]}>
                                     <Col md={12}>
                                         <Form.Item
@@ -188,11 +217,15 @@ $view->title = 'Danh mục sản phẩm';
                                         accept="image/*"
                                         customRequest={onUpload}
                                         onChange={handleOnChange}
-                                        listType="picture-card"
-                                        fileList={defaultFileList}
+                                        onRemove={(file) =>
+                                            onRemoveMedia(file.uid)
+                                        }
+                                        listType="picture"
                                         className="avatar-uploader single"
+                                        fileList={defaultFileList}
                                     >
-                                        {defaultFileList.length >= 1 ? null : <div>Chọn ảnh</div>}
+                                        {defaultFileList.length >= 1 ? null :
+                                            <Button><i className="icon-upload mr-2"/> Chọn ảnh</Button>}
                                     </Upload>
                                     {progress > 0 ? <Progress percent={progress}/> : null}
                                 </Form.Item>
@@ -208,7 +241,7 @@ $view->title = 'Danh mục sản phẩm';
                         <Card title={`Danh mục sản phẩm`}
                               extra={
                                   <div className="d-flex">
-                                      <Select defaultValue={LANG_VI} style={getStyles({width:'100%',marginRight:5})}>
+                                      <Select defaultValue={LANG_VI} style={getStyles({width: '100%', marginRight: 5})}>
                                           <Select.Option value={LANG_VI}>Tiếng Việt</Select.Option>
                                           <Select.Option value={LANG_EN}>Tiếng Anh</Select.Option>
                                       </Select>
@@ -233,7 +266,6 @@ $view->title = 'Danh mục sản phẩm';
                                                 className={`badge badge-pill badge-sm badge-${status == 1 ? 'success' : 'secondary'}`}>
                                                 {status == 1 ? 'Kích hoạt' : 'Ản'} </span>
                                         },
-                                        {title: 'Số lượng sản phẩm', dataIndex: 'description', key: 'description'},
                                         {
                                             title: '', dataIndex: 'action', key: 'action', render: (text, raw) => {
                                                 return (
