@@ -35,7 +35,7 @@ class UploadForm extends Model
             [['fileType'], 'required'],
             [['url', 'alt', 'type', 'fileType'], 'safe'],
             # ['fileType', 'validateFileType'],
-            [['imageFile'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpeg, jpg, mp4'],
+            [['imageFile'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpeg, jpg, svg, mp4'],
         ];
     }
 
