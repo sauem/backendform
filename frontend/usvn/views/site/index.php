@@ -25,8 +25,7 @@ Yii::$app->params['footer_type'] = 'light';
                         <p class="heading__desc">
                             <strong><?= Yii::t('app', 'address') ?> :
                                 <?= HelperFunction::setting('address_1', true) ?>
-                                <br>
-                                <?= HelperFunction::setting('address_2', true) ?>
+
                             </strong>
                         </p>
 
@@ -50,11 +49,11 @@ Yii::$app->params['footer_type'] = 'light';
                         </p>
                     </div><!-- /.heading -->
                     <div class="d-flex align-items-center mb-40">
-                        <a href="#" class="btn btn__white btn__icon mr-30">
+                        <a href="/<?= CONTACT?>" class="btn btn__white btn__icon mr-30">
                             <span><?= \Yii::t('app', 'contact') ?></span>
                             <i class="icon-arrow-right"></i>
                         </a>
-                        <a href="#" class="btn btn__white btn__bordered btn__icon mr-30">
+                        <a href="tel:<?= HelperFunction::setting('hotline_1')?>" class="btn btn__white btn__bordered btn__icon mr-30">
                             <span><?= \Yii::t('app', 'call_hotline') ?></span>
                             <i class="icon-phone"></i>
                         </a>

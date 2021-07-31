@@ -13,8 +13,9 @@ $this->params['header_type'] = 'light';
             <div class="col-12">
                 <nav>
                     <ol class="breadcrumb justify-content-center mb-0">
-                        <li class="breadcrumb-item"><a href="/"><?= Yii::t('app','home') ?></a></li>
-                        <li class="breadcrumb-item"><a href="<?= PRODUCT_AND_BRIEF ?>"><?= Yii::t('app','news')?></a></li>
+                        <li class="breadcrumb-item"><a href="/"><?= Yii::t('app', 'home') ?></a></li>
+                        <li class="breadcrumb-item"><a href="<?= PRODUCT_AND_BRIEF ?>"><?= Yii::t('app', 'news') ?></a>
+                        </li>
                         <li class="breadcrumb-item active" aria-current="page">
                             <?= $model->name ?>
                         </li>
@@ -31,7 +32,7 @@ $this->params['header_type'] = 'light';
                 <div class="post-item mb-0">
                     <div class="post__img">
                         <a href="#">
-                            <img src="<?= $model->avatar?>" alt="blog image">
+                            <img src="<?= $model->avatar ?>" alt="blog image">
                         </a>
                     </div><!-- /.post-img -->
                     <div class="post__content">
@@ -45,6 +46,11 @@ $this->params['header_type'] = 'light';
                         </h1>
                         <div class="post__desc">
                             <?= $model->content ?>
+                            <hr>
+                            <a href="/<?= PRODUCT_AND_BRIEF ?>" class="btn btn__secondary btn__bordered btn__icon">
+                                <span><?= Yii::t('app', 'product_and_brief') ?></span>
+                                <i class="icon-arrow-right"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -69,7 +75,7 @@ $this->params['header_type'] = 'light';
                     } ?>
                     <?php if ($nextPost) {
                         ?>
-                        <a href="<?= HelperFunction::Link(BLOG, $nextPost->slug,$nextPost->archive->slug) ?>"
+                        <a href="<?= HelperFunction::Link(BLOG, $nextPost->slug, $nextPost->archive->slug) ?>"
                            class="widget-nav__next d-flex flex-wrap">
                             <div class="widget-nav__img">
                                 <div class="widget-nav__overlay"></div>

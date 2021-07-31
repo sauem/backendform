@@ -66,8 +66,7 @@ $this->title = 'Products and brief';
                         <p class="heading__desc">
                             <strong><?= Yii::t('app', 'address') ?> :
                                 <?= HelperFunction::setting('address_1', true) ?>
-                                <br>
-                                <?= HelperFunction::setting('address_2', true) ?>
+
                             </strong>
                         </p>
 
