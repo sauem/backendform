@@ -43,7 +43,7 @@ $this->params['header_type'] = 'light';
                         <p class="contact-info__desc">
                             <strong><?= Yii::t('app', 'address') ?> :
                                 <?= HelperFunction::setting('address_1', true) ?>
-                               
+
                             </strong>
                         </p>
                         <p class="contact-info__desc">

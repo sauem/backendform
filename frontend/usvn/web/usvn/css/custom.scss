@@ -75,6 +75,17 @@
   -webkit-box-orient: vertical;
 }
 
+.post-item {
+  .post__img {
+    max-height: 200px;
+    height: 200px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
 .gallery {
   .gallery-item {
     width: 100%;
