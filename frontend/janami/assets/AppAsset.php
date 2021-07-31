@@ -32,7 +32,7 @@ class AppAsset extends AssetBundle
 //         '/css/silk-theme.css',
 //         '/css/gold-theme.css',
         '/css/responsive.css',
-        '/css/custom.css?v=1.8',
+        '/css/custom.css?v=2.0',
     ];
     public $js = [
         '/js/jquery-3.4.1.min.js',
@@ -63,7 +63,7 @@ class AppAsset extends AssetBundle
         '/js/jquery.datetimepicker.full.js',
         '/js/jquery.validate.min.js',
         '/js/custom.js',
-        '/js/site.js?v=1.2',
+        '/js/site.js?v=1.7',
         ['/js/action.js', 'type' => 'text/babel'],
         ['/js/cart.js', 'type' => 'text/babel']
     ];

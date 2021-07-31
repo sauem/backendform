@@ -194,6 +194,17 @@ nav a {
   background-blend-mode: overlay; }
 
 @media (max-width: 467px) {
+  #banner-bottom {
+    margin-bottom: 0 !important;
+    padding-left: 0 !important; }
+    #banner-bottom .banner-img {
+      overflow: hidden;
+      max-height: 240px;
+      object-fit: cover; }
+
+  #blog-1 {
+    padding-top: 0; }
+
   .img-absolute img {
     position: relative !important;
     width: 100% !important;
