@@ -107,4 +107,12 @@
     object-fit: cover;
     overflow: hidden; }
 
+@media (max-width: 467px) {
+  .video__btn-wrapper {
+    position: absolute;
+    left: 130px;
+    border: 2px solid #ccc;
+    border-radius: 15px;
+    overflow: hidden; } }
+
 /*# sourceMappingURL=custom.css.map */
