@@ -63,7 +63,7 @@ if ($menu) {
                     <li class="nav__item language has-dropdown">
                         <a href="#" data-toggle="dropdown" class="dropdown-toggle nav__item-link">
                             <img src="/usvn/images/flags/<?= HelperFunction::Language('vi-VN') ? 'vi.svg' : 'america.svg' ?>"/>
-                            <span class="ml-1"></span><?= HelperFunction::Language('vi-VN') ? 'VI' : 'EN' ?> </a>
+                            <span class="ml-1"></span><?= HelperFunction::Language('vi-VN') ? 'VI' : 'US' ?> </a>
                         <ul class="dropdown-menu">
                             <li class="nav__item">
                                 <a onclick="switchLanguage('<?= LANG_VI ?>')" href="javascript:void(0)"
@@ -73,14 +73,14 @@ if ($menu) {
                             <li class="nav__item">
                                 <a href="javascript:void(0)" onclick="switchLanguage('<?= LANG_EN ?>')"
                                    class="nav__item-link">
-                                    <img width="24" src="/usvn/images/flags/america.svg"/> America</a>
+                                    <img width="24" src="/usvn/images/flags/america.svg"/> English</a>
                             </li><!-- /.nav-item -->
                         </ul><!-- /.dropdown-menu -->
                     </li>
                     <li>
                         <a href="tel: <?= HelperFunction::setting('hotline_1') ?>"
-                           class="action__btn">
-                            <i class="icon-phone"></i><span><?= HelperFunction::setting('hotline_1', false) ?></span>
+                           class="action__btn ml-4 ml-md-0">
+                            <i class="icon-phone"></i> <span><?= HelperFunction::setting('hotline_1', false) ?></span>
                         </a>
                     </li>
                 </ul>
