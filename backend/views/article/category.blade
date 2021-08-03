@@ -96,7 +96,7 @@ $view->title = 'Danh mục sản phẩm';
                     }
                 });
                 const {pagination, data} = await Archives.fetch(
-                    Object.assign({page, type: ARCHIVE_TYPE_BLOG}, obj)
+                    Object.assign({page, 'per-page': 20, type: ARCHIVE_TYPE_BLOG}, obj)
                 );
                 setState({
                     ...state,
