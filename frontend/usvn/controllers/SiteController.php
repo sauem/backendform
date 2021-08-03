@@ -50,6 +50,8 @@ class SiteController extends BaseController
         ]);
         $categories = ArchivesSearch::findAll([
             'active' => Archives::STATUS_ACTIVE,
+            'show_home' => 1,
+            'type' => 'product',
             'language' => HelperFunction::getLanguage()
         ]);
         $articles = Articles::find()
