@@ -15,6 +15,8 @@ class ArchivesSearch extends Archives
     /**
      * {@inheritdoc}
      */
+    public $show_home;
+
     public function rules()
     {
         return [
@@ -66,7 +68,7 @@ class ArchivesSearch extends Archives
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
             'parent_id' => $this->parent_id,
-           // 'show_home' => $this->show_home,
+            'show_home' => $this->show_home,
             'banner_id' => $this->banner_id,
             'sub_text' => $this->sub_text,
         ]);
