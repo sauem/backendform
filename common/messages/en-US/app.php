@@ -66,5 +66,6 @@ return [
     'remote_support_txt' => 'Usvn hotline team is ready to serve 24/7',
     'contact_txt' => 'Leave a message for more information',
     'service_route' => 'Service Routes',
+    'order' => 'Order',
 
 ];

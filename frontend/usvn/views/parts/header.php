@@ -19,14 +19,14 @@ if ($menu) {
                 <img width="100" src="<?= HelperFunction::getLogo('header') ?>" class="logo-light" alt="logo">
                 <img width="100" src="<?= HelperFunction::getLogo('header') ?>" class="logo-dark" alt="logo">
             </a>
-            <div class="video__btn-wrapper ml-2">
-                <a class="video__btn video__btn-white popup-video"
-                   href="/usvn/images/logo-clip.mp4">
-                    <div class="video__player">
-                        <i class="fa fa-play"></i>
-                    </div>
-                </a>
-            </div>
+<!--            <div class="video__btn-wrapper ml-2">-->
+<!--                <a class="video__btn video__btn-white popup-video"-->
+<!--                   href="/usvn/images/logo-clip.mp4">-->
+<!--                    <div class="video__player">-->
+<!--                        <i class="fa fa-play"></i>-->
+<!--                    </div>-->
+<!--                </a>-->
+<!--            </div>-->
             <button class="navbar-toggler" type="button">
                 <span class="menu-lines"><span></span></span>
             </button>
@@ -63,7 +63,7 @@ if ($menu) {
                     <li>
                         <a href="/<?= PRODUCT_AND_BRIEF ?>"
                            class="btn-action ml-md-0">
-                            Đặt hàng
+                            <?= Yii::t('app', 'order') ?>
                         </a>
                     </li>
                     <li class="nav__item language has-dropdown">

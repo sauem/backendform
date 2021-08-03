@@ -120,7 +120,11 @@ Yii::$app->params['footer_type'] = 'light';
                     </a>
                 </div><!-- /.cta__content -->
             </div><!-- /.cta__item -->
-            <div class="or-seperator">or</div>
+            <a class="popup-video" href="/usvn/images/logo-clip.mp4">
+                <div class="or-seperator">
+                    <i class="fa fa-play"></i>
+                </div>
+            </a>
             <div class="cta__item w-100 d-flex justify-content-center align-items-center">
                 <div class="cta__content text-center">
                     <h4 class="cta__title"><?= Yii::t('app', 'contact') ?></h4>

@@ -245,16 +245,18 @@ class SiteController extends BaseController
 
     public function actionProductAndBrief()
     {
-        $searchModel = new ProductsSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams, [
+
+        $contactForm = new Contact();
+        $categories = ArchivesSearch::findAll([
+            'active' => Archives::STATUS_ACTIVE,
+            'show_home' => 1,
+            'type' => 'product',
             'language' => HelperFunction::getLanguage()
         ]);
-        $contactForm = new Contact();
 
         return $this->render('product-and-brief', [
-            'searchModel' => $searchModel,
             'contactForm' => $contactForm,
-            'dataProvider' => $dataProvider
+            'categories' => $categories
         ]);
     }
 

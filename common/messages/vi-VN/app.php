@@ -66,5 +66,5 @@ return [
     'remote_support_txt' => 'Team hotline usvn sẵn sàng phục vụ 24/7',
     'contact_txt' => 'Để lại thông tin để được tư vấn rõ hơn',
     'service_route' => 'Tuyến dịch vụ',
-
+    'order' => 'Đặt hàng',
 ];

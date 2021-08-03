@@ -1,6 +1,7 @@
 <?php
 
 use yii\widgets\ListView;
+use common\helper\HelperFunction;
 
 $this->title = 'Products and brief';
 
@@ -10,57 +11,56 @@ $this->title = 'Products and brief';
     'title' => $this->title,
     'description' => ''
 ]) ?>
-<section class="portfolio-grid">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12 col-md-12 col-lg-6">
-                <div class="heading mb-50">
-                    <div class="d-flex align-items-center">
-                        <div class="divider divider-primary mr-30"></div>
-                        <h2 class="heading__subtitle mb-0">
-                            <?= Yii::t('app', 'products') ?>
-                        </h2>
-                    </div>
-                    <h3 class="heading__title mb-0">
-                        <?= Yii::t('app', 'product_items') ?>
-                    </h3>
-                </div>
-            </div><!-- /.col-lg-6 -->
-        </div>
+<?php if (isset($categories) && !empty($categories)) { ?>
 
-        <div id="filtered-items-wrap">
+    <section class="blog-grid pb-50">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-6 offset-lg-3">
+                    <div class="heading text-center">
+                        <h3 class="heading__title"><?= Yii::t('app', 'products') ?></h3>
+                    </div><!-- /.heading -->
+                </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
+            <div class="row">
+                <!-- Blog Item #1 -->
+                <?php foreach ($categories as $categorie) {
+                    $slug = HelperFunction::Link(PRODUCT, $categorie->slug);
+                    ?>
+                    <div class="col-sm-12 col-md-3 col-lg-3">
+                        <div class="post-item product-item">
+                            <div class="post__img">
+                                <a href="<?= $slug ?>">
+                                    <img src="<?= $categorie->avatar ?>" alt="<?= $categorie->name ?>">
+                                </a>
+                            </div><!-- /.blog-img -->
+                            <div class="post__content">
+                                <h4 class="post__title">
+                                    <a href="<?= $slug ?>"><?= $categorie->name ?></a>
+                                </h4>
+                                <p class="post__desc text-3">
+                                    <?= $categorie->description ?>
+                                </p>
+                            </div><!-- /.blog-content -->
+                        </div><!-- /.post-item -->
+                    </div><!-- /.col-lg-4 -->
+                <?php } ?>
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+    </section>
+<?php } ?>
 
-            <?= ListView::widget([
-                'dataProvider' => $dataProvider,
-                'itemView' => '../parts/_item_product',
-                'emptyText' => 'No results.',
-                'options' => [
-                    'class' => 'row'
-                ],
-                'itemOptions' => [
-                    'class' => 'col-sm-6 col-md-4',
-                ],
-                'summary' => false,
-                'pager' => [
-                    'firstPageLabel' => false,
-                    'lastPageLabel' => false,
-                    'prevPageLabel' => '<i class="icon-arrow-left"></i>',
-                    'nextPageLabel' => '<i class="icon-arrow-right"></i>',
-                    'maxButtonCount' => 3,
-                    'disabledPageCssClass' => 'd-none',
-                    'activePageCssClass' => 'current'
-                ],
-            ])
-            ?>
-        </div>
-    </div>
-</section>
+
 <section class="banner-layout1 pt-90 pb-90 bg-overlay bg-overlay-primary">
     <div class="bg-img"><img src="/usvn/images/banners/5.jpg" alt="background"></div>
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12 col-md-12 col-lg-12 col-xl-6 col-inner d-flex flex-column justify-content-between">
                 <div>
+                    <video width="100%" height="auto" controls>
+                        <source src="/usvn/images/logo-clip.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
                     <div class="heading heading-light">
                         <h3 class="heading__title mb-30"><?= Yii::t('app', 'usvn_info') ?></h3>
                         <p class="heading__desc">
