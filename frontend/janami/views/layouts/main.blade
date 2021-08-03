@@ -44,6 +44,14 @@ AppAsset::register($view);
 
 
 
+
+
+
+
+
+
+
+
     </script>
     <?php $view->registerCsrfMetaTags() ?>
     <title><?= Html::encode($view->title) ?></title>
@@ -87,5 +95,16 @@ AppAsset::register($view);
 @yield('js_end')
 </body>
 </html>
+<script>
+    $('.search-head img').click(function () {
+        if (!$(this).prev().hasClass('is_show')) {
+            $(this).prev().addClass('is_show');
+            $(this).addClass('is_show');
+        } else {
+            $(this).prev().removeClass('is_show');
+            $(this).removeClass('is_show');
+        }
+    });
+</script>
 <?php $view->endPage() ?>
 

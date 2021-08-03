@@ -14,9 +14,7 @@ Yii::$app->params['footer_type'] = 'light';
 @section("content")
     <!-- Services Section -->
 
-    <?= $view->render('../parts/slider.blade', [
-        'sliders' => $sliders
-    ]) ?>
+    <?= $view->render('../parts/slider.blade') ?>
 
 
     <section id="services-18" class="bg-color-01 bg-img03 wide-30 services-section division">
@@ -222,7 +220,8 @@ Yii::$app->params['footer_type'] = 'light';
                 try {
                     const response = await getArchive({
                         ...params,
-                        type: 'product'
+                        type: 'product',
+                        with: 'products'
                     });
                     setCats(response.data);
                     console.log(response.data);
@@ -252,7 +251,7 @@ Yii::$app->params['footer_type'] = 'light';
                                                 {item.icon && (
                                                     <img width={24} height={24} src={`/img/icons/${item.icon}.svg`}/>)}
                                                 <h2 className={`title-cat mt-3 ${item.icon}`}><a
-                                                    href={`/product/${item.slug}`}>{item.name}</a></h2>
+                                                    href={`/shop/${item.slug}`}>{item.name}</a></h2>
                                                 <p>{item.description}</p>
                                                 <ul className={`list-item ${item % 2 !== 0 && 'column-2'}`}>
                                                     {item.products && item.products.map((product, key) => (

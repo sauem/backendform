@@ -14,4 +14,5 @@ define('SEARCH', 'search');
 define('FAQS', 'faqs');
 define('CART', 'cart');
 define('CHECKOUT', 'checkout');
+define('CATEGORY', 'category');
 

@@ -9,9 +9,11 @@ return [
     CART => 'site/cart',
     CHECKOUT => 'site/checkout',
 
+
     // page
-    PRODUCT . '/<archive:[0-9a-zA-Z\-]+>' => 'site/archive',
     ARTICLE . '/<archive:[0-9a-zA-Z\-]+>' => 'site/archive',
     ARTICLE . '/<archive:[0-9a-zA-Z\-]+>/<slug:[0-9a-zA-Z\-]+>' => 'site/detail',
-    SHOP . '/<archive:[0-9a-zA-Z\-]+>/<slug:[0-9a-zA-Z\-]+>' => 'site/detail'
+    SHOP . '/<archive:[0-9a-zA-Z\-]+>' => 'site/archive',
+    SHOP . '/<archive:[0-9a-zA-Z\-]+>/<slug:[0-9a-zA-Z\-]+>' => 'site/detail',
+
 ];

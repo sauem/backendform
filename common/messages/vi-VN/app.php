@@ -62,4 +62,9 @@ return [
     'customer_say' => 'Khách hàng nói gì về MK Viêt Nam?',
     'more_news' => 'Xem thêm',
     'gallery' => 'Thư viện ảnh',
+    'remote_support' => 'Hỗ trợ từ xa',
+    'remote_support_txt' => 'Team hotline usvn sẵn sàng phục vụ 24/7',
+    'contact_txt' => 'Để lại thông tin để được tư vấn rõ hơn',
+    'service_route' => 'Tuyến dịch vụ',
+
 ];

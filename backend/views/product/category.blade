@@ -16,7 +16,10 @@ $view->title = 'Danh mục sản phẩm';
                 searchValue: ''
             }
             const [state, setState] = useState(initialState);
-            const [defaultFileList, setDefaultFileList] = useState([]);
+            const [defaultFileList, setDefaultFileList] = useState({
+                avatar: [],
+                banner: []
+            });
             const [progress, setProgress] = useState(0);
             const [form] = Form.useForm();
             const onSubmit = async (data) => {
@@ -31,15 +34,27 @@ $view->title = 'Danh mục sản phẩm';
             }
             const onUpdate = async (archive) => {
                 form.setFieldsValue(archive);
-                archive.avatar ? setDefaultFileList([{
-                    uid: archive.media.id,
-                    name: archive.name,
-                    status: 'done',
-                    url: archive.avatar
-                }]) : setDefaultFileList([]);
+                archive.avatar && setDefaultFileList({
+                    ...defaultFileList,
+                    avatar: [{
+                        uid: archive.media.id,
+                        name: archive.name,
+                        status: 'done',
+                        url: archive.avatar
+                    }],
+                });
+                archive.banner && setDefaultFileList({
+                    ...defaultFileList,
+                    banner: [{
+                        uid: archive.banner_id,
+                        name: `banner_${archive.name}`,
+                        status: 'done',
+                        url: archive.banner
+                    }]
+                })
 
             }
-            const onUpload = options => {
+            const onUpload = (options, filed = 'media_id') => {
                 const {onSuccess, onError, file, onProgress} = options;
                 setState({
                     ...state,
@@ -49,8 +64,8 @@ $view->title = 'Danh mục sản phẩm';
                 });
                 onUploadMedia(file, data => {
                     form.setFieldsValue({
-                        media_id: data.id
-                    })
+                        [filed]: data.id
+                    });
                     onSuccess();
                 }, onError, (event) => {
                     const percent = Math.floor((event.loaded / event.total) * 100);
@@ -61,8 +76,12 @@ $view->title = 'Danh mục sản phẩm';
                     onProgress({percent: (event.loaded / event.total) * 100});
                 });
             }
-            const handleOnChange = ({file, fileList, event}) => {
-                setDefaultFileList(fileList);
+            const handleOnChange = (listName, {file, fileList, event}) => {
+
+                setDefaultFileList({
+                    ...defaultFileList,
+                    [listName]: fileList
+                });
             };
             const handleSlug = evt => {
                 form.setFieldsValue({
@@ -75,9 +94,7 @@ $view->title = 'Danh mục sản phẩm';
             const updateState = async (obj = {}, page = 1) => {
                 setState({
                     ...state,
-                    ...{
-                        loading: true
-                    }
+                    loading: true
                 });
                 const {pagination, data} = await Archives.fetch(
                     {
@@ -88,11 +105,10 @@ $view->title = 'Danh mục sản phẩm';
                 );
                 setState({
                     ...state,
-                    ...Object.assign({
-                        categories: data,
-                        pagination: pagination,
-                        loading: false
-                    }, obj)
+                    ...obj,
+                    categories: data,
+                    pagination: pagination,
+                    loading: false,
                 });
             }
             const onDelete = async (id) => {
@@ -124,6 +140,7 @@ $view->title = 'Danh mục sản phẩm';
                                 <Form.Item name={'type'} initialValue={ARCHIVE_TYPE_PRODUCT} hidden><Input/></Form.Item>
                                 <Form.Item name={'id'} hidden><Input/></Form.Item>
                                 <Form.Item name={'media_id'} hidden><Input/></Form.Item>
+                                <Form.Item name={'banner_id'} hidden><Input/></Form.Item>
                                 <Form.Item
                                     name={'name'}
                                     label={`Tên danh mục`}
@@ -152,31 +169,37 @@ $view->title = 'Danh mục sản phẩm';
                                         }) : null}
                                     </Select>
                                 </Form.Item>
-                                <Form.Item
-                                    name={'icon'}
-                                    label={`Icon`}
-                                >
-                                    <Select>
-                                        {janamiIcons && janamiIcons.map(item => {
-                                            return (
-                                                <Select.Option value={item.key}>
-                                                    <img width="24" src={item.icon}/>
-                                                    <span className="ml-1"> {item.title}</span>
-                                                </Select.Option>
-                                            )
-                                        })}
-                                    </Select>
-                                </Form.Item>
-                                <Form.Item
-                                    initialValue={0}
-                                    name={'show_home'}
-                                    label={`Hiển thị trang chủ`}
-                                >
-                                    <Select>
-                                        <Select.Option value={0}>Ẩn</Select.Option>
-                                        <Select.Option value={1}>Hiển thị</Select.Option>
-                                    </Select>
-                                </Form.Item>
+                                <Row gutter={[8, 0]}>
+                                    <Col md={12}>
+                                        <Form.Item
+                                            name={'icon'}
+                                            label={`Icon`}
+                                        >
+                                            <Select>
+                                                {janamiIcons && janamiIcons.map(item => {
+                                                    return (
+                                                        <Select.Option value={item.key}>
+                                                            <img width="24" src={item.icon}/>
+                                                            <span className="ml-1"> {item.title}</span>
+                                                        </Select.Option>
+                                                    )
+                                                })}
+                                            </Select>
+                                        </Form.Item>
+                                    </Col>
+                                    <Col md={12}>
+                                        <Form.Item
+                                            initialValue={0}
+                                            name={'show_home'}
+                                            label={`Hiển thị trang chủ`}
+                                        >
+                                            <Select>
+                                                <Select.Option value={0}>Ẩn</Select.Option>
+                                                <Select.Option value={1}>Hiển thị</Select.Option>
+                                            </Select>
+                                        </Form.Item>
+                                    </Col>
+                                </Row>
                                 <Row gutter={[8, 0]}>
                                     <Col md={12}>
                                         <Form.Item
@@ -206,25 +229,66 @@ $view->title = 'Danh mục sản phẩm';
                                     </Col>
                                 </Row>
                                 <Form.Item
+                                    initialValue={`layout_1`}
+                                    name={'layout'}
+                                    label={`Giao diện`}
+                                >
+                                    <Select>
+                                        <Select.Option value={'layout_1'}>1 cột</Select.Option>
+                                        <Select.Option value={'layout_2'}>2 cột</Select.Option>
+                                    </Select>
+                                </Form.Item>
+                                <Form.Item
+                                    name={'sub_text'}
+                                    label={`Tiêu đề phụ`}
+                                >
+                                    <Input/>
+                                </Form.Item>
+                                <Form.Item
+                                    name={'sub_text'}
+                                    label={`Tiêu đề mô tả`}
+                                >
+                                    <Input/>
+                                </Form.Item>
+                                <Form.Item
                                     name={'description'}
                                     label={`Ghi chú`}
                                 >
                                     <Input.TextArea/>
                                 </Form.Item>
-                                <Form.Item>
+                                <Form.Item label="Ảnh đại diện">
 
                                     <Upload
                                         accept="image/*"
-                                        customRequest={onUpload}
-                                        onChange={handleOnChange}
+                                        customRequest={opts => onUpload(opts, 'media_id')}
+                                        onChange={opts => handleOnChange('avatar', opts)}
                                         onRemove={(file) =>
-                                            onRemoveMedia(file.uid)
+                                            onRemoveMedia(form.getFieldValue('media_id'))
                                         }
                                         listType="picture"
                                         className="avatar-uploader single"
-                                        fileList={defaultFileList}
+                                        fileList={defaultFileList.avatar}
                                     >
-                                        {defaultFileList.length >= 1 ? null :
+                                        {defaultFileList.avatar.length >= 1 ? null :
+                                            <Button><i className="icon-upload mr-2"/> Chọn ảnh</Button>}
+                                    </Upload>
+                                    {progress > 0 ? <Progress percent={progress}/> : null}
+                                </Form.Item>
+                                <Form.Item label="Ảnh banner">
+
+                                    <Upload
+                                        accept="image/*"
+                                        customRequest={opts => onUpload(opts, 'banner_id')}
+                                        onChange={opts => handleOnChange('banner', opts)}
+                                        onRemove={(file) => {
+                                            onRemoveMedia(form.getFieldValue('banner_id'))
+                                        }
+                                        }
+                                        listType="picture"
+                                        className="avatar-uploader single"
+                                        fileList={defaultFileList.banner}
+                                    >
+                                        {defaultFileList.banner.length >= 1 ? null :
                                             <Button><i className="icon-upload mr-2"/> Chọn ảnh</Button>}
                                     </Upload>
                                     {progress > 0 ? <Progress percent={progress}/> : null}

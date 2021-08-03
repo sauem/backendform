@@ -210,4 +210,9 @@ class HelperFunction
         }
         return $group;
     }
+
+    static function getParams($key, $lang = '')
+    {
+        return ArrayHelper::getValue(\Yii::$app->params, $key . $lang);
+    }
 }

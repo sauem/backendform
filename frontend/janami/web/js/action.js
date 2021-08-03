@@ -32,11 +32,11 @@ const getArchive = async (params = {}, link = '/archive-filter') => {
     try {
         const res = await AJAX.get(link, {
             params: {
-                ...params,
                 sort: '-created_at',
                 show_home: 1,
-                expand: 'avatar,products,',
-                "per-page": 6
+                expand: `avatar,banner,${params.with ? params.with : null}`,
+                "per-page": 6,
+                ...params,
             }
         });
 

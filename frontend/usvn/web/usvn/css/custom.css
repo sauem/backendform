@@ -107,6 +107,35 @@
     object-fit: cover;
     overflow: hidden; }
 
+.btn-action {
+  border: solid 1px #0e2b3d;
+  padding: 5px;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 5px; }
+
+.blog-grid {
+  padding-top: 50px; }
+
+.post-item {
+  border-radius: 20px; }
+  .post-item.product-item .post__content {
+    padding: 0; }
+    .post-item.product-item .post__content .post__title {
+      margin-bottom: 10px; }
+
+.banner-layout5 {
+  background-color: rgba(14, 43, 61, 0.5); }
+  .banner-layout5 .counters-light {
+    margin-bottom: 200px;
+    margin-top: 50px; }
+  .banner-layout5 .txt-18 {
+    font-size: 18px;
+    text-align: center; }
+
+.footer .footer-primary {
+  padding-top: 50px; }
+
 @media (max-width: 467px) {
   .video__btn-wrapper {
     position: absolute;

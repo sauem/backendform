@@ -11,7 +11,7 @@ if ($menu) {
 }
 ?>
 
-<header class="header header-<?= isset($this->params['header_type']) ? $this->params['header_type'] : 'transparent' ?>">
+<header class="header">
     <nav class="navbar navbar-expand-lg sticky-navbar">
         <div class="container">
 
@@ -60,6 +60,12 @@ if ($menu) {
                     <?php } ?>
                 </ul>
                 <ul class="navbar-actions list-unstyled mb-0 d-flex align-items-center">
+                    <li>
+                        <a href="/<?= PRODUCT_AND_BRIEF ?>"
+                           class="btn-action ml-md-0">
+                            Đặt hàng
+                        </a>
+                    </li>
                     <li class="nav__item language has-dropdown">
                         <a href="#" data-toggle="dropdown" class="dropdown-toggle nav__item-link">
                             <img src="/usvn/images/flags/<?= HelperFunction::Language('vi-VN') ? 'vi.svg' : 'america.svg' ?>"/>
@@ -77,12 +83,7 @@ if ($menu) {
                             </li><!-- /.nav-item -->
                         </ul><!-- /.dropdown-menu -->
                     </li>
-                    <li>
-                        <a href="tel: <?= HelperFunction::setting('hotline_1') ?>"
-                           class="action__btn ml-4 ml-md-0">
-                            <i class="icon-phone"></i> <span><?= HelperFunction::setting('hotline_1', false) ?></span>
-                        </a>
-                    </li>
+
                 </ul>
             </div><!-- /.navbar-collapse -->
             <!-- /.navbar-actions -->

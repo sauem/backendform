@@ -62,4 +62,9 @@ return [
     'customer_say' => 'What Our Clients Say?',
     'more_news' => 'More news',
     'gallery' => 'Galleries',
+    'remote_support' => 'Remote support',
+    'remote_support_txt' => 'Usvn hotline team is ready to serve 24/7',
+    'contact_txt' => 'Leave a message for more information',
+    'service_route' => 'Service Routes',
+
 ];

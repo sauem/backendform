@@ -38,11 +38,11 @@ class SiteController extends BaseController
      */
     public function actionIndex()
     {
-        $sliders = Banners::findAll([
-            'active' => Banners::BANNER_ACTIVE,
-            'position' => 'home_slider',
-            'language' => HelperFunction::getLanguage()
-        ]);
+//        $sliders = Banners::findAll([
+//            'active' => Banners::BANNER_ACTIVE,
+//            'position' => 'home_slider',
+//            'language' => HelperFunction::getLanguage()
+//        ]);
         $categories = ArchivesSearch::findAll([
             'active' => Archives::STATUS_ACTIVE,
             'language' => HelperFunction::getLanguage()
@@ -69,7 +69,7 @@ class SiteController extends BaseController
         ]);
         //HelperFunction::printf($logos);
         return $this->render('index.blade', [
-            'sliders' => $sliders,
+            //'sliders' => $sliders,
             'categories' => $categories,
             'posts' => $articles,
             'products' => $products,

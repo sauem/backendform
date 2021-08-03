@@ -14,17 +14,12 @@ if ($menu) {
     <div class="footer-primary">
         <div class="container">
             <div class="row">
-                <div class="col-sm-12 col-md-12 col-lg-3 footer-widget footer-widget-about">
-                    <div class="footer-widget__content">
-                        <img width="150" src="<?= HelperFunction::getLogo('footer') ?>" alt="logo" class="mb-30">
-                    </div><!-- /.footer-widget__content -->
-                    <p><?= HelperFunction::setting('site_description', true) ?></p>
-                </div>
+
                 <?php if (!empty($menuItems)) {
                     foreach ($menuItems as $item) {
                         $childrens = ArrayHelper::getValue($item, 'children', []);
                         ?>
-                        <div class="col-sm-6 col-md-2 footer-widget footer-widget-nav">
+                        <div class="col-sm-6 col-md-3 footer-widget footer-widget-nav">
                             <h6 class="footer-widget__title"><?= $item['title'] ?></h6>
                             <div class="footer-widget__content">
                                 <nav>
@@ -45,26 +40,20 @@ if ($menu) {
                         <?php
                     }
                 } ?>
-                <div class="col-sm-6 col-md-6 col-lg-3 footer-widget">
-                    <h6 class="footer-widget__title">Facebook Fanpage</h6>
-                    <div class="footer-widget__content">
-                        <?= HelperFunction::setting('fanpage_script')?>
-                        <ul class="social-icons text-center list-unstyled mb-0 mr-30">
-                            <li><a href="<?= HelperFunction::setting('facebook')?>"><i class="fab fa-facebook-f"></i></a></li>
-                            <li><a href="<?= HelperFunction::setting('instagram')?>"><i class="fab fa-instagram"></i></a></li>
-                            <li><a href="<?= HelperFunction::setting('twitter')?>"><i class="fab fa-twitter"></i></a></li>
-                        </ul>
-                    </div><!-- /.footer-widget__content -->
-                </div><!-- /.col-lg-3 -->
             </div><!-- /.row -->
         </div><!-- /.container -->
     </div><!-- /.footer-primary -->
     <div class="footer-secondary">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-sm-12 col-md-5 col-lg-5">
+                <div class="col-sm-12 col-md-5 d-md-flex col-lg-5">
                     <div class="footer__copyrights">
-                        <span class="fz-14">&copy; <?= Yii::t('app', 'company_name') ?></span>
+                        <img width="100" src="<?= HelperFunction::getLogo('footer') ?>">
+                    </div>
+                    <div class="address ml-4">
+                        <p class="mb-0"><b><?= HelperFunction::setting('site_name', true) ?></b></p>
+                        <p class="mb-0"><?= Yii::t('app', 'address') ?>: <?= HelperFunction::setting('address_1', true) ?></p>
+                        <p class="mb-0"><?= Yii::t('app', 'email') ?>: <?= HelperFunction::setting('email') ?></p>
                     </div>
                 </div><!-- /.col-lg-6 -->
                 <div class="col-sm-12 col-md-2 col-lg-2 text-center">
