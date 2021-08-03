@@ -15,7 +15,6 @@ class ArchivesSearch extends Archives
     /**
      * {@inheritdoc}
      */
-    public $show_home;
 
     public function rules()
     {
@@ -62,16 +61,15 @@ class ArchivesSearch extends Archives
             $query->where($filter);
         }
         // grid filtering conditions
-        $query->andFilterWhere([
-            'id' => $this->id,
-            'active' => $this->active,
-            'created_at' => $this->created_at,
-            'updated_at' => $this->updated_at,
-            'parent_id' => $this->parent_id,
-            'show_home' => $this->show_home,
-            'banner_id' => $this->banner_id,
-            'sub_text' => $this->sub_text,
-        ]);
+//        $query->andFilterWhere([
+//            'id' => $this->id,
+//            'active' => $this->active,
+//            'created_at' => $this->created_at,
+//            'updated_at' => $this->updated_at,
+//            'parent_id' => $this->parent_id,
+//            'banner_id' => $this->banner_id,
+//            'sub_text' => $this->sub_text,
+//        ]);
 
         $query->andFilterWhere(['like', 'name', $this->name])
             ->andFilterWhere(['like', 'slug', $this->slug])
