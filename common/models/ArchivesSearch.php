@@ -57,19 +57,19 @@ class ArchivesSearch extends Archives
             // $query->where('0=1');
             return $dataProvider;
         }
-        if ($filter) {
+        if (!empty($filter)) {
             $query->where($filter);
         }
         // grid filtering conditions
-//        $query->andFilterWhere([
-//            'id' => $this->id,
-//            'active' => $this->active,
-//            'created_at' => $this->created_at,
-//            'updated_at' => $this->updated_at,
-//            'parent_id' => $this->parent_id,
-//            'banner_id' => $this->banner_id,
-//            'sub_text' => $this->sub_text,
-//        ]);
+        $query->andFilterWhere([
+            'id' => $this->id,
+            'active' => $this->active,
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at,
+            'parent_id' => $this->parent_id,
+            'banner_id' => $this->banner_id,
+            'sub_text' => $this->sub_text,
+        ]);
 
         $query->andFilterWhere(['like', 'name', $this->name])
             ->andFilterWhere(['like', 'slug', $this->slug])
