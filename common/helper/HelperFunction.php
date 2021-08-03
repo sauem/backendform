@@ -148,7 +148,6 @@ class HelperFunction
                 case 'article':
                 case 'product':
                     return "/" . $slug['type'] . '/' . ($archive ? "$archive/" : '') . $slug['slug'];
-                    break;
             }
         }
         return "/$type/" . ($archive ? $archive . '/' : '') . $slug;

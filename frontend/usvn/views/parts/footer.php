@@ -46,9 +46,9 @@ if ($menu) {
     <div class="footer-secondary">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-sm-12 col-md-5 d-md-flex col-lg-5">
+                <div class="col-sm-12 col-md-10 d-md-flex">
                     <div class="footer__copyrights">
-                        <img width="100" src="<?= HelperFunction::getLogo('footer') ?>">
+                        <img width="150px" src="<?= HelperFunction::getLogo('footer') ?>">
                     </div>
                     <div class="address ml-4">
                         <p class="mb-0"><b><?= HelperFunction::setting('site_name', true) ?></b></p>

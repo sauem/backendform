@@ -15,7 +15,7 @@ Yii::$app->params['footer_type'] = 'light';
     'sliders' => $sliders
 ]) ?>
 
-<?php if (isset($products) && !empty($products)) { ?>
+<?php if (isset($categories) && !empty($categories)) { ?>
 
     <section class="blog-grid pb-50">
         <div class="container">
@@ -28,22 +28,22 @@ Yii::$app->params['footer_type'] = 'light';
             </div><!-- /.row -->
             <div class="row">
                 <!-- Blog Item #1 -->
-                <?php foreach ($products as $product) {
-                    $slug = HelperFunction::Link(PRODUCT, $product->slug, $product->defaultArchive->slug);
+                <?php foreach ($categories as $categorie) {
+                    $slug = HelperFunction::Link(PRODUCT, $categorie->slug);
                     ?>
                     <div class="col-sm-12 col-md-3 col-lg-3">
                         <div class="post-item product-item">
                             <div class="post__img">
                                 <a href="<?= $slug ?>">
-                                    <img src="<?= $product->avatar ?>" alt="<?= $product->name ?>">
+                                    <img src="<?= $categorie->avatar ?>" alt="<?= $categorie->name ?>">
                                 </a>
                             </div><!-- /.blog-img -->
                             <div class="post__content">
                                 <h4 class="post__title">
-                                    <a href="<?= $slug ?>"><?= $product->name ?></a>
+                                    <a href="<?= $slug ?>"><?= $categorie->name ?></a>
                                 </h4>
-                                <p class="post__desc">
-                                    <?= $product->excerpt ?>
+                                <p class="post__desc text-3">
+                                    <?= $categorie->description ?>
                                 </p>
                             </div><!-- /.blog-content -->
                         </div><!-- /.post-item -->

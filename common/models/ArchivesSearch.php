@@ -15,13 +15,11 @@ class ArchivesSearch extends Archives
     /**
      * {@inheritdoc}
      */
-    public $groupby;
-
     public function rules()
     {
         return [
-            [['id', 'active', 'created_at', 'updated_at'], 'integer'],
-            [['name', 'slug', 'description', 'type', 'language', 'groupby'], 'safe'],
+            [['id', 'active', 'created_at', 'updated_at', 'parent_id', 'show_home', 'banner_id'], 'integer'],
+            [['name', 'slug', 'description', 'language', 'type', 'icon', 'layout', 'sub_title', 'sub_text'], 'safe'],
         ];
     }
 
@@ -41,10 +39,9 @@ class ArchivesSearch extends Archives
      *
      * @return ActiveDataProvider
      */
-
     public function search($params, $filter = null)
     {
-        $query = Archives::find()->with('media');
+        $query = Archives::find();
 
         // add conditions that should always apply here
 
@@ -52,15 +49,15 @@ class ArchivesSearch extends Archives
             'query' => $query,
         ]);
 
-        $this->load($params, '');
+        $this->load($params);
 
         if (!$this->validate()) {
             // uncomment the following line if you do not want to return any records when validation fails
             // $query->where('0=1');
             return $dataProvider;
         }
-        if (!empty($filter)) {
-            $query->andWhere($filter);
+        if ($filter) {
+            $query->where($filter);
         }
         // grid filtering conditions
         $query->andFilterWhere([
@@ -68,6 +65,10 @@ class ArchivesSearch extends Archives
             'active' => $this->active,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
+            'parent_id' => $this->parent_id,
+            'show_home' => $this->show_home,
+            'banner_id' => $this->banner_id,
+            'sub_text' => $this->sub_text,
         ]);
 
         $query->andFilterWhere(['like', 'name', $this->name])

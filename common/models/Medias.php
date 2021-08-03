@@ -77,13 +77,10 @@ class Medias extends BaseModel
     static function saveObj($media_id, $obj_id, $type = Medias::ARCHIVE_TYPE, $path = null, $update = false)
     {
         try {
-            if ($media_id) {
-                $model = Medias::findOne($media_id);
-                $model->obj_id = $obj_id;
-                return $model->save();
+            $model = Medias::findOne($media_id);
+            if (!$model) {
+                $model = new Medias();
             }
-
-            $model = new Medias();
             $model->obj_id = $obj_id;
             $model->status = Medias::STATUS_USING;
             return $model->save();

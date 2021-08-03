@@ -77,12 +77,22 @@
 
 .post-item {
   .post__img {
-    max-height: 200px;
-    height: 200px;
+    max-height: 150px;
+    height: 150px;
     overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
+    a {
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: start;
+
+      img {
+        display: flex;
+        object-fit: cover;
+        object-position: top center;
+      }
+    }
   }
 }
 
@@ -138,8 +148,10 @@
   border-radius: 20px;
 
   &.product-item {
+    box-shadow: 0px 5px 83px 0px rgba(40, 40, 40, 0.12);
+
     .post__content {
-      padding: 0;
+      padding: 10px;
 
       .post__title {
         margin-bottom: 10px;
@@ -150,6 +162,7 @@
 
 .banner-layout5 {
   background-color: rgba(14, 43, 61, 0.5);
+
   .counters-light {
     margin-bottom: 200px;
     margin-top: 50px;
@@ -157,12 +170,72 @@
 
   .txt-18 {
     font-size: 18px;
-    text-align:center;
+    text-align: center;
   }
 }
-.footer .footer-primary{
-  padding-top:50px;
+
+.footer .footer-primary {
+  padding-top: 50px;
 }
+
+.page-title {
+  &.about {
+    padding-top: 0;
+    padding-bottom: 0;
+
+    .pagetitle__heading {
+      padding-top: 50px;
+    }
+
+    .about-tab {
+      background-color: rgba(0, 0, 0, 0.5);
+      margin-top: 40px;
+
+      .nav__link {
+        color: white;
+
+        &.active {
+          background-color: white;
+          color: #0e2b3d;
+          padding: 15px;
+
+          &:after {
+            bottom: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+.about-banner {
+  max-height: 300px;
+  height: 300px;
+  //overflow: hidden;
+  margin-bottom: 50px;
+  position: relative;
+
+  .banner-description {
+    width: 30%;
+    position: absolute;
+    right: 0;
+    color: white;
+    font-size: 18px;
+    padding: 30px;
+    bottom: -20%;
+    z-index: 10;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  img {
+    max-height: 300px;
+    display: flex;
+    object-fit: cover;
+    object-position: center center;
+  }
+}
+
 @media (max-width: 467px) {
 
   .video__btn-wrapper {

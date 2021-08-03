@@ -77,12 +77,18 @@
   -webkit-box-orient: vertical; }
 
 .post-item .post__img {
-  max-height: 200px;
-  height: 200px;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center; }
+  max-height: 150px;
+  height: 150px;
+  overflow: hidden; }
+  .post-item .post__img a {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: start; }
+    .post-item .post__img a img {
+      display: flex;
+      object-fit: cover;
+      object-position: top center; }
 
 .gallery .gallery-item {
   width: 100%;
@@ -119,10 +125,12 @@
 
 .post-item {
   border-radius: 20px; }
-  .post-item.product-item .post__content {
-    padding: 0; }
-    .post-item.product-item .post__content .post__title {
-      margin-bottom: 10px; }
+  .post-item.product-item {
+    box-shadow: 0px 5px 83px 0px rgba(40, 40, 40, 0.12); }
+    .post-item.product-item .post__content {
+      padding: 10px; }
+      .post-item.product-item .post__content .post__title {
+        margin-bottom: 10px; }
 
 .banner-layout5 {
   background-color: rgba(14, 43, 61, 0.5); }
@@ -135,6 +143,44 @@
 
 .footer .footer-primary {
   padding-top: 50px; }
+
+.page-title.about {
+  padding-top: 0;
+  padding-bottom: 0; }
+  .page-title.about .pagetitle__heading {
+    padding-top: 50px; }
+  .page-title.about .about-tab {
+    background-color: rgba(0, 0, 0, 0.5);
+    margin-top: 40px; }
+    .page-title.about .about-tab .nav__link {
+      color: white; }
+      .page-title.about .about-tab .nav__link.active {
+        background-color: white;
+        color: #0e2b3d;
+        padding: 15px; }
+        .page-title.about .about-tab .nav__link.active:after {
+          bottom: 100%; }
+
+.about-banner {
+  max-height: 300px;
+  height: 300px;
+  margin-bottom: 50px;
+  position: relative; }
+  .about-banner .banner-description {
+    width: 30%;
+    position: absolute;
+    right: 0;
+    color: white;
+    font-size: 18px;
+    padding: 30px;
+    bottom: -20%;
+    z-index: 10;
+    background-color: rgba(0, 0, 0, 0.5); }
+  .about-banner img {
+    max-height: 300px;
+    display: flex;
+    object-fit: cover;
+    object-position: center center; }
 
 @media (max-width: 467px) {
   .video__btn-wrapper {

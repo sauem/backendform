@@ -91,9 +91,29 @@ class SiteController extends BaseController
      *
      * @return mixed
      */
-    public function actionAbout()
+    public function actionAbout($slug = null)
     {
-        return $this->render('about');
+        $archive = Archives::findOne([
+            'slug' => ['ve-chung-toi'],
+            'language' => HelperFunction::getLanguage()
+        ]);
+
+        if (!$archive) {
+            throw new NotFoundHttpException('không có bài viết');
+        }
+
+        $abouts = Articles::findAll([
+            'archive_id' => $archive->id,
+            'language' => HelperFunction::getLanguage()
+        ]);
+        if ($slug) {
+            $model = Articles::findOne(['slug' => $slug, 'language' => HelperFunction::getLanguage()]);
+        }
+        return $this->render('about', [
+            'abouts' => $abouts,
+            'model' => $model ?? null,
+            'activeSlug' => $slug
+        ]);
     }
 
     /**
