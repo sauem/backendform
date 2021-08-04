@@ -14,10 +14,11 @@ class AppAsset extends AssetBundle
     public $css = [
         'https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700;800;900&amp;family=Roboto:wght@400;700&amp;display=swap',
         '/usvn/css/all.css',
+        'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css',
         '/usvn/css/libraries.css',
         '/usvn/css/style.css?v=1.1',
         '/usvn/css/magnific-popup.css',
-        '/usvn/css/custom.css?v=1.6',
+        '/usvn/css/custom.css?v=1.7',
     ];
     public $js = [
         '//cdn.jsdelivr.net/npm/sweetalert2@10',

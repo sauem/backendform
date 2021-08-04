@@ -71,13 +71,13 @@ body {
 }
 
 a {
-  color: #58779d;
+  color: white;
   -webkit-transition: color 0.3s ease;
   transition: color 0.3s ease;
 }
 
 a:hover {
-  color: #0e2b3d;
+  color: #58779d;
   text-decoration: none;
 }
 

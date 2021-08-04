@@ -7,7 +7,7 @@ use common\helper\HelperFunction;
 $this->title = HelperFunction::getLanguage() == 'vi' ?
     HelperFunction::setting('site_name') :
     HelperFunction::setting('site_name_en');
-Yii::$app->params['footer_type'] = 'light';
+//Yii::$app->params['footer_type'] = 'light';
 ?>
 
 <!-- Services Section -->

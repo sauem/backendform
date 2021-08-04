@@ -19,7 +19,7 @@ if ($menu) {
                     foreach ($menuItems as $item) {
                         $childrens = ArrayHelper::getValue($item, 'children', []);
                         ?>
-                        <div class="col-sm-6 col-md-3 footer-widget footer-widget-nav">
+                        <div class="col-6 col-md-3 footer-widget footer-widget-nav">
                             <h6 class="footer-widget__title"><?= $item['title'] ?></h6>
                             <div class="footer-widget__content">
                                 <nav>
@@ -40,6 +40,17 @@ if ($menu) {
                         <?php
                     }
                 } ?>
+                <div class="col-md-3 col-12 footer-widget footer-widget-nav">
+                    <h6 class="footer-widget__title">Social</h6>
+                    <div class="footer-widget__content">
+                        <div class="site-footer-social">
+                            <a title="Facebook" href="<?= HelperFunction::setting('facebook')?>"><i class="fab fa-facebook-f"></i> Facebook</a> |
+                            <a title="Instagram" href="<?= HelperFunction::setting('instagram')?>"><i class="fab fa-instagram"></i> Instagram</a> |
+                            <a title="youtube" href="<?= HelperFunction::setting('youtube')?>"><i class="fab fa-youtube"></i> Youtube</a>
+                            <br>
+                        </div>
+                    </div>
+                </div>
             </div><!-- /.row -->
         </div><!-- /.container -->
     </div><!-- /.footer-primary -->
@@ -52,8 +63,11 @@ if ($menu) {
                     </div>
                     <div class="address ml-4">
                         <p class="mb-0"><b><?= HelperFunction::setting('site_name', true) ?></b></p>
-                        <p class="mb-0"><?= Yii::t('app', 'address') ?>: <?= HelperFunction::setting('address_1', true) ?></p>
+                        <p class="mb-0"><?= Yii::t('app', 'address') ?>
+                            : <?= HelperFunction::setting('address_1', true) ?></p>
                         <p class="mb-0"><?= Yii::t('app', 'email') ?>: <?= HelperFunction::setting('email') ?></p>
+                        <p class="mb-0"><?= Yii::t('app', 'phone') ?>: <?= HelperFunction::setting('hotline_1') ?></p>
+
                     </div>
                 </div><!-- /.col-lg-6 -->
                 <div class="col-sm-12 col-md-2 col-lg-2 text-center">
