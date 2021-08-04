@@ -1,6 +1,7 @@
 <?php
 
 use common\helper\HelperFunction;
+use common\models\Products;
 
 $this->title = $model->name;
 $this->params['header_type'] = 'light';
@@ -53,6 +54,49 @@ $this->params['header_type'] = 'light';
                         </a>
                     </div>
                 </div>
+                <hr/>
+                <?php
+                $relations = Products::getRelated($model->relations);
+                if (!empty($relations)) {
+                    ?>
+                    <hr>
+                    <div class="row">
+                        <div class="col-12">
+                            <h5 class="post__title">
+                                Sản phẩm liên quan
+                            </h5>
+                        </div>
+                        <div class="row">
+                            <?php foreach ($relations as $key => $relation) {
+                                $firstArchive = $relation->defaultArchive->slug;
+                                ?>
+                                <div class="portfolio-item col-md-4">
+                                    <div class="portfolio__img">
+                                        <img src="<?= $relation->avatar ?>" alt="<?= $relation->name ?>">
+                                    </div>
+                                    <div class="portfolio__content">
+                                        <h4 class="portfolio__title text-2">
+                                            <a href="<?= HelperFunction::Link(PRODUCT, $model->slug, $firstArchive) ?>">
+                                                <?= $relation->name ?>
+                                            </a>
+                                        </h4>
+                                        <p class="portfolio__desc text-3">
+                                            <?= $relation->excerpt ?>
+                                        </p>
+                                        <a href="<?= HelperFunction::Link(PRODUCT, $relation->slug, $firstArchive) ?>"
+                                           class="btn btn__secondary btn__link">
+                                            <span><?= Yii::t('app', 'detail') ?></span>
+                                            <i class="icon-arrow-right"></i>
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <?php
+                            } ?>
+                        </div>
+                    </div>
+                    <?php
+                } ?>
                 <?php if (!empty($model->thumbs)) {
                     ?>
                     <hr>
@@ -65,11 +109,11 @@ $this->params['header_type'] = 'light';
                         <?php foreach ($model->thumbs as $key => $thumb) {
                             ?>
                             <div class="col-md-4 px-2 mb-3">
-                               <div class="gallery-item">
-                                   <a href="<?= HelperFunction::getImage($thumb->path) ?>">
-                                       <img class="img-fluid" src="<?= HelperFunction::getImage($thumb->path) ?>">
-                                   </a>
-                               </div>
+                                <div class="gallery-item">
+                                    <a href="<?= HelperFunction::getImage($thumb->path) ?>">
+                                        <img class="img-fluid" src="<?= HelperFunction::getImage($thumb->path) ?>">
+                                    </a>
+                                </div>
                             </div>
                             <?php
                         } ?>
@@ -82,7 +126,7 @@ $this->params['header_type'] = 'light';
                     <?php if ($prevProduct && isset($prevProduct->defaultArchive)) {
 
                         ?>
-                        <a href="<?= HelperFunction::Link(PRODUCT, $prevProduct->slug,$prevProduct->defaultArchive->slug) ?>"
+                        <a href="<?= HelperFunction::Link(PRODUCT, $prevProduct->slug, $prevProduct->defaultArchive->slug) ?>"
                            class="widget-nav__prev d-flex flex-wrap">
                             <div class="widget-nav__img">
                                 <div class="widget-nav__overlay"></div>

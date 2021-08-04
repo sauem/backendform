@@ -13,7 +13,9 @@
         const App = () => {
             const [state, setState] = useState(initalState);
             const [checkedKeys, setCheckedKeys] = useState([]);
+            const [products, setProducts] = useState([]);
             const [cats, setCats] = useState([]);
+            const [transfers, setTransfers] = useState([])
             const [defaultKey, setDefaultKey] = useState(null);
             const [form] = Form.useForm();
             const [defaultFileList, setDefaultFileList] = useState([]);
@@ -36,6 +38,18 @@
                 form.setFieldsValue({
                     slug: toSlug(e.target.value)
                 });
+            }
+            const getProducts = async (params = {}) => {
+                const {data} = await Products.fetch(params);
+                if (data.length > 0) {
+                    const pList = data.map(item => {
+                        return {
+                            key: item.id,
+                            title: item.name
+                        }
+                    });
+                    setProducts(pList);
+                }
             }
             useEffect(async () => {
 
@@ -84,7 +98,7 @@
                 } else {
                     await setLanguage(LANG_VI);
                 }
-
+                await getProducts();
                 const attr = await Attributes.fetch({page: -1});
                 setState({
                     ...state,
@@ -172,7 +186,32 @@
                     [index]: obj.variants
                 });
             }
+            const renderFooter = () => (
+                <Button size="small" onClick={() => {
+                }}>
+                    reload
+                </Button>
+            );
+            const handleChange = targetKeys => {
+                setTransfers(targetKeys);
+                form.setFieldsValue({
+                    relations: targetKeys
+                })
+            };
 
+            const renderRelation = () => {
+                return (
+                    <Transfer
+                        dataSource={products}
+                        showSearch
+                        operations={['to right', 'to left']}
+                        targetKeys={transfers}
+                        onChange={handleChange}
+                        render={item => item.title}
+                        footer={renderFooter}
+                    />
+                )
+            }
             return (
                 <div className="mb-5">
                     <Form onFinish={onSubmit} form={form} layout="vertical">
@@ -332,6 +371,11 @@
                                         </Row>
                                     </Card>
                                 </div>
+                                <Card title="Sản phẩm liên quan">
+                                    <Form.Item hidden name="relations">
+                                    </Form.Item>
+                                    {renderRelation()}
+                                </Card>
                                 <Card title="SEO Meta">
                                     <Form.Item
                                         label="Meta title"
