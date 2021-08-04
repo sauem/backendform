@@ -256,7 +256,18 @@ html, body {
 }
 
 @media (max-width: 467px) {
+  .banner-layout5 .counters-light {
+    margin-top: 50px;
+  }
+  .archive {
+    .post-item {
+      .post__img {
+        max-height: 220px;
+        height: 220px;
 
+      }
+    }
+  }
   .video__btn-wrapper {
     position: absolute;
     left: 130px;
