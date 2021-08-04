@@ -8,7 +8,11 @@ use yii\widgets\ListView;
 
 <?= $this->render('../parts/page-title', [
     'title' => $this->title,
-    'description' => ''
+    'description' => $model->description,
+    'banner' => $model->avatar,
+    'tabs' => $categories,
+    'tab_type' => $tab_type,
+    'activeSlug' => $activeSlug
 ]) ?>
 <section class="portfolio-grid">
     <div class="container">

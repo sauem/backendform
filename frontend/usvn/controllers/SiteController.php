@@ -96,7 +96,7 @@ class SiteController extends BaseController
     public function actionAbout($slug = null)
     {
         $archive = Archives::findOne([
-            'slug' => ['ve-chung-toi','about-us'],
+            'slug' => ['ve-chung-toi', 'about-us'],
             'language' => HelperFunction::getLanguage()
         ]);
 
@@ -279,6 +279,13 @@ class SiteController extends BaseController
                     'language' => HelperFunction::getLanguage(),
                     'archive_id' => $model->id
                 ]);
+                $categories = ArchivesSearch::findAll([
+                    'active' => Archives::STATUS_ACTIVE,
+                    'show_home' => 1,
+                    'type' => 'article',
+                    'language' => HelperFunction::getLanguage()
+                ]);
+                $tab_type = 'article';
                 break;
             default:
                 $searchModel = new ProductsSearch();
@@ -286,12 +293,22 @@ class SiteController extends BaseController
                     'language' => HelperFunction::getLanguage(),
                     'default_archive' => $model->id
                 ]);
+                $categories = ArchivesSearch::findAll([
+                    'active' => Archives::STATUS_ACTIVE,
+                    'show_home' => 1,
+                    'type' => 'product',
+                    'language' => HelperFunction::getLanguage()
+                ]);
+                $tab_type = 'product';
                 break;
         }
         return $this->render('archive', [
             'model' => $model,
             'dataProvider' => $dataProvider,
-            'searchModel' => $searchModel
+            'searchModel' => $searchModel,
+            'categories' => $categories,
+            'tab_type' => $tab_type,
+            'activeSlug' => $slug
         ]);
     }
 

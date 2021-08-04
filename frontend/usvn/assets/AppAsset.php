@@ -17,7 +17,7 @@ class AppAsset extends AssetBundle
         '/usvn/css/libraries.css',
         '/usvn/css/style.css?v=1.1',
         '/usvn/css/magnific-popup.css',
-        '/usvn/css/custom.css?v=1.4',
+        '/usvn/css/custom.css?v=1.6',
     ];
     public $js = [
         '//cdn.jsdelivr.net/npm/sweetalert2@10',
@@ -26,7 +26,7 @@ class AppAsset extends AssetBundle
         '/usvn/js/handlebars-helper.js',
         '/usvn/js/plugins.js',
         '/usvn/js/jquery.magnific-popup.min.js',
-        '/usvn/js/main.js',
+        '/usvn/js/main.js?v=1.2',
         '/usvn/js/templ.js?v=2.9',
     ];
     public $depends = [

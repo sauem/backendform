@@ -74,7 +74,8 @@
   -webkit-line-clamp: 5; /* number of lines to show */
   -webkit-box-orient: vertical;
 }
-.archive{
+
+.archive {
   .post-item {
     .post__img {
       max-height: 150px;
@@ -181,7 +182,11 @@
 }
 
 .page-title {
-  &.about {
+  &.archive {
+    padding-top: 170px;
+  }
+
+  &.about, .archive {
     padding-top: 0;
     padding-bottom: 0;
 

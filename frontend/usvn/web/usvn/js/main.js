@@ -210,7 +210,9 @@ $(function () {
     });
 
     /*==========   Slick Carousel ==========*/
-    $('.slick-carousel').slick();
+    $('.slick-carousel').slick({
+        autoplay: true,
+    });
 
     $('.slider-with-navs').slick({
         slidesToShow: 1,
