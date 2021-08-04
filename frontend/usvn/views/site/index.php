@@ -67,7 +67,7 @@ $this->title = HelperFunction::getLanguage() == 'vi' ?
             </div>
             <div class="col-12">
                 <div class="row counters-wrapper counters-light">
-                   
+
                 </div>
             </div>
         </div>

@@ -110,7 +110,11 @@ class SiteController extends BaseController
         ]);
         if ($slug) {
             $model = Articles::findOne(['slug' => $slug, 'language' => HelperFunction::getLanguage()]);
+            if (!$model) {
+                throw new NotFoundHttpException('Page not found!');
+            }
         }
+
         return $this->render('about', [
             'abouts' => $abouts,
             'model' => $model ?? null,
