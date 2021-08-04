@@ -70,7 +70,6 @@
                 })
             }
             useEffect(async () => {
-                initTinymce(handleChangeContent)
                 const id = getParams('id');
                 const {data} = await Archives.fetch({
                     page: -1,
@@ -97,6 +96,8 @@
                         categories: convertTreeSelect(data)
                     }
                 });
+                initTinymce(handleChangeContent)
+
             }, []);
 
             return (
@@ -222,7 +223,7 @@
                                             {progress > 0 ? <Progress percent={progress}/> : null}
                                         </Form.Item>
                                         <Form.Item name={`media_id`}
-                                                   rules={[{required: true,message:'avatar bắt buộc'}]}
+                                                   rules={[{required: true, message: 'avatar bắt buộc'}]}
                                                    hidden>
                                             <Input/>
                                         </Form.Item>

@@ -107,7 +107,7 @@ function getParams(name) {
     return url.get(name);
 }
 
-function initTinymce(callback, defaultContent = '') {
+function initTinymce(callback, defaultContent = null) {
     // let useDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
     tinymce.init({

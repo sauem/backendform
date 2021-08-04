@@ -3,7 +3,7 @@
 use yii\widgets\ListView;
 use common\helper\HelperFunction;
 
-$this->title = 'Products and brief';
+$this->title = Yii::t('app', 'order');
 
 ?>
 
@@ -11,44 +11,6 @@ $this->title = 'Products and brief';
     'title' => $this->title,
     'description' => ''
 ]) ?>
-<?php if (isset($categories) && !empty($categories)) { ?>
-
-    <section class="blog-grid pb-50">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12 col-md-12 col-lg-6 offset-lg-3">
-                    <div class="heading text-center">
-                        <h3 class="heading__title"><?= Yii::t('app', 'products') ?></h3>
-                    </div><!-- /.heading -->
-                </div><!-- /.col-lg-6 -->
-            </div><!-- /.row -->
-            <div class="row">
-                <!-- Blog Item #1 -->
-                <?php foreach ($categories as $categorie) {
-                    $slug = HelperFunction::Link(PRODUCT, $categorie->slug);
-                    ?>
-                    <div class="col-sm-12 col-md-3 col-lg-3">
-                        <div class="post-item product-item">
-                            <div class="post__img">
-                                <a href="<?= $slug ?>">
-                                    <img src="<?= $categorie->avatar ?>" alt="<?= $categorie->name ?>">
-                                </a>
-                            </div><!-- /.blog-img -->
-                            <div class="post__content">
-                                <h4 class="post__title">
-                                    <a href="<?= $slug ?>"><?= $categorie->name ?></a>
-                                </h4>
-                                <p class="post__desc text-3">
-                                    <?= $categorie->description ?>
-                                </p>
-                            </div><!-- /.blog-content -->
-                        </div><!-- /.post-item -->
-                    </div><!-- /.col-lg-4 -->
-                <?php } ?>
-            </div><!-- /.row -->
-        </div><!-- /.container -->
-    </section>
-<?php } ?>
 
 
 <section class="banner-layout1 pt-90 pb-90 bg-overlay bg-overlay-primary">
@@ -112,3 +74,41 @@ $this->title = 'Products and brief';
     </div><!-- /.container -->
 </section><!-- /.Banner layout 1 -->
 
+<?php if (isset($categories) && !empty($categories)) { ?>
+
+    <section class="blog-grid pb-50">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-6 offset-lg-3">
+                    <div class="heading text-center">
+                        <h3 class="heading__title"><?= Yii::t('app', 'products') ?></h3>
+                    </div><!-- /.heading -->
+                </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
+            <div class="row">
+                <!-- Blog Item #1 -->
+                <?php foreach ($categories as $categorie) {
+                    $slug = HelperFunction::Link(PRODUCT, $categorie->slug);
+                    ?>
+                    <div class="col-sm-12 col-md-3 col-lg-3">
+                        <div class="post-item product-item">
+                            <div class="post__img">
+                                <a href="<?= $slug ?>">
+                                    <img src="<?= $categorie->avatar ?>" alt="<?= $categorie->name ?>">
+                                </a>
+                            </div><!-- /.blog-img -->
+                            <div class="post__content">
+                                <h4 class="post__title">
+                                    <a href="<?= $slug ?>"><?= $categorie->name ?></a>
+                                </h4>
+                                <p class="post__desc text-3">
+                                    <?= $categorie->description ?>
+                                </p>
+                            </div><!-- /.blog-content -->
+                        </div><!-- /.post-item -->
+                    </div><!-- /.col-lg-4 -->
+                <?php } ?>
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+    </section>
+<?php } ?>

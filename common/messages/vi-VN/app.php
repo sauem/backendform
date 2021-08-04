@@ -12,7 +12,7 @@ return [
     'product_items' => 'Các mặt hàng xuất khẩu',
     'detail' => 'Chi tiết',
     'product_and_brief' => 'Sản phẩm & Yêu cầu đặt hàng',
-    'contact_title' => 'Liên hệ',
+    'contact_title' => 'Thông tin đặt hàng',
     'email' => 'Email',
     'name' => 'Họ & tên',
     'phone' => 'Số điện thoại',

@@ -12,7 +12,7 @@ return [
     'product_items' => 'Product export items',
     'detail' => 'Detail',
     'product_and_brief' => 'Product & Brief request',
-    'contact_title' => 'Get In Touch',
+    'contact_title' => 'Order info',
     'email' => 'Email',
     'name' => 'Name',
     'phone' => 'Phone',

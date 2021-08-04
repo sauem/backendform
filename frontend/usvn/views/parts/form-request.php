@@ -8,7 +8,7 @@ use yii\widgets\ActiveForm;
 ]) ?>
 <div class="row">
     <div class="col-12">
-        <h4 class="contact-panel__title mb-20"><?= Yii::t('app','product_and_brief')?></h4>
+        <h4 class="contact-panel__title mb-20"><?= Yii::t('app', 'contact_title') ?></h4>
         <p class="contact-panel__desc mb-30"></p>
     </div> <!-- /.col-12 -->
     <div class="col-sm-6 col-md-6 col-lg-6">
@@ -24,11 +24,7 @@ use yii\widgets\ActiveForm;
         ?>
     </div><!-- /.col-lg-6 -->
     <div class="col-6">
-        <?= $form->field($model, 'contact_pre')->dropDownList(
-            Yii::$app->params['contact_preference'],
-            [
-                'prompt' => Yii::t('app', 'contact_preference')
-            ])->label(false);
+        <?= $form->field($model, 'contact_pre')->textInput(['placeholder' => Yii::t('app', 'phone')])->label(false);
         ?>
     </div>
     <div class="col-6">
@@ -39,12 +35,7 @@ use yii\widgets\ActiveForm;
             ])->label(false);
         ?>
     </div><!-- /.col-lg-6 -->
-    <div class="col-12">
-        <?= $form->field($model, 'time_exp')->textInput([
-            'placeholder' => Yii::t('app', 'time_expectation')
-        ])->label(false);
-        ?>
-    </div><!-- /.col-lg-6 -->
+
     <div class="col-12">
         <?= $form->field($model, 'message')->textarea([
             'placeholder' => Yii::t('app', 'product_interest')
