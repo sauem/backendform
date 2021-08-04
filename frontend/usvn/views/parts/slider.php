@@ -17,12 +17,14 @@ use common\helper\HelperFunction;
                             <div class="col-sm-12 col-md-12 col-lg-12 col-xl-7">
                                 <div class="slide__content">
                                     <h2 class="slide__title">
-                                        <a href="<?= $slider->href ?>">
+                                        <a class="text-white" href="<?= $slider->href ?>">
                                             <?= $slider->name ?>
                                         </a>
                                     </h2>
                                     <p class="slide__desc"><?= $slider->description ?></p>
-                                    <a class="btn btn__white btn__bordered btn__icon mr-30" href="<?= $slider->href ?>">Xem chi tiết</a>
+                                    <a class="btn btn__white btn__bordered btn__icon mr-30" href="<?= $slider->href ?>">
+                                        <?= Yii::t('app', 'read_more') ?>
+                                    </a>
                                 </div>
                             </div>
                         </div>
