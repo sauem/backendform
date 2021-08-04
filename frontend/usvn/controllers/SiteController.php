@@ -96,7 +96,7 @@ class SiteController extends BaseController
     public function actionAbout($slug = null)
     {
         $archive = Archives::findOne([
-            'slug' => ['ve-chung-toi'],
+            'slug' => ['ve-chung-toi','about-us'],
             'language' => HelperFunction::getLanguage()
         ]);
 
