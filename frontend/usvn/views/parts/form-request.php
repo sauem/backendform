@@ -24,7 +24,7 @@ use yii\widgets\ActiveForm;
         ?>
     </div><!-- /.col-lg-6 -->
     <div class="col-6">
-        <?= $form->field($model, 'contact_pre')->textInput(['placeholder' => Yii::t('app', 'phone')])->label(false);
+        <?= $form->field($model, 'phone')->textInput(['placeholder' => Yii::t('app', 'phone')])->label(false);
         ?>
     </div>
     <div class="col-6">
