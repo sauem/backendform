@@ -107,12 +107,12 @@ function getParams(name) {
     return url.get(name);
 }
 
-function initTinymce(callback) {
+function initTinymce(callback, defaultContent = '') {
     // let useDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
     tinymce.init({
         selector: 'textarea.editor',
-        plugins: 'print preview importcss tinydrive searchreplace autolink autosave save directionality  visualblocks visualchars fullscreen image link media table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists  wordcount imagetools textpattern noneditable help charmap quickbars emoticons',
+        plugins: 'code print preview importcss tinydrive searchreplace autolink autosave save directionality  visualblocks visualchars fullscreen image link media table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists  wordcount imagetools textpattern noneditable help charmap quickbars emoticons',
         tinydrive_token_provider: (success, failure) => {
             return fetch('/jwt', {
                 method: 'GET',
@@ -146,7 +146,7 @@ function initTinymce(callback) {
             win.document.getElementById(field_name).value = 'my browser value';
         },
         menubar: 'file edit view insert format tools table tc help',
-        toolbar: 'undo redo | bold italic code underline strikethrough | fontselect fontsizeselect formatselect | alignleft aligncenter alignright alignjustify | outdent indent |  numlist bullist checklist | forecolor backcolor casechange permanentpen formatpainter removeformat | pagebreak | charmap emoticons | fullscreen  preview save print | insertfile image media pageembed link anchor | a11ycheck ltr rtl | showcomments addcomment',
+        toolbar: 'code undo redo | bold italic code underline strikethrough | fontselect fontsizeselect formatselect | alignleft aligncenter alignright alignjustify | outdent indent |  numlist bullist checklist | forecolor backcolor casechange permanentpen formatpainter removeformat | pagebreak | charmap emoticons | fullscreen  preview save print | insertfile image media pageembed link anchor | a11ycheck ltr rtl | showcomments addcomment',
         autosave_ask_before_unload: true,
         autosave_interval: '30s',
         autosave_prefix: '{path}{query}-{id}-',
@@ -169,6 +169,11 @@ function initTinymce(callback) {
             });
             ed.on('Change', function (e) {
                 callback(ed.getBody().innerHTML);
+            });
+            ed.on('init', function (e) {
+                if (defaultContent) {
+                    ed.setContent(defaultContent);
+                }
             });
         }
     });

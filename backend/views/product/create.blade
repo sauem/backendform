@@ -53,11 +53,11 @@
             }
             useEffect(async () => {
 
-                initTinymce(changeContent);
                 const id = getParams('id');
-
+                initTinymce(changeContent, null);
                 if (id) {
                     const {data} = await Products.view(id);
+                    initTinymce(changeContent, data.content);
                     await setLanguage(data.language);
 
                     const {meta, media_id, archives} = data;
@@ -98,6 +98,8 @@
                 } else {
                     await setLanguage(LANG_VI);
                 }
+
+
                 await getProducts();
                 const attr = await Attributes.fetch({page: -1});
                 setState({

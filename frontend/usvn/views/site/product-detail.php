@@ -54,7 +54,7 @@ $this->params['header_type'] = 'light';
                         </a>
                     </div>
                 </div>
-                <hr/>
+
                 <?php
                 $relations = Products::getRelated($model->relations);
                 if (!empty($relations)) {
@@ -63,7 +63,7 @@ $this->params['header_type'] = 'light';
                     <div class="row">
                         <div class="col-12">
                             <h5 class="post__title">
-                                Sản phẩm liên quan
+                                <?= Yii::t('app', 'related') ?>
                             </h5>
                         </div>
                         <div class="row">
