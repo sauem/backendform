@@ -16,9 +16,9 @@ class AppAsset extends AssetBundle
         '/usvn/css/all.css',
         'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css',
         '/usvn/css/libraries.css',
-        '/usvn/css/style.css?v=1.1',
+        '/usvn/css/style.css?v=1.2',
         '/usvn/css/magnific-popup.css',
-        '/usvn/css/custom.css?v=1.7',
+        '/usvn/css/custom.css?v=1.9',
     ];
     public $js = [
         '//cdn.jsdelivr.net/npm/sweetalert2@10',
