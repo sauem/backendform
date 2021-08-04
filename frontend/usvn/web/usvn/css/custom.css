@@ -76,16 +76,16 @@
   /* number of lines to show */
   -webkit-box-orient: vertical; }
 
-.post-item .post__img {
+.archive .post-item .post__img {
   max-height: 150px;
   height: 150px;
   overflow: hidden; }
-  .post-item .post__img a {
+  .archive .post-item .post__img a {
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: start; }
-    .post-item .post__img a img {
+    .archive .post-item .post__img a img {
       display: flex;
       object-fit: cover;
       object-position: top center; }

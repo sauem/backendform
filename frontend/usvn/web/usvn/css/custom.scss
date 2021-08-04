@@ -74,26 +74,28 @@
   -webkit-line-clamp: 5; /* number of lines to show */
   -webkit-box-orient: vertical;
 }
+.archive{
+  .post-item {
+    .post__img {
+      max-height: 150px;
+      height: 150px;
+      overflow: hidden;
 
-.post-item {
-  .post__img {
-    max-height: 150px;
-    height: 150px;
-    overflow: hidden;
-
-    a {
-      height: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: start;
-
-      img {
+      a {
+        height: 100%;
         display: flex;
-        object-fit: cover;
-        object-position: top center;
+        justify-content: center;
+        align-items: start;
+
+        img {
+          display: flex;
+          object-fit: cover;
+          object-position: top center;
+        }
       }
     }
   }
+
 }
 
 

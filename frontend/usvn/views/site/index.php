@@ -17,7 +17,7 @@ Yii::$app->params['footer_type'] = 'light';
 
 <?php if (isset($categories) && !empty($categories)) { ?>
 
-    <section class="blog-grid pb-50">
+    <section class="blog-grid archive pb-50">
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 col-md-12 col-lg-6 offset-lg-3">
