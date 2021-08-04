@@ -3,7 +3,7 @@
 use common\helper\HelperFunction;
 
 ?>
-<section class="page-title archive page-title-layout10 bg-overlay bg-overlay-gradient bg-parallax">
+<section class="page-title archive  about page-title-layout10 bg-overlay bg-overlay-gradient bg-parallax">
     <div class="bg-img"><img src="<?= $banner ?? '' ?>" alt="background"></div>
     <div class="container">
         <div class="row align-items-center">

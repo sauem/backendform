@@ -1,3 +1,7 @@
+html, body {
+  overflow-x: hidden;
+}
+
 .language {
   .dropdown-toggle {
     //display: flex !important;
@@ -182,6 +186,8 @@
 }
 
 .page-title {
+
+
   &.archive {
     padding-top: 170px;
   }
