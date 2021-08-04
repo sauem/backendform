@@ -1,5 +1,11 @@
+html, body {
+  overflow-x: hidden; }
+
 .language .dropdown-toggle:after {
   right: -25px; }
+
+.site-footer-social a, .site-footer-social i {
+  color: white; }
 
 .service__icon {
   overflow: hidden;
@@ -144,21 +150,23 @@
 .footer .footer-primary {
   padding-top: 50px; }
 
-.page-title.about {
+.page-title.archive {
+  padding-top: 170px; }
+.page-title.about, .page-title .archive {
   padding-top: 0;
   padding-bottom: 0; }
-  .page-title.about .pagetitle__heading {
+  .page-title.about .pagetitle__heading, .page-title .archive .pagetitle__heading {
     padding-top: 50px; }
-  .page-title.about .about-tab {
+  .page-title.about .about-tab, .page-title .archive .about-tab {
     background-color: rgba(0, 0, 0, 0.5);
     margin-top: 40px; }
-    .page-title.about .about-tab .nav__link {
+    .page-title.about .about-tab .nav__link, .page-title .archive .about-tab .nav__link {
       color: white; }
-      .page-title.about .about-tab .nav__link.active {
+      .page-title.about .about-tab .nav__link.active, .page-title .archive .about-tab .nav__link.active {
         background-color: white;
         color: #0e2b3d;
         padding: 15px; }
-        .page-title.about .about-tab .nav__link.active:after {
+        .page-title.about .about-tab .nav__link.active:after, .page-title .archive .about-tab .nav__link.active:after {
           bottom: 100%; }
 
 .about-banner {
@@ -183,6 +191,14 @@
     object-position: center center; }
 
 @media (max-width: 467px) {
+  .banner-layout5 .counters-light {
+    margin-top: 50px;
+    margin-bottom: 0; }
+
+  .archive .post-item .post__img {
+    max-height: 220px;
+    height: 220px; }
+
   .video__btn-wrapper {
     position: absolute;
     left: 130px;

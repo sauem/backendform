@@ -256,8 +256,11 @@ html, body {
 }
 
 @media (max-width: 467px) {
-  .banner-layout5 .counters-light {
-    margin-top: 50px;
+  .banner-layout5 {
+    .counters-light {
+      margin-top: 50px;
+      margin-bottom: 0;
+    }
   }
   .archive {
     .post-item {
