@@ -65,6 +65,11 @@ $this->title = HelperFunction::getLanguage() == 'vi' ?
             <div class="col-md-6 offset-md-3 col-12">
                 <p class="text-white txt-18"><?= HelperFunction::getParams('service_route', '_' . HelperFunction::getLanguage()) ?></p>
             </div>
+            <div class="col-12">
+                <div class="row counters-wrapper counters-light">
+                   
+                </div>
+            </div>
         </div>
         <div class="cta d-flex align-items-center">
             <div class="cta__item w-100 d-flex justify-content-center align-items-center">
