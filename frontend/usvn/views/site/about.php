@@ -12,7 +12,7 @@ $this->params['header_type'] = 'light';
         <div class="row">
             <div class="col-sm-12 col-md-12 col-lg-12 col-xl-6 offset-xl-3">
                 <h1 class="pagetitle__heading"><?= $this->title; ?></h1>
-                <p class="pagetitle__desc">Xin cahfo</p>
+                <p class="pagetitle__desc"></p>
                 <nav>
                     <ol class="breadcrumb justify-content-center mb-0">
                         <li class="breadcrumb-item"><a href="/"><?= Yii::t('app', 'home') ?></a></li>
