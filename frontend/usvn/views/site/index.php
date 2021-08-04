@@ -65,47 +65,6 @@ $this->title = HelperFunction::getLanguage() == 'vi' ?
             <div class="col-md-6 offset-md-3 col-12">
                 <p class="text-white txt-18"><?= HelperFunction::getParams('service_route', '_' . HelperFunction::getLanguage()) ?></p>
             </div>
-            <div class="col-12">
-                <div class="row counters-wrapper counters-light">
-                    <!-- counter item #1 -->
-                    <div class="offset-md-1"></div>
-                    <div class="col-md-2 col-4">
-                        <div class="counter-item text-center">
-                            <h4 class="counter">13</h4>
-                            <p class="counter__desc">Korea-Japan</p>
-                        </div><!-- /.counter-item -->
-                    </div><!-- /.col-sm-4 -->
-                    <!-- counter item #2 -->
-                    <div class="col-md-2 col-4">
-                        <div class="counter-item text-center">
-                            <h4 class="counter">8</h4>
-                            <p class="counter__desc">Korea-China</p>
-                        </div><!-- /.counter-item -->
-                    </div><!-- /.col-sm-4 -->
-                    <!-- counter item #3 -->
-                    <div class="col-md-2 col-4">
-                        <div class="counter-item text-center">
-                            <h4 class="counter">15</h4>
-                            <p class="counter__desc">Korea-South East Asia</p>
-                        </div><!-- /.counter-item -->
-                    </div><!-- /.col-sm-4 -->
-                    <div class="col-md-2 col-4">
-                        <div class="counter-item text-center">
-                            <h4 class="counter">2</h4>
-                            <p class="counter__desc">Korea-China-Japan</p>
-                        </div><!-- /.counter-item -->
-                    </div><!-- /.col-sm-4 -->
-                    <div class="col-md-2 col-4">
-                        <div class="counter-item text-center">
-                            <h4 class="counter">7</h4>
-                            <p class="counter__desc">
-                                Bulk(General cargo)
-                                Liner
-                            </p>
-                        </div><!-- /.counter-item -->
-                    </div>
-                </div>
-            </div>
         </div>
         <div class="cta d-flex align-items-center">
             <div class="cta__item w-100 d-flex justify-content-center align-items-center">
