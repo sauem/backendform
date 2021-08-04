@@ -32,7 +32,7 @@ $this->params['header_type'] = 'light';
                 <div class="post-item mb-0">
                     <div class="post__img">
                         <a href="#">
-                            <img src="<?= $model->avatar ?>" alt="blog image">
+                            <img width="100%" src="<?= $model->avatar ?>" alt="blog image">
                         </a>
                     </div><!-- /.post-img -->
                     <div class="post__content">
