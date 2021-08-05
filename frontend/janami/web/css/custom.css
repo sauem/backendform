@@ -515,8 +515,8 @@ nav a {
     padding: 20px;
     width: 100%; }
     .list-shop .content-text.margin-left, .list-shop .content-text.margin-right {
-      margin-left: 0;
-      margin-right: 0; }
+      margin-left: 0 !important;
+      margin-right: 0 !important; }
 
   #banner-bottom {
     margin-bottom: 0 !important;
