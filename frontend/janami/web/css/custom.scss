@@ -677,6 +677,7 @@ nav {
 .list-layout1 {
   .number {
     margin-left: 50px;
+    text-align: justify;
 
     &.txt-right {
       margin-right: 50px;
@@ -826,10 +827,21 @@ nav {
 }
 
 @media (max-width: 467px) {
+
+  .list-layout1 {
+    .number {
+      margin-left: 0;
+
+      &.txt-right {
+        margin-right: 0;
+      }
+    }
+
+  }
   .list-shop {
     .content-text {
       padding: 20px;
-      width: 100%;
+      width: 100% !important;
 
       &.margin-left, &.margin-right {
         margin-left: 0 !important;

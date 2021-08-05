@@ -406,7 +406,8 @@ nav a {
   margin-top: 50px; }
 
 .list-layout1 .number {
-  margin-left: 50px; }
+  margin-left: 50px;
+  text-align: justify; }
   .list-layout1 .number.txt-right {
     margin-right: 50px;
     text-align: right; }
@@ -511,9 +512,14 @@ nav a {
             font-weight: bold; }
 
 @media (max-width: 467px) {
+  .list-layout1 .number {
+    margin-left: 0; }
+    .list-layout1 .number.txt-right {
+      margin-right: 0; }
+
   .list-shop .content-text {
     padding: 20px;
-    width: 100%; }
+    width: 100% !important; }
     .list-shop .content-text.margin-left, .list-shop .content-text.margin-right {
       margin-left: 0 !important;
       margin-right: 0 !important; }
