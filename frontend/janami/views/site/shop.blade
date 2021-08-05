@@ -27,7 +27,7 @@ $view->title = 'Sản phẩm';
     <script type="text/babel">
 
         const ProductList = () => {
-            const parentId = "{{$model ?? $model->id}}";
+            const parentId = "{{isset($model) ? $model->id : ''}}";
             const [cats, setCats] = useState([]);
             const [paginate, setPaginate] = useState(null);
             const [isLoading, setLoading] = useState(false);
