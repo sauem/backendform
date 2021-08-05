@@ -1,0 +1,212 @@
+<?php
+
+use common\helper\HelperFunction;
+
+$view->title = $model->name;
+
+Yii::$app->params['header_style'] = true;
+?>
+
+@section('content')
+    <?= $view->render('../parts/slider.blade') ?>
+    <section id="blog-page" class="bg-color-01 wide-100 blog-page-section division">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div id="product-detail"></div>
+                    <ul class="nav tab-custom nav-tabs mt-4" role="tablist">
+                        <li class="nav-item">
+                            <h5 style="padding:0;border-bottom:2px solid #50254A" class="nav-link active" data-toggle="tab"
+                                href="#tabs-1"
+                                role="tab">
+                                Description
+                            </h5>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div id="tabs-1" class="bg-color-02 p-2 tab-pane active">
+                            {!! $model->content !!}
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="other-posts">
+
+                        <!-- Title -->
+                        <h5 class="h5-lg txt-color-01">Sản phẩm liên quan</h5>
+                        @if(isset($related) && !empty($related))
+                            <div class="row">
+
+                                @foreach($related as  $post)
+                                    <div class="col-md-4">
+                                        <div class="blog-post">
+
+                                            <!-- Image -->
+                                            <img class="img-fluid" src="{{$post->avatar}}"
+                                                 alt="{{$post->name}}">
+
+                                            <!-- Text -->
+                                            <div class="blog-post-txt">
+
+                                                <!-- Post Data -->
+                                                <span class="txt-color-06">{{$post->defaultArchive->name}}</span>
+
+                                                <!-- Post Title -->
+                                                <h6 class="h6-md txt-color-01">
+                                                    <a href="<?= HelperFunction::Link(ARTICLE, $model->slug, $model->defaultArchive->slug)?>">{{$post->name}}</a>
+                                                </h6>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </div>
+                        @endif
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+@stop
+@section("js_end")
+    <script type="text/babel">
+        const ProductDetail = () => {
+            const productId = "{{$model->id}}";
+            const {TabPane} = Tabs;
+            const [form] = Form.useForm();
+            const slider1 = useRef(null);
+            const slider2 = useRef(null);
+            const [nav1, setNav1] = useState();
+            const [nav2, setNav2] = useState();
+
+            const [state, setState] = useState({
+                product: null,
+                loading: false,
+                thumbs: [],
+            });
+            useEffect(async () => {
+                try {
+                    const {data} = await getProduct({id: productId}, `product-filter/view`);
+                    const thumbs = [].concat([data.avatar], data.thumbs.map(item => {
+                        return `/static${item.path}`;
+                    }));
+                    setState({
+                        ...state,
+                        product: data,
+                        thumbs
+                    });
+                } catch (e) {
+                    message.error(e.message);
+                }
+
+                setNav1(slider1.current);
+                setNav2(slider2.current);
+            }, []);
+            const addCart = () => {
+                const quantity = form.getFieldValue('quantity');
+                setCart(state.product, quantity);
+            }
+            const {product, thumbs} = state;
+            return (
+                <Spin spinning={state.loading}>
+                    {product === null ? null :
+                        <div className="row">
+                            <div className="col-md-7">
+                                <div className="row">
+                                    <div className="col-md-8">
+                                        <Carousel
+                                            asNavFor={nav2}
+                                            ref={slider1}
+                                            touchMove={false}
+                                            dots={false}
+                                        >
+                                            {thumbs.length > 0 ? thumbs.map((thumb, index) => {
+                                                return (
+                                                    <Image
+                                                        key={index}
+                                                        fallback={defaultImage()}
+                                                        src={thumb}
+                                                    />
+                                                )
+                                            }) : null}
+                                        </Carousel>
+                                    </div>
+                                    <div className="col-md-4">
+                                        <Carousel
+                                            asNavFor={nav1}
+                                            ref={slider2}
+                                            slidesToScroll={3}
+                                            slidesToShow={3}
+                                            centerMode={true}
+                                            draggable={true}
+                                            swipeToSlide={true}
+                                            touchThreshold={50}
+                                            focusOnSelect={true}
+                                            autoplay={true}>
+                                            {thumbs.length > 0 ? thumbs.map((thumb, index) => {
+                                                return (
+                                                    <Image
+                                                        preview={false}
+                                                        key={index}
+                                                        fallback={defaultImage()}
+                                                        src={thumb}
+                                                    />
+                                                )
+                                            }) : null}
+                                        </Carousel>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="col-md-5">
+                                <Form form={form}>
+                                    <h2 className="m-0 tim">{product.name}</h2>
+                                    <div className="txt-block-rating">
+                                        <div className="stars-rating">
+                                            <i className="fas fa-star"/>
+                                            <i className="fas fa-star"/>
+                                            <i className="fas fa-star"/>
+                                            <i className="fas fa-star"/>
+                                            <i className="fas fa-star-half-alt"/>
+                                        </div>
+                                    </div>
+                                    <p className="xam">Giá: {renderPrice(product)}</p>
+                                    <div className="description">
+                                        <p>{product.excerpt}</p>
+                                    </div>
+                                    <Divider/>
+                                    <div className="cart">
+                                        <Form.Item
+                                            rules={[
+                                                {required: true, message: 'Nhập số lượng!'},
+                                            ]}
+                                            label="Số lượng"
+                                            initialValue={1}
+                                            name={'quantity'}
+                                        >
+                                            <InputNumber className={`custom`} min={0}/>
+                                        </Form.Item>
+                                        <Space>
+                                            <Button className="btn custom btn-md btn-color-02">
+                                                <i className="fas fa-cart-plus mr-1"/> <span>Mua ngay</span>
+                                            </Button>
+                                            <Button onClick={addCart} className="btn custom btn-md btn-color-02">
+                                                <span>Thêm vào giỏ</span>
+                                                <i className="fas fa-cart-plus ml-1"/>
+                                            </Button>
+                                        </Space>
+                                        <Divider/>
+                                        <p className="txt-color-03">Danh mục: <a
+                                            href={`/product/${product.defaultArchive.slug}`}>{product.defaultArchive.name}</a>
+                                        </p>
+
+                                    </div>
+                                </Form>
+                            </div>
+                        </div>}
+                </Spin>
+
+            )
+        }
+        ReactDOM.render(<ProductDetail/>, document.getElementById('product-detail'));
+    </script>
+@stop

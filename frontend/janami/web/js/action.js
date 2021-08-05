@@ -106,7 +106,7 @@ const getPost = async (params = {}) => {
 const renderPaginate = (pagination, callback) => {
     const {totalPage, pageSize, current} = pagination;
     return (
-        <div className="bg-color-01 mt-4 page-pagination division">
+        <div className="bg-color-01 page-pagination division">
             <div className="container">
                 <div className="row">
                     <div className="col-md-12">

@@ -58,10 +58,10 @@ class SiteController extends BaseController
                 'language' => HelperFunction::getLanguage()
             ])->limit(9)->orderBy('created_at DESC')->all();
         $contactForm = new Contact();
-        $logos = Banners::findAll([
-            'active' => Banners::BANNER_ACTIVE,
-            'position' => 'logo_partner'
-        ]);
+//        $logos = Banners::findAll([
+//            'active' => Banners::BANNER_ACTIVE,
+//            'position' => 'logo_partner'
+//        ]);
         $sliderBottoms = Banners::findAll([
             'active' => Banners::BANNER_ACTIVE,
             'position' => 'top_footer',
@@ -73,7 +73,7 @@ class SiteController extends BaseController
             'categories' => $categories,
             'posts' => $articles,
             'products' => $products,
-            'logos' => $logos,
+            //'logos' => $logos,
             'sliderBottoms' => $sliderBottoms,
             'contactForm' => $contactForm
         ]);
@@ -197,7 +197,9 @@ class SiteController extends BaseController
             default:
                 $template = 'blog-archive.blade';
                 $modelSearch = new ArchivesSearch();
-                $dataProvider = $modelSearch->search(Yii::$app->request->queryParams);
+                $dataProvider = $modelSearch->search(Yii::$app->request->queryParams, [
+                    'default_archive' => $model->id
+                ]);
                 break;
         }
         return $this->render($template, [
@@ -222,8 +224,9 @@ class SiteController extends BaseController
                 $model = Products::findOne(['slug' => $slug]);
                 $related = Products::find()
                     ->where(['default_archive' => $model->default_archive])
+                    ->orWhere(['id' => $model->relations])
                     ->andFilterWhere(['!=', 'id', $model->id])
-                    ->limit(6)->all();
+                    ->limit(8)->all();
                 break;
             default:
                 $template = 'blog-detail.blade';

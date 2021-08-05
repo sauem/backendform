@@ -23,7 +23,7 @@ use Yii;
  * @property string|null $layout
  * @property int|null $banner_id
  * @property string|null $sub_title
- * @property int|null $sub_text
+ * @property string|null $sub_text
  */
 class Archives extends BaseModel
 {
@@ -41,8 +41,8 @@ class Archives extends BaseModel
     public function rules()
     {
         return [
-            [['active', 'created_at', 'updated_at', 'parent_id', 'show_home', 'banner_id', 'sub_text'], 'integer'],
-            [['description'], 'string'],
+            [['active', 'created_at', 'updated_at', 'parent_id', 'show_home', 'banner_id'], 'integer'],
+            [['description', 'sub_text'], 'string'],
             [['name', 'slug', 'type', 'sub_title'], 'string', 'max' => 255],
             [['language', 'icon', 'layout'], 'string', 'max' => 50],
             [['slug'], 'unique'],

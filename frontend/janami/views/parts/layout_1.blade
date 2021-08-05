@@ -1,0 +1,99 @@
+@section('block-archive')
+    <section class="bg-color-01 wide-60 services-section division">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 offset-lg-1">
+                    <div class="section-title mb-60 text-center">
+
+                        <h3 class="h3-xl {{$model->icon}}">{{$model->name}}</h3>
+                        <h4 class="xam">{{$model->sub_title}}</h4>
+                        <p class="xam bold">{{$model->sub_text}}</p>
+                        <p class="p-lg xam">
+                            {{$model->description}}
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+            <div class="sbox-18-wrapper" id="product-page"></div>
+        </div>       <!-- End container -->
+    </section>
+@stop
+@section('js_end')
+    <script type="text/babel">
+
+        const ProductList = () => {
+            const archiveId = "{{$model->id}}";
+            const icon = "{{$model->icon}}";
+
+            const [state, setState] = useState({
+                products: [],
+                pagination: null,
+                loading: false
+            });
+            const fetchProduct = async (params = {}) => {
+                try {
+                    setState({
+                        ...state,
+                        loading: true
+                    })
+                    const {data, pagination} = await getProduct({
+                        ...params,
+                        default_archive: archiveId,
+                        archive_group: archiveId
+                    });
+                    setState({
+                        ...state,
+                        products: data,
+                        pagination: pagination,
+                        loading: false
+                    });
+                } catch (e) {
+                    message.error(e.message);
+                }
+            }
+            useEffect(() => {
+                fetchProduct();
+            }, [])
+
+            return (
+                <div className="list-layout1">
+                    <Spin spinning={state.loading}>
+                        {state.products.length > 0 ? (
+                            state.products.map((product, key) => {
+                                const {defaultArchive} = product;
+                                const number = key + 1;
+                                const offset = key % 2 !== 0 ? 'right' : 'left';
+                                return (
+                                    <div className="col-md-8 col-12 mb-4 offset-md-2" key={product.id}>
+                                        <div className="row align-items-center">
+                                            <div
+                                                className={`col-md-6 col-12 ${offset === 'right' ? 'order-md-2' : 'order-md-1'}`}>
+                                                <a href={`/shop/${defaultArchive.slug}/${product.slug}`}>
+                                                    <img width={`100%`} src={product.avatar} className="img-fluid"/>
+                                                </a>
+                                            </div>
+                                            <div
+                                                className={`col-md-6 col-12 ${offset === 'right' ? 'order-md-1' : 'order-md-2'}`}>
+                                                <div className={`number ${icon}  txt-${offset} `}>
+                                                    <h1 className={`mb-0`}>{key < 10 && '0'}{number}.</h1>
+                                                    <h4>{product.name}</h4>
+                                                    <p className={`xam`}>{product.excerpt}</p>
+                                                    <a href={`/shop/${defaultArchive.slug}/${product.slug}`}
+                                                       className={`btn-action`}>Xem chi tiết <i
+                                                        className="fas ml-2 fa-arrow-right"/></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                )
+                            })
+                        ) : <h1>Sản phẩm trống...</h1>}
+                    </Spin>
+                    {state.products.length > 1 ? renderPaginate(state.pagination, fetchProduct) : null}
+                </div>
+            )
+        }
+        ReactDOM.render(<ProductList/>, document.getElementById('product-page'));
+    </script>
+@stop

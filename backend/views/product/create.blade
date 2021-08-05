@@ -18,7 +18,10 @@
             const [transfers, setTransfers] = useState([])
             const [defaultKey, setDefaultKey] = useState(null);
             const [form] = Form.useForm();
-            const [defaultFileList, setDefaultFileList] = useState([]);
+            const [defaultFileList, setDefaultFileList] = useState({
+                avatar: [],
+                banner: []
+            });
             const [defaultThumbList, setDefaultThumbList] = useState([]);
             const [attr, setAttr] = useState({});
             const [progress, setProgress] = useState(0);
@@ -75,12 +78,25 @@
                         meta_description: meta ? meta.meta_description : null
                     });
 
-                    data.avatar ? setDefaultFileList([{
-                        uid: data.id,
-                        name: data.name,
-                        status: 'done',
-                        url: data.avatar
-                    }]) : setDefaultFileList([]);
+                    data.avatar && setDefaultFileList({
+                        ...defaultFileList,
+                        avatar: [{
+                            uid: data.id,
+                            name: data.name,
+                            status: 'done',
+                            url: data.avatar
+                        }]
+                    });
+
+                    data.banner && setDefaultFileList({
+                        ...defaultFileList,
+                        banner: [{
+                            uid: data.banner_id,
+                            name: data.name,
+                            status: 'done',
+                            url: data.banner
+                        }]
+                    });
 
                     if (data.thumbs.length > 0) {
                         const newThumbs = [];
@@ -120,8 +136,11 @@
                 });
 
             }
-            const handleOnChange = ({file, fileList, event}) => {
-                setDefaultFileList(fileList);
+            const handleOnChange = (listName = 'avatar', {file, fileList, event}) => {
+                setDefaultFileList({
+                    ...defaultFileList,
+                    [listName]: fileList
+                });
             };
             const fetchArchive = async (params = {}) => {
                 return await Archives.fetch({
@@ -131,7 +150,7 @@
                     ...params
                 });
             }
-            const onUpload = (options, type = 'avatar') => {
+            const onUpload = (media_key = 'media_id', options) => {
                 const {onSuccess, onError, file, onProgress} = options;
                 setState({
                     ...state,
@@ -141,14 +160,14 @@
                 });
                 onUploadMedia(file, data => {
                     let thumbnails = typeof form.getFieldValue('thumbnails') == "undefined" ? [] : form.getFieldValue('thumbnails');
-                    if (type === 'thumbnails') {
+                    if (media_key === 'thumbnails') {
                         thumbnails.push(data.id);
                         form.setFieldsValue({
                             thumbnails: thumbnails
                         });
                     } else {
                         form.setFieldsValue({
-                            media_id: data.id
+                            [media_key]: data.id
                         });
                     }
 
@@ -243,12 +262,23 @@
                                         <Input disabled/>
                                     </Form.Item>
                                     <Form.Item
+                                        label="tiêu đề phụ"
+                                        name={`sub_name`}
+                                    >
+                                        <Input/>
+                                    </Form.Item>
+                                    <Form.Item
                                         label="Mô tả"
                                         name={`excerpt`}
                                     >
                                         <Input.TextArea/>
                                     </Form.Item>
-
+                                    <Form.Item
+                                        label="Mổ tả thuộc tính"
+                                        name={`attr_text`}
+                                    >
+                                        <Input.TextArea rows={5}/>
+                                    </Form.Item>
                                     <Form.Item
                                         label="Nội dung sản phẩm"
                                         name="content">
@@ -460,16 +490,40 @@
                                         >
                                             <Upload
                                                 accept="image/*"
-                                                customRequest={onUpload}
-                                                onChange={handleOnChange}
+                                                customRequest={props => onUpload('media_id', props)}
+                                                onChange={props => handleOnChange('avatar', props)}
                                                 listType="picture"
                                                 onRemove={(file) =>
-                                                    onRemoveMedia(file.uid)
+                                                    onRemoveMedia(form.getFieldValue('media_id'))
                                                 }
-                                                fileList={defaultFileList}
+                                                fileList={defaultFileList.avatar}
                                                 className="avatar-uploader single"
                                             >
-                                                {defaultFileList.length >= 1 ? null :
+                                                {defaultFileList.avatar.length >= 1 ? null :
+                                                    <Button><i className="icon-upload mr-2"/> Chọn ảnh</Button>}
+                                            </Upload>
+                                        </Form.Item>
+                                        <Form.Item
+                                            name="banner_id"
+                                            hidden>
+                                            <Input/>
+                                        </Form.Item>
+                                        <Form.Item
+                                            name={`banner`}
+                                            label="Ảnh cover"
+                                        >
+                                            <Upload
+                                                accept="image/*"
+                                                customRequest={props => onUpload('banner_id', props)}
+                                                onChange={props => handleOnChange('banner', props)}
+                                                listType="picture"
+                                                onRemove={(file) =>
+                                                    onRemoveMedia(form.getFieldValue('banner_id'))
+                                                }
+                                                fileList={defaultFileList.banner}
+                                                className="avatar-uploader single"
+                                            >
+                                                {defaultFileList.banner.length >= 1 ? null :
                                                     <Button><i className="icon-upload mr-2"/> Chọn ảnh</Button>}
                                             </Upload>
                                         </Form.Item>
@@ -478,6 +532,7 @@
                                             hidden>
                                             <Input/>
                                         </Form.Item>
+
                                         <Form.Item
                                             name="thumbnails"
                                             rules={[{type: 'array'}]}

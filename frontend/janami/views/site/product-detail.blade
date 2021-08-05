@@ -8,53 +8,62 @@ Yii::$app->params['header_style'] = true;
 ?>
 
 @section('content')
-    <?= $view->render('../parts/page-title.blade', [
-        'title' => $model->defaultArchive->name,
-        'text' => $model->defaultArchive->description
-    ]) ?>
-    <section id="blog-page" class="bg-color-01 wide-100 blog-page-section division">
+    <?= $view->render('../parts/slider.blade') ?>
+    <div class="container">
+        <div id="breadcrumb">
+            <div class="row">
+                <div class="col-12">
+                    <div class="breadcrumb-nav">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="/">Trang chủ</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">{!! $view->title !!}</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section id="blog-page" class="bg-color-01 pt-50 blog-page-section division">
         <div class="container">
             <div class="row">
-                <div class="col-md-8">
+                <div class="col-md-12">
                     <div id="product-detail"></div>
                     <ul class="nav tab-custom nav-tabs mt-4" role="tablist">
                         <li class="nav-item">
-                            <h5 class="bg-color-02 h-100 nav-link active" data-toggle="tab" href="#tabs-1" role="tab">Description</h5>
+                            <h5 style="padding: 0; color: #50254A;border-bottom: 2px solid #50254A"
+                                class="h-100 nav-link active" data-toggle="tab" href="#tabs-1" role="tab">
+                                Description</h5>
                         </li>
                     </ul>
                     <div class="tab-content">
-                        <div id="tabs-1" class="bg-color-02 p-2 tab-pane active">
+                        <div id="tabs-1" class=" p-2 tab-pane active">
                             {!! $model->content !!}
                         </div>
                     </div>
-                    <hr>
-                    <div class="other-posts">
+                    <div class="other-product">
 
                         <!-- Title -->
-                        <h5 class="h5-lg txt-color-01">Sản phẩm liên quan</h5>
+                        <h5 class="h5-lg xam">Sản phẩm tương tự</h5>
                         @if(isset($related) && !empty($related))
                             <div class="row">
 
                                 @foreach($related as  $post)
-                                    <div class="col-md-4">
-                                        <div class="blog-post">
-
-                                            <!-- Image -->
-                                            <img class="img-fluid" src="{{$post->avatar}}"
-                                                 alt="{{$post->name}}">
-
-                                            <!-- Text -->
-                                            <div class="blog-post-txt">
-
-                                                <!-- Post Data -->
-                                                <span class="txt-color-06">{{$post->defaultArchive->name}}</span>
-
-                                                <!-- Post Title -->
-                                                <h6 class="h6-md txt-color-01">
-                                                    <a href="<?= HelperFunction::Link(ARTICLE, $model->slug, $model->defaultArchive->slug)?>">{{$post->name}}</a>
-                                                </h6>
+                                    <div class="col-md-3 col-12">
+                                        <div class="block-product">
+                                            <div class="img">
+                                                <img class="img-fluid" src="{{$post->avatar}}"/>
+                                                <div class="action">
+                                                    <a href="" class="btn-action">Thêm vào giỏ hàng</a>
+                                                    <a href="" class="btn-action">Thêm vào yêu thích</a>
+                                                </div>
                                             </div>
-
+                                            <div class="text">
+                                                <a href="/shop/{{$post->defaultArchive->slug}}/{{$post->slug}}"
+                                                   class="title">{{$post->name}}</a>
+                                                <p class="price"><?= HelperFunction::htmlPrice($post)?></p>
+                                            </div>
                                         </div>
                                     </div>
                                 @endforeach
@@ -62,94 +71,10 @@ Yii::$app->params['header_style'] = true;
                         @endif
                     </div>
                 </div>
-                <aside id="sidebar" class="col-lg-4">
-
-
-                    <!-- SEARCH FIELD -->
-                    <div id="search-field" class="sidebar-div mb-50">
-                        <form method="GET" action="/<?= SEARCH?>">
-                            <div class="input-group mb-3">
-                                <input name="s" type="text" class="form-control" placeholder="Tìm kiếm..."
-                                       aria-label="Search"
-                                       aria-describedby="search-field">
-                                <div class="input-group-append">
-                                    <button class="btn" type="button"><i class="fa fa-search" aria-hidden="true"></i>
-                                    </button>
-                                </div>
-
-                            </div>
-                        </form>
-                    </div>
-
-
-                    <!-- BLOG CATEGORIES -->
-                    <div class="blog-categories sidebar-div mb-50">
-
-                        <!-- Title -->
-                        <h5 class="h5-sm txt-color-01">Danh mục</h5>
-
-                        <ul class="blog-category-list txt-color-05 clearfix">
-                            @if(isset($categories) && !empty($categories))
-                                @foreach($categories as $category)
-
-                                    <li>
-                                        <a href="<?= HelperFunction::Link($category->type, $category->slug)?>">
-                                            {{$category->name}}
-                                        </a>
-                                        <span>({{count($category->articles)}})</span></li>
-                                @endforeach
-                            @endif
-                        </ul>
-
-                    </div>
-
-                    <div class="image-widget sidebar-div mb-50">
-                        @if(!empty($bannerTop))
-                            @foreach($bannerTop as $top)
-                                <a href="{{$top->href}}"><img class="img-fluid" src="{{$top->avatar}}"
-                                                              alt="{{$top->name}}"/></a>
-                            @endforeach
-                        @endif
-                    </div>
-                    <!-- POPULAR POSTS -->
-                    <div class="popular-posts sidebar-div mb-50">
-
-                        <!-- Title -->
-                        <h5 class="h5-sm txt-color-01">New Tips</h5>
-
-                        <ul class="popular-posts">
-
-                            @if(isset($latestBlog) && !empty($latestBlog))
-                                @foreach($latestBlog as $blog)
-                                    <li class="clearfix d-flex align-items-center">
-                                        <img class="img-fluid" src="{{$blog->avatar}}" alt="{{$blog->name}}"/>
-                                        <div class="post-summary">
-                                            <a href="<?= HelperFunction::Link(ARTICLE, $blog->slug, $blog->archive->slug)?>"
-                                               class="txt-color-05">
-                                                {{$blog->name}}
-                                            </a>
-                                            <p class="txt-color-03">{{date('d/m/Y', $blog->created_at)}}</p>
-                                        </div>
-
-                                    </li>
-
-                                @endforeach
-                            @endif
-                        </ul>
-
-                    </div>
-                    <div class="image-widget sidebar-div mb-50">
-                        @if(!empty($bannerBottom))
-                            @foreach($bannerBottom as $bottom)
-                                <a href="{{$bottom->href}}"><img class="img-fluid" src="{{$bottom->avatar}}"
-                                                                 alt="{{$bottom->name}}"/></a>
-                            @endforeach
-                        @endif
-                    </div>
-                </aside>
             </div>
 
         </div>
+        <?= $view->render('../parts/logo.blade') ?>
     </section>
 @stop
 @section("js_end")
@@ -158,10 +83,6 @@ Yii::$app->params['header_style'] = true;
             const productId = "{{$model->id}}";
             const {TabPane} = Tabs;
             const [form] = Form.useForm();
-            const slider1 = useRef(null);
-            const slider2 = useRef(null);
-            const [nav1, setNav1] = useState();
-            const [nav2, setNav2] = useState();
 
             const [state, setState] = useState({
                 product: null,
@@ -182,13 +103,15 @@ Yii::$app->params['header_style'] = true;
                 } catch (e) {
                     message.error(e.message);
                 }
-
-                setNav1(slider1.current);
-                setNav2(slider2.current);
+                initThumbnail('#list-thumb', '#main-thumb');
+                //initThumbnailCarousel('.list-thumb');
             }, []);
             const addCart = () => {
-                const quantity = form.getFieldValue('quantity');
+                const quantity = 1;
                 setCart(state.product, quantity);
+            }
+            const addWishList = () => {
+
             }
             const {product, thumbs} = state;
             return (
@@ -196,50 +119,29 @@ Yii::$app->params['header_style'] = true;
                     {product === null ? null :
                         <div className="row">
                             <div className="col-md-6">
-                                <Carousel
-                                    asNavFor={nav2}
-                                    ref={slider1}
-                                    touchMove={false}
-                                    dots={false}
-                                >
-                                    {thumbs.length > 0 ? thumbs.map((thumb, index) => {
-                                        return (
-                                            <Image
-                                                key={index}
-                                                fallback={defaultImage()}
-                                                src={thumb}
-                                            />
-                                        )
-                                    }) : null}
-                                </Carousel>
-                                <div className="mt-1">
-                                    <Carousel
-                                        asNavFor={nav1}
-                                        ref={slider2}
-                                        slidesToScroll={3}
-                                        slidesToShow={3}
-                                        centerMode={true}
-                                        draggable={true}
-                                        swipeToSlide={true}
-                                        touchThreshold={50}
-                                        focusOnSelect={true}
-                                        autoplay={true}>
-                                        {thumbs.length > 0 ? thumbs.map((thumb, index) => {
-                                            return (
-                                                <Image
-                                                    preview={false}
-                                                    key={index}
-                                                    fallback={defaultImage()}
-                                                    src={thumb}
-                                                />
-                                            )
-                                        }) : null}
-                                    </Carousel>
+                                <div className="row">
+                                    <div className="col-md-9">
+                                        <div id="main-thumb"/>
+                                    </div>
+                                    <div className="col-md-3">
+                                        <ul id="list-thumb">
+                                            {thumbs && thumbs.map((thumb, index) => {
+                                                return (
+                                                    <li key={index} className="mb-3">
+                                                        <a href={thumb}>
+                                                            <img className="img-fluid"
+                                                                 src={thumb}/>
+                                                        </a>
+                                                    </li>
+                                                )
+                                            })}
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
-                            <div className="col-md-6">
+                            <div className="col-md-5">
                                 <Form form={form}>
-                                    <h2 className="m-0">{product.name}</h2>
+                                    <h2 className="m-0 tim">{product.name}</h2>
                                     <div className="txt-block-rating">
                                         <div className="stars-rating">
                                             <i className="fas fa-star"/>
@@ -248,36 +150,25 @@ Yii::$app->params['header_style'] = true;
                                             <i className="fas fa-star"/>
                                             <i className="fas fa-star-half-alt"/>
                                         </div>
-                                        <h4 className="txt-color-01">{renderPrice(product)}</h4>
-
                                     </div>
-
+                                    <p className="xam">Giá: {renderPrice(product)}</p>
                                     <div className="description">
                                         <p>{product.excerpt}</p>
                                     </div>
                                     <Divider/>
                                     <div className="cart">
-                                        <Form.Item
-                                            rules={[
-                                                {required: true, message: 'Nhập số lượng!'},
-                                            ]}
-                                            label="Số lượng"
-                                            initialValue={1}
-                                            name={'quantity'}
-                                        >
-                                            <InputNumber className={`custom`} min={0}/>
-                                        </Form.Item>
                                         <Space>
-                                            <Button className="btn custom btn-md btn-color-02">
-                                                <i className="fas fa-cart-plus mr-1"/> <span>Mua ngay</span>
-                                            </Button>
                                             <Button onClick={addCart} className="btn custom btn-md btn-color-02">
-                                                <span>Thêm vào giỏ</span>
-                                                <i className="fas fa-cart-plus ml-1"/>
+                                                <span>Mua hàng</span>
+                                            </Button>
+                                            <Button onClick={addWishList} className="btn custom btn-md btn-color-02">
+                                                <i className="fas fa-heart"/>
                                             </Button>
                                         </Space>
                                         <Divider/>
-                                        <p className="txt-color-03">Danh mục: <a
+                                        <p className="xam mb-0"><strong className={`bold`}>SKU</strong>: {product.sku}
+                                        </p>
+                                        <p className="xam"><strong className={`bold`}>Danh mục</strong>: <a
                                             href={`/product/${product.defaultArchive.slug}`}>{product.defaultArchive.name}</a>
                                         </p>
 

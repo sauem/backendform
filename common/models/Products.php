@@ -18,9 +18,12 @@ use yii\web\BadRequestHttpException;
  * @property string|null $excerpt
  * @property string|null $attributes
  * @property string|null $relations
+ * @property string|null $sub_name
+ * @property string|null $attr_text
  * @property float|null $default_price
  * @property float|null $default_sale_type
  * @property float|null $default_sale_price
+ * @property int|null $banner_id
  * @property int|null $default_archive
  * @property int|null $created_at
  * @property int|null $updated_at
@@ -30,6 +33,7 @@ class Products extends BaseModel
     public $avatar;
     public $thumbnails;
     public $media_id;
+    public $banner;
 
     /**
      * {@inheritdoc}
@@ -47,8 +51,8 @@ class Products extends BaseModel
         return [
             [['content', 'attributes'], 'string'],
             [['default_price', 'default_sale_type', 'default_sale_price'], 'number'],
-            [['created_at', 'updated_at', 'default_archive'], 'integer'],
-            [['name', 'slug', 'excerpt'], 'string', 'max' => 255],
+            [['created_at', 'updated_at', 'default_archive', 'banner_id'], 'integer'],
+            [['name', 'slug', 'excerpt', 'attr_text', 'sub_name'], 'string', 'max' => 255],
             [['status', 'language'], 'string', 'max' => 50],
             [['slug'], 'unique'],
             [['avatar', 'thumbnails', 'media_id', 'relations'], 'safe'],
@@ -99,6 +103,9 @@ class Products extends BaseModel
         if ($this->media) {
             $this->avatar = HelperFunction::getImage($this->media->path);
             $this->media_id = $this->media->id;
+        }
+        if ($this->banner_id) {
+            $this->banner = HelperFunction::getImage('', $this->banner_id);
         }
         if ($this->relations) {
             $this->relations = json_decode($this->relations, true);

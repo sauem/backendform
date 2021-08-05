@@ -1,0 +1,21 @@
+<?php
+$logos = $sliders = \Yii::$app->params['logos'];
+?>
+@if( isset($logos) && !empty($logos))
+    <div id="brands-1" class="bg-lam brands-section division">
+        <div class="container">
+            <div class="row">
+                <div class="col text-center">
+                    <div class="owl-carousel brands-carousel">
+
+                        @foreach($logos as $logo)
+                            <div class="brand-logo">
+                                <img class="img-fluid" src="{{$logo->avatar}}" alt="brand-logo"/>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>      <!-- End row -->
+        </div>        <!-- End container -->
+    </div>
+@endif
