@@ -511,11 +511,12 @@ nav a {
             font-weight: bold; }
 
 @media (max-width: 467px) {
-  .content-text {
-    margin-left: 0;
-    margin-right: 0;
+  .list-shop .content-text {
     padding: 20px;
     width: 100%; }
+    .list-shop .content-text.margin-left, .list-shop .content-text.margin-right {
+      margin-left: 0;
+      margin-right: 0; }
 
   #banner-bottom {
     margin-bottom: 0 !important;
