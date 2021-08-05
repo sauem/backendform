@@ -303,6 +303,9 @@ nav a {
 #blog-1 {
   padding-top: 150px; }
 
+.xam {
+  color: #636363; }
+
 .bg-xam {
   background-color: #F5F5F7; }
 
@@ -369,6 +372,16 @@ nav a {
     text-align: left; }
   .list-shop .col-text .content-text.margin-right {
     text-align: left; }
+
+.contact-bg {
+  padding-bottom: 40px;
+  margin-top: 80px;
+  background-image: url("../img/about/contact.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding-top: 100px; }
+  .contact-bg h1 {
+    font-size: 75px; }
 
 @media (max-width: 467px) {
   #banner-bottom {

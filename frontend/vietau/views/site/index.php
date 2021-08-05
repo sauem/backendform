@@ -26,7 +26,7 @@ Yii::$app->params['footer_type'] = 'light';
                 <div class="image-column col-lg-6">
                     <div class="about-image">
                         <div class="about-inner-image">
-                            <img src="/vietau/images/banner.png"
+                            <img src="<?= HelperFunction::getImage(null, HelperFunction::setting('about_image')) ?>"
                                  alt="about">
                         </div>
                     </div>
@@ -62,7 +62,8 @@ Yii::$app->params['footer_type'] = 'light';
 
             <!-- Form Column -->
             <div class="form-column col-lg-5 col-md-12 col-sm-12">
-                <img src="/vietau/images/event.png" width="100%" class="img-fluid">
+                <img src="<?= HelperFunction::getImage(null, HelperFunction::setting('event_image', true)) ?>"
+                     width="100%" class="img-fluid">
             </div>
         </div>
     </div>

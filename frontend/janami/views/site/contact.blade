@@ -15,48 +15,72 @@ $view->title = 'Liên hệ';
 
 
 @section('content')
-    <?= $view->render('../parts/page-title.blade', [
-        'title' => $view->title,
-        'text' => ''
-    ])?>
+    <div class="contact-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 offset-md-1">
+                    <div class="row">
+                        <div class="col-12">
+                            <h1 class="do mb-0">Liên hệ</h1>
+                            <p class="m-0 p-0">Đăng kí tư vấn sản phẩm và các tips chăm sóc cho làn da của bạn?</p>
+                        </div>
+                        <div class="col-md-7 col-12">
+                            <div class="row">
+                                <div class="col-md-6 col-12">
+                                    <div class="cbox-1 mt-50 mb-25">
+                                        <h5 class="h5-xs do">Chi tiết liên hệ</h5>
+                                        <p class="xam"><?= HelperFunction::setting('site_name')?></p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-12">
+                                    <div class="cbox-1 mt-50 mb-25">
+                                        <h5 class="h5-xs do">Địa chỉ showroom</h5>
+                                        <p class="xam"><?= HelperFunction::setting('address_1')?></p>
+                                        <p class="xam"><?= HelperFunction::setting('address_2')?></p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-12">
+                                    <div class="cbox-1 mt-50 mb-25">
+                                        <h5 class="h5-xs do">Thông tin liên lạc</h5>
+                                        <p class="xam"><span>Phone :</span>
+                                            <a href="tel:<?= HelperFunction::setting('hotline_1')?>">
+                                                <?= HelperFunction::setting('hotline_1')?></a>
+                                        </p>
+                                        <p class="xam"><span>Email :</span>
+                                            <a href="mailto:<?= HelperFunction::setting('email')?>"><?= HelperFunction::setting('email')?></a>
+                                        </p>
+                                        <p class="xam"><span>Facebook :</span>
+                                            <a href="<?= HelperFunction::setting('facebook')?>"><?= HelperFunction::setting('facebook')?></a>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-12">
+                                    <div class="cbox-1 mt-50 mb-25">
+                                        <h5 class="h5-xs do">Giờ làm việc/cửa hàng</h5>
+                                        <p class="xam"><span>Mon – Fri :</span> 9:00 AM - 7:00 PM</p>
+                                        <p class="xam"><span>Saturday :</span> 9:00 AM - 6:00 PM</p>
+                                        <p class="xam"><span>Sunday :</span> Closed</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- CONTACTS-3
     ============================================= -->
     <section id="contacts-3" class="bg-color-01 wide-60 contacts-section division">
         <div class="container">
 
-
-            <!-- SECTION TITLE -->
             <div class="row">
                 <div class="col-lg-10 offset-lg-1">
-                    <div class="section-title mb-60 text-center">
-
-                        <!-- Transparent Header -->
-                        <h2 class="tra-header txt-color-02">Liên hệ</h2>
-
-                        <!-- Title 	-->
-                        <h3 class="h3-xl txt-color-01">Tư vấn & Hỗ trợ?</h3>
-
-                        <!-- Text -->
-                        <p class="p-lg txt-color-05">
-                            Đăng kí tư vấn sản phẩm và các tips chăm sóc cho làn da của bạn?
-                        </p>
-
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="row">
-
-
-                <!-- CONTACT FORM -->
-                <div class="col-md-7 col-lg-8">
-
-                    <!-- Title -->
-                    <h4 class="h4-xs txt-color-01">Thông tin liên hệ</h4>
+                    <h4 class="h4-xs do text-center">Thông tin liên hệ</h4>
 
                     <!-- Text -->
-                    <p class="txt-color-05">Nếu bạn muốn hỏi bất cứ điều gì chỉ cần điền vào biểu mẫu bên dưới và gửi
+                    <p class="xam text-center">Nếu bạn muốn hỏi bất cứ điều gì chỉ cần điền vào biểu mẫu bên dưới và gửi
                         cho chúng tôi.</p>
 
                     <!-- Form -->
@@ -70,7 +94,8 @@ $view->title = 'Liên hệ';
 
                             <!-- Form Input -->
                             <div class="col-lg-6">
-                                <input type="email" name="phone" class="form-control phone" placeholder="Số điện thoại*">
+                                <input type="email" name="phone" class="form-control phone"
+                                       placeholder="Số điện thoại*">
                             </div>
 
                             <!-- Form Input -->
@@ -89,8 +114,8 @@ $view->title = 'Liên hệ';
 
                             <!-- Form Button -->
                             <div class="col-md-12 mt-5 text-right">
-                                <button type="submit" class="btn btn-md btn-color-02 tra-02-hover submit">Yêu cầu tư
-                                    vấn
+                                <button type="submit" class="btn float-right btn-md btn-color-02 tra-02-hover submit">
+                                    Gửi
                                 </button>
                             </div>
 
@@ -102,71 +127,11 @@ $view->title = 'Liên hệ';
                         </form>
 
                     </div>
-                </div>    <!-- END CONTACT FORM -->
-
-
-                <!-- CONTACTS INFO -->
-                <div class="col-md-5 col-lg-4">
-                    <div class="contacts-info mb-40">
-
-                        <!-- Title -->
-                        <h4 class="h4-xs txt-color-01">Chi tiết liên hệ</h4>
-
-                        <!-- Text -->
-                        <p class="txt-color-05">
-                            <?= nl2br(HelperFunction::setting('site_description'))?>
-                        </p>
-
-                        <!-- LOCATION -->
-                        <div class="cbox-1 mt-25 mb-25">
-                            <h5 class="h5-xs txt-color-01">Địa chỉ showroom</h5>
-                            <p class="txt-color-05"><?= HelperFunction::setting('address_1')?></p>
-                            <p class="txt-color-05"><?= HelperFunction::setting('address_2')?></p>
-                        </div>
-
-                        <!-- PHONES -->
-                        <div class="cbox-1 mb-25">
-                            <h5 class="h5-xs txt-color-01">Thông tin liên lạc</h5>
-                            <p class="txt-color-05"><span>Phone :</span>
-                                <a href="tel:<?= HelperFunction::setting('hotline_1')?>">
-                                    <?= HelperFunction::setting('hotline_1')?></a>
-                            </p>
-                            <p class="txt-color-05"><span>Email :</span>
-                                <a href="mailto:<?= HelperFunction::setting('email')?>"><?= HelperFunction::setting('email')?></a>
-                            </p>
-                            <p class="txt-color-05"><span>Facebook :</span>
-                                <a href="<?= HelperFunction::setting('facebook')?>"><?= HelperFunction::setting('facebook')?></a>
-                            </p>
-                        </div>
-
-                        <!-- WORKING HOURS -->
-                        <div class="cbox-1">
-                            <h5 class="h5-xs txt-color-01">Giờ làm việc/cửa hàng</h5>
-                            <p class="txt-color-05"><span>Mon – Fri :</span> 9:00 AM - 7:00 PM</p>
-                            <p class="txt-color-05"><span>Saturday :</span> 9:00 AM - 6:00 PM</p>
-                            <p class="txt-color-05"><span>Sunday :</span> Closed</p>
-                        </div>
-
-                    </div>
-                </div>    <!-- END CONTACTS INFO -->
-
-
-            </div>    <!-- End row -->
-            <!-- GOOGLE MAP -->
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="google-map mb-80">
-
-                        <!-- Embedded Google Map using an iframe - to select your location find it on Google maps and paste the link as the iframe src. If you want to use the Google Maps API instead then have at it! -->
-                        <iframe src="<?= HelperFunction::setting('map_iframe')?>" width="600" height="450"></iframe>
-
-                    </div>
                 </div>
-            </div>    <!-- END GOOGLE MAP -->
-
+            </div>
         </div>       <!-- End container -->
     </section>    <!-- END CONTACTS-3 -->
+    <iframe src="<?= HelperFunction::setting('map_iframe')?>" width="100%" height="450"></iframe>
 
-    <?= $view->render('../parts/banner.blade')?>
 
 @stop

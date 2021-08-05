@@ -513,6 +513,10 @@ nav {
   padding-top: 150px;
 }
 
+.xam {
+  color: $txt-color;
+}
+
 .bg-xam {
   background-color: $bg-xam;
 }
@@ -625,6 +629,18 @@ nav {
     }
   }
 
+}
+
+.contact-bg {
+  padding-bottom: 40px;
+  margin-top: 80px;
+  background-image: url('../img/about/contact.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding-top: 100px;
+  h1{
+    font-size:75px;
+  }
 }
 
 @media (max-width: 467px) {

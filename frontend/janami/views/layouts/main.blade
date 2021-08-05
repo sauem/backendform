@@ -40,18 +40,6 @@ AppAsset::register($view);
             "name": "<?= $view->title ?>",
             "url": "<?= \Yii::$app->homeUrl; ?>"
         }
-
-
-
-
-
-
-
-
-
-
-
-
     </script>
     <?php $view->registerCsrfMetaTags() ?>
     <title><?= Html::encode($view->title) ?></title>
@@ -70,17 +58,17 @@ AppAsset::register($view);
 </head>
 <body>
 <?php $view->beginBody() ?>
-<div id="loader-wrapper">
-    <div id="loading">
-        <div class="cssload-loader">
-            <div class="fancy-spinner">
-                <div class="ring"></div>
-                <div class="ring"></div>
-                <div class="dot"></div>
-            </div>
-        </div>
-    </div>
-</div>
+{{--<div id="loader-wrapper">--}}
+{{--    <div id="loading">--}}
+{{--        <div class="cssload-loader">--}}
+{{--            <div class="fancy-spinner">--}}
+{{--                <div class="ring"></div>--}}
+{{--                <div class="ring"></div>--}}
+{{--                <div class="dot"></div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
+{{--</div>--}}
 
 
 <div id="page" class="page">
