@@ -119,7 +119,7 @@ nav a {
     justify-content: center; }
 
 .page-pagination {
-  padding-bottom: 100px; }
+  padding-bottom: 0 !important; }
   .page-pagination .page-link {
     color: #efa697;
     font-weight: 600;
