@@ -265,7 +265,7 @@ nav {
 }
 
 .bold {
-  font-weight: bold;
+  font-weight: bold !important;
 }
 
 .ant-btn {
@@ -635,9 +635,10 @@ nav {
     }
 
     .content-text {
+      width: 90%;
+
       &.margin-left {
         text-align: left;
-        max-width: 80%;
         float: right;
         margin-right: -100px;
       }
@@ -645,7 +646,6 @@ nav {
       &.margin-right {
         margin-left: -100px;
         text-align: left;
-        max-width: 80%;
       }
     }
   }

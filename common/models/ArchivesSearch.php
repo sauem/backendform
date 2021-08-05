@@ -75,8 +75,12 @@ class ArchivesSearch extends Archives
             ->andFilterWhere(['like', 'slug', $this->slug])
             ->andFilterWhere(['=', 'type', $this->type])
             ->andFilterWhere(['=', 'language', $this->language])
-            ->andFilterWhere(['like', 'description', $this->description])
-            ->andFilterWhere(['IS', 'parent_id', new Expression('NULL')]);
+            ->andFilterWhere(['like', 'description', $this->description]);
+        if (!$this->parent_id) {
+            $query->andFilterWhere(['IS', 'parent_id', new Expression('NULL')]);
+        } else {
+            $query->andFilterWhere(['=', 'parent_id', $this->parent_id]);
+        }
         return $dataProvider;
     }
 }

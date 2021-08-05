@@ -171,6 +171,12 @@ class SiteController extends BaseController
         if (!$model) {
             throw new BadRequestHttpException('Không tồn tại danh mục!');
         }
+        if (!$model->parent_id) {
+            //$listCats = Archives::findOne(['parent_id' => $model->id, 'show_home' => 1]);
+            return $this->render('shop.blade',[
+                'model' => $model
+            ]);
+        }
         //default template
         $categories = Archives::find()
             ->where([
@@ -216,7 +222,6 @@ class SiteController extends BaseController
         if (!$archive) {
             throw new BadRequestHttpException('Không tồn tại trang!');
         }
-
 
         switch ($archive->type) {
             case Archives::STYLE_PRODUCT:

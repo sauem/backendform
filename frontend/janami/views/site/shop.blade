@@ -27,6 +27,7 @@ $view->title = 'Sản phẩm';
     <script type="text/babel">
 
         const ProductList = () => {
+            const parentId = "{{$model->id}}";
             const [cats, setCats] = useState([]);
             const [paginate, setPaginate] = useState(null);
             const [isLoading, setLoading] = useState(false);
@@ -36,6 +37,7 @@ $view->title = 'Sản phẩm';
                     const response = await getArchive({
                         ...params,
                         type: 'product',
+                        parent_id: parentId,
                         per_page: 4
                     });
                     setCats(response.data);
@@ -64,7 +66,7 @@ $view->title = 'Sản phẩm';
                                                 <div className={`content-text margin-left`}>
                                                     <h1 className={`title ${item.icon}`}>{item.name}</h1>
                                                     <h4 className={`xam`}>{item.sub_title}</h4>
-                                                    <b>{item.sub_text}</b>
+                                                    <p className="bold">{item.sub_text}</p>
                                                     <p>{item.description}</p>
                                                     <a href={`/shop/${item.slug}`} className={`btn btn-default`}>
                                                         Xem chi tiết
@@ -86,9 +88,9 @@ $view->title = 'Sản phẩm';
                                             </div>
                                             <div className={`col-text col-md-5 position-relative`}>
                                                 <div className={`content-text margin-right`}>
-                                                    <h1 className={`title ${item.icon}`}>{item.name}</h1>
-                                                    <h2>{item.sub_title}</h2>
-                                                    <b>{item.sub_text}</b>
+                                                    <h1 className={`title mb-0 ${item.icon}`}>{item.name}</h1>
+                                                    <h2 className={`mb-0`}>{item.sub_title}</h2>
+                                                    <p className="bold">{item.sub_text}</p>
                                                     <p>{item.description}</p>
                                                     <a href={`/shop/${item.slug}`} className={`btn btn-default`}>
                                                         Xem chi tiết

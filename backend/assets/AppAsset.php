@@ -30,7 +30,7 @@ class AppAsset extends AssetBundle
         '/js/lib/nestable.min.js',
         '/js/lib/axios.js',
         '/js/helper/Constant.js?v=1.3',
-        '/js/helper/Helper.js?v=1.7',
+        '/js/helper/Helper.js?v=1.8',
         '/js/helper/Actions.js?v=1.2',
         '/js/lib/redux.js',
         '/js/lib/moment-with-locales.js',

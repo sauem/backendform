@@ -158,7 +158,7 @@ nav a {
     box-shadow: 0 0; }
 
 .bold {
-  font-weight: bold; }
+  font-weight: bold !important; }
 
 .ant-btn.custom {
   display: flex;
@@ -378,15 +378,15 @@ nav a {
   align-items: center; }
   .list-shop .col-text .title {
     font-size: 50px; }
-  .list-shop .col-text .content-text.margin-left {
-    text-align: left;
-    max-width: 80%;
-    float: right;
-    margin-right: -100px; }
-  .list-shop .col-text .content-text.margin-right {
-    margin-left: -100px;
-    text-align: left;
-    max-width: 80%; }
+  .list-shop .col-text .content-text {
+    width: 90%; }
+    .list-shop .col-text .content-text.margin-left {
+      text-align: left;
+      float: right;
+      margin-right: -100px; }
+    .list-shop .col-text .content-text.margin-right {
+      margin-left: -100px;
+      text-align: left; }
 
 .contact-bg {
   padding-bottom: 40px;

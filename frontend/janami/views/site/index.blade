@@ -204,7 +204,7 @@ Yii::$app->params['footer_type'] = 'light';
                     const response = await getArchive({
                         ...params,
                         type: 'product',
-                        with: 'products'
+                        with: 'children'
                     });
                     setCats(response.data);
                     console.log(response.data);
@@ -237,13 +237,13 @@ Yii::$app->params['footer_type'] = 'light';
                                                     href={`/shop/${item.slug}`}>{item.name}</a></h2>
                                                 <p>{item.description}</p>
                                                 <ul className={`list-item ${item % 2 !== 0 && 'column-2'}`}>
-                                                    {item.products && item.products.map((product, key) => (
+                                                    {item.children && item.children.map((child, key) => (
                                                         <li key={key}>
                                                             {item.icon && (
                                                                 <img width={18} height={18}
                                                                      src={`/img/icons/${item.icon}.svg`}/>)}
                                                             <a className={`product-title ml-1 ${item.icon}`}
-                                                               href={`/shop/${item.slug}/${product.slug}`}>{product.name}</a>
+                                                               href={`/shop/${child.slug}`}>{child.name}</a>
                                                         </li>
                                                     ))}
 
