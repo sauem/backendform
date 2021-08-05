@@ -826,6 +826,12 @@ nav {
 }
 
 @media (max-width: 467px) {
+  .content-text {
+    margin-left: 0;
+    margin-right: 0;
+    padding: 20px;
+    width: 100%;
+  }
   #banner-bottom {
     margin-bottom: 0 !important;
     padding-left: 0 !important;
