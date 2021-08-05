@@ -734,6 +734,22 @@ nav {
   }
 }
 
+.btn-contact {
+  background: transparent;
+  text-align: center;
+  margin: 10px 0px;
+  border: 1px solid $txt-color;
+  padding: 5px 45px;
+  float: right;
+
+  &:hover {
+    background: $color-red;
+    font-weight: bold;
+    color: white;
+    border: 1px solid $color-red;
+  }
+}
+
 .other-product {
   margin: 20px 0;
 

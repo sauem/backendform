@@ -27,7 +27,7 @@ $view->title = 'Sản phẩm';
     <script type="text/babel">
 
         const ProductList = () => {
-            const parentId = "{{$model->id}}";
+            const parentId = "{{$model ?? $model->id}}";
             const [cats, setCats] = useState([]);
             const [paginate, setPaginate] = useState(null);
             const [isLoading, setLoading] = useState(false);
@@ -37,7 +37,7 @@ $view->title = 'Sản phẩm';
                     const response = await getArchive({
                         ...params,
                         type: 'product',
-                        parent_id: parentId,
+                        parent_id: parentId ? parentId : null,
                         per_page: 4
                     });
                     setCats(response.data);

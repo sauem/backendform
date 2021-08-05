@@ -446,6 +446,19 @@ nav a {
     color: white;
     border: 1px solid #E44126; }
 
+.btn-contact {
+  background: transparent;
+  text-align: center;
+  margin: 10px 0px;
+  border: 1px solid #636363;
+  padding: 5px 45px;
+  float: right; }
+  .btn-contact:hover {
+    background: #E44126;
+    font-weight: bold;
+    color: white;
+    border: 1px solid #E44126; }
+
 .other-product {
   margin: 20px 0; }
   .other-product .block-product {
