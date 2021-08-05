@@ -3,7 +3,7 @@
 use common\helper\HelperFunction;
 use yii\widgets\ListView;
 
-$view->title = 'Sản phẩm';
+$view->title = $model ? $model->name : 'Shop';
 ?>
 @section('content')
 
