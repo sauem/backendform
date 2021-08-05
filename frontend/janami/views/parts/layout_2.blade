@@ -1,14 +1,14 @@
 @section('block-archive')
     @php
-        $products = $model->products;
+        $childrens = $model->children;
     @endphp
-    @if(!empty($products))
+    @if(!empty($childrens))
         <div class="container">
             <div class="row">
-                @foreach($products as $key => $product)
+                @foreach($childrens as $key => $children)
                     <div class="col-12 my-3">
-                        <a href="/shop/{{$product->defaultArchive->slug}}/{{$product->slug}}">
-                            <img src="{{$product->banner ?? $product->avatar}}" width="100%" class="img-fluid"/>
+                        <a href="/shop/{{$children->slug}}">
+                            <img src="{{$children->banner ?? $children->avatar}}" width="100%" class="img-fluid"/>
                         </a>
                     </div>
                 @endforeach

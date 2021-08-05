@@ -139,7 +139,9 @@ class SiteController extends BaseController
 
     public function actionShop()
     {
-        return $this->render('shop.blade');
+        return $this->render('shop.blade',[
+            'model' => null,
+        ]);
     }
 
     public function actionFaqs()
@@ -173,7 +175,7 @@ class SiteController extends BaseController
         }
         if (!$model->parent_id) {
             //$listCats = Archives::findOne(['parent_id' => $model->id, 'show_home' => 1]);
-            return $this->render('shop.blade',[
+            return $this->render('shop.blade', [
                 'model' => $model
             ]);
         }
@@ -228,7 +230,7 @@ class SiteController extends BaseController
                 $template = 'product-detail.blade';
                 $model = Products::findOne(['slug' => $slug]);
                 $related = Products::find()
-                    ->where(['default_archive' => $model->default_archive])
+                    ->where(['default_archive' => $model->defaultArchive->id])
                     ->orWhere(['id' => $model->relations])
                     ->andFilterWhere(['!=', 'id', $model->id])
                     ->limit(8)->all();

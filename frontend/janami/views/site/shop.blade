@@ -8,16 +8,35 @@ $view->title = 'Sản phẩm';
 @section('content')
 
     <?= $view->render('../parts/slider.blade') ?>
+    <div class="container">
+        <div id="breadcrumb">
+            <div class="row">
+                <div class="col-12">
+                    <div class="breadcrumb-nav">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="/">Trang chủ</a></li>
+                                <li class="breadcrumb-item"><a href="/shop">Sản phẩm</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">{!! $view->title !!}</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-
-    <!-- SERVICES-18
-============================================= -->
-    <section class="bg-color-01 wide-60 services-section division">
-        <div class="sbox-18-wrapper" id="product-page"></div>
-        <?= $view->render('../parts/logo.blade') ?>
-    </section>    <!-- END SERVICES-18 -->
-
-
+    @if($model && $model->layout !== 'default')
+        <?= $view->render("../parts/$model->layout.blade", [
+            'model' => $model
+        ]); ?>
+        @yield('block-archive')
+    @else
+        <section class="bg-color-01 wide-60 services-section division">
+            <div class="sbox-18-wrapper" id="product-page"></div>
+            <?= $view->render('../parts/logo.blade') ?>
+        </section>    <!-- END SERVICES-18 -->
+    @endif
     <!-- END PAGE PAGINATION -->
 
     <?= $view->render('../parts/banner.blade')?>
