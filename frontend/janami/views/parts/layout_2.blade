@@ -1,13 +1,18 @@
+<?php
+use common\models\Archives;
+?>
 @section('block-archive')
     @php
-        $childrens = $model->children;
+        $viewShow = $model->layout_show;
+        $isProductList = $viewShow=== Archives::LAYOUT_SHOW_PRODUCT;
+        $childrens = $isProductList ? $model->products : $model->children;
     @endphp
     @if(!empty($childrens))
         <div class="container">
             <div class="row">
                 @foreach($childrens as $key => $children)
                     <div class="col-12 my-3">
-                        <a href="/shop/{{$children->slug}}">
+                        <a href="/shop/{{$isProductList ? "$model->slug/" :''}}{{$children->slug}}">
                             <img src="{{$children->banner ?? $children->avatar}}" width="100%" class="img-fluid"/>
                         </a>
                     </div>
@@ -16,4 +21,6 @@
         </div>
     @else
     @endif
+    <?= $view->render("../parts/logo.blade"); ?>
+
 @stop

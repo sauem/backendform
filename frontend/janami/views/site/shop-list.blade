@@ -1,0 +1,93 @@
+<?php
+
+use common\helper\HelperFunction;
+use yii\widgets\ListView;
+$view->title = $model ? $model->name : 'Shop';
+?>
+@section('content')
+
+    <?= $view->render('../parts/slider.blade') ?>
+    <div class="container">
+        <div id="breadcrumb">
+            <div class="row">
+                <div class="col-12">
+                    <div class="breadcrumb-nav">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="/">Trang chủ</a></li>
+                                <li class="breadcrumb-item"><a href="/shop">Sản phẩm</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">{!! $view->title !!}</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section class="bg-color-01 services-section division">
+            <div class="sbox-18-wrapper" id="product-page"></div>
+            <?= $view->render('../parts/logo.blade') ?>
+        </section>
+    </div>
+
+@stop
+
+@section('js_end')
+    <script type="text/babel">
+
+        const ProductList = () => {
+
+            const [products, setProducts] = useState([]);
+            const [paginate, setPaginate] = useState(null);
+            const [isLoading, setLoading] = useState(false);
+            const fetchProducts = async (params = {}) => {
+                try {
+                    setLoading(true);
+                    const response = await getProduct({
+                        ...params,
+                        per_page: 12
+                    });
+                    setProducts(response.data);
+                    setPaginate(response.pagination);
+                    setLoading(false);
+                } catch (e) {
+                    message.error(e.message);
+                }
+            }
+            useEffect(() => {
+                fetchProducts();
+            }, [])
+
+            return (
+                <div className={'other-product'}>
+                    <Spin spinning={isLoading}>
+                        <div className="row">
+                            {products.length > 0 && products.map((item, key) => {
+                                return (
+                                    <div className="col-md-3 col-12">
+                                        <div className="block-product">
+                                            <div className="img">
+                                                <img className="img-fluid" src={item.avatar}/>
+                                                <div className="action">
+                                                    <a href={`/shop/${item.defaultArchive.slug}/${item.slug}`}
+                                                       className="btn-action">Xem chi tiết</a>
+                                                    <a href="" className="btn-action">Thêm vào yêu thích</a>
+                                                </div>
+                                            </div>
+                                            <div className="text">
+                                                <a href={`/shop/${item.defaultArchive.slug}/${item.slug}`}
+                                                   className="title">{item.slug}</a>
+                                                <p className="price">{renderPrice(item)}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                )
+                            })}
+                        </div>
+                    </Spin>
+                    {paginate ? renderPaginate(paginate, fetchProducts) : null}
+                </div>
+            )
+        }
+        ReactDOM.render(<ProductList/>, document.getElementById('product-page'));
+    </script>
+@stop

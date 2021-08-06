@@ -1,5 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@400;500;600;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Charmonman:wght@700&display=swap");
+@font-face {
+  font-family: RedRose;
+  src: url("../fonts/RedRose.ttf") format("ttf");
+  font-display: fallback; }
 .wsmenu > .wsmenu-list > li > ul.sub-menu > li > a:before, .wsmenu > .wsmenu-list > li > .wsmegamenu .link-list li a:before, .wsmenu > .wsmenu-list > li > .wsmegamenu.halfmenu .link-list > li > a:before {
   color: #636363; }
 
@@ -37,7 +39,7 @@
   border-color: #E44126; }
 
 .tra-header {
-  font-family: 'Charmonman', cursive !important;
+  font-family: RedRose, serif !important;
   color: #F2F7E8; }
 
 .txt-color-01 {
@@ -93,10 +95,27 @@
   color: #F16687; }
 
 html, body, a, p, h1, h2, h3, h4, h5, h6 {
-  font-family: 'Baloo Da 2', cursive; }
+  font-family: RedRose, sans-serif !important; }
 
 nav a {
   font-weight: 600; }
+
+#footer-1 {
+  padding-top: 50px; }
+
+.breadcrumb li.active {
+  font-size: 14px;
+  font-weight: bold; }
+.breadcrumb li a {
+  font-size: 14px; }
+
+.divider {
+  text-align: center;
+  margin: auto;
+  height: 4px;
+  background-color: #E44126; }
+  .divider.w-50px {
+    width: 50px; }
 
 .cart .ico-cart {
   position: relative; }

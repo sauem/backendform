@@ -23,7 +23,8 @@ use Yii;
  * @property string|null $layout
  * @property int|null $banner_id
  * @property string|null $sub_title
- * @property string|null $sub_text
+ * @property string|null $sub_text,
+ * @property string|null $layout_show
  */
 class Archives extends BaseModel
 {
@@ -44,7 +45,7 @@ class Archives extends BaseModel
             [['active', 'created_at', 'updated_at', 'parent_id', 'show_home', 'banner_id'], 'integer'],
             [['description', 'sub_text'], 'string'],
             [['name', 'slug', 'type', 'sub_title'], 'string', 'max' => 255],
-            [['language', 'icon', 'layout'], 'string', 'max' => 50],
+            [['language', 'icon', 'layout', 'layout_show'], 'string', 'max' => 50],
             [['slug'], 'unique'],
             [['media_id', 'banner', 'avatar'], 'safe']
         ];
@@ -72,13 +73,15 @@ class Archives extends BaseModel
             'banner_id' => 'Banner ID',
             'sub_title' => 'Sub Title',
             'sub_text' => 'Sub Text',
+            'layout_show' => 'Layout Show',
         ];
     }
 
 
     const STATUS_ACTIVE = 1;
     const STATUS_DEACTIVE = 0;
-
+    const LAYOUT_SHOW_PRODUCT = 'product_list';
+    const LAYOUT_SHOW_ARCHIVE = 'archive_list';
     public $avatar;
     public $media_id;
     public $banner;

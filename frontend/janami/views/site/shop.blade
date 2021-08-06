@@ -2,7 +2,6 @@
 
 use common\helper\HelperFunction;
 use yii\widgets\ListView;
-
 $view->title = $model ? $model->name : 'Shop';
 ?>
 @section('content')
@@ -26,7 +25,7 @@ $view->title = $model ? $model->name : 'Shop';
         </div>
     </div>
 
-    @if($model && $model->layout !== 'default')
+    @if($model && $model->layout !== 'default' && $model->layout === 'product_list')
         <?= $view->render("../parts/$model->layout.blade", [
             'model' => $model
         ]); ?>
@@ -37,9 +36,6 @@ $view->title = $model ? $model->name : 'Shop';
             <?= $view->render('../parts/logo.blade') ?>
         </section>    <!-- END SERVICES-18 -->
     @endif
-    <!-- END PAGE PAGINATION -->
-
-    <?= $view->render('../parts/banner.blade')?>
 @stop
 
 @section('js_end')
@@ -47,6 +43,7 @@ $view->title = $model ? $model->name : 'Shop';
 
         const ProductList = () => {
             const parentId = "{{isset($model) ? $model->id : ''}}";
+
             const [cats, setCats] = useState([]);
             const [paginate, setPaginate] = useState(null);
             const [isLoading, setLoading] = useState(false);

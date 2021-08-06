@@ -139,7 +139,7 @@ class SiteController extends BaseController
 
     public function actionShop()
     {
-        return $this->render('shop.blade',[
+        return $this->render('shop-list.blade', [
             'model' => null,
         ]);
     }
@@ -174,7 +174,6 @@ class SiteController extends BaseController
             throw new BadRequestHttpException('Không tồn tại danh mục!');
         }
         if (!$model->parent_id) {
-            //$listCats = Archives::findOne(['parent_id' => $model->id, 'show_home' => 1]);
             return $this->render('shop.blade', [
                 'model' => $model
             ]);
@@ -210,6 +209,7 @@ class SiteController extends BaseController
                 ]);
                 break;
         }
+
         return $this->render($template, [
             'model' => $model,
             'dataProvider' => $dataProvider,

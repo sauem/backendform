@@ -16,8 +16,12 @@ if ($menu) {
             <div class="col-12 text-center mb-4">
                 <img height="60" width="240" src="<?= HelperFunction::getLogo('footer') ?>"
                      alt="<?= HelperFunction::setting('site_name') ?>"/>
-                <p class="mt-2 do"><?= HelperFunction::setting('site_description', true) ?></p>
+                <p class="mt-2 mb-0 do"><?= HelperFunction::setting('site_description', true) ?></p>
+                <p class="mt-2 xam"><?= HelperFunction::setting('about_us') ?></p>
+                <div class="divider w-50px"></div>
             </div>
+        </div>
+        <div class="row mt-4">
             <div class="col-md-3 col-12">
                 <div class="footer-info mb-40">
                     <div class="footer-contacts">
@@ -50,7 +54,8 @@ if ($menu) {
                                         ?>
                                         <li>
                                             <p>
-                                                <a class="text-dark" href="<?= HelperFunction::Link($children['type'], $children) ?>">
+                                                <a class="text-dark"
+                                                   href="<?= HelperFunction::Link($children['type'], $children) ?>">
                                                     <?= $children['title'] ?>
                                                 </a>
                                             </p>

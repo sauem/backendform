@@ -229,16 +229,32 @@ $view->title = 'Danh mục sản phẩm';
                                         </Form.Item>
                                     </Col>
                                 </Row>
-                                <Form.Item
-                                    initialValue={`layout_1`}
-                                    name={'layout'}
-                                    label={`Giao diện`}
-                                >
-                                    <Select>
-                                        <Select.Option value={'layout_2'}>1 cột</Select.Option>
-                                        <Select.Option value={'layout_1'}>2 cột</Select.Option>
-                                    </Select>
-                                </Form.Item>
+                                <Row gutter={[8, 0]}>
+                                    <Col md={12}>
+                                        <Form.Item
+                                            initialValue={`layout_1`}
+                                            name={'layout'}
+                                            label={`Giao diện`}
+                                        >
+                                            <Select>
+                                                <Select.Option value={'layout_2'}>1 cột</Select.Option>
+                                                <Select.Option value={'layout_1'}>2 cột</Select.Option>
+                                            </Select>
+                                        </Form.Item>
+                                    </Col>
+                                    <Col md={12}>
+                                        <Form.Item
+                                            initialValue={`archive_list`}
+                                            name={'layout_show'}
+                                            label={`Hiển thị`}
+                                        >
+                                            <Select>
+                                                <Select.Option value={'archive_list'}>List danh mục con</Select.Option>
+                                                <Select.Option value={'product_list'}>List sản phẩm</Select.Option>
+                                            </Select>
+                                        </Form.Item>
+                                    </Col>
+                                </Row>
                                 <Form.Item
                                     name={'sub_title'}
                                     label={`Tiêu đề phụ`}
