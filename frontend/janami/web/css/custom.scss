@@ -32,6 +32,7 @@ $txt-color: #636363;
 
 .navbar-dark .wsmenu > .wsmenu-list > li > a {
   color: $icon-color;
+  font-size: 16px;
 }
 
 .fancy-spinner {
@@ -211,7 +212,7 @@ nav {
 
 
 .page-pagination {
-  padding-bottom: 0!important;
+  padding-bottom: 50px;
 
   .page-link {
     color: #efa697;

@@ -4,7 +4,8 @@
   color: #636363; }
 
 .navbar-dark .wsmenu > .wsmenu-list > li > a {
-  color: #636363; }
+  color: #636363;
+  font-size: 16px; }
 
 .fancy-spinner .ring:nth-child(1) {
   border-left-color: #E44126 !important;
@@ -119,7 +120,7 @@ nav a {
     justify-content: center; }
 
 .page-pagination {
-  padding-bottom: 0 !important; }
+  padding-bottom: 50px; }
   .page-pagination .page-link {
     color: #efa697;
     font-weight: 600;
