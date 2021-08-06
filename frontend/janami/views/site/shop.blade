@@ -3,6 +3,7 @@
 use common\helper\HelperFunction;
 use yii\widgets\ListView;
 $view->title = $model ? $model->name : 'Shop';
+$isLisProduct = $model && $model->layout !== 'default' && $model->layout_show === 'product_list';
 ?>
 @section('content')
 
@@ -25,7 +26,7 @@ $view->title = $model ? $model->name : 'Shop';
         </div>
     </div>
 
-    @if($model && $model->layout !== 'default' && $model->layout === 'product_list')
+    @if($isLisProduct)
         <?= $view->render("../parts/$model->layout.blade", [
             'model' => $model
         ]); ?>
