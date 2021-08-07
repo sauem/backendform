@@ -5,13 +5,35 @@ $('.slides').owlCarousel({
     loop: true,
 });
 
+$('.post-carousel').owlCarousel({
+    items: 3,
+    margin: 20,
+    animateOut: 'fadeOut',
+    autoplay: true,
+    nav: true,
+    dots: false,
+    navText: ['<i class="fas fa-arrow-left"></i>', '<i class="fas fa-arrow-right"></i>'],
+    responsive: {
+        //  loop: true,
+        0: {
+            items: 1,
+            autoHeight: true
+        },
+        720: {
+            items: 2
+        },
+        960: {
+            items: 3
+        }
+    }
+})
 $('.banner-carousel').owlCarousel({
     items: 2,
     margin: 20,
     animateOut: 'fadeOut',
     autoplay: true,
     loop: true,
-    //nav: true,
+    // nav: true,
     // navText: [
     //     `<i class="fas fa-arrow-right"></i>`,
     //     `<i class="fas fa-arrow-right"></i>`,
@@ -42,7 +64,7 @@ const initThumbnail = (element, main) => {
         interval: 4000,
         events: {
             onThumbClick: (e) => {
-               // $(main).html(e);
+                // $(main).html(e);
             }
         }
     });

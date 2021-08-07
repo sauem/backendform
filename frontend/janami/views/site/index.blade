@@ -147,41 +147,27 @@ Yii::$app->params['footer_type'] = 'light';
             </div>
 
 
-            <!-- BLOG POSTS HOLDER -->
-            <div class="row">
+            <div class="owl-carousel post-carousel owl-theme">
                 @if(!empty($posts))
                     @foreach($posts as $post)
-                        <div class="col-md-6 col-lg-4">
-                            <div class="blog-post">
-
-                                <!-- BLOG POST IMAGE -->
-                                <div class="blog-post-img">
-                                    <img class="img-fluid" src="{{$post->avatar}}" alt="{{$post->name}}"/>
-                                </div>
-
-                                <!-- BLOG POST TITLE -->
-                                <div class="blog-post-txt">
-                                    <p class="do">{{date('d/m/Y', $post->created_at)}}</p>
-
-                                    <!-- Post Title -->
-                                    <h5 class="h5-sm text-3">
-                                        <a href="<?= HelperFunction::Link(ARTICLE, $post->slug, $post->archive->slug)?>">
-                                            {{$post->name}}
-                                        </a>
-                                    </h5>
-
-                                    <!-- Post Text -->
-                                    <p class="excerpt">
-                                        {{$post->excerpt}}
-                                    </p>
-                                    <a href="<?=HelperFunction::Link(ARTICLE, $post->slug, $post->archive->slug) ?>">
-                                        Đọc thêm
-                                        <i class="fas ml-2 fa-arrow-right"></i>
+                        <div class="blog-post">
+                            <div class="blog-post-img">
+                                <img class="img-fluid" src="{{$post->avatar}}" alt="{{$post->name}}"/>
+                            </div>
+                            <div class="blog-post-txt">
+                                <p class="do">{{date('d/m/Y', $post->created_at)}}</p>
+                                <h5 class="h5-sm text-3">
+                                    <a href="<?= HelperFunction::Link(ARTICLE, $post->slug, $post->archive->slug)?>">
+                                        {{$post->name}}
                                     </a>
-                                    <!-- Post Author -->
-
-                                </div>
-
+                                </h5>
+                                <p class="excerpt">
+                                    {{$post->excerpt}}
+                                </p>
+                                <a href="<?=HelperFunction::Link(ARTICLE, $post->slug, $post->archive->slug) ?>">
+                                    Đọc thêm
+                                    <i class="fas ml-2 fa-arrow-right"></i>
+                                </a>
                             </div>
                         </div>
                     @endforeach

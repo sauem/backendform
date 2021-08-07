@@ -339,8 +339,37 @@ nav a {
     max-height: 400px;
     object-fit: cover; }
 
+.banner-carousel .owl-nav {
+  position: absolute;
+  width: fit-content;
+  top: 0;
+  right: 0;
+  display: flex;
+  bottom: 0;
+  left: 0;
+  margin: auto; }
+
 #blog-1 {
   padding-top: 150px; }
+  #blog-1 .post-carousel .owl-nav {
+    position: absolute;
+    width: fit-content;
+    top: -60px;
+    right: 0;
+    display: flex; }
+    #blog-1 .post-carousel .owl-nav [class*="owl-"] {
+      width: 35px;
+      height: 35px;
+      background: transparent;
+      border-radius: 100%;
+      border: 1px solid #E44126;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #E44126; }
+      #blog-1 .post-carousel .owl-nav [class*="owl-"]:hover {
+        background-color: #E44126;
+        color: white; }
 
 .xam {
   color: #636363; }
