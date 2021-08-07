@@ -22,7 +22,7 @@ if ($menu) {
             </div>
         </div>
         <div class="row mt-4">
-            <div class="col-md-3 col-12">
+            <div class="col-md-4 col-12">
                 <div class="footer-info mb-40">
                     <div class="footer-contacts">
                         <p>
@@ -71,7 +71,7 @@ if ($menu) {
                     <?php
                 }
             } ?>
-            <div class="col-md-3">
+            <div class="col-md-2">
                 <div class="footer-form mb-20">
                     <h6 class="h6-lg do">Follow me</h6>
                     <ul class="bottom-footer-list text-right clearfix">

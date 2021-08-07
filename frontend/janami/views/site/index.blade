@@ -240,7 +240,7 @@ Yii::$app->params['footer_type'] = 'light';
                                                 <h2 className={`title-cat mt-3 ${item.icon}`}><a
                                                     href={`/shop/${item.slug}`}>{item.name}</a></h2>
                                                 <p>{item.description}</p>
-                                                <ul className={`list-item ${item % 2 === 0 && 'column-2'}`}>
+                                                <ul className={`list-item ${key % 2 === 0 ? 'column-2' : ''}`}>
                                                     {items.length > 0 && items.map((child, key) => (
                                                         <li key={key}>
                                                             {item.icon && (
