@@ -77,7 +77,7 @@ Yii::$app->params['footer_type'] = 'light';
             <div class="form-column col-lg-5 col-md-12 col-sm-12">
                 <div class="inner-column">
                     <div class="form-boxed">
-                        <h5><?= \Yii::t('app', 'register_free') ?></h5>
+                        <h5><?= \Yii::t('app', 'free_consulation') ?></h5>
 
                         <div class="consult-form">
                             <?php $form = ActiveForm::begin([
