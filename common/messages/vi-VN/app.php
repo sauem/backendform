@@ -6,6 +6,8 @@ return [
     'about_us' => 'Về chúng tôi',
     'products' => 'Sản phẩm',
     'product' => 'Sản phẩm',
+    'fullname' => 'Họ & Tên',
+    'free_consulation' => 'Nhận tư vấn',
     'video_intro' => 'Video giới thiệu',
     'company_name' => 'CTYTNHH USVN export logistics',
     'products_new' => 'Mặt hàng mới',

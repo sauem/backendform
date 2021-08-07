@@ -280,7 +280,8 @@ class SiteController extends BaseController
             default:
                 $searchModel = new ProductsSearch();
                 $dataProvider = $searchModel->search(Yii::$app->request->queryParams, [
-                    'language' => HelperFunction::getLanguage()
+                    'language' => HelperFunction::getLanguage(),
+                    'default_archive' => $model->id
                 ]);
 
                 $template = 'product-archive';
@@ -410,6 +411,7 @@ class SiteController extends BaseController
             'advisories' => $advisories
         ]);
     }
+
     public function actionExecutiveBoard()
     {
         $bods = Member::find()
@@ -419,6 +421,7 @@ class SiteController extends BaseController
             'executives' => $bods,
         ]);
     }
+
     public function actionAdvisoryBoard()
     {
         $bods = Member::find()
@@ -428,6 +431,7 @@ class SiteController extends BaseController
             'advisories' => $bods,
         ]);
     }
+
     public function actionOurTeam()
     {
         $members = Member::find()

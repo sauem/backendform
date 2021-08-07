@@ -7,6 +7,8 @@ return [
     'company_name' => 'USVN EXPORT LOGISTICS COMPANY LIMITED',
     'products' => 'Products',
     'product' => 'Product',
+    'fullname' => 'Full name',
+    'free_consulation' => 'FREE CONSULATION',
     'video_intro' => 'Video intro',
     'products_new' => 'New export items',
     'product_items' => 'Product export items',
