@@ -171,13 +171,31 @@ $txt-color: #636363;
 }
 
 
-html, body, a, p, h1, h2, h3, h4, h5, h6 {
+html, body, h1, h2, h3, h4, h5, h6 {
   font-family: 'Red Rose', cursive;
+}
+
+a, b, strong, p, span, small {
+  font-family: arial, sans-serif;
 }
 
 nav {
   a {
     font-weight: 600;
+  }
+}
+
+.wsmenu > .wsmenu-list > li > a {
+  text-transform: none;
+}
+
+.content-text {
+  h2 {
+    font-family: arial, sans-serif;
+  }
+
+  p.bold {
+    margin-top: 5px;
   }
 }
 
