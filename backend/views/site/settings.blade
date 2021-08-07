@@ -89,7 +89,13 @@ use common\helper\HelperFunction;
                 getSetting();
             }, []);
             return (
-                <Card title="Cài đăt website"
+                <Card title={
+                    <Space>
+                        <b>Cài đăt website</b>
+                        <small>* Upload ảnh phải đặt tên không kí tự đặc biệt</small>
+                        <small>* Ảnh, media không quá 2MB</small>
+                    </Space>
+                }
                       extra={<Button htmlType="submit" form="setting-form">Lưu</Button>}
                 >
                     <Form
