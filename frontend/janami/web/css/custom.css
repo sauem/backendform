@@ -1,7 +1,4 @@
-@font-face {
-  font-family: RedRose;
-  src: url("../fonts/RedRose.ttf") format("ttf");
-  font-display: fallback; }
+@import url("https://fonts.googleapis.com/css2?family=Red+Rose:wght@300;400;500&display=swap");
 .wsmenu > .wsmenu-list > li > ul.sub-menu > li > a:before, .wsmenu > .wsmenu-list > li > .wsmegamenu .link-list li a:before, .wsmenu > .wsmenu-list > li > .wsmegamenu.halfmenu .link-list > li > a:before {
   color: #636363; }
 
@@ -39,7 +36,7 @@
   border-color: #E44126; }
 
 .tra-header {
-  font-family: RedRose, serif !important;
+  font-family: 'Red Rose', cursive;
   color: #F2F7E8; }
 
 .txt-color-01 {
@@ -95,7 +92,7 @@
   color: #F16687; }
 
 html, body, a, p, h1, h2, h3, h4, h5, h6 {
-  font-family: RedRose, sans-serif !important; }
+  font-family: 'Red Rose', cursive; }
 
 nav a {
   font-weight: 600; }

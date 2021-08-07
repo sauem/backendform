@@ -1,8 +1,4 @@
-@font-face {
-  font-family: RedRose;
-  src: url('../fonts/RedRose.ttf') format('ttf');
-  font-display: fallback;
-}
+@import url('https://fonts.googleapis.com/css2?family=Red+Rose:wght@300;400;500&display=swap');
 
 $icon-color: #636363;
 $active-color: #E44126;
@@ -82,7 +78,7 @@ $txt-color: #636363;
 }
 
 .tra-header {
-  font-family: RedRose, serif !important;
+  font-family: 'Red Rose', cursive;
   color: $bg-green;
 }
 
@@ -176,7 +172,7 @@ $txt-color: #636363;
 
 
 html, body, a, p, h1, h2, h3, h4, h5, h6 {
-  font-family: RedRose, sans-serif !important;
+  font-family: 'Red Rose', cursive;
 }
 
 nav {
