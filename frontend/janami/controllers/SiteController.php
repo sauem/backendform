@@ -239,6 +239,9 @@ class SiteController extends BaseController
                 break;
             default:
                 $template = 'blog-detail.blade';
+                if ($slug === 'cau-chuyen-janami') {
+                    $template = 'cau-chuyen-janami.blade';
+                }
                 $model = Articles::findOne(['slug' => $slug]);
                 $related = Articles::find()
                     ->where(['archive_id' => $model->archive_id])
@@ -265,7 +268,7 @@ class SiteController extends BaseController
             ->orderBy('id DESC')
             ->all();
 
-        return $this->render('cau-chuyen-janami.blade', [
+        return $this->render($template, [
             'model' => $model,
             'categories' => $categories,
             'latestBlog' => $latestBlog,
