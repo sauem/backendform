@@ -1,0 +1,40 @@
+@php
+    $view->title = 'Câu chuyện Janami';
+@endphp
+@section("content")
+    <div class="container">
+        <div id="breadcrumb">
+            <div class="row">
+                <div class="col-12">
+                    <div class="breadcrumb-nav">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="/">Trang chủ</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">{!! $view->title !!}</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1><?= $view->title ?></h1>
+                <p>Trở nên xinh đẹp hơn luôn là ước mong của mọi phụ nữ. Dựa trên những nhu cầu thiết yếu của phụ nữ -
+                    Janami vào năm 2005 đã ra mắt sản phẩm đầu tiên áp dụng công nghệ làm đẹp tiên tiến của Nhật Bản.
+                    Với
+                    việc đặt khách hàng như người thân đã khiến cho đội ngũ của Janami nỗ lực không ngừng để tìm ra giải
+                    pháp tối ưu để cải thiện sắc đẹp của người tiêu dùng. Quá trình phát triển của Janami được đánh dấu
+                    theo
+                    từng sản phẩm mà công ty mang đến với khách hàng, tập trung vào vẻ đẹp của người phụ nữ và mong muốn
+                    cải
+                    thiện sắc đẹp từ bên trong để có được vẻ đẹp trường tồn với thời gian là những gì Janami mong muốn
+                    mang
+                    đến cho tất cả các quý khách hàng của mình.</p>
+            </div>
+        </div>
+    </section>
+    <?= $view->render('../../parts/slider.blade')?>
+@stop

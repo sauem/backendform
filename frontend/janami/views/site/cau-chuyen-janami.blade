@@ -1,4 +1,9 @@
+@php
+    $view->title = 'Câu chuyện Janami';
+@endphp
 @section("content")
+    <?= $view->render('../parts/slider.blade')?>
+
     <div class="container">
         <div id="breadcrumb">
             <div class="row">
@@ -15,7 +20,7 @@
             </div>
         </div>
     </div>
-    <section class="container">
+    <section class="container mt-4">
         <div class="row">
             <div class="col-12">
                 <h1><?= $view->title ?></h1>
@@ -30,8 +35,23 @@
                     thiện sắc đẹp từ bên trong để có được vẻ đẹp trường tồn với thời gian là những gì Janami mong muốn
                     mang
                     đến cho tất cả các quý khách hàng của mình.</p>
+                <h4>Cam kết khách hàng</h4>
+                <ul style="padding-left: 20px">
+                    <li><p>1.Authentic: hàng hoá và dịch vụ chuẩn mực</p></li>
+                    <li><p>2.Cam kết đồng hành cùng khách hàng</p></li>
+                    <li><p>3.Lắng nghe - thấu hiểu</p></li>
+                    <li><p>4.Chia sẻ kiến thức chuẩn mực</p></li>
+                    <li><p>5.Hoàn thiện mỗi ngày</p></li>
+
+                </ul>
+                <h4>Với đối tác</h4>
+                <ul style="padding-left: 20px">
+                    <li><p>1.Giải pháp đột phá - sáng tạo - tiên phong</p>
+                    </li>
+                    <li><p>2.Phát triển bền vững (hỗ trợ phát triển toàn diện)
+                        </p></li>
+                </ul>
             </div>
         </div>
     </section>
-    <?= $view->render('../../parts/slider.blade')?>
 @stop
