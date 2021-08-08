@@ -6,6 +6,7 @@ namespace janami\controllers;
 
 use common\helper\HelperFunction;
 use common\models\Contact;
+use common\models\Orders;
 use common\models\Products;
 use frontend\models\ContactForm;
 use yii\web\BadRequestHttpException;
@@ -44,6 +45,9 @@ class AjaxController extends BaseController
     function actionCreateOrder()
     {
         $post = \Yii::$app->request->post();
-        
+        $model = new Orders();
+        if ($model->load($post, '') && $model->save()) {
+
+        }
     }
 }

@@ -26,6 +26,7 @@ $view->title = 'Đặt hàng';
     <script type="text/babel">
         const Checkout = () => {
             const [form] = Form.useForm();
+            const [isLoading, setLoading] = useState(false);
             const [state, setState] = useState({
                 cart: getCart()
             });
@@ -36,110 +37,116 @@ $view->title = 'Đặt hàng';
                 })
             }, []);
             const onSubmit = async (data) => {
-                alert(data);
+                try {
+                    const response = await saveOrder(data);
+                } catch (e) {
+                    message.error(e.message);
+                }
             }
             return (
-                <Form
-                    onFinish={Checkout}
-                    form={form}
-                    layout="vertical"
-                >
-                    <Row gutter={[16, 16]}>
-                        <Col md={14}>
-                            <h2>Thông tin đặt hàng</h2>
-                            <Row gutter={[8, 0]}>
-                                <Col md={12}>
-                                    <Form.Item
-                                        rules={[{required: true, message: 'Hãy nhập tên của bạn'}]}
-                                        label="Họ và tên"
-                                        name="fullname"
-                                    >
-                                        <Input className="form-control"/>
-                                    </Form.Item>
-                                </Col>
-                                <Col md={12}>
-                                    <Form.Item
-                                        label="Email"
-                                        name="email"
-                                    >
-                                        <Input className="form-control"/>
-                                    </Form.Item>
+                <Spin spinning="">
+                    <Form
+                        onFinish={onSubmit}
+                        form={form}
+                        layout="vertical"
+                    >
+                        <Row gutter={[16, 16]}>
+                            <Col md={14}>
+                                <h2>Thông tin đặt hàng</h2>
+                                <Row gutter={[8, 0]}>
+                                    <Col md={12}>
+                                        <Form.Item
+                                            rules={[{required: true, message: 'Hãy nhập tên của bạn'}]}
+                                            label="Họ và tên"
+                                            name="fullname"
+                                        >
+                                            <Input className="form-control"/>
+                                        </Form.Item>
+                                    </Col>
+                                    <Col md={12}>
+                                        <Form.Item
+                                            label="Email"
+                                            name="email"
+                                        >
+                                            <Input className="form-control"/>
+                                        </Form.Item>
 
-                                </Col>
-                                <Col md={12}>
+                                    </Col>
+                                    <Col md={12}>
+                                        <Form.Item
+                                            rules={[{required: true, message: 'Hãy nhập số điện thoại'}]}
+                                            label="Số điện thoại"
+                                            name="phone"
+                                        >
+                                            <Input className="form-control"/>
+                                        </Form.Item>
+                                    </Col>
+                                    <Col md={12}>
+                                        <Form.Item
+                                            rules={[{required: true, message: 'Hãy nhập địa chỉ'}]}
+                                            label="Địa chỉ"
+                                            name="address"
+                                        >
+                                            <Input className="form-control"/>
+                                        </Form.Item>
+                                    </Col>
+                                    <Col md={24}>
+                                        <Form.Item
+                                            label="Ghi chú"
+                                            name="note"
+                                        >
+                                            <Input.TextArea rows={3} className="form-control"/>
+                                        </Form.Item>
+                                    </Col>
+                                    <Col md={24}>
+                                        <a href="/shop" className="btn btn-md btn-color-02"><i
+                                            className="fas fa-shopping-cart mr-1"/>Mua hàng</a>
+                                    </Col>
+                                </Row>
+                            </Col>
+                            <Col md={10}>
+                                <h2>Sản phẩm</h2>
+                                <table className="table table-bordered">
+                                    {state.cart.items.length > 0 ? state.cart.items.map(item => {
+                                        return (
+                                            <tr>
+                                                <td>{item.name} x {item.quantity}</td>
+                                                <td>{formatNum(item.buying_price)}đ</td>
+                                            </tr>
+                                        )
+                                    }) : <tr>
+                                        <td colSpan="2">
+                                            Giỏ hàng rỗng!
+                                        </td>
+                                    </tr>}
+                                </table>
+                                <div className="bg-color-02 p-3">
+                                    <h3>Hình thức thanh toán</h3>
+                                    <p>Chọn hình thức thanh toán của bạn</p>
                                     <Form.Item
-                                        rules={[{required: true, message: 'Hãy nhập số điện thoại'}]}
-                                        label="Số điện thoại"
-                                        name="phone"
+                                        rules={[{required: true, message: 'Chọn hình thức thanh toán'}]}
+                                        initialValue="cod"
+                                        name="paymen_method"
                                     >
-                                        <Input className="form-control"/>
+                                        <Radio.Group>
+                                            <Space direction="vertical">
+                                                <Radio value={'cod'}>Ship hàng COD</Radio>
+                                                <Radio value={'transfer'}>Chuyển khoản ngân hàng</Radio>
+                                                <Radio value={'showroom'}>Nhận hàng tại showroom</Radio>
+                                            </Space>
+                                        </Radio.Group>
                                     </Form.Item>
-                                </Col>
-                                <Col md={12}>
-                                    <Form.Item
-                                        rules={[{required: true, message: 'Hãy nhập địa chỉ'}]}
-                                        label="Địa chỉ"
-                                        name="address"
-                                    >
-                                        <Input className="form-control"/>
-                                    </Form.Item>
-                                </Col>
-                                <Col md={24}>
-                                    <Form.Item
-                                        label="Ghi chú"
-                                        name="note"
-                                    >
-                                        <Input.TextArea rows={3} className="form-control"/>
-                                    </Form.Item>
-                                </Col>
-                                <Col md={24}>
-                                    <a href="/shop" className="btn btn-md btn-color-02"><i
-                                        className="fas fa-shopping-cart mr-1"/>Mua hàng</a>
-                                </Col>
-                            </Row>
-                        </Col>
-                        <Col md={10}>
-                            <h2>Sản phẩm</h2>
-                            <table className="table table-bordered">
-                                {state.cart.items.length > 0 ? state.cart.items.map(item => {
-                                    return (
-                                        <tr>
-                                            <td>{item.name} x {item.quantity}</td>
-                                            <td>{formatNum(item.buying_price)}đ</td>
-                                        </tr>
-                                    )
-                                }) : <tr>
-                                    <td colSpan="2">
-                                        Giỏ hàng rỗng!
-                                    </td>
-                                </tr>}
-                            </table>
-                            <div className="bg-color-02 p-3">
-                                <h3>Hình thức thanh toán</h3>
-                                <p>Chọn hình thức thanh toán của bạn</p>
-                                <Form.Item
-                                    rules={[{required: true, message: 'Chọn hình thức thanh toán'}]}
-                                    initialValue="cod"
-                                    name="paymen_method"
-                                >
-                                    <Radio.Group>
-                                        <Space direction="vertical">
-                                            <Radio value={'cod'}>Ship hàng COD</Radio>
-                                            <Radio value={'transfer'}>Chuyển khoản ngân hàng</Radio>
-                                            <Radio value={'showroom'}>Nhận hàng tại showroom</Radio>
-                                        </Space>
-                                    </Radio.Group>
-                                </Form.Item>
-                            </div>
-                            <div className="mt-2 text-right">
-                                <button disabled={state.cart.totalItems === 0} type="submit"
-                                        className="btn btn-md btn-color-02">Đặt hàng
-                                </button>
-                            </div>
-                        </Col>
-                    </Row>
-                    <Divider/>
-                </Form>
+                                </div>
+                                <div className="mt-2 text-right">
+                                    <button disabled={state.cart.totalItems === 0} type="submit"
+                                            className="btn btn-md btn-color-02">Đặt hàng
+                                    </button>
+                                </div>
+                            </Col>
+                        </Row>
+                        <Divider/>
+                    </Form>
+                </Spin>
 
             )
         }

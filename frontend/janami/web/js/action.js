@@ -15,6 +15,7 @@ const formatNum = (num) => {
 const dateTime = (time) => {
     return moment.unix(time).format('DD/MM/YYYY');
 }
+
 const renderPrice = (product) => {
     const {default_sale_price, default_price, default_sale_type} = product;
     if (default_sale_price > 0) {
@@ -28,6 +29,15 @@ const AJAX = axios.create({
         'Content-Type': 'application/json',
     },
 });
+const saveOrder = async (data) => {
+    try {
+        const res = await AJAX.post('create-order', data);
+        return res.data;
+    } catch (e) {
+        message.error(e.message);
+    }
+}
+
 const getArchive = async (params = {}, link = '/archive-filter') => {
     try {
         const res = await AJAX.get(link, {

@@ -49,10 +49,10 @@ class Products extends BaseModel
     public function rules()
     {
         return [
-            [['content', 'attributes'], 'string'],
+            [['content', 'attributes', 'buy_link', 'attr_text'], 'string'],
             [['default_price', 'default_sale_type', 'default_sale_price'], 'number'],
             [['created_at', 'updated_at', 'default_archive', 'banner_id'], 'integer'],
-            [['name', 'slug', 'excerpt', 'attr_text', 'sub_name'], 'string', 'max' => 255],
+            [['name', 'slug', 'excerpt', 'sub_name'], 'string', 'max' => 255],
             [['status', 'language'], 'string', 'max' => 50],
             [['slug'], 'unique'],
             [['avatar', 'thumbnails', 'media_id', 'relations'], 'safe'],
