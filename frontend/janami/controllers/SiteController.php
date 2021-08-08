@@ -173,7 +173,7 @@ class SiteController extends BaseController
         if (!$model) {
             throw new BadRequestHttpException('Không tồn tại danh mục!');
         }
-        if (!$model->parent_id) {
+        if (!$model->parent_id && $model->type === Archives::STYLE_PRODUCT) {
             return $this->render('shop.blade', [
                 'model' => $model
             ]);
@@ -202,6 +202,7 @@ class SiteController extends BaseController
                 $template = 'product-archive.blade';
                 break;
             default:
+
                 $template = 'blog-archive.blade';
                 $modelSearch = new ArchivesSearch();
                 $dataProvider = $modelSearch->search(Yii::$app->request->queryParams, [
