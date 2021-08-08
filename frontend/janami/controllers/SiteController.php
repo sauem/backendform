@@ -49,6 +49,7 @@ class SiteController extends BaseController
         ]);
         $articles = Articles::find()
             ->where([
+                'show_home' => 1,
                 'language' => HelperFunction::getLanguage(),
                 'status' => Articles::STATUS_ACTIVE
             ])->limit(6)->orderBy('created_at DESC')->all();

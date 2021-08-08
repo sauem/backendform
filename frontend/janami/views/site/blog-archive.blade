@@ -10,10 +10,24 @@ $bannerBottom = HelperFunction::getBanner('sidebar_right_bottom', ['archive']);
 
 
 @section("content")
-    <?= $view->render('../parts/page-title.blade', [
-        'title' => $view->title,
-        'text' => ''
-    ]) ?>
+    <?= $view->render('../parts/slider.blade')?>
+
+    <div class="container">
+        <div id="breadcrumb">
+            <div class="row">
+                <div class="col-12">
+                    <div class="breadcrumb-nav">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="/">Trang chủ</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">{!! $view->title !!}</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
     <section id="blog-page" class="bg-color-01 wide-100 blog-page-section division">

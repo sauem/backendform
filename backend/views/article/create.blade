@@ -192,6 +192,16 @@
                                             </Select>
                                         </Form.Item>
                                         <Form.Item
+                                            name={`show_home`}
+                                            label="Hiển thị trang chủ"
+                                            initialValue={1}
+                                        >
+                                            <Select>
+                                                <Select.Option value={1}>Hiển thị</Select.Option>
+                                                <Select.Option value={0}>Ẩn</Select.Option>
+                                            </Select>
+                                        </Form.Item>
+                                        <Form.Item
                                             initialValue={LANG_VI}
                                             label="Ngôn ngữ"
                                             name={`language`}

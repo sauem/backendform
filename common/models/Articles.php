@@ -19,6 +19,7 @@ use Yii;
  * @property string|null $language
  * @property int|null $archive_id
  * @property int|null $media_id
+ * @property int|null $show_home
  */
 class Articles extends BaseModel
 {
@@ -41,7 +42,7 @@ class Articles extends BaseModel
     {
         return [
             [['content'], 'string'],
-            [['created_at', 'updated_at', 'archive_id', 'media_id'], 'integer'],
+            [['created_at', 'updated_at', 'archive_id', 'media_id', 'show_home'], 'integer'],
             [['name', 'slug', 'excerpt'], 'string', 'max' => 255],
             [['status', 'language'], 'string', 'max' => 50],
             [['slug'], 'unique'],
