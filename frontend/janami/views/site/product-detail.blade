@@ -55,7 +55,8 @@ Yii::$app->params['header_style'] = true;
                                             <div class="img">
                                                 <img class="img-fluid" src="{{$post->avatar}}"/>
                                                 <div class="action">
-                                                    <a href="" class="btn-action">Xem chi tiết</a>
+                                                    <a href="/shop/{{$post->defaultArchive->slug}}/{{$post->slug}}"
+                                                       class="btn-action">Xem chi tiết</a>
                                                     <a href="" class="btn-action">Thêm vào yêu thích</a>
                                                 </div>
                                             </div>
