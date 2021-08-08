@@ -57,7 +57,11 @@
                             },
                             {
                                 title: 'Giá sản phẩm', dataIndex: 'price', key: 'price', render: (price, raw) => {
-                                    return renderPrice(raw);
+                                    const {default_sale_price, default_price} = raw;
+                                    if (default_sale_price > 0) {
+                                        return formatNum(default_sale_price);
+                                    }
+                                    return formatNum(price);
                                 }
                             },
                             {title: 'Trạng thái', dataIndex: 'name'},
