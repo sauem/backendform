@@ -766,9 +766,19 @@ nav {
     margin-left: 50px;
     text-align: justify;
 
+    &.text-left {
+      h4 {
+        text-align: left;
+      }
+    }
+
     &.txt-right {
       margin-right: 50px;
       text-align: right;
+
+      h4 {
+        text-align: right;
+      }
 
       h1 {
         text-align: right;

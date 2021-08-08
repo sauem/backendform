@@ -465,9 +465,13 @@ nav a {
 .list-layout1 .number {
   margin-left: 50px;
   text-align: justify; }
+  .list-layout1 .number.text-left h4 {
+    text-align: left; }
   .list-layout1 .number.txt-right {
     margin-right: 50px;
     text-align: right; }
+    .list-layout1 .number.txt-right h4 {
+      text-align: right; }
     .list-layout1 .number.txt-right h1 {
       text-align: right; }
       .list-layout1 .number.txt-right h1:before {
