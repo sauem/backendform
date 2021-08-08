@@ -92,7 +92,8 @@ $isLisProduct = $model && $model->layout !== 'default' && $model->layout_show ==
                                                 </div>
                                             </div>
                                             <div className={`col-md-7 order-md-2 order-1`}>
-                                                <img src={`/img/cat${key + 1}.png`} className="order-img-1 img-fluid"/>
+                                                <img src={item.banner ? item.banner : item.avatar}
+                                                     className="order-img-1 img-fluid"/>
                                             </div>
                                         </div>
 
@@ -100,7 +101,7 @@ $isLisProduct = $model && $model->layout !== 'default' && $model->layout_show ==
                                     (
                                         <div className="row align-items-center mb-30">
                                             <div className={`col-md-7`}>
-                                                <img src={`/img/cat${key + 1}.png`}
+                                                <img src={item.banner ? item.banner : item.avatar}
                                                      className="order-img-1 img-fluid"/>
                                             </div>
                                             <div className={`col-text col-md-5 position-relative`}>
