@@ -55,7 +55,11 @@
                                     return raw.defaultArchive.name;
                                 }
                             },
-                            {title: 'Giá sản phẩm', dataIndex: 'name'},
+                            {
+                                title: 'Giá sản phẩm', dataIndex: 'price', key: 'price', render: (price, raw) => {
+                                    return renderPrice(raw);
+                                }
+                            },
                             {title: 'Trạng thái', dataIndex: 'name'},
                             {
                                 title: '', dataIndex: 'action', key: 'action', render: (text, raw) => {
