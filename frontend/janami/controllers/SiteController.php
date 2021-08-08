@@ -226,13 +226,15 @@ class SiteController extends BaseController
         if (!$archive) {
             throw new BadRequestHttpException('Không tồn tại trang!');
         }
-
         switch ($archive->type) {
             case Archives::STYLE_PRODUCT:
                 $template = 'product-detail.blade';
                 $model = Products::findOne(['slug' => $slug]);
+                if (!$model) {
+                    throw new BadRequestHttpException('Không tồn tại sản phẩm!');
+                }
                 $related = Products::find()
-                    ->where(['default_archive' => $model->defaultArchive->id])
+                    ->where(['default_archive' => $archive->id])
                     ->orWhere(['id' => $model->relations])
                     ->andFilterWhere(['!=', 'id', $model->id])
                     ->limit(8)->all();
@@ -243,6 +245,9 @@ class SiteController extends BaseController
                     $template = 'cau-chuyen-janami.blade';
                 }
                 $model = Articles::findOne(['slug' => $slug]);
+                if (!$model) {
+                    throw new BadRequestHttpException('Không tồn tại sản phẩm!');
+                }
                 $related = Articles::find()
                     ->where(['archive_id' => $model->archive_id])
                     ->andFilterWhere(['!=', 'id', $model->id])

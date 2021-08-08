@@ -281,9 +281,8 @@ class SiteController extends BaseController
                 $searchModel = new ProductsSearch();
                 $dataProvider = $searchModel->search(Yii::$app->request->queryParams, [
                     'language' => HelperFunction::getLanguage(),
-                    'default_archive' => $model->id
+                    //'default_archive' => $model->id
                 ]);
-
                 $template = 'product-archive';
                 break;
         }

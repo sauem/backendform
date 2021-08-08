@@ -548,32 +548,102 @@ nav a {
       .other-product .block-product .img img {
         display: flex;
         object-fit: cover; }
-      .other-product .block-product .img:hover .action {
-        height: 100%;
+      .other-product .block-product .img:hover .action .btn-action {
+        -webkit-transform: translateY(0);
+        -ms-transform: translateY(0);
+        transform: translateY(0);
         opacity: 1; }
+        .other-product .block-product .img:hover .action .btn-action:nth-child(0) {
+          -webkit-transition-delay: 0s;
+          -o-transition-delay: 0s;
+          transition-delay: 0s; }
+        .other-product .block-product .img:hover .action .btn-action:nth-child(0) {
+          -webkit-transition-delay: .15s;
+          -o-transition-delay: .15s;
+          transition-delay: .15s; }
       .other-product .block-product .img .action {
         position: absolute;
-        top: 0;
-        opacity: 0;
-        left: 0;
-        transition: 0.5s;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
         display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        height: 0;
-        background: rgba(255, 255, 255, 0.8); }
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+        -ms-flex-align: center;
+        align-items: center; }
         .other-product .block-product .img .action .btn-action {
-          background: transparent;
-          width: 50%;
+          width: 45px;
+          height: 45px;
+          line-height: 48px;
+          background-color: #fff;
           text-align: center;
-          margin: 10px 0px;
-          border: 1px solid #636363;
-          padding: 5px; }
+          border-radius: 50%;
+          font-size: 20px;
+          margin-left: 7px;
+          margin-right: 7px;
+          color: #000;
+          -webkit-transition: .5s;
+          -o-transition: .5s;
+          transition: .5s;
+          opacity: 0;
+          -webkit-transform: translateY(20px);
+          -ms-transform: translateY(20px);
+          transform: translateY(20px); }
+          .other-product .block-product .img .action .btn-action .tool-tip {
+            position: absolute;
+            background: #000;
+            text-align: center;
+            padding: 8px 12px;
+            z-index: 3;
+            opacity: 0;
+            visibility: hidden;
+            -webkit-transition: opacity .6s, margin .3s;
+            -o-transition: opacity .6s, margin .3s;
+            transition: opacity .6s, margin .3s;
+            white-space: pre;
+            font-size: 13px;
+            line-height: 14px;
+            top: -30px;
+            left: 50%;
+            -webkit-transform: translateX(-50%);
+            -ms-transform: translateX(-50%);
+            transform: translateX(-50%);
+            color: #fff;
+            border-radius: 2px; }
+            .other-product .block-product .img .action .btn-action .tool-tip:after {
+              border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) #000;
+              border-style: solid;
+              border-width: 5px 0 5px 5px;
+              content: "";
+              height: 0;
+              position: absolute;
+              bottom: 10px;
+              left: 50%;
+              width: 0;
+              bottom: -6px;
+              -webkit-transform: translateX(-50%) rotate(90deg);
+              -ms-transform: translateX(-50%) rotate(90deg);
+              transform: translateX(-50%) rotate(90deg); }
+          .other-product .block-product .img .action .btn-action:nth-child(0) {
+            -webkit-transition-delay: 0s;
+            -o-transition-delay: 0s;
+            transition-delay: 0s; }
+          .other-product .block-product .img .action .btn-action:nth-child(1) {
+            -webkit-transition-delay: .15s;
+            -o-transition-delay: .15s;
+            transition-delay: .15s; }
           .other-product .block-product .img .action .btn-action:hover {
             background: white;
             font-weight: bold; }
+            .other-product .block-product .img .action .btn-action:hover .tool-tip {
+              visibility: visible;
+              opacity: 1;
+              top: -35px; }
 
 @media (max-width: 467px) {
   .list-layout1 .number {
