@@ -238,6 +238,9 @@ class SiteController extends BaseController
                 break;
             default:
                 $template = 'blog-detail.blade';
+                if(file_exists("pages/$slug")){
+                    $template = "pages/$slug";
+                }
                 $model = Articles::findOne(['slug' => $slug]);
                 $related = Articles::find()
                     ->where(['archive_id' => $model->archive_id])
