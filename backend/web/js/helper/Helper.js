@@ -186,10 +186,27 @@ function initSortable() {
         emptyClass: ''
     });
 }
+
+const formatNum = (num) => {
+    if (!num) {
+        return 0;
+    }
+    return '' + num.toFixed(0).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+}
+
 const renderPrice = (product) => {
     const {default_sale_price, default_price, default_sale_type} = product;
     if (default_sale_price > 0) {
-        return <span><del><small className={`text-muted`}><b>{formatNum(default_price)}đ</b></small></del> <ins>{formatNum(default_sale_price)}đ</ins></span>;
+        return (
+            <span>
+            <del>
+                <small className={`text-muted`}>
+                    <strong>{formatNum(default_price)}đ</strong>
+                </small>
+            </del>
+            <ins>{formatNum(default_sale_price)}đ</ins>
+        </span>
+        );
     }
     return <span>{formatNum(default_price)}đ</span>;
 }
