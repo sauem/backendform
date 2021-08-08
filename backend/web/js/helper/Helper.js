@@ -193,6 +193,7 @@ const formatNum = (num) => {
     }
     return '' + num.toFixed(0).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
 }
+
 //
 // const renderPrice = (product) => {
 //     const {default_sale_price, default_price, default_sale_type} = product;

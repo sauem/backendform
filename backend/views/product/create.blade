@@ -20,7 +20,8 @@
             const [form] = Form.useForm();
             const [defaultFileList, setDefaultFileList] = useState({
                 avatar: [],
-                banner: []
+                banner: [],
+                thumbs: []
             });
             const [defaultThumbList, setDefaultThumbList] = useState([]);
             const [attr, setAttr] = useState({});
@@ -560,8 +561,9 @@
                                                     setDefaultThumbList(defaultThumbList.filter(thumb => thumb.uid !== file.uid))
                                                 }
                                                 }
-                                                fileList={defaultThumbList}
-                                                customRequest={options => onUpload(options, 'thumbnails')}
+                                                onChange={setDefaultThumbList}
+                                                fileList={[...defaultThumbList]}
+                                                customRequest={options => onUpload('thumbnails', options)}
                                                 multiple
                                             >
                                                 <Button><i className="icon-upload mr-2"/> Chọn ảnh</Button>
