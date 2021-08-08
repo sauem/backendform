@@ -55,7 +55,7 @@ Yii::$app->params['header_style'] = true;
                                             <div class="img">
                                                 <img class="img-fluid" src="{{$post->avatar}}"/>
                                                 <div class="action">
-                                                    <a href="" class="btn-action">Thêm vào giỏ hàng</a>
+                                                    <a href="" class="btn-action">Xem chi tiết</a>
                                                     <a href="" class="btn-action">Thêm vào yêu thích</a>
                                                 </div>
                                             </div>
@@ -106,9 +106,13 @@ Yii::$app->params['header_style'] = true;
                 initThumbnail('#list-thumb', '#main-thumb');
                 //initThumbnailCarousel('.list-thumb');
             }, []);
-            const addCart = () => {
-                const quantity = 1;
-                setCart(state.product, quantity);
+            const addCart = (product) => {
+                if (product.buy_link) {
+                    window.open(product.buy_link);
+                } else {
+                    const quantity = 1;
+                    setCart(state.product, quantity);
+                }
             }
             const addWishList = () => {
 
@@ -158,7 +162,8 @@ Yii::$app->params['header_style'] = true;
                                     <Divider/>
                                     <div className="cart">
                                         <Space>
-                                            <Button onClick={addCart} className="btn custom btn-md btn-color-02">
+                                            <Button onClick={() => addCart(product)}
+                                                    className="btn custom btn-md btn-color-02">
                                                 <span>Mua hàng</span>
                                             </Button>
                                             <Button onClick={addWishList} className="btn custom btn-md btn-color-02">
