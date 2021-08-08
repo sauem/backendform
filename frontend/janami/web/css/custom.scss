@@ -764,7 +764,7 @@ nav {
 .list-layout1 {
   .number {
     margin-left: 50px;
-    text-align: justify;
+    // text-align: justify;
 
     &.text-left {
       h4 {
@@ -773,6 +773,7 @@ nav {
     }
 
     &.txt-right {
+      margin-left: 0;
       margin-right: 50px;
       text-align: right;
 

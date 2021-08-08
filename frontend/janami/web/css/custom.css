@@ -463,11 +463,11 @@ nav a {
   margin-top: 50px; }
 
 .list-layout1 .number {
-  margin-left: 50px;
-  text-align: justify; }
+  margin-left: 50px; }
   .list-layout1 .number.text-left h4 {
     text-align: left; }
   .list-layout1 .number.txt-right {
+    margin-left: 0;
     margin-right: 50px;
     text-align: right; }
     .list-layout1 .number.txt-right h4 {
