@@ -170,7 +170,7 @@ Yii::$app->params['footer_type'] = 'light';
                                     </a>
                                 </h5>
                                 <p class="excerpt">
-                                    {{$post->excerpt}}
+                                    {{substr_replace($post->excerpt,'...',100)}}
                                 </p>
                                 <a href="<?=HelperFunction::Link(ARTICLE, $post->slug, $post->archive->slug) ?>">
                                     Đọc thêm
