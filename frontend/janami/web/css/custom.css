@@ -387,11 +387,13 @@ nav a {
     .blog-post:hover a {
       color: #E44126; }
   .blog-post .blog-post-txt {
+    margin-top: 0;
     padding: 20px; }
     .blog-post .blog-post-txt h5 {
       color: #636363;
       font-size: 16px;
-      font-weight: 700; }
+      font-weight: 700;
+      min-height: 60px; }
     .blog-post .blog-post-txt .excerpt {
       min-height: 78px; }
     .blog-post .blog-post-txt p {

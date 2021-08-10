@@ -33,7 +33,7 @@ class AppAsset extends AssetBundle
 //         '/css/silk-theme.css',
 //         '/css/gold-theme.css',
         '/css/responsive.css',
-        '/css/custom.css?v=2.9',
+        '/css/custom.css?v=3.0',
     ];
     public $js = [
         '/js/jquery-3.4.1.min.js',

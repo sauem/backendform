@@ -191,9 +191,11 @@ nav {
     font-weight: 600;
   }
 }
-.text-3{
+
+.text-3 {
 
 }
+
 .wsmenu > .wsmenu-list > li > a {
   text-transform: none;
 }
@@ -650,12 +652,14 @@ nav {
   }
 
   .blog-post-txt {
+    margin-top: 0;
     padding: 20px;
 
     h5 {
       color: $txt-color;
       font-size: 16px;
       font-weight: 700;
+      min-height: 60px;
     }
 
     .excerpt {
