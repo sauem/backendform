@@ -1,0 +1,147 @@
+<?php
+
+use common\helper\HelperFunction;
+use yii\helpers\Json;
+use yii\helpers\ArrayHelper;
+
+$menu = HelperFunction::getMenu();
+$menuItems = [];
+if ($menu) {
+    $menuItems = Json::decode(ArrayHelper::getValue($menu, 'items'));
+}
+
+?>
+<header id="header" class="header-style02">
+    <div id="top-bar-wrapper" class="clearfix">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-xs-9">
+                    <ul id="quick-links">
+                        <li>
+                            <i class="fa fa-phone"></i>
+                            <span><?= HelperFunction::setting('hotline_1')?></span>
+                        </li>
+
+                        <li>
+                            <i class="fa fa-envelope"></i>
+                            <a href="email:<?= HelperFunction::setting('email')?>"><?= HelperFunction::setting('email')?></a>
+                        </li>
+                    </ul><!-- .quick links end -->
+                </div><!-- .col-md-6 end -->
+
+                <div class="col-md-6 col-xs-9">
+                    <ul id="quick-links" class="flag d-flex flex-end text-right">
+                        <li class="d-flex align-center">
+                            <a class="d-flex align-center" onclick="switchLanguage('<?= LANG_VI ?>')" href="javascript:void(0)">
+                                <img src="/img/svg/vi.svg" width="24"/>
+                                <span class="ml-1">
+                                    Vietnamese
+                                </span>
+                            </a>
+                        </li>
+
+                        <li class="d-flex align-center">
+                            <a class="d-flex align-center" onclick="switchLanguage('<?= LANG_VI ?>')" href="javascript:void(0)">
+                                <img src="/img/svg/america.svg" width="24"/>
+                                <span class="ml-1">
+                                    English
+                                </span>
+                            </a>
+                        </li>
+                    </ul><!-- .quick links end -->
+                </div>
+            </div><!-- .row end -->
+        </div><!-- .container end -->
+    </div><!-- .top-bar-wrapper end -->
+
+    <div class="header-inner">
+        <!-- .container start -->
+        <div class="container">
+            <!-- .main-nav start -->
+            <div class="main-nav">
+                <!-- .row start -->
+                <div class="row">
+                    <div class="col-md-12">
+                        <nav class="navbar navbar-default nav-left" role="navigation">
+
+                            <!-- .navbar-header start -->
+                            <div class="navbar-header">
+                                <div class="logo">
+                                    <a href="/">
+                                        <img width="200" src="<?= HelperFunction::getLogo()?>"
+                                             alt="<?= HelperFunction::setting('site_name', true)?>"/>
+                                    </a>
+                                </div><!-- .logo end -->
+                            </div><!-- .navbar-header start -->
+
+                            <!-- MAIN NAVIGATION -->
+                            <div class="collapse navbar-collapse">
+                                <ul class="nav navbar-nav">
+                                    @if(!empty($menuItems))
+                                        @foreach($menuItems as $menuItem)
+                                            @php
+                                                $childrens = $menuItem['children'] ?? [];
+                                            @endphp
+                                            @if(!empty($childrens))
+                                                <li class="dropdown">
+                                                    <a href="#" data-toggle="dropdown"
+                                                       class="dropdown-toggle">{{$menuItem['title']}}</a>
+                                                    <ul class="dropdown-menu">
+                                                        @foreach($childrens as $child)
+                                                            <li>
+                                                                <a href="<?= HelperFunction::Link($child['type'], $child)?>">
+                                                                    {{$child['title']}}
+                                                                </a>
+                                                            </li>
+                                                        @endforeach
+                                                    </ul>
+                                                </li>
+                                            @else
+                                                <li>
+                                                    <a href="<?= HelperFunction::Link($menuItem['type'], $menuItem)?>">{{$menuItem['title']}}</a>
+                                                </li>
+                                            @endif
+                                        @endforeach
+                                    @endif
+                                </ul><!-- .nav.navbar-nav end -->
+
+                                <!-- RESPONSIVE MENU -->
+                                <div id="dl-menu" class="dl-menuwrapper">
+                                    <button class="dl-trigger"></button>
+
+                                    <ul class="dl-menu">
+                                        @if(!empty($menuItems))
+                                            @foreach($menuItems as $menuItem)
+                                                @php
+                                                    $childrens = $menuItem['children'] ?? [];
+                                                @endphp
+
+                                                @if(!empty($childrens))
+                                                    <li>
+                                                        <a href="#">{{$menuItem['title']}}</a>
+                                                        <ul class="dl-submenu">
+                                                            @foreach($childrens as $child)}
+                                                            <li>
+                                                                <a href="<?= HelperFunction::Link($child['type'], $child) ?>">{{$child['title']}}</a>
+                                                            </li>
+                                                            @endforeach
+                                                        </ul><!-- dl-submenu end -->
+                                                    </li>
+                                                @else
+                                                    <li>
+                                                        <a href="<?= HelperFunction::Link($menuItem['type'], $menuItem) ?>">{{$menuItem['title']}}</a>
+                                                    </li>
+                                                @endif
+                                            @endforeach
+                                        @endif
+
+                                    </ul><!-- .dl-menu end -->
+                                </div><!-- #dl-menu end -->
+                            </div><!-- MAIN NAVIGATION END -->
+                        </nav><!-- .navbar.navbar-default end -->
+                    </div><!-- .col-md-12 end -->
+                </div><!-- .row end -->
+            </div><!-- .main-nav end -->
+        </div><!-- .container end -->
+    </div>
+</header>

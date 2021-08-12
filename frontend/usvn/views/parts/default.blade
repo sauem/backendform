@@ -1,0 +1,139 @@
+<?php
+
+use common\helper\HelperFunction;
+use yii\widgets\ListView;
+
+$view->title = $model->name;
+?>
+@section('content')
+
+    <?= $view->render('../parts/slider.blade') ?>
+
+    <div class="container">
+        <div id="breadcrumb">
+            <div class="row">
+                <div class="col-12">
+                    <div class="breadcrumb-nav">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="/">Trang chủ</a></li>
+                                <li class="breadcrumb-item"><a href="/shop">Sản phẩm</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">{!! $view->title !!}</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="bg-color-01 wide-60 services-section division">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 offset-lg-1">
+                    <div class="section-title mb-60 text-center">
+
+                        <h3 class="h3-xl {{$model->icon}}">{{$model->name}}</h3>
+                        <h4 class="xam">{{$model->sub_title}}</h4>
+                        <p class="xam bold">{{$model->sub_text}}</p>
+                        <p class="p-lg xam">
+                            {{$model->description}}
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+            <div class="sbox-18-wrapper" id="product-page"></div>
+        </div>       <!-- End container -->
+    </section>    <!-- END SERVICES-18 -->
+
+@stop
+
+@section('js_end')
+    <script type="text/babel">
+
+        const ProductList = () => {
+            const archiveId = "{{$model->id}}";
+
+            const [state, setState] = useState({
+                products: [],
+                pagination: null,
+                loading: false
+            });
+            const fetchProduct = async (params = {}) => {
+                try {
+                    setState({
+                        ...state,
+                        loading: true
+                    })
+                    const {data, pagination} = await getProduct({
+                        ...params,
+                        default_archive: archiveId,
+                        archive_group: archiveId
+                    });
+                    setState({
+                        ...state,
+                        products: data,
+                        pagination: pagination,
+                        loading: false
+                    });
+                } catch (e) {
+                    message.error(e.message);
+                }
+            }
+            useEffect(() => {
+                fetchProduct();
+            }, [])
+
+            return (
+                <div>
+                    <Spin spinning={state.loading}>
+                        <div className="row">
+                            {state.products.length > 0 ? (
+                                state.products.map(product => {
+                                    return (
+                                        <div className="col-md-6 col-lg-4">
+                                            <div className="sbox-18 bg-white text-center">
+                                                <div className="sbox-10-img">
+                                                    <div className="hover-overlay">
+                                                        <a href={`/shop/${product.defaultArchive.slug}/${product.slug}`}>
+                                                            <img className="img-fluid" src={`${product.avatar}`}
+                                                                 alt={product.name}/>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div className="sbox-18-txt">
+                                                    <h5 className="h5-sm txt-color-01">
+                                                        <a href={`/shop/${product.defaultArchive.slug}/${product.slug}`}>{product.name}</a>
+                                                    </h5>
+                                                    <p className="p-md txt-color-05">{product.excerpt}</p>
+                                                    <div className="txt-block-rating">
+                                                        <div className="stars-rating">
+                                                            <i className="fas fa-star"/>
+                                                            <i className="fas fa-star"/>
+                                                            <i className="fas fa-star"/>
+                                                            <i className="fas fa-star"/>
+                                                            <i className="fas fa-star-half-alt"/>
+                                                            <p className="txt-color-01">{renderPrice(product)}</p>
+                                                        </div>
+                                                    </div>
+                                                    <a href={`/shop/${product.defaultArchive.slug}/${product.slug}`}
+                                                       className="btn p-sm btn-tra-01 color-02-hover mt-20 mr-2">Chi
+                                                        tiết</a>
+                                                    <a onClick={() => setCart(product, 1)}
+                                                       className="btn p-sm btn-tra-01 color-02-hover mt-20">Thêm vào
+                                                        giỏ <i className="fas fa-shopping-cart"/></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    )
+                                })
+                            ) : <h1>Sản phẩm trống...</h1>}
+                        </div>
+                    </Spin>
+                    {state.products.length > 1 ? renderPaginate(state.pagination, fetchProduct) : null}
+                </div>
+            )
+        }
+        ReactDOM.render(<ProductList/>, document.getElementById('product-page'));
+    </script>
+@stop

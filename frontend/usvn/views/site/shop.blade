@@ -1,0 +1,33 @@
+<?php
+
+/* @var $view yii\web\View */
+
+use common\helper\HelperFunction;
+use yii\widgets\ActiveForm;
+
+$view->title = HelperFunction::getLanguage() == 'vi' ?
+    HelperFunction::setting('site_name') :
+    HelperFunction::setting('site_name_en');
+Yii::$app->params['footer_type'] = 'light';
+?>
+
+@section("content")
+    <div class="slider">
+        <div class="container">
+            <?= $view->render('../parts/slider.blade') ?>
+
+        </div>
+    </div>
+    <div class="container mt-20">
+
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+                <?= $view->render('../parts/box-product.blade', [
+                    'products' => $products,
+                    'items' => 4
+                ]) ?>
+            </div>
+        </div>
+    </div>
+    <?= $view->render('../parts/logo.blade') ?>
+@stop

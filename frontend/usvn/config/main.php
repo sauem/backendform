@@ -7,13 +7,33 @@ $params = array_merge(
 );
 
 return [
-    'id' => 'app-frontend',
+    'id' => 'frontend-usvn',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
-    'controllerNamespace' => 'frontend\usvn\controllers',
+    'controllerNamespace' => 'usvn\controllers',
     'language' => 'vi-VN',
     'timeZone' => 'Asia/Ho_Chi_Minh',
+    'layout' => 'main.blade',
     'components' => [
+        'assetManager' => [
+            'linkAssets' => true,
+            'appendTimestamp' => true,
+            'forceCopy'=>true,
+        ],
+        'view' => [
+            'class' => 'yii\web\View',
+            'renderers' => [
+                'blade' => [
+                    'class' => '\cyneek\yii2\blade\ViewRenderer',
+                    'cachePath' => '@runtime/blade_cache',
+                ],
+            ],
+        ],
+        'cache' => [
+            #'class' => 'yii\caching\FileCache',
+            'class' => 'yii\redis\Cache',
+            'keyPrefix' => 'usvn_'
+        ],
         'request' => [
             'enableCookieValidation' => true,
             'enableCsrfValidation' => false,
@@ -35,7 +55,7 @@ return [
         ],
         'session' => [
             // this is the name of the session cookie used for login on the frontend
-            'name' => 'usvn-frontend',
+            'name' => 'vietau-frontend',
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
@@ -45,6 +65,13 @@ return [
                     'levels' => ['error', 'warning'],
                 ],
             ],
+        ],
+        'as access' => [
+            'class' => 'mdm\admin\components\AccessControl',
+            'allowActions' => [
+                //'site/*',
+                //'rbac/*',
+            ]
         ],
         'urlManager' => [
             'enablePrettyUrl' => true,

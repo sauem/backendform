@@ -1,0 +1,22 @@
+<?php
+
+use common\helper\HelperFunction;
+
+?>
+<div class="box-vertical-slider">
+    @if(!empty($products))
+        <ul class="block">
+            @foreach($products as $product)
+                <li class="item-product">
+                    <a href="/shop/{{$product->defaultArchive->slug}}/{{$product->slug}}">
+                        <img src="{!! $product->avatar!!}" class="img-responsive"/>
+                    </a>
+                    <a href="/shop/{{$product->defaultArchive->slug}}/{{$product->slug}}">
+                        {{$product->name}}
+                    </a>
+                </li>
+
+            @endforeach
+        </ul>
+    @endif
+</div>

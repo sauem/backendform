@@ -1,0 +1,21 @@
+<?php
+
+use common\helper\HelperFunction;
+
+?>
+<div data-items="{{$items ?? 3}}" class="box-product-slider owl-carousel owl-theme">
+    @if(!empty($products))
+        @foreach($products as $product)
+            <div class="block">
+                <div class="item-product">
+                    <a href="/shop/{{$product->defaultArchive->slug}}/{{$product->slug}}">
+                        <img src="{!! $product->avatar!!}" class="img-responsive"/>
+                    </a>
+                </div>
+                <a href="/shop/{{$product->defaultArchive->slug}}/{{$product->slug}}">
+                    {{$product->name}}
+                </a>
+            </div>
+        @endforeach
+    @endif
+</div>

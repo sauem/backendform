@@ -1,0 +1,29 @@
+<?php
+
+use common\helper\HelperFunction;
+use yii\helpers\ArrayHelper;
+use yii\helpers\Json;
+
+$menu = HelperFunction::getMenu('footer');
+$menuItems = [];
+if ($menu) {
+    $menuItems = Json::decode(ArrayHelper::getValue($menu, 'items'));
+}
+?>
+<div id="footer-wrapper" class="footer-light">
+    <div class="copyright-container">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <p>TRUCKING 2015. All RIGHTS RESERVED.</p>
+                </div><!-- .col-md-6 end -->
+
+                <div class="col-md-6">
+                    <p class="align-right">DESIGNED AND DEVELOPED BY <a href="www.pixel-industry.html">PIXEL INDUSTRY.</a> ELITE AUTHOR.</p>
+                </div><!-- .col-md-6 end -->
+            </div><!-- .row end -->
+        </div><!-- .container end -->
+    </div><!-- .copyright-container end -->
+
+    <a href="#" class="scroll-up">Scroll</a>
+</div>

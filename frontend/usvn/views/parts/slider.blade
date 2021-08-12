@@ -1,0 +1,14 @@
+@php
+    $sliders = \Yii::$app->params['sliders'];
+@endphp
+<div class="home-slider owl-carousel owl-theme">
+    @if(!empty($sliders))
+        @foreach($sliders as $slider)
+            <div class="img-slide">
+                <a href="{{$slider->href}}">
+                    <img src="{{$slider->avatar}}" class="img-responsive"/>
+                </a>
+            </div>
+        @endforeach
+    @endif
+</div>

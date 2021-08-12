@@ -1,6 +1,6 @@
 <?php
 
-namespace frontend\usvn\controllers;
+namespace usvn\controllers;
 
 use common\helper\HelperFunction;
 use common\models\Archives;
@@ -8,25 +8,20 @@ use common\models\ArchivesSearch;
 use common\models\Articles;
 use common\models\ArticlesSearch;
 use common\models\Banners;
-use common\models\BannersSearch;
 use common\models\Contact;
-use common\models\Medias;
+use common\models\Member;
 use common\models\Products;
 use common\models\ProductsSearch;
+use janami\controllers\BaseController;
 use frontend\models\ResendVerificationEmailForm;
 use frontend\models\VerifyEmailForm;
 use Yii;
 use yii\base\InvalidArgumentException;
 use yii\db\Expression;
 use yii\web\BadRequestHttpException;
-use yii\web\Controller;
-use yii\filters\VerbFilter;
-use yii\filters\AccessControl;
-use common\models\LoginForm;
 use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
-use frontend\models\ContactForm;
 use yii\web\NotFoundHttpException;
 use yii\web\Response;
 
@@ -43,34 +38,22 @@ class SiteController extends BaseController
      */
     public function actionIndex()
     {
-        $sliders = Banners::findAll([
-            'active' => Banners::BANNER_ACTIVE,
-            'language' => HelperFunction::getLanguage(),
-            'position' => 'home_slider'
-        ]);
-        $categories = ArchivesSearch::findAll([
-            'active' => Archives::STATUS_ACTIVE,
-            'show_home' => 1,
-            'type' => 'product',
-            'language' => HelperFunction::getLanguage()
-        ]);
+
+
         $articles = Articles::find()
             ->where([
-                'status' => Articles::STATUS_ACTIVE,
-                'language' => HelperFunction::getLanguage()
+                'show_home' => 1,
+                'language' => HelperFunction::getLanguage(),
+                'status' => Articles::STATUS_ACTIVE
             ])->limit(6)->orderBy('created_at DESC')->all();
         $products = Products::find()
             ->where([
                 'status' => Articles::STATUS_ACTIVE,
                 'language' => HelperFunction::getLanguage()
-            ])->limit(6)->orderBy('created_at DESC')->all();
-        $contactForm = new Contact();
-        return $this->render('index', [
-            'sliders' => $sliders,
-            'categories' => $categories,
-            'articles' => $articles,
+            ])->limit(9)->orderBy('created_at DESC')->all();
+        return $this->render('index.blade', [
+            'posts' => $articles,
             'products' => $products,
-            'contactForm' => $contactForm
         ]);
     }
 
@@ -83,155 +66,14 @@ class SiteController extends BaseController
     public function actionContact()
     {
         $model = new Contact();
-        return $this->render('contact', [
+        $related = Products::find()
+            //->where(['default_archive' => $archive->id])
+            // ->orWhere(['id' => $model->relations])
+            // ->andFilterWhere(['!=', 'id', $model->id])
+            ->limit(12)->all();
+        return $this->render('contact.blade', [
             'model' => $model,
-        ]);
-    }
-
-    /**
-     * Displays about page.
-     *
-     * @return mixed
-     */
-    public function actionAbout($slug = null)
-    {
-        $archive = Archives::findOne([
-            'slug' => ['ve-chung-toi', 'about-us'],
-            'language' => HelperFunction::getLanguage()
-        ]);
-
-        if (!$archive) {
-            throw new NotFoundHttpException('không có bài viết');
-        }
-
-        $abouts = Articles::findAll([
-            'archive_id' => $archive->id,
-            'language' => HelperFunction::getLanguage()
-        ]);
-        if ($slug) {
-            $model = Articles::findOne(['slug' => $slug, 'language' => HelperFunction::getLanguage()]);
-            if (!$model) {
-                throw new NotFoundHttpException('Page not found!');
-            }
-        }
-
-        return $this->render('about', [
-            'abouts' => $abouts,
-            'model' => $model ?? null,
-            'activeSlug' => $slug
-        ]);
-    }
-
-    /**
-     * Signs user up.
-     *
-     * @return mixed
-     */
-    public function actionSignup()
-    {
-        $model = new SignupForm();
-        if ($model->load(Yii::$app->request->post()) && $model->signup()) {
-            Yii::$app->session->setFlash('success', 'Thank you for registration. Please check your inbox for verification email.');
-            return $this->goHome();
-        }
-
-        return $this->render('signup', [
-            'model' => $model,
-        ]);
-    }
-
-    /**
-     * Requests password reset.
-     *
-     * @return mixed
-     */
-    public function actionRequestPasswordReset()
-    {
-        $model = new PasswordResetRequestForm();
-        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
-            if ($model->sendEmail()) {
-                Yii::$app->session->setFlash('success', 'Check your email for further instructions.');
-
-                return $this->goHome();
-            } else {
-                Yii::$app->session->setFlash('error', 'Sorry, we are unable to reset password for the provided email address.');
-            }
-        }
-
-        return $this->render('requestPasswordResetToken', [
-            'model' => $model,
-        ]);
-    }
-
-    /**
-     * Resets password.
-     *
-     * @param string $token
-     * @return mixed
-     * @throws BadRequestHttpException
-     */
-    public function actionResetPassword($token)
-    {
-        try {
-            $model = new ResetPasswordForm($token);
-        } catch (InvalidArgumentException $e) {
-            throw new BadRequestHttpException($e->getMessage());
-        }
-
-        if ($model->load(Yii::$app->request->post()) && $model->validate() && $model->resetPassword()) {
-            Yii::$app->session->setFlash('success', 'New password saved.');
-
-            return $this->goHome();
-        }
-
-        return $this->render('resetPassword', [
-            'model' => $model,
-        ]);
-    }
-
-    /**
-     * Verify email address
-     *
-     * @param string $token
-     * @return yii\web\Response
-     * @throws BadRequestHttpException
-     */
-    public function actionVerifyEmail($token)
-    {
-        try {
-            $model = new VerifyEmailForm($token);
-        } catch (InvalidArgumentException $e) {
-            throw new BadRequestHttpException($e->getMessage());
-        }
-        if ($user = $model->verifyEmail()) {
-            if (Yii::$app->user->login($user)) {
-                Yii::$app->session->setFlash('success', 'Your email has been confirmed!');
-                return $this->goHome();
-            }
-        }
-
-        Yii::$app->session->setFlash('error', 'Sorry, we are unable to verify your account with provided token.');
-        return $this->goHome();
-    }
-
-    /**
-     * Resend verification email
-     *
-     * @return mixed
-     */
-    public function actionResendVerificationEmail()
-    {
-        $model = new ResendVerificationEmailForm();
-        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
-            if ($model->sendEmail()) {
-                Yii::$app->session->setFlash('success', 'Check your email for further instructions.');
-                return $this->goHome();
-            }
-            Yii::$app->session->setFlash('error', 'Sorry, we are unable to resend verification email for the provided email address.');
-        }
-
-        return $this->render('resendVerificationEmail', [
-            'model' => $model
+            'related' => $related
         ]);
     }
 
@@ -247,201 +89,184 @@ class SiteController extends BaseController
         return false;
     }
 
-    public function actionProductAndBrief()
+
+    public function actionSearch()
     {
-
-        $contactForm = new Contact();
-        $categories = ArchivesSearch::findAll([
-            'active' => Archives::STATUS_ACTIVE,
-            'show_home' => 1,
-            'type' => 'product',
-            'language' => HelperFunction::getLanguage()
-        ]);
-
-        return $this->render('product-and-brief', [
-            'contactForm' => $contactForm,
-            'categories' => $categories
-        ]);
-    }
-
-    /**
-     * @param $slug
-     * @return string
-     * @throws NotFoundHttpException
-     */
-    public function actionArchive($slug)
-    {
-        $model = Archives::findOne(['slug' => $slug, 'language' => HelperFunction::getLanguage()]);
-
-        if (!$model) {
-            throw new NotFoundHttpException(Yii::t('app', 'not_found_archive'));
-        }
-        switch ($model->type) {
-            case BLOG:
-                $searchModel = new ArticlesSearch();
-                $dataProvider = $searchModel->search(null, [
-                    'language' => HelperFunction::getLanguage(),
-                    'archive_id' => $model->id
-                ]);
-                $categories = ArchivesSearch::findAll([
-                    'active' => Archives::STATUS_ACTIVE,
-                    'show_home' => 1,
-                    'type' => 'article',
-                    'language' => HelperFunction::getLanguage()
-                ]);
-                $tab_type = 'article';
-                break;
-            default:
-                $searchModel = new ProductsSearch();
-                $dataProvider = $searchModel->search(null, [
-                    'language' => HelperFunction::getLanguage(),
-                    'default_archive' => $model->id
-                ]);
-                $categories = ArchivesSearch::findAll([
-                    'active' => Archives::STATUS_ACTIVE,
-                    'show_home' => 1,
-                    'type' => 'product',
-                    'language' => HelperFunction::getLanguage()
-                ]);
-                $tab_type = 'product';
-                break;
-        }
-        return $this->render('archive', [
-            'model' => $model,
-            'dataProvider' => $dataProvider,
-            'searchModel' => $searchModel,
-            'categories' => $categories,
-            'tab_type' => $tab_type,
-            'activeSlug' => $slug
-        ]);
-    }
-
-    /**
-     * @param $slug
-     * @return string
-     * @throws NotFoundHttpException
-     */
-    public function actionProductDetail($archive, $slug)
-    {
-        $archiveModel = Archives::findOne(['slug' => $archive, 'language' => HelperFunction::getLanguage()]);
-        if (!$archiveModel) {
-            throw new NotFoundHttpException(Yii::t('app', 'not_found_archive'));
-        }
-        $model = Products::findOne(['slug' => $slug, 'language' => HelperFunction::getLanguage()]);
-        if (!$model) {
-            throw new NotFoundHttpException(Yii::t('app', 'not_found_product'));
-        }
-        $nextProduct = Products::find()
-            ->with('defaultArchive')
-            ->filterWhere(['language' => HelperFunction::getLanguage()])
-            ->andFilterWhere(['>', 'id', $model->id])
-            ->orderBy('created_at DESC')
-            ->one();
-        $prevProduct = Products::find()
-            ->with('defaultArchive')
-            ->filterWhere(['language' => HelperFunction::getLanguage()])
-            ->andFilterWhere(['<', 'id', $model->id])
-            ->orderBy('created_at DESC')
-            ->one();
+        $key = Yii::$app->request->get('s');
         $categories = Archives::find()
             ->filterWhere(['language' => HelperFunction::getLanguage()])
             ->andFilterWhere(['IS', 'parent_id', new Expression('NULL')])
             ->all();
-        $relatedProducts = Products::find()
-            ->innerJoin('products_archive', 'products_archive.product_id = products.id')
-            ->innerJoin('archives', 'archives.id = products_archive.archive_id')
-            ->where(['archives.id' => $model->firstArchive->archive->id])
-            ->andFilterWhere(['products.language' => HelperFunction::getLanguage()])
-            ->andFilterWhere(['<>', 'products.id', $model->id])
-            ->orderBy('products.created_at DESC')
-            ->limit(4)->all();
-        return $this->render('product-detail', [
-            'model' => $model,
-            'categories' => $categories,
-            'nextProduct' => $nextProduct,
-            'prevProduct' => $prevProduct,
-            'relatedProducts' => $relatedProducts
+        $productSearch = new ProductsSearch();
+        $productProvider = $productSearch->search([
+            'ProductsSearch' => [
+                'name' => $key
+            ]
         ]);
-    }
 
-    /**
-     * @param $archive
-     * @param $slug
-     * @return string
-     * @throws NotFoundHttpException
-     */
-    public function actionArticleDetail($archive, $slug)
-    {
-        $archiveModel = Archives::findOne(['slug' => $archive, 'language' => HelperFunction::getLanguage()]);
-        if (!$archiveModel) {
-            throw new NotFoundHttpException(Yii::t('app', 'not_found_archive'));
-        }
-        $model = Articles::findOne(['slug' => $slug, 'language' => HelperFunction::getLanguage()]);
-        if (!$model) {
-            throw new NotFoundHttpException(Yii::t('app', 'not_found_article'));
-        }
-        $categories = Archives::find()
-            ->filterWhere(['language' => HelperFunction::getLanguage()])
-            ->andFilterWhere(['IS', 'parent_id', new Expression('NULL')])
-            ->all();
-        $nextPost = Articles::find()
-            ->filterWhere([
-                'archive_id' => $archiveModel->id,
-                'language' => HelperFunction::getLanguage()])
-            ->andFilterWhere(['>', 'id', $model->id])
+        $articleSearch = new ArticlesSearch();
+        $articleProvider = $articleSearch->search([
+            'ArticlesSearch' => [
+                'name' => $key
+            ]
+        ]);
+        $relatedPosts = Articles::find()->filterWhere(['language' => HelperFunction::getLanguage()])
             ->orderBy('created_at DESC')
-            ->one();
-        $prevPost = Articles::find()
-            ->filterWhere([
-                'archive_id' => $archiveModel->id,
-                'language' => HelperFunction::getLanguage()])
-            ->andFilterWhere(['<', 'id', $model->id])
-            ->orderBy('created_at DESC')
-            ->one();
-        $relatedPosts = Articles::find()->filterWhere([
-            'archive_id' => $archiveModel->id,
-            'language' => HelperFunction::getLanguage()])
-            ->andFilterWhere(['<>', 'id', $model->id])
-            ->orderBy('created_at DESC')
-            ->limit(4)->all();
-        return $this->render('blog-detail', [
-            'model' => $model,
+            ->limit(6)->all();
+        return $this->render('search', [
             'categories' => $categories,
-            'nextPost' => $nextPost,
-            'prevPost' => $prevPost,
+            'productProvider' => $productProvider,
+            'articleProvider' => $articleProvider,
             'relatedPosts' => $relatedPosts
         ]);
     }
 
-    public function actionGuide()
+    public function actionShop()
     {
-        $searchModel = new ArticlesSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams, [
-            'language' => HelperFunction::getLanguage(),
-        ]);
-        $dataProvider->query->innerJoin('archives', 'archives.id = articles.archive_id')
-            ->filterWhere(['archives.slug' => GUIDE])
-            ->orFilterWhere(['archives.slug' => 'huong-dan']);
-
-        $products = Products::find()
-            ->orderBy('products.created_at DESC')
-            ->limit(12)->all();
-        return $this->render('guide', [
-            'products' => $products,
-            'dataProvider' => $dataProvider
+        return $this->render('shop-list.blade', [
+            'model' => null,
         ]);
     }
 
-    public function actionGalleries()
+    public function actionFaqs()
     {
-        $searchModel = new BannersSearch();
-        $dataProvider = $searchModel->search(array_merge_recursive(Yii::$app->request->queryParams, [
-            'BannersSearch' => [
-                'position' => 'gallery'
-            ]
-        ]));
-        return $this->render('gallery', [
-            'dataProvider' => $dataProvider
+        return $this->render('faqs.blade');
+    }
+
+    public function actionArticles()
+    {
+        return $this->render('articles.blade');
+    }
+
+    public function actionCart()
+    {
+        return $this->render('cart.blade');
+    }
+
+    public function actionCheckout()
+    {
+        return $this->render('checkout.blade');
+    }
+
+    public function actionArchive($archive)
+    {
+        if (!$archive) {
+            return $this->actionShop();
+        }
+        $model = Archives::findOne(['slug' => $archive]);
+        if (!$model) {
+            throw new BadRequestHttpException('Không tồn tại danh mục!');
+        }
+        if (!$model->parent_id && $model->type === Archives::STYLE_PRODUCT) {
+            return $this->render('shop.blade', [
+                'model' => $model
+            ]);
+        }
+        //default template
+        $categories = Archives::find()
+            ->where([
+                'language' => HelperFunction::getLanguage(),
+                'type' => Archives::STYLE_BLOG
+            ])
+            ->limit(6)
+            ->orderBy('id DESC')
+            ->all();
+        $latestBlog = Articles::find()
+            ->where([
+                'language' => HelperFunction::getLanguage(),
+            ])
+            ->andFilterWhere(['!=', 'archive_id', $model->id])
+            ->limit(5)
+            ->orderBy('id DESC')
+            ->all();
+        switch ($model->type) {
+            case Archives::STYLE_PRODUCT:
+                $modelSearch = new ProductsSearch();
+                $dataProvider = $modelSearch->search(Yii::$app->request->queryParams);
+                $template = 'product-archive.blade';
+                break;
+            default:
+
+                $template = 'blog-archive.blade';
+                $modelSearch = new ArchivesSearch();
+                $dataProvider = $modelSearch->search(Yii::$app->request->queryParams, [
+                    'default_archive' => $model->id
+                ]);
+                break;
+        }
+
+        return $this->render($template, [
+            'model' => $model,
+            'dataProvider' => $dataProvider,
+            'categories' => $categories,
+            'latestBlog' => $latestBlog,
         ]);
     }
+
+    public function actionDetail($archive, $slug)
+    {
+        $archive = Archives::findOne(['slug' => $archive]);
+        if (!$archive) {
+            throw new BadRequestHttpException('Không tồn tại trang!');
+        }
+        switch ($archive->type) {
+            case Archives::STYLE_PRODUCT:
+                $template = 'product-detail.blade';
+                $model = Products::findOne(['slug' => $slug]);
+                if (!$model) {
+                    throw new BadRequestHttpException('Không tồn tại sản phẩm!');
+                }
+                $related = Products::find()
+                    ->where(['default_archive' => $archive->id])
+                    ->orWhere(['id' => $model->relations])
+                    ->andFilterWhere(['!=', 'id', $model->id])
+                    ->limit(12)->all();
+                break;
+            default:
+                $template = 'blog-detail.blade';
+                if ($slug === 'cau-chuyen-janami') {
+                    $template = 'cau-chuyen-janami.blade';
+                }
+                $model = Articles::findOne(['slug' => $slug]);
+                if (!$model) {
+                    throw new BadRequestHttpException('Không tồn tại sản phẩm!');
+                }
+//                $related = Articles::find()
+//                    ->where(['archive_id' => $model->archive_id])
+//                    ->andFilterWhere(['!=', 'id', $model->id])
+//                    ->limit(12)->all();
+                $related = Products::find()
+                    //->where(['default_archive' => $archive->id])
+                    // ->orWhere(['id' => $model->relations])
+                    // ->andFilterWhere(['!=', 'id', $model->id])
+                    ->limit(12)->all();
+                break;
+        }
+        if (!$model) {
+            throw new BadRequestHttpException('Không tồn tại trang!');
+        }
+
+        $categories = Archives::find()
+            ->where([
+                'language' => HelperFunction::getLanguage()
+            ])->limit(6)
+            ->orderBy('id DESC')
+            ->all();
+        $latestBlog = Articles::find()
+            ->where([
+                'language' => HelperFunction::getLanguage(),
+            ])
+            ->andFilterWhere(['!=', 'id', $model->id])
+            ->limit(5)
+            ->orderBy('id DESC')
+            ->all();
+
+        return $this->render($template, [
+            'model' => $model,
+            'categories' => $categories,
+            'latestBlog' => $latestBlog,
+            'related' => $related
+        ]);
+    }
+
 }

@@ -1,0 +1,17 @@
+<?php
+$logos = $sliders = \Yii::$app->params['logos'];
+?>
+@if( isset($logos) && !empty($logos))
+    <div class="container">
+        <div class="carousel-container box-logo">
+            <h1 class="box-title"><?= Yii::t('app', 'certificates')?></h1>
+            <div id="client-carousel" class="owl-carousel owl-theme owl-carousel-navigation">
+                @foreach($logos as $logo)
+                    <div class="owl-item"><img src="{{$logo->avatar}}" alt=""/></div>
+                @endforeach
+            </div><!-- .owl-carousel.owl-carousel-navigation end -->
+        </div>
+    </div>
+@endif
+
+

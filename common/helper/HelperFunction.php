@@ -147,6 +147,7 @@ class HelperFunction
                     return "/" . ArrayHelper::getValue($slug, 'slug', '/');
                 case 'article':
                 case 'product':
+                case 'shop':
                     return "/" . $slug['type'] . '/' . ($archive ? "$archive/" : '') . $slug['slug'];
             }
         }

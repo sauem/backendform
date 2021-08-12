@@ -1,12 +1,12 @@
 <?php
 
 
-namespace frontend\usvn\controllers;
+namespace usvn\controllers;
 
 
 use common\helper\HelperFunction;
 use common\models\Contact;
-use frontend\models\ContactForm;
+use common\models\Orders;
 use yii\web\BadRequestHttpException;
 use yii\web\Response;
 
@@ -38,5 +38,14 @@ class AjaxController extends BaseController
             }
         }
         return false;
+    }
+
+    function actionCreateOrder()
+    {
+        $post = \Yii::$app->request->post();
+        $model = new Orders();
+        if ($model->load($post, '') && $model->save()) {
+
+        }
     }
 }

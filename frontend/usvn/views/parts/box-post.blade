@@ -1,0 +1,19 @@
+<?php
+
+use common\helper\HelperFunction;
+
+?>
+@if(!empty($posts))
+    <div class="box-post">
+        <h1 class="box-title"><?= Yii::t('app', 'new_and_event')?></h1>
+        <ul class="content">
+            @foreach($posts as $post)
+                <li>
+                    <a href="<?=HelperFunction::Link(BLOG, $post->slug, $post->archive->slug)?>">
+                        {{substr_replace($post->name,'...',50)}}
+                    </a>
+                </li>
+            @endforeach
+        </ul>
+    </div>
+@endif

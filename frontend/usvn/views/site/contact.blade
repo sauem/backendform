@@ -1,0 +1,50 @@
+<?php
+use common\helper\HelperFunction;
+?>
+@section("content")
+    <div class="slider">
+        <div class="container">
+            <?= $view->render('../parts/slider.blade') ?>
+
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="box-detail">
+                    <h1 class="box-title"><?= Yii::t('app', 'contact')?></h1>
+                    <div class="box-content">
+                        <h4><?= HelperFunction::setting('site_name', true)?></h4>
+                        <p>
+                            Địa chỉ : <?= HelperFunction::setting('address_1', true)?>
+                        </p>
+                        <p>
+                            Điện thoại : <a
+                                    href="tel:<?= HelperFunction::setting('hotline_1', true)?>"><?= HelperFunction::setting('hotline_1', true)?></a>
+                        </p>
+                        <p>
+                            Email : <?= HelperFunction::setting('email', true)?>
+                        </p>
+
+                        <hr>
+
+                        <div class="form-contact">
+                            <?= $view->render('../parts/form-contact.blade', ['model' => $model])?>
+                        </div>
+                        <iframe src="<?= HelperFunction::setting('map_iframe') ?>" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="box-vertical">
+                    <h1 class="box-title"><?= Yii::t('app', 'related_product')?></h1>
+                    <?= $view->render('../parts/box-vertical.blade', [
+                        'products' => $related
+                    ])?>
+                </div>
+            </div>
+        </div>
+    </div>
+    <?= $view->render('../parts/logo.blade')?>
+@stop
