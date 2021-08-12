@@ -11,15 +11,25 @@ if ($menu) {
 }
 ?>
 <div id="footer-wrapper" class="footer-light">
+    <div class="row heading">
+        <div class="col-12">
+            <h4 class="text-center"><?= HelperFunction::setting('site_name', true)?></h4>
+            <p class="text-center">Địa chỉ : <?= HelperFunction::setting('address_1', true)?></p>
+            <p class="text-center">Điện thoại : <a href="tel:<?= HelperFunction::setting('hotline_1')?>"><?= HelperFunction::setting('hotline_1')?></a></p>
+            <p class="text-center">Email : <a href="mailto:<?= HelperFunction::setting('email')?>"><?= HelperFunction::setting('email')?></a></p>
+        </div>
+    </div>
     <div class="copyright-container">
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <p>TRUCKING 2015. All RIGHTS RESERVED.</p>
+                    <?= HelperFunction::setting('site_name', true)?>
                 </div><!-- .col-md-6 end -->
 
                 <div class="col-md-6">
-                    <p class="align-right">DESIGNED AND DEVELOPED BY <a href="www.pixel-industry.html">PIXEL INDUSTRY.</a> ELITE AUTHOR.</p>
+                    <p class="align-right">
+                        <?= HelperFunction::setting('site_description', true)?>
+                    </p>
                 </div><!-- .col-md-6 end -->
             </div><!-- .row end -->
         </div><!-- .container end -->

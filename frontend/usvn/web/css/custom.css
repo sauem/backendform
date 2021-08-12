@@ -189,8 +189,26 @@
     padding: 10px;
     color: white; }
 
+.text-center {
+  text-align: center; }
+
 #footer-wrapper.footer-light {
   border-top: unset; }
+  #footer-wrapper.footer-light .heading {
+    margin-bottom: 0;
+    background: #0e2b3d;
+    padding-bottom: 20px;
+    padding-top: 20px; }
+    #footer-wrapper.footer-light .heading h4 {
+      color: white; }
+    #footer-wrapper.footer-light .heading p {
+      margin: 0;
+      padding-bottom: 0;
+      font-size: 16px;
+      color: white; }
+      #footer-wrapper.footer-light .heading p a {
+        color: white;
+        font-size: 16px; }
 
 .slider {
   background-color: #0E2B3D4C; }

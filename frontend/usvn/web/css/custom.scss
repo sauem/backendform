@@ -45,15 +45,19 @@ $primary-color: rgb(14, 43, 61);
 .ml-1 {
   margin-left: 10px;
 }
-#top-bar-wrapper{
+
+#top-bar-wrapper {
   border-bottom: 1px solid #ccc;
 }
+
 .header-style02 .header-inner {
   padding: 0;
 }
-.navbar-collapse{
+
+.navbar-collapse {
   float: none;
 }
+
 .box-logo {
   border-radius: 10px;
   border: 1px solid $primary-color;
@@ -265,8 +269,35 @@ $primary-color: rgb(14, 43, 61);
   }
 }
 
+.text-center {
+  text-align: center;
+}
+
 #footer-wrapper.footer-light {
   border-top: unset;
+
+  .heading {
+    margin-bottom: 0;
+    background: $primary-color;
+    padding-bottom: 20px;
+    padding-top: 20px;
+
+    h4 {
+      color: white;
+    }
+
+    p {
+      margin: 0;
+      padding-bottom: 0;
+      font-size: 16px;
+      color: white;
+
+      a {
+        color: white;
+        font-size: 16px;
+      }
+    }
+  }
 }
 
 .slider {
