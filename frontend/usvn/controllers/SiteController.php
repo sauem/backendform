@@ -216,11 +216,11 @@ class SiteController extends BaseController
                 if (!$model) {
                     throw new BadRequestHttpException('Không tồn tại sản phẩm!');
                 }
-                $related = Products::find()
-                    ->where(['default_archive' => $archive->id])
-                    ->orWhere(['id' => $model->relations])
-                    ->andFilterWhere(['!=', 'id', $model->id])
-                    ->limit(12)->all();
+//                $related = Products::find()
+//                    ->where(['default_archive' => $archive->id])
+//                    ->orWhere(['id' => $model->relations])
+//                    ->andFilterWhere(['!=', 'id', $model->id])
+//                    ->limit(12)->all();
                 break;
             default:
                 $template = 'blog-detail.blade';
@@ -235,11 +235,7 @@ class SiteController extends BaseController
 //                    ->where(['archive_id' => $model->archive_id])
 //                    ->andFilterWhere(['!=', 'id', $model->id])
 //                    ->limit(12)->all();
-                $related = Products::find()
-                    //->where(['default_archive' => $archive->id])
-                    // ->orWhere(['id' => $model->relations])
-                    // ->andFilterWhere(['!=', 'id', $model->id])
-                    ->limit(12)->all();
+
                 break;
         }
         if (!$model) {
@@ -260,7 +256,11 @@ class SiteController extends BaseController
             ->limit(5)
             ->orderBy('id DESC')
             ->all();
-
+        $related = Products::find()
+            //->where(['default_archive' => $archive->id])
+            // ->orWhere(['id' => $model->relations])
+            // ->andFilterWhere(['!=', 'id', $model->id])
+            ->limit(12)->all();
         return $this->render($template, [
             'model' => $model,
             'categories' => $categories,
