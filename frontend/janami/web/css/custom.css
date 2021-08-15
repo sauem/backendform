@@ -91,6 +91,9 @@
 .ico-cart i, .ico-cart span {
   color: #F16687; }
 
+h1, h2, h3 {
+  font-weight: 500; }
+
 html, body, h1, h2, h3, h4, h5, h6 {
   font-family: 'Red Rose', cursive; }
 
