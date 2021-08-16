@@ -1,7 +1,7 @@
 <?php
 
 
-namespace janami\controllers;
+namespace usvn\controllers;
 
 
 use common\helper\HelperFunction;

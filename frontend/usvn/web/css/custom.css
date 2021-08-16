@@ -30,8 +30,14 @@
 #top-bar-wrapper {
   border-bottom: 1px solid #ccc; }
 
-.header-style02 .header-inner {
-  padding: 0; }
+.header-style02 {
+  background: #0e2b3d; }
+  .header-style02 ul li a {
+    color: white !important; }
+  .header-style02 ul li .dropdown-menu {
+    background: #0e2b3d; }
+  .header-style02 .header-inner {
+    padding: 0; }
 
 .navbar-collapse {
   float: none; }

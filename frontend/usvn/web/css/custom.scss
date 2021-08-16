@@ -50,8 +50,25 @@ $primary-color: rgb(14, 43, 61);
   border-bottom: 1px solid #ccc;
 }
 
-.header-style02 .header-inner {
-  padding: 0;
+.header-style02 {
+  background: $primary-color;
+
+  ul {
+    li {
+      a {
+        color: white !important;
+      }
+
+      .dropdown-menu {
+        background: $primary-color;
+      }
+    }
+  }
+
+  .header-inner {
+    padding: 0;
+  }
+
 }
 
 .navbar-collapse {

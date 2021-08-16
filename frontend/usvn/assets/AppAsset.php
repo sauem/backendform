@@ -37,6 +37,7 @@ class AppAsset extends AssetBundle
         'https://unpkg.com/@babel/standalone/babel.min.js',
         //'https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js',
         'https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js',
+        '//cdn.jsdelivr.net/npm/sweetalert2@11',
         '/js/bootstrap.min.js',
         '/js/jquery.srcipts.min.js',
         '/js/owl-carousel/owl.carousel.min.js',
@@ -45,7 +46,7 @@ class AppAsset extends AssetBundle
         '/js/masterslider/masterslider.min.js',
         '/js/jquery.dlmenu.min.js',
         '/js/include.js',
-        '/js/site.js?v=1.8',
+        '/js/site.js?v=1.9',
     ];
     public $depends = [
         //'yii\web\YiiAsset',

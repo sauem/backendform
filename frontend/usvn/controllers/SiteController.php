@@ -7,22 +7,13 @@ use common\models\Archives;
 use common\models\ArchivesSearch;
 use common\models\Articles;
 use common\models\ArticlesSearch;
-use common\models\Banners;
 use common\models\Contact;
-use common\models\Member;
 use common\models\Products;
 use common\models\ProductsSearch;
-use janami\controllers\BaseController;
-use frontend\models\ResendVerificationEmailForm;
-use frontend\models\VerifyEmailForm;
+use usvn\controllers\BaseController;
 use Yii;
-use yii\base\InvalidArgumentException;
 use yii\db\Expression;
 use yii\web\BadRequestHttpException;
-use frontend\models\PasswordResetRequestForm;
-use frontend\models\ResetPasswordForm;
-use frontend\models\SignupForm;
-use yii\web\NotFoundHttpException;
 use yii\web\Response;
 
 /**
@@ -38,8 +29,6 @@ class SiteController extends BaseController
      */
     public function actionIndex()
     {
-
-
         $articles = Articles::find()
             ->where([
                 'show_home' => 1,
@@ -84,7 +73,7 @@ class SiteController extends BaseController
             $lang = Yii::$app->request->post('lang') == 'en' ? 'en' : 'vi-VN';
             Yii::$app->cache->set('language', $lang);
             Yii::$app->language = $lang;
-            return Yii::$app->language;
+            return "TRAN TO: " . Yii::$app->language;//Yii::$app->request->post('lang');
         }
         return false;
     }

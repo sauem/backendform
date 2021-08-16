@@ -7,11 +7,11 @@ $params = array_merge(
 );
 
 return [
-    'id' => 'frontend-usvn',
+    'id' => 'usvn-frontend',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'controllerNamespace' => 'usvn\controllers',
-    'language' => 'vi-VN',
+    //'language' => 'vi-VN',
     'timeZone' => 'Asia/Ho_Chi_Minh',
     'layout' => 'main.blade',
     'components' => [
@@ -28,11 +28,6 @@ return [
                     'cachePath' => '@runtime/blade_cache',
                 ],
             ],
-        ],
-        'cache' => [
-            #'class' => 'yii\caching\FileCache',
-            'class' => 'yii\redis\Cache',
-            'keyPrefix' => 'usvn_'
         ],
         'request' => [
             'enableCookieValidation' => true,
@@ -55,7 +50,7 @@ return [
         ],
         'session' => [
             // this is the name of the session cookie used for login on the frontend
-            'name' => 'vietau-frontend',
+            'name' => 'usvn-frontend',
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
@@ -65,13 +60,6 @@ return [
                     'levels' => ['error', 'warning'],
                 ],
             ],
-        ],
-        'as access' => [
-            'class' => 'mdm\admin\components\AccessControl',
-            'allowActions' => [
-                //'site/*',
-                //'rbac/*',
-            ]
         ],
         'urlManager' => [
             'enablePrettyUrl' => true,
