@@ -71,6 +71,7 @@ $primary-color: rgb(14, 43, 61);
 .header-style02 {
   background: $primary-color;
   width: 1000px;
+  margin: auto;
   .navbar-header{
     width: fit-content;
     float: left;
@@ -322,6 +323,7 @@ $primary-color: rgb(14, 43, 61);
 #footer-wrapper.footer-light {
   border-top: unset;
   width: 1000px;
+  margin: auto;
   .heading {
     margin-bottom: 0;
     background: $primary-color;
