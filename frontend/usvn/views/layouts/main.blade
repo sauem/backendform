@@ -10,10 +10,8 @@ AppAsset::register($view);
 <html lang="<?= Yii::$app->language ?>">
 <head>
     <meta charset="<?= Yii::$app->charset ?>">
-
-
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta property="og:locale" content="en_US"/>
     <meta property="og:type" content="website"/>
     <meta property="og:title" content="<?= $view->title ?>"/>
@@ -35,6 +33,7 @@ AppAsset::register($view);
             "name": "<?= $view->title ?>",
             "url": "<?= \Yii::$app->homeUrl; ?>"
         }
+
 
     </script>
     <?php $view->registerCsrfMetaTags() ?>
@@ -68,10 +67,11 @@ AppAsset::register($view);
 
 
 <?= $view->render('../parts/header.blade') ?>
+<div class="box-content">
+    @yield('content')
+    <?= isset($content) ? $content : ''?>
+</div>
 
-@yield('content')
-
-<?= isset($content) ? $content : ''?>
 <?= $view->render('../parts/footer.blade') ?>
 <?php $view->endBody() ?>
 @yield('js_end')

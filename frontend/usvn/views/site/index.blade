@@ -21,12 +21,12 @@ Yii::$app->params['footer_type'] = 'light';
     <div class="container mt-20">
 
         <div class="row">
-            <div class="col-md-8 col-sm-12">
+            <div class="col-md-8 left col-sm-12">
                 <?= $view->render('../parts/box-product.blade', [
                     'products' => $products
                 ]) ?>
             </div>
-            <div class="col-md-4 col-sm-12">
+            <div class="col-md-4 right col-sm-12">
                 <?= $view->render('../parts/box-post.blade',[
                     'posts' => $posts
                 ]) ?>

@@ -74,70 +74,35 @@ if ($menu) {
                                 </div><!-- .logo end -->
                             </div><!-- .navbar-header start -->
 
-                            <!-- MAIN NAVIGATION -->
-                            <div class="collapse navbar-collapse">
-                                <ul class="nav navbar-nav">
-                                    @if(!empty($menuItems))
-                                        @foreach($menuItems as $menuItem)
-                                            @php
-                                                $childrens = $menuItem['children'] ?? [];
-                                            @endphp
-                                            @if(!empty($childrens))
-                                                <li class="dropdown">
-                                                    <a href="#" data-toggle="dropdown"
-                                                       class="dropdown-toggle">{{$menuItem['title']}}</a>
-                                                    <ul class="dropdown-menu">
-                                                        @foreach($childrens as $child)
-                                                            <li>
-                                                                <a href="<?= HelperFunction::Link($child['type'], $child)?>">
-                                                                    {{$child['title']}}
-                                                                </a>
-                                                            </li>
-                                                        @endforeach
-                                                    </ul>
-                                                </li>
-                                            @else
-                                                <li>
-                                                    <a href="<?= HelperFunction::Link($menuItem['type'], $menuItem)?>">{{$menuItem['title']}}</a>
-                                                </li>
-                                            @endif
-                                        @endforeach
-                                    @endif
-                                </ul><!-- .nav.navbar-nav end -->
-
-                                <!-- RESPONSIVE MENU -->
-                                <div id="dl-menu" class="dl-menuwrapper">
-                                    <button class="dl-trigger"></button>
-
-                                    <ul class="dl-menu">
-                                        @if(!empty($menuItems))
-                                            @foreach($menuItems as $menuItem)
-                                                @php
-                                                    $childrens = $menuItem['children'] ?? [];
-                                                @endphp
-
-                                                @if(!empty($childrens))
-                                                    <li>
-                                                        <a href="#">{{$menuItem['title']}}</a>
-                                                        <ul class="dl-submenu">
-                                                            @foreach($childrens as $child)}
-                                                            <li>
-                                                                <a href="<?= HelperFunction::Link($child['type'], $child) ?>">{{$child['title']}}</a>
-                                                            </li>
-                                                            @endforeach
-                                                        </ul><!-- dl-submenu end -->
-                                                    </li>
-                                                @else
-                                                    <li>
-                                                        <a href="<?= HelperFunction::Link($menuItem['type'], $menuItem) ?>">{{$menuItem['title']}}</a>
-                                                    </li>
-                                                @endif
-                                            @endforeach
+                            <!-- MAIN NAVIGATION  collapse navbar-collapse-->
+                            <ul class="nav navbar-nav">
+                                @if(!empty($menuItems))
+                                    @foreach($menuItems as $menuItem)
+                                        @php
+                                            $childrens = $menuItem['children'] ?? [];
+                                        @endphp
+                                        @if(!empty($childrens))
+                                            <li class="dropdown">
+                                                <a href="#" data-toggle="dropdown"
+                                                   class="dropdown-toggle">{{$menuItem['title']}}</a>
+                                                <ul class="dropdown-menu">
+                                                    @foreach($childrens as $child)
+                                                        <li>
+                                                            <a href="<?= HelperFunction::Link($child['type'], $child)?>">
+                                                                {{$child['title']}}
+                                                            </a>
+                                                        </li>
+                                                    @endforeach
+                                                </ul>
+                                            </li>
+                                        @else
+                                            <li>
+                                                <a href="<?= HelperFunction::Link($menuItem['type'], $menuItem)?>">{{$menuItem['title']}}</a>
+                                            </li>
                                         @endif
-
-                                    </ul><!-- .dl-menu end -->
-                                </div><!-- #dl-menu end -->
-                            </div><!-- MAIN NAVIGATION END -->
+                                    @endforeach
+                                @endif
+                            </ul>
                         </nav><!-- .navbar.navbar-default end -->
                     </div><!-- .col-md-12 end -->
                 </div><!-- .row end -->

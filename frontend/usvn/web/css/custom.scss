@@ -1,4 +1,22 @@
 $primary-color: rgb(14, 43, 61);
+.body {
+  min-width: 1000px;
+}
+
+.container {
+  width: 1000px;
+  max-width: none !important;
+
+  .left {
+    width: 650px !important;
+    float: left;
+  }
+  .right{
+    width: 350px;
+    float: right;
+  }
+}
+
 .flag {
   li {
     float: unset;
@@ -52,7 +70,15 @@ $primary-color: rgb(14, 43, 61);
 
 .header-style02 {
   background: $primary-color;
-
+  width: 1000px;
+  .navbar-header{
+    width: fit-content;
+    float: left;
+  }
+  .navbar-nav{
+    display: flex!important;
+    float: left;
+  }
   ul {
     li {
       a {
@@ -87,6 +113,7 @@ $primary-color: rgb(14, 43, 61);
     padding: 10px;
     color: white;
     margin-bottom: 20px;
+    font-size: 20px;
   }
 
 }
@@ -175,6 +202,7 @@ $primary-color: rgb(14, 43, 61);
     background-color: $primary-color;
     padding: 10px;
     color: white;
+    font-size: 20px;
   }
 
   .box-vertical-slider {
@@ -283,6 +311,7 @@ $primary-color: rgb(14, 43, 61);
     background-color: $primary-color;
     padding: 10px;
     color: white;
+    font-size: 20px;
   }
 }
 
@@ -292,7 +321,7 @@ $primary-color: rgb(14, 43, 61);
 
 #footer-wrapper.footer-light {
   border-top: unset;
-
+  width: 1000px;
   .heading {
     margin-bottom: 0;
     background: $primary-color;
