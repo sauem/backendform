@@ -14,9 +14,13 @@ if ($menu) {
     <div class="row heading">
         <div class="col-12">
             <h4 class="text-center"><?= HelperFunction::setting('site_name', true)?></h4>
-            <p class="text-center">Địa chỉ : <?= HelperFunction::setting('address_1', true)?></p>
-            <p class="text-center">Điện thoại : <a href="tel:<?= HelperFunction::setting('hotline_1')?>"><?= HelperFunction::setting('hotline_1')?></a></p>
-            <p class="text-center">Email : <a href="mailto:<?= HelperFunction::setting('email')?>"><?= HelperFunction::setting('email')?></a></p>
+            <p class="text-center"><?= Yii::t('app', 'address')?> : <?= HelperFunction::setting('address_1', true)?></p>
+            <p class="text-center"><?= Yii::t('app', 'phone')?> : <a
+                        href="tel:<?= HelperFunction::setting('hotline_1')?>"><?= HelperFunction::setting('hotline_1')?></a>
+            </p>
+            <p class="text-center"><?= Yii::t('app', 'email')?> : <a
+                        href="mailto:<?= HelperFunction::setting('email')?>"><?= HelperFunction::setting('email')?></a>
+            </p>
         </div>
     </div>
     <a href="#" class="scroll-up">Scroll</a>
