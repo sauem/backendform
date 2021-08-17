@@ -226,13 +226,13 @@
   border-bottom: solid 1px #ccc;
   margin-bottom: 10px;
   padding-bottom: 10px; }
-  .item-post .img-item {
+  .item-post .img-item a {
     margin-right: 10px;
     width: 120px;
     height: 100%;
     max-height: 100px;
     display: flex; }
-    .item-post .img-item img {
+    .item-post .img-item a img {
       border-radius: 3px;
       border: solid 2px silver;
       display: flex;
