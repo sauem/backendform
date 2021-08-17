@@ -9,7 +9,7 @@ use common\helper\HelperFunction;
         <ul class="content">
             @foreach($posts as $post)
                 <li>
-                    <a href="<?=HelperFunction::Link(BLOG, $post->slug, $post->archive->slug)?>">
+                    <a href="<?=HelperFunction::Link(ARTICLE, $post->slug, $post->archive->slug)?>">
                         {{substr_replace($post->name,'...',40)}}
                     </a>
                 </li>
