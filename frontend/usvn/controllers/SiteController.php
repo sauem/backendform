@@ -34,7 +34,7 @@ class SiteController extends BaseController
                 'show_home' => 1,
                 'language' => HelperFunction::getLanguage(),
                 'status' => Articles::STATUS_ACTIVE
-            ])->limit(6)->orderBy('created_at DESC')->all();
+            ])->limit(4)->orderBy('created_at DESC')->all();
         $products = Products::find()
             ->where([
                 'status' => Articles::STATUS_ACTIVE,
