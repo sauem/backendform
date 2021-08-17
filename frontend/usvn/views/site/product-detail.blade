@@ -15,6 +15,10 @@
                         {!! $model->content !!}
                     </div>
                 </div>
+                <?= $view->render('../parts/box-product.blade', [
+                    'products' => $relatedDetail,
+                    'items' => 2
+                ]) ?>
             </div>
             <div class="col-md-4 right">
                 <div class="box-vertical">

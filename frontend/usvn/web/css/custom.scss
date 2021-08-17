@@ -326,6 +326,34 @@ $primary-color: rgb(14, 43, 61);
   }
 }
 
+.item-post {
+  border-bottom: solid 1px #ccc;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  .img-item {
+    margin-right: 10px;
+    width: 120px;
+    height: 100%;
+    max-height: 100px;
+    display: flex;
+
+    img {
+      border-radius: 3px;
+      border: solid 2px silver;
+      display: flex;
+      object-fit: cover;
+      object-position: center center;
+    }
+  }
+
+  .txt {
+    p {
+      padding-bottom: 0;
+      color: black;
+    }
+  }
+}
+
 .text-center {
   text-align: center;
 }

@@ -1,0 +1,56 @@
+<?php
+use yii\widgets\ListView;
+?>
+@section("content")
+    <div class="slider">
+        <div class="container">
+            <?= $view->render('../parts/slider.blade') ?>
+
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 left">
+                <div class="box-detail">
+                    <h1 class="box-title">{{$model->name}}</h1>
+                    <div class="box-content">
+                        <?= ListView::widget([
+                            'dataProvider' => $dataProvider,
+                            'itemView' => '../parts/item_post.blade',
+                            'emptyText' => 'No results.',
+                            'viewParams' => [
+                                'archive' => $model
+                            ],
+                            'options' => ['class' => 'row'],
+                            'itemOptions' => [
+                                'tag' => 'article',
+                                # 'class' => 'col-12 col-md-4 mix',
+                            ],
+                            'summary' => false,
+                            'pager' => [
+                                'firstPageLabel' => false,
+                                'lastPageLabel' => false,
+                                'prevPageLabel' => '<i class="icon-arrow-left"></i>',
+                                'nextPageLabel' => '<i class="icon-arrow-right"></i>',
+                                'maxButtonCount' => 3,
+                                'disabledPageCssClass' => 'd-none',
+                                'activePageCssClass' => 'current'
+                            ],
+                        ])
+                        ?>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-4 right">
+                <div class="box-vertical">
+                    <h1 class="box-title"><?= Yii::t('app', 'related_product')?></h1>
+                    <?= $view->render('../parts/box-vertical.blade', [
+                        'products' => $related
+                    ])?>
+                </div>
+            </div>
+        </div>
+    </div>
+    <?= $view->render('../parts/logo.blade')?>
+@stop

@@ -11,8 +11,8 @@ return [
 
 
     // page
-    BLOG . '/<archive:[0-9a-zA-Z\-]+>' => 'site/archive',
-    BLOG . '/<archive:[0-9a-zA-Z\-]+>/<slug:[0-9a-zA-Z\-]+>' => 'site/detail',
+    ARTICLE . '/<archive:[0-9a-zA-Z\-]+>' => 'site/archive',
+    ARTICLE . '/<archive:[0-9a-zA-Z\-]+>/<slug:[0-9a-zA-Z\-]+>' => 'site/detail',
     SHOP . '/<archive:[0-9a-zA-Z\-]+>' => 'site/archive',
     SHOP . '/<archive:[0-9a-zA-Z\-]+>/<slug:[0-9a-zA-Z\-]+>' => 'site/detail',
 

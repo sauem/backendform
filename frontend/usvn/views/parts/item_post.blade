@@ -1,0 +1,16 @@
+<?php
+use common\helper\HelperFunction;
+?>
+<div class="d-flex item-post">
+    <div class="img-item">
+        <a href="<?= HelperFunction::Link(BLOG, $model->slug, $model->archive->slug)?>">
+            <img src="<?= $model->avatar?>" class="img-fluid">
+        </a>
+    </div>
+    <div class="txt">
+        <p><strong>
+                <a href="<?= HelperFunction::Link(BLOG, $model->slug, $model->archive->slug)?>"><?= $model->name?></a>
+            </strong></p>
+        <p><?= $model->excerpt?></p>
+    </div>
+</div>

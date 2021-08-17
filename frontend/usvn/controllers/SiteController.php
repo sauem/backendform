@@ -182,24 +182,30 @@ class SiteController extends BaseController
             default:
 
                 $template = 'blog-archive.blade';
-                $modelSearch = new ArchivesSearch();
+                $modelSearch = new ArticlesSearch();
                 $dataProvider = $modelSearch->search(Yii::$app->request->queryParams, [
-                    'default_archive' => $model->id
+                    'archive_id' => $model->id
                 ]);
                 break;
         }
-
+        $related = Products::find()
+            ->where([
+                'language' => HelperFunction::getLanguage(),
+            ])
+            ->limit(12)->all();
         return $this->render($template, [
             'model' => $model,
             'dataProvider' => $dataProvider,
             'categories' => $categories,
             'latestBlog' => $latestBlog,
+            'related' => $related
         ]);
     }
 
     public function actionDetail($archive, $slug)
     {
         $archive = Archives::findOne(['slug' => $archive]);
+        $relatedDetail  = [];
         if (!$archive) {
             throw new BadRequestHttpException('Không tồn tại trang!');
         }
@@ -210,11 +216,11 @@ class SiteController extends BaseController
                 if (!$model) {
                     throw new BadRequestHttpException('Không tồn tại sản phẩm!');
                 }
-//                $related = Products::find()
-//                    ->where(['default_archive' => $archive->id])
-//                    ->orWhere(['id' => $model->relations])
-//                    ->andFilterWhere(['!=', 'id', $model->id])
-//                    ->limit(12)->all();
+                $relatedDetail = Products::find()
+                    ->where(['default_archive' => $archive->id])
+                    ->orWhere(['id' => $model->relations])
+                    ->andFilterWhere(['!=', 'id', $model->id])
+                    ->limit(12)->all();
                 break;
             default:
                 $template = 'blog-detail.blade';
@@ -251,6 +257,9 @@ class SiteController extends BaseController
             ->orderBy('id DESC')
             ->all();
         $related = Products::find()
+            ->where([
+                'language' => HelperFunction::getLanguage(),
+            ])
             //->where(['default_archive' => $archive->id])
             // ->orWhere(['id' => $model->relations])
             // ->andFilterWhere(['!=', 'id', $model->id])
@@ -259,7 +268,8 @@ class SiteController extends BaseController
             'model' => $model,
             'categories' => $categories,
             'latestBlog' => $latestBlog,
-            'related' => $related
+            'related' => $related,
+            'relatedDetail' => $relatedDetail
         ]);
     }
 
