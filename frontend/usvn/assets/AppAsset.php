@@ -27,7 +27,7 @@ class AppAsset extends AssetBundle
         '/css/color-default.css',
         '/css/retina.css',
         '/css/responsive.css',
-        '/css/custom.css?v=1.2'
+        '/css/custom.css?v=1.3'
     ];
     public $js = [
         '/js/jquery-2.1.4.min.js',
