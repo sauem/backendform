@@ -45,6 +45,7 @@
 
 .header-style02 {
   background: #0e2b3d;
+  width: 1000px;
   margin: auto; }
   .header-style02 #quick-links {
     display: flex;
@@ -247,6 +248,7 @@
 
 #footer-wrapper.footer-light {
   border-top: unset;
+  width: 1000px;
   margin: auto; }
   #footer-wrapper.footer-light .heading {
     margin-bottom: 0;
