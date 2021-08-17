@@ -11,7 +11,8 @@ $primary-color: rgb(14, 43, 61);
     width: 650px !important;
     float: left;
   }
-  .right{
+
+  .right {
     width: 350px;
     float: right;
   }
@@ -70,16 +71,24 @@ $primary-color: rgb(14, 43, 61);
 
 .header-style02 {
   background: $primary-color;
-  width: 1000px;
+  // width: 1000px;
   margin: auto;
-  .navbar-header{
+
+  #quick-links {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .navbar-header {
     width: fit-content;
     float: left;
   }
-  .navbar-nav{
-    display: flex!important;
+
+  .navbar-nav {
+    display: flex !important;
     float: left;
   }
+
   ul {
     li {
       a {
@@ -322,8 +331,9 @@ $primary-color: rgb(14, 43, 61);
 
 #footer-wrapper.footer-light {
   border-top: unset;
-  width: 1000px;
+  // width: 1000px;
   margin: auto;
+
   .heading {
     margin-bottom: 0;
     background: $primary-color;
