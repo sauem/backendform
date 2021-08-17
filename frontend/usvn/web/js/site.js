@@ -3,9 +3,10 @@ $('.home-slider').owlCarousel({
     autoplay: true,
     loop: true,
     dots: false,
-})
+});
+const productItems = $('.box-product-slider').data('items');
 $('.box-product-slider').owlCarousel({
-    items: 2,
+    items: productItems ?? 2,
     autoplay: true,
     loop: true,
     dots: false,

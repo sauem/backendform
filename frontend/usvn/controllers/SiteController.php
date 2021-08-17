@@ -112,8 +112,13 @@ class SiteController extends BaseController
 
     public function actionShop()
     {
+        $products = Products::find()
+            ->where([
+                'language' => HelperFunction::getLanguage()
+            ])->orderBy('created_at DESC')->all();
         return $this->render('shop-list.blade', [
             'model' => null,
+            'products' => $products
         ]);
     }
 
