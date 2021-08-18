@@ -112,7 +112,10 @@ nav a {
 .content-text h2 {
   font-family: arial, sans-serif; }
 .content-text p.bold {
-  margin-top: 5px; }
+  margin-bottom: 5px; }
+.content-text p.small {
+  margin: 0;
+  font-size: 14px; }
 
 #footer-1 {
   padding-top: 50px; }
