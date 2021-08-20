@@ -20,9 +20,23 @@ $red-color: #de2d2b;
   background: $primary-color;
 }
 
+.astute-single-blog_adn {
+  .astute-blog-thumb_adn {
+    a {
+      max-height: 235px;
+      
+      img {
+        display: flex;
+        object-fit: cover;
+      }
+    }
+  }
+}
+
 .portfolio_content_inner {
   padding: 25px;
-  h3{
+
+  h3 {
     font-size: 15px;
   }
 }

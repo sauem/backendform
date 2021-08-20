@@ -9,6 +9,12 @@
 .single_portfolio_icon i {
   background: #21409a; }
 
+.astute-single-blog_adn .astute-blog-thumb_adn a {
+  max-height: 235px; }
+  .astute-single-blog_adn .astute-blog-thumb_adn a img {
+    display: flex;
+    object-fit: cover; }
+
 .portfolio_content_inner {
   padding: 25px; }
   .portfolio_content_inner h3 {
