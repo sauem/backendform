@@ -43,6 +43,8 @@
 .footer-middle {
   border-top: solid 1px #ccc;
   background: white; }
+  .footer-middle .widget_mc4wp_form_widget h2 {
+    margin-top: 0; }
   .footer-middle ul li a {
     color: #0a0a0a !important; }
   .footer-middle h2.widget-title {

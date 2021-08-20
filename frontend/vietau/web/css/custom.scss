@@ -73,6 +73,12 @@ $red-color: #de2d2b;
   border-top: solid 1px #ccc;
   background: white;
 
+  .widget_mc4wp_form_widget {
+    h2 {
+      margin-top: 0;
+    }
+  }
+
   ul {
     li {
       a {
