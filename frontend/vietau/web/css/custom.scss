@@ -20,11 +20,15 @@ $red-color: #de2d2b;
   background: $primary-color;
 }
 
+.nivo-caption {
+  display: none;
+}
+
 .astute-single-blog_adn {
   .astute-blog-thumb_adn {
     a {
       max-height: 235px;
-      
+
       img {
         display: flex;
         object-fit: cover;
@@ -77,6 +81,7 @@ $red-color: #de2d2b;
 
 .astute_nav_area.prefix {
   background: white;
+  border-bottom: solid 2px $primary-color;
 
   &.scroll_fixed {
     box-shadow: 10px 0 10px 0 rgba(0, 0, 0, 0.1);

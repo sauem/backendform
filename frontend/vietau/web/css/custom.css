@@ -9,6 +9,9 @@
 .single_portfolio_icon i {
   background: #21409a; }
 
+.nivo-caption {
+  display: none; }
+
 .astute-single-blog_adn .astute-blog-thumb_adn a {
   max-height: 235px; }
   .astute-single-blog_adn .astute-blog-thumb_adn a img {
@@ -40,7 +43,8 @@
   background: #21409a; }
 
 .astute_nav_area.prefix {
-  background: white; }
+  background: white;
+  border-bottom: solid 2px #21409a; }
   .astute_nav_area.prefix.scroll_fixed {
     box-shadow: 10px 0 10px 0 rgba(0, 0, 0, 0.1); }
   .astute_nav_area.prefix .astute_menu > ul > li > a {

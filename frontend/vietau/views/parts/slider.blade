@@ -9,7 +9,7 @@
                     <div id="mainSlider" class="nivoSlider em-slider-image">
                         @foreach($sliders as $slider)
                             <a href="{{$slider->href}}" target="_blank">
-                                <img src="{{$slider->avatar}}" alt="" title="{{$slider->name}}"/>
+                                <img src="{{$slider->avatar}}" alt="{{$slider->name}}"/>
                             </a>
                         @endforeach
                     </div>
