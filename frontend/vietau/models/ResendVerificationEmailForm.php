@@ -1,7 +1,7 @@
 <?php
 
 
-namespace frontend\models;
+namespace vietau\models;
 
 use Yii;
 use common\models\User;

@@ -1,0 +1,75 @@
+$primary-color: #21409a;
+$secondary-color: rgba(33, 64, 154, 0.65);
+
+$red-color: #de2d2b;
+.top-address p span i, .top-address p a i {
+  color: white;
+}
+
+.astute_menu ul .sub-menu {
+  background: white;
+
+  li {
+    a {
+      color: $primary-color;
+    }
+  }
+}
+
+.single_portfolio_icon i {
+  background: $primary-color;
+}
+
+.portfolio_content_inner {
+  padding: 25px;
+  h3{
+    font-size: 15px;
+  }
+}
+
+.astute-tab, #scrollUp, .single_portfolio:hover .single_portfolio_thumb::before {
+  background: $secondary-color;
+}
+
+.footer-bottom {
+  background: $primary-color;
+}
+
+.footer-middle {
+  border-top: solid 1px #ccc;
+  background: white;
+
+  ul {
+    li {
+      a {
+        color: #0a0a0a !important;
+      }
+    }
+  }
+
+  h2.widget-title {
+    font-size: 18px;
+  }
+
+
+  h2.widget-title, p {
+    color: #0a0a0a;
+  }
+}
+
+.astute-header-top, .astute-tab li.active a, .astute-tab li a:hover, .panel-heading1.active {
+  background: $primary-color;
+}
+
+.astute_nav_area.prefix {
+  background: white;
+
+  &.scroll_fixed {
+    box-shadow: 10px 0 10px 0 rgba(0, 0, 0, 0.1);
+  }
+
+  .astute_menu > ul > li > a {
+    color: $primary-color;
+  }
+
+}

@@ -1,0 +1,58 @@
+<?php
+use common\helper\HelperFunction;
+?>
+@if(isset($archives_home))
+    @if(!empty($archives_home))
+        @foreach($archives_home as $archive)
+            <div class="portfolio_area" id="project">
+                <div class="container_fluid">
+                    <div class="row ">
+                        <div class="col-md-12">
+                            <div class="section-title  t_center port">
+                                <!-- title -->
+                                <h2><?= $archive->name?></h2>
+                                <!-- IMAGE -->
+                                <div class="em-image">
+                                    <img src="/images/icon.png" alt="title image"/>
+                                </div>
+                                <!-- TEXT -->
+                                <p class=" text-alignm">
+                                    <?= $archive->description?>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row li">
+                        <div class="em_load">
+                            @if(!empty($archive->articles))
+                                @foreach($archive->articles as $post)
+                                    <div class="col-md-4 col-sm-6 col-lg-3 col-xs-12 grid-item c d">
+                                        <div class="single_portfolio">
+                                            <div class="single_portfolio_inner">
+                                                <div class="single_portfolio_thumb">
+                                                    <img src="{{$post->avatar}}" alt=""/>
+                                                </div>
+                                                <div class="single_portfolio_icon">
+                                                    <a class="portfolio-icon venobox vbox-item" data-gall="myportfolio"
+                                                       href="{{$post->avatar}}"><i class="fa fa-arrows"></i></a>
+                                                </div>
+                                                <div class="portfolio_content">
+                                                    <div class="portfolio_content_inner">
+                                                        <h3>
+                                                            <a href="<?=HelperFunction::Link(ARTICLE, $post->slug, $archive->slug) ?>">
+                                                                {{$post->name}}
+                                                            </a></h3>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endforeach
+                            @endif
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endforeach
+    @endif
+@endif

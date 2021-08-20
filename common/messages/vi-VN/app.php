@@ -72,4 +72,5 @@ return [
     'contact_txt' => 'Để lại thông tin để được tư vấn rõ hơn',
     'service_route' => 'Tuyến dịch vụ',
     'order' => 'Đặt hàng',
+    'back_to_home' => 'Quay về trang chủ'
 ];

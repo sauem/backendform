@@ -1,0 +1,24 @@
+<?php
+
+/* @var $view yii\web\View */
+
+use common\helper\HelperFunction;
+use yii\widgets\ActiveForm;
+
+$view->title = HelperFunction::getLanguage() == 'vi' ?
+    HelperFunction::setting('site_name') :
+    HelperFunction::setting('site_name_en');
+?>
+
+@section("content")
+    <?= $view->render('/parts/slider.blade')?>
+    <?= $view->render('block/about.blade')?>
+    <?= $view->render('block/event.blade',[
+        'archives_home' => $archives_home
+    ])?>
+    <?= $view->render('block/calendar.blade')?>
+    <?= $view->render('block/blog.blade',[
+        'posts' => $posts
+    ])?>
+    <?= $view->render('/parts/logo.blade')?>
+@stop

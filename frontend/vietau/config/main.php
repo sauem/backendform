@@ -10,10 +10,25 @@ return [
     'id' => 'frontend-vietau',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
-    'controllerNamespace' => 'frontend\vietau\controllers',
+    'controllerNamespace' => 'vietau\controllers',
     'language' => 'vi-VN',
     'timeZone' => 'Asia/Ho_Chi_Minh',
+    'layout' => 'main.blade',
     'components' => [
+        'view' => [
+            'class' => 'yii\web\View',
+            'renderers' => [
+                'blade' => [
+                    'class' => '\cyneek\yii2\blade\ViewRenderer',
+                    'cachePath' => '@runtime/blade_cache',
+                ],
+            ],
+        ],
+        'cache' => [
+            #'class' => 'yii\caching\FileCache',
+            'class' => 'yii\redis\Cache',
+            'keyPrefix' => 'lucycosmeticcom_'
+        ],
         'request' => [
             'enableCookieValidation' => true,
             'enableCsrfValidation' => false,
@@ -24,7 +39,7 @@ return [
             'translations' => [
                 'app*' => [
                     'class' => 'yii\i18n\PhpMessageSource',
-                    'basePath' => '@common/messages',
+                    'basePath' => '@common/messages'
                 ],
             ],
         ],

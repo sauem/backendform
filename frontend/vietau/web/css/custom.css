@@ -1,0 +1,43 @@
+.top-address p span i, .top-address p a i {
+  color: white; }
+
+.astute_menu ul .sub-menu {
+  background: white; }
+  .astute_menu ul .sub-menu li a {
+    color: #21409a; }
+
+.single_portfolio_icon i {
+  background: #21409a; }
+
+.portfolio_content_inner {
+  padding: 25px; }
+  .portfolio_content_inner h3 {
+    font-size: 15px; }
+
+.astute-tab, #scrollUp, .single_portfolio:hover .single_portfolio_thumb::before {
+  background: rgba(33, 64, 154, 0.65); }
+
+.footer-bottom {
+  background: #21409a; }
+
+.footer-middle {
+  border-top: solid 1px #ccc;
+  background: white; }
+  .footer-middle ul li a {
+    color: #0a0a0a !important; }
+  .footer-middle h2.widget-title {
+    font-size: 18px; }
+  .footer-middle h2.widget-title, .footer-middle p {
+    color: #0a0a0a; }
+
+.astute-header-top, .astute-tab li.active a, .astute-tab li a:hover, .panel-heading1.active {
+  background: #21409a; }
+
+.astute_nav_area.prefix {
+  background: white; }
+  .astute_nav_area.prefix.scroll_fixed {
+    box-shadow: 10px 0 10px 0 rgba(0, 0, 0, 0.1); }
+  .astute_nav_area.prefix .astute_menu > ul > li > a {
+    color: #21409a; }
+
+/*# sourceMappingURL=custom.css.map */

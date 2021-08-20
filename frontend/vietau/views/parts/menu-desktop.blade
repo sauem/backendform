@@ -1,0 +1,73 @@
+<?php
+use common\helper\HelperFunction;
+?>
+<div class="astute-main-menu one_page hidden-xs hidden-sm">
+    <div class="astute_nav_area scroll_fixed">
+        <div class="container">
+            <div class="row logo-left">
+                <!-- LOGO -->
+                <div class="col-md-3 col-sm-3 col-xs-4">
+                    <div class="logo">
+                        <a class="main_sticky_main_l" href="/" title="astute">
+                            <img src="<?= HelperFunction::getLogo()?>"
+                                 alt="<?= HelperFunction::setting('site_name', true)?>"/>
+                        </a>
+                        <a class="main_sticky_l" href="/" title="astute">
+                            <img src="<?= HelperFunction::getLogo()?>"
+                                 alt="<?= HelperFunction::setting('site_name', true)?>"/>
+                        </a>
+                    </div>
+                </div>
+                <!-- END LOGO -->
+
+                <!-- MAIN MENU -->
+                <div class="col-md-9 col-sm-9 col-xs-8">
+                    <nav class="astute_menu main-search-menu">
+                        <ul class="sub-menu">
+                            @if(isset($menus) && !empty($menus))
+                                @foreach($menus as $menu)
+                                    @php
+                                        $childrens = $menu['children'] ?? [];
+                                    @endphp
+                                    @if(!empty($childrens))
+                                        <li>
+                                            <a href="<?= HelperFunction::Link($menu['type'], $menu)?>">{{$menu['title']}}</a>
+                                            <ul class="sub-menu">
+                                                @foreach($childrens as $children)
+                                                    <li>
+                                                        <a href="<?= HelperFunction::Link($children['type'], $children)?>">{{$children['title']}}</a>
+                                                    </li>
+                                                @endforeach
+                                            </ul>
+                                        </li>
+                                    @else
+                                        <li>
+                                            <a href="<?= HelperFunction::Link($menu['type'], $menu)?>">{{$menu['title']}}</a>
+                                        </li>
+                                    @endif
+                                @endforeach
+
+                            @endif
+                        </ul>
+                        <div class="donate-btn-header laguage astute_menu main-search-menu">
+                            <ul class="sub-menu">
+                                <li>
+                                    <a href="#"><img src="/images/vi.svg" width="24"/> VI</a>
+                                    <ul class="sub-menu">
+                                        <li>
+                                            <a><img src="/images/vi.svg" width="24"/> Tiếng Việt </a>
+                                        </li>
+                                        <li>
+                                            <a><img src="/images/eng.svg" width="24"/> Tiếng Anh </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+                <!-- END MAIN MENU -->
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,77 @@
+<?php
+
+use common\helper\HelperFunction;
+use yii\helpers\Html;
+use yii\bootstrap\Nav;
+use yii\bootstrap\NavBar;
+use yii\widgets\Breadcrumbs;
+use vietau\assets\AppAsset;
+use common\widgets\Alert;
+
+AppAsset::register($view);
+?>
+<?php $view->beginPage() ?>
+        <!DOCTYPE html>
+<html lang="<?= Yii::$app->language ?>">
+<head>
+    <meta charset="<?= Yii::$app->charset ?>">
+
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="<?= $view->title ?>"/>
+    <meta property="og:url" content="<?= \Yii::$app->homeUrl; ?>"/>
+    <meta property="og:site_name" content="<?= HelperFunction::setting('site_name', true)?>"/>
+    <link rel="shortcut icon" href="<?= HelperFunction::Favicon() ?>" type="image/x-icon">
+    <link rel="icon" href="<?= HelperFunction::Favicon() ?>" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="152x152" href="<?= HelperFunction::Favicon() ?>">
+    <link rel="apple-touch-icon" sizes="120x120" href="<?= HelperFunction::Favicon() ?>">
+    <link rel="apple-touch-icon" sizes="76x76" href="<?= HelperFunction::Favicon() ?>">
+    <link rel="apple-touch-icon" href="<?= HelperFunction::Favicon() ?> ">
+    <!-- For the og:image content, replace the # with a link of an image -->
+    <meta property="og:image" content="<?= HelperFunction::getLogo('header') ?>"/>
+    <meta property="og:description" content="<?= $view->title ?>"/>
+    <script type="application/ld+json">
+        {
+            "@context": "http://schema.org",
+            "@type": "WebSite",
+            "name": "<?= $view->title ?>",
+            "url": "<?= \Yii::$app->homeUrl; ?>"
+        }
+
+
+    </script>
+    <?php $view->registerCsrfMetaTags() ?>
+    <title><?= Html::encode($view->title) ?></title>
+    <?php $view->head() ?>
+    @yield('js_head')
+</head>
+<body>
+<?php $view->beginBody() ?>
+
+<?= $view->render('../parts/header.blade') ?>
+
+@yield('content')
+
+<?= isset($content) ? $content : ''?>
+<?= $view->render('/parts/footer.blade') ?>
+
+<?php $view->endBody() ?>
+@yield('js_end')
+</body>
+</html>
+<script>
+    $('.search-head img').click(function () {
+        if (!$(this).prev().hasClass('is_show')) {
+            $(this).prev().addClass('is_show');
+            $(this).addClass('is_show');
+        } else {
+            $(this).prev().removeClass('is_show');
+            $(this).removeClass('is_show');
+        }
+    });
+</script>
+<?php $view->endPage() ?>
+

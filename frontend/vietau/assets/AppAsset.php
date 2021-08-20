@@ -1,6 +1,6 @@
 <?php
 
-namespace frontend\vietau\assets;
+namespace vietau\assets;
 
 use yii\web\AssetBundle;
 
@@ -12,30 +12,46 @@ class AppAsset extends AssetBundle
     public $basePath = '@webroot';
     public $baseUrl = '@web';
     public $css = [
-        'https://fonts.googleapis.com/css2?family=Work+Sans:wght@100;200;300;400;500;600;700;800;900&amp;display=swap',
-        '/vietau/css/bootstrap.min.css',
-        '/vietau/css/main.css?v=1.2',
-        '/vietau/css/responsive.css',
-        '/vietau/css/custom.css?v=1.6',
+        '/css/bootstrap.min.css',
+        '/venobox/venobox.css',
+        '/css/nivo-slider.css',
+        '/css/animate.css',
+        '/css/slick.css',
+        '/css/owl.carousel.css',
+        '/css/owl.transitions.css',
+        '/css/font-awesome.min.css',
+        '/css/meanmenu.min.css',
+        '/css/theme-default.css',
+        '/css/widget.css',
+        '/css/unittest.css',
+        '/css/style.css',
+        '/css/responsive.css',
+        '/css/custom.css?v=1.2',
     ];
     public $js = [
-        '//cdn.jsdelivr.net/npm/sweetalert2@10',
-        '/vietau/js/popper.min.js',
-        '/vietau/js/jquery.mCustomScrollbar.concat.min.js',
-        '/vietau/js/jquery.fancybox.js',
-        '/vietau/js/appear.js',
-        '/vietau/js/owl.js',
-        '/vietau/js/wow.js',
-        '/vietau/js/parallax.min.js',
-        '/vietau/js/tilt.jquery.min.js',
-        '/vietau/js/jquery.paroller.min.js',
-        '/vietau/js/jquery-ui.js',
-        '/vietau/js/script.js',
-        '/vietau/js/const.js',
-        '/vietau/js/templ.js?v=1.2',
+        '/js/vendor/modernizr-3.5.0.min.js',
+        '/js/vendor/jquery-3.2.1.min.js',
+        '/js/bootstrap.min.js',
+        '/js/jquery.directional-hover.min.js',
+        '/js/imagesloaded.pkgd.min.js',
+        '/js/jquery.meanmenu.js',
+        '/js/isotope.pkgd.min.js',
+        '/js/owl.carousel.min.js',
+        '/js/jquery.scrollUp.js',
+        '/js/jquery.nivo.slider.pack.js',
+        '/js/jquery.counterup.min.js',
+        '/js/slick.min.js',
+        '/js/jquery.nav.js',
+        '/js/wow.js',
+        '/js/jquery-scrolltofixed-min.js',
+        '/venobox/venobox.min.js',
+        '/js/waypoints.min.js',
+        '/js/jquery.countdown.min.js',
+        '/js/theme.js',
+
     ];
     public $depends = [
-        'yii\web\YiiAsset',
-        #  'yii\bootstrap\BootstrapAsset',
+        //'yii\web\YiiAsset',
+        //'yii\bootstrap\BootstrapAsset',
     ];
 }

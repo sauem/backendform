@@ -205,6 +205,18 @@ $view->title = 'Danh mục sản phẩm';
                                             </Select>
                                         </Form.Item>
                                     </Col>
+                                    <Col md={24}>
+                                        <Form.Item
+                                            initialValue={0}
+                                            name={'show_home'}
+                                            label={`Hiển thị trang chủ`}
+                                        >
+                                            <Select onChange={onChangeLanguage}>
+                                                <Select.Option value={0}>Ẩn</Select.Option>
+                                                <Select.Option value={1}>Hiển thị</Select.Option>
+                                            </Select>
+                                        </Form.Item>
+                                    </Col>
                                 </Row>
                                 <Form.Item
                                     name={'description'}

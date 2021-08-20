@@ -1,0 +1,91 @@
+<?php
+use common\helper\HelperFunction;
+use yii\helpers\ArrayHelper;
+use yii\helpers\Json;
+
+$menu = HelperFunction::getMenu('footer');
+$menuItems = [];
+if ($menu) {
+    $menuItems = Json::decode(ArrayHelper::getValue($menu, 'items'));
+}
+
+?>
+<div class="footer-middle">
+    <div class="container">
+        <div class="row">
+            <div class=" col-md-3 col-sm-6">
+                <div class="widget widget_mc4wp_form_widget">
+                    <img src="<?= HelperFunction::getLogo('footer')?>"/>
+                    <h2 class="widget-title"><?= HelperFunction::setting('site_name', true)?></h2>
+                    <form class="mc4wp-form mc4wp-form-84" method="post">
+                        <div class="mc4wp-form-fields">
+                            <p>
+                                <?= HelperFunction::setting('site_description', true)?>
+                            </p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            @if(!empty($menuItems))
+                @foreach($menuItems as $menuItem)
+                    @php
+                        $childrens = ArrayHelper::getValue($menuItem, 'children');
+
+                    @endphp
+                    <div class="col-sm-6 col-md-3 ">
+                        <div class="widget widget_nav_menu">
+                            <h2 class="widget-title">{{$menuItem['title']}}</h2>
+                            <div class="menu-quick-link-container">
+                                <ul id="menu-quick-link" class="menu">
+                                    @if(!empty($childrens))
+
+                                        @foreach($childrens as $children)
+                                            @php
+                                                $link = HelperFunction::Link($menuItem['type'],$menuItem);
+                                            @endphp
+                                            <li><a href="{{$link}}">{{$children['title']}}</a></li>
+                                        @endforeach
+                                    @endif
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            @endif
+
+            <div class=" col-md-3 col-sm-6 last">
+                <div class="widget widget_text">
+                    <h2 class="widget-title"><?= Yii::t('app', 'contact') ?></h2>
+                    <div class="menu-quick-link-container">
+                        <p><i class="fa fa-map-marker"></i> <?=Yii::t('app', 'address') ?>
+                            : <?= HelperFunction::setting('address_1', true)?></p>
+                        <p><i class="fa fa-phone"></i> <?=Yii::t('app', 'hotline') ?>:
+                            <a href="tel:<?= HelperFunction::setting('hotline_1')?>">
+                                <?= HelperFunction::setting('hotline_1')?>
+                            </a>
+                        </p>
+                        <p><i class="fa fa-envelope"></i> Email:
+                            <a href="tel:<?= HelperFunction::setting('email')?>">
+                                <?= HelperFunction::setting('email')?>
+                            </a>
+                        </p>
+                        <p><i class="fa fa-globe"></i> Website: <a href="https://vieteutrade.com">vieteutrade.com</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="footer-bottom">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6">
+                <div class="copy-right-text">
+                    <!-- FOOTER COPYRIGHT TEXT -->
+                    <p>Copyright VietAu 2021. All Rights Reserved. </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

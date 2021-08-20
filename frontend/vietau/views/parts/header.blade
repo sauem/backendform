@@ -1,0 +1,65 @@
+<?php
+
+use common\helper\HelperFunction;
+use yii\helpers\Json;
+use yii\helpers\ArrayHelper;
+
+$menu = HelperFunction::getMenu();
+$menuItems = [];
+if ($menu) {
+    $menuItems = Json::decode(ArrayHelper::getValue($menu, 'items'));
+}
+
+?>
+<div class="astute-header-top">
+    <div class="container">
+        <div class="row">
+            <!-- TOP LEFT -->
+            <div class="col-xs-12 col-md-8 col-sm-9">
+                <div class="top-address">
+                    <p>
+                        <a href="tel:<?= HelperFunction::setting('hotline_1')?>"><i class="fa fa-phone"></i>
+                            <?= HelperFunction::setting('hotline_1')?>
+                        </a>
+                        <a href="mailto:<?= HelperFunction::setting('email')?>">
+                            <i class="fa fa-envelope-o"></i>
+                            <?= HelperFunction::setting('email')?>
+                        </a>
+                    </p>
+                </div>
+            </div>
+            <!-- TOP RIGHT -->
+            <div class="col-xs-12 col-md-4 col-sm-3">
+                <div class="top-right-menu">
+                    <ul class="social-icons text-right">
+                        <li>
+                            <a class="facebook social-icon" href="<?= HelperFunction::setting('facebook')?>"
+                               title="Facebook">
+                                <i class="fa fa-facebook"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="twitter social-icon" href="<?= HelperFunction::setting('twitter')?>"
+                               title="Twitter">
+                                <i class="fa fa-twitter"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="twitter social-icon" href="<?= HelperFunction::setting('youtube')?>"
+                               title="Twitter">
+                                <i class="fa fa-youtube"></i>
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<?= $view->render('/parts/menu-desktop.blade', [
+    'menus' => $menuItems
+]) ?>
+<?= $view->render('/parts/menu-mobile.blade', [
+    'menus' => $menuItems
+]) ?>

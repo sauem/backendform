@@ -1,0 +1,24 @@
+<?php
+$logos = $sliders = \Yii::$app->params['logos'];
+?>
+@if( isset($logos) && !empty($logos))
+    <div class="brand_area">
+        <div class="container">
+            <div class="row">
+                @foreach($logos as $logo)
+                    <div class="col-md-2 col-sm-4 col-xs-12">
+                        <div class="single_brand">
+                            <div class="single_brand_inner">
+                                <div class="single_brand_thumb">
+                                    <a href="{{$logo->href}}" target="_blank">
+                                        <img src="{{$logo->avatar}}" alt=""/>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </div>
+@endif

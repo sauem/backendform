@@ -1,0 +1,46 @@
+<?php
+use yii\helpers\Url;
+$view->title = $model->name ?? 'Bài viết'
+?>
+@section("content")
+    <?= $view->render('/parts/page-title.blade', [
+        'title' => $view->title
+    ])?>
+    <div class="astute-blog-area astute-blog-single em-single-page-comment single-blog-details">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8  col-sm-7 col-xs-12 blog-lr">
+                    <div class="astute-single-blog-details">
+                        <div class="astute-single-blog--thumb">
+                            <img width="900" height="550" src="{{$model->avatar}}"
+                                 class="attachment-astute-blog-single size-astute-blog-single wp-post-image" alt="">
+                        </div>
+                        <div class="astute-single-blog-title">
+                            <h2><?= $model->name?></h2>
+                        </div>
+                        <!-- BLOG POST META  -->
+                        <div class="astute-blog-meta">
+                            <div class="astute-blog-meta-left">
+                                <span><i class="fa fa-calendar"></i>{{date('d/m/Y', $model->created_at)}}</span>
+                                | <a target="_blank"
+                                     href="https://www.facebook.com/sharer/sharer.php?u=<?= Yii::$app->request->absoluteUrl?>">
+                                    <i class="fa fa-facebook"></i> chia sẻ
+                                </a>
+                            </div>
+                        </div>
+                        <div class="astute-single-blog-content">
+                            <div class="single-blog-content">
+                                <?= $model->content?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <?= $view->render('/parts/sidebar.blade', [
+                    'related' => $related,
+                    'products' => $products
+                ])?>
+            </div>
+        </div>
+    </div>
+    <?= $view->render('/parts/logo.blade')?>
+@stop

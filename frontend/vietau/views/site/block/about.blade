@@ -1,0 +1,22 @@
+<?php
+use common\helper\HelperFunction;
+?>
+<div class="about_area1" id="about">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="section_title_lefts">
+                    <h1><?= Yii::t('app', 'who_we_are')?></h1>
+                </div>
+                <div class="about_text">
+                    <p><?= nl2br(HelperFunction::setting('about_us', true)) ?></p>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class=" single_image">
+                    <img src="<?= HelperFunction::getImage(null, HelperFunction::setting('about_image')) ?>" class="" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,22 @@
+@php
+    $sliders = \Yii::$app->params['sliders'];
+@endphp
+@if(!empty($sliders))
+    <div class="main-slider-area">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="em-nivo-slider-wrapper kc-elm kc-css-242493">
+                    <div id="mainSlider" class="nivoSlider em-slider-image">
+                        @foreach($sliders as $slider)
+                            <a href="{{$slider->href}}" target="_blank">
+                                <img src="{{$slider->avatar}}" alt="" title="{{$slider->name}}"/>
+                            </a>
+                        @endforeach
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+@endif
