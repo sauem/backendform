@@ -26,7 +26,7 @@ class AppAsset extends AssetBundle
         '/css/unittest.css',
         '/css/style.css',
         '/css/responsive.css',
-        '/css/custom.css?v=1.2',
+        '/css/custom.css?v=1.5',
     ];
     public $js = [
         '/js/vendor/modernizr-3.5.0.min.js',

@@ -1,5 +1,6 @@
 <?php
 use common\helper\HelperFunction;
+$startRow = 0;
 ?>
 @if(isset($posts))
     <div class="blog_area" id="blog">
@@ -25,39 +26,32 @@ use common\helper\HelperFunction;
                     @if(!empty($posts))
                         @foreach($posts as $k => $post)
                             @php
+
                                 $link = HelperFunction::Link(ARTICLE, $post->slug, $post->archive->slug);
                             @endphp
-                            @if($k % 3 === 0)
-                                <div class="col-md-12">
-                                    @endif
-                                    <div class="astute-single-blog_adn ">
-                                        <!-- BLOG THUMB -->
-                                        <div class="blog_adn_thumb_inner">
-                                            <div class="astute-blog-thumb_adn">
-                                                <a href="{{$link}}">
-                                                    <img src="{{$post->avatar}}" alt="blog1">
-                                                </a>
-                                                <div class="blog_add_icon">
-                                                    <a href="{{$link}}"><i class="fa fa-link"></i></a>
-                                                </div>
-                                            </div>
-                                            <!-- BLOG TITLE -->
-                                            <div class="blog-page-title_adn2 ">
-                                                <h2><a href="{{$link}}">{{$post->name}}</a></h2>
-                                            </div>
-                                        </div>
-                                        <div class="em-blog-content-area_adn ">
-                                            <div class="learn_more_adn">
-                                                <a href="{{$link}}" class="learn_btn adnbtn2">
-                                                    <?= Yii::t('app', 'read_more') ?>
-                                                    <i class="fa fa-long-arrow-right"></i>
-                                                </a>
-                                            </div>
-                                        </div>
+                            <div class="astute-single-blog_adn ">
+                                <!-- BLOG THUMB -->
+                                <div class="blog_adn_thumb_inner">
+                                    <div class="astute-blog-thumb_adn">
+                                        <a href="{{$link}}">
+                                            <img src="{{$post->avatar}}" alt="blog1">
+                                        </a>
                                     </div>
-                                    @if($k % 3 === 0)
+                                    <!-- BLOG TITLE -->
+                                    <div class="blog-page-title_adn2 ">
+                                        <h2><a href="{{$link}}">{{$post->name}}</a></h2>
+                                    </div>
                                 </div>
-                            @endif
+                                <div class="em-blog-content-area_adn ">
+                                    <div class="learn_more_adn">
+                                        <a href="{{$link}}" class="learn_btn adnbtn2">
+                                            <?= Yii::t('app', 'read_more') ?>
+                                            <i class="fa fa-long-arrow-right"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
                         @endforeach
                     @endif
                 </div>

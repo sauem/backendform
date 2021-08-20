@@ -1,4 +1,4 @@
-(function($) {
+(function ($) {
     'use strict';
 
     /*--
@@ -28,13 +28,12 @@
     });
 
 
-
     /*---------------------
-    WOW active js 
+    WOW active js
     --------------------- */
     new WOW().init();
     /*---------------------
-    Nivo Slider active js 
+    Nivo Slider active js
     --------------------- */
     $('#mainSlider').nivoSlider({
         directionNav: true,
@@ -67,7 +66,6 @@
     });
 
 
-
     /*--
     	One Page Nav
     ----------------------------------- */
@@ -83,20 +81,20 @@
     });
 
     $(".nav_scroll > li:first-child").addClass("current");
-	
+
     /* sticky nav 1 */
     $('.one_page').scrollToFixed({
-        preFixed: function() {
+        preFixed: function () {
             $(this).find('.scroll_fixed').addClass('prefix');
         },
-        postFixed: function() {
+        postFixed: function () {
             $(this).find('.scroll_fixed').addClass('postfix').removeClass('prefix');
         }
     });
 
     /* sticky nav 2 */
     var headers1 = $('.trp_nav_area');
-    $(window).on('scroll', function() {
+    $(window).on('scroll', function () {
 
         if ($(window).scrollTop() > 200) {
             headers1.addClass('hbg2');
@@ -113,10 +111,10 @@
         delay: 10,
         time: 1000
     });
-	
+
     /* Portfolio Isotope  */
 
-    $('.em_load').imagesLoaded(function() {
+    $('.em_load').imagesLoaded(function () {
 
         if ($.fn.isotope) {
 
@@ -137,7 +135,7 @@
             });
 
 
-            $('.filter_menu li').on('click', function() {
+            $('.filter_menu li').on('click', function () {
 
                 $('.filter_menu li').removeClass('current_menu_item');
 
@@ -153,16 +151,16 @@
 
             });
 
-        };
+        }
+        ;
 
     });
-
 
 
     /*--------------------------
     	blog messonary
     ---------------------------- */
-    $('.bgimgload').imagesLoaded(function() {
+    $('.bgimgload').imagesLoaded(function () {
         if ($.fn.isotope) {
             var $blogmassonary = $('.blog-messonary');
             $blogmassonary.isotope({
@@ -173,11 +171,12 @@
                 transitionDuration: '0.8s'
             });
 
-        };
+        }
+        ;
     });
 
     /*--------------------
-    	testimonial 
+    	testimonial
     -----------------------------------*/
 
     $('.testimonial_list').owlCarousel({
@@ -209,6 +208,7 @@
 
     $('.blog_carousel').owlCarousel({
         nav: true,
+        margin: 20,
         navText: ["<i class='fa fa-long-arrow-left'></i>", "<i class='fa fa-long-arrow-right''></i>"],
         responsive: {
             0: {
@@ -225,8 +225,6 @@
             }
         }
     })
-
-
 
 
     $('.single_gallery').owlCarousel({
@@ -270,7 +268,6 @@
     })
 
 
-
     // Mouse Direction Hover Iffect
     $('.single_protfolio').directionalHover();
 
@@ -283,29 +280,25 @@
         easing: "swing",
         speed: 50
     });
-	
-	
-	
-	/*---------------------
-	 countdown
-	--------------------- */
-		$('[data-countdown]').each(function() {
-		  var $this = $(this), finalDate = $(this).data('countdown');
-		  $this.countdown(finalDate, function(event) {
-			$this.html(event.strftime('<span class="cdowns days"><span class="time-counts">%-D</span> <p>Days</p></span> <span class="cdowns hour"><span class="time-counts">%-H</span> <p>Hour</p></span> <span class="cdowns minutes"><span class="time-counts">%M</span> <p>Min</p></span> <span class="cdowns second"> <span><span class="time-counts">%S</span> <p>Sec</p></span>'));
-		  });
-		});	
-	
-	
-    // top quearys menu 
+
+
+    /*---------------------
+     countdown
+    --------------------- */
+    $('[data-countdown]').each(function () {
+        var $this = $(this), finalDate = $(this).data('countdown');
+        $this.countdown(finalDate, function (event) {
+            $this.html(event.strftime('<span class="cdowns days"><span class="time-counts">%-D</span> <p>Days</p></span> <span class="cdowns hour"><span class="time-counts">%-H</span> <p>Hour</p></span> <span class="cdowns minutes"><span class="time-counts">%M</span> <p>Min</p></span> <span class="cdowns second"> <span><span class="time-counts">%S</span> <p>Sec</p></span>'));
+        });
+    });
+
+
+    // top quearys menu
     var accoll = $(".panel-heading1");
-    accoll.on('click', function() {
+    accoll.on('click', function () {
         accoll.removeClass('active');
         $(this).addClass('active');
-    });	
-	
-	
-
+    });
 
 
 })(jQuery);

@@ -24,10 +24,26 @@ $red-color: #de2d2b;
   display: none;
 }
 
+.single_portfolio {
+  .single_portfolio_thumb {
+    max-height: 291px;
+    overflow: hidden;
+    height: 291px;
+
+    img {
+      display: flex;
+      object-fit: cover;
+    }
+  }
+}
+
 .astute-single-blog_adn {
   .astute-blog-thumb_adn {
     a {
-      max-height: 235px;
+      min-height: 290px;
+      height: 100%;
+      max-height: 290px;
+      overflow: hidden;
 
       img {
         display: flex;
@@ -79,9 +95,12 @@ $red-color: #de2d2b;
   background: $primary-color;
 }
 
+.astute-main-menu {
+  border-bottom: solid 2px $primary-color;
+}
+
 .astute_nav_area.prefix {
   background: white;
-  border-bottom: solid 2px $primary-color;
 
   &.scroll_fixed {
     box-shadow: 10px 0 10px 0 rgba(0, 0, 0, 0.1);
