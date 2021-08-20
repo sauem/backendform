@@ -32,12 +32,14 @@ use common\helper\HelperFunction;
                                     <div class="tab_content1">
                                         <div class="single_video">
                                             <div class="video_image">
-                                                <img src="/images/vots.jpg" alt=""/>
+                                                <img src="<?=  HelperFunction::setting('event_image', true) ? HelperFunction::getImage(null, HelperFunction::setting('event_image', true)) : '/images/vots.jpg'?>"
+                                                     alt=""/>
                                             </div>
                                             <div class="choose_video_icon">
                                                 <div class="video_icon">
                                                     <a class="video-vemo-icon venobox vbox-item" data-vbtype="youtube"
-                                                       data-autoplay="true" href="<?= HelperFunction::setting('youtube_intro') ?? 'https://www.youtube.com/watch?v=C7SONrZ8XWY'?>"><i
+                                                       data-autoplay="true"
+                                                       href="<?= HelperFunction::setting('youtube_intro') ?? 'https://www.youtube.com/watch?v=C7SONrZ8XWY'?>"><i
                                                                 class="fa fa-youtube-play"></i></a>
                                                 </div>
                                             </div>
@@ -81,7 +83,7 @@ use common\helper\HelperFunction;
                                 </ul>
                                 <b>THỨ 6 - 9h30 - 11h00 Họp xúc tiến thương mại</b>
                                 <ul>
-                                    <li>14h30 -16:30 Họp DN tham gia xúc tiến cùng đối tác nước ngoài </li>
+                                    <li>14h30 -16:30 Họp DN tham gia xúc tiến cùng đối tác nước ngoài</li>
                                 </ul>
                                 <b>THỨ 7</b>
                                 <ul>
