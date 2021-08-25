@@ -1,6 +1,11 @@
 $primary-color: rgb(14, 43, 61);
+html {
+  overflow-x: hidden !important;
+}
+
 .body {
   min-width: 1000px;
+  overflow-x: hidden !important;
 }
 
 .container {
@@ -19,8 +24,26 @@ $primary-color: rgb(14, 43, 61);
 }
 
 .flag {
+  margin-top: 10px;
+  background-color: white;
+  height: 25px;
+  width: 240px;
+  padding: 0 10px !important;
+  border-radius: 35px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 12px;
+
   li {
     float: unset;
+    padding-right: 0 !important;
+
+    &:first-child {
+      a {
+        padding-right: 20px;
+      }
+    }
   }
 }
 
@@ -65,14 +88,29 @@ $primary-color: rgb(14, 43, 61);
   margin-left: 10px;
 }
 
+.mt-5 {
+  margin-top: 6px;
+}
+
 #top-bar-wrapper {
   border-bottom: 1px solid #ccc;
 }
 
 .header-style02 {
   background: $primary-color;
-  width: 1000px;
+  width: 100%;
   margin: auto;
+
+  .logo {
+    display: flex;
+    height: auto;
+    align-items: center;
+
+    img.txt {
+      height: 45px;
+      width: auto;
+    }
+  }
 
   #quick-links {
     display: flex;
@@ -80,19 +118,51 @@ $primary-color: rgb(14, 43, 61);
   }
 
   .navbar-header {
-    width: fit-content;
-    float: left;
+    width: 100%;
+    // float: left;
+    padding-top: 0;
   }
 
+  .header-bottom {
+    background: rgb(14, 43, 61);
+    background: linear-gradient(0deg, rgba(14, 43, 61, 1) 0%, rgba(109, 157, 186, 1) 100%);
+    height: 45px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+  }
+
+
   .navbar-nav {
-    display: flex !important;
-    float: left;
+    height: 54px;
+    bottom: 0;
+    width: 100%;
+
+    li {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+
+      a {
+        font: 14px/43px Tahoma;
+        color: #fff;
+        float: left;
+        text-transform: uppercase;
+        padding: 0 0 0 19px;
+        text-indent: 6px;
+
+        &:hover, &.active {
+          background: url("../img/r_mn.jpg") no-repeat center top;
+        }
+      }
+    }
   }
 
   ul {
     li {
       a {
         color: white !important;
+
+        &:hover {
+        }
       }
 
       .dropdown-menu {
@@ -124,6 +194,32 @@ $primary-color: rgb(14, 43, 61);
     color: white;
     margin-bottom: 20px;
     font-size: 20px;
+  }
+
+}
+.sys{
+  width: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  .small-box {
+    margin-top: 20px;
+    height: 67px;
+    width: 170px;
+    background: url("../img/sys_pp.jpg") no-repeat;
+    background-size: 100% 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-direction: row;
+    .left{
+
+    }
+    a {
+      color: $primary-color;
+      width: 45%;
+    }
   }
 
 }
@@ -170,11 +266,14 @@ $primary-color: rgb(14, 43, 61);
   }
 
   .block {
+    text-align: center;
+
     a {
       font-size: 16px;
       font-weight: bold;
       margin-top: 10px;
       color: $primary-color;
+      text-align: center;
     }
   }
 
@@ -184,12 +283,16 @@ $primary-color: rgb(14, 43, 61);
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     overflow: hidden;
-    max-height: 250px;
-    height: 250px;
+    max-height: 200px;
+    height: 200px;
+    border: 1px solid $primary-color;
 
     a {
-      height: 250px;
+      height: 200px;
       display: flex;
+      padding: 0;
+      margin: 0;
+
 
       img {
         display: flex;
@@ -316,13 +419,27 @@ $primary-color: rgb(14, 43, 61);
   }
 
   .box-title {
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    margin-bottom: 0;
-    background-color: $primary-color;
-    padding: 10px;
-    color: white;
-    font-size: 20px;
+
+    //border-top-left-radius: 10px;
+    //border-top-right-radius: 10px;
+    //margin-bottom: 0;
+    background: url("../img/title_news.png") no-repeat center;
+    //padding: 10px;
+    //color: white;
+    //font-size: 20px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    top: -15px;
+    z-index: 10;
+    width: 100%;
+    height: 57px;
+    font: 18px/62px Tahoma, sans-serif;
+    text-align: center;
+    color: #fff;
+    text-transform: uppercase;
   }
 }
 
@@ -361,10 +478,10 @@ $primary-color: rgb(14, 43, 61);
 
 #footer-wrapper.footer-light {
   border-top: unset;
-  width: 1000px;
+  width: 100%;
   margin: auto;
 
-  .heading {
+  &.heading {
     margin-bottom: 0;
     background: $primary-color;
     padding-bottom: 20px;
@@ -392,7 +509,7 @@ $primary-color: rgb(14, 43, 61);
   background-color: #0E2B3D4C;
 
   .home-slider {
-    max-height: 350px;
+    max-height: 256px;
     overflow: hidden;
     position: relative;
 

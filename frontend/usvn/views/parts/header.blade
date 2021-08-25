@@ -13,86 +13,82 @@ if ($menu) {
 ?>
 <header id="header" class="header-style02">
     <div class="header-inner">
-        <!-- .container start -->
         <div class="container">
-            <!-- .main-nav start -->
             <div class="main-nav">
-                <!-- .row start -->
-                <div class="row">
-                    <div class="col-12">
-                        <div class="d-flex space-between">
-                            <div class="navbar-header">
-                                <div class="logo">
-                                    <a href="/">
-                                        <img width="200" src="<?= HelperFunction::getLogo()?>"
-                                             alt="<?= HelperFunction::setting('site_name', true)?>"/>
-                                    </a>
-                                </div><!-- .logo end -->
-                            </div>
-                            <ul id="quick-links" class="flag d-flex flex-end text-right">
-                                <li class="d-flex align-center">
-                                    <a class="d-flex align-center" onclick="switchLanguage('vi')"
-                                       href="javascript:void(0)">
-                                        <img src="/img/svg/vi.svg" width="24"/>
-                                        <span class="ml-1">
+                <div class="d-flex space-between">
+                    <div class="navbar-header">
+                        <div class="logo">
+                            <a href="/">
+                                <img width="120" src="<?= HelperFunction::getLogo()?>"
+                                     alt="<?= HelperFunction::setting('site_name', true)?>"/>
+                            </a>
+                            <img class="txt" src="/img/txt3.png"/>
+                        </div><!-- .logo end -->
+                    </div>
+                    <ul id="quick-links" class="flag d-flex flex-end text-right">
+                        <li class="d-flex align-center">
+                            <a class="d-flex align-center" onclick="switchLanguage('vi')"
+                               href="javascript:void(0)">
+                                <img src="/img/svg/vi.svg" width="18"/>
+                                <span class="ml-1">
                                     Vietnamese
                                 </span>
-                                    </a>
-                                </li>
+                            </a>
+                        </li>
 
-                                <li class="d-flex align-center">
-                                    <a class="d-flex align-center" onclick="switchLanguage('en')"
-                                       href="javascript:void(0)">
-                                        <img src="/img/svg/america.svg" width="24"/>
-                                        <span class="ml-1">
+                        <li class="d-flex align-center">
+                            <a class="d-flex align-center" onclick="switchLanguage('en')"
+                               href="javascript:void(0)">
+                                <img src="/img/svg/america.svg" width="18"/>
+                                <span class="ml-1">
                                     English
                                 </span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <nav class="navbar navbar-default nav-left" role="navigation">
-                            <div>
-                                <!-- .navbar-header start -->
-                               <!-- .navbar-header start -->
-
-                                <!-- MAIN NAVIGATION  collapse navbar-collapse-->
-                                <ul class="nav navbar-nav">
-                                    @if(!empty($menuItems))
-                                        @foreach($menuItems as $menuItem)
-                                            @php
-                                                $childrens = $menuItem['children'] ?? [];
-                                            @endphp
-                                            @if(!empty($childrens))
-                                                <li class="dropdown">
-                                                    <a href="#" data-toggle="dropdown"
-                                                       class="dropdown-toggle">{{$menuItem['title']}}</a>
-                                                    <ul class="dropdown-menu">
-                                                        @foreach($childrens as $child)
-                                                            <li>
-                                                                <a href="<?= HelperFunction::Link($child['type'], $child)?>">
-                                                                    {{$child['title']}}
-                                                                </a>
-                                                            </li>
-                                                        @endforeach
-                                                    </ul>
-                                                </li>
-                                            @else
-                                                <li>
-                                                    <a href="<?= HelperFunction::Link($menuItem['type'], $menuItem)?>">{{$menuItem['title']}}</a>
-                                                </li>
-                                            @endif
-                                        @endforeach
-                                    @endif
-                                </ul>
-                            </div>
-
-                        </nav><!-- .navbar.navbar-default end -->
-                    </div><!-- .col-md-12 end -->
-                </div><!-- .row end -->
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div><!-- .main-nav end -->
         </div><!-- .container end -->
+    </div>
+    <div class="header-bottom">
+        <div class="container">
+            <nav class="navbar navbar-default nav-left" role="navigation">
+                <div>
+                    <!-- .navbar-header start -->
+                    <!-- .navbar-header start -->
+
+                    <!-- MAIN NAVIGATION  collapse navbar-collapse-->
+                    <ul class="nav navbar-nav">
+                        @if(!empty($menuItems))
+                            @foreach($menuItems as $menuItem)
+                                @php
+                                    $childrens = $menuItem['children'] ?? [];
+                                @endphp
+                                @if(!empty($childrens))
+                                    <li class="dropdown">
+                                        <a href="#" data-toggle="dropdown"
+                                           class="dropdown-toggle">{{$menuItem['title']}}</a>
+                                        <ul class="dropdown-menu">
+                                            @foreach($childrens as $child)
+                                                <li>
+                                                    <a href="<?= HelperFunction::Link($child['type'], $child)?>">
+                                                        {{$child['title']}}
+                                                    </a>
+                                                </li>
+                                            @endforeach
+                                        </ul>
+                                    </li>
+                                @else
+                                    <li>
+                                        <a href="<?= HelperFunction::Link($menuItem['type'], $menuItem)?>">{{$menuItem['title']}}</a>
+                                    </li>
+                                @endif
+                            @endforeach
+                        @endif
+                    </ul>
+                </div>
+
+            </nav>
+        </div>
     </div>
 </header>

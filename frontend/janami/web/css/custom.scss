@@ -17,12 +17,15 @@ $bg-purple: #E1E9F6;
 //new version design
 $bg-xam: #F5F5F7;
 $bg-lam: #D6E6EE;
+$bg-lam2: #d7e2e8;
 $bg-blue: #E2EBF7;
 $bg-green: #F2F7E8;
 $bg-green2: #E4F1D4;
 $color-green: #367766;
 $color-purple: #50254A;
 $color-red: #E44126;
+$color-pink: #e06f87;
+$color-yellow: #f6c251;
 $txt-color: #636363;
 
 .wsmenu > .wsmenu-list > li > ul.sub-menu > li > a:before, .wsmenu > .wsmenu-list > li > .wsmegamenu .link-list li a:before, .wsmenu > .wsmenu-list > li > .wsmegamenu.halfmenu .link-list > li > a:before {
@@ -1032,6 +1035,66 @@ nav {
       }
     }
 
+  }
+}
+
+.gtcl {
+  background-color: $bg-lam2;
+
+  .content {
+    padding: 20px;
+    min-height: 320px;
+    &.bg-1 {
+      background-color: #f1f8e0;
+    }
+
+    &.bg-2 {
+      background-color: #f9f8df;
+    }
+
+    &.bg-3 {
+      background-color: #f2f7e9;
+    }
+  }
+
+  h2.hong {
+    color: $color-pink;
+    text-transform: uppercase;
+  }
+
+  .icon-top {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  h4 {
+    text-transform: uppercase;
+    font-size: 20px;
+
+    &.do {
+      color: $color-red;
+    }
+
+    &.xanh {
+      color: $color-green;
+    }
+
+    &.vang {
+      color: $color-yellow;
+    }
+  }
+
+  ul {
+    li {
+      display: flex;
+      align-items: flex-start;
+      font-size: 16px;
+
+      img {
+        margin-right: 10px;
+        width: 16px;
+      }
+    }
   }
 }
 

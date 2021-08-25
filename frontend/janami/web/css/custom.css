@@ -653,6 +653,40 @@ nav a {
               opacity: 1;
               top: -35px; }
 
+.gtcl {
+  background-color: #d7e2e8; }
+  .gtcl .content {
+    padding: 20px;
+    min-height: 320px; }
+    .gtcl .content.bg-1 {
+      background-color: #f1f8e0; }
+    .gtcl .content.bg-2 {
+      background-color: #f9f8df; }
+    .gtcl .content.bg-3 {
+      background-color: #f2f7e9; }
+  .gtcl h2.hong {
+    color: #e06f87;
+    text-transform: uppercase; }
+  .gtcl .icon-top {
+    text-align: center;
+    margin-bottom: 10px; }
+  .gtcl h4 {
+    text-transform: uppercase;
+    font-size: 20px; }
+    .gtcl h4.do {
+      color: #E44126; }
+    .gtcl h4.xanh {
+      color: #367766; }
+    .gtcl h4.vang {
+      color: #f6c251; }
+  .gtcl ul li {
+    display: flex;
+    align-items: flex-start;
+    font-size: 16px; }
+    .gtcl ul li img {
+      margin-right: 10px;
+      width: 16px; }
+
 @media (max-width: 467px) {
   .list-layout1 .number {
     margin-left: 0; }
