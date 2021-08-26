@@ -32,11 +32,6 @@ $('#client-carousel').owlCarousel({
     margin: 20,
     navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
     dots: false,
-    responsive: {
-        0: {items: 2},
-        720: {items: 4},
-        960: {item: 6}
-    }
 })
 
 function switchLanguage(lang) {

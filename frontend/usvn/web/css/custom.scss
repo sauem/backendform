@@ -1,4 +1,5 @@
 $primary-color: rgb(14, 43, 61);
+
 html {
   overflow-x: hidden !important;
 }
@@ -6,6 +7,14 @@ html {
 .body {
   min-width: 1000px;
   overflow-x: hidden !important;
+}
+
+.w-25 {
+  width: 25% !important;
+}
+
+.w-75 {
+  width: 75% !important;
 }
 
 .container {
@@ -709,9 +718,9 @@ html {
 
 @media (max-height: 467px) {
   .header-style02 {
-    width: 1000px!important;
+    width: 1000px !important;
   }
   #footer-wrapper {
-    width: 1000px!important;
+    width: 1000px !important;
   }
 }
