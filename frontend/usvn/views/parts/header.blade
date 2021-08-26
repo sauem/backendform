@@ -9,6 +9,8 @@ $menuItems = [];
 if ($menu) {
     $menuItems = Json::decode(ArrayHelper::getValue($menu, 'items'));
 }
+$currentSlug = Yii::$app->request->pathInfo;
+$segments = explode('/', $currentSlug);
 
 ?>
 <header id="header" class="header-style02">
