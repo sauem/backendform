@@ -160,7 +160,7 @@ html {
         font: 14px/43px Tahoma;
         color: #fff;
         float: left;
-        padding: 0 25px;
+        padding: 0 15px;
         text-transform: uppercase;
         text-indent: 6px;
 
@@ -183,6 +183,13 @@ html {
 
       .dropdown-menu {
         background: $primary-color;
+
+        li {
+          a {
+            width: 100%;
+            background: rgba(45, 70, 85, 0.71);
+          }
+        }
       }
     }
   }

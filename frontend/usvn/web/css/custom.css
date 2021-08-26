@@ -110,7 +110,7 @@ html {
         font: 14px/43px Tahoma;
         color: #fff;
         float: left;
-        padding: 0 25px;
+        padding: 0 15px;
         text-transform: uppercase;
         text-indent: 6px; }
         .header-style02 .navbar-nav li a:hover, .header-style02 .navbar-nav li a.active {
@@ -120,6 +120,9 @@ html {
     color: white !important; }
   .header-style02 ul li .dropdown-menu {
     background: #0e2b3d; }
+    .header-style02 ul li .dropdown-menu li a {
+      width: 100%;
+      background: rgba(45, 70, 85, 0.71); }
   .header-style02 .header-inner {
     padding: 0; }
 
