@@ -8,8 +8,8 @@ use common\helper\HelperFunction;
         <ul class="block">
             @foreach($products as $product)
                 <li class="item-product">
-                    <a href="/shop/{{$product->defaultArchive->slug}}/{{$product->slug}}">
-                        <img src="{!! $product->avatar!!}" class="img-responsive"/>
+                    <a class="img" href="/shop/{{$product->defaultArchive->slug}}/{{$product->slug}}">
+                        <img src="{!! $product->avatar!!}"/>
                     </a>
                     <a href="/shop/{{$product->defaultArchive->slug}}/{{$product->slug}}">
                         {{$product->name}}

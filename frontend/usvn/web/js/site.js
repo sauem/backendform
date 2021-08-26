@@ -17,9 +17,10 @@ $('.box-product-slider').owlCarousel({
 $('.box-vertical-slider').jCarouselLite({
     mouseWheel: false,
     auto: true,
+    timeout: 10000,
     hoverPause: true,
     vertical: true,
-    speed: 1200,
+    speed: 1500,
     visible: 3,
     scroll: 1
 });

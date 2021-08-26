@@ -130,6 +130,7 @@ html {
   .header-bottom {
     height: 45px;
     position: relative;
+
     &:before {
       position: absolute;
       bottom: 0;
@@ -162,6 +163,7 @@ html {
         padding: 0 25px;
         text-transform: uppercase;
         text-indent: 6px;
+
         &:hover, &.active {
           background: url("../img/r_mn.jpg") no-repeat center top;
           background-size: 100% 100%;
@@ -427,58 +429,70 @@ html {
 }
 
 .box-vertical {
-  margin-top: 40px;
-  border: solid 1px $primary-color;
-  border-radius: 10px;
-  height: 100%;
-
+  margin-top: 5px;
+  visibility: visible;
+  position: relative;
+  left: 0;
   .box-title {
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    margin-bottom: 0;
-    background-color: $primary-color;
-    padding: 10px;
-    color: white;
-    font-size: 20px;
+
+    //border-top-left-radius: 10px;
+    //border-top-right-radius: 10px;
+    //margin-bottom: 0;
+    background: url("../img/title_news.png") no-repeat center;
+    //padding: 10px;
+    //color: white;
+    //font-size: 20px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    top: -15px;
+    z-index: 10;
+    width: 100%;
+    height: 57px;
+    font: 18px/62px Tahoma, sans-serif;
+    text-align: center;
+    color: #fff;
+    text-transform: uppercase;
   }
 
   .box-vertical-slider {
-    overflow: hidden;
     width: 100%;
-    height: 95vh !important;
-    visibility: visible;
-    position: relative;
-    z-index: 2;
-
+    height: 810px;
+    overflow: hidden;
     ul {
-      display: block;
-      margin-top: 10px;
-      padding: 0;
-      position: relative;
-      list-style-type: none;
-      z-index: 1;
+      background: none repeat scroll 0 0 #F7F9F8;
+      float: left;
+      padding: 15px 12px;
+      width: 340px;
 
       li {
-        overflow: visible;
+        background: url("../img/bg_sp.jpg") no-repeat scroll 0 0 transparent;
         float: left;
-        height: 300px;
+        height: 270px !important;
         list-style-type: none;
+        margin-left: 26px;
         text-align: center;
-        width: 100%;
-        padding: 20px;
-        margin-left: 15px;
+        overflow: hidden;
+        width: 268px;
 
         a {
-          font-size: 16px;
-          color: $primary-color;
-
-          img {
+          &.img{
+            overflow: hidden;
+            height: 220px;
             display: flex;
-            object-fit: cover;
-            height: 100%;
-            padding: 18px 0 0;
-            width: 100%;
+            img{
+              display: flex;
+              object-fit: cover;
+            }
           }
+          color: $primary-color;
+          display: block;
+          font: bold 15px/20px Tahoma;
+          padding: 10px 10px 0;
+          text-align: center;
+          text-transform: uppercase;
         }
       }
     }
@@ -488,23 +502,30 @@ html {
 
 .box-detail {
   position: relative;
+  margin-top: 5px;
 
   .box-title {
-    position: absolute;
-    top: -20px;
-    padding: 0 5px;
-    left: 0;
-    -webkit-border-radius: 30px;
-    -moz-border-radius: 30px;
-    z-index: 2;
-    color: white;
+    background: url("../img/tagtitle.jpg") no-repeat scroll 0 0 transparent;
+    color: #FFFFFF;
     font-size: 16px;
-    background: $primary-color;
+    height: 39px;
+    left: 9px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: -20px;
+    line-height: 40px;
+    text-align: center;
+    position: relative;
+    background-size: 100% 100%;
+    z-index: 1;
+    width: fit-content;
+    padding-left: 50px;
+    padding-right: 50px;
+
   }
 
   .box-content {
-    margin-top: 40px;
-    padding: 20px;
+    padding: 40px 20px;
     border-radius: 10px;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
@@ -529,10 +550,12 @@ html {
   border-radius: 10px;
   border: 1px solid $primary-color;
   padding-bottom: 10px;
+
   .content {
     padding: 10px;
     position: relative;
-    a.read-more{
+
+    a.read-more {
       color: white;
       padding: 15px;
       background: url("../img/rm.png") no-repeat center;
@@ -540,10 +563,12 @@ html {
       right: 5px;
       bottom: -15px;
     }
+
     li {
-      &:last-child{
+      &:last-child {
         list-style: none;
       }
+
       font-size: 16px;
 
       a {

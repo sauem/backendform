@@ -286,67 +286,80 @@ html {
         object-fit: cover; }
 
 .box-vertical {
-  margin-top: 40px;
-  border: solid 1px #0e2b3d;
-  border-radius: 10px;
-  height: 100%; }
+  margin-top: 5px;
+  visibility: visible;
+  position: relative;
+  left: 0; }
   .box-vertical .box-title {
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    margin-bottom: 0;
-    background-color: #0e2b3d;
-    padding: 10px;
-    color: white;
-    font-size: 20px; }
-  .box-vertical .box-vertical-slider {
-    overflow: hidden;
-    width: 100%;
-    height: 95vh !important;
-    visibility: visible;
+    background: url("../img/title_news.png") no-repeat center;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    margin: 0;
+    padding: 0;
     position: relative;
-    z-index: 2; }
+    top: -15px;
+    z-index: 10;
+    width: 100%;
+    height: 57px;
+    font: 18px/62px Tahoma, sans-serif;
+    text-align: center;
+    color: #fff;
+    text-transform: uppercase; }
+  .box-vertical .box-vertical-slider {
+    width: 100%;
+    height: 810px;
+    overflow: hidden; }
     .box-vertical .box-vertical-slider ul {
-      display: block;
-      margin-top: 10px;
-      padding: 0;
-      position: relative;
-      list-style-type: none;
-      z-index: 1; }
+      background: none repeat scroll 0 0 #F7F9F8;
+      float: left;
+      padding: 15px 12px;
+      width: 340px; }
       .box-vertical .box-vertical-slider ul li {
-        overflow: visible;
+        background: url("../img/bg_sp.jpg") no-repeat scroll 0 0 transparent;
         float: left;
-        height: 300px;
+        height: 270px !important;
         list-style-type: none;
+        margin-left: 26px;
         text-align: center;
-        width: 100%;
-        padding: 20px;
-        margin-left: 15px; }
+        overflow: hidden;
+        width: 268px; }
         .box-vertical .box-vertical-slider ul li a {
-          font-size: 16px;
-          color: #0e2b3d; }
-          .box-vertical .box-vertical-slider ul li a img {
-            display: flex;
-            object-fit: cover;
-            height: 100%;
-            padding: 18px 0 0;
-            width: 100%; }
+          color: #0e2b3d;
+          display: block;
+          font: bold 15px/20px Tahoma;
+          padding: 10px 10px 0;
+          text-align: center;
+          text-transform: uppercase; }
+          .box-vertical .box-vertical-slider ul li a.img {
+            overflow: hidden;
+            height: 220px;
+            display: flex; }
+            .box-vertical .box-vertical-slider ul li a.img img {
+              display: flex;
+              object-fit: cover; }
 
 .box-detail {
-  position: relative; }
+  position: relative;
+  margin-top: 5px; }
   .box-detail .box-title {
-    position: absolute;
-    top: -20px;
-    padding: 0 5px;
-    left: 0;
-    -webkit-border-radius: 30px;
-    -moz-border-radius: 30px;
-    z-index: 2;
-    color: white;
+    background: url("../img/tagtitle.jpg") no-repeat scroll 0 0 transparent;
+    color: #FFFFFF;
     font-size: 16px;
-    background: #0e2b3d; }
+    height: 39px;
+    left: 9px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: -20px;
+    line-height: 40px;
+    text-align: center;
+    position: relative;
+    background-size: 100% 100%;
+    z-index: 1;
+    width: fit-content;
+    padding-left: 50px;
+    padding-right: 50px; }
   .box-detail .box-content {
-    margin-top: 40px;
-    padding: 20px;
+    padding: 40px 20px;
     border-radius: 10px;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
