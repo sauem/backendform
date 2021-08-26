@@ -10,7 +10,7 @@ AppAsset::register($view);
 <html lang="<?= Yii::$app->language ?>">
 <head>
     <meta charset="<?= Yii::$app->charset ?>">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=1000">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta property="og:locale" content="en_US"/>
     <meta property="og:type" content="website"/>
@@ -18,10 +18,6 @@ AppAsset::register($view);
     <meta property="og:url" content="<?= \Yii::$app->homeUrl; ?>"/>
     <meta property="og:site_name" content="<?= HelperFunction::setting('site_name', true)?>"/>
     <link rel="shortcut icon" href="<?= HelperFunction::Favicon() ?>" type="image/x-icon">
-    <link rel="icon" href="<?= HelperFunction::Favicon() ?>" type="image/x-icon">
-    <link rel="apple-touch-icon" sizes="152x152" href="<?= HelperFunction::Favicon() ?>">
-    <link rel="apple-touch-icon" sizes="120x120" href="<?= HelperFunction::Favicon() ?>">
-    <link rel="apple-touch-icon" sizes="76x76" href="<?= HelperFunction::Favicon() ?>">
     <link rel="apple-touch-icon" href="<?= HelperFunction::Favicon() ?> ">
     <!-- For the og:image content, replace the # with a link of an image -->
     <meta property="og:image" content="<?= HelperFunction::getLogo('header') ?>"/>
@@ -51,7 +47,7 @@ AppAsset::register($view);
     </script>
     @yield('js_head')
 </head>
-<body>
+<body style="width: 1000px">
 <?php $view->beginBody() ?>
 {{--<div id="loader-wrapper">--}}
 {{--    <div id="loading">--}}
@@ -87,6 +83,7 @@ AppAsset::register($view);
             $(this).removeClass('is_show');
         }
     });
+
 </script>
 <?php $view->endPage() ?>
 

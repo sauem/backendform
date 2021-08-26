@@ -2,7 +2,7 @@ html {
   overflow-x: hidden !important; }
 
 .body {
-  min-width: 1000px;
+  width: 1000px !important;
   overflow-x: hidden !important; }
 
 .w-25 {
@@ -67,6 +67,9 @@ html {
 .mt-5 {
   margin-top: 6px; }
 
+.navbar-nav {
+  display: flex !important; }
+
 #top-bar-wrapper {
   border-bottom: 1px solid #ccc; }
 
@@ -75,7 +78,7 @@ html {
 
 .header-style02 {
   background: #0e2b3d;
-  width: 1000px;
+  width: 100%;
   margin: auto; }
   .header-style02 .logo {
     display: flex;
@@ -454,7 +457,7 @@ html {
 
 #footer-wrapper.footer-light {
   border-top: unset;
-  width: 1000px;
+  width: 100%;
   margin: auto; }
   #footer-wrapper.footer-light.heading {
     margin-bottom: 0;

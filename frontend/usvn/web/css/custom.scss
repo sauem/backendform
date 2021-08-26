@@ -5,7 +5,7 @@ html {
 }
 
 .body {
-  min-width: 1000px;
+  width: 1000px!important;
   overflow-x: hidden !important;
 }
 
@@ -100,7 +100,9 @@ html {
 .mt-5 {
   margin-top: 6px;
 }
-
+.navbar-nav{
+  display: flex!important;
+}
 #top-bar-wrapper {
   border-bottom: 1px solid #ccc;
 }
@@ -111,7 +113,7 @@ html {
 
 .header-style02 {
   background: $primary-color;
-  width: 1000px;
+  width: 100%;
   margin: auto;
 
   .logo {
@@ -669,7 +671,7 @@ html {
 
 #footer-wrapper.footer-light {
   border-top: unset;
-  width: 1000px;
+  width: 100%;
   margin: auto;
 
   &.heading {
