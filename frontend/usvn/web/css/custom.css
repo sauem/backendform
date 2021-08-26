@@ -448,7 +448,7 @@ html {
 
 #footer-wrapper.footer-light {
   border-top: unset;
-  width: 100%;
+  width: 1000px;
   margin: auto; }
   #footer-wrapper.footer-light.heading {
     margin-bottom: 0;
