@@ -72,6 +72,8 @@ return [
     'contact_txt' => 'Leave a message for more information',
     'service_route' => 'Service Routes',
     'order' => 'Order',
-    'back_to_home' => 'Back to home'
+    'back_to_home' => 'Back to home',
+    'check_case' => 'POLL',
+    'sys_comp' => 'Distribution system'
 
 ];

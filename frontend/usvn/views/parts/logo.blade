@@ -1,15 +1,35 @@
 <?php
+use common\helper\HelperFunction;
 $logos = $sliders = \Yii::$app->params['logos'];
 ?>
 @if( isset($logos) && !empty($logos))
-    <div class="container">
+    <div class="container logo-content">
+        <h1 class="box-title"><?= Yii::t('app', 'certificates')?></h1>
         <div class="carousel-container box-logo">
-            <h1 class="box-title"><?= Yii::t('app', 'certificates')?></h1>
-            <div id="client-carousel" class="owl-carousel owl-theme owl-carousel-navigation">
+            <div id="client-carousel" class="owl-carousel owl-theme ">
                 @foreach($logos as $logo)
                     <div class="owl-item"><img src="{{$logo->avatar}}" alt=""/></div>
                 @endforeach
             </div><!-- .owl-carousel.owl-carousel-navigation end -->
+        </div>
+        <div class="row quick-link-bottom">
+            <div class="col">
+                <a href="">$ <?= Yii::t('app-usvn', 'exchange')?></a>
+            </div>
+            <div class="col">
+                <a href="">$ <?= Yii::t('app-usvn', 'crude_oil')?></a>
+            </div>
+            <div class="col">
+                <a href="">$ <?= Yii::t('app-usvn', 'rubber_price')?></a>
+            </div>
+            <div class="col">
+                <span><?= Yii::t('app-usvn', 'total_visited')?>: <span id="rand-dom-access"></span>
+                     |<?= Yii::t('app-usvn', 'online')?>: <span id="rand-dom-online"></span></span>
+            </div>
+            <div class="col d-flex aligns-center">
+                <img class="mr-1" src="/img/phone.jpg">
+                <a href="tel:<?=HelperFunction::setting('hotline_1')?>"><?=HelperFunction::setting('hotline_1')?></a>
+            </div>
         </div>
     </div>
 @endif

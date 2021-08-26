@@ -50,7 +50,7 @@ return [
     'partners' => 'Đối tác',
     'related_post' => 'Bài viết liên quan',
     'related_product' => 'Sản phẩm liên quan',
-    'certificates' => 'Giới thiệu chứng chỉ',
+    'certificates' => 'Chứng chỉ',
     'post' => 'Bài viết',
     'hot_new' => 'Tin mới',
     'member' => "Thành viên",
@@ -72,5 +72,7 @@ return [
     'contact_txt' => 'Để lại thông tin để được tư vấn rõ hơn',
     'service_route' => 'Tuyến dịch vụ',
     'order' => 'Đặt hàng',
-    'back_to_home' => 'Quay về trang chủ'
+    'back_to_home' => 'Quay về trang chủ',
+    'check_case' => 'Thăm dò<br> ý kiến',
+    'sys_comp' => 'Hệ thống phân phối'
 ];

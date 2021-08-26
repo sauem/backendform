@@ -24,9 +24,11 @@ $('.box-vertical-slider').jCarouselLite({
 });
 
 $('#client-carousel').owlCarousel({
-    items: 6,
-    autoplay: true,
+    items: 5,
     loop: true,
+    nav: true,
+    margin: 20,
+    navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
     dots: false,
     responsive: {
         0: {items: 2},

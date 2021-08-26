@@ -110,41 +110,100 @@ html {
   .header-style02 .header-inner {
     padding: 0; }
 
+.row {
+  margin-bottom: 10px; }
+
 .navbar-collapse {
   float: none; }
 
-.box-logo {
+.list-skype {
+  list-style: none; }
+  .list-skype li a {
+    color: white; }
+
+.logo-content .box-title {
+  background: url("../img/gim.jpg") no-repeat scroll 0 0 transparent;
+  color: #FFFFFF;
+  font-size: 16px;
+  height: 39px;
+  left: 9px;
+  margin-bottom: -20px;
+  line-height: 39px;
+  position: relative;
+  text-align: center;
+  width: 168px;
+  z-index: 1; }
+.logo-content .quick-link-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
+  .logo-content .quick-link-bottom a, .logo-content .quick-link-bottom span {
+    font-weight: bold;
+    font-size: 15px;
+    color: #0e2b3d; }
+.logo-content .box-logo {
+  margin-bottom: 10px;
   border-radius: 10px;
   border: 1px solid #0e2b3d;
-  position: relative; }
-  .box-logo .box-title {
-    border-top-left-radius: 10px;
-    width: fit-content;
-    background-color: #0e2b3d;
-    padding: 10px;
-    color: white;
-    margin-bottom: 20px;
-    font-size: 20px; }
+  position: relative;
+  padding: 20px 30px 20px 45px; }
+  .logo-content .box-logo .owl-controls .owl-nav {
+    width: 100%; }
+    .logo-content .box-logo .owl-controls .owl-nav .owl-prev {
+      left: -40px; }
+    .logo-content .box-logo .owl-controls .owl-nav .owl-next {
+      right: -20px; }
+    .logo-content .box-logo .owl-controls .owl-nav [class*="owl-"] {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      width: 35px;
+      height: 35px;
+      background: transparent;
+      border-radius: 100%;
+      border: 1px solid #0e2b3d;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #0e2b3d; }
+      .logo-content .box-logo .owl-controls .owl-nav [class*="owl-"]:hover {
+        background-color: #0e2b3d;
+        color: white; }
+.logo-content .owl-item {
+  margin-top: 10px; }
+  .logo-content .owl-item img {
+    padding: 10px 15px;
+    border: 2px solid #0e2b3d;
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px 0 rgba(0, 0, 0, 0.4); }
 
 .sys {
-  width: 350px;
+  width: 320px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-direction: row; }
   .sys .small-box {
     margin-top: 20px;
-    height: 67px;
-    width: 170px;
-    background: url("../img/sys_pp.jpg") no-repeat;
+    height: 80px;
+    width: 50%;
     background-size: 100% 100%;
     display: flex;
     align-items: center;
     justify-content: flex-end;
     flex-direction: row; }
+    .sys .small-box.bx-left {
+      background: url("../img/sys_pp.jpg") no-repeat;
+      margin-right: 5px; }
+    .sys .small-box.bx-right {
+      background: url("../img/poll.jpg") no-repeat;
+      margin-left: 5px; }
     .sys .small-box a {
       color: #0e2b3d;
-      width: 45%; }
+      width: 45%;
+      font-size: 12px;
+      margin-right: 10px; }
 
 .box-product-slider {
   border-radius: 10px;
@@ -279,7 +338,7 @@ html {
 
 .box-post {
   border-radius: 10px;
-  border-bottom: 1px solid #0e2b3d; }
+  border: 1px solid #0e2b3d; }
   .box-post .content {
     padding: 10px; }
     .box-post .content li {
