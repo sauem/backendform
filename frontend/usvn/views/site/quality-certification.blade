@@ -1,0 +1,77 @@
+<?php
+use common\helper\HelperFunction;
+use common\models\Banners;
+
+$sliders = Banners::findAll([
+    'active' => Banners::BANNER_ACTIVE,
+    'position' => 'home_slider',
+    'language' => HelperFunction::getLanguage()
+]);
+foreach ($sliders as $k => $slider) {
+    if (!in_array('article', $slider['page_show'])) {
+        unset($sliders[$k]);
+    }
+}
+
+?>
+@section("content")
+    <div class="slider">
+        <div class="container">
+            <?= $view->render('../parts/slider.blade', [
+                'sliders' => $sliders
+            ]) ?>
+
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 left">
+                <div class="box-detail">
+                    <h1 class="box-title">{{$model->name}}</h1>
+
+                    <div class="box-content">
+                        <img src="/img/anh5.jpg" class="img-responsive">
+                        <p>
+                            USVN lựa chọn và liên kết sản xuất với các xưởng sản xuất Gỗ lớn và uy tín ở cả 3 miền,
+                            miền Bắc, miền Trung và miền Nam Việt Nam.
+                        </p>
+                        <p>
+
+                            Các xưởng sản xuất Gỗ của chúng tôi đều có đầy đủ giấy tờ pháp lý, hệ thống máy móc cắt, xẻ,
+                            lò sấy hiện đại, có bề dày kinh nghiệm, đặc biệt là có đầy đủ các chứng chỉ đạt chuẩn về Gỗ
+                            cũng như nguồn gốc xuất xứ Gỗ như:<br>
+                            <br> + Chứng chỉ nguồn gốc Gỗ FSC theo tiêu chuẩn của Hội đồng quản lý rừng quốc tế.
+                            <br> + Chứng chỉ rừng PEFC
+                            <br>+ Giấy chứng nhận lò sấy, hun trùng
+                        </p>
+                        <br>
+                        <br>
+                        <p>
+                            Chúng tôi cung cấp các sản phẩm Gỗ sơ chế, xẻ, sấy, thành phẩm theo quy cách yêu cầu của
+                            khách hàng. Các sản phẩm Gỗ của chúng tôi đều có nguồn gốc xuất xứ rõ ràng hợp pháp, đảm bảo
+                            chất lượng và sự an toàn tuyệt đối cho khách hàng cũng như có trách nhiệm với môi trường và
+                            xã hội của chúng tôi.
+
+                        </p>
+                        <img src="/img/anh6.jpg" class="img-responsive">
+
+                        <p>
+                            Sản lượng trung bình chúng tôi xuất sang thị trường Châu Á năm 2020- 2021 từ 2000m3 -
+                            4.400m3/ tháng gỗ xẻ sấy quy cách, 52.800m3/ năm. Xuất sáng thị trường Mỹ 400 container-
+                            700 container/ tháng tương đương 17.600m3 - 30.800m3/năm.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-4 right">
+                <div class="box-vertical">
+                    <h1 class="box-title"><?= Yii::t('app', 'related_product')?></h1>
+                    <?= $view->render('../parts/box-vertical.blade', [
+                        'products' => $related
+                    ])?>
+                </div>
+            </div>
+        </div>
+    </div>
+@stop

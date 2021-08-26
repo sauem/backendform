@@ -231,6 +231,12 @@ html {
       font-size: 12px;
       margin-right: 10px; }
 
+.col-50 {
+  width: 49%;
+  float: left; }
+  .col-50.right {
+    float: right; }
+
 .box-product-slider {
   border-radius: 10px;
   border: 1px solid #0e2b3d;
@@ -275,7 +281,8 @@ html {
     overflow: hidden;
     max-height: 200px;
     height: 200px;
-    border: 1px solid #0e2b3d; }
+    border: 1px solid #0e2b3d;
+    box-shadow: 0 0 3px 5px rgba(14, 43, 61, 0.5); }
     .box-product-slider .item-product a {
       height: 200px;
       display: flex;
@@ -365,7 +372,7 @@ html {
     -moz-border-radius: 10px;
     -webkit-border: 1px solid #0e2b3d;
     border: 1px solid #0e2b3d;
-    max-height: 100vh;
+    max-height: 820px;
     overflow-y: scroll;
     position: relative; }
 

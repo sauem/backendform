@@ -7,6 +7,7 @@ use common\models\Archives;
 use common\models\ArchivesSearch;
 use common\models\Articles;
 use common\models\ArticlesSearch;
+use common\models\Banners;
 use common\models\Contact;
 use common\models\Products;
 use common\models\ProductsSearch;
@@ -116,8 +117,20 @@ class SiteController extends BaseController
             ->where([
                 'language' => HelperFunction::getLanguage()
             ])->orderBy('created_at DESC')->all();
+
+        $sliders = Banners::findAll([
+            'active' => Banners::BANNER_ACTIVE,
+            'position' => 'home_slider',
+            'language' => HelperFunction::getLanguage()
+        ]);
+        foreach ($sliders as $k => $slider) {
+            if (!in_array('product', $slider['page_show'])) {
+                unset($sliders[$k]);
+            }
+        }
         return $this->render('shop-list.blade', [
             'model' => null,
+            'sliders' => $sliders,
             'products' => $products
         ]);
     }
@@ -205,7 +218,7 @@ class SiteController extends BaseController
     public function actionDetail($archive, $slug)
     {
         $archive = Archives::findOne(['slug' => $archive]);
-        $relatedDetail  = [];
+        $relatedDetail = [];
         if (!$archive) {
             throw new BadRequestHttpException('Không tồn tại trang!');
         }
@@ -224,8 +237,8 @@ class SiteController extends BaseController
                 break;
             default:
                 $template = 'blog-detail.blade';
-                if ($slug === 'cau-chuyen-janami') {
-                    $template = 'cau-chuyen-janami.blade';
+                if (in_array($slug, \Yii::$app->params['temp_pages'])) {
+                    $template = "$slug.blade";
                 }
                 $model = Articles::findOne(['slug' => $slug]);
                 if (!$model) {
@@ -264,6 +277,8 @@ class SiteController extends BaseController
             // ->orWhere(['id' => $model->relations])
             // ->andFilterWhere(['!=', 'id', $model->id])
             ->limit(12)->all();
+
+
         return $this->render($template, [
             'model' => $model,
             'categories' => $categories,

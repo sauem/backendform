@@ -1,0 +1,35 @@
+@section("content")
+    <div class="slider">
+        <div class="container">
+            <?= $view->render('../parts/slider.blade') ?>
+
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 left">
+                <div class="box-detail">
+                    <h1 class="box-title">{{$model->name}}</h1>
+
+                    <div class="box-content">
+                        <img src="/img/anh7.jpg" class="img-responsive">
+
+                        <p>
+                            Các loại khoáng sản của USVN là những khoáng sản thô được nhập khẩu từ các mỏ có chữ lượng lớn và ổn định tại Đông Nam Á. Chúng tôi cung cấp các loại khoáng sản thô hoặc đã sơ chế, tinh luyện cho thị trường Mỹ và Phương tây.
+                            Sản lượng trung bình chúng tôi có thể cung cấp từ 10 tấn - 20 tấn/ tháng, 120 tấn - 240 tấn/ năm.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-4 right">
+                <div class="box-vertical">
+                    <h1 class="box-title"><?= Yii::t('app', 'related_product')?></h1>
+                    <?= $view->render('../parts/box-vertical.blade', [
+                        'products' => $related
+                    ])?>
+                </div>
+            </div>
+        </div>
+    </div>
+@stop

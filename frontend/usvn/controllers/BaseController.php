@@ -87,6 +87,11 @@ class BaseController extends Controller
             'position' => 'home_slider',
             'language' => HelperFunction::getLanguage()
         ]);
+        foreach ($sliders as $k => $slider) {
+            if (!in_array('home', $slider['page_show'])) {
+                unset($sliders[$k]);
+            }
+        }
 
         $menus = MenuConfig::find()
             ->where([

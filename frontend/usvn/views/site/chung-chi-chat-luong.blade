@@ -1,0 +1,108 @@
+<?php
+use common\helper\HelperFunction;
+use common\models\Banners;
+
+$sliders = Banners::findAll([
+    'active' => Banners::BANNER_ACTIVE,
+    'position' => 'home_slider',
+    'language' => HelperFunction::getLanguage()
+]);
+foreach ($sliders as $k => $slider) {
+    if (!in_array('article', $slider['page_show'])) {
+        unset($sliders[$k]);
+    }
+}
+
+?>
+@section("content")
+    <div class="slider">
+        <div class="container">
+            <?= $view->render('../parts/slider.blade', [
+                'sliders' => $sliders
+            ]) ?>
+
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 left">
+                <div class="box-detail">
+                    <h1 class="box-title">{{$model->name}}</h1>
+
+                    <div class="box-content">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <figure>
+                                    <img src="/img/cc4.jpg" class="img-responsive">
+                                    <figcaption>
+                                        Sử dụng quy trình sản xuất tự động hiện đại nhất, theo tiêu chuẩn ASTM D3578
+                                        (1). Đảm bảo chất lượng và độ tin cậy của từng sản phẩm.
+                                    </figcaption>
+                                </figure>
+                            </div>
+                            <div class="col-sm-4">
+                                <figure>
+                                    <img src="/img/cc5.jpg" class="img-responsive">
+                                    <figcaption>
+                                        Gỗ được sản xuất bằng máy móc hiện đại, chất lượng và tin cậy
+                                    </figcaption>
+                                </figure>
+                            </div>
+                            <div class="col-sm-4">
+                                <figure>
+                                    <img src="/img/cc6.jpg" class="img-responsive">
+                                    <figcaption>
+                                        Khoáng sản được nghiên cứu, tinh chế ra những sản phẩm giá trị nhất.
+                                    </figcaption>
+                                </figure>
+                            </div>
+                        </div>
+                        <p>
+                            Hiện tại, sản phẩm chính của chúng tôi là găng tay cao su Nitrile không bột và găng tay
+                            Nitrile/Vinly không bột, Gỗ, Khoáng Sản và Khẩu trang Vải. Riêng dòng găng tay Nitrile
+                            không bột có 2 chủng lọai trơn và nhám. Gỗ hiện tại chủ yếu là gỗ Thông, chúng tôi sẽ tiến
+                            hành thêm nhiều loại gỗ khác để đáp ứng nhu cầu ngày càng cao của thị trường quốc tế. Khoáng
+                            sản sơ chế giai đoạn 1 là sự lựa chọn tối ưu của chúng tôi. Dự kiến hàng năm USVN EXPORT
+                            LOGISTICS xuất khoảng 2.240.000 thùng găng tay Nitrile ra thị trường, xuất khoảng 352.800 m3
+                            gỗ và khoảng 240 tấn quặng sơ chế ra thị trường trong nước và quốc tế. Đặc biệt là thị
+                            trường Mỹ.
+                        </p>
+                        <p>Với hệ thống nhà máy, nhà xưởng sản xuất quy mô lớn, máy móc công nghệ hiện đại, chất lượng.
+                            Chúng tôi không ngừng nâng cao hệ thống quản lý chất lượng sản phẩm, phương thức hợp tác uy
+                            tín và phong cách phục vụ khách hàng chuyên nghiệp, thân thiện. </p>
+                        <p>
+                            Các nhà máy sản xuất găng tay của chúng tôi đã và đang duy trì áp dụng Hệ thống quản lý chất
+                            lượng theo tiêu chuẩn ISO 9001:2015; ISO 13485:2016; hệ thống quản lý chất lượng an toàn
+                            thực phẩm ISO 22000:2005 cho các sản phẩm của mình. Đồng thời, đón nhận Chứng chỉ giấy phép
+                            bán hàng Châu Âu: CE, Chứng chỉ Y tế Nhật Bản: FMA, Chứng chỉ Y tế Canada: MDL, Chứng chỉ
+                            dịch vụ thực phẩm: NSF. Một trong số các nhà máy găng tay của chúng tôi vinh dự đón nhận
+                            chứng chỉ FDA 510K xuất hàng đi Mỹ. Đối với các nhà máy sản xuất Khẩu trang vải đều áp dụng
+                            hệ thống quản lý chất lượng vào sản xuất theo tiêu chuẩn ISO 9000 và các chứng chỉ SA 8000,
+                            ISO 14000 và WRAP. Đối với các xưởng sản xuất Gỗ đều thực hiện theo tiêu chuẩn của Hội đồng
+                            quản lý rừng quốc tế và được cấp chứng chỉ FSC về nguồn gốc, xuất xứ Gỗ, Chứng chỉ rừng PEFC
+                            để đảm bảo không khai thác và sản xuất Gỗ trái phép, Giấy chứng nhận lò sấy, hun trùng để
+                            đảm bảo máy móc đạt tiêu chuẩn sản xuất và đảm bảo chất lượng sản phẩm. Do đó, Quý khách
+                            hàng có thể hoàn toàn yên tâm về các sản phẩm của chúng tôi.
+                        </p>
+                        <p>
+                            USVN EXPORT LOGISTICS mong muốn được hợp tác với quý khách để phục vụ ngày càng tốt hơn nhu
+                            cầu về găng tay, Gỗ, khoáng sản, khẩu trang vải của quý khách để trở thành một trong những
+                            nhà sản xuất, cung ứng và thu mua lớn hàng đầu Việt Nam và thế giới.
+                        </p>
+
+                        <img src="/img/logoprt.png" class="img-responsive"/>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-4 right">
+                <div class="box-vertical">
+                    <h1 class="box-title"><?= Yii::t('app', 'related_product')?></h1>
+                    <?= $view->render('../parts/box-vertical.blade', [
+                        'products' => $related
+                    ])?>
+                </div>
+            </div>
+        </div>
+    </div>
+@stop

@@ -1,0 +1,56 @@
+@section("content")
+    <div class="slider">
+        <div class="container">
+            <?= $view->render('../parts/slider.blade') ?>
+
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 left">
+                <div class="box-detail">
+                    <h1 class="box-title">{{$model->name}}</h1>
+
+                    <div class="box-content">
+                        <img src="/img/kho.jpg" class="img-responsive"/>
+
+                        <p>
+                            Để đáp ứng nhu cầu của những khách hàng cần lấy nguồn hàng ngay và luôn, USVN luôn dành
+                            riêng 2 kho chứa hàng có sẵn rộng và đẹp tại Việt Nam và Mỹ để phục vụ kịp thời và chính xác
+                            nhu cầu của khách hàng.
+                        </p>
+                        <p>
+                            Tọa lạc tại vị trí giao thông thuận lợi, kho hàng tại Mỹ của USVN nằm ở trung tâm của bang
+                            California, rộng khoảng 1.500m2 sạch mát đủ các tiêu chuẩn đảm bảo hàng hóa chất lượng. Đối
+                            với kho ở Việt Nam, vị trí thông thoáng lý tưởng giáp Hà Nội, gần Sân bay Nội Bài, Kho hàng
+                            tại Việt Nam của USVN được xây dựng tại Khu đô thị Đại Hoàng Sơn, tỉnh Bắc Ninh với tổng
+                            diện tích chứa hàng có sẵn khoảng 2000m2. Kho hàng sạch, đẹp, mát, kiên cố, đầy đủ điều kiện
+                            an toàn, đủ tiêu chuẩn bảo quản hàng hóa chất lượng và phòng cháy chữa cháy.
+                            <br>
+                            Cả 2 kho đều có bảo vệ bảo vệ kho hàng 24/24 và đội ngũ nhân viên chuyên nghiệp túc trực và
+                            làm việc tại kho 24/7 để luôn đảm bảo đơn hàng của bạn được xử lý và giao đúng hẹn ngay cả
+                            khi mùa dịch bị phong tỏa.
+                            <img src="/img/kho2.jpg" class="img-responsive"/>
+                        </p>
+                        <br>
+                        <p>
+                            USVN làm việc uy tín, nguồn hàng có sẵn, giao hàng đúng hẹn nên có nguồn khách dồi dào. Vì
+                            vậy hàng của USVN luôn được đưa về đầy kho để cung cấp kịp thời nhu cầu cần hàng ngay và
+                            luôn của khách hàng. Đồng thời, với vị trí kho rất thuận tiện cho việc giao thương và lưu
+                            thông hàng hóa nên chúng tôi có thể xử lý đơn hàng của bạn rất nhanh và chính xác.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-4 right">
+                <div class="box-vertical">
+                    <h1 class="box-title"><?= Yii::t('app', 'related_product')?></h1>
+                    <?= $view->render('../parts/box-vertical.blade', [
+                        'products' => $related
+                    ])?>
+                </div>
+            </div>
+        </div>
+    </div>
+@stop

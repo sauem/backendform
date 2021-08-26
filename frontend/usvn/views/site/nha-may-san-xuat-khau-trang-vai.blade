@@ -1,0 +1,45 @@
+@section("content")
+    <div class="slider">
+        <div class="container">
+            <?= $view->render('../parts/slider.blade') ?>
+
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 left">
+                <div class="box-detail">
+                    <h1 class="box-title">{{$model->name}}</h1>
+
+                    <div class="box-content">
+                        <img src="/img/ktr.jpg" class="img-responsive"/>
+
+                        <p>
+                            USVN hợp tác sản xuất khẩu trang Vải với hệ thống các nhà máy may và xưởng may gia công lớn
+                            và hiện đại khắp miền Bắc Việt Nam. Các nhà may đều áp dụng công nghệ sản xuất hiện đại như
+                            áp dụng mô hình sản xuất tinh gọn Lean tăng năng xuất và chất lượng sản phẩm, giảm hoặc
+                            không có tỷ lệ hàng lỗi. Đồng thời áp dụng hệ thống quản lý chất lượng vào sản xuất, đạt
+                            chất lượng ISO 9000 và các chứng chỉ SA 8000, ISO 14000 và WRAP.
+                        </p>
+                        <p>
+                            USVN đặt chất lượng sản phẩm lên số 1 nên trong năm 2020 -2021 sản phẩm Khẩu trang Vải của
+                            USVN được đón nhận tích cực tại thị trường Mỹ và Phương tây. Sản phẩm của chúng tôi bán chạy
+                            đến nỗi chỉ vừa cập cảng sân bay Mỹ đã hết ngay sau 2 tiếng đồng hồ ngay tại sân bay. Hiện
+                            chúng tôi đã xuất được khoảng 6 triệu khẩu trang Vải sản xuất tại các nhà máy may của chúng
+                            tôi ở Việt vào Mỹ.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-4 right">
+                <div class="box-vertical">
+                    <h1 class="box-title"><?= Yii::t('app', 'related_product')?></h1>
+                    <?= $view->render('../parts/box-vertical.blade', [
+                        'products' => $related
+                    ])?>
+                </div>
+            </div>
+        </div>
+    </div>
+@stop

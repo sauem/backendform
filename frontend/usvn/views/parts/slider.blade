@@ -1,5 +1,7 @@
 @php
-    $sliders = \Yii::$app->params['sliders'];
+    if(!isset($sliders) || empty($sliders)){
+            $sliders = \Yii::$app->params['sliders'];
+    }
 @endphp
 <div class="home-slider">
     @if(!empty($sliders))

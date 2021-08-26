@@ -1,0 +1,73 @@
+@section("content")
+    <div class="slider">
+        <div class="container">
+            <?= $view->render('../parts/slider.blade') ?>
+
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 left">
+                <div class="box-detail">
+                    <h1 class="box-title">{{$model->name}}</h1>
+
+                    <div class="box-content">
+                        <p>
+                            Để đáp ứng nhu cầu ngày càng cao của khách hàng trong nước và quốc tế, USVN EXPORT
+                            LOGISTICS đã và đang liên kết sản xuất với hệ thống các nhà máy lớn, hiện đại và chất
+                            lượng thuộc top đầu thế giới.
+                        </p>
+                        <p>
+                            USVN hiện đang liên kết sản xuất với 4 nhà máy sản xuất găng tay quy mô lớn tích hợp sản
+                            xuất, đóng gói găng tay Nitrile và găng tay nitrile hỗn hợp dùng một lần. Trung bình quy mô
+                            tổng diện tích mỗi nhà máy từ 45000m2 tới 124,290m2, có mạng lưới bán hàng bao phủ hơn 50
+                            quốc gia và khu vực trên thế giới. Bình quân mỗi nhà máy chúng tôi liên kết sản xuất mang về
+                            doanh thu riêng năm 2020 đứng thứ 8 trong ngành găng tay toàn cầu, với thị phần xấp xỉ 1,9%
+                            về doanh thu bán hàng găng tay dùng một lần.
+                            <img src="/img/w1.jpg" class="img-responsive"/>
+                        </p>
+                        <br>
+                        <p>
+                            Các nhà máy sản xuất găng tay đều có ít nhất 15 năm kinh nghiệm trong việc sản xuất găng tay
+                            Nitrile và găng tay nitrile hỗn hợp dùng một lần. Với hệ thống trang thiết bị hiện đại, 4
+                            nhà máy sản xuất găng tay có hơn 100 dây chuyền sản xuất hiện đại. Mỗi dây chuyền dài 700m,
+                            cao 10 tầng để đáp ứng nhu cầu sản xuất các sản phẩm găng tay chất lượng cao.
+
+                            <img src="/img/w2.jpg" class="img-responsive"/>
+                        </p>
+                        <br>
+                        <p>
+                            Các nhà máy đã và đang duy trì áp dụng Hệ thống quản lý chất lượng theo tiêu chuẩn ISO 9001:
+                            2015, ISO 13485:2016, hệ thống quản lý chất lượng an toàn thực phẩm đảm bảo chất lượng cho
+                            găng tay. Đồng thời, sử dụng thiết bị CNC mới nhất với quy mô lớn có hệ thống trộn, thùng
+                            khử mùi, máy điều khiển tự động, máy tước tự động, máy đếm tự động...vv ước tính công suất
+                            hàng năm mỗi nhà máy cung cấp khoảng 8,7 tỷ găng tay nitrile tổng hợp và 606 triệu găng tay
+                            nitrile cho thị trường trong nước và quốc tế.
+                            <video src="/img/videocom.mp4" controls width="100%"></video>
+                            <small style="text-align: center">Bên trong của một trong những nhà máy sản xuất găng tay
+                                của chúng tôi</small>
+                        </p>
+                        <p>
+                            Găng tay Nitrile không bột và găng tay Nitrile hỗn hợp dùng một lần của chúng tôi được sử
+                            dụng rộng rãi trong nhiều lĩnh vực khác nhau như: Y tế, công nghiệp, chế biến thực phẩm, chế
+                            biến hóa chất và chăm sóc gia đình. Chúng tôi sản xuất theo đơn đặt hàng của khách hàng và
+                            thiết kế đóng gói theo thương hiệu của khách hàng mong muốn. Với bề dày kinh nghiệm, sự
+                            hiểu biết và bí quyết kỹ thuật, chúng tôi có thể sản xuất các sản phẩm găng tay chất lượng
+                            tốt nhất cùng với giá thành tốt nhất, đáp ứng được bất kỳ số lượng mà khách hàng mong muốn,
+                            tạo ra giá trị cho khách hàng.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-4 right">
+                <div class="box-vertical">
+                    <h1 class="box-title"><?= Yii::t('app', 'related_product')?></h1>
+                    <?= $view->render('../parts/box-vertical.blade', [
+                        'products' => $related
+                    ])?>
+                </div>
+            </div>
+        </div>
+    </div>
+@stop
