@@ -11,10 +11,18 @@ html {
 
 .w-75 {
   width: 75%;
+
+  &.w-left {
+    float: right;
+  }
 }
 
 .w-25 {
   width: 25%;
+
+  &.w-right {
+    float: right;
+  }
 }
 
 .container {
