@@ -10,7 +10,7 @@ use common\helper\HelperFunction;
             @foreach($posts as $post)
                 <li>
                     <a href="<?=HelperFunction::Link(ARTICLE, $post->slug, $post->archive->slug)?>">
-                        {{substr_replace($post->name,'...',40)}}
+                        {!! $post->name !!}
                     </a>
                 </li>
             @endforeach
