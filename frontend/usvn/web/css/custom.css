@@ -476,4 +476,11 @@ html {
       display: flex;
       object-fit: cover; }
 
+@media (max-height: 467px) {
+  .header-style02 {
+    width: 1000px; }
+
+  #footer-wrapper {
+    width: 1000px; } }
+
 /*# sourceMappingURL=custom.css.map */

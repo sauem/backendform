@@ -187,7 +187,7 @@ html {
         li {
           a {
             width: 100%;
-            background: none!important;
+            background: none !important;
             text-decoration: overline;
           }
         }
@@ -705,4 +705,13 @@ html {
     }
   }
 
+}
+
+@media (max-height: 467px) {
+  .header-style02 {
+    width: 1000px;
+  }
+  #footer-wrapper {
+    width: 1000px;
+  }
 }
