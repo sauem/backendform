@@ -5,6 +5,12 @@ html {
   overflow-x: hidden !important;
   margin: auto !important; }
 
+.w-75 {
+  width: 75%; }
+
+.w-25 {
+  width: 25%; }
+
 .container {
   margin: auto;
   width: 1000px;
