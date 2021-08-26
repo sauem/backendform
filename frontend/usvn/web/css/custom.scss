@@ -5,19 +5,12 @@ html {
 }
 
 .body {
-  width: 1000px!important;
   overflow-x: hidden !important;
-}
-
-.w-25 {
-  width: 25% !important;
-}
-
-.w-75 {
-  width: 75% !important;
+  margin: auto !important;
 }
 
 .container {
+  margin: auto;
   width: 1000px;
   max-width: none !important;
 
@@ -100,9 +93,11 @@ html {
 .mt-5 {
   margin-top: 6px;
 }
-.navbar-nav{
-  display: flex!important;
+
+.navbar-nav {
+  display: flex !important;
 }
+
 #top-bar-wrapper {
   border-bottom: 1px solid #ccc;
 }

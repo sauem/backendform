@@ -2,16 +2,11 @@ html {
   overflow-x: hidden !important; }
 
 .body {
-  width: 1000px !important;
-  overflow-x: hidden !important; }
-
-.w-25 {
-  width: 25% !important; }
-
-.w-75 {
-  width: 75% !important; }
+  overflow-x: hidden !important;
+  margin: auto !important; }
 
 .container {
+  margin: auto;
   width: 1000px;
   max-width: none !important; }
   .container .left {
