@@ -96,6 +96,10 @@ html {
   border-bottom: 1px solid #ccc;
 }
 
+.navbar.nav-left {
+  min-height: 45px;
+}
+
 .header-style02 {
   background: $primary-color;
   width: 100%;
@@ -124,15 +128,24 @@ html {
   }
 
   .header-bottom {
-    background: rgb(14, 43, 61);
-    background: linear-gradient(0deg, rgba(14, 43, 61, 1) 0%, rgba(109, 157, 186, 1) 100%);
     height: 45px;
-    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+    position: relative;
+    &:before {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      content: '';
+      height: 38px;
+      width: 100%;
+      box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+      background: rgb(14, 43, 61);
+      background: linear-gradient(0deg, rgba(14, 43, 61, 1) 0%, rgba(109, 157, 186, 1) 100%);
+    }
   }
 
 
   .navbar-nav {
-    height: 54px;
+    height: 45px;
     bottom: 0;
     width: 100%;
 
@@ -140,17 +153,18 @@ html {
       list-style-type: none;
       margin: 0;
       padding: 0;
+      height: 45px;
 
       a {
         font: 14px/43px Tahoma;
         color: #fff;
         float: left;
+        padding: 0 25px;
         text-transform: uppercase;
-        padding: 0 0 0 19px;
         text-indent: 6px;
-
         &:hover, &.active {
           background: url("../img/r_mn.jpg") no-repeat center top;
+          background-size: 100% 100%;
         }
       }
     }
@@ -184,14 +198,35 @@ html {
 .navbar-collapse {
   float: none;
 }
-.list-skype{
+
+.social-icons {
+  display: flex;
   list-style: none;
-  li{
-    a{
+  margin-top: 20px;
+
+  li {
+    margin: 0 5px;
+    font-size: 20px;
+  }
+}
+
+.list-skype {
+  list-style: none;
+
+  li {
+    margin-bottom: 10px;
+
+    a {
+      img {
+        margin-right: 10px;
+      }
+
       color: white;
+      display: flex;
     }
   }
 }
+
 .logo-content {
   .box-title {
     background: url("../img/gim.jpg") no-repeat scroll 0 0 transparent;
@@ -211,7 +246,8 @@ html {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    a,span {
+
+    a, span {
       font-weight: bold;
       font-size: 15px;
       color: $primary-color;
@@ -492,11 +528,22 @@ html {
 .box-post {
   border-radius: 10px;
   border: 1px solid $primary-color;
-
+  padding-bottom: 10px;
   .content {
     padding: 10px;
-
+    position: relative;
+    a.read-more{
+      color: white;
+      padding: 15px;
+      background: url("../img/rm.png") no-repeat center;
+      position: absolute;
+      right: 5px;
+      bottom: -15px;
+    }
     li {
+      &:last-child{
+        list-style: none;
+      }
       font-size: 16px;
 
       a {

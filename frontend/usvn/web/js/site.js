@@ -3,11 +3,12 @@ $('.home-slider').nivoSlider({
     directionNav: false,
     controlNav: false,
 });
+
 const productItems = $('.box-product-slider').data('items');
 $('.box-product-slider').owlCarousel({
     items: productItems ?? 2,
-   // autoplay: true,
-   // loop: true,
+    // autoplay: true,
+    // loop: true,
     dots: false,
     nav: true,
     navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
@@ -129,3 +130,8 @@ $('.gallery').each(function () { // the containers for all your galleries
         }
     });
 });
+
+(() => {
+    $('#rand-dom-access').html(Math.round(Math.random() * 20000));
+    $('#rand-dom-online').html(Math.round(Math.random() * 200));
+})()
