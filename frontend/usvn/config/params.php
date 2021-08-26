@@ -17,5 +17,6 @@ return [
         'kho-hang-san-tai-viet-nam',
         'nha-may-san-xuat-khau-trang-vai',
         'xuong-san-xuat-go',
+        'chung-chi-chat-luong'
     ]
 ];

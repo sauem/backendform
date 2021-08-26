@@ -187,7 +187,8 @@ html {
         li {
           a {
             width: 100%;
-            background: rgba(45, 70, 85, 0.71);
+            background: none!important;
+            text-decoration: overline;
           }
         }
       }

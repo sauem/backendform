@@ -122,7 +122,8 @@ html {
     background: #0e2b3d; }
     .header-style02 ul li .dropdown-menu li a {
       width: 100%;
-      background: rgba(45, 70, 85, 0.71); }
+      background: none !important;
+      text-decoration: overline; }
   .header-style02 .header-inner {
     padding: 0; }
 

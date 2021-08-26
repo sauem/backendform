@@ -35,6 +35,13 @@ $form = ActiveForm::begin([
                                 ->label(false) ?>
                         </div>
                     </div>
+                    <div class="col-12">
+                        <div class="form-group">
+                            <?= $form->field($model, 'title')
+                                ->textInput(['placeholder' => Yii::t('app', 'title')])
+                                ->label(false) ?>
+                        </div>
+                    </div>
                 </div>
             </div>
 
