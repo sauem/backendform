@@ -138,8 +138,9 @@ html {
     background: #0e2b3d; }
     .header-style02 ul li .dropdown-menu li a {
       width: 100%;
-      background: none !important;
-      text-decoration: overline; }
+      background: none !important; }
+      .header-style02 ul li .dropdown-menu li a:hover {
+        text-decoration: underline; }
   .header-style02 .header-inner {
     padding: 0; }
 

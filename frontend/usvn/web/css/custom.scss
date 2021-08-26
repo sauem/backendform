@@ -212,7 +212,10 @@ html {
           a {
             width: 100%;
             background: none !important;
-            text-decoration: overline;
+
+            &:hover {
+              text-decoration: underline;
+            }
           }
         }
       }
