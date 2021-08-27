@@ -1,0 +1,52 @@
+<?php
+$view->title = Yii::t('app-usvn', 'poll');
+?>
+@section("content")
+    <div class="slider">
+        <div class="container">
+            <?= $view->render('../parts/slider.blade') ?>
+
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 left">
+                <div class="box-detail">
+                    <h1 class="box-title">{{$view->title}}</h1>
+                    <div class="box-content" id="thamdoykien">
+                        @if(isset($related) && !empty($related))
+                            @foreach($related as $key)
+                                <div class="form-group">
+                                    <label>
+                                        <input name="product_id[]" type="checkbox" value="{{$key->id}}">
+                                        {{$key->name}}
+                                    </label>
+                                </div>
+                            @endforeach
+                        @endif
+                        <div class="d-flex">
+                            <button onclick="submitTDYK(this)"><?= Yii::t('app-usvn', 'submit')?></button>
+                            <button><?= Yii::t('app-usvn', 'result')?></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 right">
+                <div class="box-vertical">
+                    <h1 class="box-title"><?= Yii::t('app', 'related_product')?></h1>
+                    <?= $view->render('../parts/box-vertical.blade', [
+                        'products' => $related
+                    ])?>
+                </div>
+            </div>
+        </div>
+    </div>
+    <?= $view->render('../parts/logo.blade')?>
+@stop
+@section("js_end")
+    <script>
+        const submitTDYK =(element) =>{
+            alert('123');
+        }
+    </script>
+@stop

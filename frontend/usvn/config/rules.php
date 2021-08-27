@@ -8,6 +8,8 @@ return [
     FAQS => 'site/faqs',
     CART => 'site/cart',
     CHECKOUT => 'site/checkout',
+    HTPP => 'site/he-thong',
+    YKIEN => 'site/y-kien',
 
 
     // page

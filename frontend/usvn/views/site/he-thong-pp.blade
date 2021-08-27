@@ -1,0 +1,38 @@
+<?php
+$view->title = Yii::t('app-usvn','httpp');
+?>
+@section("content")
+    <div class="slider">
+        <div class="container">
+            <?= $view->render('../parts/slider.blade') ?>
+
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 left">
+                <div class="box-detail">
+                    <h1 class="box-title">{{$view->title}}</h1>
+                    <div class="box-content">
+                        <img src="/img/httpp.jpg" class="img-responsive"/>
+                        <h5>Toàn cầu</h5>
+                        <p>- Mỹ: Bang California, Chicago, Houston...</p>
+                        <p>- Châu Âu: Anh, Canadas, Pháp, Đức, </p>
+                        <p>- Châu Á: Malaysia, Indonesia, Ấn Độ, Cambodia, Lào, Singapore, Trung Quốc.</p>
+                        <p>- Trung Đông: Dubai, Saudi Arabia.</p>
+                        <p>- Trong nước: Miền Bắc, miền Trung, miền Nam.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 right">
+                <div class="box-vertical">
+                    <h1 class="box-title"><?= Yii::t('app', 'related_product')?></h1>
+                    <?= $view->render('../parts/box-vertical.blade', [
+                        'products' => $related
+                    ])?>
+                </div>
+            </div>
+        </div>
+    </div>
+    <?= $view->render('../parts/logo.blade')?>
+@stop

@@ -15,4 +15,6 @@ define('FAQS', 'faqs');
 define('CART', 'cart');
 define('CHECKOUT', 'checkout');
 define('CATEGORY', 'category');
+define('HTPP', 'he-thong-phan-phoi');
+define('YKIEN', 'tham-do-y-kien');
 

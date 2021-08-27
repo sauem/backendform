@@ -289,4 +289,31 @@ class SiteController extends BaseController
         ]);
     }
 
+
+    public function actionYKien()
+    {
+        $related = Products::find()
+            ->where([
+                'language' => HelperFunction::getLanguage(),
+            ])
+            ->limit(12)->all();
+
+        return $this->render('y-kien.blade', [
+            'related' => $related
+        ]);
+    }
+
+    public function actionHeThong()
+    {
+        $related = Products::find()
+            ->where([
+                'language' => HelperFunction::getLanguage(),
+            ])
+            ->limit(12)->all();
+
+        return $this->render('he-thong-pp.blade', [
+            'related' => $related
+        ]);
+    }
+
 }
