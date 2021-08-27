@@ -1,18 +1,10 @@
 <?php
 
-
 namespace common\helper;
 
-
-use common\models\Common;
 use common\models\Medias;
 use yii\console\Application;
-use yii\db\ActiveRecord;
-use yii\di\Instance;
 use yii\helpers\ArrayHelper;
-use yii\helpers\Url;
-use yii\web\BadRequestHttpException;
-use function Webmozart\Assert\Tests\StaticAnalysis\null;
 
 class HelperFunction
 {
@@ -214,5 +206,11 @@ class HelperFunction
     static function getParams($key, $lang = '')
     {
         return ArrayHelper::getValue(\Yii::$app->params, $key . $lang);
+    }
+
+    static function resize($url, $size = [])
+    {
+        $img_url = '/img/vthumb.php?src=' . $url . '&size=' . $size[0] . 'x' . $size[1] . '&zoom=1&q=90';
+        return $img_url;
     }
 }

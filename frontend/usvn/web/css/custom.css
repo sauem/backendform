@@ -241,7 +241,7 @@ html {
     justify-content: flex-end;
     flex-direction: row; }
     .sys .small-box.bx-left {
-      background: url("../img/sys_pp.jpg") no-repeat;
+      background: url("../img/sys_pp.png") no-repeat;
       margin-right: 5px; }
     .sys .small-box.bx-right {
       background: url("../img/poll.jpg") no-repeat;

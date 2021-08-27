@@ -28,7 +28,8 @@
     "cyneek/yii2-blade": "*",
     "sizeg/yii2-jwt": "dev-master",
     "yiisoft/yii2-redis": "~2.0.0",
-    "2amigos/yii2-tinymce-widget": "~1.1"
+    "2amigos/yii2-tinymce-widget": "~1.1",
+    "yiisoft/yii2-imagine": "^2.3"
   },
   "require-dev": {
     "yiisoft/yii2-debug": "~2.1.0",

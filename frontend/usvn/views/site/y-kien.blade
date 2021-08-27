@@ -26,7 +26,7 @@ $view->title = Yii::t('app-usvn', 'poll');
                         @endif
                         <div class="d-flex">
                             <button onclick="submitTDYK(this)"><?= Yii::t('app-usvn', 'submit')?></button>
-                            <button><?= Yii::t('app-usvn', 'result')?></button>
+                            <button style="margin-left: 10px"><?= Yii::t('app-usvn', 'result')?></button>
                         </div>
                     </div>
                 </div>
@@ -46,7 +46,11 @@ $view->title = Yii::t('app-usvn', 'poll');
 @section("js_end")
     <script>
         const submitTDYK =(element) =>{
-            alert('123');
+            try {
+
+            }catch (e) {
+                alert(e.message);
+            }
         }
     </script>
 @stop
