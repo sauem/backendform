@@ -96,9 +96,11 @@ html {
 .ml-1 {
   margin-left: 10px;
 }
-.mb-1{
+
+.mb-1 {
   margin-bottom: 10px;
 }
+
 .mt-5 {
   margin-top: 6px;
 }
@@ -578,6 +580,11 @@ html {
     overflow-y: scroll;
     position: relative;
     text-align: justify;
+
+    p {
+      font-size: 15px !important;
+      color: black !important;
+    }
   }
 }
 
@@ -597,6 +604,7 @@ html {
 
   .content {
     padding: 10px;
+    margin-top: -20px;
     position: relative;
 
     a.read-more {
