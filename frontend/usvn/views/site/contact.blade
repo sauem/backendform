@@ -15,17 +15,22 @@ use common\helper\HelperFunction;
                     <h1 class="box-title"><?= Yii::t('app', 'contact')?></h1>
                     <div class="box-content">
                         <h4><?= HelperFunction::setting('site_name', true)?></h4>
-                        <p>
-                            Địa chỉ : <?= HelperFunction::setting('address_1', true)?>
+                        <p class=""><?= Yii::t('app', 'address')?>
+                            : <?= HelperFunction::setting('address_1', true)?></p>
+                        <p class="">
+                            Hotline, Zalo, Whatsapp: <a href="tel:0889244298">0889244298</a>
                         </p>
-                        <p>
-                            Điện thoại : <a
-                                    href="tel:<?= HelperFunction::setting('hotline_1', true)?>"><?= HelperFunction::setting('hotline_1', true)?></a>
+                        <p class="">
+                            Hotline, Zalo, Whatsapp PKD: <a href="tel:0888523098">0888523098</a> - <a href="tel:0888523098">0912485198</a>
                         </p>
-                        <p>
-                            Email : <?= HelperFunction::setting('email', true)?>
+                        <p class=""><?= Yii::t('app', 'email')?> : <a
+                                    href="mailto:<?= HelperFunction::setting('email')?>"><?= HelperFunction::setting('email')?></a>
                         </p>
-
+                        <p class=""><?= Yii::t('app', 'website')?> :
+                            <a href="http://usvnglobalsupply.com">
+                                usvnglobalsupply.com
+                            </a>
+                        </p>
                         <hr>
 
                         <div class="form-contact">
