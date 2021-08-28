@@ -73,6 +73,6 @@ return [
     'service_route' => 'Tuyến dịch vụ',
     'order' => 'Đặt hàng',
     'back_to_home' => 'Quay về trang chủ',
-    'check_case' => 'Thăm dò<br> ý kiến',
-    'sys_comp' => 'Hệ thống phân phối'
+    'check_case' => 'THĂM DÒ<br> Ý KIẾN',
+    'sys_comp' => 'HỆ THỐNG PHÂN PHỐI'
 ];

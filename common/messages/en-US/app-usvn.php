@@ -6,7 +6,7 @@ return [
     'total_visited' => 'Total visited',
     'online' => 'Online',
     'httpp'  => 'Distribution system and cooperation',
-    'poll' => 'Poll',
+    'poll' => 'POLL',
     'result' => 'Result',
     'submit' => 'Submit',
 ];

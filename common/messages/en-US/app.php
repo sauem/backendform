@@ -74,6 +74,6 @@ return [
     'order' => 'Order',
     'back_to_home' => 'Back to home',
     'check_case' => 'POLL',
-    'sys_comp' => 'Distribution system'
+    'sys_comp' => 'DISTRIBUTION SYSTEM'
 
 ];
