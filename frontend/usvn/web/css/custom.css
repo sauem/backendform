@@ -473,11 +473,7 @@ html {
 
 .brand-logo {
   font-size: 25px;
-  background: -webkit-linear-gradient(#6d9dba, #335b74);
-  background: linear-gradient(#6d9dba, #335b74);
-  background: -moz-linear-gradient(#6d9dba, #335b74);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: white;
   margin: auto; }
 
 #footer-wrapper.footer-light {
