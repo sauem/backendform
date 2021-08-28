@@ -12,6 +12,7 @@
             const [state, setState] = useState(initalState);
             const [defaultFileList, setDefaultFileList] = useState([]);
             const [progress, setProgress] = useState(0);
+            const [paginate, setPaginate] = useState(null);
             const [form] = Form.useForm();
 
             const onCancel = () => {
@@ -118,6 +119,8 @@
                               <i className="icon-add"/> Thêm mới</Button>}>
                         <Spin spinning={state.loading}>
                             <Table
+                                onChange={({current, pageSize}) => updateSate({}, current)}
+                                pagination={state.pagination}
                                 dataSource={state.banners}
                                 rowKey={'id'}
                                 columns={[
