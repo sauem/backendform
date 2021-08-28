@@ -253,9 +253,9 @@ nav a {
     color: #367766; }
 .product-row .list-item {
   width: 100%;
-  -webkit-column-count: 3;
-  -moz-column-count: 3;
-  column-count: 3; }
+  -webkit-column-count: 2;
+  -moz-column-count: 2;
+  column-count: 2; }
   .product-row .list-item.column-2 {
     -webkit-column-count: 2;
     -moz-column-count: 2;
