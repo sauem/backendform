@@ -41,9 +41,8 @@ $bannerBottom = HelperFunction::getBanner('sidebar_right_bottom', ['archive']);
         </div>       <!-- End container -->
     </section>    <!-- END BLOGS PAGE  -->
 
-    <?= $view->render('../parts/banner.blade', [
-        'page' => ['archive']
-    ])?>
+    <?= $view->render("../parts/logo.blade"); ?>
+
 @stop
 @section("js_end")
     <script type="text/babel">
