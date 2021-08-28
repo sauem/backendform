@@ -49,7 +49,7 @@ return [
     'home' => 'Trang chủ',
     'partners' => 'Đối tác',
     'related_post' => 'Bài viết liên quan',
-    'related_product' => 'Sản phẩm liên quan',
+    'related_product' => 'Sản phẩm',
     'certificates' => 'Chứng chỉ',
     'post' => 'Bài viết',
     'hot_new' => 'Tin mới',
