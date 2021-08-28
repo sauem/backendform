@@ -41,7 +41,7 @@ class SiteController extends BaseController
             ->where([
                 'status' => Articles::STATUS_ACTIVE,
                 'language' => HelperFunction::getLanguage()
-            ])->limit(9)->orderBy('sku ASC')->all();
+            ])->limit(9)->orderBy('attr_text ASC')->all();
         return $this->render('index.blade', [
             'posts' => $articles,
             'products' => $products,
@@ -117,7 +117,7 @@ class SiteController extends BaseController
         $products = Products::find()
             ->where([
                 'language' => HelperFunction::getLanguage()
-            ])->orderBy('sku ASC')->all();
+            ])->orderBy('attr_text ASC')->all();
 
         $sliders = Banners::findAll([
             'active' => Banners::BANNER_ACTIVE,
