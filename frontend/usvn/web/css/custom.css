@@ -71,7 +71,8 @@ html {
   margin-top: 6px; }
 
 .navbar-nav {
-  display: flex !important; }
+  display: flex !important;
+  justify-content: space-between; }
 
 #top-bar-wrapper {
   border-bottom: 1px solid #ccc; }
@@ -122,7 +123,7 @@ html {
         font: 14px/43px Tahoma;
         color: #fff;
         float: left;
-        padding: 0 15px;
+        padding: 0 10px;
         text-transform: uppercase;
         text-indent: 6px; }
         .header-style02 .navbar-nav li a:hover, .header-style02 .navbar-nav li a.active {

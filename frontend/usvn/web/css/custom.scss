@@ -107,6 +107,7 @@ html {
 
 .navbar-nav {
   display: flex !important;
+  justify-content: space-between;
 }
 
 #top-bar-wrapper {
@@ -177,7 +178,7 @@ html {
         font: 14px/43px Tahoma;
         color: #fff;
         float: left;
-        padding: 0 15px;
+        padding: 0 10px;
         text-transform: uppercase;
         text-indent: 6px;
 
