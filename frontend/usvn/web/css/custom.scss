@@ -581,7 +581,7 @@ html {
     position: relative;
     text-align: justify;
 
-    p {
+    p, span {
       font-size: 15px !important;
       color: black !important;
     }
@@ -761,6 +761,13 @@ html {
     }
   }
 
+}
+
+.btn-order {
+  background: $primary-color;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 30px;
 }
 
 @media (max-height: 467px) {

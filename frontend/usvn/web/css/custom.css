@@ -396,7 +396,7 @@ html {
     overflow-y: scroll;
     position: relative;
     text-align: justify; }
-    .box-detail .box-content p {
+    .box-detail .box-content p, .box-detail .box-content span {
       font-size: 15px !important;
       color: black !important; }
 
@@ -515,6 +515,12 @@ html {
     .slider .home-slider .img-slide a img {
       display: flex;
       object-fit: cover; }
+
+.btn-order {
+  background: #0e2b3d;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 30px; }
 
 @media (max-height: 467px) {
   .header-style02 {

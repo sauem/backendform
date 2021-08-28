@@ -11,9 +11,12 @@
                 <div class="box-detail">
                     <h1 class="box-title">{{$model->name}}</h1>
                     <div class="box-content">
-                        <img width="80%" style="margin: auto;padding-bottom: 20px" src="<?= $model->avatar?>"
+                        <img width="60%" style="margin: auto;border: #0e2b3d;padding-bottom: 20px"
+                             src="<?= $model->avatar?>"
                              class="img-responsive"/>
                         {!! $model->content !!}
+
+                        <button class="btn-order"><i class="fa fa-arrow-right"></i> Đặt hàng</button>
                     </div>
                 </div>
 
