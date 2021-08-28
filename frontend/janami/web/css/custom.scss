@@ -1044,6 +1044,7 @@ nav {
   .content {
     padding: 20px;
     min-height: 320px;
+
     &.bg-1 {
       background-color: #f1f8e0;
     }
@@ -1099,7 +1100,10 @@ nav {
 }
 
 @media (max-width: 467px) {
-
+  .product-row .title-cat {
+    font-size: 24px;
+    font-weight: bold;
+  }
   .list-layout1 {
     .number {
       margin-left: 0;
@@ -1143,15 +1147,23 @@ nav {
       left: 0 !important;
     }
   }
+  .row-bg {
+    padding: 0;
+
+    &:before {
+      width: 100%;
+      left: 0;
+    }
+  }
   .list-item {
-    -webkit-column-count: 2;
-    -moz-column-count: 2;
-    column-count: 2;
+    -webkit-column-count: 1;
+    -moz-column-count: 1;
+    column-count: 1;
 
     &.column-2 {
-      -webkit-column-count: 2;
-      -moz-column-count: 2;
-      column-count: 2;
+      -webkit-column-count: 1;
+      -moz-column-count: 1;
+      column-count: 1;
     }
   }
 }

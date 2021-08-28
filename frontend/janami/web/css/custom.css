@@ -688,6 +688,10 @@ nav a {
       width: 16px; }
 
 @media (max-width: 467px) {
+  .product-row .title-cat {
+    font-size: 24px;
+    font-weight: bold; }
+
   .list-layout1 .number {
     margin-left: 0; }
     .list-layout1 .number.txt-right {
@@ -716,13 +720,19 @@ nav a {
     width: 100% !important;
     left: 0 !important; }
 
+  .row-bg {
+    padding: 0; }
+    .row-bg:before {
+      width: 100%;
+      left: 0; }
+
   .list-item {
-    -webkit-column-count: 2;
-    -moz-column-count: 2;
-    column-count: 2; }
+    -webkit-column-count: 1;
+    -moz-column-count: 1;
+    column-count: 1; }
     .list-item.column-2 {
-      -webkit-column-count: 2;
-      -moz-column-count: 2;
-      column-count: 2; } }
+      -webkit-column-count: 1;
+      -moz-column-count: 1;
+      column-count: 1; } }
 
 /*# sourceMappingURL=custom.css.map */
