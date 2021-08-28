@@ -49,7 +49,7 @@ return [
     'home' => 'Home',
     'partners' => 'Partners',
     'related_post' => 'Related posts',
-    'related_product' => 'Related product',
+    'related_product' => 'Products',
     'certificates' => 'Certificates',
     'post' => 'Blog posts',
     'hot_new' => 'Hot news',
