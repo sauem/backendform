@@ -581,9 +581,13 @@ html {
     position: relative;
     text-align: justify;
 
-    p, span {
+    p {
       font-size: 15px !important;
       color: black !important;
+    }
+
+    span {
+      color: black;
     }
   }
 }

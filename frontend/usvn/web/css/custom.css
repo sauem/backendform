@@ -396,9 +396,11 @@ html {
     overflow-y: scroll;
     position: relative;
     text-align: justify; }
-    .box-detail .box-content p, .box-detail .box-content span {
+    .box-detail .box-content p {
       font-size: 15px !important;
       color: black !important; }
+    .box-detail .box-content span {
+      color: black; }
 
 .form-contact {
   margin-bottom: 20px;
