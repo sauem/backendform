@@ -291,7 +291,8 @@ html {
       font-weight: bold;
       margin-top: 10px;
       color: #0e2b3d;
-      text-align: center; }
+      text-align: center;
+      text-transform: uppercase; }
   .box-product-slider .item-product {
     margin-bottom: 5px;
     border-radius: 10px;
@@ -472,12 +473,12 @@ html {
 
 .brand-logo {
   font-size: 25px;
-  margin-top: 20px;
   background: -webkit-linear-gradient(#6d9dba, #335b74);
   background: linear-gradient(#6d9dba, #335b74);
   background: -moz-linear-gradient(#6d9dba, #335b74);
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent; }
+  -webkit-text-fill-color: transparent;
+  margin: auto; }
 
 #footer-wrapper.footer-light {
   border-top: unset;
