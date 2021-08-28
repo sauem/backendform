@@ -468,7 +468,9 @@ html {
     }
   }
 }
-
+.text-primary{
+  color: $primary-color;
+}
 .box-vertical {
   margin-top: 5px;
   visibility: visible;

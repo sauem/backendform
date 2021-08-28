@@ -312,6 +312,9 @@ html {
         display: flex;
         object-fit: cover; }
 
+.text-primary {
+  color: #0e2b3d; }
+
 .box-vertical {
   margin-top: 5px;
   visibility: visible;
