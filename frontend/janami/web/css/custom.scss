@@ -1138,7 +1138,7 @@ nav {
   }
 
   #blog-1 {
-    padding-top: 0 !important;
+    padding-top: 15px !important;
   }
   .img-absolute {
     img {
@@ -1147,8 +1147,14 @@ nav {
       left: 0 !important;
     }
   }
+  .gtcl{
+    padding-top: 30px;
+    .content{
+      margin-bottom: 20px;
+    }
+  }
   .row-bg {
-    padding: 0!important;
+    padding: 20px 0!important;
 
     &:before {
       width: 100% !important;
