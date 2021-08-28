@@ -27,7 +27,7 @@ class AppAsset extends AssetBundle
         '/css/color-default.css',
         '/css/retina.css',
         '/css/responsive.css',
-        '/css/custom.css?v=2.3'
+        '/css/custom.css?v=3.1'
     ];
     public $js = [
         '/js/jquery-2.1.4.min.js',
@@ -46,7 +46,7 @@ class AppAsset extends AssetBundle
         '/js/masterslider/masterslider.min.js',
         '/js/jquery.dlmenu.min.js',
         '/js/include.js',
-        '/js/site.js?v=2.1',
+        '/js/site.js?v=2.2',
     ];
     public $depends = [
         //'yii\web\YiiAsset',
