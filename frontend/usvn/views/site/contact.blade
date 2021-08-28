@@ -14,8 +14,7 @@ use common\helper\HelperFunction;
                 <div class="box-detail">
                     <h1 class="box-title"><?= Yii::t('app', 'contact')?></h1>
                     <div class="box-content">
-                        <p>Hoặc liên hệ với chúng tôi bằng cách điền thông tin vào form sau:</p>
-                        <p>Thông tin bắt buộc (*)</p>
+
                         <h4><?= HelperFunction::setting('site_name', true)?></h4>
                         <p class=""><?= Yii::t('app', 'address')?>
                             : <?= HelperFunction::setting('address_1', true)?></p>
@@ -37,6 +36,8 @@ use common\helper\HelperFunction;
                         <hr>
 
                         <div class="form-contact">
+                            <p>Hoặc liên hệ với chúng tôi bằng cách điền thông tin vào form sau:</p>
+                            <p>Thông tin bắt buộc (*)</p>
                             <?= $view->render('../parts/form-contact.blade', ['model' => $model])?>
                         </div>
                         <iframe src="<?= HelperFunction::setting('map_iframe') ?>" width="100%" height="450"
