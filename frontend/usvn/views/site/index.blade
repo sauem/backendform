@@ -23,7 +23,8 @@ Yii::$app->params['footer_type'] = 'light';
         <div class="row">
             <div class="col-md-8 left col-sm-12">
                 <?= $view->render('../parts/box-product.blade', [
-                    'products' => $products
+                    'products' => $products,
+                    'except' => [67, 65, 66, 51]
                 ]) ?>
             </div>
             <div class="col-md-4 right col-sm-12">
@@ -33,10 +34,10 @@ Yii::$app->params['footer_type'] = 'light';
 
                 <div class="sys">
                     <div class="small-box bx-left">
-                        <a href="/<?= HTPP ?>"><?= Yii::t('app','sys_comp')?></a>
+                        <a href="/<?= HTPP ?>"><?= Yii::t('app', 'sys_comp')?></a>
                     </div>
                     <div class="small-box bx-right">
-                        <a href="/<?= YKIEN ?>"><?= Yii::t('app','check_case')?></a>
+                        <a href="/<?= YKIEN ?>"><?= Yii::t('app', 'check_case')?></a>
                     </div>
                 </div>
             </div>

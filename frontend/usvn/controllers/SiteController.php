@@ -41,7 +41,14 @@ class SiteController extends BaseController
             ->where([
                 'status' => Articles::STATUS_ACTIVE,
                 'language' => HelperFunction::getLanguage()
-            ])->limit(24)->orderBy('attr_text ASC')->all();
+            ])
+            ->limit(24)->orderBy('attr_text ASC')->all();
+        foreach ($products as $k => $product) {
+            $relations = $product->relations;
+            if (in_array($product->id, $relations)) {
+                unset($products[$k]);
+            }
+        }
         return $this->render('index.blade', [
             'posts' => $articles,
             'products' => $products,
