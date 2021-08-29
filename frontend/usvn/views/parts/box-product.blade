@@ -6,6 +6,11 @@ use common\helper\HelperFunction;
 <div data-items="{{$items ?? 2}}" class="box-product-slider owl-carousel owl-theme">
     @if(!empty($products))
         @foreach($products as $product)
+            @isset($except)
+                @if(in_array($slider->id,$except))
+                    @continue
+                @endif
+            @endisset
             <div class="block">
                 <div class="item-product">
                     <a href="/shop/{{$product->defaultArchive->slug}}/{{$product->slug}}">
