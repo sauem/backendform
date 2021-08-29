@@ -10,11 +10,13 @@ $view->title = HelperFunction::getLanguage() == 'vi' ?
     HelperFunction::setting('site_name_en');
 Yii::$app->params['footer_type'] = 'light';
 ?>
-
+<?php
+$view->title = Yii::t('app', 'products');
+?>
 @section("content")
     <div class="slider">
         <div class="container">
-            <?= $view->render('../parts/slider.blade',[
+            <?= $view->render('../parts/slider.blade', [
                 'sliders' => $sliders
             ]) ?>
 

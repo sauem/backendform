@@ -1,3 +1,4 @@
+
 <?php
 use common\helper\HelperFunction;
 use common\models\Banners;
@@ -12,7 +13,9 @@ foreach ($sliders as $k => $slider) {
         unset($sliders[$k]);
     }
 }
-
+?>
+<?php
+$view->title = $model->name;
 ?>
 @section("content")
     <div class="slider">
