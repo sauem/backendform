@@ -382,7 +382,7 @@ html {
     display: flex;
     justify-content: center;
     margin-bottom: -20px;
-    line-height: 40px;
+    line-height: 48px;
     text-align: center;
     position: relative;
     background-size: 100% 100%;
@@ -406,7 +406,8 @@ html {
       list-style: none !important; }
     .box-detail .box-content p {
       font-size: 15px !important;
-      color: black !important; }
+      color: black !important;
+      padding: 0; }
     .box-detail .box-content span {
       color: black; }
 
