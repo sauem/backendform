@@ -7,7 +7,7 @@ use common\helper\HelperFunction;
     @if(!empty($products))
         @foreach($products as $product)
             @isset($except)
-                @if(in_array($slider->id,$except))
+                @if(in_array($product->id,$except))
                     @continue
                 @endif
             @endisset
