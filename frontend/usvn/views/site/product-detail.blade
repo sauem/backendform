@@ -13,10 +13,16 @@
                     <div class="box-content">
 
                         {!! $model->content !!}
-                        <?= $view->render('/parts/box-product.blade',[
-                            'products' => $relatedDetail,
-                            'items' => 2
-                        ])?>
+
+                        @if(isset($relatedDetail) && count($relatedDetail) >= 3)
+                            <div style="margin-top: 20px;">
+                                <?= $view->render('/parts/box-product.blade', [
+                                    'products' => $relatedDetail,
+                                    'items' => 2
+                                ])?>
+                            </div>
+                        @endif
+
                         <button class="btn-order"><i class="fa fa-arrow-right"></i> Đặt hàng</button>
                     </div>
                 </div>

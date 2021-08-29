@@ -234,7 +234,7 @@ class SiteController extends BaseController
                     ->where(['default_archive' => $archive->id])
                     ->orWhere(['id' => $model->relations])
                     ->andFilterWhere(['!=', 'id', $model->id])
-                    ->limit(12)->all();
+                    ->limit(4)->all();
                 break;
             default:
                 $template = 'blog-detail.blade';
