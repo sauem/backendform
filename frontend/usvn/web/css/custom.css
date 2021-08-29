@@ -402,6 +402,8 @@ html {
     overflow-y: scroll;
     position: relative;
     text-align: justify; }
+    .box-detail .box-content ul {
+      list-style: none !important; }
     .box-detail .box-content p {
       font-size: 15px !important;
       color: black !important; }
@@ -524,8 +526,7 @@ html {
   background: #0e2b3d;
   color: white;
   margin-top: 20px;
-  padding: 5px 10px;
-  border-radius: 30px; }
+  padding: 10px 30px; }
 
 @media (max-height: 467px) {
   .header-style02 {

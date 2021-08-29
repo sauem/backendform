@@ -469,9 +469,11 @@ html {
     }
   }
 }
-.text-primary{
+
+.text-primary {
   color: $primary-color;
 }
+
 .box-vertical {
   margin-top: 5px;
   visibility: visible;
@@ -585,6 +587,10 @@ html {
     overflow-y: scroll;
     position: relative;
     text-align: justify;
+
+    ul {
+      list-style: none !important;
+    }
 
     p {
       font-size: 15px !important;
@@ -777,8 +783,7 @@ html {
   background: $primary-color;
   color: white;
   margin-top: 20px;
-  padding: 5px 10px;
-  border-radius: 30px;
+  padding: 10px 30px;
 }
 
 @media (max-height: 467px) {
