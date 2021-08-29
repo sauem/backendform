@@ -587,7 +587,9 @@ html {
     overflow-y: scroll;
     position: relative;
     text-align: justify;
-
+    td{
+      vertical-align: top;
+    }
     ul {
       list-style: none !important;
     }
