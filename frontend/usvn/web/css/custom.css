@@ -411,7 +411,7 @@ video[poster] {
     position: relative;
     text-align: justify; }
     .box-detail .box-content td {
-      vertical-align: top; }
+      vertical-align: top !important; }
     .box-detail .box-content ul {
       list-style: none !important; }
     .box-detail .box-content p {
