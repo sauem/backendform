@@ -259,7 +259,7 @@ html {
 
 video[poster] {
   height: 100%;
-  width: 100%; }
+  width: 350px; }
 
 .box-product-slider {
   border-radius: 10px;
