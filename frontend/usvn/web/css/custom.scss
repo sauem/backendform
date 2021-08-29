@@ -389,6 +389,10 @@ html {
     float: right;
   }
 }
+video[poster]{
+  height:100%;
+  width:100%;
+}
 
 .box-product-slider {
   border-radius: 10px;

@@ -257,6 +257,10 @@ html {
   .col-50.right {
     float: right; }
 
+video[poster] {
+  height: 100%;
+  width: 100%; }
+
 .box-product-slider {
   border-radius: 10px;
   border: 1px solid #0e2b3d;
