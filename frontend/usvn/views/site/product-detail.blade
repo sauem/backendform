@@ -11,11 +11,12 @@
                 <div class="box-detail">
                     <h1 class="box-title">{{$model->name}}</h1>
                     <div class="box-content">
-                        <img width="60%" style="margin: auto;border: #0e2b3d;padding-bottom: 20px"
-                             src="<?= $model->avatar?>"
-                             class="img-responsive"/>
-                        {!! $model->content !!}
 
+                        {!! $model->content !!}
+                        <?= $view->render('/parts/box-product.blade',[
+                            'products' => $relatedDetail,
+                            'items' => 2
+                        ])?>
                         <button class="btn-order"><i class="fa fa-arrow-right"></i> Đặt hàng</button>
                     </div>
                 </div>
