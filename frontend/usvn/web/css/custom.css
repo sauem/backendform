@@ -526,7 +526,7 @@ video[poster] {
 .slider {
   background-color: #0E2B3D4C; }
   .slider .home-slider {
-    max-height: 256px;
+    max-height: 350px;
     overflow: hidden;
     position: relative; }
     .slider .home-slider .img-slide a img {
