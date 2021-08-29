@@ -12,7 +12,8 @@
                     <h1 class="box-title">{{$model->name}}</h1>
                     <div class="box-content">
                         @if($model->banner)
-                        <img style="margin: auto" width="50%" src="{{$model->banner}}" class="img-thumbnail">
+                            <img style="margin: auto;display: flex" width="50%" src="{{$model->banner}}"
+                                 class="img-thumbnail">
                         @endif
                         {!! $model->content !!}
 
