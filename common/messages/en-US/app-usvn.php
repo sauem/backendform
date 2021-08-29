@@ -9,4 +9,5 @@ return [
     'poll' => 'POLL',
     'result' => 'Result',
     'submit' => 'Submit',
+    'library' => 'Libraries',
 ];

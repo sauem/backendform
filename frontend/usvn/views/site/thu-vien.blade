@@ -1,0 +1,45 @@
+@section("content")
+    <div class="slider">
+        <div class="container">
+            <?= $view->render('../parts/slider.blade') ?>
+
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 left">
+                <div class="box-detail">
+                    <h1 class="box-title">{{$title}}</h1>
+                    <div class="box-content">
+                        <div class="d-flex justify-content-center">
+                            <span>
+                                <video controls height="350px" src="/img/thuvien/tv1.mp4"></video>
+                            <br>
+                            <i>Hàng của Công ty USVN EXPORT LOGISTICS về thường xuyên</i>
+                            </span>
+                        </div>
+                        <div class="d-flex justify-content-center">
+                            <br>
+                            <span>
+                                <video controls width="350px" src="/img/thuvien/tv2.mp4"></video>
+                            <br>
+                            <i>Hàng luôn luôn có sẵn nhiều trong kho để phục vụ kịp thời như cầu của Quý khách
+                                hàng.</i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-4 right">
+                <div class="box-vertical">
+                    <h1 class="box-title"><?= Yii::t('app', 'related_product')?></h1>
+                    <?= $view->render('../parts/box-vertical.blade', [
+                        'products' => $related
+                    ])?>
+                </div>
+            </div>
+        </div>
+    </div>
+    <?= $view->render('../parts/logo.blade')?>
+@stop

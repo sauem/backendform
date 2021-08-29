@@ -24,7 +24,14 @@ $segments = explode('/', $currentSlug);
                                 <img width="120" src="<?= HelperFunction::getLogo()?>"
                                      alt="<?= HelperFunction::setting('site_name', true)?>"/>
                             </a>
-                            <h1 class="brand-logo primary-color"><?= HelperFunction::setting('site_name', true)?></h1>
+                            <h1 class="brand-logo primary-color">
+                                <?= HelperFunction::setting('site_name', true)?>
+                                <small>
+                                    <br>
+                                    <?= HelperFunction::setting('site_description', true)?>
+
+                                </small>
+                            </h1>
                         </div><!-- .logo end -->
                     </div>
                     <div>

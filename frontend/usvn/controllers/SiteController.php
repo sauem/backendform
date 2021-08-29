@@ -317,4 +317,18 @@ class SiteController extends BaseController
         ]);
     }
 
+    public function actionThuVien()
+    {
+        $related = Products::find()
+            ->where([
+                'language' => HelperFunction::getLanguage(),
+            ])
+            ->limit(12)->all();
+
+        return $this->render('thu-vien.blade', [
+            'related' => $related,
+            'title' => Yii::t('app-usvn', 'library')
+        ]);
+    }
+
 }

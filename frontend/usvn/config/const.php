@@ -17,4 +17,5 @@ define('CHECKOUT', 'checkout');
 define('CATEGORY', 'category');
 define('HTPP', 'he-thong-phan-phoi');
 define('YKIEN', 'tham-do-y-kien');
+define('THU_VIEN', 'thu-vien');
 

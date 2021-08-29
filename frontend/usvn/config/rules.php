@@ -10,6 +10,7 @@ return [
     CHECKOUT => 'site/checkout',
     HTPP => 'site/he-thong',
     YKIEN => 'site/y-kien',
+    THU_VIEN => 'site/thu-vien',
 
 
     // page

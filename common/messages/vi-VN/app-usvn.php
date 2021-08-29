@@ -9,4 +9,5 @@ return [
     'poll' => 'Thăm dò ý kiên',
     'result' => 'Kết quả',
     'submit' => 'Gửi',
+    'library' => 'Thư viện',
 ];
