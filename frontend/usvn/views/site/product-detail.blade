@@ -1,5 +1,6 @@
 <?php
 $view->title = $model->name;
+$showVideo = [63,64];
 ?>
 @section("content")
     <div class="slider">
@@ -32,6 +33,25 @@ $view->title = $model->name;
                         <div style="text-align: center">
                             <button class="btn-order"><i class="fa fa-arrow-right"></i> Đặt hàng</button>
                         </div>
+
+                        @if(in_array($model->id, $showVideo))
+
+                            <div style="margin-top: 20px" class="d-flex justify-content-center">
+                            <span>
+                                <video controls height="350px" src="/img/thuvien/nm1.mp4"></video>
+                            <br>
+                            <i>Nhà máy găng tay</i>
+                            </span>
+                            </div>
+                            <div class="d-flex justify-content-center">
+                                <br>
+                                <span>
+                                <video controls width="350px" src="/img/thuvien/nm2.mp4"></video>
+                            <br>
+                            <i>Nhà máy găng tay</i>
+                            </span>
+                            </div>
+                        @endif
                     </div>
                 </div>
 
