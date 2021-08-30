@@ -17,7 +17,7 @@ $showVideo = [63,64];
                     <div class="box-content">
                         @if($model->banner)
                             <img style="margin: auto;display: flex" width="50%" src="{{$model->banner}}"
-                                 class="img-thumbnail">
+                                 class="img-responsive">
                         @endif
                         {!! $model->content !!}
 
@@ -60,7 +60,8 @@ $showVideo = [63,64];
                 <div class="box-vertical">
                     <h1 class="box-title"><?= Yii::t('app', 'related_product')?></h1>
                     <?= $view->render('../parts/box-vertical.blade', [
-                        'products' => $related
+                        'products' => $related,
+                        'title' => ''
                     ])?>
                 </div>
             </div>
