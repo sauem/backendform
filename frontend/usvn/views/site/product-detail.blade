@@ -20,10 +20,15 @@ $showVideo = [63, 64];
                                  class="img-responsive">
                         @endif
                         {!! $model->content !!}
-
-                        <div style="text-align: center">
-                            <button class="btn-order"><i class="fa fa-arrow-right"></i> Đặt hàng</button>
-                        </div>
+                        @if($model->id !== 70)
+                            <div style="text-align: center">
+                                <button class="btn-order"><i class="fa fa-arrow-right"></i> Đặt hàng</button>
+                            </div>
+                        @else
+                                <div style="text-align: center">
+                                    <button class="btn-order"><i class="fa fa-arrow-right"></i> Đặt lịch</button>
+                                </div>
+                        @endif
 
                         @if(isset($relatedDetail) && count($relatedDetail) >= 3)
                             <div style="margin-top: 20px;">
