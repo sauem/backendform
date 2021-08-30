@@ -1,6 +1,6 @@
 <?php
 $view->title = $model->name;
-$showVideo = [63,64];
+$showVideo = [63, 64];
 ?>
 @section("content")
     <div class="slider">
@@ -21,6 +21,10 @@ $showVideo = [63,64];
                         @endif
                         {!! $model->content !!}
 
+                        <div style="text-align: center">
+                            <button class="btn-order"><i class="fa fa-arrow-right"></i> Đặt hàng</button>
+                        </div>
+
                         @if(isset($relatedDetail) && count($relatedDetail) >= 3)
                             <div style="margin-top: 20px;">
                                 <?= $view->render('/parts/box-product.blade', [
@@ -30,15 +34,13 @@ $showVideo = [63,64];
                             </div>
                         @endif
 
-                        <div style="text-align: center">
-                            <button class="btn-order"><i class="fa fa-arrow-right"></i> Đặt hàng</button>
-                        </div>
 
                         @if(in_array($model->id, $showVideo))
 
                             <div style="margin-top: 20px" class="d-flex justify-content-center">
                             <span>
-                                <video poster="/img/logodark.png" controls height="350px" src="/img/thuvien/nm1.mp4"></video>
+                                <video poster="/img/logodark.png" controls height="350px"
+                                       src="/img/thuvien/nm1.mp4"></video>
                             <br>
                             <i>Nhà máy găng tay</i>
                             </span>
@@ -46,7 +48,8 @@ $showVideo = [63,64];
                             <div class="d-flex justify-content-center">
                                 <br>
                                 <span>
-                                <video poster="/img/logodark.png" controls width="350px" src="/img/thuvien/nm2.mp4"></video>
+                                <video poster="/img/logodark.png" controls width="350px"
+                                       src="/img/thuvien/nm2.mp4"></video>
                             <br>
                             <i>Nhà máy găng tay</i>
                             </span>
