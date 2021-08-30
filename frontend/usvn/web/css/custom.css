@@ -557,7 +557,8 @@ video[poster] {
       object-fit: cover; }
 
 .qoute {
-  padding-left: 20px; }
+  padding-left: 20px;
+  margin-left: 20px; }
   .qoute li {
     color: black;
     font-size: 15px;
