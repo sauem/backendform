@@ -22,7 +22,7 @@ $view->title = Yii::t('app-usvn', 'poll');
                                 <div class="form-group">
                                     <label>
                                         <input name="product_id[]" type="checkbox" value="{{$key->id}}">
-                                        {{$key->name}}
+                                        <span style="text-transform: uppercase">{{$key->name}}</span>
                                     </label>
                                 </div>
                             @endforeach
@@ -30,8 +30,6 @@ $view->title = Yii::t('app-usvn', 'poll');
                         <div class="d-flex">
                             <button class="btn-order btn-primary"
                                     onclick="submitTDYK(this)"><?= Yii::t('app-usvn', 'submit')?></button>
-                            <button class="btn-order"
-                                    style="margin-left: 10px"><?= Yii::t('app-usvn', 'result')?></button>
                         </div>
                     </div>
                 </div>

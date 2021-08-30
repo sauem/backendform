@@ -297,6 +297,7 @@ class SiteController extends BaseController
             ->where([
                 'language' => HelperFunction::getLanguage(),
             ])
+            ->orderBy('attr_text ASC')
             ->limit(12)->all();
 
         return $this->render('y-kien.blade', [
