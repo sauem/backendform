@@ -390,6 +390,15 @@ html {
   }
 }
 
+.list-dot {
+  width: 50%;
+  margin: auto;
+  padding-left: 20px;
+  li {
+    list-style: disc;
+  }
+}
+
 video {
   margin: auto;
 }
@@ -599,7 +608,7 @@ video[poster] {
     text-align: justify;
 
     td {
-      vertical-align: top!important;
+      vertical-align: top !important;
     }
 
     ul {
@@ -729,7 +738,8 @@ video[poster] {
   margin: auto;
   line-height: 20px;
   text-align: center;
-  small{
+
+  small {
     margin: auto;
     text-align: center;
     font-size: 15px;

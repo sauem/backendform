@@ -257,6 +257,13 @@ html {
   .col-50.right {
     float: right; }
 
+.list-dot {
+  width: 50%;
+  margin: auto;
+  padding-left: 20px; }
+  .list-dot li {
+    list-style: disc; }
+
 video {
   margin: auto; }
 
