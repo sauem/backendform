@@ -727,9 +727,13 @@ video[poster] {
   //-webkit-text-fill-color: transparent;
   color: white;
   margin: auto;
-  line-height: 16px;
+  line-height: 18px;
+  text-align: center;
   small{
+    margin: auto;
+    text-align: center;
     font-size: 15px;
+    font-style: italic;
   }
 }
 

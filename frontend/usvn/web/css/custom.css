@@ -492,9 +492,13 @@ video[poster] {
   font-size: 25px;
   color: white;
   margin: auto;
-  line-height: 16px; }
+  line-height: 18px;
+  text-align: center; }
   .brand-logo small {
-    font-size: 15px; }
+    margin: auto;
+    text-align: center;
+    font-size: 15px;
+    font-style: italic; }
 
 #footer-wrapper.footer-light {
   border-top: unset;
