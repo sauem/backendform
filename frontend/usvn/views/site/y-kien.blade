@@ -16,6 +16,9 @@ $view->title = Yii::t('app-usvn', 'poll');
                     <div class="box-content" id="thamdoykien">
                         @if(isset($related) && !empty($related))
                             @foreach($related as $key)
+                                @if($key->id === 71)
+                                    @continue
+                                @endif
                                 <div class="form-group">
                                     <label>
                                         <input name="product_id[]" type="checkbox" value="{{$key->id}}">
@@ -25,8 +28,10 @@ $view->title = Yii::t('app-usvn', 'poll');
                             @endforeach
                         @endif
                         <div class="d-flex">
-                            <button class="btn btn-primary" onclick="submitTDYK(this)"><?= Yii::t('app-usvn', 'submit')?></button>
-                            <button class="btn btn-primary" style="margin-left: 10px"><?= Yii::t('app-usvn', 'result')?></button>
+                            <button class="btn-order btn-primary"
+                                    onclick="submitTDYK(this)"><?= Yii::t('app-usvn', 'submit')?></button>
+                            <button class="btn-order"
+                                    style="margin-left: 10px"><?= Yii::t('app-usvn', 'result')?></button>
                         </div>
                     </div>
                 </div>
@@ -45,10 +50,10 @@ $view->title = Yii::t('app-usvn', 'poll');
 @stop
 @section("js_end")
     <script>
-        const submitTDYK =(element) =>{
+        const submitTDYK = (element) => {
             try {
 
-            }catch (e) {
+            } catch (e) {
                 alert(e.message);
             }
         }
