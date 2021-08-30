@@ -560,7 +560,8 @@ video[poster] {
   background: #0e2b3d;
   color: white;
   margin-top: 20px;
-  padding: 10px 30px; }
+  padding: 10px 30px;
+  text-transform: uppercase; }
 
 @media (max-height: 467px) {
   .header-style02 {
