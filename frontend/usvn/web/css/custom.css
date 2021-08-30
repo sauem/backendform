@@ -556,6 +556,9 @@ video[poster] {
       display: flex;
       object-fit: cover; }
 
+.txt-brand {
+  color: #0e2b3d; }
+
 .btn-order {
   background: #0e2b3d;
   color: white;
