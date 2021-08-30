@@ -556,6 +556,12 @@ video[poster] {
       display: flex;
       object-fit: cover; }
 
+.qoute {
+  margin-left: 100px;
+  padding-left: 20px; }
+  .qoute li {
+    list-style: disc; }
+
 .txt-brand {
   color: #0e2b3d; }
 

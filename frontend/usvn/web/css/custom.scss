@@ -395,6 +395,7 @@ html {
   width: 60%;
   margin: auto;
   padding-left: 20px;
+
   li {
     list-style: disc;
   }
@@ -823,9 +824,19 @@ video[poster] {
   }
 
 }
-.txt-brand{
+
+.qoute {
+  margin-left: 100px;
+  padding-left: 20px;
+  li {
+    list-style: disc;
+  }
+}
+
+.txt-brand {
   color: $primary-color;
 }
+
 .btn-order {
   background: $primary-color;
   color: white;
