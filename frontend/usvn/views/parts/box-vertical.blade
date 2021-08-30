@@ -1,12 +1,17 @@
 <?php
 
 use common\helper\HelperFunction;
-
+$except = [67, 65, 66, 51];
 ?>
 <div class="box-vertical-slider">
     @if(!empty($products))
         <ul class="block">
             @foreach($products as $product)
+                @isset($except)
+                    @if(in_array($product->id,$except))
+                        @continue
+                    @endif
+                @endisset
                 <li class="item-product">
                     <a class="img" href="/shop/{{$product->defaultArchive->slug}}/{{$product->slug}}">
                         <img src="{!! $product->avatar!!}"/>

@@ -10,4 +10,5 @@ return [
     'result' => 'Result',
     'submit' => 'Submit',
     'library' => 'Libraries',
+    'diff_product' => 'Other products'
 ];

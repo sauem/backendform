@@ -10,4 +10,5 @@ return [
     'result' => 'Kết quả',
     'submit' => 'Gửi',
     'library' => 'Thư viện',
+    'diff_product' => 'Sản phẩm khác'
 ];
