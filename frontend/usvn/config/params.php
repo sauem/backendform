@@ -18,6 +18,13 @@ return [
         'nha-may-san-xuat-khau-trang-vai',
         'kho-hang-san-tai-viet-nam-va-my',
         'xuong-san-xuat-go',
-        'chung-chi-chat-luong'
+        'chung-chi-chat-luong',
+        'usvn-introduction',
+        'available-warehouses-in-vietnam-and-usa',
+        'cloth-masks-factory',
+        'gloves-factory',
+        'mineral-resources',
+        'quantity-certification',
+        'timber-factory'
     ]
 ];
