@@ -1,0 +1,68 @@
+<?php
+$view->title = $model->name;
+?>
+@section("content")
+    <div class="slider">
+        <div class="container">
+            <?= $view->render('../parts/slider.blade') ?>
+
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 left">
+                <div class="box-detail">
+                    <h1 class="box-title">{{$model->name}}</h1>
+
+                    <div class="box-content">
+
+                        <p>
+                            In order to meet the immediate demands of customers, USVN always reserved 2 available large
+                            and beautiful warehouses in Vietnam and the US to promptly and accurately serve the needs of
+                            customers.
+                            <br>
+                            <br>
+                            <img width="80%" style="margin: auto" src="/img/kho.jpg" class="img-responsive"/>
+
+                        </p>
+                        <p>
+                            For the warehouse in the USA, with the advantage of the convenient traffic location, USVN's
+                            warehouse is located in the center of California, about 1,500m2 in size, clean and cool,
+                            meeting all the essential standards to ensure quality goods. For the warehouse in Vietnam,
+                            ideally located next to Hanoi, near Noi Bai Airport, USVN's warehouse was built in Dai Hoang
+                            Son urban area, Bac Ninh Province with a total storage area about 2000m2. The warehouse is
+                            clean, beautiful, cool, solid, fully qualified for safety, meeting the standards for quality
+                            goods preservation and fire prevention.
+                            <br>
+                            Both warehouses have 24/24 security and professional staff are on duty and work at the
+                            warehouse 24/7 to always ensure the customers’ orders are processed and delivered on time
+                            even in the quarantine period.
+                        </p>
+                        <br>
+                        <p>
+                            USVN has a good reputation, the source of goods is available, and the delivery is on time,
+                            so there is an abundant source of customers. Therefore, USVN's goods are always brought to
+                            the full warehouse to promptly supply the immediate customers' needs. At the same time, with
+                            a very convenient warehouse location for trade and goods circulation, we can process the
+                            customers’ orders very quickly and accurately.
+                        </p>
+                        <br>
+                        <img width="80%" style="margin: auto" src="/img/kho2.jpg" class="img-responsive"/>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-4 right">
+                <div class="box-vertical">
+                    <h1 class="box-title"><?= Yii::t('app', 'related_product')?></h1>
+                    <?= $view->render('../parts/box-vertical.blade', [
+                        'products' => $related
+                    ])?>
+                </div>
+            </div>
+        </div>
+    </div>
+    <?= $view->render('../parts/logo.blade') ?>
+
+@stop

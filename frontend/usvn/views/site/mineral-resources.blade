@@ -1,0 +1,44 @@
+<?php
+$view->title = $model->name;
+?>
+@section("content")
+    <div class="slider">
+        <div class="container">
+            <?= $view->render('../parts/slider.blade') ?>
+
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 left">
+                <div class="box-detail">
+                    <h1 class="box-title">{{$model->name}}</h1>
+
+                    <div class="box-content">
+                        <p>
+                            USVN's minerals are raw minerals imported from large and stable deposits in South East Asia.
+                            We supply raw or pre-processed and refined minerals to the US and Western markets.
+                        </p>
+                        <br>
+                        <img width="60%" style="margin: auto" src="/img/anh7.jpg" class="img-responsive">
+                        <br>
+                        <p>
+                            We can supply the average output of 10 tons - 20 tons/month, 120 tons - 240 tons/year.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-4 right">
+                <div class="box-vertical">
+                    <h1 class="box-title"><?= Yii::t('app', 'related_product')?></h1>
+                    <?= $view->render('../parts/box-vertical.blade', [
+                        'products' => $related
+                    ])?>
+                </div>
+            </div>
+        </div>
+        <?= $view->render('../parts/logo.blade') ?>
+
+    </div>
+@stop

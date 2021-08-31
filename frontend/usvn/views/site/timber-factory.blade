@@ -1,0 +1,68 @@
+<?php
+$view->title = $model->name;
+?>
+@section("content")
+    <div class="slider">
+        <div class="container">
+            <?= $view->render('../parts/slider.blade') ?>
+
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 left">
+                <div class="box-detail">
+                    <h1 class="box-title">{{$model->name}}</h1>
+
+                    <div class="box-content">
+                        <p>
+                            USVN selects and has association with large and reputable Timber factories in all 3 regions
+                            of Vietnam including North, Central and South Vietnam.
+                        </p>
+                        <br>
+                        <img width="80%" style="margin: auto" src="/img/anh5.jpg" class="img-responsive">
+                        <br>
+                        <p>
+                            Our Timber factories have full legal documents, modern cutting, sawing and drying machinery
+                            systems, extensive experience, especially full of standard certificates of Timber as well as
+                            Timber origin such as:<br>
+                        <ul class="qoute">
+                            <li>FSC Timber origin certificate according to the standards of the International Forest
+                                Stewardship Council.
+                            </li>
+                            <li>Forest certification PEFC</li>
+                            <li>Certificate of kiln drying and fumigation</li>
+                        </ul>
+                        </p>
+                        <br>
+                        <p>
+                            We provide pre-processed, sawn, dried and finished timber products according to the
+                            specifications required by customers. Our Timber products have clear legal origin, ensuring
+                            quality and absolute safety for customers as well as being responsible for our environment
+                            and society.
+                        </p>
+                        <br>
+                        <img width="80%" style="margin: auto" src="/img/anh6.jpg" class="img-responsive">
+                        <br>
+                        <p>
+                            We export to the Asian market in 2020-2021 with the average output of from 2000m3 to
+                            4,400m3/month of dried sawn timber, 52,800m3/year, and to the US market with 400 containers-
+                            700 containers/month, equivalent to 17,600m3 - 30,800m3/year.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-4 right">
+                <div class="box-vertical">
+                    <h1 class="box-title"><?= Yii::t('app', 'related_product')?></h1>
+                    <?= $view->render('../parts/box-vertical.blade', [
+                        'products' => $related
+                    ])?>
+                </div>
+            </div>
+        </div>
+    </div>
+    <?= $view->render('../parts/logo.blade') ?>
+
+@stop

@@ -1,0 +1,55 @@
+<?php
+$view->title = $model->name;
+?>
+@section("content")
+    <div class="slider">
+        <div class="container">
+            <?= $view->render('../parts/slider.blade') ?>
+
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 left">
+                <div class="box-detail">
+                    <h1 class="box-title">{{$model->name}}</h1>
+
+                    <div class="box-content">
+
+                        <p>
+                            USVN cooperates with a system of large and modern garment factories and garment processing
+                            factories throughout the North of Vietnam to produce Cloth masks. All the factories apply
+                            modern production technology such as Lean production model to increase productivity and
+                            product quality, reduce or no defect rate. At the same time, they also apply the quality
+                            management system to production, achieving ISO 9000 quality and SA 8000, ISO 14000 and WRAP
+                            certificates.
+                            <br>
+                            <br>
+                            <img width="80%" style="margin: auto" src="/img/ktr.jpg" class="img-responsive"/>
+
+                        </p>
+                        <br>
+                        <p>
+                            USVN puts product quality to the top priority, so in 2020-2021 USVN's Cloth Mask products
+                            are well received in the US and Western markets. Our products are selling so well that all
+                            goods were sold out within 2 hours right after arriving at the US airport. Currently, we
+                            have exported to the US about 6 million Cloth Masks produced at our garment factories in
+                            Vietnam.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-4 right">
+                <div class="box-vertical">
+                    <h1 class="box-title"><?= Yii::t('app', 'related_product')?></h1>
+                    <?= $view->render('../parts/box-vertical.blade', [
+                        'products' => $related
+                    ])?>
+                </div>
+            </div>
+        </div>
+        <?= $view->render('../parts/logo.blade') ?>
+
+    </div>
+@stop

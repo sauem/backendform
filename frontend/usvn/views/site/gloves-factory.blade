@@ -1,0 +1,75 @@
+<?php
+$view->title = $model->name;
+?>
+@section("content")
+    <div class="slider">
+        <div class="container">
+            <?= $view->render('../parts/slider.blade') ?>
+
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 left">
+                <div class="box-detail">
+                    <h1 class="box-title">{{$model->name}}</h1>
+
+                    <div class="box-content">
+                        <p>
+                            USVN is currently cooperating with 4 large-scale glove factories integrating production and
+                            packaging of disposable nitrile gloves and mixed nitrile gloves. The average size of each
+                            factory is from 45,000m2 to 124,290m2, with a sales network covering more than 50 countries
+                            and regions around the world. On average, each factory that we associate with production
+                            brings in its revenue in 2020 ranked 8th in the global glove industry, with a market share
+                            of approximately 1.9% in sales of disposable gloves.
+                            <br>
+                            <br>
+                            <img style="margin: auto" width="80%" src="/img/w1.jpg" class="img-responsive"/>
+                            <br>
+                        </p>
+
+                        <p>
+                            All glove factories have at least 15 years of experience in the production of disposable
+                            nitrile gloves and mixed nitrile gloves. With a system of modern equipment, 4 glove
+                            factories have more than 100 modern production lines. Each line is 700m long and 10 stories
+                            high to meet the demand for high quality gloves production.
+                            <br>
+                            <br>
+                            <img style="margin: auto" width="80%" src="/img/w2.jpg" class="img-responsive"/>
+                        </p>
+                        <p><br>
+                            The factories have been maintaining the application of the Quality Management System
+                            according to ISO 9001: 2015, ISO 13485: 2016, the Food Safety Quality Management System to
+                            ensure the quality of the gloves. At the same time, they are using the latest large-scale
+                            CNC equipment with a mixing system, deodorizing tank, automatic control machine, automatic
+                            stripping machine, automatic counting machine...etc. Each factory can annually provide the
+                            estimated capacity of each factory is about 8.7 billion synthetic nitrile gloves and 606
+                            million nitrile gloves to the domestic and international markets.<br><br>
+
+                        </p>
+                        <br>
+                        <p>
+                            Our Disposable Powder-Free Nitrile Gloves and Disposable Mixed Nitrile Gloves are widely
+                            used in various fields, such as: medical, industrial, food processing, chemical processing
+                            and home care. We manufacture based on the customer's order and design the packaging based
+                            on the customer's desired brand. With lots of experience, knowledge and technical know-how,
+                            we are able to produce the best quality gloves at the best price, to meet any quantity
+                            desired by the customer, and creating value for customers.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-4 right">
+                <div class="box-vertical">
+                    <h1 class="box-title"><?= Yii::t('app', 'related_product')?></h1>
+                    <?= $view->render('../parts/box-vertical.blade', [
+                        'products' => $related
+                    ])?>
+                </div>
+            </div>
+        </div>
+        <?= $view->render('../parts/logo.blade') ?>
+
+    </div>
+@stop

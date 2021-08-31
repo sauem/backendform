@@ -1,0 +1,123 @@
+<?php
+$view->title = $model->name;
+?>
+@section("content")
+    <div class="slider">
+        <div class="container">
+            <?= $view->render('../parts/slider.blade') ?>
+
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 left">
+                <div class="box-detail">
+                    <h1 class="box-title">{{$model->name}}</h1>
+
+                    <div class="box-content">
+                        <p>
+                            USVN EXPORT LOGISTICS CO., Ltd. is part of the group of companies of HELIX HOMES AMERICA on
+                            American Real Estate and Import - Export. USVN EXPORT LOGISTICS CO., LTD was established in
+                            2020, specializes in manufacturing and supplying high quality products for the domestic
+                            market and exporting to the US, Europe, Asian and Middle East markets. USVN EXPORT LOGISTICS
+                            CO., LTD is proud to be one of the leading manufacturers, suppliers and buyers in Vietnam
+                            and the US, affirming its position in the domestic and international markets, bringing
+                            Vietnam and the US together. Especially, USVN EXPORT LOGISTICS CO., Ltd becomes one of the
+                            world’s largest procurement and supply chains.
+                            <br>
+                            <br>
+                            The main products and services of USVN EXPORT LOGISTICS today are Powder-free Nitrile
+                            Gloves, Disposable Powder-free Nitrile/Vinly Gloves, Cloth Masks, Timber, Minerals and
+                            Precious Metals, Managing global procurement and supply chain, Carrying out Import - Export
+                            activities. In addition, USVN EXPORT LOGISTICS will develop many other essential products
+                            from Vietnam and other Asian countries, serving domestic, US and international markets.<br>
+                            From 2020, USVN EXPORT LOGISTICS has exported about 6 million cloth masks to the US and
+                            European markets, supplying the domestic and international markets with about 2,240,000
+                            cartons of powder-free Nitrile gloves and is capable of supplying a large number of Nitrile
+                            gloves based on the customers’ needs. At the same time, about 52,800m3 of timber is exported
+                            to the Asian market per year, and about 300,000m3 of timber is expected to be exported to
+                            the US market annually, export to the US and Western markets from 120 tons - 240 tons of
+                            mineral ores/year. Our main markets are USA, Europe, Asia and Middle East.
+                        </p>
+                        <br>
+                        <div class="col-50 pr-1 pb-1">
+                            <img width="99%" src="/img/cp.jpg"/>
+                        </div>
+                        <div style="width: 50%;float: right">
+                            <p>
+                                Taking advantage of the shifting global procurement and supply chain, USVN EXPORT
+                                LOGISTICS has linked, invested and cooperated in production with many large factories in
+                                Vietnam and around the world to meet the increasing market demand. The core values of
+                                USVN EXPORT LOGISTICS are Truthfulness - Kindness - Forbearance, (Truth is truth,
+                                telling truth, doing truth - Kindness is doing good, benefiting partners and customers
+                                first - Forbearance is to be patient, persistent, and peaceful in handling all
+                                situations). USVN EXPORT LOGISTICS always puts Honesty, prestige and product quality on
+                                the top, so factories are carefully selected by USVN EXPORT LOGISTICS in terms of
+                                quality for production cooperation. All glove factories have been and are maintaining
+                                the application of the Quality Management System according to ISO 9001:2015; ISO
+                                13485:2016, ISO 22000:2005 food safety and quality management system, together with the
+                                CE marking certification, Japan Medical Device Certificate FMA, Canadian Medical Device
+                                License MDL, Food certification process NSF. In particular, one of the glove factories
+                                that USVN EXPORT LOGISTICS cooperates with was honored to be granted a 510k FDA
+                                certificate for export to the US market. For the cloth masks factories, all of them
+                                apply a quality management system in production according to ISO 9000 standards and SA
+                                8000, ISO 14000 and WRAP certificates. For timber factories, all of them comply with the
+                                standards of the International Forest Management Council and are granted FSC
+                                certificates of timber origin. PEFC certificate ensures that the timber is harvested and
+                                produced legally, and certificate of kiln drying and fumigation ensures that the
+                                machinery meets the production standards and product quality. Therefore, customers and
+                                partners are completely assured of the quality of USVN EXPORT LOGISTICS’s products.
+                            </p>
+                        </div>
+
+                        <p style="clear: both">
+                            Besides, with a team of professional leaders and personnel, USVN EXPORT LOGISTICS has been
+                            professionally performing Import - Export activities to ensure your shipment arrives in the
+                            fastest, safest and most effective way with the lowest cost.
+                        </p>
+                        <br>
+                        <p>
+                            USVN EXPORT LOGISTICS has the advantage of abundant financial resources and can supply
+                            products in large quantity, best price and best quality, so USVN EXPORT LOGISTICS wishes to
+                            expand business cooperation with customers and partners around the world that help bring
+                            great opportunities to emerging and developing markets with outstanding advantages in both
+                            economic and human terms, help Vietnamese and Asian businesses enter the US and Western
+                            markets, especially the US market. USVN EXPORT LOGISTICS helps unite the economies of
+                            Vietnam and the US, "bringing Vietnam and the US together".
+                        </p>
+                        <br>
+                        <p>
+                            USVN EXPORT LOGISTICS wishes to better serve the needs of domestic and international
+                            customers with the motto of becoming the No. 1 supply and purchasing chain in Vietnam and
+                            the world. Come to USVN EXPORT LOGISTICS, you will be satisfied!
+                        </p>
+                        <br>
+                        <div style="display: flex;justify-content: center;margin-top: 20px">
+                            <video poster="/img/logodark.png"
+                                   autoplay
+                                   height="250px"
+                                   width="350px"
+                                   controls="controls"
+                                   src="/img/usvn-intro.mp4">
+
+                            </video>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-4 right">
+                <div class="box-vertical">
+                    <h1 class="box-title"><?= Yii::t('app', 'related_product')?></h1>
+                    <?= $view->render('../parts/box-vertical.blade', [
+                        'products' => $related
+                    ])?>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <?= $view->render('../parts/logo.blade') ?>
+
+@stop
