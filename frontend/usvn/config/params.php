@@ -24,7 +24,7 @@ return [
         'cloth-masks-factory',
         'gloves-factory',
         'mineral-resources',
-        'quantity-certification',
+        'quality-certification',
         'timber-factory'
     ]
 ];

@@ -1,5 +1,5 @@
-
 <?php
+$view->title = $model->name;
 use common\helper\HelperFunction;
 use common\models\Banners;
 
@@ -13,9 +13,7 @@ foreach ($sliders as $k => $slider) {
         unset($sliders[$k]);
     }
 }
-?>
-<?php
-$view->title = $model->name;
+
 ?>
 @section("content")
     <div class="slider">
@@ -33,36 +31,72 @@ $view->title = $model->name;
                     <h1 class="box-title">{{$model->name}}</h1>
 
                     <div class="box-content">
-                        <img src="/img/anh5.jpg" class="img-responsive">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <figure>
+                                    <img src="/img/cc4.jpg" class="img-responsive">
+                                    <figcaption style="color: #357399">
+                                        Using the most modern automated production process, according to ASTM D3578 (1)
+                                        to ensure the quality and reliability of each product.
+                                    </figcaption>
+                                </figure>
+                            </div>
+                            <div class="col-sm-4">
+                                <figure>
+                                    <img src="/img/cc5.jpg" class="img-responsive">
+                                    <figcaption style="color: #357399">
+                                        Timber is produced by modern, quality and reliable machinery.
+                                    </figcaption>
+                                </figure>
+                            </div>
+                            <div class="col-sm-4">
+                                <figure>
+                                    <img src="/img/cc6.jpg" class="img-responsive">
+                                    <figcaption style="color: #357399">
+                                        Minerals are researched and refined into the most valuable products.
+                                    </figcaption>
+                                </figure>
+                            </div>
+                        </div>
                         <p>
-                            USVN lựa chọn và liên kết sản xuất với các xưởng sản xuất Gỗ lớn và uy tín ở cả 3 miền,
-                            miền Bắc, miền Trung và miền Nam Việt Nam.
-                        </p>
-                        <p>
-
-                            Các xưởng sản xuất Gỗ của chúng tôi đều có đầy đủ giấy tờ pháp lý, hệ thống máy móc cắt, xẻ,
-                            lò sấy hiện đại, có bề dày kinh nghiệm, đặc biệt là có đầy đủ các chứng chỉ đạt chuẩn về Gỗ
-                            cũng như nguồn gốc xuất xứ Gỗ như:<br>
-                            <br> + Chứng chỉ nguồn gốc Gỗ FSC theo tiêu chuẩn của Hội đồng quản lý rừng quốc tế.
-                            <br> + Chứng chỉ rừng PEFC
-                            <br>+ Giấy chứng nhận lò sấy, hun trùng
+                            <br>
+                            Currently, our main products are powder-free Nitrile latex gloves and Powder-free
+                            Nitrile/Vinly gloves, Timber, Mineral and Cloth Masks. In particular, the Powder-free
+                            Nitrile glove has 2 types, namely smooth and rough. Currently, Timber products are mainly
+                            Pine Timber; we are going to add many other types of timber to meet the increasing demand of
+                            the international market. Preliminary processed minerals in phase 1 are our optimal choice.
+                            It is expected that annually USVN EXPORT LOGISTICS exports about 2,240,000 boxes of Nitrile
+                            gloves, about 352,800 m3 of timber and about 240 tons of preliminarily processed ore to the
+                            domestic and international markets, especially the US market.
                         </p>
                         <br>
+                        <p>With a system of large-scale factories, modern and high-quality machinery and technology, we
+                            constantly improve the product quality management system, prestigious cooperation styles and
+                            professional and friendly customer service. </p>
                         <br>
                         <p>
-                            Chúng tôi cung cấp các sản phẩm Gỗ sơ chế, xẻ, sấy, thành phẩm theo quy cách yêu cầu của
-                            khách hàng. Các sản phẩm Gỗ của chúng tôi đều có nguồn gốc xuất xứ rõ ràng hợp pháp, đảm bảo
-                            chất lượng và sự an toàn tuyệt đối cho khách hàng cũng như có trách nhiệm với môi trường và
-                            xã hội của chúng tôi.
-
+                            Our glove factories have been maintaining <b>ISO 9001:2015</b> Quality Management System;
+                            <b>ISO 13485:2016; ISO 22000:2005</b> food safety and quality management system. At the same
+                            time, we
+                            also obtain the CE marking Certificate, Japan Medical Device Certificate: <b>FMA</b>, Canadian
+                            Medical Device License: <b>MDL</b> and Food certification process: <b>NSF</b>. One of our glove factories
+                            is honored to receive <b>FDA 510K</b> certificate for export to the US market. All Cloth Masks
+                            factories apply the quality management system in production according to <b>ISO 9000</b> standards
+                            and <b>SA 8000, ISO 14000</b> and WRAP certificates. All timber factories comply with the standards
+                            of the International Forest Management Council and are granted <b>FSC</b> certificates of timber
+                            origin, and <b>PEFC</b> forest certificates to ensure that timer is not illegally exploited and
+                            produced; Certificate of kiln drying and fumigation to ensure that machines meet the
+                            production standards and ensure the product quality. Therefore, customers can be completely
+                            assured of our products.
                         </p>
-                        <img src="/img/anh6.jpg" class="img-responsive">
-
+                        <br>
                         <p>
-                            Sản lượng trung bình chúng tôi xuất sang thị trường Châu Á năm 2020- 2021 từ 2000m3 -
-                            4.400m3/ tháng gỗ xẻ sấy quy cách, 52.800m3/ năm. Xuất sáng thị trường Mỹ 400 container-
-                            700 container/ tháng tương đương 17.600m3 - 30.800m3/năm.
+                            USVN EXPORT LOGISTICS wishes to cooperate with you to better serve your needs for gloves,
+                            timber, minerals, and cloth masks in order to become one of the largest leading
+                            manufacturers, suppliers and buyers in Vietnam and the world.
                         </p>
+                        <br>
+                        <img src="/img/logoprt.png" class="img-responsive"/>
                     </div>
                 </div>
 
@@ -77,4 +111,6 @@ $view->title = $model->name;
             </div>
         </div>
     </div>
+    <?= $view->render('../parts/logo.blade') ?>
+
 @stop
