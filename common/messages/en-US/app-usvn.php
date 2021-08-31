@@ -10,5 +10,7 @@ return [
     'result' => 'Result',
     'submit' => 'Submit',
     'library' => 'Libraries',
-    'diff_product' => 'Other products'
+    'diff_product' => 'Other products',
+    'form-intro' => 'Or contact us by filling out the following form:',
+    'form-required' => 'Required Information (*)'
 ];

@@ -10,5 +10,7 @@ return [
     'result' => 'Kết quả',
     'submit' => 'Gửi',
     'library' => 'Thư viện',
-    'diff_product' => 'Sản phẩm khác'
+    'diff_product' => 'Sản phẩm khác',
+    'form-intro' => 'Hoặc liên hệ với chúng tôi bằng cách điền thông tin vào form sau:',
+    'form-required' => 'Thông tin bắt buộc (*)'
 ];
