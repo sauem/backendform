@@ -169,15 +169,15 @@ html {
 .logo-content .box-title {
   background: url("../img/gim.jpg") no-repeat scroll 0 0 transparent;
   color: #FFFFFF;
-  font-size: 16px;
+  font-size: 15px;
   height: 39px;
   text-transform: uppercase;
   left: 9px;
   margin-bottom: -20px;
-  line-height: 39px;
+  line-height: 42px;
   position: relative;
   text-align: center;
-  width: 168px;
+  width: 190px;
   z-index: 1; }
 .logo-content .quick-link-bottom {
   display: flex;
