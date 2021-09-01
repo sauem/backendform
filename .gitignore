@@ -42,3 +42,4 @@ phpunit.phar
 /backend/web/robots.txt
 /uploads/
 env.php
+/frontend/usvn/web/img/cache/
