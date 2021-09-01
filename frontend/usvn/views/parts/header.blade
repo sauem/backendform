@@ -83,7 +83,7 @@ $segments = explode('/', $currentSlug);
                                 @endphp
                                 @if(!empty($childrens))
                                     <li class="dropdown">
-                                        <a onclick="holdDirecte({{$menuItem['slug']}})" href="javascript:;"
+                                        <a onclick="holdDirecte('{{$menuItem['slug']}}')" href="javascript:;"
                                            class="dropdown-toggle">{{$menuItem['title']}}</a>
                                         <ul class="dropdown-menu">
                                             @foreach($childrens as $child)

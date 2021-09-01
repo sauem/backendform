@@ -36,6 +36,7 @@ AppAsset::register($view);
 
 
 
+
     </script>
     <?php $view->registerCsrfMetaTags() ?>
     <title><?= Html::encode($view->title) ?></title>
@@ -53,7 +54,12 @@ AppAsset::register($view);
     @yield('js_head')
     <script>
         const holdDirecte = (url) => {
-            setTimeout(() => location.href.replace(url), 3000);
+            const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+            if (isMobile) {
+                setTimeout(() => {
+                    location.href.replace(url);
+                }, 3000);
+            }
         }
     </script>
 </head>
