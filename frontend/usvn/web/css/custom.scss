@@ -372,9 +372,11 @@ html {
 
     a {
       color: $primary-color;
-      width: 45%;
+      width: 50%;
       font-size: 12px;
       margin-right: 10px;
+      line-height: 15px;
+      text-align: center;
     }
 
   }

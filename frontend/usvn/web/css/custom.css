@@ -247,9 +247,11 @@ html {
       margin-left: 5px; }
     .sys .small-box a {
       color: #0e2b3d;
-      width: 45%;
+      width: 50%;
       font-size: 12px;
-      margin-right: 10px; }
+      margin-right: 10px;
+      line-height: 15px;
+      text-align: center; }
 
 .col-50 {
   width: 49%;
