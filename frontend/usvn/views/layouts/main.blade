@@ -56,7 +56,7 @@ AppAsset::register($view);
     @yield('js_head')
     <script>
         const holdDirecte = (url) => {
-            const isMobile = (/iphone|ipod|android|ie|blackberry|fennec/).test
+            const isMobile = (/android|ie|blackberry|fennec/).test
             (navigator.userAgent.toLowerCase());
             if (isMobile) {
                 setTimeout(() => {
