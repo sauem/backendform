@@ -12,7 +12,7 @@ if (!isset($sliders) || empty($sliders)) {
 
             <div class="img-slide">
                 <a href="{{$slider->href}}">
-                    <img src="<?= $slider->avatar?>" class="img-responsive"/>
+                    <img src="<?= HelperFunction::resize($slider->avatar, [1000, 256])?>" class="img-responsive"/>
                 </a>
             </div>
         @endforeach
