@@ -34,6 +34,8 @@ AppAsset::register($view);
 
 
 
+
+
     </script>
     <?php $view->registerCsrfMetaTags() ?>
     <title><?= Html::encode($view->title) ?></title>
@@ -51,7 +53,7 @@ AppAsset::register($view);
     @yield('js_head')
     <script>
         const holdDirecte = (url) => {
-            if (!url) {
+            if (!url || url === '/' || url === '#') {
                 return;
             }
             setTimeout(() => location.href.replace(url), 3000);
