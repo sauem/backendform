@@ -31,6 +31,9 @@ AppAsset::register($view);
         }
 
 
+
+
+
     </script>
     <?php $view->registerCsrfMetaTags() ?>
     <title><?= Html::encode($view->title) ?></title>
@@ -46,6 +49,14 @@ AppAsset::register($view);
         const {TabPane} = Tabs;
     </script>
     @yield('js_head')
+    <script>
+        const holdDirecte = (url) => {
+            if (!url) {
+                return;
+            }
+            setTimeout(() => location.href.replace(url), 3000);
+        }
+    </script>
 </head>
 <body>
 <?php $view->beginBody() ?>
