@@ -458,16 +458,19 @@ video[poster] {
     text-align: center;
 
     a {
-      font-size: 13px;
-      font-weight: bold;
-      margin-top: 15px;
-      color: $primary-color;
       text-align: center;
       text-transform: uppercase;
 
       .p-name {
-        width: 80%;
+        font-size: 13px;
+        font-weight: bold;
+        color: $primary-color;
         text-align: center;
+        justify-content: center;
+        display: flex;
+        flex-wrap: wrap;
+        width: 170px;
+        margin: auto;
       }
     }
   }
