@@ -55,8 +55,9 @@ AppAsset::register($view);
     <script>
         const holdDirecte = (url) => {
             const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-            alert(isMobile);
+
             if (isMobile) {
+                alert("isMobile");
                 setTimeout(() => {
                     location.href.replace(url);
                 }, 2000);
