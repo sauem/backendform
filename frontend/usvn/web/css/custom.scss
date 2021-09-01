@@ -464,6 +464,11 @@ video[poster] {
       color: $primary-color;
       text-align: center;
       text-transform: uppercase;
+
+      .p-name {
+        width: 80%;
+        text-align: center;
+      }
     }
   }
 
@@ -830,6 +835,7 @@ video[poster] {
 .qoute {
   padding-left: 20px;
   margin-left: 20px;
+
   li {
     color: black;
     font-size: 15px;

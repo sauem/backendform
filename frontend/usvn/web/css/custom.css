@@ -312,6 +312,9 @@ video[poster] {
       color: #0e2b3d;
       text-align: center;
       text-transform: uppercase; }
+      .box-product-slider .block a .p-name {
+        width: 80%;
+        text-align: center; }
   .box-product-slider .item-product {
     margin-bottom: 15px;
     border-radius: 10px;

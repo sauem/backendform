@@ -19,7 +19,9 @@ use common\helper\HelperFunction;
                 </div>
                 <a style="padding: 0 20px;text-align: center"
                    href="/shop/{{$product->defaultArchive->slug}}/{{$product->slug}}">
-                    {{$product->name}}
+                   <span class="p-name">
+                        {{$product->name}}
+                   </span>
                 </a>
             </div>
         @endforeach
