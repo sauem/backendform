@@ -39,6 +39,7 @@ AppAsset::register($view);
 
 
 
+
     </script>
     <?php $view->registerCsrfMetaTags() ?>
     <title><?= Html::encode($view->title) ?></title>
@@ -62,6 +63,8 @@ AppAsset::register($view);
                 setTimeout(() => {
                     window.location.replace(url);
                 }, 2500);
+            } else {
+                window.location.replace(url);
             }
         }
     </script>
