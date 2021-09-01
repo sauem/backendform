@@ -1,4 +1,5 @@
 <?php
+use common\helper\HelperFunction;
 $view->title = Yii::t('app-usvn', 'httpp');
 ?>
 @section("content")
@@ -16,6 +17,7 @@ $view->title = Yii::t('app-usvn', 'httpp');
                     <div class="box-content">
                         <img width="50%" style="margin: auto" src="/img/httpp.png" class="img-responsive"/>
                         <br>
+                        <?php if(HelperFunction::getLanguage() == 'vi'){?>
                         <h5 style="width: 60%;margin: auto">Toàn cầu </h5>
                         <br>
                         <ul class="list-dot">
@@ -25,6 +27,17 @@ $view->title = Yii::t('app-usvn', 'httpp');
                             <li>Trung Đông: Dubai, Saudi Arabia.</li>
                             <li>Trong nước: Miền Bắc, miền Trung, miền Nam.</li>
                         </ul>
+                        <?php }else { ?>
+                        <h5 style="width: 60%;margin: auto">Global:</h5>
+                        <br>
+                        <ul class="list-dot">
+                            <li>United States: California, Chicago, Houston...</li>
+                            <li>Europe: United Kingdom, Canada, France, Germany, </li>
+                            <li>Asia: Malaysia, Indonesia, India, Cambodia, Laos, Singapore, China.</li>
+                            <li>Middle East: Dubai, Saudi Arabia.</li>
+                            <li>Domestic: Northern Vietnam, Southern Vietnam and Central Vietnam</li>
+                        </ul>
+                        <?php } ?>
                     </div>
                 </div>
             </div>
