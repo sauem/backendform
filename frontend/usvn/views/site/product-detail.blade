@@ -22,12 +22,13 @@ $showVideo = [63, 64];
                         {!! $model->content !!}
                         @if($model->id !== 70)
                             <div style="text-align: center">
-                                <button class="btn-order"><i class="fa fa-arrow-right"></i> Đặt hàng</button>
+                                <button class="btn-order"><i
+                                            class="fa fa-arrow-right"></i> <?= Yii::t('app-usvn', 'order')?></button>
                             </div>
                         @else
-                                <div style="text-align: center">
-                                    <button class="btn-order"><i class="fa fa-arrow-right"></i> Đặt lịch</button>
-                                </div>
+                            <div style="text-align: center">
+                                <button class="btn-order"><i class="fa fa-arrow-right"></i> <?= Yii::t('app-usvn', 'book')?></button>
+                            </div>
                         @endif
 
                         @if(isset($relatedDetail) && count($relatedDetail) >= 3)
@@ -47,7 +48,7 @@ $showVideo = [63, 64];
                                 <video poster="/img/logodark.png" controls height="350px"
                                        src="/img/thuvien/nm1.mp4"></video>
                             <br>
-                            <i>Nhà máy găng tay</i>
+                            <i><?= Yii::t('app-usvn','glove_factory') ?></i>
                             </span>
                             </div>
                             <div class="d-flex justify-content-center">
@@ -56,7 +57,7 @@ $showVideo = [63, 64];
                                 <video poster="/img/logodark.png" controls width="350px"
                                        src="/img/thuvien/nm2.mp4"></video>
                             <br>
-                            <i>Nhà máy găng tay</i>
+                            <i><?= Yii::t('app-usvn','glove_factory') ?></i>
                             </span>
                             </div>
                         @endif

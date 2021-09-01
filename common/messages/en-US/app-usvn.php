@@ -14,5 +14,8 @@ return [
     'form-intro' => 'Or contact us by filling out the following form:',
     'form-required' => 'Required Information (*)',
     'cer' => 'Business registration certificate No. 0109231206 issued on June 18, 2020 by Business Registration Office – Hanoi Department of Planning and Investment.',
-    'policy' => 'Information privacy policy'
+    'policy' => 'Information privacy policy',
+    'book'  => 'Schedule a meeting',
+    'order' => 'Order',
+    'glove_factory' => 'Gloves factory'
 ];
