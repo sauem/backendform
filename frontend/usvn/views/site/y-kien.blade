@@ -16,7 +16,7 @@ $view->title = Yii::t('app-usvn', 'poll');
                     <div class="box-content" id="thamdoykien">
                         @if(isset($related) && !empty($related))
                             @foreach($related as $key)
-                                @if($key->id === 71)
+                                @if($key->id === 71 || $key === 74)
                                     @continue
                                 @endif
                                 <div class="form-group">
