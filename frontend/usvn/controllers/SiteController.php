@@ -234,7 +234,7 @@ class SiteController extends BaseController
                 $relatedDetail = Products::find()
                     ->where(['default_archive' => $archive->id])
                     ->orWhere(['id' => $model->relations])
-                    ->andFilterWhere(['!=', 'id', $model->id])
+                    ->andFilterWhere(['!=', 'id', [$model->id, 74]])
                     ->limit(4)->all();
                 break;
             default:
