@@ -61,8 +61,26 @@ foreach ($sliders as $k => $slider) {
 
                             <div style="margin-top: 20px" class="d-flex justify-content-center">
                             <span>
-                                <video poster="/img/logodark.png" controls height="350px"
-                                       src="/img/thuvien/nm1.mp4"></video>
+
+                                <video
+                                        id="my-video"
+                                        class="video-js"
+                                        controls
+                                        preload="auto"
+                                        width="350"
+                                        height="250"
+                                        poster="/img/logodark.png"
+                                        data-setup="{}"
+                                >
+                                <source src="/img/thuvien/nm1.mp4" type="video/mp4" />
+                                <p class="vjs-no-js">
+                                    To view this video please enable JavaScript, and consider upgrading to a
+                                    web browser that
+                                </p>
+                            </video>
+
+{{--                                <video poster="/img/logodark.png" controls height="350px"--}}
+{{--                                       src="/img/thuvien/nm1.mp4"></video>--}}
                             <br>
                             <i><?= Yii::t('app-usvn', 'glove_factory') ?></i>
                             </span>

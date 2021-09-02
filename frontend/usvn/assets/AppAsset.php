@@ -17,6 +17,8 @@ class AppAsset extends AssetBundle
         'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&amp;display=swap',
         'https://unpkg.com/antd/dist/antd.css',
         'https://use.fontawesome.com/releases/v5.11.0/css/all.css',
+        'https://vjs.zencdn.net/7.14.3/video-js.css',
+        'https://unpkg.com/@videojs/themes@1/dist/city/index.css',
         '/css/bootstrap.css',
         '/css/owl-carousel/owl.carousel.css',
         '/css/nivo-slider/themes/default/default.css',
@@ -45,6 +47,7 @@ class AppAsset extends AssetBundle
         '/js/jCarouselLite.js',
         '/js/masterslider/masterslider.min.js',
         '/js/jquery.dlmenu.min.js',
+        'https://vjs.zencdn.net/7.14.3/video.min.js',
         '/js/include.js',
         '/js/site.js?v=2.2',
     ];

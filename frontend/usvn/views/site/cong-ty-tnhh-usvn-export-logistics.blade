@@ -88,13 +88,21 @@ $view->title = $model->name;
                         </p>
                         <br>
                         <div style="display: flex;justify-content: center;margin-top: 20px">
-                            <video poster="/img/logodark.png"
-                                   autoplay
-                                   height="250px"
-                                   width="350px"
-                                   controls="controls"
-                                   src="/img/usvn-intro.mp4">
-
+                            <video
+                                    id="my-video"
+                                    class="video-js"
+                                    controls
+                                    preload="auto"
+                                    width="350"
+                                    height="250"
+                                    poster="/img/logodark.png"
+                                    data-setup="{}"
+                            >
+                                <source src="/img/usvn-intro.mp4" type="video/mp4" />
+                                <p class="vjs-no-js">
+                                    To view this video please enable JavaScript, and consider upgrading to a
+                                    web browser that
+                                </p>
                             </video>
                         </div>
 
