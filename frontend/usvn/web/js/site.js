@@ -60,6 +60,14 @@ function switchLanguage(lang) {
     }
 }
 
+const orderProduct = async (pId) => {
+    try {
+
+    } catch (e) {
+        console.log(e);
+    }
+}
+
 function getAjaxError(e) {
     console.log(e);
     return e.message;
