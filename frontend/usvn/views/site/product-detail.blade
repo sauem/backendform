@@ -51,7 +51,8 @@ foreach ($sliders as $k => $slider) {
                             <div style="margin-top: 20px;">
                                 <?= $view->render('/parts/box-product.blade', [
                                     'products' => $relatedDetail,
-                                    'items' => 2
+                                    'items' => 2,
+                                    'except' => [71, 74]
                                 ])?>
                             </div>
                         @endif
@@ -71,7 +72,7 @@ foreach ($sliders as $k => $slider) {
                                         height="250"
                                         data-setup="{}"
                                 >
-                                <source src="/img/thuvien/nm1.mp4" type="video/mp4" />
+                                <source src="/img/thuvien/nm1.mp4" type="video/mp4"/>
                                 <p class="vjs-no-js">
                                     To view this video please enable JavaScript, and consider upgrading to a
                                     web browser that
@@ -79,7 +80,7 @@ foreach ($sliders as $k => $slider) {
                             </video>
 
 {{--                                <video poster="/img/logodark.png" controls height="350px"--}}
-{{--                                       src="/img/thuvien/nm1.mp4"></video>--}}
+                                {{--                                       src="/img/thuvien/nm1.mp4"></video>--}}
                             <br>
                             <i><?= Yii::t('app-usvn', 'glove_factory') ?></i>
                             </span>
@@ -96,7 +97,7 @@ foreach ($sliders as $k => $slider) {
                                             height="250"
                                             data-setup="{}"
                                     >
-                                <source src="/img/thuvien/nm2.mp4" type="video/mp4" />
+                                <source src="/img/thuvien/nm2.mp4" type="video/mp4"/>
                                 <p class="vjs-no-js">
                                     To view this video please enable JavaScript, and consider upgrading to a
                                     web browser that
