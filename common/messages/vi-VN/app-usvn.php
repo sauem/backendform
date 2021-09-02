@@ -15,7 +15,9 @@ return [
     'form-required' => 'Thông tin bắt buộc (*)',
     'cer' => 'Giấy chứng nhận đăng ký kinh doanh số 0109231206 do Phòng Đăng ký kinh doanh - Sở Kế hoạch và Đầu tư thành phố Hà Nội cấp ngày 18/6/2020.',
     'policy' => 'Chính sách bảo mật thông tin',
-    'book'  => 'Đặt lịch',
+    'book' => 'Đặt lịch',
     'order' => 'Đặt hàng',
-    'glove_factory' => 'Nhà máy găng tay'
+    'glove_factory' => 'Nhà máy găng tay',
+    'tv1' => 'Hàng của Công ty USVN EXPORT LOGISTICS về thường xuyên',
+    'tv2' => 'Hàng luôn luôn có sẵn nhiều trong kho để phục vụ kịp thời nhu cầu của Quý khách hàng.'
 ];

@@ -25,7 +25,7 @@ $view->title = $title;
                                         height="250"
                                         data-setup="{}"
                                 >
-                                <source src="/img/thuvien/tv1.mp4" type="video/mp4" />
+                                <source src="/img/thuvien/tv1.mp4" type="video/mp4"/>
                                 <p class="vjs-no-js">
                                     To view this video please enable JavaScript, and consider upgrading to a
                                     web browser that
@@ -33,12 +33,13 @@ $view->title = $title;
 
                                     </video>
                             <br>
-                            <i>Hàng của Công ty USVN EXPORT LOGISTICS về thường xuyên</i>
+                            <i><?= Yii::t('app-usvn', 'tv1')?></i>
                             </span>
                         </div>
+                        <br>
+
                         <div class="d-flex justify-content-center">
-                            <br>
-                            <span>
+                            <div>
                                 <video
                                         id="my-video"
                                         class="video-js"
@@ -48,17 +49,16 @@ $view->title = $title;
                                         height="250"
                                         data-setup="{}"
                                 >
-                                <source src="/img/thuvien/tv2.mp4" type="video/mp4" />
-                                <p class="vjs-no-js">
-                                    To view this video please enable JavaScript, and consider upgrading to a
-                                    web browser that
-                                </p>
+                                    <source src="/img/thuvien/tv2.mp4" type="video/mp4"/>
+                                    <p class="vjs-no-js">
+                                        To view this video please enable JavaScript, and consider upgrading to a
+                                        web browser that
+                                    </p>
 
-                                    </video>
-                            <br>
-                            <i>Hàng luôn luôn có sẵn nhiều trong kho để phục vụ kịp thời nhu cầu của Quý khách
-                                hàng.</i>
-                            </span>
+                                </video>
+                                <br>
+                                <i><?= Yii::t('app-usvn', 'tv2')?></i>
+                            </div>
                         </div>
                     </div>
                 </div>
