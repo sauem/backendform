@@ -53,11 +53,22 @@ $view->title = $model->name;
                             hàng năm mỗi nhà máy cung cấp khoảng 8,7 tỷ găng tay nitrile tổng hợp và 606 triệu găng tay
                             nitrile cho thị trường trong nước và quốc tế.<br><br>
                         <div style="text-align: center; display: flex;justify-content: center;flex-direction: column">
-                            <video poster="/img/logodark.png"
-                                   style="margin: auto"
-                                   height="250px"
-                                   src="/img/videocom.mp4" controls
-                                   width="350px"></video>
+                            <video
+                                    id="my-video"
+                                    class="video-js"
+                                    controls
+                                    preload="auto"
+                                    width="350"
+                                    height="250"
+                                    data-setup="{}"
+                            >
+                                <source src="/img/videocom.mp4#t=0.1" type="video/mp4"/>
+                                <p class="vjs-no-js">
+                                    To view this video please enable JavaScript, and consider upgrading to a
+                                    web browser that
+                                </p>
+
+                            </video>
                             <i class="txt-brand" style="text-align: center; font-style: italic">Bên trong của một trong những nhà máy sản
                                 xuất găng tay
                                 của chúng tôi</i>
