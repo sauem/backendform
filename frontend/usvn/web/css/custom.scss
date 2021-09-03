@@ -462,14 +462,15 @@ video[poster] {
       text-transform: uppercase;
 
       .p-name {
-        font-size: 13px;
+        font-size: 15px;
         font-weight: bold;
         color: $primary-color;
         text-align: center;
         justify-content: center;
         display: flex;
         flex-wrap: wrap;
-        width: 170px;
+        text-transform: uppercase;
+        width: 100%;
         margin: auto;
       }
     }

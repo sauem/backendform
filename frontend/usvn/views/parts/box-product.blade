@@ -19,7 +19,8 @@ use common\helper\HelperFunction;
                 </div>
                 <a href="/shop/{{$product->defaultArchive->slug}}/{{$product->slug}}">
                    <span class="p-name">
-                       {!! str_replace('nitrile','<br>nitrile',$product->name) !!}
+                       {!! str_replace('vinly','vinly<br>',strtolower($product->name)) !!}
+                       {!! str_replace('nitrile','nitrile<br>',strtolower($product->name)) !!}
                    </span>
                 </a>
             </div>

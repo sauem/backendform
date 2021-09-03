@@ -309,14 +309,15 @@ video[poster] {
       text-align: center;
       text-transform: uppercase; }
       .box-product-slider .block a .p-name {
-        font-size: 13px;
+        font-size: 15px;
         font-weight: bold;
         color: #0e2b3d;
         text-align: center;
         justify-content: center;
         display: flex;
         flex-wrap: wrap;
-        width: 170px;
+        text-transform: uppercase;
+        width: 100%;
         margin: auto; }
   .box-product-slider .item-product {
     margin-bottom: 15px;
