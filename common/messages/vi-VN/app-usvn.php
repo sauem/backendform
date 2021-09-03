@@ -19,5 +19,6 @@ return [
     'order' => 'Đặt hàng',
     'glove_factory' => 'Nhà máy găng tay',
     'tv1' => 'Hàng của Công ty USVN EXPORT LOGISTICS về thường xuyên',
-    'tv2' => 'Hàng luôn luôn có sẵn nhiều trong kho để phục vụ kịp thời nhu cầu của Quý khách hàng.'
+    'tv2' => 'Hàng luôn luôn có sẵn nhiều trong kho để phục vụ kịp thời nhu cầu của Quý khách hàng.',
+    'register_success' => 'Cám ơn bạn đã liên hệ!'
 ];

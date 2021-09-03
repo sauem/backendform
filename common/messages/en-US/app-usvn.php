@@ -15,9 +15,10 @@ return [
     'form-required' => 'Required Information (*)',
     'cer' => 'Business registration certificate No. 0109231206 issued on June 18, 2020 by Business Registration Office – Hanoi Department of Planning and Investment.',
     'policy' => 'Information privacy policy',
-    'book'  => 'Schedule a meeting',
+    'book' => 'Schedule a meeting',
     'order' => 'Order',
     'glove_factory' => 'Gloves factory',
-    'tv1'  => 'USVN EXPORT LOGISTICS maintains regular Warehouse inventory.',
-    'tv2' => 'Much of our product line is readily available as needed by our International customers.'
+    'tv1' => 'USVN EXPORT LOGISTICS maintains regular Warehouse inventory.',
+    'tv2' => 'Much of our product line is readily available as needed by our International customers.',
+    'register_success' => 'Thank you for contact!'
 ];

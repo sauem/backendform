@@ -63,6 +63,12 @@ class SiteController extends BaseController
             // ->orWhere(['id' => $model->relations])
             // ->andFilterWhere(['!=', 'id', $model->id])
             ->limit(12)->all();
+        if (Yii::$app->request->isPost && $model->load(Yii::$app->request->post())) {
+            if (!$model->save()) {
+                throw new BadRequestHttpException(HelperFunction::firstError($model));
+            }
+            Yii::$app->session->setFlash('success', Yii::t('app-usvn', 'register_success'));
+        }
         return $this->render('contact.blade', [
             'model' => $model,
             'related' => $related
