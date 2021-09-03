@@ -12,12 +12,23 @@ $except = [67, 65, 66, 51, 81, 80, 79, 78];
                         @continue
                     @endif
                 @endisset
+                    <?php
+                    if ($product->id === 63) {
+                        $name = str_replace('vinly', 'vinly<br>', strtolower($product->name));
+                    } elseif ($product->id === 64) {
+                        $name = str_replace('nitrile', 'nitrile<br>', strtolower($product->name));
+                    } elseif ($product->id === 73 || $product->id === 72) {
+                        $name = str_replace('nitrile', '<br>nitrile', strtolower($product->name));
+                    } else {
+                        $name = $product->name;
+                    }
+                    ?>
                 <li class="item-product">
                     <a class="img" href="/shop/{{$product->defaultArchive->slug}}/{{$product->slug}}">
                         <img src="{!! $product->avatar!!}"/>
                     </a>
                     <a href="/shop/{{$product->defaultArchive->slug}}/{{$product->slug}}">
-                        {{$product->name}}
+                        {!! $name !!}
                     </a>
                 </li>
 

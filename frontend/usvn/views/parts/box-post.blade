@@ -8,20 +8,10 @@ use common\helper\HelperFunction;
         <h1 class="box-title"><?= Yii::t('app', 'new_and_event')?></h1>
         <ul class="content">
             @foreach($posts as $post)
-                <?php
-                if ($product->id === 63) {
-                    $name = str_replace('vinly', 'vinly<br>', strtolower($product->name));
-                } elseif ($product->id === 64) {
-                    $name = str_replace('nitrile', 'nitrile<br>', strtolower($product->name));
-                } elseif ($product->id === 73 || $product->id === 72) {
-                    $name = str_replace('nitrile', '<br>nitrile', strtolower($product->name));
-                } else {
-                    $name = $product->name;
-                }
-                ?>
+
                 <li>
                     <a href="<?=HelperFunction::Link(ARTICLE, $post->slug, $post->archive->slug)?>">
-                        {!! $name !!}
+                        {!! $post->name !!}
                     </a>
                 </li>
             @endforeach
