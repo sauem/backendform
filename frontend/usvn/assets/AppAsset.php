@@ -29,7 +29,7 @@ class AppAsset extends AssetBundle
         '/css/color-default.css',
         '/css/retina.css',
         '/css/responsive.css',
-        '/css/custom.css?v=5.0'
+        '/css/custom.css?v=5.2'
     ];
     public $js = [
         '/js/jquery-2.1.4.min.js',
@@ -50,7 +50,7 @@ class AppAsset extends AssetBundle
         '/js/jquery.dlmenu.min.js',
         'https://vjs.zencdn.net/7.14.3/video.min.js',
         '/js/include.js',
-        '/js/site.js?v=2.5',
+        '/js/site.js?v=2.6',
     ];
     public $depends = [
         //'yii\web\YiiAsset',
