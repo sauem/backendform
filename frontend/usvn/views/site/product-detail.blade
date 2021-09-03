@@ -38,12 +38,12 @@ foreach ($sliders as $k => $slider) {
                         {!! $model->content !!}
                         @if($model->id !== 70 || $model->id !== 77)
                             <div style="text-align: center">
-                                <button onclick="orderProduct({{$model->id}})" class="btn-order"><i
+                                <button onclick="orderProduct('{{$model->name}}')" class="btn-order"><i
                                             class="fa fa-arrow-right"></i> <?= Yii::t('app-usvn', 'order')?></button>
                             </div>
                         @else
                             <div style="text-align: center">
-                                <button class="btn-order"><i
+                                <button onclick="orderProduct('{{$model->name}}')" class="btn-order"><i
                                             class="fa fa-arrow-right"></i> <?= Yii::t('app-usvn', 'book')?></button>
                             </div>
                         @endif

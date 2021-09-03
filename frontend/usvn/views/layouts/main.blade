@@ -40,6 +40,16 @@ AppAsset::register($view);
 
 
 
+
+
+
+
+
+
+
+
+
+
     </script>
     <?php $view->registerCsrfMetaTags() ?>
     <title><?= Html::encode($view->title) ?></title>
@@ -93,6 +103,54 @@ AppAsset::register($view);
 <?= $view->render('../parts/footer.blade') ?>
 <?php $view->endBody() ?>
 @yield('js_end')
+<?php
+$model = new \common\models\Contact();
+?>
+<div class="modal" id="modal-order" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"><?= Yii::t('app-usvn', 'order')?></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <?php $form = \yii\bootstrap\ActiveForm::begin([
+                    'id' => 'request-form',
+                    'enableClientScript' => false,
+                ])?>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <?= $form->field($model, 'name')->label(Yii::t('app', 'fullname'))?>
+                    </div>
+                    <div class="col-sm-6">
+                        <?= $form->field($model, 'email')->label(Yii::t('app', 'email'))?>
+                    </div>
+                    <div class="col-sm-6">
+                        <?= $form->field($model, 'phone')->label(Yii::t('app', 'phone'))?>
+                    </div>
+                    <div class="col-sm-6">
+                        <?= $form->field($model, 'contact_pre')->textInput(['readonly' => true])->label(Yii::t('app-usvn', 'product_name'))?>
+                    </div>
+                    <div class="col-sm-6">
+                        <?= $form->field($model, 'time_exp')->label(Yii::t('app-usvn', 'quantity'))?>
+                    </div>
+                    <div class="col-sm-12">
+                        <?= $form->field($model, 'message')->textarea(['rows' => 4])->label(Yii::t('app-usvn', 'note'))?>
+                    </div>
+                </div>
+                <?php \yii\bootstrap\ActiveForm::end()?>
+            </div>
+            <div class="modal-footer">
+                <button style="margin-left: 20px" type="button"
+                        class="btn-submit-order btn btn-order"><?= Yii::t('app-usvn', 'sent')?></button>
+                <button data-dismiss="modal" type="button"
+                        class="btn btn-order"><?= Yii::t('app-usvn', 'Close')?></button>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>
 <script>

@@ -29,7 +29,7 @@ class AppAsset extends AssetBundle
         '/css/color-default.css',
         '/css/retina.css',
         '/css/responsive.css',
-        '/css/custom.css?v=4.9'
+        '/css/custom.css?v=5.0'
     ];
     public $js = [
         '/js/jquery-2.1.4.min.js',
@@ -39,6 +39,7 @@ class AppAsset extends AssetBundle
         'https://unpkg.com/@babel/standalone/babel.min.js',
         //'https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js',
         'https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js',
+        'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js',
         '//cdn.jsdelivr.net/npm/sweetalert2@11',
         '/js/bootstrap.min.js',
         '/js/jquery.srcipts.min.js',
@@ -49,10 +50,10 @@ class AppAsset extends AssetBundle
         '/js/jquery.dlmenu.min.js',
         'https://vjs.zencdn.net/7.14.3/video.min.js',
         '/js/include.js',
-        '/js/site.js?v=2.2',
+        '/js/site.js?v=2.5',
     ];
     public $depends = [
         //'yii\web\YiiAsset',
-        //'yii\bootstrap\BootstrapAsset',
+        'yii\bootstrap\BootstrapAsset',
     ];
 }

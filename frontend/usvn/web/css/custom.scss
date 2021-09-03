@@ -862,15 +862,18 @@ video[poster] {
 
 .video-js {
   margin: auto;
+
   .vjs-big-play-button {
     right: 0;
     margin: auto;
     top: 0;
     left: 0;
     bottom: 0;
-    span{
+
+    span {
       color: white;
-      &:before{
+
+      &:before {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -879,6 +882,11 @@ video[poster] {
   }
 
 }
+
+.modal-backdrop {
+  background: rgba(0, 0, 0, 0.8);
+}
+
 @media (max-height: 467px) {
   .header-style02 {
     width: 1000px !important;

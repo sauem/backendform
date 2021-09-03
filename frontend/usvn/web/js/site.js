@@ -62,21 +62,18 @@ function switchLanguage(lang) {
 
 const orderProduct = async (pId) => {
     try {
-
+        const modal = $('#modal-order');
+        modal.find('input[name="Contact[contact_pre]"]').val(pId);
+        modal.modal();
     } catch (e) {
         console.log(e);
     }
 }
 
-function getAjaxError(e) {
-    console.log(e);
-    return e.message;
-}
-
 function BriefRequest() {
     const reqBrief = async (data) => {
         return $.ajax({
-            url: AJAX_URL.SUBMIT_BRIEF,
+            url: '/ajax/create-brief',
             type: 'POST',
             cache: false,
             contentType: false,
@@ -85,10 +82,12 @@ function BriefRequest() {
         });
     }
     this.send = () => {
-        $(document).on('click', '.btn-request-form', function (e) {
+        $(document).on('click', '.btn-submit-order', function (e) {
             e.preventDefault();
-            let form = $(this).closest('#request-form');
+            let form = $(document).find('#request-form');
             let data = new FormData(form[0]);
+            console.log("REST", data);
+
             swal.fire({
                 title: 'Waiting submit...',
                 type: 'info',
@@ -100,7 +99,6 @@ function BriefRequest() {
                     swal.showLoading()
                     try {
                         const res = await reqBrief(data);
-
                         swal.fire({
                             title: 'Successfully!',
                             icon: 'success',
@@ -108,7 +106,13 @@ function BriefRequest() {
                             type: 'success'
                         }).then(() => {
                             swal.close();
+                            $("#modal-order").modal('hide');
                             form.trigger('reset');
+                            setTimeout(() => window.location.reload()
+                                ,
+                                1500
+                            )
+                            ;
                         });
                     } catch (e) {
                         swal.fire({
@@ -125,6 +129,12 @@ function BriefRequest() {
 }
 
 new BriefRequest().send();
+
+function getAjaxError(e) {
+    console.log(e);
+    return e.message;
+}
+
 $('.gallery').each(function () { // the containers for all your galleries
     $(this).magnificPopup({
         delegate: 'a', // the selector for gallery item

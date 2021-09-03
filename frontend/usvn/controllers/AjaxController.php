@@ -37,7 +37,7 @@ class AjaxController extends BaseController
                 throw new BadRequestHttpException($exception->getMessage());
             }
         }
-        return false;
+        return \Yii::$app->request->post();
     }
 
     function actionCreateOrder()

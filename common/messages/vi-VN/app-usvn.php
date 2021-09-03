@@ -20,5 +20,8 @@ return [
     'glove_factory' => 'Nhà máy liên kết sản xuất găng tay của chúng tôi',
     'tv1' => 'Hàng của Công ty USVN EXPORT LOGISTICS về thường xuyên',
     'tv2' => 'Hàng luôn luôn có sẵn nhiều trong kho để phục vụ kịp thời nhu cầu của Quý khách hàng.',
-    'register_success' => 'Cám ơn bạn đã liên hệ!'
+    'register_success' => 'Cám ơn bạn đã liên hệ!',
+    'quantity' => 'Số lượng',
+    'product_name' => 'Sản phẩm',
+    'note' => 'Ghi chú'
 ];
