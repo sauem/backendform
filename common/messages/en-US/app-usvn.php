@@ -17,7 +17,7 @@ return [
     'policy' => 'Information privacy policy',
     'book' => 'Schedule a meeting',
     'order' => 'Order',
-    'glove_factory' => 'Gloves factory',
+    'glove_factory' => 'Our affiliated glove factory',
     'tv1' => 'USVN EXPORT LOGISTICS maintains regular Warehouse inventory.',
     'tv2' => 'Much of our product line is readily available as needed by our International customers.',
     'register_success' => 'Thank you for contact!'

@@ -17,7 +17,7 @@ return [
     'policy' => 'Chính sách bảo mật thông tin',
     'book' => 'Đặt lịch',
     'order' => 'Đặt hàng',
-    'glove_factory' => 'Nhà máy găng tay',
+    'glove_factory' => 'Nhà máy liên kết sản xuất găng tay của chúng tôi',
     'tv1' => 'Hàng của Công ty USVN EXPORT LOGISTICS về thường xuyên',
     'tv2' => 'Hàng luôn luôn có sẵn nhiều trong kho để phục vụ kịp thời nhu cầu của Quý khách hàng.',
     'register_success' => 'Cám ơn bạn đã liên hệ!'
