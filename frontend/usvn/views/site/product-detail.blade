@@ -36,15 +36,15 @@ foreach ($sliders as $k => $slider) {
                                  class="img-responsive">
                         @endif
                         {!! $model->content !!}
-                        @if($model->id !== 70 || $model->id !== 77)
+                        @if($model->id === 70 || $model->id === 77)
                             <div style="text-align: center">
                                 <button onclick="orderProduct('{{$model->name}}')" class="btn-order"><i
-                                            class="fa fa-arrow-right"></i> <?= Yii::t('app-usvn', 'order')?></button>
+                                            class="fa fa-arrow-right"></i> <?= Yii::t('app-usvn', 'book')?></button>
                             </div>
                         @else
                             <div style="text-align: center">
                                 <button onclick="orderProduct('{{$model->name}}')" class="btn-order"><i
-                                            class="fa fa-arrow-right"></i> <?= Yii::t('app-usvn', 'book')?></button>
+                                            class="fa fa-arrow-right"></i> <?= Yii::t('app-usvn', 'order')?></button>
                             </div>
                         @endif
 
