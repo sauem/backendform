@@ -398,6 +398,12 @@ video[poster] {
   position: relative;
   margin-top: 5px; }
   .box-detail .box-title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    /* number of lines to show */
+    -webkit-box-orient: vertical;
     text-transform: uppercase;
     background: url("../img/tagtitle.jpg") no-repeat scroll 0 0 transparent;
     color: #FFFFFF;

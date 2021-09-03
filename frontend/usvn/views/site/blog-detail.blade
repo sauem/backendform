@@ -12,7 +12,7 @@ $view->title = $model->name;
         <div class="row">
             <div class="col-md-8 left">
                 <div class="box-detail">
-                    <h1 class="box-title">{!! substr($model->name, 0,80) . '...' !!}</h1>
+                    <h1 class="box-title">{!! $model->name!!}</h1>
                     <div class="box-content">
                         {!! $model->content !!}
                     </div>
