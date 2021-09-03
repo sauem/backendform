@@ -10,6 +10,9 @@ $form = ActiveForm::begin([
                 <h4 class="text-primary contact-panel__title"><?= Yii::t('app', 'contact') ?></h4>
             </div>
             <div class="col-12">
+                <?= \common\widgets\Alert::widget()?>
+            </div>
+            <div class="col-12">
                 <div class="form-group">
                     <?= $form->field($model, 'name')
                         ->textInput(['placeholder' => Yii::t('app', 'name') . ' (*)'])
