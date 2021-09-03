@@ -11,6 +11,15 @@ use common\helper\HelperFunction;
                     @continue
                 @endif
             @endisset
+            <?php
+           if($product->id === 63 || $product->id === 72){
+               $name = str_replace('vinly','vinly<br>',strtolower($product->name));
+           }elseif($product->id === 64 || $product->id === 73){
+               $name = str_replace('nitrile','nitrile<br>',strtolower($product->name));
+           }else{
+               $name = $product->name;
+           }
+            ?>
             <div class="block">
                 <div class="item-product">
                     <a href="/shop/{{$product->defaultArchive->slug}}/{{$product->slug}}">
@@ -19,7 +28,7 @@ use common\helper\HelperFunction;
                 </div>
                 <a href="/shop/{{$product->defaultArchive->slug}}/{{$product->slug}}">
                    <span class="p-name">
-                       {!! str_replace('vinly','vinly<br>',strtolower($product->name)) !!}
+                       {!! $name !!}
                    </span>
                 </a>
             </div>
