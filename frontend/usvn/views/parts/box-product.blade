@@ -12,13 +12,15 @@ use common\helper\HelperFunction;
                 @endif
             @endisset
             <?php
-           if($product->id === 63 || $product->id === 72){
-               $name = str_replace('vinly','vinly<br>',strtolower($product->name));
-           }elseif($product->id === 64 || $product->id === 73){
-               $name = str_replace('nitrile','nitrile<br>',strtolower($product->name));
-           }else{
-               $name = $product->name;
-           }
+            if ($product->id === 63) {
+                $name = str_replace('vinly', 'vinly<br>', strtolower($product->name));
+            } elseif ($product->id === 64) {
+                $name = str_replace('nitrile', 'nitrile<br>', strtolower($product->name));
+            } elseif ($product->id === 73 || $product->id === 72) {
+                $name = str_replace('nitrile', '<br>nitrile', strtolower($product->name));
+            } else {
+                $name = $product->name;
+            }
             ?>
             <div class="block">
                 <div class="item-product">
