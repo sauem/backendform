@@ -31,6 +31,7 @@ foreach ($sliders as $k => $slider) {
                     <h1 class="box-title">{{$model->name}}</h1>
                     <div class="box-content">
                         @if($model->banner)
+                            <br>
                             <img style="margin: auto;display: flex" width="50%" src="{{$model->banner}}"
                                  class="img-responsive">
                         @endif
