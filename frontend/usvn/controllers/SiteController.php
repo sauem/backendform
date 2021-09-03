@@ -65,7 +65,7 @@ class SiteController extends BaseController
             ->limit(12)->all();
         if (Yii::$app->request->isPost && $model->load(Yii::$app->request->post())) {
             if (!$model->save()) {
-                Yii::$app->session->setFlash('error', Yii::t('app-usvn', 'register_success'));
+                Yii::$app->session->setFlash('error', HelperFunction::firstError($model));
             } else {
                 Yii::$app->session->setFlash('success', Yii::t('app-usvn', 'register_success'));
             }
