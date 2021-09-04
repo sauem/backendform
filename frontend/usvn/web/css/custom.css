@@ -594,6 +594,11 @@ video[poster] {
   padding: 10px 50px;
   text-transform: uppercase; }
 
+.content-box {
+  width: 60%; }
+  .content-box li {
+    text-align: center; }
+
 .video-js {
   margin: auto; }
   .video-js .vjs-big-play-button {

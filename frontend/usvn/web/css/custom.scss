@@ -870,6 +870,14 @@ video[poster] {
   text-transform: uppercase;
 }
 
+.content-box {
+  width: 60%;
+
+  li {
+    text-align: center;
+  }
+}
+
 .video-js {
   margin: auto;
 
