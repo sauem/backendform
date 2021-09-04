@@ -7,8 +7,8 @@ $('.home-slider').nivoSlider({
 const productItems = $('.box-product-slider').data('items');
 $('.box-product-slider').owlCarousel({
     items: productItems ?? 2,
-    // autoplay: true,
-    // loop: true,
+    autoplay: true,
+    loop: true,
     dots: false,
     nav: true,
     navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
