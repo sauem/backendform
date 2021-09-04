@@ -38,11 +38,12 @@ class Contact extends BaseModel
         return [
             [['email', 'name'], 'required'],
             [['message'], 'string'],
-            [['time_exp', 'created_at', 'updated_at'], 'integer'],
+            [['created_at', 'updated_at'], 'integer'],
             [['name'], 'string', 'max' => 255],
             [['email'], 'string', 'max' => 150],
             [['phone', 'type', 'export_country', 'status'], 'string', 'max' => 50],
             [['contact_pre'], 'string', 'max' => 100],
+            [['time_exp'], 'safe']
         ];
     }
 
