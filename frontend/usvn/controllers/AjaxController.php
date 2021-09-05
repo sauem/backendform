@@ -7,6 +7,8 @@ namespace usvn\controllers;
 use common\helper\HelperFunction;
 use common\models\Contact;
 use common\models\Orders;
+use common\models\Poll;
+use yii\base\BaseObject;
 use yii\web\BadRequestHttpException;
 use yii\web\Response;
 
@@ -47,5 +49,33 @@ class AjaxController extends BaseController
         if ($model->load($post, '') && $model->save()) {
 
         }
+    }
+
+    function actionAddPoll()
+    {
+        if (\Yii::$app->request->isPost) {
+            try {
+                $ids = \Yii::$app->request->post('ids');
+                if (empty($ids)) {
+                    throw new BadRequestHttpException("You need chose one!");
+                }
+                $poll = Poll::findOne(['ip' => \Yii::$app->request->getRemoteIP()]);
+                if ($poll) {
+                    throw new BadRequestHttpException("You have voted!");
+                }
+                foreach ($ids as $id) {
+                    $poll = new Poll();
+                    $poll->ip = \Yii::$app->request->getRemoteIP();
+                    $poll->product_id = (int)$id;
+                    if (!$poll->save()) {
+                        throw new BadRequestHttpException(HelperFunction::firstError($poll));
+                    }
+                }
+                return $ids;
+            } catch (\Exception $exception) {
+                throw new BadRequestHttpException($exception->getMessage());
+            }
+        }
+        return \Yii::$app->request->post();
     }
 }

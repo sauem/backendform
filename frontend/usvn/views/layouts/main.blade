@@ -20,8 +20,8 @@ AppAsset::register($view);
     <link rel="shortcut icon" href="<?= HelperFunction::Favicon() ?>" type="image/x-icon">
     <link rel="apple-touch-icon" href="<?= HelperFunction::Favicon() ?> ">
     <!-- For the og:image content, replace the # with a link of an image -->
-    <meta property="og:image" content="<?= HelperFunction::getLogo('header') ?>"/>
-    <meta property="og:description" content="<?= $view->title ?>"/>
+    <meta property="og:image" content="/img/ogimg.jpg"/>
+    <meta property="og:description" content="<?= HelperFunction::setting('site_description', true) ?>"/>
     <script type="application/ld+json">
         {
             "@context": "http://schema.org",
@@ -29,6 +29,7 @@ AppAsset::register($view);
             "name": "<?= $view->title ?>",
             "url": "<?= \Yii::$app->homeUrl; ?>"
         }
+
 
 
 

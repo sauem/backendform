@@ -21,15 +21,14 @@ $view->title = Yii::t('app-usvn', 'poll');
                                 @endif
                                 <div class="form-group">
                                     <label>
-                                        <input name="product_id[]" type="checkbox" value="{{$key->id}}">
+                                        <input class="checkbox-product" name="product_id[]" data-id="{{$key->id}}" type="checkbox" value="{{$key->id}}">
                                         <span style="text-transform: uppercase">{{$key->name}}</span>
                                     </label>
                                 </div>
                             @endforeach
                         @endif
                         <div class="d-flex">
-                            <button class="btn-order btn-primary"
-                                    onclick="submitTDYK(this)"><?= Yii::t('app-usvn', 'submit')?></button>
+                            <button class="btn-order btn-primary btn-submit-poll"><?= Yii::t('app-usvn', 'submit')?></button>
                         </div>
                     </div>
                 </div>
@@ -50,7 +49,8 @@ $view->title = Yii::t('app-usvn', 'poll');
     <script>
         const submitTDYK = (element) => {
             try {
-
+                const ids = $('input[name="product_id[]"]');
+                console.log("ids: ", ids.val());
             } catch (e) {
                 alert(e.message);
             }

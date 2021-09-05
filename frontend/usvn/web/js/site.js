@@ -117,7 +117,7 @@ function BriefRequest() {
                     } catch (e) {
                         swal.fire({
                             title: 'Error',
-                            text: getAjaxError(e),
+                            text: JSON.parse(e.responseText).message,
                             type: 'error'
                         });
                     }
@@ -130,9 +130,85 @@ function BriefRequest() {
 
 new BriefRequest().send();
 
+
+function PollRequest() {
+    const reqBrief = async (ids) => {
+        return $.ajax({
+            url: '/ajax/add-poll',
+            type: 'POST',
+            dataType: 'json/application',
+            cache: false,
+            data: {
+                "ids[]": ids
+            }
+        });
+    }
+    this.send = () => {
+        $(document).on('click', '.btn-submit-poll', function (e) {
+            e.preventDefault();
+            const checkbox = $('#thamdoykien').find('.checkbox-product');
+
+            let ids = [];
+            checkbox.each(function (i) {
+                if ($(this).is(":checked")) {
+                    ids[i] = $(this).val();
+                }
+            });
+            if (ids.length <= 0) {
+                swal.fire({
+                    title: 'Error',
+                    text: 'Please choice one product!',
+                    type: 'error'
+                });
+                return false;
+            }
+            ids = ids.filter(item => item);
+
+            swal.fire({
+                title: 'Waiting submit...',
+                type: 'info',
+                icon: 'info',
+                showConfirmButton: false,
+                clickOutside: false,
+                allowEscapeKey: false,
+                willOpen: async () => {
+                    swal.showLoading()
+                    try {
+                        const res = await reqBrief(ids);
+                        swal.fire({
+                            title: 'Successfully!',
+                            icon: 'success',
+                            text: '',
+                            type: 'success'
+                        }).then(() => {
+                            swal.close();
+                            $("#modal-order").modal('hide');
+                            form.trigger('reset');
+                            setTimeout(() => window.location.reload()
+                                ,
+                                1500
+                            )
+                            ;
+                        });
+                    } catch (e) {
+                        swal.fire({
+                            title: 'Error',
+                            text: JSON.parse(e.responseText).message,
+                            type: 'error'
+                        });
+                    }
+                }
+            })
+            return false;
+        });
+    }
+}
+
+new PollRequest().send();
+
 function getAjaxError(e) {
     console.log(e);
-    return e.message;
+    return e.responseText.message;
 }
 
 $('.gallery').each(function () { // the containers for all your galleries
