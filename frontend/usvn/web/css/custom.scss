@@ -632,6 +632,7 @@ video[poster] {
 
     ul {
       list-style: none !important;
+      width: 90%;
     }
 
     p {
@@ -641,6 +642,7 @@ video[poster] {
     }
 
     span {
+      text-align: justify;
       color: black;
     }
   }

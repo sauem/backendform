@@ -8,8 +8,8 @@
                 pagination: {}
             }
             const [state, setState] = useState(initalState);
-            const updateState = async () => {
-                const {data, pagination} = await Articles.fetch();
+            const updateState = async (params = {}) => {
+                const {data, pagination} = await Articles.fetch(params);
                 setState({
                     ...state,
                     ...{
@@ -31,6 +31,7 @@
                           <i className="icon-add"/> Thêm bài viết</a>}>
                     <Spin spinning={state.loading}>
                         <Table
+                            onChange={({current, pageSize}) => updateState({page : current})}
                             dataSource={state.articles}
                             rowKey={'id'}
                             pagination={state.pagination}
