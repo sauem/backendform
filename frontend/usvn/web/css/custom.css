@@ -435,15 +435,11 @@ video[poster] {
     text-align: justify; }
     .box-detail .box-content td {
       vertical-align: top !important; }
-    .box-detail .box-content ul {
-      list-style: none !important;
-      width: 90%; }
     .box-detail .box-content p {
       font-size: 15px !important;
       color: black !important;
       padding: 0; }
     .box-detail .box-content span {
-      text-align: justify;
       color: black; }
 
 .form-contact {
