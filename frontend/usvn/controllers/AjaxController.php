@@ -71,11 +71,13 @@ class AjaxController extends BaseController
                         throw new BadRequestHttpException(HelperFunction::firstError($poll));
                     }
                 }
-                return $ids;
+                return true;
             } catch (\Exception $exception) {
-                throw new BadRequestHttpException($exception->getMessage());
+                return [
+                    'success' => 1,
+                    'msg' => $exception->getMessage()
+                ];
             }
         }
-        return \Yii::$app->request->post();
     }
 }

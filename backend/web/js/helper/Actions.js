@@ -250,7 +250,30 @@ const Contacts = {
         }
     }
 }
-
+const Poll = {
+    fetch: async (params) => {
+        try {
+            const res = await Server.get(ROUTE.POLL.INDEX, {
+                params: {
+                    ...params,
+                    sort: '-created_at',
+                    "per-page": 20
+                }
+            }).catch(axiosCatch);
+            const {data, headers} = res;
+            const current = headers['x-pagination-current-page'],
+                totalPage = headers['x-pagination-page-count'],
+                pageSize = headers['x-pagination-per-page'],
+                total = headers['x-pagination-total-count'],
+                pagination = {
+                    total, current, pageSize, totalPage
+                };
+            return {data, pagination};
+        } catch (e) {
+            message.error(e.message);
+        }
+    }
+}
 const Attributes = {
     create: async (attr) => {
         try {

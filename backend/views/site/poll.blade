@@ -1,0 +1,56 @@
+@section('js_pos')
+    <script type="text/babel">
+        const App = () => {
+            const initalState = {
+                modalTitle: '',
+                modalVisible: '',
+                loading: false,
+                briefs: [],
+                uploading: false
+            };
+            const [state, setState] = useState(initalState);
+            const [form] = Form.useForm();
+            const updateSate = async (obj = {}, page = 1) => {
+                setState({
+                    ...state,
+                    ...{
+                        loading: true,
+                    }
+                });
+                const {data, pagination} = await Poll.fetch({
+                    page: 1,
+                    ...obj,
+                });
+                setState({
+                    ...state,
+                    ...obj,
+                    pagination,
+                    loading: false,
+                    modalVisible: false,
+                    briefs: data
+                });
+                form.resetFields();
+            }
+            useEffect(() => {
+                updateSate();
+            }, []);
+            return (
+                <div>
+                    <Card title={`Thăm giò ý kiến`}>
+                        <Spin spinning={state.loading}>
+                            <Table
+                                dataSource={state.briefs}
+                                rowKey={'id'}
+                                columns={[
+                                    {title: 'Sản phẩm', dataIndex: 'product_id'},
+                                    {title: 'Số lượng vote', dataIndex: 'product_id'},
+                                ]}
+                            />
+                        </Spin>
+                    </Card>
+                </div>
+
+            );
+        }
+    </script>
+@stop

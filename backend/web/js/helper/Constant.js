@@ -157,6 +157,9 @@ const ROUTE = {
         DELETE: 'contact/delete',
         VIEW: 'contact/view'
     },
+    POLL: {
+        INDEX: 'poll/index',
+    },
     ARTICLE: {
         INDEX: 'article/index',
         CREATE: 'article/create',

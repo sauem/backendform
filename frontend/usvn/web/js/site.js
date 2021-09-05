@@ -132,7 +132,7 @@ new BriefRequest().send();
 
 
 function PollRequest() {
-    const reqBrief = async (ids) => {
+    const reqPoll = async (ids) => {
         return $.ajax({
             url: '/ajax/add-poll',
             type: 'POST',
@@ -171,10 +171,12 @@ function PollRequest() {
                 showConfirmButton: false,
                 clickOutside: false,
                 allowEscapeKey: false,
-                willOpen: async () => {
+                willOpen: () => {
                     swal.showLoading()
                     try {
-                        const res = await reqBrief(ids);
+                        (async () => {
+                            await reqPoll(ids)
+                        })();
                         swal.fire({
                             title: 'Successfully!',
                             icon: 'success',
@@ -184,11 +186,7 @@ function PollRequest() {
                             swal.close();
                             $("#modal-order").modal('hide');
                             form.trigger('reset');
-                            setTimeout(() => window.location.reload()
-                                ,
-                                1500
-                            )
-                            ;
+                            setTimeout(() => window.location.reload(), 1500);
                         });
                     } catch (e) {
                         swal.fire({
