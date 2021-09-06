@@ -433,13 +433,15 @@ video[poster] {
     overflow-y: scroll;
     position: relative;
     text-align: justify; }
-    .box-detail .box-content ul li {
-      list-style: disc;
-      position: relative; }
-      .box-detail .box-content ul li:before {
-        content: '\2022';
-        position: absolute;
-        left: 0; }
+    .box-detail .box-content ul {
+      list-style: none; }
+      .box-detail .box-content ul li {
+        list-style: none;
+        position: relative; }
+        .box-detail .box-content ul li:before {
+          content: '\2022';
+          position: absolute;
+          left: -20px; }
     .box-detail .box-content td {
       vertical-align: top !important; }
     .box-detail .box-content p {
