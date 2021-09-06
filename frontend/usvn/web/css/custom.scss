@@ -626,6 +626,12 @@ video[poster] {
     position: relative;
     text-align: justify;
 
+    ul {
+      li {
+        list-style: disc;
+      }
+    }
+
     td {
       vertical-align: top !important;
     }

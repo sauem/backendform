@@ -433,6 +433,8 @@ video[poster] {
     overflow-y: scroll;
     position: relative;
     text-align: justify; }
+    .box-detail .box-content ul li {
+      list-style: disc; }
     .box-detail .box-content td {
       vertical-align: top !important; }
     .box-detail .box-content p {
