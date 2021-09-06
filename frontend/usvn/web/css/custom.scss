@@ -629,6 +629,12 @@ video[poster] {
     ul {
       li {
         list-style: disc;
+        position: relative;
+        &:before{
+          content: '\2022';
+          position: absolute;
+          left: 0;
+        }
       }
     }
 
