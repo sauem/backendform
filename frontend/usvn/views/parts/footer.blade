@@ -23,7 +23,8 @@ if ($menu) {
                     Hotline, Zalo, Whatsapp: <a href="tel:0889244298">(+84) 0889244298</a>
                 </p>
                 <p class="">
-                    Hotline, Zalo, Whatsapp PKD: <a href="tel:0888523098">(+84) 0888523098</a> - <a href="tel:0888523098">(+84) 0912485198</a>
+                    Hotline, Zalo, Whatsapp PKD: <a href="tel:0888523098">(+84) 0888523098</a> - <a
+                            href="tel:0888523098">(+84) 0912485198</a>
                 </p>
                 <p class=""><?= Yii::t('app', 'email')?> : <a
                             href="mailto:<?= HelperFunction::setting('email')?>"><?= HelperFunction::setting('email')?></a>
@@ -63,5 +64,7 @@ if ($menu) {
     <a href="#" class="scroll-up">Scroll</a>
 </div>
 <div class="call-list">
-    <a class="btn-call"><i></i></a>
+    <a href="tel:+84912485198" class="btn-call"><img width="48" src="/img/svg/call.svg"></a>
+    <a href="https://api.whatsapp.com/send?phone=0912485198" class="btn-call"><img width="48" src="/img/svg/ws.svg"></a>
+    <a href="https://zalo.me/0912485198" class="btn-call"><img width="48" src="/img/svg/zalo.svg"></a>
 </div>

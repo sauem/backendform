@@ -583,6 +583,13 @@ video[poster] {
 .txt-brand {
   color: #0e2b3d; }
 
+.call-list {
+  position: fixed;
+  right: 20px;
+  bottom: 100px; }
+  .call-list .btn-call img {
+    margin-bottom: 10px; }
+
 .btn-order {
   background: #0e2b3d;
   color: white;

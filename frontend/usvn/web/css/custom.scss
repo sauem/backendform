@@ -856,6 +856,16 @@ video[poster] {
   color: $primary-color;
 }
 
+.call-list {
+  position: fixed;
+  right: 20px;
+  bottom: 100px;
+
+  .btn-call img {
+    margin-bottom: 10px;
+  }
+}
+
 .btn-order {
   background: $primary-color;
   color: white;
