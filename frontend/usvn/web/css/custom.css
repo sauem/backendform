@@ -436,7 +436,7 @@ video[poster] {
     .box-detail .box-content ul {
       list-style: none; }
       .box-detail .box-content ul li {
-        list-style: none;
+        list-style: none !important;
         position: relative; }
         .box-detail .box-content ul li:before {
           content: '\2022';

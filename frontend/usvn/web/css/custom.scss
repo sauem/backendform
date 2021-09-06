@@ -629,7 +629,7 @@ video[poster] {
     ul {
       list-style: none;
       li {
-        list-style: none;
+        list-style: none!important;
         position: relative;
         &:before{
           content: '\2022';
