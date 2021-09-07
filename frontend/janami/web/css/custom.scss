@@ -897,6 +897,7 @@ nav {
     }
 
     .img {
+      max-height: 365px;
       min-height: 365px;
       height: 100%;
       width: 100%;
@@ -1122,6 +1123,9 @@ nav {
       &.margin-left, &.margin-right {
         margin-left: 0 !important;
         margin-right: 0 !important;
+      }
+      a{
+        margin-top: 10px;
       }
     }
   }

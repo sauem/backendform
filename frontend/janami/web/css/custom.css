@@ -547,6 +547,7 @@ nav a {
         margin: 0;
         font-size: 16px; }
     .other-product .block-product .img {
+      max-height: 365px;
       min-height: 365px;
       height: 100%;
       width: 100%;
@@ -703,6 +704,8 @@ nav a {
     .list-shop .content-text.margin-left, .list-shop .content-text.margin-right {
       margin-left: 0 !important;
       margin-right: 0 !important; }
+    .list-shop .content-text a {
+      margin-top: 10px; }
 
   #banner-bottom {
     margin-bottom: 0 !important;
