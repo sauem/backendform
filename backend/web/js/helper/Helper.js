@@ -194,6 +194,23 @@ const formatNum = (num) => {
     return '' + num.toFixed(0).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
 }
 
+const getFrontLink = (type = 'article', archive = '', slug = '') => {
+    let host = window.location.hostname;
+    host = host.replace('admin.', '', host);
+    switch (type) {
+        case 'archive-product':
+            return `${host}/shop/${archive}`;
+        case 'archive-article':
+            return `${host}/article/${archive}`;
+        case 'article':
+            return `${host}/article/${archive}/${slug}`;
+        case 'product':
+            return `${host}/shop/${archive}/${slug}`;
+        default:
+            return host;
+    }
+}
+
 //
 // const renderPrice = (product) => {
 //     const {default_sale_price, default_price, default_sale_type} = product;

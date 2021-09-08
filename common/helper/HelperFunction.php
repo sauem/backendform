@@ -26,6 +26,12 @@ class HelperFunction
         return $domain;
     }
 
+    static function getFrontend($link = '')
+    {
+        $domain = preg_replace('/admin\.|\//', '', $_SERVER['HTTP_HOST']);
+        return "http://$domain$link";
+    }
+
     static function getDomain()
     {
         if (\Yii::$app instanceof Application) {
@@ -33,6 +39,7 @@ class HelperFunction
         }
         $domain = preg_replace('/\.|\//', '', $_SERVER['HTTP_HOST']);
         $domain = str_replace('admin', '', $domain);
+        $domain = str_replace('www', '', $domain);
         return $domain;
     }
 

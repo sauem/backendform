@@ -45,7 +45,16 @@
                         dataSource={state.products}
                         rowKey={'id'}
                         columns={[
-                            {title: 'Sản phẩm', dataIndex: 'name'},
+                            {
+                                title: 'Sản phẩm', dataIndex: 'name', render: (name, raw) => {
+                                    const preLink = getFrontLink('product', raw.defaultArchive.slug, raw.slug);
+                                    return (
+                                        <p className={`text-1`}>{name}
+                                            <a target="_blank" href={`http://${preLink}`}><small>Xem</small></a>
+                                        </p>
+                                    )
+                                }
+                            },
                             {
                                 title: 'Danh mục mặc định', dataIndex: 'id', key: 'id',
                                 render: (id, raw) => {

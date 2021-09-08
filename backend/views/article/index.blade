@@ -31,15 +31,18 @@
                           <i className="icon-add"/> Thêm bài viết</a>}>
                     <Spin spinning={state.loading}>
                         <Table
-                            onChange={({current, pageSize}) => updateState({page : current})}
+                            onChange={({current, pageSize}) => updateState({page: current})}
                             dataSource={state.articles}
                             rowKey={'id'}
                             pagination={state.pagination}
                             columns={[
                                 {
                                     title: 'Tên bài viết', dataIndex: 'name', key: 'name',
-                                    render: name => {
-                                        return <p className={`text-1`}>{name}</p>
+                                    render: (name, raw) => {
+                                        return <p className={`text-1`}>{name} <a
+                                            target="_blank"
+                                            href={`http:\/\/${getFrontLink('article', raw.archive.slug, raw.slug)}`}><small>Xem</small></a>
+                                        </p>
                                     }
                                 },
                                 {
