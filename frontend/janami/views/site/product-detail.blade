@@ -6,6 +6,13 @@ $view->title = $model->name;
 
 Yii::$app->params['header_style'] = true;
 ?>
+<?php $view->beginBlock('schema') ?>
+<?= $view->render('/structure/schema.blade', [
+    'type' => 'Product',
+    'name' => $model->name ?? 'Product',
+    'url' => HelperFunction::currentURL()
+])?>
+<?php $view->endBlock()?>
 
 @section('content')
     <?= $view->render('../parts/slider.blade') ?>

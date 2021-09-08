@@ -8,7 +8,7 @@ $bannerBottom = HelperFunction::getBanner('sidebar_right_bottom', ['article']);
 ?>
 
 <?php $view->beginBlock('schema') ?>
-<?= $view->render('schema.blade', [
+<?= $view->render('/structure/schema.blade', [
     'type' => 'Article',
     'name' => $model->name ?? 'Article',
     'url' => HelperFunction::currentURL()

@@ -6,7 +6,7 @@ $view->title = $model ? $model->name : 'Shop';
 $isLisProduct = $model && $model->layout !== 'default' && $model->layout_show === 'product_list';
 ?>
 <?php $view->beginBlock('schema') ?>
-<?= $view->render('schema.blade', [
+<?= $view->render('/structure/schema.blade', [
     'type' => 'Product List',
     'name' => $model->name ?? 'Product List',
     'url' => HelperFunction::currentURL()

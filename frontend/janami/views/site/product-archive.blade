@@ -6,7 +6,7 @@ use yii\widgets\ListView;
 $view->title = $model->name;
 ?>
 <?php $view->beginBlock('schema') ?>
-<?= $view->render('schema.blade', [
+<?= $view->render('/structure/schema.blade', [
     'type' => 'Product List',
     'name' => $model->name ?? 'Product List',
     'url' => HelperFunction::currentURL()
