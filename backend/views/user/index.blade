@@ -49,7 +49,7 @@ $view->title = 'Tài khoán';
                     loading: false
                 });
             }
-            const onDelete = async (id) => {
+            const onDeleteUser = async (id) => {
                 Users.delete(id).then(() => updateState());
             }
             const updateUser = async (raw) => {
@@ -166,9 +166,8 @@ $view->title = 'Tài khoán';
                                                                     className={`mr-1`} size={`small`}><i
                                                                 className="icon icon-edit"/></Button>
                                                             <Popconfirm
-                                                                disabled
                                                                 title="Xóa tài khoản hiện tại"
-                                                                onConfirm={() => onDelete(raw.id)}
+                                                                onConfirm={() => onDeleteUser(raw.id)}
                                                                 okText="Xóa"
                                                                 cancelText="Hủy"
                                                             >
