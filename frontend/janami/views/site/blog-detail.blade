@@ -6,6 +6,15 @@ $view->title = $model->name;
 $bannerTop = HelperFunction::getBanner('sidebar_right_top', 'article');
 $bannerBottom = HelperFunction::getBanner('sidebar_right_bottom', ['article']);
 ?>
+
+<?php $view->beginBlock('schema') ?>
+<?= $view->render('schema.blade', [
+    'type' => 'Article',
+    'name' => $model->name ?? 'Article',
+    'url' => HelperFunction::currentURL()
+])?>
+<?php $view->endBlock()?>
+
 @section('content')
     <?= $view->render('../parts/slider.blade')?>
 

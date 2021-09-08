@@ -213,4 +213,9 @@ class HelperFunction
         $img_url = '/img/vthumb.php?src=' . $url . '&size=' . $size[0] . 'x' . $size[1] . '&zoom=1&q=90';
         return $img_url;
     }
+
+    static function currentURL()
+    {
+        return \Yii::$app->request->url;
+    }
 }

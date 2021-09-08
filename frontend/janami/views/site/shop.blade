@@ -5,6 +5,14 @@ use yii\widgets\ListView;
 $view->title = $model ? $model->name : 'Shop';
 $isLisProduct = $model && $model->layout !== 'default' && $model->layout_show === 'product_list';
 ?>
+<?php $view->beginBlock('schema') ?>
+<?= $view->render('schema.blade', [
+    'type' => 'Product List',
+    'name' => $model->name ?? 'Product List',
+    'url' => HelperFunction::currentURL()
+])?>
+<?php $view->endBlock()?>
+
 @section('content')
 
     <?= $view->render('../parts/slider.blade') ?>

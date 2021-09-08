@@ -4,6 +4,13 @@ use common\helper\HelperFunction;
 use yii\widgets\ListView;
 $view->title = $model ? $model->name : 'Shop';
 ?>
+<?php $view->beginBlock('schema') ?>
+<?= $view->render('schema.blade', [
+    'type' => 'Product List',
+    'name' => $model->name ?? 'Shop list',
+    'url' => HelperFunction::currentURL()
+])?>
+<?php $view->endBlock()?>
 @section('content')
 
     <?= $view->render('../parts/slider.blade') ?>
@@ -71,10 +78,6 @@ $view->title = $model ? $model->name : 'Shop';
                                                     <a href={`/shop/${item.defaultArchive.slug}/${item.slug}`}
                                                        className="btn-action"><i className="fas xam fa-plus"/>
                                                         <span className={'tool-tip'}>Xem chi tiết</span>
-                                                    </a>
-                                                    <a href="" className="btn-action">
-                                                        <i className="fas xam fa-heart"/>
-                                                        <span className={'tool-tip'}>Thêm vào yêu thích</span>
                                                     </a>
                                                 </div>
                                             </div>
