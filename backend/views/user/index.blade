@@ -21,9 +21,13 @@ $view->title = 'Tài khoán';
             const onSubmit = async (data) => {
                 if (typeof data.id !== "undefined") {
                     await Users.update(data);
+                    message.success('Cập nhật tài khoản thành công!');
                 } else {
                     await Users.create(data);
+                    message.success('Tạo tài khoản thành công!');
                 }
+                setIsUpdate(false);
+                form.resetFields();
                 await updateState({loading: false});
             }
             const changePage = async ({current}) => {
@@ -39,11 +43,10 @@ $view->title = 'Tài khoán';
                 const {pagination, data} = await Users.fetch();
                 setState({
                     ...state,
-                    ...Object.assign({
-                        users: data,
-                        pagination: pagination,
-                        loading: false
-                    }, obj)
+                    ...obj,
+                    users: data,
+                    pagination: pagination,
+                    loading: false
                 });
             }
             const onDelete = async (id) => {

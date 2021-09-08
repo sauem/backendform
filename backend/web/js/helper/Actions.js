@@ -393,7 +393,7 @@ const Users = {
     },
     update: async (user) => {
         try {
-            const {data} = await Server.put(ROUTE.USER.UPDATE + `?id=${user.id}`, archive).catch(axiosCatch);
+            const {data} = await Server.put(ROUTE.USER.UPDATE + `?id=${user.id}`, user).catch(axiosCatch);
             return data;
         } catch (e) {
             message.error(e.message);

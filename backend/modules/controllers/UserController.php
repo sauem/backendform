@@ -33,7 +33,7 @@ class UserController extends BaseActiveFilterController
         $model->username = \Yii::$app->request->post('username');
         $model->status = \Yii::$app->request->post('status');
         if (\Yii::$app->request->post('new_password_hash')) {
-            $model->password_hash = $model->setPassword(\Yii::$app->request->post('new_password_hash'));
+            $model->setPassword(\Yii::$app->request->post('new_password_hash'));
         }
         if (!$model->save()) {
             throw new BadRequestHttpException(HelperFunction::firstError($model));
