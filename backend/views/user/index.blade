@@ -16,6 +16,7 @@ $view->title = 'Tài khoán';
                 searchValue: ''
             }
             const [state, setState] = useState(initialState);
+            const [isUpdate, setIsUpdate] = useState(false);
             const [form] = Form.useForm();
             const onSubmit = async (data) => {
                 if (typeof data.id !== "undefined") {
@@ -47,6 +48,12 @@ $view->title = 'Tài khoán';
             }
             const onDelete = async (id) => {
                 Users.delete(id).then(() => updateState());
+            }
+            const updateUser = async (raw) => {
+                setIsUpdate(true);
+                form.setFieldsValue({
+                    ...raw
+                })
             }
             const setSearchValue = e => {
                 setState({
@@ -96,13 +103,19 @@ $view->title = 'Tài khoán';
                                     >
                                         <Input/>
                                     </Form.Item>
-                                    <Form.Item
+                                    {!isUpdate ? <Form.Item
                                         name={'password_hash'}
                                         label={`Mật khẩu`}
                                         rules={[{required: true, message: 'Mật khẩu bắt buộc!'}]}
                                     >
                                         <Input.Password/>
-                                    </Form.Item>
+                                    </Form.Item> : <Form.Item
+                                        name={'new_password_hash'}
+                                        label={`Mật khẩu mới`}
+                                    >
+                                        <Input.Password placeholder={'Bỏ trống nếu không đổi mật khẩu mới'}/>
+                                    </Form.Item>}
+
                                     <Divider/>
                                     <div className="text-right">
                                         <small className="text-danger mr-2">* thông tin bắt buộc</small>
@@ -146,7 +159,7 @@ $view->title = 'Tài khoán';
                                                 title: '', dataIndex: 'action', key: 'action', render: (text, raw) => {
                                                     return (
                                                         <div>
-                                                            <Button onClick={() => onUpdate(raw)} type="primary"
+                                                            <Button onClick={() => updateUser(raw)} type="primary"
                                                                     className={`mr-1`} size={`small`}><i
                                                                 className="icon icon-edit"/></Button>
                                                             <Popconfirm
@@ -156,7 +169,7 @@ $view->title = 'Tài khoán';
                                                                 okText="Xóa"
                                                                 cancelText="Hủy"
                                                             >
-                                                                <Button disabled type="dashed" danger size={`small`}><i
+                                                                <Button type="dashed" danger size={`small`}><i
                                                                     className="icon icon-trash"/></Button>
                                                             </Popconfirm>
                                                         </div>
