@@ -223,8 +223,7 @@ Yii::$app->params['footer_type'] = 'light';
                                             </div>
                                             <div
                                                 className={`col-md-6 ${float === 'right' && 'order-2 order-md-1'}`}>
-                                                {item.icon && (
-                                                    <img width={24} height={24} src={`/img/icons/${item.icon}.svg`}/>)}
+                                                
                                                 <h2 className={`title-cat mt-3 ${item.icon}`}><a
                                                     href={`/shop/${item.slug}`}>{item.name}</a></h2>
                                                 <p>{item.description}</p>
