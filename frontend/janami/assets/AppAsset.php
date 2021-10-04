@@ -66,7 +66,7 @@ class AppAsset extends AssetBundle
         '/js/jquery.validate.min.js',
         '/js/jquery.desoslide.min.js',
         '/js/custom.js',
-        '/js/site.js?v=1.8',
+        '/js/site.js?v=1.9',
         ['/js/action.js', 'type' => 'text/babel'],
         ['/js/cart.js', 'type' => 'text/babel']
     ];

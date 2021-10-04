@@ -3,6 +3,7 @@ $('.slides').owlCarousel({
     animateOut: 'fadeOut',
     autoplay: true,
     loop: true,
+    autoHeight:true
 });
 
 $('.post-carousel').owlCarousel({
