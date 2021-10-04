@@ -51,7 +51,7 @@ $view->title = $model ? $model->name : 'Shop';
                     setLoading(true);
                     const response = await getProduct({
                         ...params,
-                        per_page: 24
+                        "per-page": 24
                     });
                     setProducts(response.data);
                     setPaginate(response.pagination);
