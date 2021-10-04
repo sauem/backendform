@@ -67,10 +67,10 @@ const getProduct = async (params = {}, link = '/product-filter') => {
     try {
         const res = await AJAX.get(link, {
             params: {
-                ...params,
                 sort: '-created_at',
                 expand: 'avatar,archives,thumbs,defaultArchive',
-                "per-page": 12
+                "per-page": 12,
+                ...params
             }
         });
 
