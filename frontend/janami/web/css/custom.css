@@ -658,7 +658,8 @@ nav a {
   background-color: #d7e2e8; }
   .gtcl .content {
     padding: 20px;
-    min-height: 352px; }
+    min-height: 352px;
+    height: 100%; }
     .gtcl .content.bg-1 {
       background-color: #f1f8e0; }
     .gtcl .content.bg-2 {
