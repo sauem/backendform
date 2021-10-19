@@ -17,11 +17,37 @@ Yii::$app->params['footer_type'] = 'light';
     <?= $view->render('../parts/slider.blade') ?>
 
 
-    <section id="services-18" class="bg-color-01 bg-img03 wide-30 services-section division">
+
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/11mVSlEK9m4?controls=0"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                </div>
+                <div class="col-md-6">
+                    <h4 class="table-primary">Câu chuyện về Janami</h4>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
+                        the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
+                        of type and scrambled it to make a type specimen book. It has survived not only five centuries,
+                        but also the leap into electronic typesetting, remaining essentially unchanged. It was
+                        popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
+                        and more recently with desktop publishing software like Aldus PageMaker including versions of
+                        Lorem Ipsum.</p>
+                    <button class="btn btn-default">XEM THÊM</button>
+                </div>
+            </div>
+        </div>
+        <!-- End container -->
+    </section>
+
+    <section id="services-18" class="bg-color-01 bg-img03 wide-20 services-section division">
         <div class="container">
             <div class="row">
                 <div class="col-lg-10 offset-lg-1">
-                    <div class="section-title mb-60 text-center">
+                    <div class="section-title mb-20 text-center">
                         <h2 class="mb-1">
                             <img src="/img/icons/product.svg">
                         </h2>
@@ -38,7 +64,250 @@ Yii::$app->params['footer_type'] = 'light';
         <div id="list-category"></div>
         <!-- End container -->
     </section>    <!-- END SERVICES-18 -->
+    <?php
+    $invent = Yii::$app->params['invent'];
+    ?>
+    <section class="invent gtcl wide-30">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mt-4 mb-5">
+                    <h2 class="do">THÀNH PHẦN, CÔNG NGHỆ DƯỢC CẤP BẰNG SÁNG CHẾ</h2>
+                </div>
+                <div class="col-12">
+                    <div class="owl-carousel owl-theme creative-carousel">
+                        @if(!empty($invent))
+                            @foreach($invent as $item)
+                                <div class="content">
+                                    <div class="icon-top">
+                                        <img src="{{$item['image']}}" class="img-fluid"/>
+                                    </div>
+                                    <h4 class="title do">{{$item['name']}}</h4>
+                                    <p>{{$item['content']}}</p>
+                                </div>
+                            @endforeach
+                        @endif
 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="wide-20">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7">
+                    <div class="mt-40">
+                        <iframe width="100%" height="315" src="https://www.youtube.com/embed/5Pe3Kk4ydfc?controls=0"
+                                title="YouTube video player" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <h4 class="text-center">BẰNG SÁNG CHẾ</h4>
+                    <div class="owl-carousel owl-theme invention-carousel mb-2">
+                        <img src="/img/invent/bang1.png"/>
+                        <img src="/img/invent/bang2.jpg"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="wide-20">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="col-md-12">
+                        <h4 class="text-left mb-20">BÁO CHÍ NÓI VỀ CHÚNG TÔI</h4>
+                        <div class="wrap-paper">
+                            <div class="owl-carousel owl-theme paper-carousel">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <img src="/img/invent/bao1.jpg" class="img-fluid"/>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="text-paper">
+                                            <p>[Báo người đưa tin]</p>
+                                            <p>QUY TẮC VÀNG CHO QUÝ CÔ CÔNG SỞ MÙA NẮNG NÓNG</p>
+                                            <p>
+                                                Thời tiết khắc nghiệt xứ nhiệt đới với nhiệt độ cao và lượng tia cực
+                                                tím mạnh luôn khiến làn da và cơ thể đối mặt với nhiều stress hơn
+                                                bình thường. Cộng với ô nhiễm môi trường, bụi mịn cùng với việc đeo
+                                                khẩu trang y tế liên tục khiến làn da của bạn biểu tình với dầu
+                                                loang lổ, mụn viêm, nám sạm rõ hơn… Bôi kem dưỡng ẩm, chống nắng,
+                                                giấy thấm dầu… vẫn chưa đáp ứng? Hãy tham khảo một số tips vàng
+                                                “chăm trong đẹp ngoài” của các quý cô công sở của ELLE nhé.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <img src="/img/invent/bao1.jpg" class="img-fluid"/>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="text-paper">
+                                            <p>[Báo người đưa tin]</p>
+                                            <p>QUY TẮC VÀNG CHO QUÝ CÔ CÔNG SỞ MÙA NẮNG NÓNG</p>
+                                            <p>
+                                                Thời tiết khắc nghiệt xứ nhiệt đới với nhiệt độ cao và lượng tia cực
+                                                tím mạnh luôn khiến làn da và cơ thể đối mặt với nhiều stress hơn
+                                                bình thường. Cộng với ô nhiễm môi trường, bụi mịn cùng với việc đeo
+                                                khẩu trang y tế liên tục khiến làn da của bạn biểu tình với dầu
+                                                loang lổ, mụn viêm, nám sạm rõ hơn… Bôi kem dưỡng ẩm, chống nắng,
+                                                giấy thấm dầu… vẫn chưa đáp ứng? Hãy tham khảo một số tips vàng
+                                                “chăm trong đẹp ngoài” của các quý cô công sở của ELLE nhé.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <img src="/img/invent/bao1.jpg" class="img-fluid"/>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="text-paper">
+                                            <p>[Báo người đưa tin]</p>
+                                            <p>QUY TẮC VÀNG CHO QUÝ CÔ CÔNG SỞ MÙA NẮNG NÓNG</p>
+                                            <p>
+                                                Thời tiết khắc nghiệt xứ nhiệt đới với nhiệt độ cao và lượng tia cực
+                                                tím mạnh luôn khiến làn da và cơ thể đối mặt với nhiều stress hơn
+                                                bình thường. Cộng với ô nhiễm môi trường, bụi mịn cùng với việc đeo
+                                                khẩu trang y tế liên tục khiến làn da của bạn biểu tình với dầu
+                                                loang lổ, mụn viêm, nám sạm rõ hơn… Bôi kem dưỡng ẩm, chống nắng,
+                                                giấy thấm dầu… vẫn chưa đáp ứng? Hãy tham khảo một số tips vàng
+                                                “chăm trong đẹp ngoài” của các quý cô công sở của ELLE nhé.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <img src="/img/invent/bao1.jpg" class="img-fluid"/>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="text-paper">
+                                            <p>[Báo người đưa tin]</p>
+                                            <p>QUY TẮC VÀNG CHO QUÝ CÔ CÔNG SỞ MÙA NẮNG NÓNG</p>
+                                            <p>
+                                                Thời tiết khắc nghiệt xứ nhiệt đới với nhiệt độ cao và lượng tia cực
+                                                tím mạnh luôn khiến làn da và cơ thể đối mặt với nhiều stress hơn
+                                                bình thường. Cộng với ô nhiễm môi trường, bụi mịn cùng với việc đeo
+                                                khẩu trang y tế liên tục khiến làn da của bạn biểu tình với dầu
+                                                loang lổ, mụn viêm, nám sạm rõ hơn… Bôi kem dưỡng ẩm, chống nắng,
+                                                giấy thấm dầu… vẫn chưa đáp ứng? Hãy tham khảo một số tips vàng
+                                                “chăm trong đẹp ngoài” của các quý cô công sở của ELLE nhé.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <img src="/img/invent/bao1.jpg" class="img-fluid"/>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="text-paper">
+                                            <p>[Báo người đưa tin]</p>
+                                            <p>QUY TẮC VÀNG CHO QUÝ CÔ CÔNG SỞ MÙA NẮNG NÓNG</p>
+                                            <p>
+                                                Thời tiết khắc nghiệt xứ nhiệt đới với nhiệt độ cao và lượng tia cực
+                                                tím mạnh luôn khiến làn da và cơ thể đối mặt với nhiều stress hơn
+                                                bình thường. Cộng với ô nhiễm môi trường, bụi mịn cùng với việc đeo
+                                                khẩu trang y tế liên tục khiến làn da của bạn biểu tình với dầu
+                                                loang lổ, mụn viêm, nám sạm rõ hơn… Bôi kem dưỡng ẩm, chống nắng,
+                                                giấy thấm dầu… vẫn chưa đáp ứng? Hãy tham khảo một số tips vàng
+                                                “chăm trong đẹp ngoài” của các quý cô công sở của ELLE nhé.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="services-18" class="bg-color-01 mb-20 bg-img03 wide-20 services-section division">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 offset-lg-1">
+                    <div class="section-title mb-20 text-center">
+                        <h2 class="mb-1">
+                            <img src="/img/icons/product.svg">
+                        </h2>
+                        <h3 class="h3-xl do">Khách hàng nói gì về Janami</h3>
+                        <p class="p-lg txt-color-05">
+                            Đánh giá của khách hàng đã và đang sử dụng sản phẩm & dịch vụ của Janami
+                        </p>
+                    </div>
+                    <div class="owl-carousel owl-theme testimonial-carousel">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <img src="/img/invent/bao1.jpg" class="img-fluid"/>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="text-paper">
+
+                                    <p>QUY TẮC VÀNG CHO QUÝ CÔ CÔNG SỞ MÙA NẮNG NÓNG</p>
+                                    <p>
+                                        Thời tiết khắc nghiệt xứ nhiệt đới với nhiệt độ cao và lượng tia cực
+                                        tím mạnh luôn khiến làn da và cơ thể đối mặt với nhiều stress hơn
+                                        bình thường. Cộng với ô nhiễm môi trường</p>
+                                    <p class="actor">Nguyễn Đình Thắng <span>Lập trình viên</span></p>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <img src="/img/invent/bao1.jpg" class="img-fluid"/>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="text-paper">
+                                    <p>QUY TẮC VÀNG CHO QUÝ CÔ CÔNG SỞ MÙA NẮNG NÓNG</p>
+                                    <p>
+                                        Thời tiết khắc nghiệt xứ nhiệt đới với nhiệt độ cao và lượng tia cực
+                                        tím mạnh luôn khiến làn da và cơ thể đối mặt với nhiều stress hơn
+                                        bình thường. Cộng với ô nhiễm môi trường</p>
+                                    <p class="actor">Nguyễn Đình Thắng <span>Lập trình viên</span></p>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <img src="/img/invent/bao1.jpg" class="img-fluid"/>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="text-paper">
+                                    <p>QUY TẮC VÀNG CHO QUÝ CÔ CÔNG SỞ MÙA NẮNG NÓNG</p>
+                                    <p>
+                                        Thời tiết khắc nghiệt xứ nhiệt đới với nhiệt độ cao và lượng tia cực
+                                        tím mạnh luôn khiến làn da và cơ thể đối mặt với nhiều stress hơn
+                                        bình thường. Cộng với ô nhiễm môi trường</p>
+                                    <p class="actor">Nguyễn Đình Thắng <span>Lập trình viên</span></p>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <img src="/img/invent/bao1.jpg" class="img-fluid"/>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="text-paper">
+                                    <p>QUY TẮC VÀNG CHO QUÝ CÔ CÔNG SỞ MÙA NẮNG NÓNG</p>
+                                    <p>
+                                        Thời tiết khắc nghiệt xứ nhiệt đới với nhiệt độ cao và lượng tia cực
+                                        tím mạnh luôn khiến làn da và cơ thể đối mặt với nhiều stress hơn
+                                        bình thường. Cộng với ô nhiễm môi trường</p>
+                                    <p class="actor">Nguyễn Đình Thắng <span>Lập trình viên</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="list-category"></div>
+        <!-- End container -->
+    </section>    <!-- END SERVICES-18 -->
     <section class="bg-lam2 gtcl wide-60">
         <div class="container">
             <div class="row">
@@ -178,6 +447,14 @@ Yii::$app->params['footer_type'] = 'light';
             </div>    <!-- END BLOG POSTS HOLDER -->
         </div>       <!-- End container -->
     </section>
+    <section class="wide-20">
+        <div class="text-center">
+            <img src="/img/syringe.png"/>
+            <p class="text-big">Bạn là chủ Spa / Thẩm mỹ viện</p>
+            <p>Xin vui lòng Đăng ký và nhận thông tin Chính sách tại đây</p>
+            <a href="#">Liên hệ ></a>
+        </div>
+    </section>
     <?= $view->render('../parts/logo.blade') ?>
 
 
@@ -223,7 +500,7 @@ Yii::$app->params['footer_type'] = 'light';
                                             </div>
                                             <div
                                                 className={`col-md-6 ${float === 'right' && 'order-2 order-md-1'}`}>
-                                                
+
                                                 <h2 className={`title-cat mt-3 ${item.icon}`}><a
                                                     href={`/shop/${item.slug}`}>{item.name}</a></h2>
                                                 <p>{item.description}</p>

@@ -3,10 +3,10 @@ $('.slides').owlCarousel({
     animateOut: 'fadeOut',
     autoplay: true,
     loop: true,
-    autoHeight:true
+    autoHeight: true
 });
 
-$('.post-carousel').owlCarousel({
+$('.post-carousel,.creative-carousel').owlCarousel({
     items: 3,
     margin: 20,
     animateOut: 'fadeOut',
@@ -28,7 +28,29 @@ $('.post-carousel').owlCarousel({
         }
     }
 })
-$('.banner-carousel').owlCarousel({
+$(".paper-carousel,.testimonial-carousel").owlCarousel({
+    items: 1,
+    margin: 20,
+    animateOut: 'fadeOut',
+    autoplay: true,
+    nav: true,
+    dots: true,
+    navText: ['<i class="fas fa-angle-left"></i>', '<i class="fas fa-angle-right"></i>'],
+    responsive: {
+        //  loop: true,
+        0: {
+            items: 1,
+            autoHeight: true
+        },
+        720: {
+            items: 1
+        },
+        960: {
+            items: 1
+        }
+    }
+})
+$('.banner-carousel,.invention-carousel').owlCarousel({
     items: 2,
     margin: 20,
     animateOut: 'fadeOut',
