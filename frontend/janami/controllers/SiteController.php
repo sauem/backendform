@@ -241,8 +241,8 @@ class SiteController extends BaseController
                 break;
             default:
                 $template = 'blog-detail.blade';
-                if ($slug === 'cau-chuyen-janami') {
-                    $template = 'cau-chuyen-janami.blade';
+                if ($slug === 've-janami') {
+                    $template = 've-janami.blade';
                 }
                 $model = Articles::findOne(['slug' => $slug]);
                 if (!$model) {

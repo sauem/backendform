@@ -874,4 +874,21 @@ nav a {
   font-size: 16px;
   margin: 0; }
 
+.about-janami strong {
+  font-weight: bold; }
+.about-janami .content p {
+  font-size: 14px; }
+
+.list-logo .img {
+  width: 100%;
+  height: 150px;
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+  margin-bottom: 10px; }
+  .list-logo .img img {
+    display: flex;
+    object-position: center;
+    object-fit: cover; }
+
 /*# sourceMappingURL=custom.css.map */
