@@ -244,6 +244,9 @@ class SiteController extends BaseController
                 if ($slug === 've-janami') {
                     $template = 've-janami.blade';
                 }
+                if ($slug === 'dai-ly') {
+                    $template = 'dai-ly.blade';
+                }
                 $model = Articles::findOne(['slug' => $slug]);
                 if (!$model) {
                     throw new BadRequestHttpException('Không tồn tại sản phẩm!');

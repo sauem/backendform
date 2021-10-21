@@ -1423,3 +1423,10 @@ nav {
     }
   }
 }
+.owl-carousel{
+  &.hide-navigation{
+    .owl-nav{
+      display: none;
+    }
+  }
+}

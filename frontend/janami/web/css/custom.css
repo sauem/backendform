@@ -891,4 +891,7 @@ nav a {
     object-position: center;
     object-fit: cover; }
 
+.owl-carousel.hide-navigation .owl-nav {
+  display: none; }
+
 /*# sourceMappingURL=custom.css.map */
