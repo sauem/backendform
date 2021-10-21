@@ -59,6 +59,7 @@ class AppAsset extends AssetBundle
         '/js/owl.carousel.min.js',
         '/js/jquery.magnific-popup.min.js',
         '/js/hero-form.js',
+        '/js/pdf.js',
         '/js/contact-form.js',
         '/js/comment-form.js',
         '/js/booking-form.js',

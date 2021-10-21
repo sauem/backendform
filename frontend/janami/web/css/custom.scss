@@ -1202,6 +1202,7 @@ nav {
       display: flex;
       align-items: start;
       justify-content: space-between;
+
       img {
         min-width: 24px;
       }
@@ -1443,6 +1444,48 @@ nav {
   &.hide-navigation {
     .owl-nav {
       display: none;
+    }
+  }
+}
+
+.pdf-viewer {
+  position: relative;
+  border-radius: 30px;
+  overflow: hidden;
+  .pdf-action {
+    width: 100%;
+
+    .page {
+      position: absolute;
+      right: 20px;
+      bottom: 20px;
+      z-index: 1;
+      color: white;
+      padding: 10px;
+      background-color: rgba(0, 0, 0, 0.6);
+    }
+
+    button {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      width: 40px;
+      height: 40px;
+      background: none;
+      border-radius: 100%;
+      border: 1px solid #FFF;
+      color: white;
+      font-size: 20px;
+      background: rgba(0, 0, 0, 0.6);
+
+      &#prev {
+        left: 5px;
+      }
+
+      &#next {
+        right: 5px;
+      }
     }
   }
 }
