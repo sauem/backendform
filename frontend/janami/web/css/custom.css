@@ -749,6 +749,15 @@ nav a {
 
 .gtcl {
   background-color: #d7e2e8; }
+  .gtcl ul.text-icon li {
+    display: flex;
+    align-items: start;
+    justify-content: space-between; }
+    .gtcl ul.text-icon li img {
+      min-width: 24px; }
+    .gtcl ul.text-icon li p {
+      padding-left: 10px;
+      text-align: left; }
   .gtcl .content {
     padding: 20px;
     min-height: 352px;
@@ -775,8 +784,6 @@ nav a {
       color: #367766; }
     .gtcl h4.vang {
       color: #f6c251; }
-  .gtcl p {
-    text-align: center; }
   .gtcl.invent {
     background-image: url("../img/invent/pnk.jpeg");
     background-size: cover;
@@ -803,7 +810,8 @@ nav a {
     .gtcl.invent .content {
       background: none; }
       .gtcl.invent .content p {
-        font-size: 14px; }
+        font-size: 14px;
+        text-align: center; }
     .gtcl.invent .icon-top {
       padding: 0 40px; }
 

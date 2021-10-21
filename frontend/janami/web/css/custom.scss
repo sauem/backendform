@@ -1197,6 +1197,22 @@ nav {
 .gtcl {
   background-color: $bg-lam2;
 
+  ul.text-icon {
+    li {
+      display: flex;
+      align-items: start;
+      justify-content: space-between;
+      img {
+        min-width: 24px;
+      }
+
+      p {
+        padding-left: 10px;
+        text-align: left;
+      }
+    }
+  }
+
   .content {
     padding: 20px;
     min-height: 352px;
@@ -1243,9 +1259,6 @@ nav {
     }
   }
 
-  p {
-    text-align: center;
-  }
 
   &.invent {
     background-image: url("../img/invent/pnk.jpeg");
@@ -1286,6 +1299,7 @@ nav {
 
       p {
         font-size: 14px;
+        text-align: center;
       }
     }
 
@@ -1416,6 +1430,7 @@ nav {
     overflow: hidden;
     align-items: center;
     margin-bottom: 10px;
+
     img {
       display: flex;
       object-position: center;
@@ -1423,9 +1438,10 @@ nav {
     }
   }
 }
-.owl-carousel{
-  &.hide-navigation{
-    .owl-nav{
+
+.owl-carousel {
+  &.hide-navigation {
+    .owl-nav {
       display: none;
     }
   }
