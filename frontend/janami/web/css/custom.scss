@@ -1539,6 +1539,14 @@ nav {
 }
 
 .item-product-home {
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+
+  &:hover {
+    background: white;
+    //box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  }
+
   .img {
     max-height: 276px;
     height: 276px;
@@ -1558,6 +1566,13 @@ nav {
       min-height: 62px;
       font-size: 16px;
       margin-bottom: 0;
+
+      &:hover {
+        a {
+          color: #E44126;
+          text-decoration: underline;
+        }
+      }
     }
 
     .product-price {
@@ -1737,7 +1752,7 @@ nav {
     }
 
     &:hover {
-      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      //box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     }
   }
 }

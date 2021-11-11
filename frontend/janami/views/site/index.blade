@@ -204,13 +204,17 @@ Yii::$app->params['footer_type'] = 'light';
                                     @foreach($archiveHome as $k =>  $archive)
                                         @if(!empty($archive->products))
                                             @foreach($archive->products as $product)
-                                                <div class="item-product-home">
+                                                <div class="item-product-home hvr-shadow">
                                                     <div class="img">
-                                                        <img src="<?= HelperFunction::checkImage($product->avatar)?>"
-                                                             class="w-100 img-fluid"/>
+                                                        <a href="/shop/<?= $product->defaultArchive->slug ?>/<?= $product->slug?>">
+                                                            <img src="<?= HelperFunction::checkImage($product->avatar)?>"
+                                                                 class="w-100 img-fluid"/>
+                                                        </a>
                                                     </div>
                                                     <div class="product-info">
-                                                        <p class="product-name">{{$product->name}}</p>
+                                                        <p class="product-name">
+                                                            <a href="/shop/<?= $product->defaultArchive->slug ?>/<?= $product->slug?>">{{$product->name}}</a>
+                                                        </p>
                                                         <p class="product-price"><?= HelperFunction::htmlPrice($product)?></p>
                                                         <svg width="121" height="24" viewBox="0 0 121 24"
                                                              fill="none"
@@ -450,7 +454,7 @@ Yii::$app->params['footer_type'] = 'light';
                     </div>
                     <div class="row mt-5">
                         <div class="col-md-4">
-                            <div class="item-why text-center">
+                            <div class="item-why hvr-float-shadow text-center">
                                 <img src="/img/like.png" class="img-fluid"/>
                                 <p class="title">CHUYÊN GIA & ĐÁNG TIN CẬY</p>
                                 <p class="text">Đồng hành cùng khách hàng với phác đồ trị liệu chuẩn khoa học và giải
@@ -467,7 +471,7 @@ Yii::$app->params['footer_type'] = 'light';
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <div class="item-why text-center">
+                            <div class="item-why hvr-float-shadow text-center">
                                 <img src="/img/why1.png" class="img-fluid"/>
                                 <p class="title">LỖ LỰC & SÁNG TẠO</p>
                                 <p class="text">Luôn lỗ lực cung cấp cho quý khách hàng những giải pháp tốt nhất</p>
@@ -482,7 +486,7 @@ Yii::$app->params['footer_type'] = 'light';
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <div class="item-why text-center">
+                            <div class="item-why hvr-float-shadow text-center">
                                 <img src="/img/why2.png" class="img-fluid"/>
                                 <p class="title">LẮNG NGHE VÀ THẤU HIỂU</p>
                                 <p class="text">Cảm nhận với tâm thế đồng cảm những vấn đề của đối tác và khách hàng để
@@ -589,7 +593,7 @@ Yii::$app->params['footer_type'] = 'light';
 
                             <!-- Form Button -->
                             <div class="col-md-12 text-center mt-5">
-                                <button type="submit" class="btn-contact submit">
+                                <button type="submit" class="hvr-ripple-out btn-contact submit">
                                     Gửi
                                 </button>
                             </div>
