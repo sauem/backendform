@@ -68,13 +68,16 @@ class SiteController extends BaseController
             'position' => 'top_footer',
             'language' => HelperFunction::getLanguage()
         ]);
-        //HelperFunction::printf($logos);
+        $archiveHome = Archives::find()
+            ->where(['type' => 'product'])
+            ->with(['children','products'])
+            ->all();
         return $this->render('index.blade', [
             //'sliders' => $sliders,
             'categories' => $categories,
             'posts' => $articles,
             'products' => $products,
-            //'logos' => $logos,
+            'archiveHome' => $archiveHome,
             'sliderBottoms' => $sliderBottoms,
             'contactForm' => $contactForm
         ]);

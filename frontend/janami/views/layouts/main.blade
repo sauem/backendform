@@ -44,6 +44,14 @@ AppAsset::register($view);
             "name": "<?= $view->title ?>",
             "url": "<?= \Yii::$app->homeUrl; ?>"
         }
+
+
+
+
+
+
+
+
     </script>
     <?php }?>
 
@@ -99,6 +107,16 @@ AppAsset::register($view);
             $(this).prev().removeClass('is_show');
             $(this).removeClass('is_show');
         }
+    });
+
+    $(document).ready(function () {
+        AOS.init();
+        const path = window.location.pathname;
+        $(".wsmenu-list > li > a").each(function () {
+            if ($(this).attr('href') === path) {
+                $(this).parent().addClass('active');
+            }
+        });
     });
 </script>
 <?php $view->endPage() ?>

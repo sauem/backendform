@@ -1,6 +1,7 @@
 $('.slides').owlCarousel({
     items: 1,
     animateOut: 'fadeOut',
+    animateInt: 'fadeIn',
     autoplay: true,
     loop: true,
     autoHeight: true
@@ -50,7 +51,7 @@ $(".paper-carousel,.testimonial-carousel").owlCarousel({
         }
     }
 })
-$('.banner-carousel,.invention-carousel').owlCarousel({
+$('.banner-carousel').owlCarousel({
     items: 2,
     margin: 20,
     animateOut: 'fadeOut',

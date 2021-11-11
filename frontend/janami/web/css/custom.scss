@@ -23,11 +23,11 @@ $bg-green: #F2F7E8;
 $bg-green2: #E4F1D4;
 $color-green: #367766;
 $color-purple: #50254A;
-$color-red: #E44126;
+$color-red: #e44126;
 $color-pink: #e06f87;
 $color-yellow: #f6c251;
 $txt-color: #636363;
-
+$txt-pink2: #F16687;
 .wsmenu > .wsmenu-list > li > ul.sub-menu > li > a:before, .wsmenu > .wsmenu-list > li > .wsmegamenu .link-list li a:before, .wsmenu > .wsmenu-list > li > .wsmegamenu.halfmenu .link-list > li > a:before {
   color: $icon-color;
 }
@@ -1452,6 +1452,7 @@ nav {
   position: relative;
   border-radius: 30px;
   overflow: hidden;
+
   .pdf-action {
     width: 100%;
 
@@ -1487,5 +1488,357 @@ nav {
         right: 5px;
       }
     }
+  }
+}
+
+.header-wrapper {
+  background: transparent;
+}
+
+.wsmainfull {
+  background-color: transparent !important;
+}
+
+.hero-section {
+  min-height: 592px;
+  background: white;
+
+  .owl-item {
+    &.active {
+      z-index: 999;
+    }
+
+    img {
+      animation: slide 25s infinite;
+      -webkit-animation-timing-function: linear; /* Chrome, Safari, Opera */
+      animation-timing-function: linear;
+      //opacity: 0;
+    }
+  }
+}
+
+.txt-brand {
+  color: #E44126;
+}
+
+.txt-pink2 {
+  color: $txt-pink2;
+}
+
+.txt-green {
+  color: #367766;
+}
+
+.txt-purple {
+  color: #50254A;
+}
+
+.btn-brand {
+  border: 1px solid #E44126;
+  color: #E44126;
+}
+
+.item-product-home {
+  .img {
+    max-height: 276px;
+    height: 276px;
+    overflow: hidden;
+
+    img {
+      display: flex;
+      object-fit: cover;
+    }
+  }
+
+  .product-info {
+    margin-top: 10px;
+    text-align: center;
+
+    .product-name {
+      min-height: 62px;
+      font-size: 16px;
+      margin-bottom: 0;
+    }
+
+    .product-price {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.owl-dot-green {
+  .owl-dots {
+    bottom: -10%;
+
+    .owl-dot {
+      span {
+        border-color: #ccc;
+        background: #ccc;
+      }
+
+      &.active {
+        span {
+          border-color: #367766;
+          background: #367766;
+        }
+      }
+    }
+  }
+}
+
+.section-products {
+  background: #F2F7E8;
+  padding-bottom: 200px;
+
+  .archive-home {
+    nav {
+      width: fit-content;
+      margin: auto;
+      align-items: center;
+      border-bottom: unset;
+
+      .nav-link {
+        background: #C7C7C7;
+        color: white;
+        margin: 0 10px;
+        border-radius: 50px;
+        font-size: 14x;
+        padding: 5px 15px;
+
+        &.active {
+          background: #367766;
+        }
+      }
+    }
+  }
+}
+
+.section-tech {
+  .box-technology {
+    margin-top: -150px;
+    padding: 100px 0;
+    background-image: url("../img/bg-tech.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    .owl-dots {
+      bottom: 50px;
+    }
+
+    ul {
+
+      li {
+        padding: 10px 0;
+        font-size: 16px;
+        color: #636363;
+        font-weight: 500;
+        border-bottom: solid 1px #DDDDDD;
+      }
+    }
+  }
+}
+
+.section-license {
+  .invention-carousel {
+    .owl-nav {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 100%;
+      display: flex;
+
+      .owl-prev {
+        top: calc(100% / 2 - 17.5px);
+        right: 100%;
+      }
+
+      .owl-next {
+        top: calc(100% / 2 - 17.5px);
+        left: 100%;
+      }
+    }
+
+    .owl-nav [class*="owl-"] {
+      width: 35px;
+      height: 35px;
+      background: transparent;
+      border-radius: 100%;
+      border: 1px solid #E44126;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #E44126;
+      position: absolute;
+    }
+  }
+}
+
+.section-seeding {
+  padding-bottom: 100px;
+  padding-top: 50px;
+  position: relative;
+
+  &:before, &:after {
+    z-index: -1;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    position: absolute;
+    content: "";
+    background-image: url("../img/hint-bg.png");
+    background-repeat: no-repeat;
+  }
+
+  &:before {
+
+    -webkit-transform: rotate(-180deg);
+    -moz-transform: rotate(-180deg);
+    background-position-x: right;
+  }
+
+  &:after {
+    background-position-x: right;
+  }
+}
+
+.section-why {
+  background-color: #E2EBF7;
+  background-image: url("../img/hit-why.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-y: bottom;
+
+  .item-why {
+    background: white;
+    width: 100%;
+    height: 350px;
+    padding: 40px 10px 10px;
+    position: relative;
+
+    img {
+      height: 100px;
+    }
+
+    a {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+    }
+
+    p {
+      color: #363636;
+      font-size: 14px;
+
+      &.title {
+        font-weight: bold;
+        margin-top: 40px;
+      }
+    }
+
+    &:hover {
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+  }
+}
+
+.section-blog {
+  .blog-post {
+    background: #F7F7F7;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+
+    .blog-post-img {
+      max-height: 231px;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.section-register {
+  background: #FFF8F8;
+}
+
+.form-holder {
+  input {
+    height: 45px !important;
+  }
+
+  textarea {
+    min-height: 100px !important;
+  }
+
+  input, textarea {
+    border-radius: unset !important;
+    background: white;
+    border-color: white !important;
+  }
+
+  button {
+    float: unset;
+    border-color: #E44126;
+    background: #E44126;
+    color: white;
+  }
+}
+
+.white-menu {
+  .wsmainfull {
+    background-color: transparent !important;
+    padding: 6px 0;
+    box-shadow: unset;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .wsmainwp {
+      width: 100%;
+      display: flex;
+      max-width: 100%;
+      justify-content: space-between;
+      align-items: center;
+
+      .wsmenu {
+        width: auto;
+        float: unset;
+
+        li.nl-simple:hover, li.nl-simple.active {
+          > a {
+            position: relative;
+            color: #E44126;
+
+            &:before {
+              content: '';
+              position: absolute;
+              bottom: 20px;
+              left: 0;
+              right: 0;
+              margin: auto;
+              width: 80%;
+              height: 1px;
+              background: #E44126;
+            }
+          }
+        }
+      }
+    }
+  }
+
+}
+
+@keyframes slide {
+  10% {
+    opacity: 1;
+  }
+  20% {
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1.0);
   }
 }
