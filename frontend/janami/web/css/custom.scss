@@ -181,7 +181,34 @@ html, body, h1, h2, h3, h4, h5, h6 {
   font-family: 'Red Rose', cursive;
 }
 
+.wsmenucontainer {
+  position: relative;
+
+  &:before {
+    position: absolute;
+    content: "";
+    width: 30%;
+    height: 12%;
+    background-image: url("../img/lahint.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+  }
+
+  &:before {
+    top: 500px;
+    right: 0;
+    z-index: 2;
+    background-position-x: left;
+    background-position-y: bottom;
+    -webkit-transform: rotate(-180deg);
+    -moz-transform: rotate(-180deg);
+    transform: rotate(-180deg);
+  }
+}
+
 .footer {
+  z-index: 3;
+
   h6 {
     font-family: arial, sans-serif;
   }
@@ -394,6 +421,7 @@ nav {
 
 .slideshow2 {
   position: relative;
+  z-index: 3;
 }
 
 .owl-dots {
@@ -1541,6 +1569,7 @@ nav {
 .item-product-home {
   margin-bottom: 10px;
   padding-bottom: 10px;
+  width: 100%;
 
   &:hover {
     background: white;
@@ -1629,12 +1658,38 @@ nav {
 }
 
 .section-tech {
+
   .box-technology {
     margin-top: -150px;
     padding: 100px 0;
     background-image: url("../img/bg-tech.png");
     background-repeat: no-repeat;
     background-size: cover;
+    position: relative;
+
+    &:before, &:after {
+      position: absolute;
+      content: "";
+      background-repeat: no-repeat;
+    }
+
+    &:before {
+      background-image: url("../img/la1.png");
+      top: -50px;
+      left: -25px;
+      width: 100px;
+      height: 100px;
+      background-size: contain;
+    }
+
+    &:after {
+      background-image: url("../img/la2.png");
+      bottom: -60px;
+      right: -100px;
+      width: 200px;
+      height: 200px;
+      background-size: 100% 100%;
+    }
 
     .owl-dots {
       bottom: 50px;
@@ -1692,9 +1747,15 @@ nav {
   padding-bottom: 100px;
   padding-top: 50px;
   position: relative;
+  background-image: url("../img/la3.png");
+  background-repeat: no-repeat;
+  background-position-x: left;
+  background-position-y: -30px;
+  background-size: 200px;
 
   &:before, &:after {
-    z-index: -1;
+    color: transparent;
+    z-index: -2;
     left: 0;
     width: 100%;
     height: 100%;
@@ -1723,6 +1784,31 @@ nav {
   background-size: cover;
   background-repeat: no-repeat;
   background-position-y: bottom;
+  position: relative;
+
+  &:before, &:after {
+    content: "";
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    background-repeat: no-repeat;
+  }
+
+  &:before {
+    background-image: url("../img/la4.png");
+    background-size: contain;
+    right: 15%;
+    top: -50px;
+  }
+
+  &:after {
+    background-image: url("../img/la5.png");
+    background-size: 100% 100%;
+    left: 5%;
+    top: 50px;
+    width: 150px;
+    height: 150px;
+  }
 
   .item-why {
     background: white;
@@ -1758,6 +1844,38 @@ nav {
 }
 
 .section-blog {
+  position: relative;
+  margin-bottom: -250px;
+  z-index: 2;
+
+  &:before, &:after {
+    content: "";
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    background-repeat: no-repeat;
+  }
+
+  &:before {
+    background-image: url("../img/la6.png");
+    background-size: 100% 100%;
+    right: 0;
+    top: -200px;
+    width: 200px;
+    height: 400px;
+    z-index: -1;
+  }
+
+  &:after {
+    background-image: url(../img/la7.png);
+    background-size: contain;
+    left: 7%;
+    bottom: -45px;
+    width: 100px;
+    height: 100px;
+    z-index: 1;
+  }
+
   .blog-post {
     background: #F7F7F7;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
@@ -1773,7 +1891,31 @@ nav {
 }
 
 .section-register {
-  background: #FFF8F8;
+  padding-top: 200px;
+  background-color: #FFF8F8;
+  background-image: url("../img/lahint.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position-y: 100px;
+
+  &:before, &:after {
+    content: "";
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    background-repeat: no-repeat;
+  }
+
+  &:after {
+    background-image: url(../img/la8.png);
+    background-size: contain;
+    right: 7%;
+    bottom: 10%;
+    width: 100px;
+    height: 100px;
+    z-index: 1;
+  }
+
 }
 
 .form-holder {

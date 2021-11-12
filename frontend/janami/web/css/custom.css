@@ -97,8 +97,30 @@ h1, h2, h3 {
 html, body, h1, h2, h3, h4, h5, h6 {
   font-family: 'Red Rose', cursive; }
 
-.footer h6 {
-  font-family: arial, sans-serif; }
+.wsmenucontainer {
+  position: relative; }
+  .wsmenucontainer:before {
+    position: absolute;
+    content: "";
+    width: 30%;
+    height: 12%;
+    background-image: url("../img/lahint.png");
+    background-size: 100%;
+    background-repeat: no-repeat; }
+  .wsmenucontainer:before {
+    top: 500px;
+    right: 0;
+    z-index: 2;
+    background-position-x: left;
+    background-position-y: bottom;
+    -webkit-transform: rotate(-180deg);
+    -moz-transform: rotate(-180deg);
+    transform: rotate(-180deg); }
+
+.footer {
+  z-index: 3; }
+  .footer h6 {
+    font-family: arial, sans-serif; }
 
 a, b, strong, p, span, small {
   font-family: arial, sans-serif; }
@@ -228,7 +250,8 @@ nav a {
     border-bottom: 2px solid #50254A; }
 
 .slideshow2 {
-  position: relative; }
+  position: relative;
+  z-index: 3; }
 
 .owl-dots {
   position: absolute;
@@ -969,7 +992,8 @@ nav a {
 
 .item-product-home {
   margin-bottom: 10px;
-  padding-bottom: 10px; }
+  padding-bottom: 10px;
+  width: 100%; }
   .item-product-home:hover {
     background: white; }
   .item-product-home .img {
@@ -1024,7 +1048,26 @@ nav a {
   padding: 100px 0;
   background-image: url("../img/bg-tech.png");
   background-repeat: no-repeat;
-  background-size: cover; }
+  background-size: cover;
+  position: relative; }
+  .section-tech .box-technology:before, .section-tech .box-technology:after {
+    position: absolute;
+    content: "";
+    background-repeat: no-repeat; }
+  .section-tech .box-technology:before {
+    background-image: url("../img/la1.png");
+    top: -50px;
+    left: -25px;
+    width: 100px;
+    height: 100px;
+    background-size: contain; }
+  .section-tech .box-technology:after {
+    background-image: url("../img/la2.png");
+    bottom: -60px;
+    right: -100px;
+    width: 200px;
+    height: 200px;
+    background-size: 100% 100%; }
   .section-tech .box-technology .owl-dots {
     bottom: 50px; }
   .section-tech .box-technology ul li {
@@ -1061,9 +1104,15 @@ nav a {
 .section-seeding {
   padding-bottom: 100px;
   padding-top: 50px;
-  position: relative; }
+  position: relative;
+  background-image: url("../img/la3.png");
+  background-repeat: no-repeat;
+  background-position-x: left;
+  background-position-y: -30px;
+  background-size: 200px; }
   .section-seeding:before, .section-seeding:after {
-    z-index: -1;
+    color: transparent;
+    z-index: -2;
     left: 0;
     width: 100%;
     height: 100%;
@@ -1084,7 +1133,26 @@ nav a {
   background-image: url("../img/hit-why.png");
   background-size: cover;
   background-repeat: no-repeat;
-  background-position-y: bottom; }
+  background-position-y: bottom;
+  position: relative; }
+  .section-why:before, .section-why:after {
+    content: "";
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    background-repeat: no-repeat; }
+  .section-why:before {
+    background-image: url("../img/la4.png");
+    background-size: contain;
+    right: 15%;
+    top: -50px; }
+  .section-why:after {
+    background-image: url("../img/la5.png");
+    background-size: 100% 100%;
+    left: 5%;
+    top: 50px;
+    width: 150px;
+    height: 150px; }
   .section-why .item-why {
     background: white;
     width: 100%;
@@ -1104,16 +1172,61 @@ nav a {
         font-weight: bold;
         margin-top: 40px; }
 
-.section-blog .blog-post {
-  background: #F7F7F7;
-  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25); }
-  .section-blog .blog-post .blog-post-img {
-    max-height: 231px; }
-  .section-blog .blog-post a:hover {
-    text-decoration: underline; }
+.section-blog {
+  position: relative;
+  margin-bottom: -250px;
+  z-index: 2; }
+  .section-blog:before, .section-blog:after {
+    content: "";
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    background-repeat: no-repeat; }
+  .section-blog:before {
+    background-image: url("../img/la6.png");
+    background-size: 100% 100%;
+    right: 0;
+    top: -200px;
+    width: 200px;
+    height: 400px;
+    z-index: -1; }
+  .section-blog:after {
+    background-image: url(../img/la7.png);
+    background-size: contain;
+    left: 7%;
+    bottom: -45px;
+    width: 100px;
+    height: 100px;
+    z-index: 1; }
+  .section-blog .blog-post {
+    background: #F7F7F7;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25); }
+    .section-blog .blog-post .blog-post-img {
+      max-height: 231px; }
+    .section-blog .blog-post a:hover {
+      text-decoration: underline; }
 
 .section-register {
-  background: #FFF8F8; }
+  padding-top: 200px;
+  background-color: #FFF8F8;
+  background-image: url("../img/lahint.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position-y: 100px; }
+  .section-register:before, .section-register:after {
+    content: "";
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    background-repeat: no-repeat; }
+  .section-register:after {
+    background-image: url(../img/la8.png);
+    background-size: contain;
+    right: 7%;
+    bottom: 10%;
+    width: 100px;
+    height: 100px;
+    z-index: 1; }
 
 .form-holder input {
   height: 45px !important; }
