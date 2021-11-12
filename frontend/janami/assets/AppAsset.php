@@ -31,12 +31,12 @@ class AppAsset extends AssetBundle
         '/css/jquery.desoslide.min.css',
         '/css/owl.theme.default.min.css',
         '/css/jquery.datetimepicker.min.css',
-        '/css/pink-theme.css',
+        '/css/pink-theme.css?v=1.2',
 //         '/css/rose-theme.css',
 //         '/css/silk-theme.css',
 //         '/css/gold-theme.css',
         '/css/responsive.css',
-        '/css/custom.css?v=4.6',
+        '/css/custom.css?v=4.7',
     ];
     public $js = [
         '/js/jquery-3.4.1.min.js',
