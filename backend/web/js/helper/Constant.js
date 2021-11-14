@@ -358,7 +358,7 @@ const customPages = (categories = []) => {
             return brouchure(categories);
         case 'lucycosmeticcom':
         case 'janamilocal':
-        case '-janamisimpletechvn':
+        case 'admin-janamisimpletech.vn':
             return janami(categories);
         default:
             return [];
