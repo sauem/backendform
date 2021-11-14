@@ -31,12 +31,12 @@ class AppAsset extends AssetBundle
         '/css/jquery.desoslide.min.css',
         '/css/owl.theme.default.min.css',
         '/css/jquery.datetimepicker.min.css',
-        '/css/pink-theme.css?v=1.4',
+        '/css/pink-theme.css?v=1.2',
 //         '/css/rose-theme.css',
 //         '/css/silk-theme.css',
 //         '/css/gold-theme.css',
         '/css/responsive.css',
-        '/css/custom.css?v=4.9',
+        '/css/custom.css?v=5.2',
     ];
     public $js = [
         '/js/jquery-3.4.1.min.js',
@@ -70,8 +70,8 @@ class AppAsset extends AssetBundle
         '/js/jquery.datetimepicker.full.js',
         '/js/jquery.validate.min.js',
         '/js/jquery.desoslide.min.js',
-        '/js/custom.js?v=1.2',
-        '/js/site.js?v=2.1',
+        '/js/custom.js?v=1.5',
+        '/js/site.js?v=2.2',
         ['/js/action.js?v=1.4', 'type' => 'text/babel'],
         ['/js/cart.js', 'type' => 'text/babel']
     ];
