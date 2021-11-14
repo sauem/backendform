@@ -427,9 +427,10 @@ Yii::$app->params['footer_type'] = 'light';
                                         <img data-aos="fade-down"
                                              data-aos-duration="800" src="/img/tech.svg" class="img-fluid"/>
                                         <h4 data-aos="fade-down"
-                                            data-aos-duration="1200" class="txt-brand">Công nghệ, thành phần được cấp bằng sáng chế</h4>
+                                            data-aos-duration="1200" class="txt-brand">Công nghệ, thành phần được cấp
+                                            bằng sáng chế</h4>
 
-                                        <ul>
+                                        <ul class="list-tech">
                                             <li data-aos="fade-down"
                                                 data-aos-duration="900">
                                                 <a>
@@ -449,11 +450,14 @@ Yii::$app->params['footer_type'] = 'light';
                                                 <a><img src="/img/item-tech.svg"/> Mai - B complex</a>
                                             </li>
                                             <li data-aos="fade-down"
-                                                data-aos-duration="1300"><a><img src="/img/item-tech.svg"/> Nutroxsun</a></li>
+                                                data-aos-duration="1300"><a><img src="/img/item-tech.svg"/>
+                                                    Nutroxsun</a></li>
                                             <li data-aos="fade-down"
-                                                data-aos-duration="1400"><a><img src="/img/item-tech.svg"/> 2 tảo 1 thảo</a></li>
+                                                data-aos-duration="1400"><a><img src="/img/item-tech.svg"/> 2 tảo 1 thảo</a>
+                                            </li>
                                             <li data-aos="fade-down"
-                                                data-aos-duration="1500"><a><img src="/img/item-tech.svg"/> Nano collagen</a></li>
+                                                data-aos-duration="1500"><a><img src="/img/item-tech.svg"/> Nano
+                                                    collagen</a></li>
                                         </ul>
                                     </div>
 
@@ -678,7 +682,8 @@ Yii::$app->params['footer_type'] = 'light';
                             <img data-aos="fade-down"
                                  data-aos-duration="800" src="/img/icon-do.svg" class="img-fluid"/>
                             <h4 data-aos="fade-down"
-                                data-aos-duration="1200" class="txt-brand">TẠI SAO NÊN CHỌN JANAMI BEAUTY LÀM ĐỐI TÁC</h4>
+                                data-aos-duration="1200" class="txt-brand">TẠI SAO NÊN CHỌN JANAMI BEAUTY LÀM ĐỐI
+                                TÁC</h4>
                         </div>
                     </div>
                     <div class="row mt-5">
@@ -787,15 +792,15 @@ Yii::$app->params['footer_type'] = 'light';
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-9">
-                    <div class="row  my-5 justify-content-center ">
+                    <div class="row justify-content-center ">
                         <div class="col-md-8 text-center size-18">
                             <img src="/img/icon-do.svg">
-                            <br>
-                            <br>
-                            <br>
-                            Bạn là chủ Spa/TMV, Kinh doanh online<br>
-                            Xin vui lòng <span class="txt-brand bold">Đăng ký</span> và nhận thông tin Chính sách đại lý
-                            <span class="txt-brand bold">tại đây</span>.
+                            <p class="call-txt">
+                                Bạn là chủ Spa/TMV, Kinh doanh online<br>
+                                Xin vui lòng <span class="txt-brand bold">Đăng ký</span> và nhận thông tin Chính sách
+                                đại lý
+                                <span class="txt-brand bold">tại đây</span>.
+                            </p>
                         </div>
                     </div>
                     <div class="form-holder">
@@ -804,7 +809,8 @@ Yii::$app->params['footer_type'] = 'light';
                             <!-- Form Input -->
                             <div class="col-lg-6">
                                 <input data-aos="fade-right"
-                                       data-aos-duration="500" type="text" name="name" class="form-control name" placeholder="Tên bạn*">
+                                       data-aos-duration="500" type="text" name="name" class="form-control name"
+                                       placeholder="Tên bạn*">
                             </div>
 
                             <!-- Form Input -->
@@ -817,7 +823,8 @@ Yii::$app->params['footer_type'] = 'light';
                             <!-- Form Input -->
                             <div class="col-md-6">
                                 <input data-aos="fade-right"
-                                       data-aos-duration="700" type="text" name="email" class="form-control email" placeholder="Email">
+                                       data-aos-duration="700" type="text" name="email" class="form-control email"
+                                       placeholder="Email">
                             </div>
                             <div class="col-md-6">
                                 <input data-aos="fade-right"
@@ -834,7 +841,8 @@ Yii::$app->params['footer_type'] = 'light';
                             <!-- Form Button -->
                             <div class="col-md-12 text-center mt-5">
                                 <button data-aos="fade-up"
-                                        data-aos-duration="1000" type="submit" class="hvr-ripple-out btn-contact submit">
+                                        data-aos-duration="1000" type="submit"
+                                        class="hvr-ripple-out btn-contact submit">
                                     Gửi
                                 </button>
                             </div>
@@ -851,7 +859,6 @@ Yii::$app->params['footer_type'] = 'light';
             </div>
         </div>
     </Section>
-
 @stop
 @section("js_end")
     <script>
@@ -863,12 +870,18 @@ Yii::$app->params['footer_type'] = 'light';
             nav: false,
             dots: true,
         })
-        $(".box-technology-carousel").owlCarousel({
+        let techItem = $(".box-technology-carousel").owlCarousel({
             items: 1,
             animateOut: 'fadeOut',
-            autoplay: true,
+            autoplay: false,
             nav: false,
             dots: true,
+        });
+        $('.list-tech li').click(function () {
+            $('.list-tech li').removeClass('active')
+            techItem.trigger('to.owl.carousel', [$(this).index(), 500]);
+            $(this).addClass('active');
+            //  techItem.trigger('next.owl.carousel');
         })
         $('.newspaper-carousel').owlCarousel({
             items: 1,

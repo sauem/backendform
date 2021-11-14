@@ -1022,11 +1022,6 @@ nav a {
   background: white; }
   .hero-section .owl-item.active {
     z-index: 999; }
-  .hero-section .owl-item img {
-    animation: slide 25s infinite;
-    -webkit-animation-timing-function: linear;
-    /* Chrome, Safari, Opera */
-    animation-timing-function: linear; }
 
 .txt-brand {
   color: #E44126; }
@@ -1155,10 +1150,10 @@ nav a {
         font-size: 16px;
         color: #636363;
         text-transform: uppercase; }
-      .section-products .block-box .box-technology ul li:hover a {
+      .section-products .block-box .box-technology ul li:hover a, .section-products .block-box .box-technology ul li.active a {
         font-weight: bold;
         color: #E44126; }
-      .section-products .block-box .box-technology ul li:hover img {
+      .section-products .block-box .box-technology ul li:hover img, .section-products .block-box .box-technology ul li.active img {
         transform: rotate(360deg); }
 
 .section-license {
@@ -1209,7 +1204,9 @@ nav a {
     text-align: center; }
   .section-seeding .item-newspaper {
     background: #FFFFFF;
-    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1); }
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    width: 97%; }
     .section-seeding .item-newspaper .content {
       padding: 10px 15px; }
 
@@ -1264,7 +1261,7 @@ nav a {
 
 .section-blog {
   position: relative;
-  margin-bottom: -250px;
+  margin-bottom: -200px;
   z-index: 2; }
   .section-blog h4 {
     font-size: 36px;
@@ -1345,6 +1342,8 @@ nav a {
   background-repeat: no-repeat;
   background-position-y: 100px;
   font-family: arial, sans-serif; }
+  .section-register .call-txt {
+    margin: 32px 0; }
 
 .form-holder {
   margin-bottom: 80px; }

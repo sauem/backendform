@@ -1581,9 +1581,9 @@ nav {
     }
 
     img {
-      animation: slide 25s infinite;
-      -webkit-animation-timing-function: linear; /* Chrome, Safari, Opera */
-      animation-timing-function: linear;
+      //animation: slide 25s infinite;
+      //-webkit-animation-timing-function: linear; /* Chrome, Safari, Opera */
+      //animation-timing-function: linear;
       //opacity: 0;
     }
   }
@@ -1818,11 +1818,12 @@ nav {
             text-transform: uppercase;
           }
 
-          &:hover {
+          &:hover, &.active {
             a {
               font-weight: bold;
               color: $active-color;
             }
+
             img {
               transform: rotate(360deg);
             }
@@ -2003,6 +2004,8 @@ nav {
   .item-newspaper {
     background: #FFFFFF;
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    width: 97%;
 
     .content {
       padding: 10px 15px;
@@ -2114,7 +2117,7 @@ nav {
 
 .section-blog {
   position: relative;
-  margin-bottom: -250px;
+  margin-bottom: -200px;
   z-index: 2;
 
   h4 {
@@ -2153,12 +2156,15 @@ nav {
 
   .blog-post {
     background: #F7F7F7;
-    img{
+
+    img {
       transition: ease 0.5s;
     }
+
     &:hover {
       box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-      img{
+
+      img {
         transform: rotate(15deg) scale(1.4);
       }
     }
@@ -2254,6 +2260,10 @@ nav {
   background-repeat: no-repeat;
   background-position-y: 100px;
   font-family: arial, sans-serif;
+
+  .call-txt {
+    margin: 32px 0;
+  }
 
   //&:before, &:after {
   //  content: "";

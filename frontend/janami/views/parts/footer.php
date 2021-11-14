@@ -88,7 +88,7 @@ if ($menu) {
                             </p>
                         </li>
                         <li>
-                            <p>
+                            <p class="last-li">
                                 <a href="<?= HelperFunction::setting('instagram') ?>">
                                     <i class="fab fa-instagram"></i>
                                 </a>

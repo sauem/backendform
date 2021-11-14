@@ -343,6 +343,7 @@ const customPages = (categories = []) => {
     let domain = window.location.hostname;
     domain = domain.replace('admin.', '');
     domain = domain.replace('.', '');
+    console.log("domain", domain);
     switch (domain) {
         case 'vieteutradecom':
         case 'thangdevorg':
