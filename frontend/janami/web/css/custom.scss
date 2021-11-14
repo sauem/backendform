@@ -1730,8 +1730,8 @@ nav {
       align-items: center;
       border-bottom: unset;
       padding-bottom: 50px;
-      overflow-x: scroll;
-      overflow-y: hidden;
+      //overflow-x: scroll;
+      //overflow-y: hidden;
 
       .nav-link {
         background: #C7C7C7;
@@ -1752,13 +1752,14 @@ nav {
 
   .block-products {
     padding-top: 100px;
-    padding-bottom: 200px;
+    padding-bottom: 250px;
     background-color: rgba(228, 65, 38, 0.1);
   }
 
   .block-box {
     .box-technology {
-      padding: 100px 0;
+      box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
+      padding: 60px 40px;
       margin-top: -150px;
       margin-bottom: -150px;
       background-color: #DDDDDD;
@@ -1804,7 +1805,7 @@ nav {
       ul {
 
         li {
-          padding: 10px 0;
+          padding: 7px 0;
           font-size: 16px;
           color: #636363;
           font-weight: 500;
