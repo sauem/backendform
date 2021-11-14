@@ -9,7 +9,7 @@ $('.slides').owlCarousel({
 
 $('.post-carousel,.creative-carousel').owlCarousel({
     items: 3,
-    margin: 20,
+    // margin: 20,
     animateOut: 'fadeOut',
     autoplay: true,
     nav: true,

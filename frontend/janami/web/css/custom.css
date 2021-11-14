@@ -438,8 +438,8 @@ nav a {
   #blog-1 .post-carousel .owl-nav {
     position: absolute;
     width: fit-content;
-    top: -60px;
-    right: 0;
+    top: -100px;
+    right: 10px;
     display: flex; }
     #blog-1 .post-carousel .owl-nav [class*="owl-"] {
       opacity: 1;
@@ -475,8 +475,7 @@ nav a {
     .blog-post .blog-post-txt h5 {
       color: #636363;
       font-size: 16px;
-      font-weight: 700;
-      min-height: 60px; }
+      font-weight: 700; }
     .blog-post .blog-post-txt .excerpt {
       min-height: 78px; }
     .blog-post .blog-post-txt p {
@@ -1107,7 +1106,9 @@ nav a {
     margin: auto;
     align-items: center;
     border-bottom: unset;
-    padding-bottom: 50px; }
+    padding-bottom: 50px;
+    overflow-x: scroll;
+    overflow-y: hidden; }
     .section-products .archive-home nav .nav-link {
       background: #C7C7C7;
       color: white;
@@ -1155,6 +1156,31 @@ nav a {
         color: #E44126; }
       .section-products .block-box .box-technology ul li:hover img, .section-products .block-box .box-technology ul li.active img {
         transform: rotate(360deg); }
+
+.footer-links a {
+  color: #636363; }
+  .footer-links a:hover {
+    color: #E44126;
+    font-weight: bold; }
+
+.bottom-footer-list a i {
+  color: #636363; }
+.bottom-footer-list a:hover i {
+  color: #E44126;
+  font-weight: bold; }
+
+.footer-contacts p {
+  color: #636363;
+  display: flex;
+  width: 83%; }
+.footer-contacts a {
+  color: #636363; }
+  .footer-contacts a:hover {
+    color: #E44126;
+    font-weight: bold; }
+.footer-contacts .icon-bx {
+  width: 30px;
+  min-width: 30px; }
 
 .section-license {
   background-color: #FFF8F8;
@@ -1267,13 +1293,20 @@ nav a {
     font-size: 36px;
     margin-bottom: 30px; }
   .section-blog .blog-post {
-    background: #F7F7F7; }
+    background: #F7F7F7;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25); }
     .section-blog .blog-post img {
       transition: ease 0.5s; }
-    .section-blog .blog-post:hover {
-      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25); }
-      .section-blog .blog-post:hover img {
-        transform: rotate(15deg) scale(1.4); }
+    .section-blog .blog-post h5 {
+      line-height: 25px;
+      font-size: 18px;
+      max-height: 50px; }
+    .section-blog .blog-post .excerpt {
+      line-height: 25px;
+      max-height: 75px; }
+    .section-blog .blog-post:hover img {
+      transform: rotate(15deg) scale(1.4); }
     .section-blog .blog-post .blog-post-img {
       max-height: 231px; }
     .section-blog .blog-post a:hover {

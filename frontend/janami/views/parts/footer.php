@@ -26,15 +26,26 @@ if ($menu) {
                 <div class="footer-info mb-40">
                     <div class="footer-contacts">
                         <p>
-                            <img src="/img/icons/map.svg"> <?= HelperFunction::setting('address_1', true) ?>
+                            <span class="icon-bx">
+                                <img src="/img/icons/map.svg">
+                            </span>
+                            <span>
+                                <?= HelperFunction::setting('address_1', true) ?>
+                            </span>
                         </p>
                         <p>
+                             <span class="icon-bx">
+                                    <img src="/img/icons/phone.svg">
+                                </span>
                             <a href="tel:<?= HelperFunction::setting('hotline_1') ?>">
-                                <img src="/img/icons/phone.svg"> <?= HelperFunction::setting('hotline_1') ?>
+                                <?= HelperFunction::setting('hotline_1') ?>
                             </a>
                         </p>
                         <p class="email" href="mailto:<?= HelperFunction::setting('email') ?>">
-                            <img src="/img/icons/email.svg"> <?= HelperFunction::setting('email') ?>
+                            <span class="icon-bx">
+                                <img src="/img/icons/email.svg">
+                            </span>
+                            <a href="mailto:<?= HelperFunction::setting('email') ?>"><?= HelperFunction::setting('email') ?></a>
                         </p>
                     </div>
 
@@ -54,7 +65,7 @@ if ($menu) {
                                         ?>
                                         <li>
                                             <p>
-                                                <a class="text-dark"
+                                                <a
                                                    href="<?= HelperFunction::Link($children['type'], $children) ?>">
                                                     <?= $children['title'] ?>
                                                 </a>

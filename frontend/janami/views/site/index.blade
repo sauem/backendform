@@ -743,7 +743,7 @@ Yii::$app->params['footer_type'] = 'light';
     </section>
 
     <section data-aos="fade-up"
-             data-aos-duration="1200" id="blog-1" class="section-blog wide-10 blog-section division">
+             data-aos-duration="1500" id="blog-1" class="section-blog wide-10 blog-section division">
         <div class="container">
 
 
@@ -754,11 +754,10 @@ Yii::$app->params['footer_type'] = 'light';
                 </div>
             </div>
 
-
             <div class="owl-carousel post-carousel owl-theme">
                 @if(!empty($posts))
                     @foreach($posts as $post)
-                        <div class="blog-post">
+                        <div class="blog-post mx-3">
                             <div class="blog-post-img">
                                 <a href="<?=HelperFunction::Link(ARTICLE, $post->slug, $post->archive->slug) ?>">
                                     <img class="img-fluid" src="<?= HelperFunction::checkImage($post->avatar)?>"
@@ -767,12 +766,12 @@ Yii::$app->params['footer_type'] = 'light';
                             </div>
                             <div class="blog-post-txt">
                                 <p class="do mb-0">{{date('d/m/Y', $post->created_at)}}</p>
-                                <h5 class="h5-sm text-3">
+                                <h5 class="h5-sm text-2">
                                     <a href="<?= HelperFunction::Link(ARTICLE, $post->slug, $post->archive->slug)?>">
                                         {{$post->name}}
                                     </a>
                                 </h5>
-                                <p class="excerpt">
+                                <p class="excerpt text-3">
                                     {{substr_replace($post->excerpt,'...',100)}}
                                 </p>
                                 <a href="<?=HelperFunction::Link(ARTICLE, $post->slug, $post->archive->slug) ?>">
@@ -841,7 +840,7 @@ Yii::$app->params['footer_type'] = 'light';
                             <!-- Form Button -->
                             <div class="col-md-12 text-center mt-5">
                                 <button data-aos="fade-up"
-                                        data-aos-duration="1000" type="submit"
+                                        data-aos-duration="900" type="submit"
                                         class="hvr-ripple-out btn-contact submit">
                                     Gửi
                                 </button>
