@@ -17,7 +17,7 @@ class AppAsset extends AssetBundle
         // 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&amp;display=swap',
         '/css/bootstrap.min.css',
         '/css/antd.css',
-        '/css/fontawesome.all.css',
+        'https://use.fontawesome.com/releases/v5.11.0/css/all.css',
         '/css/aimate.css',
         '/css/aos.css',
         '/css/flaticon.css',
