@@ -1418,9 +1418,56 @@ nav a {
     padding-top: 20px; }
     .section-products .block-products h4 {
       font-size: 25px; }
-    .section-products .block-products .archive-home a.nav-link:before {
-      display: none;
+    .section-products .block-products .archive-home nav {
+      margin-bottom: 20px; }
+    .section-products .block-products .archive-home a.nav-link {
+      width: 45%;
+      text-align: center;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
       margin: 5px; }
+      .section-products .block-products .archive-home a.nav-link:before {
+        display: none;
+        margin: 5px; }
+  .section-products .block-box .box-technology {
+    padding: 15px; }
+    .section-products .block-box .box-technology h4 {
+      font-size: 25px; }
+
+  .section-license {
+    padding-bottom: 50px; }
+    .section-license h4 {
+      font-size: 18px; }
+    .section-license .license-item {
+      margin-top: 50px; }
+    .section-license .invention-carousel .owl-prev {
+      right: 90% !important; }
+    .section-license .invention-carousel .owl-next {
+      left: 90% !important; }
+
+  .section-seeding {
+    padding-top: 50px;
+    padding-bottom: 50px; }
+    .section-seeding .item-newspaper {
+      width: 100%; }
+    .section-seeding .owl-dots {
+      bottom: 25px; }
+    .section-seeding .guest {
+      margin-top: 50px; }
+
+  .section-why {
+    padding: 50px 0;
+    text-align: left !important; }
+    .section-why h4 {
+      font-size: 23px;
+      margin: 20px 0;
+      text-align: left; }
+    .section-why .item-why {
+      margin-bottom: 20px; }
+
+  .blog-post .blog-post-txt {
+    padding: 10px; }
 
   .product-row .title-cat {
     font-size: 24px;
