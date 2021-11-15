@@ -1466,6 +1466,11 @@ nav a {
     .section-why .item-why {
       margin-bottom: 20px; }
 
+  .section-blog h4 {
+    font-size: 25px; }
+  .section-blog .owl-nav {
+    top: -80px !important; }
+
   .blog-post .blog-post-txt {
     padding: 10px; }
 

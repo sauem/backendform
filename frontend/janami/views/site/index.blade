@@ -23,39 +23,37 @@ Yii::$app->params['footer_type'] = 'light';
             <div class="row justify-content-center">
                 <div class="col-md-10">
                     <div class="row">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <img src="/img/icon-do.svg"/>
-                                <h4 class="txt-brand mt-2">Câu chuyện về Janami</h4>
-                                <p class="text-4">Janami Beauty triển khai mô hình hợp tác song hành win-win toàn diện
-                                    với mọi khách
-                                    hàng
-                                    của mình, từ khách hàng đại lý, chuyên gia tới từng người tiêu dùng. Nỗ lực – Chuyên
-                                    gia
-                                    – Thấu hiểu là hệ giá trị cốt lõi để Janami Beauty có được sự tin tưởng và đồng hành
-                                    quý
-                                    giá từ phía khách hàng...</p>
-                                <button class="btn btn-brand button hvr-sweep-to-right">Xem thêm <i
-                                            class="fa fa-arrow-right"></i>
-                                </button>
-                            </div>
-                            <div class="col-md-6">
-                                <div data-aos="fade-up"
-                                     data-aos-duration="1000"
-                                     class="video-box">
-                                    <img class="img-fluid w-100" src="/img/vid1.png"/>
+                        <div class="col-md-6">
+                            <img src="/img/icon-do.svg"/>
+                            <h4 class="txt-brand mt-2">Câu chuyện về Janami</h4>
+                            <p class="text-4">Janami Beauty triển khai mô hình hợp tác song hành win-win toàn diện
+                                với mọi khách
+                                hàng
+                                của mình, từ khách hàng đại lý, chuyên gia tới từng người tiêu dùng. Nỗ lực – Chuyên
+                                gia
+                                – Thấu hiểu là hệ giá trị cốt lõi để Janami Beauty có được sự tin tưởng và đồng hành
+                                quý
+                                giá từ phía khách hàng...</p>
+                            <button class="btn btn-brand button hvr-sweep-to-right">Xem thêm <i
+                                        class="fa fa-arrow-right"></i>
+                            </button>
+                        </div>
+                        <div class="col-md-6">
+                            <div data-aos="fade-up"
+                                 data-aos-duration="1000"
+                                 class="video-box">
+                                <img class="img-fluid w-100" src="/img/vid1.png"/>
 
-                                    <div class="video-1-preview">
-                                        <a class="video-popup2" href="https://www.youtube.com/embed/11mVSlEK9m4">
-                                            <!-- Change the link HERE!!! -->
-                                            <div class="video-btn bg-white">
-                                                <div class="video-block-wrapper">
-                                                    <i class="fas fa-play"></i>
-                                                </div>
+                                <div class="video-1-preview">
+                                    <a class="video-popup2" href="https://www.youtube.com/embed/11mVSlEK9m4">
+                                        <!-- Change the link HERE!!! -->
+                                        <div class="video-btn bg-white">
+                                            <div class="video-block-wrapper">
+                                                <i class="fas fa-play"></i>
                                             </div>
+                                        </div>
 
-                                        </a>
-                                    </div>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -717,7 +715,7 @@ Yii::$app->params['footer_type'] = 'light';
             <div class="owl-carousel post-carousel owl-theme">
                 @if(!empty($posts))
                     @foreach($posts as $post)
-                        <div class="blog-post mx-3">
+                        <div class="blog-post mx-md-3">
                             <div class="blog-post-img">
                                 <a href="<?=HelperFunction::Link(ARTICLE, $post->slug, $post->archive->slug) ?>">
                                     <img class="img-fluid" src="<?= HelperFunction::checkImage($post->avatar)?>"
