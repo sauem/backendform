@@ -145,10 +145,10 @@ $txt-pink2: #F16687;
 }
 
 #scrollUp {
-  background-color: $bg-green1;
+  background-color: rgba(228, 65, 38, 0.1);
 
   &:hover {
-    background-color: $bg-green;
+    background-color: rgba(228, 65, 38, 0.5);
   }
 }
 
@@ -1782,7 +1782,7 @@ nav {
         //  background-position: center;
         //}
 
-        &:last-child:before , &:nth-child(7n):before{
+        &:last-child:before, &:nth-child(7n):before {
           display: none;
         }
 

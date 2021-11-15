@@ -75,9 +75,9 @@
     background: white; }
 
 #scrollUp {
-  background-color: #E4F0D5; }
+  background-color: rgba(228, 65, 38, 0.1); }
   #scrollUp:hover {
-    background-color: #F2F7E8; }
+    background-color: rgba(228, 65, 38, 0.5); }
 
 .bg-lam {
   background: #D6E6EE; }
