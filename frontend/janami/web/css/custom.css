@@ -1118,7 +1118,7 @@ nav a {
       padding: 5px 20px;
       border: unset;
       position: relative; }
-      .section-products .archive-home nav .nav-link:nth-child(2n):not(:last-child):after {
+      .section-products .archive-home nav .nav-link:nth-last-child(2):after {
         content: '';
         width: 30px;
         height: 30px;
@@ -1128,7 +1128,9 @@ nav a {
         background-image: url("../img/item-license.svg");
         background-repeat: no-repeat;
         background-position: center; }
-      .section-products .archive-home nav .nav-link:nth-child(2n):before {
+      .section-products .archive-home nav .nav-link:last-child:before, .section-products .archive-home nav .nav-link:nth-child(7n):before {
+        display: none; }
+      .section-products .archive-home nav .nav-link:not(:first-child):before {
         content: '';
         width: 30px;
         height: 30px;

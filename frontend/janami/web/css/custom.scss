@@ -1745,7 +1745,32 @@ nav {
         border: unset;
         position: relative;
 
-        &:nth-child(2n):not(:last-child):after {
+        //&:nth-child(2n):not(:last-child):after {
+        //  content: '';
+        //  width: 30px;
+        //  height: 30px;
+        //  position: absolute;
+        //  right: -40px;
+        //  top: 0;
+        //  background-image: url("../img/item-license.svg");
+        //  background-repeat: no-repeat;
+        //  background-position: center;
+        //}
+
+        //&:nth-child(2n):before {
+        //  content: '';
+        //  width: 30px;
+        //  height: 30px;
+        //  position: absolute;
+        //  left: -40px;
+        //  top: 0;
+        //  background-image: url("../img/item-license.svg");
+        //  background-repeat: no-repeat;
+        //  background-position: center;
+        //}
+
+
+        &:nth-last-child(2):after {
           content: '';
           width: 30px;
           height: 30px;
@@ -1757,7 +1782,11 @@ nav {
           background-position: center;
         }
 
-        &:nth-child(2n):before {
+        &:last-child:before , &:nth-child(7n):before{
+          display: none;
+        }
+
+        &:not(:first-child):before {
           content: '';
           width: 30px;
           height: 30px;
@@ -1768,18 +1797,6 @@ nav {
           background-repeat: no-repeat;
           background-position: center;
         }
-
-        //&:not(:first-child):before {
-        //  content: '';
-        //  width: 30px;
-        //  height: 30px;
-        //  position: absolute;
-        //  left: -40px;
-        //  top: 0;
-        //  background-image: url("../img/item-license.svg");
-        //  background-repeat: no-repeat;
-        //  background-position: center;
-        //}
 
         &.active, &:hover {
           background: $active-color;
