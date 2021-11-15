@@ -1770,17 +1770,17 @@ nav {
         //}
 
 
-        &:nth-last-child(2):after {
-          content: '';
-          width: 30px;
-          height: 30px;
-          position: absolute;
-          right: -40px;
-          top: 0;
-          background-image: url("../img/item-license.svg");
-          background-repeat: no-repeat;
-          background-position: center;
-        }
+        //&:nth-last-child(2):after {
+        //  content: '';
+        //  width: 30px;
+        //  height: 30px;
+        //  position: absolute;
+        //  right: -40px;
+        //  top: 0;
+        //  background-image: url("../img/item-license.svg");
+        //  background-repeat: no-repeat;
+        //  background-position: center;
+        //}
 
         &:last-child:before , &:nth-child(7n):before{
           display: none;
