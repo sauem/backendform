@@ -258,18 +258,18 @@ Yii::$app->params['footer_type'] = 'light';
                                        href="#archive-{{$k}}">{{$archive->name}}</a>
                                 @endforeach
                             @endif
-                            @if(isset($archiveHome) && !empty($archiveHome))
-                                @foreach($archiveHome as $k => $archive)
-                                    <a data-toggle="tab" role="tab" class="text-sm-center nav-link"
-                                       href="#archive-{{$k}}">{{$archive->name}}</a>
-                                @endforeach
-                            @endif
-                            @if(isset($archiveHome) && !empty($archiveHome))
-                                @foreach($archiveHome as $k => $archive)
-                                    <a data-toggle="tab" role="tab" class="text-sm-center nav-link"
-                                       href="#archive-{{$k}}">{{$archive->name}}</a>
-                                @endforeach
-                            @endif
+{{--                            @if(isset($archiveHome) && !empty($archiveHome))--}}
+{{--                                @foreach($archiveHome as $k => $archive)--}}
+{{--                                    <a data-toggle="tab" role="tab" class="text-sm-center nav-link"--}}
+{{--                                       href="#archive-{{$k}}">{{$archive->name}}</a>--}}
+{{--                                @endforeach--}}
+{{--                            @endif--}}
+{{--                            @if(isset($archiveHome) && !empty($archiveHome))--}}
+{{--                                @foreach($archiveHome as $k => $archive)--}}
+{{--                                    <a data-toggle="tab" role="tab" class="text-sm-center nav-link"--}}
+{{--                                       href="#archive-{{$k}}">{{$archive->name}}</a>--}}
+{{--                                @endforeach--}}
+{{--                            @endif--}}
 
                         </nav>
                         <div class="tab-content mt-4">
