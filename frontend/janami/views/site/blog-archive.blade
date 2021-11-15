@@ -42,7 +42,7 @@ $bannerBottom = HelperFunction::getBanner('sidebar_right_bottom', ['archive']);
             <div class="row">
                 <!-- BLOG POSTS HOLDER -->
                 <div class="col-lg-12">
-                    <div id="archive-blog"></div>
+                    <div class="section-blog" id="archive-blog"></div>
                 </div>
             </div>        <!-- End row -->
         </div>       <!-- End container -->
@@ -93,26 +93,26 @@ $bannerBottom = HelperFunction::getBanner('sidebar_right_bottom', ['archive']);
                         {state.articles.length > 0 ?
                             state.articles.map((item, index) => {
                                 return (
-                                    <div key={index} className="col-md-4 col-12">
-                                        <div className="blog-post">
-                                            <div className="blog-post-img">
+                                    <div className="blog-post mx-md-3">
+                                        <div className="blog-post-img">
+                                            <a href={`/article/${item.archive.slug}/${item.slug}`}>
                                                 <img className="img-fluid" src={item.avatar} alt={item.name}/>
-                                            </div>
-                                            <div className="blog-post-txt">
-                                                <p className="do">{item.created_at}</p>
-                                                <h5 className="h5-sm text-3">
-                                                    <a href={`/article/${item.archive.slug}/${item.slug}`}>
-                                                        {item.name}
-                                                    </a>
-                                                </h5>
-                                                <p className="excerpt">
-                                                    {item.excerpt}
-                                                </p>
+                                            </a>
+                                        </div>
+                                        <div className="blog-post-txt">
+                                            <p className="do mb-0">{moment.unix(item.created_at).format('DD/MM/YYYY')}</p>
+                                            <h5 className="h5-sm text-2">
                                                 <a href={`/article/${item.archive.slug}/${item.slug}`}>
-                                                    Đọc thêm
-                                                    <i className="fas ml-2 fa-arrow-right"/>
+                                                    {item.name}
                                                 </a>
-                                            </div>
+                                            </h5>
+                                            <p className="excerpt text-3">
+                                                {item.excerpt}
+                                            </p>
+                                            <a href={`/article/${item.archive.slug}/${item.slug}`}>
+                                                Đọc thêm
+                                                <i className="fas ml-2 fa-arrow-right"/>
+                                            </a>
                                         </div>
                                     </div>
                                 )
