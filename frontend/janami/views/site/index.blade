@@ -45,7 +45,7 @@ Yii::$app->params['footer_type'] = 'light';
                                 <img class="img-fluid w-100" src="/img/vid1.png"/>
 
                                 <div class="video-1-preview">
-                                    <a class="video-popup2" href="https://www.youtube.com/embed/11mVSlEK9m4">
+                                    <a class="video-popup1" href="https://www.youtube.com/embed/11mVSlEK9m4">
                                         <!-- Change the link HERE!!! -->
                                         <div class="video-btn bg-white">
                                             <div class="video-block-wrapper">
@@ -840,13 +840,14 @@ Yii::$app->params['footer_type'] = 'light';
             items: 1,
             animateOut: 'fadeOut',
             autoplay: true,
+            loop: true,
             nav: false,
             dots: true,
         });
         techItem.on('changed.owl.carousel', function (e) {
             $('.list-tech li').removeClass('active');
-            $('.list-tech li').each(function (){
-                if($(this).index() === e.item.index){
+            $('.list-tech li').each(function () {
+                if ($(this).index() === e.item.index) {
                     $(this).addClass('active');
                 }
             })

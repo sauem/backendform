@@ -1401,6 +1401,22 @@ nav a {
   100% {
     transform: scale(1); } }
 @media (max-width: 467px) {
+  .bottom-footer-list p:after {
+    display: none; }
+  .bottom-footer-list i {
+    display: block !important;
+    font-size: 30px !important; }
+
+  .cart-mobile a {
+    display: flex;
+    align-items: center; }
+
+  .wsmenu li.active a:before {
+    display: none; }
+
+  .cart.cart-desktop {
+    display: none; }
+
   .hero-section {
     min-height: 170px !important; }
 

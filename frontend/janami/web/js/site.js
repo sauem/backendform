@@ -12,6 +12,7 @@ $('.post-carousel,.creative-carousel').owlCarousel({
     // margin: 20,
     animateOut: 'fadeOut',
     autoplay: true,
+    loop: true,
     nav: true,
     dots: false,
     navText: ['<i class="fas fa-arrow-left"></i>', '<i class="fas fa-arrow-right"></i>'],

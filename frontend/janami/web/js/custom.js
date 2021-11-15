@@ -199,7 +199,7 @@ $(document).ready(function() {
 			patterns: {
 				youtube: {
 					index: 'youtube.com',
-					src: 'https://www.youtube.com/embed/SZEflIVnhH8'
+					src: 'https://www.youtube.com/embed/11mVSlEK9m4'
 				}
 			}
 		}
@@ -216,7 +216,7 @@ $(document).ready(function() {
 			patterns: {
 				youtube: {
 					index: 'youtube.com',
-					src: 'https://www.youtube.com/embed/7e90gBu4pas'
+					src: 'https://www.youtube.com/embed/5Pe3Kk4ydfc'
 				}
 			}
 		}

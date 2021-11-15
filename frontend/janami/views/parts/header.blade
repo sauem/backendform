@@ -18,8 +18,10 @@ if ($menu) {
         <!-- MOBILE HEADER -->
         <div class="wsmobileheader clearfix">
             <span class="smllogo">
-                <img src="<?= HelperFunction::getLogo('header')?>" width="170" height="50"
-                     alt="<?= HelperFunction::setting('site_name')?>"/>
+               <a href="/">
+                    <img src="<?= HelperFunction::getLogo('header')?>" width="170" height="50"
+                         alt="<?= HelperFunction::setting('site_name')?>"/>
+               </a>
             </span>
             <a id="wsnavtoggle" class="wsanimated-arrow"><span></span></a>
         </div>
@@ -92,10 +94,15 @@ if ($menu) {
                                 </li>
                             @endforeach
                         @endif
+                            <li class="cart cart-mobile d-block d-md-none">
+                                <a href="/<?= CART ?>" class="ico-cart">
+                                    <img src="/img/icons/cart.svg" width="32"/> Giỏ hàng (<span class="txt-brand" id="cart-mini">0</span>)
+                                </a>
+                            </li>
                     </ul>
                 </nav>    <!-- END MAIN MENU -->
                 <ul>
-                    <li class="nl-simple cart txt-color-03 header-socials clearfix" aria-haspopup="true">
+                    <li class="nl-simple cart cart-desktop txt-color-03 header-socials clearfix" aria-haspopup="true">
 {{--                            <span class="search-head">--}}
 {{--                                <input class="form-control" placeholder="Nhập từ khóa...">--}}
 {{--                                <img src="/img/icons/search.svg" width="32"/>--}}
