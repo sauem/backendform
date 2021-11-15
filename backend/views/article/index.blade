@@ -57,9 +57,9 @@
                                 {
                                     title: 'Trạng thái', dataIndex: 'status', key: 'status',
                                     render: status => {
-                                        return status == 'public' ?
+                                        return status === 'public' ?
                                             <span className={`badge badge-sm badge-pill badge-success`}>Đã đăng</span>
-                                            : '<span className={`badge badge-sm badge-pill badge-success`}>Nháp</span>';
+                                            : <span className={`badge badge-sm badge-pill badge-success`}>Nháp</span>;
                                     }
                                 },
                                 {

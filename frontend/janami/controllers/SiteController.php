@@ -70,7 +70,7 @@ class SiteController extends BaseController
         ]);
         $archiveHome = Archives::find()
             ->where(['type' => 'product'])
-            ->with(['children','products'])
+            ->with(['children', 'products'])
             ->all();
         return $this->render('index.blade', [
             //'sliders' => $sliders,
@@ -210,7 +210,8 @@ class SiteController extends BaseController
                 $template = 'blog-archive.blade';
                 $modelSearch = new ArchivesSearch();
                 $dataProvider = $modelSearch->search(Yii::$app->request->queryParams, [
-                    'default_archive' => $model->id
+                    'default_archive' => $model->id,
+                    'status' => 'public'
                 ]);
                 break;
         }
