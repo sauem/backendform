@@ -323,13 +323,17 @@ Yii::$app->params['footer_type'] = 'light';
                                         <div class="home-product-carousel owl-dot-green owl-carousel owl-theme">
                                             @if(!empty($archive->products))
                                                 @foreach($archive->products as $product)
-                                                    <div class="item-product-home">
+                                                    <div class="item-product-home hvr-shadow">
                                                         <div class="img">
-                                                            <img src="<?= HelperFunction::checkImage($product->avatar)?>"
-                                                                 class="w-100 img-fluid"/>
+                                                            <a href="/shop/<?= $product->defaultArchive->slug ?>/<?= $product->slug?>">
+                                                                <img src="<?= HelperFunction::checkImage($product->avatar)?>"
+                                                                     class="w-100 img-fluid"/>
+                                                            </a>
                                                         </div>
                                                         <div class="product-info">
-                                                            <p class="product-name">{{$product->name}}</p>
+                                                            <p class="product-name text-1">
+                                                                <a href="/shop/<?= $product->defaultArchive->slug ?>/<?= $product->slug?>">{{$product->name}}</a>
+                                                            </p>
                                                             <p class="product-price"><?= HelperFunction::htmlPrice($product)?></p>
                                                             <svg width="121" height="24" viewBox="0 0 121 24"
                                                                  fill="none"
