@@ -93,8 +93,8 @@ $bannerBottom = HelperFunction::getBanner('sidebar_right_bottom', ['archive']);
                         {state.articles.length > 0 ?
                             state.articles.map((item, index) => {
                                 return (
-                                    <div className="col-md-3">
-                                        <div className="blog-post mx-md-3">
+                                    <div className="col-md-4">
+                                        <div className="blog-post">
                                             <div className="blog-post-img">
                                                 <a href={`/article/${item.archive.slug}/${item.slug}`}>
                                                     <img className="img-fluid" src={item.avatar} alt={item.name}/>
