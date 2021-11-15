@@ -1106,15 +1106,28 @@ nav a {
     margin: auto;
     align-items: center;
     border-bottom: unset;
-    padding-bottom: 50px; }
+    padding-bottom: 50px;
+    justify-content: center;
+    flex-flow: wrap; }
     .section-products .archive-home nav .nav-link {
       background: #C7C7C7;
       color: white;
-      margin: 0 15px;
+      margin: 5px 25px;
       border-radius: 50px;
       font-size: 14px;
-      padding: 5px 15px;
-      border: unset; }
+      padding: 5px 20px;
+      border: unset;
+      position: relative; }
+      .section-products .archive-home nav .nav-link:not(:first-child):before {
+        content: '';
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        left: -40px;
+        top: 0;
+        background-image: url("../img/item-license.svg");
+        background-repeat: no-repeat;
+        background-position: center; }
       .section-products .archive-home nav .nav-link.active, .section-products .archive-home nav .nav-link:hover {
         background: #E44126;
         box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25); }
