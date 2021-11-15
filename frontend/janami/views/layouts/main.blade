@@ -110,7 +110,7 @@ AppAsset::register($view);
     });
 
     $(document).ready(function () {
-        AOS.init();
+        AOS.init({disable: 'mobile'});
         const path = window.location.pathname;
         $(".wsmenu-list > li > a").each(function () {
             if ($(this).attr('href') === path) {
