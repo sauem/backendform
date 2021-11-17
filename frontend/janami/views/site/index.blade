@@ -34,9 +34,9 @@ Yii::$app->params['footer_type'] = 'light';
                                 – Thấu hiểu là hệ giá trị cốt lõi để Janami Beauty có được sự tin tưởng và đồng hành
                                 quý
                                 giá từ phía khách hàng...</p>
-                            <button class="btn btn-brand button hvr-sweep-to-right">Xem thêm <i
-                                        class="fa fa-arrow-right"></i>
-                            </button>
+                            <a href="/article/cong-ty/ve-janami" class="btn btn-brand button hvr-sweep-to-right">
+                                Xem thêm <i class="fa fa-arrow-right"></i>
+                            </a>
                         </div>
                         <div class="col-md-6">
                             <div data-aos="fade-up"
@@ -760,134 +760,10 @@ Yii::$app->params['footer_type'] = 'light';
                             </p>
                         </div>
                     </div>
-                    <div class="form-holder">
-                        <form name="contactform" class="row contact-form">
-
-                            <!-- Form Input -->
-                            <div class="col-lg-6">
-                                <input data-aos="fade-right"
-                                       data-aos-duration="500" type="text" name="name" class="form-control name"
-                                       placeholder="Tên bạn*">
-                            </div>
-
-                            <!-- Form Input -->
-                            <div class="col-lg-6">
-                                <input data-aos="fade-right"
-                                       data-aos-duration="600" type="text" name="phone" class="form-control phone"
-                                       placeholder="Số điện thoại*">
-                            </div>
-
-                            <!-- Form Input -->
-                            <div class="col-md-6">
-                                <input data-aos="fade-right"
-                                       data-aos-duration="700" type="text" name="email" class="form-control email"
-                                       placeholder="Email">
-                            </div>
-                            <div class="col-md-6">
-                                <input data-aos="fade-right"
-                                       data-aos-duration="800" type="text" name="subject" class="form-control subject"
-                                       placeholder="Sản phẩm quan tâm?">
-                            </div>
-                            <!-- Form Textarea -->
-                            <div class="col-md-12">
-                                <textarea data-aos="fade-right"
-                                          data-aos-duration="900" rows="4" name="message" class="form-control message"
-                                          placeholder="Nội dung cần tư vấn ..."></textarea>
-                            </div>
-
-                            <!-- Form Button -->
-                            <div class="col-md-12 text-center mt-5">
-                                <button data-aos="fade-up"
-                                        data-aos-duration="900" type="submit"
-                                        class="hvr-ripple-out btn-contact submit">
-                                    Gửi
-                                </button>
-                            </div>
-
-                            <!-- Form Message -->
-                            <div class="col-md-12 contact-form-msg text-center">
-                                <div class="sending-msg"><span class="loading"></span></div>
-                            </div>
-
-                        </form>
-
-                    </div>
+                   <?= $view->render('/parts/form-req.blade') ?>
                 </div>
             </div>
         </div>
     </Section>
 @stop
-@section("js_end")
-    <script>
-        $(".home-product-carousel").owlCarousel({
-            items: 4,
-            margin: 20,
-            animateOut: 'fadeOut',
-            autoplay: true,
-            nav: false,
-            dots: true,
-            responsive: {
-                0: {
-                    items: 1,
-                    autoHeight: true
-                },
-                960: {
-                    items: 4
-                }
-            }
-        })
-        let techItem = $(".box-technology-carousel").owlCarousel({
-            items: 1,
-            animateOut: 'fadeOut',
-            autoplay: true,
-            //loop: true,
-            nav: false,
-            dots: true,
-        });
-        techItem.on('changed.owl.carousel', function (e) {
-            $('.list-tech li').removeClass('active');
-            $('.list-tech li').each(function () {
-                if ($(this).index() === e.item.index) {
-                    $(this).addClass('active');
-                }
-            })
-        })
-        $('.list-tech li').click(function () {
-            $('.list-tech li').removeClass('active')
-            techItem.trigger('to.owl.carousel', [$(this).index(), 500]);
-            $(this).addClass('active');
-            //  techItem.trigger('next.owl.carousel');
-        })
-        $('.newspaper-carousel').owlCarousel({
-            items: 1,
-            margin: 20,
-            animateOut: 'fadeOut',
-            autoplay: true,
-            loop: true,
-            dots: true,
-            nav: false,
-        })
-        $('.invention-carousel').owlCarousel({
-            items: 1,
-            margin: 20,
-            animateOut: 'fadeOut',
-            autoplay: true,
-            loop: true,
-            dots: false,
-            nav: true,
-            navText: [
-                `<i class="fas fa-arrow-left"></i>`,
-                `<i class="fas fa-arrow-right"></i>`,
-            ],
-            responsive: {
-                0: {
-                    items: 1,
-                    autoHeight: true
-                },
-                720: {
-                    items: 1
-                }
-            }
-        });
-    </script>
-@stop
+

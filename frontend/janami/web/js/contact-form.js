@@ -1,11 +1,12 @@
 // JavaScript Document
-$(document).ready(function() {
+$(document).ready(function () {
 
     "use strict";
 
-    $(".contact-form").submit(function(e) {
+    $(".contact-form").submit(function (e) {
         e.preventDefault();
         var name = $(".name");
+        var phone = $(".phone");
         var email = $(".email");
         var subject = $(".subject");
         var msg = $(".message");
@@ -17,43 +18,51 @@ $(document).ready(function() {
             return false;
         } else {
             name.closest(".form-control").removeClass("error").addClass("success");
-        } if (email.val() == "") {
-            email.closest(".form-control").addClass("error");
-            email.focus();
-            flag = false;
-            return false;
-        } else {
-            email.closest(".form-control").removeClass("error").addClass("success");
-        } if (msg.val() == "") {
-            msg.closest(".form-control").addClass("error");
-            msg.focus();
-            flag = false;
-            return false;
-        } else {
-            msg.closest(".form-control").removeClass("error").addClass("success");
-            flag = true;
         }
-        var dataString = "name=" + name.val() + "&email=" + email.val() + "&subject=" + subject.val() + "&msg=" + msg.val();
+        if (phone.val() == "") {
+            phone.closest(".form-control").addClass("error");
+            phone.focus();
+            flag = false;
+            return false;
+        } else {
+            phone.closest(".form-control").removeClass("error").addClass("success");
+        }
+        // if (msg.val() == "") {
+        //     msg.closest(".form-control").addClass("error");
+        //     msg.focus();
+        //     flag = false;
+        //     return false;
+        // } else {
+        //     msg.closest(".form-control").removeClass("error").addClass("success");
+        //     flag = true;
+        // }
+        var dataString = {
+            "Contact[name]": name.val(),
+            "Contact[email]": email.val(),
+            "Contact[phone]": phone.val(),
+            "Contact[message]": msg.val(),
+            "Contact[contact_pre]": subject.val()
+        }
         $(".loading").fadeIn("slow").html("Loading...");
         $.ajax({
             type: "POST",
             data: dataString,
-            url: "php/contactForm.php",
+            url: "/ajax/create-brief",
             cache: false,
             success: function (d) {
                 $(".form-control").removeClass("success");
-                    if(d == 'success') // Message Sent? Show the 'Thank You' message and hide the form
-                        $('.loading').fadeIn('slow').html('<font color="#48af4b">Mail sent Successfully.</font>').delay(3000).fadeOut('slow');
-                         else
-                        $('.loading').fadeIn('slow').html('<font color="#ff5607">Mail not sent.</font>').delay(3000).fadeOut('slow');
-                                }
+                if (d == true) // Message Sent? Show the 'Thank You' message and hide the form
+                    $('.loading').fadeIn('slow').html('<font color="#48af4b">Cám ơn bạn đã liên hệ với chúng tôi! đội ngữ tư vấn sẽ liên hệ với bạn trong giây lát!.</font>').delay(3000).fadeOut('slow');
+                else
+                    $('.loading').fadeIn('slow').html('<font color="#ff5607">Mail not sent.</font>').delay(3000).fadeOut('slow');
+            }
         });
         return false;
     });
-    $("#reset").on('click', function() {
+    $("#reset").on('click', function () {
         $(".form-control").removeClass("success").removeClass("error");
     });
-    
+
 })
 
 

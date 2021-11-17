@@ -69,67 +69,27 @@ $view->title = 'Liên hệ';
             </div>
         </div>
     </div>
-    <!-- CONTACTS-3
-    ============================================= -->
-    <section id="contacts-3" class="bg-color-01 wide-30 contacts-section division">
+    <Section data-aos="fade-up"
+             data-aos-duration="1200" class="section-register pt-4">
         <div class="container">
-
-            <div class="row">
-                <div class="col-lg-10 offset-lg-1">
-                    <h4 class="h4-xs do text-center">Thông tin liên hệ</h4>
-
-                    <!-- Text -->
-                    <p class="xam text-center">Nếu bạn muốn hỏi bất cứ điều gì chỉ cần điền vào biểu mẫu bên dưới và gửi
-                        cho chúng tôi.</p>
-
-                    <!-- Form -->
-                    <div class="form-holder">
-                        <form name="contactform" class="row contact-form">
-
-                            <!-- Form Input -->
-                            <div class="col-lg-6">
-                                <input type="text" name="name" class="form-control name" placeholder="Tên bạn*">
-                            </div>
-
-                            <!-- Form Input -->
-                            <div class="col-lg-6">
-                                <input type="email" name="phone" class="form-control phone"
-                                       placeholder="Số điện thoại*">
-                            </div>
-
-                            <!-- Form Input -->
-                            <div class="col-md-6">
-                                <input type="text" name="email" class="form-control email" placeholder="Email">
-                            </div>
-                            <div class="col-md-6">
-                                <input type="text" name="subject" class="form-control subject"
-                                       placeholder="Sản phẩm quan tâm?">
-                            </div>
-                            <!-- Form Textarea -->
-                            <div class="col-md-12">
-                                <textarea name="message" class="form-control message" rows="6"
-                                          placeholder="Nội dung cần tư vấn ..."></textarea>
-                            </div>
-
-                            <!-- Form Button -->
-                            <div class="col-md-12 mt-5">
-                                <button type="submit" class="btn-contact submit">
-                                    Gửi
-                                </button>
-                            </div>
-
-                            <!-- Form Message -->
-                            <div class="col-md-12 contact-form-msg text-center">
-                                <div class="sending-msg"><span class="loading"></span></div>
-                            </div>
-
-                        </form>
-
+            <div class="row justify-content-center">
+                <div class="col-md-9">
+                    <div class="row justify-content-center ">
+                        <div class="col-md-8 text-center size-18">
+                            <img src="/img/icon-do.svg">
+                            <p class="call-txt">
+                                Bạn là chủ Spa/TMV, Kinh doanh online<br>
+                                Xin vui lòng <span class="txt-brand bold">Đăng ký</span> và nhận thông tin Chính sách
+                                đại lý
+                                <span class="txt-brand bold">tại đây</span>.
+                            </p>
+                        </div>
                     </div>
+                    <?= $view->render('/parts/form-req.blade') ?>
                 </div>
             </div>
-        </div>       <!-- End container -->
-    </section>    <!-- END CONTACTS-3 -->
+        </div>
+    </Section>
     <iframe src="<?= HelperFunction::setting('map_iframe')?>" width="100%" height="450"></iframe>
     <?= $view->render("../parts/logo.blade"); ?>
 
