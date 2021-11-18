@@ -43,10 +43,11 @@ class SiteController extends BaseController
 //            'position' => 'home_slider',
 //            'language' => HelperFunction::getLanguage()
 //        ]);
-        $categories = ArchivesSearch::findAll([
-            'active' => Archives::STATUS_ACTIVE,
-            'language' => HelperFunction::getLanguage()
-        ]);
+//        $categories = Archives::find()->where([
+//            'active' => Archives::STATUS_ACTIVE,
+//            'language' => HelperFunction::getLanguage()
+//        ])->andFilterWhere(['IS', 'parent_id', new Expression('NULL')])
+//            ->all();
         $articles = Articles::find()
             ->where([
                 'show_home' => 1,
@@ -70,11 +71,12 @@ class SiteController extends BaseController
         ]);
         $archiveHome = Archives::find()
             ->where(['type' => 'product'])
+            ->andWhere(['IS', 'parent_id', new Expression('NULL')])
             ->with(['children', 'products'])
             ->all();
         return $this->render('index.blade', [
             //'sliders' => $sliders,
-            'categories' => $categories,
+            //'categories' => $categories,
             'posts' => $articles,
             'products' => $products,
             'archiveHome' => $archiveHome,
