@@ -11,6 +11,8 @@
             const [state, setState] = useState(initalState);
             const [defaultFileList, setDefaultFileList] = useState([]);
             const [progress, setProgress] = useState(0);
+            const [postType, setPostType] = useState(false);
+            const [isDirect, setIsDirect] = useState(false);
             const [form] = Form.useForm();
             const onSubmit = async (article) => {
                 setState({
@@ -195,7 +197,7 @@
                                         <Form.Item
                                             name={`show_home`}
                                             label="Hiển thị trang chủ"
-                                            initialValue={1}
+                                            initialValue={0}
                                         >
                                             <Select>
                                                 <Select.Option value={1}>Hiển thị</Select.Option>
@@ -203,12 +205,43 @@
                                             </Select>
                                         </Form.Item>
                                         <Form.Item
+                                            name={`is_new`}
+                                            label="Nhận xét báo chí"
+                                            initialValue={0}
+                                        >
+                                            <Select onChange={val => {
+                                                setPostType(val === 1);
+                                                setIsDirect(val === 1);
+                                            }}>
+                                                <Select.Option value={0}>NO</Select.Option>
+                                                <Select.Option value={1}>YES</Select.Option>
+                                            </Select>
+                                        </Form.Item>
+                                        {postType && <Form.Item
+                                            name={`read_type`}
+                                            label="Chế độ đọc"
+                                            initialValue={1}
+                                        >
+                                            <Select onChange={val => setIsDirect(val === 1)}>
+                                                <Select.Option value={0}>Trang hiện tại</Select.Option>
+                                                <Select.Option value={1}>Chuyến hướng</Select.Option>
+                                            </Select>
+                                        </Form.Item>}
+
+                                        {isDirect && <Form.Item
+                                            rules={[{required: true}]}
+                                            name={`direct_url`}
+                                            label="Link dẫn chứng"
+                                        >
+                                            <Input/>
+                                        </Form.Item>}
+                                        <Form.Item
                                             initialValue={LANG_VI}
                                             label="Ngôn ngữ"
                                             name={`language`}
                                             rules={[{required: true, message: 'Hãy chọn ngôn ngữ!'}]}
                                         >
-                                            <Select>
+                                            <Select disabled>
                                                 <Select.Option value={LANG_VI}>Tiếng Việt</Select.Option>
                                                 <Select.Option value={LANG_EN}>Tiếng Anh</Select.Option>
                                             </Select>
@@ -244,7 +277,7 @@
                         </Row>
                     </Form>
                 </div>
-        )
+            )
         }
     </script>
 @stop

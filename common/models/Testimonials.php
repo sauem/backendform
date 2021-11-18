@@ -35,7 +35,7 @@ class Testimonials extends \yii\db\ActiveRecord
             [['message'], 'string'],
             [['media_id', 'created_at', 'updated_at'], 'integer'],
             [['name'], 'string', 'max' => 255],
-            [['position', 'company'], 'string', 'max' => 100],
+            [['position', 'company', 'type'], 'string', 'max' => 100],
         ];
     }
 

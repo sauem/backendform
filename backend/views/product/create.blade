@@ -16,14 +16,14 @@
             const [products, setProducts] = useState([]);
             const [cats, setCats] = useState([]);
             const [transfers, setTransfers] = useState([])
-            const [defaultKey, setDefaultKey] = useState(null);
+            const [defaultKey, setDefaultKey] = useState([]);
             const [form] = Form.useForm();
             const [defaultFileList, setDefaultFileList] = useState({
                 avatar: [],
                 banner: [],
                 thumbs: []
             });
-            const [defaultThumbList, setDefaultThumbList] = useState([]);
+
             const [attr, setAttr] = useState({});
             const [progress, setProgress] = useState(0);
             const onSubmit = async (data) => {
@@ -33,9 +33,9 @@
                     await Products.update(data);
                 }
             }
-            const changeContent = text => {
+            const changeContent = (text, name = 'content') => {
                 form.setFieldsValue({
-                    content: text
+                    [name]: text
                 });
             }
             const slugChange = (e) => {
@@ -55,78 +55,74 @@
                     setProducts(pList);
                 }
             }
-            useEffect(async () => {
-
-                const id = getParams('id');
-                if (id) {
-                    const {data} = await Products.view(id);
-                    // initTinymce(changeContent, data.content);
-                    await setLanguage(data.language);
-
-                    const {meta, media_id, archives} = data;
-
-                    let cats = archives.map(item => {
-                        return item.archive_id;
-                    });
-                    setCheckedKeys(cats);
-
-                    form.setFieldsValue({
-                        ...data,
-                        media_id: media_id,
-                        archive_id: cats,
-                        meta_title: meta ? meta.meta_title : null,
-                        meta_keyword: meta ? meta.meta_keyword : null,
-                        meta_description: meta ? meta.meta_description : null
-                    });
-
-                    data.avatar && setDefaultFileList({
-                        ...defaultFileList,
-                        avatar: [{
-                            uid: data.id,
-                            name: data.name,
-                            status: 'done',
-                            url: data.avatar
-                        }]
-                    });
-
-                    data.banner && setDefaultFileList({
-                        ...defaultFileList,
-                        banner: [{
-                            uid: data.banner_id,
-                            name: data.name,
-                            status: 'done',
-                            url: data.banner
-                        }]
-                    });
-
-                    if (data.thumbs.length > 0) {
-                        const newThumbs = [];
-                        data.thumbs.map(item => {
-                            newThumbs.push({
-                                uid: item.id,
-                                name: `thumb-${item.id}`,
-                                status: 'done',
-                                url: `/static/${item.path}`
-                            })
+            useEffect(() => {
+                (async () => {
+                    const id = getParams('id');
+                    if (id) {
+                        const {data} = await Products.view(id);
+                        await setLanguage(data.language);
+                        const {meta, media_id, archives} = data;
+                        let cats = archives.map(item => {
+                            return item.archive_id;
                         });
-                        setDefaultFileList({
+                        setCheckedKeys(cats);
+                        setDefaultKey([data.default_archive])
+                        form.setFieldsValue({
+                            ...data,
+                            media_id: media_id,
+                            archive_id: cats,
+                            meta_title: meta ? meta.meta_title : null,
+                            meta_keyword: meta ? meta.meta_keyword : null,
+                            meta_description: meta ? meta.meta_description : null
+                        });
+
+                        data.avatar && setDefaultFileList({
                             ...defaultFileList,
-                            thumbs: newThumbs
+                            avatar: [{
+                                uid: data.id,
+                                name: data.name,
+                                status: 'done',
+                                url: data.avatar
+                            }]
                         });
+
+                        data.banner && setDefaultFileList({
+                            ...defaultFileList,
+                            banner: [{
+                                uid: data.banner_id,
+                                name: data.name,
+                                status: 'done',
+                                url: data.banner
+                            }]
+                        });
+
+                        if (data.thumbs.length > 0) {
+                            const newThumbs = [];
+                            data.thumbs.map(item => {
+                                newThumbs.push({
+                                    uid: item.id,
+                                    name: `thumb-${item.id}`,
+                                    status: 'done',
+                                    url: `/static/${item.path}`
+                                })
+                            });
+                            setDefaultFileList({
+                                ...defaultFileList,
+                                thumbs: newThumbs
+                            });
+                        }
+                    } else {
+                        await setLanguage(LANG_VI);
                     }
-                } else {
-                    await setLanguage(LANG_VI);
-                }
-
-
-                await getProducts();
-                const attr = await Attributes.fetch({page: -1});
-                setState({
-                    ...state,
-                    attributes: attr.data
-                });
-                initTinymce(changeContent);
-
+                    await getProducts();
+                    const attr = await Attributes.fetch({page: -1});
+                    setState({
+                        ...state,
+                        attributes: attr.data
+                    });
+                    initTinymce(changeContent);
+                    initTinymce(txt => changeContent(txt, 'attr_text'), 'attr_editor');
+                })()
             }, []);
             const setLanguage = async (e) => {
                 const res = await fetchArchive({language: e});
@@ -186,11 +182,19 @@
                 }, MEDIA_TYPE_PRODUCT);
             }
             const onSelectArchive = (selectKey) => {
+
+                if (!checkedKeys.includes(selectKey[0])) {
+                    message.error('Hãy chọn danh mục này trước sau đó select để đánh dấu mặc định');
+                    setDefaultKey([]);
+                    return;
+                }
+                setDefaultKey(selectKey);
                 form.setFieldsValue({
                     default_archive: selectKey[0]
                 })
             };
             const onCheckArchive = (checkedKeysValue, info) => {
+
                 setCheckedKeys(checkedKeysValue);
                 form.setFieldsValue({
                     archive_id: checkedKeysValue
@@ -237,6 +241,7 @@
                     />
                 )
             }
+
             return (
                 <div className="mb-5">
                     <Form onFinish={onSubmit} form={form} layout="vertical">
@@ -263,7 +268,7 @@
                                         name={`slug`}
                                         rules={[{required: true, message: 'Slug bắt buộc!'}]}
                                     >
-                                        <Input disabled/>
+                                        <Input/>
                                     </Form.Item>
                                     <Form.Item
                                         label="tiêu đề phụ"
@@ -281,7 +286,7 @@
                                         label="Mổ tả thuộc tính"
                                         name={`attr_text`}
                                     >
-                                        <Input.TextArea height={200} className={`editor`}/>
+                                        <Input.TextArea height={200} className={`attr_editor`}/>
                                     </Form.Item>
                                     <Form.Item
                                         label="Nội dung sản phẩm"
@@ -455,10 +460,16 @@
                                             rules={[{required: true, message: 'Danh mục bắt buộc', type: 'array'}]}
                                         >
                                             <Tree
+                                                height={300}
+                                                allowDrop
                                                 checkable
-                                                expandedKeys={checkedKeys}
+                                                autoExpandParent
+                                                defaultExpandParent
+                                                defaultExpandAll
+                                                blockNode
+                                                selectable
+                                                selectedKeys={defaultKey}
                                                 checkedKeys={checkedKeys}
-                                                defaultSelectedKeys={defaultKey}
                                                 onCheck={onCheckArchive}
                                                 onSelect={onSelectArchive}
                                                 treeData={cats}
@@ -490,7 +501,7 @@
                                             label="Ngôn ngữ"
                                             rules={[{required: true, message: 'Hãy chọn ngôn ngữ!'}]}
                                         >
-                                            <Select onChange={setLanguage}>
+                                            <Select disabled onChange={setLanguage}>
                                                 <Select.Option value={LANG_VI}>Tiếng Việt</Select.Option>
                                                 <Select.Option value={LANG_EN}>Tiếng Anh</Select.Option>
                                             </Select>

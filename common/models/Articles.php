@@ -42,8 +42,8 @@ class Articles extends BaseModel
     {
         return [
             [['content'], 'string'],
-            [['created_at', 'updated_at', 'archive_id', 'media_id', 'show_home'], 'integer'],
-            [['name', 'slug', 'excerpt'], 'string', 'max' => 255],
+            [['created_at', 'updated_at', 'archive_id', 'media_id', 'is_new', 'read_type', 'show_home'], 'integer'],
+            [['name', 'slug', 'excerpt', 'direct_url'], 'string', 'max' => 255],
             [['status', 'language'], 'string', 'max' => 50],
             [['slug'], 'unique'],
             [['avatar'], 'safe'],

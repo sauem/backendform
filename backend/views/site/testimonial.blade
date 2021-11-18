@@ -124,9 +124,21 @@ $view->title = 'Đánh giá khách hàng';
                                     name={`language`}
                                     rules={[{required: true, message: 'Hãy chọn ngôn ngữ!'}]}
                                 >
-                                    <Select>
+                                    <Select disabled>
                                         <Select.Option value={LANG_VI}>Tiếng Việt</Select.Option>
                                         <Select.Option value={LANG_EN}>Tiếng Anh</Select.Option>
+                                    </Select>
+                                </Form.Item>
+                                <Form.Item
+                                    initialValue={`guest`}
+                                    label="Đối tượng"
+                                    name={`language`}
+                                    rules={[{required: true, message: 'Hãy chọn ngôn ngữ!'}]}
+                                >
+                                    <Select>
+                                        <Select.Option value={`guest`}>Khách hàng</Select.Option>
+                                        <Select.Option value={`kols`}>Kols</Select.Option>
+                                        <Select.Option value={`partner`}>Đại lý</Select.Option>
                                     </Select>
                                 </Form.Item>
                                 <Form.Item

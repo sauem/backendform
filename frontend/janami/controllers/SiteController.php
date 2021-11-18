@@ -12,6 +12,7 @@ use common\models\Contact;
 use common\models\Member;
 use common\models\Products;
 use common\models\ProductsSearch;
+use common\models\Testimonials;
 use janami\controllers\BaseController;
 use frontend\models\ResendVerificationEmailForm;
 use frontend\models\VerifyEmailForm;
@@ -74,9 +75,21 @@ class SiteController extends BaseController
             ->andWhere(['IS', 'parent_id', new Expression('NULL')])
             ->with(['children', 'products'])
             ->all();
+        $newspaperReview = Articles::find()
+            ->where([
+                'is_new' => 1,
+                'language' => HelperFunction::getLanguage(),
+                'status' => Articles::STATUS_ACTIVE
+            ])->orderBy('created_at DESC')->all();
+        $guestComment = Testimonials::find()
+            ->where([
+                'type' => 'guest'
+            ])->all();
         return $this->render('index.blade', [
             //'sliders' => $sliders,
             //'categories' => $categories,
+            'newspaperReview' => $newspaperReview,
+            'guestComment' => $guestComment,
             'posts' => $articles,
             'products' => $products,
             'archiveHome' => $archiveHome,
@@ -291,11 +304,17 @@ class SiteController extends BaseController
             ->orderBy('id DESC')
             ->all();
 
+        $kolsComment = Testimonials::find()
+            ->where(['type' => 'kols'])->all();
+        $partnerComment = Testimonials::find()
+            ->where(['type' => 'partner'])->all();
         return $this->render($template, [
             'model' => $model,
             'categories' => $categories,
             'latestBlog' => $latestBlog,
-            'related' => $related
+            'related' => $related,
+            'kolsComment' => $kolsComment,
+            'partnerComment' => $partnerComment
         ]);
     }
 

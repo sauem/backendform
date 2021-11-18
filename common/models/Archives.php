@@ -42,7 +42,7 @@ class Archives extends BaseModel
     public function rules()
     {
         return [
-            [['active', 'created_at', 'updated_at', 'parent_id', 'show_home', 'banner_id'], 'integer'],
+            [['active', 'created_at', 'updated_at', 'parent_id', 'sort_order', 'show_home', 'banner_id'], 'integer'],
             [['description', 'sub_text'], 'string'],
             [['name', 'slug', 'type', 'sub_title'], 'string', 'max' => 255],
             [['language', 'icon', 'layout', 'layout_show'], 'string', 'max' => 50],

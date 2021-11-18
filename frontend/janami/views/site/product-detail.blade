@@ -124,9 +124,7 @@ Yii::$app->params['header_style'] = true;
                     setCart(state.product, quantity);
                 }
             }
-            const addWishList = () => {
 
-            }
             const {product, thumbs} = state;
             return (
                 <Spin spinning={state.loading}>
@@ -169,7 +167,7 @@ Yii::$app->params['header_style'] = true;
                                     <div className="description">
                                         <p>{product.excerpt}</p>
                                         <Divider/>
-                                        <div dangerouslySetInnerHTML={__html: product.attributes }/>
+                                        <div dangerouslySetInnerHTML=@{{__html: product.attr_text}}/>
                                     </div>
                                     <Divider/>
                                     <div className="cart">
@@ -178,9 +176,7 @@ Yii::$app->params['header_style'] = true;
                                                     className="btn custom btn-md btn-color-02">
                                                 <span>Mua hàng</span>
                                             </Button>
-                                            <Button onClick={addWishList} className="btn custom btn-md btn-color-02">
-                                                <i className="fas fa-heart"/>
-                                            </Button>
+
                                         </Space>
                                         <Divider/>
                                         <p className="xam mb-0"><strong className={`bold`}>SKU</strong>: {product.sku}
