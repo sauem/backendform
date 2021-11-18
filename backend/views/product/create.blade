@@ -250,7 +250,7 @@
                                         <Input/>
                                     </Form.Item>
                                     <Form.Item
-                                            //onChange={slugChange}
+                                        onChange={slugChange}
                                         label="Tên sản phẩm"
                                         name={`name`}
                                         rules={[{required: true, message: 'Tên sản phẩm bắt buộc!'}]}
@@ -272,7 +272,7 @@
                                         <Input/>
                                     </Form.Item>
                                     <Form.Item
-                                        label="Mô tả"
+                                        label="Mô tả ngắn"
                                         name={`excerpt`}
                                     >
                                         <Input.TextArea/>
@@ -281,12 +281,12 @@
                                         label="Mổ tả thuộc tính"
                                         name={`attr_text`}
                                     >
-                                        <Input.TextArea rows={5}/>
+                                        <Input.TextArea height={200} className={`editor`}/>
                                     </Form.Item>
                                     <Form.Item
                                         label="Nội dung sản phẩm"
                                         name="content">
-                                        <Input.TextArea className={`editor`}/>
+                                        <Input.TextArea height={600} className={`editor`}/>
                                     </Form.Item>
                                     <Row gutter={[8, 0]}>
                                         <Col xs={24}>
@@ -516,13 +516,14 @@
                                             </Upload>
                                         </Form.Item>
                                         <small className="text-danger">*Ảnh upload không quá 2MB</small><br/>
-                                        <small className="text-danger">*Tên ảnh không nên chứa kí tự đặc biệt hoặc khoảng trắng</small>
+                                        <small className="text-danger">*Tên ảnh không nên chứa kí tự đặc biệt hoặc
+                                            khoảng trắng</small>
                                         <Form.Item
                                             name="banner_id"
                                             hidden>
                                             <Input/>
                                         </Form.Item>
-                                       
+
                                         <Form.Item
                                             name="media_id"
                                             hidden>

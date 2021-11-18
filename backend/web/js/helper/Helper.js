@@ -161,7 +161,7 @@ function initTinymce(callback, defaultContent = null) {
         toolbar_mode: 'sliding',
         spellchecker_ignore_list: ['Ephox', 'Moxiecode'],
         content_style: '.mymention{ color: gray; }',
-        contextmenu: 'link image imagetools table configurepermanentpen',
+        contextmenu: 'link table configurepermanentpen',
         a11y_advanced_options: true,
         setup: function (ed) {
             ed.on('keyup', function (e) {
