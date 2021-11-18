@@ -109,7 +109,10 @@
                                 url: `/static/${item.path}`
                             })
                         });
-                        setDefaultThumbList(newThumbs);
+                        setDefaultFileList({
+                            ...defaultFileList,
+                            thumbs: newThumbs
+                        });
                     }
                 } else {
                     await setLanguage(LANG_VI);
@@ -247,7 +250,7 @@
                                         <Input/>
                                     </Form.Item>
                                     <Form.Item
-                                        //onChange={slugChange}
+                                            //onChange={slugChange}
                                         label="Tên sản phẩm"
                                         name={`name`}
                                         rules={[{required: true, message: 'Tên sản phẩm bắt buộc!'}]}
@@ -555,15 +558,12 @@
                                                 accept="image/*"
                                                 listType="picture"
                                                 maxCount={6}
-                                                onRemove={(file) => {
-                                                    onRemoveMedia(file.uid);
-                                                    message.success('Xóa thành công!');
-                                                    setDefaultThumbList(defaultThumbList.filter(thumb => thumb.uid !== file.uid))
-                                                }
-                                                }
-                                                onChange={setDefaultThumbList}
-                                                fileList={[...defaultThumbList]}
                                                 customRequest={options => onUpload('thumbnails', options)}
+                                                onChange={props => handleOnChange('thumbs', props)}
+                                                fileList={defaultFileList.thumbs}
+                                                onRemove={(file) =>
+                                                    onRemoveMedia(file.uid)
+                                                }
                                                 multiple
                                             >
                                                 <Button><i className="icon-upload mr-2"/> Chọn ảnh</Button>
