@@ -115,8 +115,8 @@
                                         <Input/>
                                     </Form.Item>
                                     <Form.Item
-                                        onChange={onChangeSlug}
-                                        label="Tên bài viết"
+                                            // onChange={onChangeSlug}
+                                        label={`Tên bài viết`}
                                         name={`name`}
                                         rules={[{required: true, message: 'Tên bài viết bắt buộc!'}]}
                                     >
@@ -127,7 +127,7 @@
                                         name={`slug`}
                                         rules={[{required: true, message: 'Slug bắt buộc!'}]}
                                     >
-                                        <Input disabled/>
+                                        <Input/>
                                     </Form.Item>
                                     <Form.Item
                                         label="Mô tả"
@@ -244,7 +244,7 @@
                         </Row>
                     </Form>
                 </div>
-            )
+        )
         }
     </script>
 @stop
