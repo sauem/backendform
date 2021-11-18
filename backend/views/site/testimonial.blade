@@ -113,7 +113,7 @@ $view->title = 'Đánh giá khách hàng';
                                 <Form.Item name={'id'} hidden><Input/></Form.Item>
                                 <Form.Item
                                     name={'name'}
-                                    label={`Tên danh mục`}
+                                    label={`Tên`}
                                     rules={[{required: true, message: 'Danh mục bắt buộc!'}]}
                                 >
                                     <Input/>
@@ -132,7 +132,7 @@ $view->title = 'Đánh giá khách hàng';
                                 <Form.Item
                                     initialValue={`guest`}
                                     label="Đối tượng"
-                                    name={`language`}
+                                    name={`type`}
                                     rules={[{required: true, message: 'Hãy chọn ngôn ngữ!'}]}
                                 >
                                     <Select>

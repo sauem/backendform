@@ -1822,6 +1822,7 @@ nav {
           left: 0;
           padding: 15px;
           background: rgba(0, 0, 0, 0.5);
+
           p, span, b {
             font-family: arial, sans-serif;
             color: white;
@@ -2064,6 +2065,11 @@ nav {
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
     width: 97%;
+
+    .img {
+      max-height: 227px;
+      overflow: hidden;
+    }
 
     .content {
       padding: 10px 15px;
@@ -2568,6 +2574,11 @@ nav {
 
     .item-newspaper {
       width: 100%;
+
+      //.img {
+      //  max-height: 227px;
+      //  overflow: hidden;
+      //}
     }
 
     .owl-dots {

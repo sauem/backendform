@@ -1213,6 +1213,9 @@ nav a {
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
     width: 97%; }
+    .section-seeding .item-newspaper .img {
+      max-height: 227px;
+      overflow: hidden; }
     .section-seeding .item-newspaper .content {
       padding: 10px 15px; }
 

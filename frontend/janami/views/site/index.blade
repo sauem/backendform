@@ -562,7 +562,10 @@ Yii::$app->params['footer_type'] = 'light';
                                     @foreach($newspaperReview as $new)
                                         <div class="item-newspaper">
                                             <div class="img">
-                                                <img src="{{$new->avatar}}" class="w-100 img-fluid"/>
+                                                <a class="txt-green paper-title mb-0 mt-2 bold" target="_blank"
+                                                   href={{$new->read_type === 1 ? $new->direct_url : "/article/{$new->archive->slug}/$new->slug"}}>
+                                                    <img src="{{$new->avatar}}" class="w-100 img-fluid"/>
+                                                </a>
                                             </div>
                                             <div class="content">
                                                 <a class="txt-green paper-title mb-0 mt-2 bold" target="_blank"
@@ -571,7 +574,7 @@ Yii::$app->params['footer_type'] = 'light';
                                                         {{$new->name}}
                                                     </p>
                                                 </a>
-                                                <p class="txt-4">{{$new->excerpt}}</p>
+                                                <p class="text-4">{{$new->excerpt}}</p>
                                             </div>
                                         </div>
                                     @endforeach
@@ -586,7 +589,7 @@ Yii::$app->params['footer_type'] = 'light';
                                         @foreach($guestComment as $guest)
                                             <div class="item-newspaper">
                                                 <div class="img">
-                                                    <img src="/img/kh1.png" class="w-100 img-fluid"/>
+                                                    <img src="{{$guest->avatar}}" class="w-100 img-fluid"/>
                                                 </div>
                                                 <div class="content">
                                                     <p class="paper-title mb-0 mt-2">
@@ -609,7 +612,7 @@ Yii::$app->params['footer_type'] = 'light';
                                                               d="M111.808 8.87464L116.648 9.29464C117.528 9.36464 117.878 10.4646 117.208 11.0446L113.538 14.2246L114.638 18.9546C114.838 19.8146 113.908 20.4946 113.148 20.0346L108.998 17.5246L104.848 20.0246C104.088 20.4846 103.158 19.8046 103.358 18.9446L104.458 14.2246L100.788 11.0446C100.118 10.4646 100.478 9.36464 101.358 9.29464L106.188 8.88464L108.078 4.42464C108.418 3.61464 109.578 3.61464 109.918 4.42464L111.808 8.87464ZM105.238 17.9246L108.998 15.6546L112.768 17.9346L111.768 13.6546L115.088 10.7746L110.708 10.3946L108.998 6.35464L107.298 10.3846L102.918 10.7646L106.238 13.6446L105.238 17.9246Z"
                                                               fill="black" fill-opacity="0.54"/>
                                                     </svg>
-                                                    <p>{{$guest->message}}</p>
+                                                    <p class="text-4">{{$guest->message}}</p>
                                                 </div>
                                             </div>
                                         @endforeach
