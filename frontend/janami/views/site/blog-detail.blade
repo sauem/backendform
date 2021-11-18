@@ -137,10 +137,10 @@ $bannerBottom = HelperFunction::getBanner('sidebar_right_bottom', ['article']);
                                         <img class="img-fluid" src="{{$blog->avatar}}" alt="{{$blog->name}}"/>
                                         <div class="post-summary">
                                             <a href="<?= HelperFunction::Link(ARTICLE, $blog->slug, $blog->archive->slug)?>"
-                                               class="txt-color-05">
+                                               class="">
                                                 {{$blog->name}}
                                             </a>
-                                            <p class="txt-color-03">{{date('d/m/Y', $blog->created_at)}}</p>
+                                            <p class="text-muted">{{date('d/m/Y', $blog->created_at)}}</p>
                                         </div>
 
                                     </li>
