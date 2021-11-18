@@ -15,9 +15,6 @@ Yii::$app->params['footer_type'] = 'light';
     <!-- Services Section -->
 
     <?= $view->render('../parts/slider.blade') ?>
-
-
-
     <section class="section-about">
         <div class="container">
             <div class="row justify-content-center">
@@ -363,6 +360,10 @@ Yii::$app->params['footer_type'] = 'light';
                 </div>
             </div>
         </div>
+        <?php
+        $techItems = Yii::$app->params['technology'];
+
+        ?>
         <div class="block-box">
             <div class="container">
                 <div class="box-technology">
@@ -371,13 +372,29 @@ Yii::$app->params['footer_type'] = 'light';
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="owl-carousel owl-theme box-technology-carousel">
-                                        <img src="/img/tech1.png" class="img-fluid w-100"/>
-                                        <img src="/img/tech1.png" class="img-fluid w-100"/>
-                                        <img src="/img/tech1.png" class="img-fluid w-100"/>
-                                        <img src="/img/tech1.png" class="img-fluid w-100"/>
-                                        <img src="/img/tech1.png" class="img-fluid w-100"/>
-                                        <img src="/img/tech1.png" class="img-fluid w-100"/>
-                                        <img src="/img/tech1.png" class="img-fluid w-100"/>
+                                        @if(!empty($techItems))
+                                            @foreach($techItems as $item)
+                                                <div class="tech-img">
+                                                    <img alt="{{$item['name']}}" src="{{$item['image']}}"
+                                                         class="img-fluid w-100"/>
+                                                    <div class="tech-content">
+                                                        <div data-aos="fade-up"
+                                                             data-aos-duration="1200">
+                                                            {!! $item['content'] !!}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            @endforeach
+                                        @else
+                                            <img src="/img/tech1.png" class="img-fluid w-100"/>
+                                            <img src="/img/tech1.png" class="img-fluid w-100"/>
+                                            <img src="/img/tech1.png" class="img-fluid w-100"/>
+                                            <img src="/img/tech1.png" class="img-fluid w-100"/>
+                                            <img src="/img/tech1.png" class="img-fluid w-100"/>
+                                            <img src="/img/tech1.png" class="img-fluid w-100"/>
+                                            <img src="/img/tech1.png" class="img-fluid w-100"/>
+                                        @endif
+
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -389,33 +406,47 @@ Yii::$app->params['footer_type'] = 'light';
                                             bằng sáng chế</h4>
 
                                         <ul class="list-tech">
-                                            <li class="active" data-aos="fade-down"
-                                                data-aos-duration="900">
-                                                <a>
-                                                    <img src="/img/item-tech.svg"/> Liposome
-                                                </a>
-                                            </li>
-                                            <li data-aos="fade-down"
-                                                data-aos-duration="1000">
-                                                <a><img src="/img/item-tech.svg"/> Spiralin</a>
-                                            </li>
-                                            <li data-aos="fade-down"
-                                                data-aos-duration="1100">
-                                                <a><img src="/img/item-tech.svg"/> Rodiola sachalinesis</a>
-                                            </li>
-                                            <li data-aos="fade-down"
-                                                data-aos-duration="1200">
-                                                <a><img src="/img/item-tech.svg"/> Mai - B complex</a>
-                                            </li>
-                                            <li data-aos="fade-down"
-                                                data-aos-duration="1300"><a><img src="/img/item-tech.svg"/>
-                                                    Nutroxsun</a></li>
-                                            <li data-aos="fade-down"
-                                                data-aos-duration="1400"><a><img src="/img/item-tech.svg"/> 2 tảo 1 thảo</a>
-                                            </li>
-                                            <li data-aos="fade-down"
-                                                data-aos-duration="1500"><a><img src="/img/item-tech.svg"/> Nano
-                                                    collagen</a></li>
+                                            @if(!empty($techItems))
+                                                <?php $duration = 900 ?>
+                                                @foreach($techItems as $k => $item)
+                                                    <li class="{{$k === 0 ? 'active' : ''}}" data-aos="fade-down"
+                                                        data-aos-duration={{$duration}}>
+                                                        <a>
+                                                            <img src="/img/item-tech.svg"/> {{$item['name']}}
+                                                        </a>
+                                                    </li>
+                                                    @php($duration+=100)
+                                                @endforeach
+                                            @else
+                                                <li class="active" data-aos="fade-down"
+                                                    data-aos-duration="900">
+                                                    <a>
+                                                        <img src="/img/item-tech.svg"/> Liposome
+                                                    </a>
+                                                </li>
+                                                <li data-aos="fade-down"
+                                                    data-aos-duration="1000">
+                                                    <a><img src="/img/item-tech.svg"/> Spiralin</a>
+                                                </li>
+                                                <li data-aos="fade-down"
+                                                    data-aos-duration="1100">
+                                                    <a><img src="/img/item-tech.svg"/> Rodiola sachalinesis</a>
+                                                </li>
+                                                <li data-aos="fade-down"
+                                                    data-aos-duration="1200">
+                                                    <a><img src="/img/item-tech.svg"/> Mai - B complex</a>
+                                                </li>
+                                                <li data-aos="fade-down"
+                                                    data-aos-duration="1300"><a><img src="/img/item-tech.svg"/>
+                                                        Nutroxsun</a></li>
+                                                <li data-aos="fade-down"
+                                                    data-aos-duration="1400"><a><img src="/img/item-tech.svg"/> 2 tảo 1
+                                                        thảo</a>
+                                                </li>
+                                                <li data-aos="fade-down"
+                                                    data-aos-duration="1500"><a><img src="/img/item-tech.svg"/> Nano
+                                                        collagen</a></li>
+                                            @endif
                                         </ul>
                                     </div>
 
@@ -760,7 +791,7 @@ Yii::$app->params['footer_type'] = 'light';
                             </p>
                         </div>
                     </div>
-                   <?= $view->render('/parts/form-req.blade') ?>
+                    <?= $view->render('/parts/form-req.blade') ?>
                 </div>
             </div>
         </div>

@@ -10,41 +10,75 @@ return [
         'via_email' => 'Contact via Email',
         'via_chat' => 'Link to chat'
     ],
-    'invent' => [
+    'technology' => [
         [
-            'name' => 'Liposome',
-            'image' => '/img/invent/cam.png',
-            'content' => 'Công nghệ tạo ra những tiểu phân tử hình cầu với kích thước siêu nhỏ bao quanh lõi chứa hoạt chất, giúp vận chuyển hoạt chất đến đúng mô và tế bào. Từ đó tăng khả năng thẩm thấu các hoạt chất đến tầng sâu của da trong thời gian nhanh nhất, tăng khả năng hấp thu của màng tế bào, nâng cao hiệu quả điều trị. Ngoài ra, có tác dụng ổn định thành phần hoạt chất bên trong, và không gây kích ứng. Số phát minh KR 100751883.'
+            'name' => 'COLLAGEN',
+            'content' => '<ul><li>Nano Collagen</li><li>Collagen peptide với khối lượng phân tử nhỏ hơn 400 danton. Khi vào cơ thể không cần phân tách mà chuyển thẳng đến các mao mạch trong gan sau khi qua ruột. Vì thế, Nano Collagen hấp thụ hoàn toàn và chuyển hóa nhanh mang đến tác dụng rõ rệt.</li></ul>',
+            'image' => '/img/collegen.png'
         ],
         [
-            'name' => 'Spiralin®',
-            'image' => '/img/invent/cam.png',
-            'content' => 'Chiết xuất vi tảo Spiralin® tạo ra liên kết polyme nhằm thay đổi điện tích vách vi khuẩn gây kết dính, bảo vệ tế bào khỏe mạnh. Đồng thời đóng vai trò như chất “kháng sinh tự nhiên” tấn công vào lớp bảo vệ của vi khuẩn và ngăn chặn không cho vi khuẩn nhân đôi DNA để sinh sản, từ đó tiêu diệt hoàn toàn vi khuẩn, virus có hại trên bề mặt da. Hoạt chất còn kích thích tăng sinh nguyên bào sợi, cung cấp năng lượng trao đổi chất của tế bào để làm lành những tổn thương do vi khuẩn, virus gây ra Số phát minh EP/2563478B1 và US 2014/0127336 A1'
+            'name' => 'LIPOSOME',
+            'content' => '<div><span class="bold">LIPOSOME</span><br><p><span class="bold txt-brand">Liposome</span> là một quả cầu hai lớp (lớp kép), bao bọc các chất dinh dưỡng. Công nghệ Liposome giúp tạo ra những tiểu phân tử hình cầu, kích thước siêu nhỏ có thể thấm sâu gấp 4 lần các thành phần thông thường. Công nghệ này cũng giúp giảm thiểu kích ứng, tăng độ ổn định cho các hoạt chất trong mỹ phẩm.</p></div>',
+            'image' => '/img/LIPOSOME.png'
         ],
         [
-            'name' => 'Rodiola Sachalinesis',
-            'image' => '/img/invent/cam.png',
-            'content' => 'chất chống oxy hóa mạnh, vì thế có hiệu quả làm trắng da và tăng cường hoạt động của tế bào gốc, khôi phục lớp hạ bì đã tổn thương vì nám da. Tăng cương đàn hồi và hàng rào bảo vệ da. Sáng chế  0445404'
+            'name' => 'SPIRALIN',
+            'content' => '<div><span class="bold">Hoạt chất Spiralin</span><br><p>Được cấp bằng phát minh sáng chế độc quyền, đặt được các giải thưởng danh giá như Thành phần điều trị da liễu hiệu quả nhất châu  u năm 2015. Với đặc tính kháng khuẩn mạnh mẽ, Spiralin giúp bảo vệ tế bào, chống lại virus, vi khuẩn gây hại cho da và cơ thể. Spiralin mang đến hiệu quả vượt trội trong sửa chữa hư tổn và phục hồi hoạt động sinh lý tự nhiên của da.</p></div>',
+            'image' => '/img/Spiralin.png'
         ],
         [
-            'name' => 'Mai - B Complex',
-            'image' => '/img/invent/cam.png',
-            'content' => 'bao gồm chiết xuất long não, chiết xuất măng tây, chiết xuât nhân sâm, chiết xuất hương thảo, chiết xuất bạc hà. Chống oxy hóa và thanh lọc da trắng sáng. Cân bằng độ ẩm da, cải thiện độ đàn hồi của da và duy trì làn da mềm mượt. Sáng chế KP 10~2019-0077181 và KP 10~2018-0097395'
+            'name' => 'MAI - B COMLEX',
+            'content' => '<div><p>Phức hợp MAI-B được cấp 2 bằng sáng chế về công nghệ làm trắng: KP 10~2019-0077 181 và KP 10~2018-0097395.</p><p>Thành phần được chiết xuất 100% từ thiên nhiên như chiết xuất lá cây long não, chiết xuất măng tây, chiết xuất nhân sâm, chiết xuất hương thảo, chiết xuất bạc hà.</p><p>Phức hợp MAI-B giúp thanh lọc và làm da tinh khiết, sáng & đều màu.</p></div>',
+            'image' => '/img/Spiralin.png'
         ],
         [
-            'name' => 'Nutroxsun',
-            'image' => '/img/invent/cam.png',
-            'content' => 'Là sự kết hợp hoàn hảo của chiết xuất hương thảo và chiết xuất cam đỏ tại vùng Địa Trung Hải. Chứa Phenolic, Diterpen, Flavoniod bảo vệ da từ bên trong khỏi các tác nhân gây hại của ánh nắng mặt trời. Mang khả năng chống oxy hóa, bảo vệ DNA, hạn chế tổn thương mô và ngăn chặn lão hóa.'
+            'name' => 'NUTROXSUN',
+            'content' => '<div><span class="bold">NUTROXSUN</span><p>Phức hợp nổi tiếng này được nghiên cứu và phát triển bởi các nhà khoa học từ Monteloeder S.L. và Nutrafur. Trải qua chặng đường dài với hàng chục công bố khoa học và hàng trăm nghiên cứu lâm sàng trên toàn thế giới.</br><br><span class="bold">Nutroxsun</span> kết hợp của chiết xuất cam đỏ và hương thảo, được chứng minh có khả năng bảo vệ da từ bên trong, khỏi các tác hại của ánh nắng mặt trời, chống viêm, chống oxy hóa, ức chế melanin giữ da luôn khỏe mạnh.</p></div>',
+            'image' => '/img/NUTROXSUN.png'
         ],
         [
-            'name' => '2 tảo 1 thảo',
-            'image' => '/img/invent/cam.png',
-            'content' => 'là sự kết hợp của vi tảo xanh Spirulina, Astaxanthin trong vi tảo đỏ và chiết xuất bột rễ cây ngưu bàng. Nếu bạn bổ sung 3 thảo dược này mỗi ngày sẽ giúp đào thải độc tố, thanh lọc cơ thể, cung cấp dinh dưỡng hỗ trợ phục hồi tế bào, chống oxy hóa mạnh mẽ.'
+            'name' => '2 TẢO 1 THẢO',
+            'content' => '<div><span class="bold">2 TẢO - 1 THẢO</span><p>Công thức thảo dược cổ truyền của Nhật Bản với chiết xuất vi tảo xanh Spirulina, vi tảo đỏ Astaxanthin và chiết xuất bột rễ cây ngưu bàng.</br>Nổi bật với công dụng thải độc tố trong cơ thể, trung hòa các hóa chất độc hại, thanh lọc cơ thể, tăng cường hoạt chất chống oxy hóa, bảo vệ sức khỏe.</p></div>',
+            'image' => '/img/NUTROXSUN.png'
         ],
         [
-            'name' => 'Nano Collagen',
-            'image' => '/img/invent/cam.png',
-            'content' => 'Cung cấp chất dinh dưỡng tối ưu, giúp tăng cường sức khỏe và vẻ đẹp làn da. Kích thích nguyên bào sợi trẻ hóa làn da, ngăn ngừa lão hóa da nhờ khả năng kích thích vi tuần hoàn và bảo vệ mô liên kết trong cơ thể. Tổng hợp chất nền làm cho da săn chắc đàn hồi hơn. Nano Collagen kích thước siêu phân tử nên có khả năng hấp thụ tốt vào mô da, cơ, xương  so với dạng Collagen thông thường, giúp làm chậm quá trình lão hóa của cơ thể. Ngoài ra, Nano Collagen còn tăng cường vẻ đẹp của tóc và móng.'
-        ]
-    ]
+            'name' => 'Rhodiola Sachalinenis',
+            'content' => '<div><p>Ở châu Á, nó được gọi là Nhân sâm Cao nguyên. Thành phần này đã được ứng dụng từ rất lâu trong y học cổ truyền bởi những dưỡng chất tuyệt vời.</br>Bảo vệ làn da khỏi các tác nhân gây hại, ức chế hoạt động tyrosinase và làm giảm tốc độ xúc tác của nó. Giảm sự hình thành melanin trong da, từ đó dưỡng da trắng đều màu, chống oxy hóa.</p></div>',
+            'image' => '/img/rhodiola.png'
+        ],
+    ],
+    'kols' => [
+        [
+            'name' => 'Beauty Blogger Primmy Trương',
+            'content' => 'Từ ngày biết đến viên uống Bella Fora, Primmy thật sự rất hài lòng về hương thơm cơ mình  và đã gắn bó nhiều năm nay. Primmy thích nhất cảm giác được "phủ" một lớp hương hoa hồng, từ hơi thở và khắp cơ thể.',
+            'image' => '/img/kols2.png'
+        ],
+        [
+            'name' => 'Nghệ sĩ Chiều Xuân',
+            'content' => 'SkinMD giúp Chiều Xuân tìm lại làn da sạch nám, trắng sáng đều màu. Hơn 8 tuần sử dụng làn da Chiều Xuân cải thiện rõ rệt, êm dịu và không kích ứng.',
+            'image' => '/img/kols3.png'
+        ],
+        [
+            'name' => 'Nữ hoàng Dance Sport Khánh Thi',
+            'content' => 'Bella The Sun trở thành người bạn không thể thiếu của Khánh Thi, dù ở nhà hay đi làm việc Thi đều không quên uống 1 viên. Có Bella The Sun Thi vô cùng an tâm về sự bảo vệ cho làn da mỗi ngày.',
+            'image' => '/img/kols1.png'
+        ],
+    ],
+    'partners' => [
+        [
+            'name' => 'Siêu thị làm đẹp',
+            'content' => 'Hợp tác với Janami giúp các mặt hàng chúng tôi đa dạng hơn, còn nhận được sự hỗ trợ truyền thông rất nhiều, doanh thu từ đó cũng tăng vượt bật',
+            'image' => '/img/kols3.png'
+        ],
+        [
+            'name' => 'Lavare beauty',
+            'content' => 'Janami giúp chúng tôi tự tin bán các sản phẩm của Nhật, mặt hàng đa dạng, phù hợp đối tượng khách hàng của shop, mức chiết khấu cao cùng nhiều chương trình ưu đãi nên chúng tôi rất hài lòng.',
+            'image' => '/img/kols2.png'
+        ],
+        [
+            'name' => 'Beautyfriend',
+            'content' => 'Có 3 điều để nói về Janami là chất lượng – uy tín – tận tình. Hơn 3 năm làm đối tác Janami, chúng tôi vô cùng hài lòng bởi sự hỗ trợ về nhiều mặt cùng các sản phẩm được đông đảo khách hàng đón nhận.',
+            'image' => '/img/beautyfriend.jpeg'
+        ],
+    ],
 ];

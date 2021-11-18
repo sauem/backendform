@@ -1113,6 +1113,29 @@ nav a {
         color: #E44126; }
       .section-products .block-box .box-technology ul li:hover img, .section-products .block-box .box-technology ul li.active img {
         transform: rotate(360deg); }
+    .section-products .block-box .box-technology .tech-img {
+      position: relative; }
+      .section-products .block-box .box-technology .tech-img .tech-content {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        bottom: 0;
+        display: flex;
+        align-items: center;
+        left: 0;
+        padding: 15px;
+        background: rgba(0, 0, 0, 0.5); }
+        .section-products .block-box .box-technology .tech-img .tech-content p, .section-products .block-box .box-technology .tech-img .tech-content span, .section-products .block-box .box-technology .tech-img .tech-content b {
+          font-family: arial, sans-serif;
+          color: white;
+          border: none; }
+        .section-products .block-box .box-technology .tech-img .tech-content ul {
+          list-style: disc;
+          padding-left: 20px; }
+          .section-products .block-box .box-technology .tech-img .tech-content ul li, .section-products .block-box .box-technology .tech-img .tech-content ul p, .section-products .block-box .box-technology .tech-img .tech-content ul span, .section-products .block-box .box-technology .tech-img .tech-content ul b {
+            font-family: arial, sans-serif;
+            color: white;
+            border: none; }
 
 .footer-links a {
   color: #636363; }

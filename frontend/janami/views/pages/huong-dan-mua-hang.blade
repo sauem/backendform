@@ -1,0 +1,100 @@
+<?php
+
+/* @var $view yii\web\View */
+/* @var $form yii\bootstrap\ActiveForm */
+
+/* @var $model \frontend\models\ContactForm */
+
+use common\helper\HelperFunction;
+use yii\helpers\Html;
+use yii\bootstrap\ActiveForm;
+use yii\captcha\Captcha;
+
+$view->title = 'Hướng dẫn mua hàng';
+?>
+
+
+@section('content')
+    <div class="contact-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 offset-md-1">
+                    <div class="row">
+                        <div class="col-12">
+                            <h1 class="do mb-0">Liên hệ</h1>
+                            <p class="m-0 p-0">- Janami cung cấp các giải pháp hỗ trợ và điều trị mọi vấn đề da và chăm sóc
+                                sức khỏe từ bên trong. Tại đây chúng tôi mang đến các sản phẩm chất lượng là kết quả
+                                nghiên cứu y khoa của các giáo sư, tiến sỹ da liễu nổi tiếng các sản phẩm đều đã được
+                                kiểm chứng lâm sàng và có chứng chỉ an toàn lưu hành trên thế giới. </p>
+                            <p>-Để mua các sản phẩm trên Janami bạn có thể thực hiện theo 2 cách sau:</p>
+                        </div>
+                        <div class="col-md-7 col-12">
+                            <div class="row">
+                                <div class="col-md-6 col-12">
+                                    <div class="cbox-1 mt-50 mb-25">
+                                        <h5 class="h5-xs do">Chi tiết liên hệ</h5>
+                                        <p class="xam"><?= HelperFunction::setting('site_name')?></p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-12">
+                                    <div class="cbox-1 mt-50 mb-25">
+                                        <h5 class="h5-xs do">Địa chỉ showroom</h5>
+                                        <p class="xam"><?= HelperFunction::setting('address_1')?></p>
+                                        <p class="xam"><?= HelperFunction::setting('address_2')?></p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-12">
+                                    <div class="cbox-1 mt-50 mb-25">
+                                        <h5 class="h5-xs do">Thông tin liên lạc</h5>
+                                        <p class="xam"><span>Phone :</span>
+                                            <a class="xam" href="tel:<?= HelperFunction::setting('hotline_1')?>">
+                                                <?= HelperFunction::setting('hotline_1')?></a>
+                                        </p>
+                                        <p class="xam"><span>Email :</span>
+                                            <a class="xam"
+                                               href="mailto:<?= HelperFunction::setting('email')?>"><?= HelperFunction::setting('email')?></a>
+                                        </p>
+                                        <p class="xam"><span>Facebook :</span>
+                                            <a class="xam"
+                                               href="<?= HelperFunction::setting('facebook')?>"><?= HelperFunction::setting('facebook')?></a>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-12">
+                                    <div class="cbox-1 mt-50 mb-25">
+                                        <h5 class="h5-xs do">Giờ làm việc/cửa hàng</h5>
+                                        <p class="xam"><span>Thứ 2 - Thứ 7 :</span> 9:00 AM - 7:00 PM</p>
+                                        <p class="xam"><span>Chủ nhật :</span> Đóng cửa</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <Section data-aos="fade-up"
+             data-aos-duration="1200" class="section-register pt-4">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-9">
+                    <div class="row justify-content-center ">
+                        <div class="col-md-8 text-center size-18">
+                            <img src="/img/icon-do.svg">
+                            <p class="call-txt">
+                                Bạn là chủ Spa/TMV, Kinh doanh online<br>
+                                Xin vui lòng <span class="txt-brand bold">Đăng ký</span> và nhận thông tin Chính sách
+                                đại lý
+                                <span class="txt-brand bold">tại đây</span>.
+                            </p>
+                        </div>
+                    </div>
+                    <?= $view->render('/parts/form-req.blade') ?>
+                </div>
+            </div>
+        </div>
+    </Section>
+    <?= $view->render("../parts/logo.blade"); ?>
+@stop

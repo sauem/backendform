@@ -46,9 +46,9 @@ $bannerBottom = HelperFunction::getBanner('sidebar_right_bottom', ['article']);
                     <div class="single-blog-post pr-30">
 
                         <!-- BLOG POST IMAGE -->
-                        <div class="blog-post-img">
-                            <img width="100%" class="img-fluid" src="{{$model->avatar}}" alt="blog-post-image"/>
-                        </div>
+{{--                        <div class="blog-post-img">--}}
+{{--                            <img width="100%" class="img-fluid" src="{{$model->avatar}}" alt="blog-post-image"/>--}}
+{{--                        </div>--}}
 
                         <!-- SINGLE POST TITLE -->
                         <div class="single-post-title">
@@ -70,43 +70,6 @@ $bannerBottom = HelperFunction::getBanner('sidebar_right_bottom', ['article']);
                         <div class="single-post-txt">
                             {!! $model->content !!}
                         </div>    <!-- END POST TEXT -->
-
-                        <hr>
-
-                        <!-- OTHER POSTS -->
-                        <div class="other-posts">
-
-                            <!-- Title -->
-                            <h5 class="h5-lg txt-color-01">Bài viết liên quan</h5>
-                            @if(isset($related) && !empty($related))
-                                <div class="row">
-
-                                    @foreach($related as  $post)
-                                        <div class="col-md-6">
-                                            <div class="blog-post">
-
-                                                <!-- Image -->
-                                                <img class="img-fluid" src="{{$post->avatar}}"
-                                                     alt="{{$post->name}}">
-
-                                                <!-- Text -->
-                                                <div class="blog-post-txt">
-
-                                                    <!-- Post Data -->
-                                                    <span class="txt-color-06">{{$post->archive->name}}</span>
-
-                                                    <!-- Post Title -->
-                                                    <h6 class="h6-md txt-color-01">
-                                                        <a href="<?= HelperFunction::Link(ARTICLE, $model->slug, $model->archive->slug)?>">{{$post->name}}</a>
-                                                    </h6>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    @endforeach
-                                </div>
-                            @endif
-                        </div>    <!-- END OTHER POSTS -->
 
                     </div>
                 </div>    <!-- END POST CONTENT -->
@@ -136,7 +99,7 @@ $bannerBottom = HelperFunction::getBanner('sidebar_right_bottom', ['article']);
                     <div class="blog-categories sidebar-div mb-50">
 
                         <!-- Title -->
-                        <h5 class="h5-sm txt-color-01">Danh mục</h5>
+                        <h5 class="h5-sm txt-brand">Danh mục</h5>
 
                         <ul class="blog-category-list txt-color-05 clearfix">
                             @if(isset($categories) && !empty($categories))
@@ -164,7 +127,7 @@ $bannerBottom = HelperFunction::getBanner('sidebar_right_bottom', ['article']);
                     <div class="popular-posts sidebar-div mb-50">
 
                         <!-- Title -->
-                        <h5 class="h5-sm txt-color-01">New Tips</h5>
+                        <h5 class="h5-sm txt-brand">New Tips</h5>
 
                         <ul class="popular-posts">
 

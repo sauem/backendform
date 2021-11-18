@@ -8,7 +8,7 @@ return [
     FAQS => 'site/faqs',
     CART => 'site/cart',
     CHECKOUT => 'site/checkout',
-
+    BUYING_GUIDE => 'site/buying-guide',
 
     // page
     ARTICLE . '/<archive:[0-9a-zA-Z\-]+>' => 'site/archive',

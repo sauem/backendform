@@ -158,6 +158,12 @@ class SiteController extends BaseController
         return $this->render('articles.blade');
     }
 
+    public function actionBuyingGuide()
+    {
+        return $this->render('../pages/huong-dan-mua-hang.blade');
+
+    }
+
     public function actionCart()
     {
         return $this->render('cart.blade');
