@@ -13,6 +13,9 @@ $main = [
     'vendorPath' => dirname(dirname(__DIR__)) . '/vendor',
     'timeZone' => 'Asia/Ho_Chi_Minh',
     'modules' => [
+        'pdfjs' => [
+            'class' => '\yii2assets\pdfjs\Module',
+        ],
         'rbac' => [
             'class' => 'mdm\admin\Module',
             'layout' => 'left-menu',

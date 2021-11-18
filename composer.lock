@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0cf4c4ad97861d7e6c785c4abb4b7402",
+    "content-hash": "1fbef0129950feb54822dd8ac4c364a3",
     "packages": [
         {
             "name": "2amigos/yii2-tinymce-widget",
@@ -2444,6 +2444,54 @@
                 "source": "https://github.com/tinymce/tinymce-dist/tree/5.8.0"
             },
             "time": "2021-05-06T02:48:11+00:00"
+        },
+        {
+            "name": "yii2assets/yii2-pdfjs",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Yii2Assets/yii2-pdfjs.git",
+                "reference": "045c9869d56c51515828f58966c115d9f8533b8f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Yii2Assets/yii2-pdfjs/zipball/045c9869d56c51515828f58966c115d9f8533b8f",
+                "reference": "045c9869d56c51515828f58966c115d9f8533b8f",
+                "shasum": ""
+            },
+            "require": {
+                "yiisoft/yii2": "*"
+            },
+            "default-branch": true,
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "yii2assets\\pdfjs\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Sathit Seethaphon",
+                    "email": "dixonsatit@gmail.com"
+                }
+            ],
+            "description": "Yii2 Extension  pdf.js Portable Document Format (PDF) viewer ",
+            "keywords": [
+                "PDF Reader",
+                "extension",
+                "pdf",
+                "pdfjs",
+                "yii2"
+            ],
+            "support": {
+                "issues": "https://github.com/Yii2Assets/yii2-pdfjs/issues",
+                "source": "https://github.com/Yii2Assets/yii2-pdfjs/tree/master"
+            },
+            "time": "2020-10-05T02:16:48+00:00"
         },
         {
             "name": "yii2mod/yii2-editable",
