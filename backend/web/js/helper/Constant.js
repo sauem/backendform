@@ -345,19 +345,9 @@ const customPages = (categories = []) => {
     domain = domain.replace('.', '');
     console.log("domain", domain);
     switch (domain) {
-        case 'vieteutradecom':
-        case 'thangdevorg':
-        case 'vietaulocal':
-            return vietauStaticPage(categories);
-        case 'usvnglobalsupplycom':
-        case 'usvnlocal':
-            return usvnStaticPage(categories);
-        case 'mkvietnamlocal':
-        case 'chillingneoncom':
-        case 'mkconsultancyvn':
-            return brouchure(categories);
         case 'lucycosmeticcom':
         case 'janamilocal':
+        case 'janamivn':
         case 'admin-janamisimpletech.vn':
             return janami(categories);
         default:
