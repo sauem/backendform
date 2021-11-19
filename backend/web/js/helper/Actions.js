@@ -496,7 +496,7 @@ const Products = {
         try {
             return await Server.get(`${ROUTE.PRODUCT.VIEW}?id=${id}`, {
                 params: {
-                    expand: 'media,avatar,meta,archives,defaultArchive,thumbs,media_id',
+                    expand: 'media,avatar,banner,meta,archives,defaultArchive,thumbs,media_id',
                 }
             }).catch(axiosCatch);
         } catch (e) {

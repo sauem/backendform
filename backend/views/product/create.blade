@@ -526,6 +526,25 @@
                                                     <Button><i className="icon-upload mr-2"/> Chọn ảnh</Button>}
                                             </Upload>
                                         </Form.Item>
+                                        <Form.Item
+                                            name={`banner`}
+                                            label="Ảnh banner"
+                                        >
+                                            <Upload
+                                                accept="image/*"
+                                                customRequest={props => onUpload('banner_id', props)}
+                                                onChange={props => handleOnChange('banner', props)}
+                                                listType="picture"
+                                                onRemove={(file) =>
+                                                    onRemoveMedia(form.getFieldValue('banner_id'))
+                                                }
+                                                fileList={defaultFileList.banner}
+                                                className="avatar-uploader single"
+                                            >
+                                                {defaultFileList.banner.length >= 1 ? null :
+                                                    <Button><i className="icon-upload mr-2"/> Chọn ảnh</Button>}
+                                            </Upload>
+                                        </Form.Item>
                                         <small className="text-danger">*Ảnh upload không quá 2MB</small><br/>
                                         <small className="text-danger">*Tên ảnh không nên chứa kí tự đặc biệt hoặc
                                             khoảng trắng</small>
