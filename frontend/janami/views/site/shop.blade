@@ -1,5 +1,4 @@
 <?php
-
 use common\helper\HelperFunction;
 use yii\widgets\ListView;
 $view->title = $model ? $model->name : 'Shop';
@@ -62,6 +61,7 @@ $isLisProduct = $model && $model->layout !== 'default' && $model->layout_show ==
                     const response = await getArchive({
                         ...params,
                         type: 'product',
+                        active: 1,
                         parent_id: parentId ? parentId : null,
                         per_page: 4
                     });

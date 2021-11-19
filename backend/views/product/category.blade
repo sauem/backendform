@@ -217,15 +217,11 @@ $view->title = 'Danh mục sản phẩm';
                                     </Col>
                                     <Col md={12}>
                                         <Form.Item
-                                            initialValue={LANG_VI}
-                                            name={'language'}
-                                            label={`Ngôn ngữ`}
+                                            initialValue={50}
+                                            name={'sort_order'}
+                                            label={`Vị trí`}
                                         >
-                                            <Select>
-                                                {LANGUAGES.map(item => {
-                                                    return <Select.Option value={item.lang}>{item.name}</Select.Option>;
-                                                })}
-                                            </Select>
+                                            <InputNumber className={`w-100`} />
                                         </Form.Item>
                                     </Col>
                                 </Row>
