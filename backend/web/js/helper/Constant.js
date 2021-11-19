@@ -23,6 +23,7 @@ const POSITION_SIDEBAR_LEFT_BOTTOM = 'sidebar_left_bottom';
 const POSITION_SIDEBAR_RIGHT_TOP = 'sidebar_right_top';
 const POSITION_SIDEBAR_RIGHT_BOTTOM = 'sidebar_right_bottom';
 const POSITION_TOP_FOOTER = 'top_footer';
+const POSITION_INVENTION = 'invention';
 const UPLOAD_PATH = '/uploads/';
 //Banner
 
@@ -53,6 +54,10 @@ const BANNER_POSITIONS = [
     {
         name: 'Slider trang chủ',
         slug: POSITION_HOME_SLIDER
+    },
+    {
+        name: 'Bằng sáng chế',
+        slug: POSITION_INVENTION
     },
     {
         name: 'Header trên cùng',

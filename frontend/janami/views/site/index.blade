@@ -308,7 +308,6 @@ Yii::$app->params['footer_type'] = 'light';
                             </div>
                             @if(isset($archiveHome) && !empty($archiveHome))
                                 @foreach($archiveHome as $k =>  $archive)
-
                                     <div id="archive-{{$k}}" class="tab-pane fade">
                                         <div class="home-product-carousel owl-dot-green owl-carousel owl-theme">
                                             @if(!empty($archive->products))
@@ -345,6 +344,47 @@ Yii::$app->params['footer_type'] = 'light';
                                                         </div>
                                                     </div>
                                                 @endforeach
+
+                                            @else
+                                                @if(!empty($archive->children))
+                                                    @foreach($archive->children as $children)
+                                                        @if(!empty($children->products))
+                                                            @foreach($children->products as $productChild)
+                                                                <div class="item-product-home hvr-shadow">
+                                                                    <div class="img">
+                                                                        <a href="/shop/<?= $productChild->defaultArchive->slug ?>/<?= $productChild->slug?>">
+                                                                            <img src="<?= HelperFunction::checkImage($productChild->avatar)?>"
+                                                                                 class="w-100 img-fluid"/>
+                                                                        </a>
+                                                                    </div>
+                                                                    <div class="product-info">
+                                                                        <p class="product-name text-1">
+                                                                            <a href="/shop/<?= $productChild->defaultArchive->slug ?>/<?= $productChild->slug?>">{{$productChild->name}}</a>
+                                                                        </p>
+                                                                        <p class="product-price"><?= HelperFunction::htmlPrice($productChild)?></p>
+                                                                        <svg width="121" height="24" viewBox="0 0 121 24"
+                                                                             fill="none"
+                                                                             xmlns="http://www.w3.org/2000/svg">
+                                                                            <path d="M59.9998 17.5198L64.1498 20.0298C64.9098 20.4898 65.8398 19.8098 65.6398 18.9498L64.5398 14.2298L68.2098 11.0498C68.8798 10.4698 68.5198 9.36977 67.6398 9.29977L62.8098 8.88977L60.9198 4.42977C60.5798 3.61977 59.4198 3.61977 59.0798 4.42977L57.1898 8.87977L52.3598 9.28977C51.4798 9.35977 51.1198 10.4598 51.7898 11.0398L55.4598 14.2198L54.3598 18.9398C54.1598 19.7998 55.0898 20.4798 55.8498 20.0198L59.9998 17.5198Z"
+                                                                                  fill="#E44126"/>
+                                                                            <path d="M84.9998 17.5198L89.1498 20.0298C89.9098 20.4898 90.8398 19.8098 90.6398 18.9498L89.5398 14.2298L93.2098 11.0498C93.8798 10.4698 93.5198 9.36977 92.6398 9.29977L87.8098 8.88977L85.9198 4.42977C85.5798 3.61977 84.4198 3.61977 84.0798 4.42977L82.1898 8.87977L77.3598 9.28977C76.4798 9.35977 76.1198 10.4598 76.7898 11.0398L80.4598 14.2198L79.3598 18.9398C79.1598 19.7998 80.0898 20.4798 80.8498 20.0198L84.9998 17.5198Z"
+                                                                                  fill="#F16587"/>
+                                                                            <path d="M84.9998 17.5198L89.1498 20.0298C89.9098 20.4898 90.8398 19.8098 90.6398 18.9498L89.5398 14.2298L93.2098 11.0498C93.8798 10.4698 93.5198 9.36977 92.6398 9.29977L87.8098 8.88977L85.9198 4.42977C85.5798 3.61977 84.4198 3.61977 84.0798 4.42977L82.1898 8.87977L77.3598 9.28977C76.4798 9.35977 76.1198 10.4598 76.7898 11.0398L80.4598 14.2198L79.3598 18.9398C79.1598 19.7998 80.0898 20.4798 80.8498 20.0198L84.9998 17.5198Z"
+                                                                                  fill="#E44126"/>
+                                                                            <path d="M35.9998 17.5198L40.1498 20.0298C40.9098 20.4898 41.8398 19.8098 41.6398 18.9498L40.5398 14.2298L44.2098 11.0498C44.8798 10.4698 44.5198 9.36977 43.6398 9.29977L38.8098 8.88977L36.9198 4.42977C36.5798 3.61977 35.4198 3.61977 35.0798 4.42977L33.1898 8.87977L28.3598 9.28977C27.4798 9.35977 27.1198 10.4598 27.7898 11.0398L31.4598 14.2198L30.3598 18.9398C30.1598 19.7998 31.0898 20.4798 31.8498 20.0198L35.9998 17.5198Z"
+                                                                                  fill="#E44126"/>
+                                                                            <path d="M11.9998 17.5198L16.1498 20.0298C16.9098 20.4898 17.8398 19.8098 17.6398 18.9498L16.5398 14.2298L20.2098 11.0498C20.8798 10.4698 20.5198 9.36977 19.6398 9.29977L14.8098 8.88977L12.9198 4.42977C12.5798 3.61977 11.4198 3.61977 11.0798 4.42977L9.18983 8.87977L4.35983 9.28977C3.47983 9.35977 3.11983 10.4598 3.78983 11.0398L7.45983 14.2198L6.35983 18.9398C6.15983 19.7998 7.08983 20.4798 7.84983 20.0198L11.9998 17.5198Z"
+                                                                                  fill="#E44126"/>
+                                                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                                                  d="M111.808 8.87439L116.648 9.29439C117.528 9.36439 117.878 10.4644 117.208 11.0444L113.538 14.2244L114.638 18.9544C114.838 19.8144 113.908 20.4944 113.148 20.0344L108.998 17.5244L104.848 20.0244C104.088 20.4844 103.158 19.8044 103.358 18.9444L104.458 14.2244L100.788 11.0444C100.118 10.4644 100.478 9.36439 101.358 9.29439L106.188 8.88439L108.078 4.42439C108.418 3.61439 109.578 3.61439 109.918 4.42439L111.808 8.87439ZM105.238 17.9244L108.998 15.6544L112.768 17.9344L111.768 13.6544L115.088 10.7744L110.708 10.3944L108.998 6.35439L107.298 10.3844L102.918 10.7644L106.238 13.6444L105.238 17.9244Z"
+                                                                                  fill="black" fill-opacity="0.54"/>
+                                                                        </svg>
+                                                                    </div>
+                                                                </div>
+                                                            @endforeach
+                                                        @endif
+                                                    @endforeach
+                                                @endif
                                             @endif
                                         </div>
                                     </div>
@@ -453,56 +493,7 @@ Yii::$app->params['footer_type'] = 'light';
             </div>
         </div>
     </section>
-    {{--    <section data-aos="fade-up" class="section-tech">--}}
-    {{--        <div class="container">--}}
-    {{--            <div class="box-technology">--}}
-    {{--                <div class="row">--}}
-    {{--                    <div class="col-md-10 offset-md-1">--}}
-    {{--                        <div class="row">--}}
-    {{--                            <div class="col-md-6">--}}
-    {{--                                <div class="owl-carousel owl-theme box-technology-carousel">--}}
-    {{--                                    <img src="/img/tech1.png" class="img-fluid w-100"/>--}}
-    {{--                                    <img src="/img/tech1.png" class="img-fluid w-100"/>--}}
-    {{--                                    <img src="/img/tech1.png" class="img-fluid w-100"/>--}}
-    {{--                                    <img src="/img/tech1.png" class="img-fluid w-100"/>--}}
-    {{--                                    <img src="/img/tech1.png" class="img-fluid w-100"/>--}}
-    {{--                                    <img src="/img/tech1.png" class="img-fluid w-100"/>--}}
-    {{--                                    <img src="/img/tech1.png" class="img-fluid w-100"/>--}}
-    {{--                                </div>--}}
-    {{--                            </div>--}}
-    {{--                            <div class="col-md-6">--}}
-    {{--                                <div class="text-left">--}}
-    {{--                                    <img src="/img/tech.svg" class="img-fluid"/>--}}
-    {{--                                    <h4 class="txt-brand">Công nghệ, thành phần được cấp bằng sáng chế</h4>--}}
 
-    {{--                                    <ul>--}}
-    {{--                                        <li>--}}
-    {{--                                            <a>--}}
-    {{--                                                <img src="/img/item-tech.svg"/> Liposome--}}
-    {{--                                            </a>--}}
-    {{--                                        </li>--}}
-    {{--                                        <li>--}}
-    {{--                                            <a><img src="/img/item-tech.svg"/> Spiralin</a>--}}
-    {{--                                        </li>--}}
-    {{--                                        <li>--}}
-    {{--                                            <a><img src="/img/item-tech.svg"/> Rodiola sachalinesis</a>--}}
-    {{--                                        </li>--}}
-    {{--                                        <li>--}}
-    {{--                                            <a><img src="/img/item-tech.svg"/> Mai - B complex</a>--}}
-    {{--                                        </li>--}}
-    {{--                                        <li><a><img src="/img/item-tech.svg"/> Nutroxsun</a></li>--}}
-    {{--                                        <li><a><img src="/img/item-tech.svg"/> 2 tảo 1 thảo</a></li>--}}
-    {{--                                        <li><a><img src="/img/item-tech.svg"/> Nano collagen</a></li>--}}
-    {{--                                    </ul>--}}
-    {{--                                </div>--}}
-
-    {{--                            </div>--}}
-    {{--                        </div>--}}
-    {{--                    </div>--}}
-    {{--                </div>--}}
-    {{--            </div>--}}
-    {{--        </div>--}}
-    {{--    </section>--}}
     <section data-aos="fade-up"
              data-aos-duration="1000" class="section-license">
         <div class="container">
@@ -547,13 +538,13 @@ Yii::$app->params['footer_type'] = 'light';
         </div>
     </section>
 
-    <section data-aos="fade-up"
-             data-aos-duration="1200" class="section-seeding">
+    <section class="section-seeding">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-9">
                     <div class="row">
-                        <div class="col-md-6">
+                        <div data-aos="fade-up"
+                             data-aos-duration="1200" class="col-md-6">
                             <h4 class="txt-brand">Báo chí nói gì về Janami</h4>
                             <div class="newspaper-carousel owl-dot-brand owl-carousel owl-theme">
                                 @if(isset($newspaperReview) && !empty($newspaperReview))
@@ -579,7 +570,8 @@ Yii::$app->params['footer_type'] = 'light';
                                 @endif
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div data-aos="fade-up"
+                             data-aos-duration="1200" class="col-md-6">
                             <div class="guest">
                                 <h4 class="txt-brand">Khách hàng nói gì về Janami</h4>
                                 <div class="newspaper-carousel owl-dot-brand owl-carousel owl-theme">
@@ -623,7 +615,7 @@ Yii::$app->params['footer_type'] = 'light';
             </div>
         </div>
     </section>
-    <section data-aos="fade-up" class="section-why">
+    <section class="section-why">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-10">
@@ -638,7 +630,8 @@ Yii::$app->params['footer_type'] = 'light';
                     </div>
                     <div class="row mt-5">
                         <div class="col-md-4">
-                            <div class="item-why hvr-float-shadow text-center">
+                            <div data-aos="fade-up"
+                                 data-aos-duration="900" class="item-why hvr-float-shadow text-center">
                                 <img src="/img/like.svg" class="img-fluid"/>
                                 <p class="title size-18 bold txt-brand">CHUYÊN GIA & ĐÁNG TIN CẬY</p>
                                 <p class="text">Đồng hành cùng khách hàng với phác đồ trị liệu chuẩn khoa học và giải
@@ -656,7 +649,8 @@ Yii::$app->params['footer_type'] = 'light';
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <div class="item-why hvr-float-shadow text-center">
+                            <div data-aos="fade-up"
+                                 data-aos-duration="1000" class="item-why hvr-float-shadow text-center">
                                 <img src="/img/idea.svg" class="img-fluid"/>
                                 <p class="title size-18 bold txt-brand">NỖ LỰC & SÁNG TẠO</p>
                                 <p class="text">Luôn nỗ lực cung cấp cho quý khách hàng những giải pháp tốt nhất</p>
@@ -671,7 +665,8 @@ Yii::$app->params['footer_type'] = 'light';
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <div class="item-why hvr-float-shadow text-center">
+                            <div data-aos="fade-up"
+                                 data-aos-duration="1100" class="item-why hvr-float-shadow text-center">
                                 <img src="/img/hear.svg" class="img-fluid"/>
                                 <p class="title size-18 bold txt-brand">LẮNG NGHE VÀ THẤU HIỂU</p>
                                 <p class="text">Cảm nhận với tâm thế đồng cảm những vấn đề của đối tác và khách hàng để

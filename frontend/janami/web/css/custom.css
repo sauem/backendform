@@ -1215,7 +1215,12 @@ nav a {
     width: 97%; }
     .section-seeding .item-newspaper .img {
       max-height: 227px;
+      height: 100%;
       overflow: hidden; }
+      .section-seeding .item-newspaper .img img {
+        display: flex;
+        object-fit: cover;
+        align-items: center; }
     .section-seeding .item-newspaper .content {
       padding: 10px 15px; }
 

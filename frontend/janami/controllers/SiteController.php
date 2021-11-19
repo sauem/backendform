@@ -39,16 +39,7 @@ class SiteController extends BaseController
      */
     public function actionIndex()
     {
-//        $sliders = Banners::findAll([
-//            'active' => Banners::BANNER_ACTIVE,
-//            'position' => 'home_slider',
-//            'language' => HelperFunction::getLanguage()
-//        ]);
-//        $categories = Archives::find()->where([
-//            'active' => Archives::STATUS_ACTIVE,
-//            'language' => HelperFunction::getLanguage()
-//        ])->andFilterWhere(['IS', 'parent_id', new Expression('NULL')])
-//            ->all();
+
         $articles = Articles::find()
             ->where([
                 'show_home' => 1,
@@ -61,10 +52,7 @@ class SiteController extends BaseController
                 'language' => HelperFunction::getLanguage()
             ])->limit(9)->orderBy('created_at DESC')->all();
         $contactForm = new Contact();
-//        $logos = Banners::findAll([
-//            'active' => Banners::BANNER_ACTIVE,
-//            'position' => 'logo_partner'
-//        ]);
+
         $sliderBottoms = Banners::findAll([
             'active' => Banners::BANNER_ACTIVE,
             'position' => 'top_footer',
@@ -75,6 +63,7 @@ class SiteController extends BaseController
             ->andWhere(['IS', 'parent_id', new Expression('NULL')])
             ->with(['children', 'products'])
             ->all();
+
         $newspaperReview = Articles::find()
             ->where([
                 'is_new' => 1,

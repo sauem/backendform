@@ -210,7 +210,7 @@ class HelperFunction
         if ($product->default_sale_price > 0) {
             return "<span><del><small className={`text-muted`}><b>" . static::number_format($product->default_price) . "đ</b></small></del> <ins>" . static::number_format($product->default_sale_price) . "đ</ins></span>";
         }
-        return "<span>" . static::number_format($product->default_price) . "đ</span>";
+        return "";
     }
 
     static function number_format($num)

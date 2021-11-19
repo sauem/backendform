@@ -2068,7 +2068,14 @@ nav {
 
     .img {
       max-height: 227px;
+      height: 100%;
       overflow: hidden;
+
+      img {
+        display: flex;
+        object-fit: cover;
+        align-items: center;
+      }
     }
 
     .content {
