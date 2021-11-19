@@ -12,7 +12,7 @@ class HelperFunction
     static function checkImage($image)
     {
         $url = str_replace("/static", "", $image);
-        $exist = file_exists(UPLOAD_PATH. $url);
+        $exist = file_exists(UPLOAD_PATH . $url);
         if (!$image || !$exist) {
             return "/img/default.png";
         }
@@ -97,6 +97,19 @@ class HelperFunction
             return '/theme/images/logo.png';
         }
         return "/static/$media->path";
+    }
+
+    public static function getMediaSetting($key)
+    {
+        $logo = \Yii::$app->settings->get('Common', "$key");
+        if (!$logo) {
+            return '';
+        }
+        $model = Medias::findOne($logo);
+        if (!$model) {
+            return '';
+        }
+        return "/static$model->path";
     }
 
     public static function cache()

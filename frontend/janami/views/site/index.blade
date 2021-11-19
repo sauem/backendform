@@ -23,14 +23,7 @@ Yii::$app->params['footer_type'] = 'light';
                         <div class="col-md-6">
                             <img src="/img/icon-do.svg"/>
                             <h4 class="txt-brand mt-2">Câu chuyện về Janami</h4>
-                            <p class="text-4">Janami Beauty triển khai mô hình hợp tác song hành win-win toàn diện
-                                với mọi khách
-                                hàng
-                                của mình, từ khách hàng đại lý, chuyên gia tới từng người tiêu dùng. Nỗ lực – Chuyên
-                                gia
-                                – Thấu hiểu là hệ giá trị cốt lõi để Janami Beauty có được sự tin tưởng và đồng hành
-                                quý
-                                giá từ phía khách hàng...</p>
+                            <p class="text-4"><?= HelperFunction::setting('janami_story_content')?></p>
                             <a href="/article/cong-ty/ve-janami" class="btn btn-brand button hvr-sweep-to-right">
                                 Xem thêm <i class="fa fa-arrow-right"></i>
                             </a>
@@ -39,10 +32,12 @@ Yii::$app->params['footer_type'] = 'light';
                             <div data-aos="fade-up"
                                  data-aos-duration="1000"
                                  class="video-box">
-                                <img class="img-fluid w-100" src="/img/vid1.png"/>
+                                <img class="img-fluid w-100"
+                                     src="<?= HelperFunction::getMediaSetting('janami_story_img')?>"/>
 
                                 <div class="video-1-preview">
-                                    <a class="video-popup1" href="https://www.youtube.com/embed/11mVSlEK9m4">
+                                    <a class="video-popup1"
+                                       href="https://www.youtube.com/embed/<?= HelperFunction::setting('janami_video_id') ?>">
                                         <!-- Change the link HERE!!! -->
                                         <div class="video-btn bg-white">
                                             <div class="video-block-wrapper">
@@ -521,9 +516,12 @@ Yii::$app->params['footer_type'] = 'light';
 
                     <div class="video-box">
                         <div class="video-1-preview">
-                            <a class="video-popup2" href="https://www.youtube.com/embed/5Pe3Kk4ydfc">
+                            <a class="video-popup2"
+                               href="https://www.youtube.com/embed/<?= HelperFunction::setting('procedure_video_id')?>">
                                 <!-- Change the link HERE!!! -->
-                                <img class="img-fluid" src="/img/vid2.png"/>
+                                <img class="img-fluid w-100"
+                                     src="<?= HelperFunction::getMediaSetting('procedure_img')?>"/>
+
                                 <div class="video-btn bg-white">
                                     <div class="video-block-wrapper">
                                         <i class="fas fa-play"></i>

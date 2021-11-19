@@ -1,3 +1,6 @@
+<?php
+use common\helper\HelperFunction;
+?>
 @php
     /*
      * Template Name: Về Janami
@@ -36,27 +39,12 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="text-paper">
-
-                                        <p class="text-dark">
-                                            "Vivian tình cờ biết đến Janami Beauty khi tìm kiếm các sản phẩm tăng cường
-                                            sức
-                                            khỏe và làm đẹp an toàn. Sau một thời gian làm khách hàng trung thành Vivian
-                                            đã
-                                            quyết định trở thành đối tác phân phối các sản phẩm của Janami.<br>
-                                            Việc Vivian kinh doanh các sản phẩm này không chỉ với mục đích lợi nhuận, mà
-                                            mình còn mong muốn giới thiệu đến chị em phụ nữ những sản phẩm chăm sóc sức
-                                            khỏe
-                                            và sắc đẹp chất lượng cao cùng với đó là cơ hội kiếm thêm thu nhập, cùng
-                                            trau
-                                            dồi kiến thức và phát triển bản thân tốt hơn khi trở thành đối tác của
-                                            Janami.
-                                            Vivian Phạm - Đại lý phân phối các sp của Janami tại Việt Nam và Hoa Kỳ"
-                                        </p>
-                                        <p>Đại lý Vivian</p>
+                                        <?= HelperFunction::setting('partner_content')?>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <img src="/img/invent/bao1.jpg" class="img-fluid"/>
+                                    <img src="<?= HelperFunction::getMedia(HelperFunction::setting('partner_img'))?>"
+                                         class="img-fluid"/>
                                 </div>
                             </div>
                         </div>
@@ -172,7 +160,7 @@
                         </div>
                         <div class="col-md-4">
                             <div style="height: 375px" class="item-why hvr-float-shadow text-center">
-                                <img  src="/img/hear.svg" class="img-fluid"/>
+                                <img src="/img/hear.svg" class="img-fluid"/>
                                 <p class="title size-18 bold txt-brand">ĐÀO TẠO BÀI BẢN CHUYÊN SÂU</p>
                                 <p class="text">Được đào tạo các kiến thức về sức khỏe làm đẹp chuẩn khoa học. Được chia
                                     sẻ các kỹ năng bán hàng, tư vấn sản phẩm bài bản cũng như tham gia các buổi hội thảo

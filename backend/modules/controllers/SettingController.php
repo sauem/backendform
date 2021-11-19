@@ -29,7 +29,9 @@ class SettingController extends BaseActiveController
             return [];
         }
         foreach ($data as $key => $value) {
-            if (in_array($key, ['logo_header', 'logo_footer', 'event_image', 'event_image_us', 'about_image', 'favicon'])) {
+            if (in_array($key, ['logo_header', 'logo_footer', 'event_image', 'procedure_img',
+                'janami_story_img', 'partner_img',
+                'event_image_us', 'about_image', 'favicon'])) {
                 $data[$key . '_context'] = HelperFunction::getImage(null, $value);
             }
         }
@@ -44,7 +46,8 @@ class SettingController extends BaseActiveController
             if (!empty($commons)) {
                 foreach ($commons as $key => $value) {
                     if (in_array($key, ['logo_header_context',
-                        'event_image_context', 'event_image_en_context', 'about_image_context'
+                        'event_image_context', 'event_image_en_context', 'about_image_context', 'partner_img_context',
+                        'janami_story_img_context', 'procedure_img_context'
                         , 'logo_footer_context', 'favicon_context'])) {
                         continue;
                     }
