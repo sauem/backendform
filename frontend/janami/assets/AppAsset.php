@@ -72,7 +72,7 @@ class AppAsset extends AssetBundle
         '/js/jquery.desoslide.min.js',
         '/js/custom.js?v=1.6',
         '/js/site.js?v=2.4',
-        ['/js/action.js?v=1.4', 'type' => 'text/babel'],
+        ['/js/action.js?v=1.5', 'type' => 'text/babel'],
         ['/js/cart.js', 'type' => 'text/babel']
     ];
     public $depends = [
