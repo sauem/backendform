@@ -70,7 +70,7 @@ class AppAsset extends AssetBundle
         '/js/jquery.datetimepicker.full.js',
         '/js/jquery.validate.min.js',
         '/js/jquery.desoslide.min.js',
-        '/js/custom.js?v=1.6',
+        '/js/custom.js?v=1.7',
         '/js/site.js?v=2.4',
         ['/js/action.js?v=1.5', 'type' => 'text/babel'],
         ['/js/cart.js', 'type' => 'text/babel']
