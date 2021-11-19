@@ -206,6 +206,7 @@ class SiteController extends BaseController
         //default template
         $categories = Archives::find()
             ->where([
+                'active' => 1,
                 'language' => HelperFunction::getLanguage(),
                 'type' => Archives::STYLE_BLOG
             ])

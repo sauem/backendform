@@ -1,0 +1,399 @@
+<?php
+
+use dosamigos\tinymce\TinyMce;
+use yii\helpers\Html;
+use yii\widgets\ActiveForm;
+use common\helper\HelperFunction;
+
+?>
+@section('js_pos')
+    <script type="text/babel">
+        const App = () => {
+            const initalState = {
+                setting: null,
+                attributes: [],
+                loading: false,
+                language: LANG_VI,
+            }
+
+            const [defaultFileList, setDefaultFileList] = useState({
+                logo_footer: [],
+                logo_header: [],
+                favicon: [],
+                about_image: [],
+                event_image: [],
+                event_image_en: [],
+            });
+            const [form] = Form.useForm();
+            const [progress, setProgress] = useState(0);
+            const [state, setState] = useState(initalState);
+            const handleOnChange = (name, {file, fileList, event}) => {
+
+                setDefaultFileList({
+                    ...defaultFileList,
+                    [name]: fileList
+                });
+            };
+            const onUpload = (options, type = 'avatar') => {
+                const {onSuccess, onError, file, onProgress} = options;
+                setState({
+                    ...state,
+                    ...{
+                        uploading: true
+                    }
+                });
+                onUploadMedia(file, data => {
+                    form.setFieldsValue({
+                        [type]: data.id
+                    });
+                    onSuccess();
+                }, onError, (event) => {
+                    const percent = Math.floor((event.loaded / event.total) * 100);
+                    setProgress(percent);
+                    if (percent === 100) {
+                        setTimeout(() => setProgress(0), 1000);
+                    }
+                    onProgress({percent: (event.loaded / event.total) * 100});
+                }, MEDIA_TYPE_LOGO);
+            }
+            const submitSetting = async data => {
+                try {
+                    const res = await Setting(data);
+                    message.success('Lưu cài đặt thành công!');
+                } catch (e) {
+                    message.error(e.message);
+                }
+            }
+            const getSetting = async () => {
+                try {
+                    const res = await SettingData();
+                    setState({
+                        setting: res
+                    });
+                    let defaultList = defaultFileList;
+                    ['logo_header', 'logo_footer', 'about_image', 'event_image', 'event_image_en', 'favicon'].map((key, index) => {
+                        defaultList[key].push({
+                            uid: index,
+                            name: key.replace('_', '').toUpperCase(),
+                            status: 'done',
+                            url: res[`${key}_context`]
+                        });
+                    });
+                    setDefaultFileList(defaultList);
+                    form.setFieldsValue(res);
+                } catch (e) {
+                    message.error(e.message);
+                }
+            }
+            useEffect(() => {
+                getSetting();
+            }, []);
+            return (
+                <Card title={
+                    <Space>
+                        <b>Thiết lập nội dung website</b>
+                        <small>* Upload ảnh phải đặt tên không kí tự đặc biệt</small>
+                        <small>* Ảnh, media không quá 2MB</small>
+                    </Space>
+                }
+                      extra={<Button htmlType="submit" form="setting-form">Lưu</Button>}
+                >
+                    <Form
+                        onFinish={submitSetting}
+                        id="setting-form"
+                        form={form}
+                        type="vertical"
+                        {...{
+                            labelCol: {
+                                sm: 24,
+                                xs: 24
+                            },
+                            labelAlign: 'left'
+                        }}
+                    >
+                        <Row gutter={[12, 12]}>
+                            <Col md={18}>
+                                <Row gutter={[8, 8]}>
+                                    <Col md={8}>
+                                        <Form.Item
+                                            label="Tên website (vi)"
+                                            name="site_name"
+                                        >
+                                            <Input/>
+                                        </Form.Item>
+                                        <Form.Item
+                                            label="Tên website (en)"
+                                            name="site_name_en"
+                                        >
+                                            <Input/>
+                                        </Form.Item>
+                                        <Form.Item
+                                            label="Facebook"
+                                            name="facebook"
+                                        >
+                                            <Input/>
+                                        </Form.Item>
+                                    </Col>
+                                    <Col md={8}>
+                                        <Form.Item
+                                            label="Email"
+                                            name="email"
+                                        >
+                                            <Input/>
+                                        </Form.Item>
+                                        <Form.Item
+                                            label="Địa chỉ (vi)"
+                                            name="address_1"
+                                        >
+                                            <Input/>
+                                        </Form.Item>
+                                        <Form.Item
+                                            label="LinkedIn"
+                                            name="linkedin"
+                                        >
+                                            <Input/>
+                                        </Form.Item>
+                                        <Form.Item
+                                            label="Twitter"
+                                            name="twitter"
+                                        >
+                                            <Input/>
+                                        </Form.Item>
+                                    </Col>
+                                    <Col md={8}>
+                                        <Form.Item
+                                            label="Hot line"
+                                            name="hotline_1"
+                                        >
+                                            <Input/>
+                                        </Form.Item>
+                                        <Form.Item
+                                            label="Địa chỉ (en)"
+                                            name="address_1_en"
+                                        >
+                                            <Input/>
+                                        </Form.Item>
+                                        <Form.Item
+                                            label="Instagram"
+                                            name="instagram"
+                                        >
+                                            <Input/>
+                                        </Form.Item>
+                                        <Form.Item
+                                            label="Youtube"
+                                            name="youtube"
+                                        >
+                                            <Input/>
+                                        </Form.Item>
+                                    </Col>
+                                    <Col md={24}>
+                                        <Form.Item
+                                            label="Site description (vi)"
+                                            name="site_description"
+                                        >
+                                            <Input.TextArea/>
+                                        </Form.Item>
+                                        <Form.Item
+                                            label="Site description (en)"
+                                            name="site_description_en"
+                                        >
+                                            <Input.TextArea/>
+                                        </Form.Item>
+                                        <Form.Item
+                                            label="About us (vi)"
+                                            name="about_us"
+                                        >
+                                            <Input.TextArea rows={8}/>
+                                        </Form.Item>
+                                        <Form.Item
+                                            label="About us (en)"
+                                            name="about_us_en"
+                                        >
+                                            <Input.TextArea rows={8}/>
+                                        </Form.Item>
+                                        <Form.Item
+                                            label="Event description (vi)"
+                                            name="event_desc"
+                                        >
+                                            <Input.TextArea rows={8}/>
+                                        </Form.Item>
+                                        <Form.Item
+                                            label="Event description (en)"
+                                            name="event_desc_en"
+                                        >
+                                            <Input.TextArea rows={8}/>
+                                        </Form.Item>
+                                        <Form.Item
+                                            label="Lịch hoạt động (vi)"
+                                            name="schedule"
+                                        >
+                                            <Input.TextArea rows={8}/>
+                                        </Form.Item>
+                                        <Form.Item
+                                            label="Lịch hoạt động (en)"
+                                            name="schedule_en"
+                                        >
+                                            <Input.TextArea rows={8}/>
+                                        </Form.Item>
+                                        <Form.Item
+                                            label="Event description (en)"
+                                            name="event_desc_en"
+                                        >
+                                            <Input.TextArea rows={8}/>
+                                        </Form.Item>
+                                        <Form.Item
+                                            label="Map iframe"
+                                            name="map_iframe"
+                                        >
+                                            <Input.TextArea/>
+                                        </Form.Item>
+                                        <Form.Item
+                                            label="Fanpage script"
+                                            name="fanpage_script"
+                                        >
+                                            <Input.TextArea rows={8}/>
+                                        </Form.Item>
+                                    </Col>
+                                </Row>
+                            </Col>
+                            <Col md={6}>
+                                <Form.Item name="event_image" hidden>
+                                    <Input/>
+                                </Form.Item>
+                                <Form.Item name="event_image_en" hidden>
+                                    <Input/>
+                                </Form.Item>
+                                <Form.Item name="about_image" hidden>
+                                    <Input/>
+                                </Form.Item>
+                                <Form.Item name="logo_header" hidden>
+                                    <Input/>
+                                </Form.Item>
+                                <Form.Item name="favicon" hidden>
+                                    <Input/>
+                                </Form.Item>
+                                <Form.Item name="logo_footer" hidden>
+                                    <Input/>
+                                </Form.Item>
+                                <Form.Item
+                                    name={`logo_header_context`}
+                                    label="Ảnh logo header"
+                                >
+                                    <Upload
+                                        accept="image/*"
+                                        customRequest={opts => onUpload(opts, 'logo_header')}
+                                        onChange={evt => handleOnChange('logo_header', evt)}
+                                        listType="picture"
+                                        onRemove={() =>
+                                            onRemoveMedia(form.getFieldValue('logo_header'))
+                                        }
+                                        fileList={defaultFileList.logo_header}
+                                        className="avatar-uploader single"
+                                    >
+                                        {defaultFileList.logo_header.length >= 1 ? null :
+                                            <Button><i className="icon-upload mr-2"/> Chọn ảnh</Button>}
+                                    </Upload>
+                                </Form.Item>
+                                <Form.Item
+                                    name={`favicon_context`}
+                                    label="Ảnh favicon"
+                                >
+                                    <Upload
+                                        accept="image/*"
+                                        customRequest={opts => onUpload(opts, 'favicon')}
+                                        onChange={evt => handleOnChange('favicon', evt)}
+                                        listType="picture"
+                                        className="avatar-uploader single"
+                                        onRemove={(file) =>
+                                            onRemoveMedia(file.uid)
+                                        }
+                                        fileList={defaultFileList.favicon}
+                                    >
+                                        {defaultFileList.favicon.length >= 1 ? null :
+                                            <Button><i className="icon-upload mr-2"/> Chọn ảnh</Button>}
+                                    </Upload>
+                                </Form.Item>
+                                <Form.Item
+                                    name={`logo_footer_context`}
+                                    label="Ảnh đại lý"
+                                >
+                                    <Upload
+                                        accept="image/*"
+                                        customRequest={opts => onUpload(opts, 'logo_footer')}
+                                        onChange={evt => handleOnChange('logo_footer', evt)}
+                                        listType="picture"
+                                        onRemove={() =>
+                                            onRemoveMedia(form.getFieldValue('logo_footer'))
+                                        }
+                                        fileList={defaultFileList.logo_footer}
+                                        className="avatar-uploader single"
+                                    >
+                                        {defaultFileList.logo_footer.length >= 1 ? null :
+                                            <Button><i className="icon-upload mr-2"/> Chọn ảnh</Button>}
+                                    </Upload>
+                                </Form.Item>
+                                <Form.Item
+                                    name={`about_image_context`}
+                                    label="About banner"
+                                >
+                                    <Upload
+                                        accept="image/*"
+                                        customRequest={opts => onUpload(opts, 'about_image')}
+                                        onChange={evt => handleOnChange('about_image', evt)}
+                                        listType="picture"
+                                        onRemove={() =>
+                                            onRemoveMedia(form.getFieldValue('about_image'))
+                                        }
+                                        fileList={defaultFileList.about_image}
+                                        className="avatar-uploader single"
+                                    >
+                                        {defaultFileList.about_image.length >= 1 ? null :
+                                            <Button><i className="icon-upload mr-2"/> Chọn ảnh</Button>}
+                                    </Upload>
+                                </Form.Item>
+                                <Form.Item
+                                    name={`event_image_context`}
+                                    label="Event banner (vi)"
+                                >
+                                    <Upload
+                                        accept="image/*"
+                                        customRequest={opts => onUpload(opts, 'event_image')}
+                                        onChange={evt => handleOnChange('event_image', evt)}
+                                        listType="picture"
+                                        onRemove={() =>
+                                            onRemoveMedia(form.getFieldValue('event_image'))
+                                        }
+                                        fileList={defaultFileList.event_image}
+                                        className="avatar-uploader single"
+                                    >
+                                        {defaultFileList.event_image.length >= 1 ? null :
+                                            <Button><i className="icon-upload mr-2"/> Chọn ảnh</Button>}
+                                    </Upload>
+                                </Form.Item>
+                                <Form.Item
+                                    name={`event_image_en_context`}
+                                    label="Event banner (en)"
+                                >
+                                    <Upload
+                                        accept="image/*"
+                                        customRequest={opts => onUpload(opts, 'event_image_en')}
+                                        onChange={evt => handleOnChange('event_image_en', evt)}
+                                        listType="picture"
+                                        onRemove={() =>
+                                            onRemoveMedia(form.getFieldValue('event_image_en'))
+                                        }
+                                        fileList={defaultFileList.event_image_en}
+                                        className="avatar-uploader single"
+                                    >
+                                        {defaultFileList.event_image_en.length >= 1 ? null :
+                                            <Button><i className="icon-upload mr-2"/> Chọn ảnh</Button>}
+                                    </Upload>
+                                </Form.Item>
+                            </Col>
+                        </Row>
+                    </Form>
+                </Card>
+            );
+        }
+    </script>
+@stop
