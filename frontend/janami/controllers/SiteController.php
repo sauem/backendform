@@ -181,6 +181,11 @@ class SiteController extends BaseController
         return $this->render('checkout.blade');
     }
 
+    public function actionBrochure()
+    {
+        return $this->render('brochure.blade');
+    }
+
     public function actionArchive($archive)
     {
         if (!$archive) {

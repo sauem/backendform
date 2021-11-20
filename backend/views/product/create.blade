@@ -75,7 +75,6 @@
                             meta_keyword: meta ? meta.meta_keyword : null,
                             meta_description: meta ? meta.meta_description : null
                         });
-
                         data.avatar && setDefaultFileList({
                             ...defaultFileList,
                             avatar: [{
@@ -84,7 +83,7 @@
                                 status: 'done',
                                 url: data.avatar
                             }]
-                        });
+                        })
 
                         data.banner && setDefaultFileList({
                             ...defaultFileList,
@@ -97,14 +96,13 @@
                         });
 
                         if (data.thumbs.length > 0) {
-                            const newThumbs = [];
-                            data.thumbs.map(item => {
-                                newThumbs.push({
+                            const newThumbs = data.thumbs.map(item => {
+                                return {
                                     uid: item.id,
                                     name: `thumb-${item.id}`,
                                     status: 'done',
                                     url: `/static/${item.path}`
-                                })
+                                }
                             });
                             setDefaultFileList({
                                 ...defaultFileList,
@@ -115,15 +113,11 @@
                         await setLanguage(LANG_VI);
                     }
                     await getProducts();
-                    const attr = await Attributes.fetch({page: -1});
-                    setState({
-                        ...state,
-                        attributes: attr.data
-                    });
                     initTinymce(changeContent);
                     initTinymce(txt => changeContent(txt, 'attr_text'), 'attr_editor');
-                })()
+                })();
             }, []);
+
             const setLanguage = async (e) => {
                 const res = await fetchArchive({language: e});
                 form.setFieldsValue({
@@ -526,7 +520,7 @@
                                                 fileList={defaultFileList.avatar}
                                                 className="avatar-uploader single"
                                             >
-                                                {defaultFileList.avatar.length >= 1 ? null :
+                                                {defaultFileList.avatar.length > 0 ? null :
                                                     <Button><i className="icon-upload mr-2"/> Chọn ảnh</Button>}
                                             </Upload>
                                         </Form.Item>
@@ -547,7 +541,7 @@
                                                 fileList={defaultFileList.banner}
                                                 className="avatar-uploader single"
                                             >
-                                                {defaultFileList.banner.length >= 1 ? null :
+                                                {defaultFileList.banner.length > 0 ? null :
                                                     <Button><i className="icon-upload mr-2"/> Chọn ảnh</Button>}
                                             </Upload>
                                         </Form.Item>

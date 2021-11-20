@@ -9,6 +9,7 @@ return [
     CART => 'site/cart',
     CHECKOUT => 'site/checkout',
     BUYING_GUIDE => 'site/buying-guide',
+    BROUCHURE => 'site/brochure',
 
     // page
     'product-filter' => 'product-filter',
