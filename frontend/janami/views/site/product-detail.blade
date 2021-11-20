@@ -166,7 +166,7 @@ Yii::$app->params['header_style'] = true;
                                     </div>
                                     <p className="xam">Giá: {renderPrice(product)}</p>
                                     <div className="description">
-                                        <p>{product.excerpt}</p>
+                                        <p className="xam">{product.excerpt}</p>
                                         <Divider/>
                                         <div dangerouslySetInnerHTML=@{{__html: product.attr_text}}/>
                                     </div>

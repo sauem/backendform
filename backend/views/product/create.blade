@@ -506,6 +506,10 @@
                                                 <Select.Option value={LANG_EN}>Tiếng Anh</Select.Option>
                                             </Select>
                                         </Form.Item>
+                                        <small className="text-danger">*Ảnh upload không quá 2MB</small><br/>
+                                        <small className="text-danger">*Tên ảnh không nên chứa kí tự đặc biệt hoặc
+                                            khoảng trắng</small><br/>
+                                        <small className="text-danger">Ảnh đại diện : 1200x1200</small>
                                         <Form.Item
                                             name={`avatar`}
                                             label="Ảnh đại diện"
@@ -526,6 +530,8 @@
                                                     <Button><i className="icon-upload mr-2"/> Chọn ảnh</Button>}
                                             </Upload>
                                         </Form.Item>
+                                        <small className="text-danger">Ảnh banner : 1176x479</small>
+
                                         <Form.Item
                                             name={`banner`}
                                             label="Ảnh banner"
@@ -545,9 +551,6 @@
                                                     <Button><i className="icon-upload mr-2"/> Chọn ảnh</Button>}
                                             </Upload>
                                         </Form.Item>
-                                        <small className="text-danger">*Ảnh upload không quá 2MB</small><br/>
-                                        <small className="text-danger">*Tên ảnh không nên chứa kí tự đặc biệt hoặc
-                                            khoảng trắng</small>
                                         <Form.Item
                                             name="banner_id"
                                             hidden>
@@ -566,6 +569,8 @@
                                             hidden>
                                             <Input/>
                                         </Form.Item>
+                                        <small className="text-danger">Ảnh thumbnail : 1200x1200</small>
+
                                         <Form.Item
                                             label="Ảnh thumbnail (max 5)"
                                         >

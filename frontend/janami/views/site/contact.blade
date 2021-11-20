@@ -27,20 +27,20 @@ $view->title = 'Liên hệ';
                         <div class="col-md-7 col-12">
                             <div class="row">
                                 <div class="col-md-6 col-12">
-                                    <div class="cbox-1 mt-50 mb-25">
+                                    <div class="cbox-1 mt-50 mb-5">
                                         <h5 class="h5-xs do">Chi tiết liên hệ</h5>
                                         <p class="xam"><?= HelperFunction::setting('site_name')?></p>
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-12">
-                                    <div class="cbox-1 mt-50 mb-25">
+                                    <div class="cbox-1 mt-50 mb-5">
                                         <h5 class="h5-xs do">Địa chỉ showroom</h5>
-                                        <p class="xam"><?= HelperFunction::setting('address_1')?></p>
-                                        <p class="xam"><?= HelperFunction::setting('address_2')?></p>
+                                        <p class="xam"><?= nl2br(HelperFunction::setting('address_1'))?></p>
+                                        <p class="xam"><?= nl2br(HelperFunction::setting('address_2'))?></p>
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-12">
-                                    <div class="cbox-1 mt-50 mb-25">
+                                    <div class="cbox-1 mt-50 mb-5">
                                         <h5 class="h5-xs do">Thông tin liên lạc</h5>
                                         <p class="xam"><span>Phone :</span>
                                             <a class="xam" href="tel:<?= HelperFunction::setting('hotline_1')?>">
@@ -55,10 +55,10 @@ $view->title = 'Liên hệ';
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-12">
-                                    <div class="cbox-1 mt-50 mb-25">
+                                    <div class="cbox-1 mt-50 mb-5">
                                         <h5 class="h5-xs do">Giờ làm việc/cửa hàng</h5>
-                                        <p class="xam"><span>Thứ 2 - Thứ 7 :</span> 9:00 AM - 7:00 PM</p>
-                                        <p class="xam"><span>Chủ nhật :</span> Đóng cửa</p>
+
+                                        <p class="xam"><?= nl2br(HelperFunction::setting('work_time')) ?></p>
                                     </div>
                                 </div>
                             </div>
@@ -69,13 +69,13 @@ $view->title = 'Liên hệ';
             </div>
         </div>
     </div>
-    <Section data-aos="fade-up"
-             data-aos-duration="1200" class="section-register pt-4">
+    <Section class="section-register pt-4">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-9">
                     <div class="row justify-content-center ">
-                        <div class="col-md-8 text-center size-18">
+                        <div data-aos="fade-up"
+                             data-aos-duration="1200" class="col-md-8 text-center size-18">
                             <img src="/img/icon-do.svg">
                             <p class="call-txt">
                                 Bạn là chủ Spa/TMV, Kinh doanh online<br>
@@ -90,7 +90,6 @@ $view->title = 'Liên hệ';
             </div>
         </div>
     </Section>
-    <iframe src="<?= HelperFunction::setting('map_iframe')?>" width="100%" height="450"></iframe>
     <?= $view->render("../parts/logo.blade"); ?>
 
 
