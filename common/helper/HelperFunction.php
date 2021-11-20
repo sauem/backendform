@@ -168,9 +168,9 @@ class HelperFunction
                 case 'page':
                     return "/" . ArrayHelper::getValue($slug, 'slug', '/');
                 case 'article':
+                    return "/tin-tuc/" . ($archive ? "$archive/" : '') . $slug['slug'];
                 case 'product':
-                case 'shop':
-                    return "/" . $slug['type'] . '/' . ($archive ? "$archive/" : '') . $slug['slug'];
+                    return "/san-pham/" . ($archive ? "$archive/" : '') . $slug['slug'];
             }
         }
         return "/$type/" . ($archive ? $archive . '/' : '') . $slug;
