@@ -31,7 +31,7 @@ class AppAsset extends AssetBundle
         '/js/lib/axios.js',
         '/js/helper/Constant.js?v=1.4',
         '/js/helper/Helper.js?v=2.6',
-        '/js/helper/Actions.js?v=1.5',
+        '/js/helper/Actions.js?v=1.7',
         '/js/lib/redux.js',
         '/js/lib/moment-with-locales.js',
         '/js/lib/moment/moment.js',
