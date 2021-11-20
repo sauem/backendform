@@ -11,6 +11,8 @@ return [
     BUYING_GUIDE => 'site/buying-guide',
 
     // page
+    'product-filter' => 'product-filter',
+    'product-filter/view' => 'product-filter/view',
     ARTICLE . '/<archive:[0-9a-zA-Z\-]+>' => 'site/archive',
     ARTICLE . '/<archive:[0-9a-zA-Z\-]+>/<slug:[0-9a-zA-Z\-]+>' => 'site/detail',
     SHOP . '/<archive:[0-9a-zA-Z\-]+>' => 'site/archive',
