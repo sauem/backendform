@@ -17,7 +17,7 @@ class ArticlesSearch extends Articles
     public function rules()
     {
         return [
-            [['id', 'created_at', 'updated_at', 'archive_id', 'media_id'], 'integer'],
+            [['id', 'created_at', 'updated_at', 'archive_id', 'media_id','show_cat'], 'integer'],
             [['name', 'slug', 'content', 'excerpt', 'status', 'language'], 'safe'],
         ];
     }
@@ -71,6 +71,7 @@ class ArticlesSearch extends Articles
             ->andFilterWhere(['like', 'content', $this->content])
             ->andFilterWhere(['like', 'excerpt', $this->excerpt])
             ->andFilterWhere(['=', 'archive_id', $this->archive_id])
+            ->andFilterWhere(['=', 'show_cat', $this->show_cat])
             ->andFilterWhere(['like', 'status', $this->status])
             ->andFilterWhere(['like', 'language', $this->language]);
 

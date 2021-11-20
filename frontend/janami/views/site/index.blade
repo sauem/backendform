@@ -279,6 +279,7 @@ Yii::$app->params['footer_type'] = 'light';
                                                         <div class="product-info">
                                                             <p class="product-name text-1">
                                                                 <a href="/shop/<?= $product->defaultArchive->slug ?>/<?= $product->slug?>">{{$product->name}}</a>
+                                                            <p>{{$product->sub_name}}</p>
                                                             </p>
                                                             <p class="product-price"><?= HelperFunction::htmlPrice($product)?></p>
                                                             <svg width="121" height="24" viewBox="0 0 121 24"
@@ -362,7 +363,8 @@ Yii::$app->params['footer_type'] = 'light';
                                                                             <a href="/shop/<?= $productChild->defaultArchive->slug ?>/<?= $productChild->slug?>">{{$productChild->name}}</a>
                                                                         </p>
                                                                         <p class="product-price"><?= HelperFunction::htmlPrice($productChild)?></p>
-                                                                        <svg width="121" height="24" viewBox="0 0 121 24"
+                                                                        <svg width="121" height="24"
+                                                                             viewBox="0 0 121 24"
                                                                              fill="none"
                                                                              xmlns="http://www.w3.org/2000/svg">
                                                                             <path d="M59.9998 17.5198L64.1498 20.0298C64.9098 20.4898 65.8398 19.8098 65.6398 18.9498L64.5398 14.2298L68.2098 11.0498C68.8798 10.4698 68.5198 9.36977 67.6398 9.29977L62.8098 8.88977L60.9198 4.42977C60.5798 3.61977 59.4198 3.61977 59.0798 4.42977L57.1898 8.87977L52.3598 9.28977C51.4798 9.35977 51.1198 10.4598 51.7898 11.0398L55.4598 14.2198L54.3598 18.9398C54.1598 19.7998 55.0898 20.4798 55.8498 20.0198L59.9998 17.5198Z"
@@ -375,7 +377,8 @@ Yii::$app->params['footer_type'] = 'light';
                                                                                   fill="#E44126"/>
                                                                             <path d="M11.9998 17.5198L16.1498 20.0298C16.9098 20.4898 17.8398 19.8098 17.6398 18.9498L16.5398 14.2298L20.2098 11.0498C20.8798 10.4698 20.5198 9.36977 19.6398 9.29977L14.8098 8.88977L12.9198 4.42977C12.5798 3.61977 11.4198 3.61977 11.0798 4.42977L9.18983 8.87977L4.35983 9.28977C3.47983 9.35977 3.11983 10.4598 3.78983 11.0398L7.45983 14.2198L6.35983 18.9398C6.15983 19.7998 7.08983 20.4798 7.84983 20.0198L11.9998 17.5198Z"
                                                                                   fill="#E44126"/>
-                                                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                                            <path fill-rule="evenodd"
+                                                                                  clip-rule="evenodd"
                                                                                   d="M111.808 8.87439L116.648 9.29439C117.528 9.36439 117.878 10.4644 117.208 11.0444L113.538 14.2244L114.638 18.9544C114.838 19.8144 113.908 20.4944 113.148 20.0344L108.998 17.5244L104.848 20.0244C104.088 20.4844 103.158 19.8044 103.358 18.9444L104.458 14.2244L100.788 11.0444C100.118 10.4644 100.478 9.36439 101.358 9.29439L106.188 8.88439L108.078 4.42439C108.418 3.61439 109.578 3.61439 109.918 4.42439L111.808 8.87439ZM105.238 17.9244L108.998 15.6544L112.768 17.9344L111.768 13.6544L115.088 10.7744L110.708 10.3944L108.998 6.35439L107.298 10.3844L102.918 10.7644L106.238 13.6444L105.238 17.9244Z"
                                                                                   fill="black" fill-opacity="0.54"/>
                                                                         </svg>
@@ -395,10 +398,7 @@ Yii::$app->params['footer_type'] = 'light';
                 </div>
             </div>
         </div>
-        <?php
-        $techItems = Yii::$app->params['technology'];
 
-        ?>
         <div class="block-box">
             <div class="container">
                 <div class="box-technology">
@@ -407,27 +407,13 @@ Yii::$app->params['footer_type'] = 'light';
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="owl-carousel owl-theme box-technology-carousel">
-                                        @if(!empty($techItems))
-                                            @foreach($techItems as $item)
+                                        @if(!empty($technology))
+                                            @foreach($technology as $item)
                                                 <div class="tech-img">
-                                                    <img alt="{{$item['name']}}" src="{{$item['image']}}"
+                                                    <img alt="{{$item->name}}" src="{{$item->avatar}}"
                                                          class="img-fluid w-100"/>
-                                                    {{--                                                    <div class="tech-content">--}}
-                                                    {{--                                                        <div data-aos="fade-up"--}}
-                                                    {{--                                                             data-aos-duration="1200">--}}
-                                                    {{--                                                            {!! $item['content'] !!}--}}
-                                                    {{--                                                        </div>--}}
-                                                    {{--                                                    </div>--}}
                                                 </div>
                                             @endforeach
-                                        @else
-                                            <img src="/img/tech1.png" class="img-fluid w-100"/>
-                                            <img src="/img/tech1.png" class="img-fluid w-100"/>
-                                            <img src="/img/tech1.png" class="img-fluid w-100"/>
-                                            <img src="/img/tech1.png" class="img-fluid w-100"/>
-                                            <img src="/img/tech1.png" class="img-fluid w-100"/>
-                                            <img src="/img/tech1.png" class="img-fluid w-100"/>
-                                            <img src="/img/tech1.png" class="img-fluid w-100"/>
                                         @endif
 
                                     </div>
@@ -440,47 +426,21 @@ Yii::$app->params['footer_type'] = 'light';
                                             data-aos-duration="1200" class="txt-brand">Công nghệ, thành phần được cấp
                                             bằng sáng chế</h4>
 
-                                        <ul class="list-tech">
-                                            @if(!empty($techItems))
+                                        <ul class="list-tech" id="accordion">
+                                            @if(!empty($technology))
                                                 <?php $duration = 900 ?>
-                                                @foreach($techItems as $k => $item)
+                                                @foreach($technology as $k => $item)
                                                     <li class="{{$k === 0 ? 'active' : ''}}" data-aos="fade-down"
                                                         data-aos-duration={{$duration}}>
-                                                        <a>
-                                                            <img src="/img/item-tech.svg"/> {{$item['name']}}
+                                                        <a data-toggle="collapse" href="#content_{{$k}}">
+                                                            <img src="/img/item-tech.svg"/> {{$item->name}}
                                                         </a>
+                                                        <div aria-labelledby="headingOne" data-parent="#accordion" id="content_{{$k}}" class="collapse">
+                                                            {!! $item->content !!}
+                                                        </div>
                                                     </li>
                                                     @php($duration+=100)
                                                 @endforeach
-                                            @else
-                                                <li class="active" data-aos="fade-down"
-                                                    data-aos-duration="900">
-                                                    <a>
-                                                        <img src="/img/item-tech.svg"/> Liposome
-                                                    </a>
-                                                </li>
-                                                <li data-aos="fade-down"
-                                                    data-aos-duration="1000">
-                                                    <a><img src="/img/item-tech.svg"/> Spiralin</a>
-                                                </li>
-                                                <li data-aos="fade-down"
-                                                    data-aos-duration="1100">
-                                                    <a><img src="/img/item-tech.svg"/> Rodiola sachalinesis</a>
-                                                </li>
-                                                <li data-aos="fade-down"
-                                                    data-aos-duration="1200">
-                                                    <a><img src="/img/item-tech.svg"/> Mai - B complex</a>
-                                                </li>
-                                                <li data-aos="fade-down"
-                                                    data-aos-duration="1300"><a><img src="/img/item-tech.svg"/>
-                                                        Nutroxsun</a></li>
-                                                <li data-aos="fade-down"
-                                                    data-aos-duration="1400"><a><img src="/img/item-tech.svg"/> 2 tảo 1
-                                                        thảo</a>
-                                                </li>
-                                                <li data-aos="fade-down"
-                                                    data-aos-duration="1500"><a><img src="/img/item-tech.svg"/> Nano
-                                                        collagen</a></li>
                                             @endif
                                         </ul>
                                     </div>

@@ -1749,35 +1749,13 @@ nav {
         font-size: 36px;
       }
 
-      //&:before, &:after {
-      //  position: absolute;
-      //  content: "";
-      //  background-repeat: no-repeat;
-      //}
-      //
-      //&:before {
-      //  background-image: url("../img/la1.png");
-      //  top: -50px;
-      //  left: -25px;
-      //  width: 100px;
-      //  height: 100px;
-      //  background-size: contain;
-      //}
-      //
-      //&:after {
-      //  background-image: url("../img/la2.png");
-      //  bottom: -60px;
-      //  right: -100px;
-      //  width: 200px;
-      //  height: 200px;
-      //  background-size: 100% 100%;
-      //}
-
       .owl-dots {
         bottom: 50px;
       }
 
       ul {
+        max-height: 300px;
+        overflow-y: scroll;
 
         li {
           padding: 7px 0;
@@ -2019,12 +1997,6 @@ nav {
   padding-bottom: 100px;
   padding-top: 100px;
   position: relative;
-  //background-image: url("../img/la3.png");
-  //background-repeat: no-repeat;
-  //background-position-x: left;
-  //background-position-y: -30px;
-  //background-size: 200px;
-
   background-image: url("../img/hint2.png"), url("../img/hint1.png");
   background-size: 50%, 50%;
   background-repeat: no-repeat, no-repeat;
@@ -2034,32 +2006,6 @@ nav {
     text-align: center;
   }
 
-  //&:before, &:after {
-  //  color: transparent;
-  //  z-index: -2;
-  //  left: 0;
-  //  width: 100%;
-  //  height: 100%;
-  //  bottom: 0;
-  //  position: absolute;
-  //  content: "";
-  //  background-image: url("../img/hint-bg.png");
-  //  background-repeat: no-repeat;
-  //  //background-color: #E44126;
-  //  background-blend-mode: screen;
-  //}
-  //
-  //&:before {
-  //
-  //  -webkit-transform: rotate(-180deg);
-  //  -moz-transform: rotate(-180deg);
-  //  background-position-x: right;
-  //}
-  //
-  //&:after {
-  //  background-position-x: right;
-  //}
-
   .item-newspaper {
     background: #FFFFFF;
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
@@ -2067,9 +2013,11 @@ nav {
     width: 97%;
 
     .img {
-      max-height: 227px;
-      height: 100%;
+      max-height: 300px;
+      height: 300px;
       overflow: hidden;
+      display: flex;
+      justify-content: center;
 
       img {
         display: flex;

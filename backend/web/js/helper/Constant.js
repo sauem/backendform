@@ -142,6 +142,13 @@ const ROUTE = {
         DELETE: 'member/delete',
         VIEW: 'member/view',
     },
+    TECH: {
+        INDEX: 'technology/index',
+        CREATE: 'technology/create',
+        UPDATE: 'technology/update',
+        DELETE: 'technology/delete',
+        VIEW: 'technology/view',
+    },
     TESTIMONIAL: {
         INDEX: 'testimonial/index',
         CREATE: 'testimonial/create',

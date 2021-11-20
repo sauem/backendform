@@ -12,6 +12,7 @@ use common\models\Contact;
 use common\models\Member;
 use common\models\Products;
 use common\models\ProductsSearch;
+use common\models\Technology;
 use common\models\Testimonials;
 use janami\controllers\BaseController;
 use frontend\models\ResendVerificationEmailForm;
@@ -42,6 +43,7 @@ class SiteController extends BaseController
 
         $articles = Articles::find()
             ->where([
+                'show_cat' => 1,
                 'show_home' => 1,
                 'language' => HelperFunction::getLanguage(),
                 'status' => Articles::STATUS_ACTIVE
@@ -74,9 +76,10 @@ class SiteController extends BaseController
             ->where([
                 'type' => 'guest'
             ])->all();
+
+        $technology = Technology::findAll(['active' => 1]);
         return $this->render('index.blade', [
-            //'sliders' => $sliders,
-            //'categories' => $categories,
+            'technology' => $technology,
             'newspaperReview' => $newspaperReview,
             'guestComment' => $guestComment,
             'posts' => $articles,
@@ -204,6 +207,7 @@ class SiteController extends BaseController
             ->all();
         $latestBlog = Articles::find()
             ->where([
+                'show_cat' => 1,
                 'language' => HelperFunction::getLanguage(),
             ])
             ->andFilterWhere(['!=', 'archive_id', $model->id])
@@ -222,6 +226,7 @@ class SiteController extends BaseController
                 $modelSearch = new ArchivesSearch();
                 $dataProvider = $modelSearch->search(Yii::$app->request->queryParams, [
                     'default_archive' => $model->id,
+                    'show_cat' => 1,
                     'status' => 'public'
                 ]);
                 break;
@@ -270,8 +275,10 @@ class SiteController extends BaseController
                     throw new BadRequestHttpException('Không tồn tại sản phẩm!');
                 }
                 $related = Articles::find()
-                    ->where(['archive_id' => $model->archive_id])
-                    ->andFilterWhere(['!=', 'id', $model->id])
+                    ->where([
+                        'archive_id' => $model->archive_id,
+                        'show_cat' => 1
+                    ])->andFilterWhere(['!=', 'id', $model->id])
                     ->limit(6)->all();
                 break;
         }

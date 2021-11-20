@@ -4,7 +4,7 @@ define('LANG_EN', 'en');
 define('HOME', '/');
 define('ARCHIVE', 'archive');
 define('GUIDE', 'guide');
-define('SHOP', 'shop');
+define('SHOP', 'san-pham');
 define('PRODUCT', 'product');
 define('CONTACT', 'contact');
 define('ARTICLES', 'articles');

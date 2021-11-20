@@ -158,18 +158,20 @@ $view->title = 'Đánh giá khách hàng';
                                     name={'message'}
                                     label={`Nội dung`}
                                 >
-                                    <Input.TextArea rows={7}/>
+                                    <Input.TextArea maxLength={255} showCount rows={7}/>
                                 </Form.Item>
+                                <small className="text-danger">Kích thước 413x300px</small>
                                 <Form.Item>
                                     <Upload
                                         accept="image/*"
                                         customRequest={onUpload}
                                         onChange={handleOnChange}
-                                        listType="picture-card"
                                         fileList={defaultFileList}
+                                        listType="picture"
                                         className="avatar-uploader single"
                                     >
-                                        {defaultFileList.length >= 1 ? null : <div>Chọn ảnh</div>}
+                                        {defaultFileList.length >= 1 ? null :
+                                            <Button><i className="icon-upload mr-2"/> Chọn ảnh</Button>}
                                     </Upload>
                                     {progress > 0 ? <Progress percent={progress}/> : null}
                                 </Form.Item>

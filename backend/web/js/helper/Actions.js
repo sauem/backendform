@@ -657,3 +657,61 @@ const Members = {
         }
     },
 }
+const Technology = {
+    create: async (tech) => {
+        try {
+            const {data} = await Server.post(ROUTE.TECH.CREATE, tech).catch(axiosCatch);
+            return data;
+        } catch (e) {
+            message.error(e.message);
+        }
+    },
+    update: async (tech) => {
+        try {
+            const {data} = await Server.put(ROUTE.TECH.UPDATE + `?id=${tech.id}`, tech).catch(axiosCatch);
+            return data;
+        } catch (e) {
+            message.error(e.message);
+        }
+    },
+    delete: async (id) => {
+        try {
+            const {data} = await Server.delete(`${ROUTE.TECH.DELETE}?id=${id}`).catch(axiosCatch);
+            message.success('Xóa thành viên hiện tại!');
+            return data;
+        } catch (e) {
+            message.error(e.message);
+        }
+    },
+    fetch: async (params) => {
+        try {
+            const res = await Server.get(ROUTE.TECH.INDEX, {
+                params: {
+                    ...params,
+                    sort: '-created_at',
+                    expand: 'avatar',
+                    "per-page": 20
+                }
+            }).catch(axiosCatch);
+            const {data, headers} = res;
+            const current = headers['x-pagination-current-page'],
+                totalPage = headers['x-pagination-page-count'],
+                pageSize = headers['x-pagination-per-page'],
+                total = headers['x-pagination-total-count'],
+                pagination = {
+                    total, current, pageSize, totalPage
+                };
+            return {data, pagination};
+        } catch (e) {
+            message.error(e.message);
+        }
+    },
+    view: async (id) => {
+        try {
+            const {data} = await Server.get(`${ROUTE.MEMBER.VIEW}?id=${id}`).catch(axiosCatch);
+            return data;
+        } catch (e) {
+            message.error(e.message);
+        }
+    },
+}

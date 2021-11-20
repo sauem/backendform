@@ -1096,23 +1096,26 @@ nav a {
       font-size: 36px; }
     .section-products .block-box .box-technology .owl-dots {
       bottom: 50px; }
-    .section-products .block-box .box-technology ul li {
-      padding: 7px 0;
-      font-size: 16px;
-      color: #636363;
-      font-weight: 500;
-      border-bottom: solid 1px #DDDDDD; }
-      .section-products .block-box .box-technology ul li img {
-        transition: 0.5s; }
-      .section-products .block-box .box-technology ul li a {
+    .section-products .block-box .box-technology ul {
+      max-height: 300px;
+      overflow-y: scroll; }
+      .section-products .block-box .box-technology ul li {
+        padding: 7px 0;
         font-size: 16px;
         color: #636363;
-        text-transform: uppercase; }
-      .section-products .block-box .box-technology ul li:hover a, .section-products .block-box .box-technology ul li.active a {
-        font-weight: bold;
-        color: #E44126; }
-      .section-products .block-box .box-technology ul li:hover img, .section-products .block-box .box-technology ul li.active img {
-        transform: rotate(360deg); }
+        font-weight: 500;
+        border-bottom: solid 1px #DDDDDD; }
+        .section-products .block-box .box-technology ul li img {
+          transition: 0.5s; }
+        .section-products .block-box .box-technology ul li a {
+          font-size: 16px;
+          color: #636363;
+          text-transform: uppercase; }
+        .section-products .block-box .box-technology ul li:hover a, .section-products .block-box .box-technology ul li.active a {
+          font-weight: bold;
+          color: #E44126; }
+        .section-products .block-box .box-technology ul li:hover img, .section-products .block-box .box-technology ul li.active img {
+          transform: rotate(360deg); }
     .section-products .block-box .box-technology .tech-img {
       position: relative; }
       .section-products .block-box .box-technology .tech-img .tech-content {
@@ -1214,9 +1217,11 @@ nav a {
     margin-bottom: 20px;
     width: 97%; }
     .section-seeding .item-newspaper .img {
-      max-height: 227px;
-      height: 100%;
-      overflow: hidden; }
+      max-height: 300px;
+      height: 300px;
+      overflow: hidden;
+      display: flex;
+      justify-content: center; }
       .section-seeding .item-newspaper .img img {
         display: flex;
         object-fit: cover;

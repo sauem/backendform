@@ -1,0 +1,198 @@
+@section('js_pos')
+    <script type="text/babel">
+        const App = () => {
+            const initialState = {
+                modalTitle: '',
+                modalVisible: false,
+                members: [],
+                pagination: {},
+                uploading: false,
+                loading: false,
+                searchValue: ''
+            }
+            const [state, setState] = useState(initialState);
+            const [defaultFileList, setDefaultFileList] = useState([]);
+            const [progress, setProgress] = useState(0);
+            const [form] = Form.useForm();
+
+            const onUpload = options => {
+                const {onSuccess, onError, file, onProgress} = options;
+                setState({
+                    ...state,
+                    ...{
+                        uploading: true
+                    }
+                });
+                onUploadMedia(file, data => {
+                    form.setFieldsValue({
+                        avatar_id: data.id
+                    })
+                    onSuccess();
+                }, onError, (event) => {
+                    const percent = Math.floor((event.loaded / event.total) * 100);
+                    setProgress(percent);
+                    if (percent === 100) {
+                        setTimeout(() => setProgress(0), 1000);
+                    }
+                    onProgress({percent: (event.loaded / event.total) * 100});
+                });
+            }
+            const handleOnChange = ({file, fileList, event}) => {
+                setDefaultFileList(fileList);
+            };
+            const onUpdate = member => {
+                form.setFieldsValue(member);
+
+                member.avatar ? setDefaultFileList([{
+                    uid: '-1',
+                    name: member.name,
+                    status: 'done',
+                    url: member.avatar
+                }]) : setDefaultFileList([]);
+            }
+            const onDelete = async (id) => {
+                await Technology.delete(id);
+                await getMember();
+            }
+            const onSubmit = async (data) => {
+                if (typeof data.id !== "undefined") {
+                    await Technology.update(data);
+                } else {
+                    await Technology.create(data);
+                }
+                await getMember({loading: false});
+                form.resetFields();
+                setDefaultFileList([])
+            }
+            const getMember = async (params = {}) => {
+                try {
+                    const {data, pagination} = await Technology.fetch(params);
+                    setState({
+                        ...state,
+                        ...{
+                            members: data,
+                            pagination: pagination
+                        }
+                    })
+                } catch (e) {
+                    message.error(e.message);
+                }
+            }
+            const changeContent = (text) => {
+                form.setFieldsValue({
+                    content: text
+                })
+            }
+            useEffect(() => {
+                getMember();
+                initTinymce(changeContent)
+            }, []);
+            return (
+                <Row gutter={[8, 8]}>
+                    <Col md={12}>
+                        <Card title="Thêm công nghệ">
+                            <Form layout={`vertical`} onFinish={onSubmit} form={form} id={'memberForm'}>
+                                <Form.Item name={'id'} hidden><Input/></Form.Item>
+                                <Form.Item name={'avatar_id'} hidden><Input/></Form.Item>
+                                <Form.Item
+                                    name={'name'}
+                                    label={`Tên`}
+                                    rules={[{required: true, message: 'Danh mục bắt buộc!'}]}
+                                >
+                                    <Input/>
+                                </Form.Item>
+
+                                <Row gutter={[8, 8]}>
+                                    <Col sm={12}>
+                                        <Form.Item
+                                            name={'type'}
+                                            label={`Nội dung`}
+                                            initialValue="tech"
+                                        >
+                                            <Select>
+                                                <Select.Option value={`tech`}>Công nghệ được cấp bằng</Select.Option>
+                                            </Select>
+                                        </Form.Item>
+                                    </Col>
+                                    <Col sm={12}>
+                                        <Form.Item
+                                            initialValue={1}
+                                            name={'active'}
+                                            label={`Hiển thị`}
+                                        >
+                                            <Select>
+                                                <Select.Option value={1}>Hiển thị</Select.Option>
+                                                <Select.Option value={0}>Ẩn</Select.Option>
+                                            </Select>
+                                        </Form.Item>
+                                    </Col>
+                                </Row>
+                                <Form.Item
+                                    name={'content'}
+                                    label={`Mô tả`}
+                                >
+                                    <Input.TextArea className="editor"/>
+                                </Form.Item>
+                                <small className="text-danger">Kích thước ảnh: 578x578</small><br/>
+                                <small className="text-danger">Tên ảnh không dấu, khoảng trắng, kí tự đặc biệt</small>
+                                <Form.Item>
+                                    <Upload
+                                        accept="image/*"
+                                        customRequest={onUpload}
+                                        onChange={handleOnChange}
+                                        fileList={defaultFileList}
+                                        listType="picture"
+                                        className="avatar-uploader single"
+                                    >
+                                        {defaultFileList.length >= 1 ? null :
+                                            <Button><i className="icon-upload mr-2"/> Chọn ảnh</Button>}
+                                    </Upload>
+                                    {progress > 0 ? <Progress percent={progress}/> : null}
+                                </Form.Item>
+                                <Divider/>
+                                <div className="text-right">
+                                    <small className="text-danger mr-2">* thông tin bắt buộc</small>
+                                    <Button htmlType={`submit`}>Lưu</Button>
+                                </div>
+                            </Form>
+                        </Card>
+                    </Col>
+
+                    <Col md={12}>
+                        <Card title="Danh sách thành viên">
+                            <Table
+                                dataSource={state.members}
+                                onChange={(number) => getMember({page: number})}
+                                pagination={state.pagination}
+                                columns={[
+                                    {title: 'Tên thành viên', dataIndex: 'name', key: 'name'},
+                                    {title: 'Giới thiệu', dataIndex: 'description', key: 'description'},
+                                    {
+                                        title: 'Hành động', key: 'action', render: raw => {
+                                            return (
+                                                <div>
+                                                    <Button onClick={() => onUpdate(raw)} type="primary"
+                                                            className={`mr-1`} size={`small`}><i
+                                                        className="icon icon-edit"/></Button>
+                                                    <Popconfirm
+                                                        title="Xóa nhận xét hiện tại"
+                                                        onConfirm={() => onDelete(raw.id)}
+                                                        okText="Xóa"
+                                                        cancelText="Hủy"
+                                                    >
+                                                        <Button type="dashed" danger size={`small`}><i
+                                                            className="icon icon-trash"/></Button>
+                                                    </Popconfirm>
+                                                </div>
+                                            )
+                                        }
+                                    },
+                                ]}
+                            />
+                        </Card>
+                    </Col>
+                </Row>
+            )
+        }
+    </script>
+@stop

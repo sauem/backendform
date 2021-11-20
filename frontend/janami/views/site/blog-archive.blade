@@ -70,6 +70,7 @@ $bannerBottom = HelperFunction::getBanner('sidebar_right_bottom', ['archive']);
                     })
                     const {data, pagination} = await getPost({
                         archive_id: archiveId,
+                        show_cat: 1,
                         ...params
                     });
                     setState({

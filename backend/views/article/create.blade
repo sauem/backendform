@@ -205,6 +205,16 @@
                                             </Select>
                                         </Form.Item>
                                         <Form.Item
+                                            name={`show_cat`}
+                                            label="Hiển thị trên danh mục"
+                                            initialValue={1}
+                                        >
+                                            <Select>
+                                                <Select.Option value={1}>Hiển thị</Select.Option>
+                                                <Select.Option value={0}>Ẩn</Select.Option>
+                                            </Select>
+                                        </Form.Item>
+                                        <Form.Item
                                             name={`is_new`}
                                             label="Nhận xét báo chí"
                                             initialValue={0}
@@ -213,8 +223,8 @@
                                                 setPostType(val === 1);
                                                 setIsDirect(val === 1);
                                             }}>
-                                                <Select.Option value={0}>NO</Select.Option>
-                                                <Select.Option value={1}>YES</Select.Option>
+                                                <Select.Option value={0}>Không</Select.Option>
+                                                <Select.Option value={1}>Hiển thị</Select.Option>
                                             </Select>
                                         </Form.Item>
                                         {postType && <Form.Item
