@@ -70,7 +70,7 @@
                                         <div className="row align-items-center">
                                             <div
                                                 className={`col-md-6 col-12 ${offset === 'right' ? 'order-md-2' : 'order-md-1'}`}>
-                                                <a href={`/shop/${defaultArchive.slug}/${product.slug}`}>
+                                                <a href={`/san-pham/${defaultArchive.slug}/${product.slug}`}>
                                                     <img width={`100%`} src={product.avatar} className="img-fluid"/>
                                                 </a>
                                             </div>
@@ -80,7 +80,7 @@
                                                     <h1 className={`mb-0`}>{key < 10 && '0'}{number}.</h1>
                                                     <h4>{product.name}</h4>
                                                     <p className={`xam`}>{product.attr_text ? product.attr_text : product.excerpt}</p>
-                                                    <a href={`/shop/${defaultArchive.slug}/${product.slug}`}
+                                                    <a href={`/san-pham/${defaultArchive.slug}/${product.slug}`}
                                                        className={`btn-action`}>Xem chi tiết <i
                                                         className="fas ml-2 fa-arrow-right"/></a>
                                                 </div>
