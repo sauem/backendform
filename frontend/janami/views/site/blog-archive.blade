@@ -96,21 +96,21 @@ $bannerBottom = HelperFunction::getBanner('sidebar_right_bottom', ['archive']);
                                     <div className="col-md-4">
                                         <div className="blog-post">
                                             <div className="blog-post-img">
-                                                <a href={`/article/${item.archive.slug}/${item.slug}`}>
+                                                <a href={`/${item.archive.slug}/${item.slug}`}>
                                                     <img className="img-fluid" src={item.avatar} alt={item.name}/>
                                                 </a>
                                             </div>
                                             <div className="blog-post-txt">
                                                 <p className="do mb-0">{moment.unix(item.created_at).format('DD/MM/YYYY')}</p>
                                                 <h5 className="h5-sm text-2">
-                                                    <a href={`/article/${item.archive.slug}/${item.slug}`}>
+                                                    <a href={`/${item.archive.slug}/${item.slug}`}>
                                                         {item.name}
                                                     </a>
                                                 </h5>
                                                 <p className="excerpt text-3">
                                                     {item.excerpt}
                                                 </p>
-                                                <a href={`/article/${item.archive.slug}/${item.slug}`}>
+                                                <a href={`/${item.archive.slug}/${item.slug}`}>
                                                     Đọc thêm
                                                     <i className="fas ml-2 fa-arrow-right"/>
                                                 </a>
