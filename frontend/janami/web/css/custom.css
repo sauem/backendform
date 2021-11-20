@@ -159,9 +159,9 @@ nav a {
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  line-height: 16px;
+  line-height: 25px;
   /* fallback */
-  max-height: 32px;
+  max-height: 50px;
   /* fallback */
   -webkit-line-clamp: 2;
   /* number of lines to show */
@@ -986,7 +986,8 @@ nav a {
 .item-product-home {
   margin-bottom: 10px;
   padding-bottom: 10px;
-  width: 100%; }
+  width: 100%;
+  min-height: 417px; }
   .item-product-home:hover {
     background: white; }
     .item-product-home:hover .img img {

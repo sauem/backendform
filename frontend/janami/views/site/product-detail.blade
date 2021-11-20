@@ -62,7 +62,7 @@ Yii::$app->params['header_style'] = true;
                                             <div class="img">
                                                 <img class="img-fluid" src="{{$post->avatar}}"/>
                                                 <div class="action">
-                                                    <a href="/shop/{{$post->defaultArchive->slug}}/{{$post->slug}}"
+                                                    <a href="/san-pham/{{$post->defaultArchive->slug}}/{{$post->slug}}"
                                                        class="btn-action">
                                                         <i class="fas xam fa-plus"></i>
                                                         <span class="tool-tip">Xem chi tiết</span>
@@ -70,8 +70,9 @@ Yii::$app->params['header_style'] = true;
                                                 </div>
                                             </div>
                                             <div class="text">
-                                                <a href="/shop/{{$post->defaultArchive->slug}}/{{$post->slug}}"
+                                                <a href="/san-pham/{{$post->defaultArchive->slug}}/{{$post->slug}}"
                                                    class="title">{{$post->name}}</a>
+                                                <p>{{$post->sub_name}}</p>
                                                 <p class="price"><?= HelperFunction::htmlPrice($post)?></p>
                                             </div>
                                         </div>

@@ -252,8 +252,8 @@ nav {
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  line-height: 16px; /* fallback */
-  max-height: 32px; /* fallback */
+  line-height: 25px; /* fallback */
+  max-height: 50px; /* fallback */
   -webkit-line-clamp: 2; /* number of lines to show */
   -webkit-box-orient: vertical;
 }
@@ -1533,6 +1533,7 @@ nav {
   margin-bottom: 10px;
   padding-bottom: 10px;
   width: 100%;
+  min-height: 417px;
 
   &:hover {
     background: white;

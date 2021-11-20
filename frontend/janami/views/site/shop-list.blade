@@ -2,7 +2,7 @@
 
 use common\helper\HelperFunction;
 use yii\widgets\ListView;
-$view->title = $model ? $model->name : 'Shop';
+$view->title = $model ? $model->name : 'Sản phẩm';
 ?>
 <?php $view->beginBlock('schema') ?>
 <?= $view->render('/structure/schema.blade', [
@@ -75,15 +75,16 @@ $view->title = $model ? $model->name : 'Shop';
                                             <div className="img">
                                                 <img className="img-fluid" src={item.avatar}/>
                                                 <div className="action">
-                                                    <a href={`/shop/${item.defaultArchive.slug}/${item.slug}`}
+                                                    <a href={`/san-pham/${item.defaultArchive.slug}/${item.slug}`}
                                                        className="btn-action"><i className="fas xam fa-plus"/>
                                                         <span className={'tool-tip'}>Xem chi tiết</span>
                                                     </a>
                                                 </div>
                                             </div>
                                             <div className="text">
-                                                <a href={`/shop/${item.defaultArchive.slug}/${item.slug}`}
+                                                <a href={`/san-pham/${item.defaultArchive.slug}/${item.slug}`}
                                                    className="title">{item.name}</a>
+                                                <p>{item.sub_name}</p>
                                                 <p className="price">{renderPrice(item)}</p>
                                             </div>
                                         </div>

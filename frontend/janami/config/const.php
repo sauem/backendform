@@ -8,7 +8,7 @@ define('SHOP', 'san-pham');
 define('PRODUCT', 'product');
 define('CONTACT', 'contact');
 define('ARTICLES', 'articles');
-define('ARTICLE', 'article');
+define('ARTICLE', '');
 define('BLOG', 'blog');
 define('SEARCH', 'search');
 define('FAQS', 'faqs');

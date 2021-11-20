@@ -23,7 +23,7 @@ $isLisProduct = $model && $model->layout !== 'default' && $model->layout_show ==
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="/">Trang chủ</a></li>
-                                <li class="breadcrumb-item"><a href="/shop">Sản phẩm</a></li>
+                                <li class="breadcrumb-item"><a href="/san-pham">Sản phẩm</a></li>
                                 <li class="breadcrumb-item active" aria-current="page">{!! $view->title !!}</li>
                             </ol>
                         </nav>
@@ -92,8 +92,8 @@ $isLisProduct = $model && $model->layout !== 'default' && $model->layout_show ==
                                                     <h1 className={`title ${item.icon}`}>{item.name}</h1>
                                                     <h4 className={`xam mb-0`}>{item.sub_title}</h4>
                                                     <p className="bold xam">{item.sub_text}</p>
-                                                    <p class={`small`}>{item.description}</p>
-                                                    <a href={`/shop/${item.slug}`} className={`btn btn-default`}>
+                                                    <p className={`small`}>{item.description}</p>
+                                                    <a href={`/san-pham/${item.slug}`} className={`btn btn-default`}>
                                                         Xem chi tiết
                                                         <i className="ml-1 fas fa-arrow-right"/>
                                                     </a>
@@ -117,8 +117,8 @@ $isLisProduct = $model && $model->layout !== 'default' && $model->layout_show ==
                                                     <h1 className={`title mb-0 ${item.icon}`}>{item.name}</h1>
                                                     <h4 className={`mb-0 xam`}>{item.sub_title}</h4>
                                                     <p className="bold xam">{item.sub_text}</p>
-                                                    <p class={`small`}>{item.description}</p>
-                                                    <a href={`/shop/${item.slug}`} className={`btn btn-default`}>
+                                                    <p className={`small`}>{item.description}</p>
+                                                    <a href={`/san-pham/${item.slug}`} className={`btn btn-default`}>
                                                         Xem chi tiết
                                                         <i className="ml-1 fas fa-arrow-right"/>
                                                     </a>

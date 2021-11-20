@@ -342,6 +342,13 @@ const janami = (categories = []) => {
             slug: 'contact'
         },
         {
+            title: 'Sản phẩm',
+            key: categories.length + 9995,
+            type: 'page',
+            value: 'san-pham',
+            slug: 'san-pham'
+        },
+        {
             title: 'Công ty',
             key: categories.length + 9996,
             type: 'page',
