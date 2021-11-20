@@ -17,8 +17,8 @@ return [
     'blog-filter/view' => 'blog-filter/view',
     'archive-filter' => 'archive-filter',
     'archive-filter/view' => 'archive-filter/view',
-    ARTICLE . '/<archive:[0-9a-zA-Z\-]+>' => 'site/archive',
-    ARTICLE . '/<archive:[0-9a-zA-Z\-]+>/<slug:[0-9a-zA-Z\-]+>' => 'site/detail',
+    '<archive:[0-9a-zA-Z\-]+>' => 'site/archive',
+    '<archive:[0-9a-zA-Z\-]+>/<slug:[0-9a-zA-Z\-]+>' => 'site/detail',
     SHOP . '/<archive:[0-9a-zA-Z\-]+>' => 'site/archive',
     SHOP . '/<archive:[0-9a-zA-Z\-]+>/<slug:[0-9a-zA-Z\-]+>' => 'site/detail',
 

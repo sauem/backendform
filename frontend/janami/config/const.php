@@ -9,7 +9,7 @@ define('PRODUCT', 'product');
 define('CONTACT', 'contact');
 define('ARTICLES', 'articles');
 define('ARTICLE', '');
-define('BLOG', 'blog');
+define('BLOG', 'tin-tuc');
 define('SEARCH', 'search');
 define('FAQS', 'faqs');
 define('CART', 'cart');

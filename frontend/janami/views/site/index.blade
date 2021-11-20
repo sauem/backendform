@@ -587,8 +587,6 @@ Yii::$app->params['footer_type'] = 'light';
     <section data-aos="fade-up"
              data-aos-duration="1500" id="blog-1" class="section-blog wide-10 blog-section division">
         <div class="container">
-
-
             <!-- SECTION TITLE -->
             <div class="row">
                 <div class="col-12">
@@ -601,7 +599,7 @@ Yii::$app->params['footer_type'] = 'light';
                     @foreach($posts as $post)
                         <div class="blog-post mx-md-3">
                             <div class="blog-post-img">
-                                <a href="<?=HelperFunction::Link(ARTICLE, $post->slug, $post->archive->slug) ?>">
+                                <a href="<?=HelperFunction::Link(BLOG, $post->slug, $post->archive->slug) ?>">
                                     <img class="img-fluid" src="<?= HelperFunction::checkImage($post->avatar)?>"
                                          alt="{{$post->name}}"/>
                                 </a>
@@ -609,14 +607,14 @@ Yii::$app->params['footer_type'] = 'light';
                             <div class="blog-post-txt">
                                 <p class="do mb-0">{{date('d/m/Y', $post->created_at)}}</p>
                                 <h5 class="h5-sm text-2">
-                                    <a href="<?= HelperFunction::Link(ARTICLE, $post->slug, $post->archive->slug)?>">
+                                    <a href="<?= HelperFunction::Link(BLOG, $post->slug, $post->archive->slug)?>">
                                         {{$post->name}}
                                     </a>
                                 </h5>
                                 <p class="excerpt text-3">
                                     {{substr_replace($post->excerpt,'...',100)}}
                                 </p>
-                                <a href="<?=HelperFunction::Link(ARTICLE, $post->slug, $post->archive->slug) ?>">
+                                <a href="<?=HelperFunction::Link(BLOG, $post->slug, $post->archive->slug) ?>">
                                     Đọc thêm
                                     <i class="fas ml-2 fa-arrow-right"></i>
                                 </a>

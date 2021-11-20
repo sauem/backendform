@@ -168,12 +168,13 @@ class HelperFunction
                 case 'page':
                     return "/" . ArrayHelper::getValue($slug, 'slug', '/');
                 case 'article':
-                    return "/tin-tuc/" . ($archive ? "$archive/" : '') . $slug['slug'];
+                case 'tin-tuc':
+                    return "/" . ($archive ? "$archive/" : '') . $slug['slug'];
                 case 'product':
                     return "/san-pham/" . ($archive ? "$archive/" : '') . $slug['slug'];
             }
         }
-        return "/$type/" . ($archive ? $archive . '/' : '') . $slug;
+        return "/" . ($archive ? $archive . '/' : '') . $slug;
     }
 
     public static function getMenu($name = 'header')
