@@ -75,28 +75,25 @@
                             meta_keyword: meta ? meta.meta_keyword : null,
                             meta_description: meta ? meta.meta_description : null
                         });
-                        data.avatar && setDefaultFileList({
-                            ...defaultFileList,
-                            avatar: [{
+                        let avatar = [], banner = [], newThumbs = [];
+                        if (data.avatar !== '') {
+                            avatar = [{
                                 uid: data.id,
                                 name: data.name,
                                 status: 'done',
                                 url: data.avatar
                             }]
-                        })
-
-                        data.banner && setDefaultFileList({
-                            ...defaultFileList,
-                            banner: [{
+                        }
+                        if (data.banner !== '') {
+                            banner = [{
                                 uid: data.banner_id,
-                                name: data.name,
+                                name: `banner${data.name}`,
                                 status: 'done',
                                 url: data.banner
                             }]
-                        });
-
+                        }
                         if (data.thumbs.length > 0) {
-                            const newThumbs = data.thumbs.map(item => {
+                            newThumbs = data.thumbs.map(item => {
                                 return {
                                     uid: item.id,
                                     name: `thumb-${item.id}`,
@@ -104,11 +101,14 @@
                                     url: `/static/${item.path}`
                                 }
                             });
-                            setDefaultFileList({
-                                ...defaultFileList,
-                                thumbs: newThumbs
-                            });
                         }
+
+
+                        setDefaultFileList({
+                            banner: banner,
+                            avatar: avatar,
+                            thumbs: newThumbs
+                        });
                     } else {
                         await setLanguage(LANG_VI);
                     }
@@ -116,7 +116,9 @@
                     initTinymce(changeContent);
                     initTinymce(txt => changeContent(txt, 'attr_text'), 'attr_editor');
                 })();
+
             }, []);
+            console.log(defaultFileList)
 
             const setLanguage = async (e) => {
                 const res = await fetchArchive({language: e});

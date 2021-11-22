@@ -320,4 +320,9 @@ class SiteController extends BaseController
         ]);
     }
 
+    public function actionPdf()
+    {
+        return '/';
+    }
+
 }

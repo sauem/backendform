@@ -30,14 +30,26 @@ use http\Url;
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <div class="pdf-viewer">
-                        <canvas id="the-canvas"></canvas>
-                        <div class="pdf-action">
-                            <button id="prev"><i class="fa fa-angle-left"></i></button>
-                            <button id="next"><i class="fa fa-angle-right"></i></button>
-                            <span class="page">Trang: <span id="page_num"></span> / <span id="page_count"></span></span>
-                        </div>
-                    </div>
+                    <?= \yii2assets\pdfjs\PdfJs::widget([
+                        'url' => '',
+                        'buttons' => [
+                            'presentationMode' => false,
+                            'openFile' => false,
+                            'print' => true,
+                            'download' => true,
+                            'viewBookmark' => false,
+                            'secondaryToolbarToggle' => false
+                        ]
+                    ]);
+                    //                    ?>
+                    {{--                    <div class="pdf-viewer">--}}
+                    {{--                        <canvas id="the-canvas"></canvas>--}}
+                    {{--                        <div class="pdf-action">--}}
+                    {{--                            <button id="prev"><i class="fa fa-angle-left"></i></button>--}}
+                    {{--                            <button id="next"><i class="fa fa-angle-right"></i></button>--}}
+                    {{--                            <span class="page">Trang: <span id="page_num"></span> / <span id="page_count"></span></span>--}}
+                    {{--                        </div>--}}
+                    {{--                    </div>--}}
                 </div>
             </div>
         </div>
