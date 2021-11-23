@@ -76,7 +76,7 @@
                             meta_description: meta ? meta.meta_description : null
                         });
                         let avatar = [], banner = [], newThumbs = [];
-                        if (data.avatar !== '') {
+                        if (data.avatar) {
                             avatar = [{
                                 uid: data.id,
                                 name: data.name,
@@ -84,7 +84,7 @@
                                 url: data.avatar
                             }]
                         }
-                        if (data.banner !== '') {
+                        if (data.banner) {
                             banner = [{
                                 uid: data.banner_id,
                                 name: `banner${data.name}`,
