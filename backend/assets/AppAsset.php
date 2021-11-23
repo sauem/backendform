@@ -12,7 +12,7 @@ class AppAsset extends AssetBundle
     public $basePath = '@webroot';
     public $baseUrl = '@web';
     public $css = [
-        'https://unpkg.com/antd/dist/antd.css',
+        '/css/antd.css',
         '/js/lib/flag-icon-css/css/flag-icon.min.css',
         '/js/lib/gaxon-icon/style.css',
         '/js/lib/perfect-scrollbar/css/perfect-scrollbar.css',
@@ -25,7 +25,7 @@ class AppAsset extends AssetBundle
         '/js/lib/react.js',
         '/js/lib/dom.js',
         '/js/lib/babel.js',
-        'https://cdnjs.cloudflare.com/ajax/libs/antd/4.13.0/antd.min.js',
+        '/js/lib/antd.min.js',
         #'https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js',
         '/js/lib/nestable.min.js',
         '/js/lib/axios.js',

@@ -1,11 +1,4 @@
-<?php
 
-use dosamigos\tinymce\TinyMce;
-use yii\helpers\Html;
-use yii\widgets\ActiveForm;
-use common\helper\HelperFunction;
-
-?>
 @section('js_pos')
     <script type="text/babel">
         const App = () => {
@@ -73,7 +66,6 @@ use common\helper\HelperFunction;
                     setState({
                         setting: res
                     });
-                    console.log(res)
                     let defaultList = defaultFileList;
                     ['partner_img', 'janami_story_img', 'procedure_img'].map((key, index) => {
                         defaultList[key].push({
@@ -107,14 +99,7 @@ use common\helper\HelperFunction;
                         onFinish={submitSetting}
                         id="setting-form"
                         form={form}
-                        type="vertical"
-                        {...{
-                            labelCol: {
-                                sm: 24,
-                                xs: 24
-                            },
-                            labelAlign: 'left'
-                        }}
+                        layout="vertical"
                     >
                         <Row gutter={[12, 12]}>
                             <Col md={18}>
