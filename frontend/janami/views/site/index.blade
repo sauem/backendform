@@ -266,12 +266,38 @@ Yii::$app->params['footer_type'] = 'light';
                                                         <div class="product-info">
                                                             <p class="product-name text-1">
                                                                 <a href="/san-pham/<?= $product->defaultArchive->slug ?>/<?= $product->slug?>">{{$product->name}}</a>
-                                                            <p style="max-height: 50px" class="text-2">{{$product->sub_name}}</p>
+                                                            <p style="max-height: 50px"
+                                                               class="text-2">{{$product->sub_name}}</p>
                                                             </p>
                                                             <p class="product-price"><?= HelperFunction::htmlPrice($product)?></p>
                                                         </div>
                                                     </div>
                                                 @endforeach
+                                            @else
+                                                @if(!empty($archive->children))
+                                                    @foreach($archive->children as $children)
+                                                        @if(!empty($children->products))
+                                                            @foreach($children->products as $productChild)
+                                                                <div class="item-product-home hvr-shadow">
+                                                                    <div class="img">
+                                                                        <a href="/san-pham/<?= $productChild->defaultArchive->slug ?>/<?= $productChild->slug?>">
+                                                                            <img src="<?= HelperFunction::checkImage($productChild->avatar)?>"
+                                                                                 class="w-100 img-fluid"/>
+                                                                        </a>
+                                                                    </div>
+                                                                    <div class="product-info">
+                                                                        <p class="product-name text-1">
+                                                                            <a href="/san-pham/<?= $productChild->defaultArchive->slug ?>/<?= $productChild->slug?>">{{$productChild->name}}</a>
+                                                                        </p>
+                                                                        <p>{{$productChild->sub_name}}</p>
+                                                                        <p class="product-price"><?= HelperFunction::htmlPrice($productChild)?></p>
+
+                                                                    </div>
+                                                                </div>
+                                                            @endforeach
+                                                        @endif
+                                                    @endforeach
+                                                @endif
                                             @endif
                                         @endforeach
                                     </div>
@@ -372,7 +398,8 @@ Yii::$app->params['footer_type'] = 'light';
                                                         <a data-toggle="collapse" href="#content_{{$k}}">
                                                             <img src="/img/item-tech.svg"/> {{$item->name}}
                                                         </a>
-                                                        <div aria-labelledby="headingOne" data-parent="#accordion" id="content_{{$k}}" class="collapse">
+                                                        <div aria-labelledby="headingOne" data-parent="#accordion"
+                                                             id="content_{{$k}}" class="collapse">
                                                             {!! $item->content !!}
                                                         </div>
                                                     </li>

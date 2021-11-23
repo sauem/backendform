@@ -533,6 +533,8 @@ nav a {
       text-align: left; }
 
 .contact-bg {
+  padding-bottom: 50px;
+  background-position: center;
   margin-top: 80px;
   background-image: url("../img/bg/contact.jpg");
   background-size: cover;
