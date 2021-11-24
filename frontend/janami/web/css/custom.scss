@@ -2216,7 +2216,9 @@ nav {
     }
 
     .blog-post-img {
-      max-height: 231px;
+      max-height: 20px;
+      height: 200px;
+      overflow: hidden;
     }
 
     a:hover {

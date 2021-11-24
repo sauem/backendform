@@ -125,7 +125,7 @@ function initTinymce(callback, editorClass = 'editor', defaultContent = null, he
             input.onchange = function () {
                 let file = this.files[0];
                 onUploadMedia(file, data => {
-                    cb(`/static${data.path}`, {title: file.name});
+                    cb(`/static${data.path}`, {title: file.name, width: '100%', height: 'auto', class: 'img-fluid'});
                 }, null, (e) => {
                     console.log(e);
                 });
