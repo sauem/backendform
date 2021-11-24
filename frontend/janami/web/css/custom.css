@@ -1315,6 +1315,9 @@ nav a {
     .section-blog .blog-post a:hover {
       text-decoration: underline; }
 
+.single-post-txt img {
+  max-width: 100% !important; }
+
 .video-box {
   position: relative;
   width: 100%;
