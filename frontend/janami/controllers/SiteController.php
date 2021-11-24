@@ -10,6 +10,7 @@ use common\models\ArticlesSearch;
 use common\models\Banners;
 use common\models\Contact;
 use common\models\Galleries;
+use common\models\Medias;
 use common\models\Member;
 use common\models\Products;
 use common\models\ProductsSearch;

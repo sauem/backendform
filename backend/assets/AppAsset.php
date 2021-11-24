@@ -29,7 +29,7 @@ class AppAsset extends AssetBundle
         #'https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js',
         '/js/lib/nestable.min.js',
         '/js/lib/axios.js',
-        '/js/helper/Constant.js?v=1.5',
+        '/js/helper/Constant.js?v=1.6',
         '/js/helper/Helper.js?v=2.6',
         '/js/helper/Actions.js?v=1.7',
         '/js/lib/redux.js',

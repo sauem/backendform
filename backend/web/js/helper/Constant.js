@@ -19,6 +19,7 @@ const DEVICE_DESKTOP = 'desktop';
 const DEVICE_MOBILE = 'mobile';
 const POSITION_HOME_SLIDER = 'home_slider';
 const POSITION_LOGO_PARTNER = 'logo_partner';
+const POSITION_LOGO_INTER_PARTNER = 'logo_inter_partner';
 const POSITION_TOP_HEADER = 'top_header';
 const POSITION_SIDEBAR_LEFT_TOP = 'sidebar_left_top';
 const POSITION_SIDEBAR_LEFT_BOTTOM = 'sidebar_left_bottom';
@@ -88,6 +89,10 @@ const BANNER_POSITIONS = [
     {
         name: 'Logo đối tác',
         slug: POSITION_LOGO_PARTNER
+    },
+    {
+        name: 'Logo đối tác quốc tế',
+        slug: POSITION_LOGO_INTER_PARTNER
     },
     {
         name: 'Thư viện ảnh',
