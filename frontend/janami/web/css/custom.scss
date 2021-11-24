@@ -2226,7 +2226,11 @@ nav {
     }
   }
 }
-
+.single-post-txt{
+  img{
+    max-width: 100% !important;
+  }
+}
 .video-box {
   position: relative;
   width: 100%;
