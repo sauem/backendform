@@ -1,0 +1,215 @@
+@section("js_pos")
+    <script type="text/babel">
+        const App = () => {
+            const [visible, setVisible] = useState(false);
+            const [state, setState] = useState({
+                uploading: false
+            });
+            const [galleries, setGalleries] = useState([]);
+            const [pagination, setPagination] = useState({});
+            const [form] = Form.useForm();
+            const [mediaList, setMediaList] = useState({
+                thumb: [],
+                avatar: []
+            })
+            const onCancel = () => {
+                setVisible(false);
+                form.resetFields();
+            }
+            const handleOnChange = (listName = 'avatar', {file, fileList, event}) => {
+                setMediaList({
+                    ...mediaList,
+                    [listName]: fileList
+                });
+            };
+            const onUpload = (media_key = 'media_id', options) => {
+                const {onSuccess, onError, file, onProgress} = options;
+                setState({
+                    ...state,
+                    uploading: true
+                });
+                onUploadMedia(file, data => {
+                    let thumbnails = typeof form.getFieldValue('thumb') == "undefined" ? [] : form.getFieldValue('thumb');
+                    if (media_key === 'thumb') {
+                        thumbnails.push(data.id);
+                        form.setFieldsValue({
+                            thumb: thumbnails
+                        });
+                    } else {
+                        form.setFieldsValue({
+                            [media_key]: data.id
+                        });
+                    }
+
+                    onSuccess();
+                }, onError, (event) => {
+                    onProgress({percent: (event.loaded / event.total) * 100});
+                }, MEDIA_TYPE_GALLERY);
+            }
+            const onChangeTitle = (e) => {
+                form.setFieldsValue({slug: toSlug(e.target.value)})
+            }
+            const getGalleries = async (params = {}) => {
+                try {
+                    const response = await Galleries.fetch(params);
+                    const {data, pagination} = response;
+                    setGalleries(data);
+                    setPagination(pagination);
+                } catch (e) {
+                    message.error(e.message);
+                }
+            }
+            const updateRow = (raw) => {
+                form.setFieldsValue(raw);
+                let avatarList = [], thumbList = [];
+                if (raw.avatar) {
+                    avatarList = [{
+                        uid: raw.avatar.id,
+                        name: raw.avatar.name,
+                        status: 'done',
+                        url: `/static/${raw.avatar.path}`
+                    }]
+                }
+                if (raw.thumbs) {
+                    thumbList = raw.thumbs.map(thumb => {
+                        return {
+                            uid: thumb.id,
+                            name: thumb.name,
+                            status: 'done',
+                            url: `/static/${thumb.path}`
+                        }
+                    })
+                }
+                setMediaList({
+                    avatar: avatarList,
+                    thumb: thumbList
+                })
+                setVisible(true);
+            }
+            const removeRow = async (raw) => {
+                try {
+                    await Galleries.delete(raw.id);
+                    getGalleries();
+                    message.success("Xoá thành công!");
+                    onCancel();
+                } catch (e) {
+                    message.error(e.message);
+                }
+            }
+            const onFormFinish = async (data) => {
+                try {
+                    if (!data.id) {
+                        await Galleries.create(data);
+                    } else {
+                        await Galleries.update(data);
+                    }
+                    getGalleries();
+                    message.success("Tạo thành công!");
+                    onCancel();
+                } catch (e) {
+                    message.error(e.message);
+                }
+            }
+            useEffect(() => {
+                getGalleries();
+            }, [])
+            return (
+                <Card title="Thư viện ảnh"
+                      extra={<Button onClick={() => setVisible(true)} size="small">Thêm thư viện</Button>}>
+
+                    <Table
+                        rowKey="id"
+                        pagination={pagination}
+                        onChange={({current, page}) => getGalleries({page: current})}
+                        dataSource={galleries}
+                        columns={[
+                            {title: 'Tiêu đề', dataIndex: 'name'},
+                            {title: 'Mô tả ngắn', dataIndex: 'description'},
+                            {
+                                title: 'Ngày tạo',
+                                dataIndex: 'created_at',
+                                key: 'created_at',
+                                render: time => moment.unix(time).format('DD/MM/YYYY')
+                            },
+                            {
+                                title: 'Hành động', render: raw => {
+                                    return <Space>
+                                        <Button onClick={() => updateRow(raw)} size="small">Sửa</Button>
+                                        <Popconfirm title="Xóa dữ liệu này?" onConfirm={() => removeRow(raw)}>
+                                            <Button size="small" danger
+                                                    type="dashed">Xóa</Button>
+                                        </Popconfirm>
+
+                                    </Space>
+                                }
+                            },
+                        ]}
+                    />
+                    <Modal
+                        onCancel={onCancel}
+                        visible={visible}
+                        width={720}
+                        title={`Thêm thư viện`}
+                        footer={[
+                            <small className="text-danger mr-2">* Thông tin bắt buộc!</small>,
+                            <Button htmlType="submit" form={`gallery-form`} type="primary">Save</Button>,
+                            <Button onClick={onCancel}>Cancel</Button>
+                        ]}
+                    >
+                        <Form
+                            {...{labelCol: {sm: 6}, labelAlign: 'left'}}
+                            form={form} onFinish={onFormFinish}
+                            id={`gallery-form`}>
+                            <Form.Item onChange={e => onChangeTitle(e)} rules={[{required: true}]} label="Tiêu đề"
+                                       name="name">
+                                <Input/>
+                            </Form.Item>
+                            <Form.Item rules={[{required: true}]} label="Slug" name="slug">
+                                <Input/>
+                            </Form.Item>
+                            <Form.Item label="Mô tả ngắn" name="description">
+                                <Input.TextArea placeholder={`Mô tả ngắn`}/>
+                            </Form.Item>
+                            <Form.Item hidden name={`id`}><Input/></Form.Item>
+                            <Form.Item hidden name={`media_id`}><Input/></Form.Item>
+                            <Form.Item multiple hidden name={`thumb`}><Input/></Form.Item>
+                            <Form.Item label="Ảnh đại diện">
+                                <Upload
+                                    accept="image/*"
+                                    customRequest={props => onUpload('media_id', props)}
+                                    onChange={props => handleOnChange('avatar', props)}
+                                    listType="picture"
+                                    onRemove={(file) =>
+                                        onRemoveMedia(form.getFieldValue('media_id'))
+                                    }
+                                    fileList={mediaList.avatar}
+                                    className="avatar-uploader single"
+                                >
+                                    {mediaList.avatar.length > 0 ? null :
+                                        <Button><i className="icon-upload mr-2"/> Chọn ảnh</Button>}
+                                </Upload>
+                            </Form.Item>
+                            <Form.Item rules={[{required: true}]} label="Ảnh thumbnail">
+                                <Upload
+                                    accept="image/*"
+                                    listType="picture-card"
+                                    customRequest={options => onUpload('thumb', options)}
+                                    onChange={props => handleOnChange('thumb', props)}
+                                    fileList={mediaList.thumb}
+                                    onRemove={(file) =>
+                                        onRemoveMedia(file.uid)
+                                    }
+                                    multiple
+                                >
+                                    <div>
+                                        <i className="icon icon-add"/> Upload
+                                    </div>
+                                </Upload>
+                            </Form.Item>
+                        </Form>
+                    </Modal>
+                </Card>
+            )
+        }
+    </script>
+@stop

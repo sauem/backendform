@@ -15,6 +15,7 @@ use yii\web\BadRequestHttpException;
  * @property int|null $created_at
  * @property int|null $updated_at
  * @property string|null $media_type
+ * @property string|null $name
  * @property int|null $status
  * @property int|null $obj_id;
  */
@@ -25,6 +26,7 @@ class Medias extends BaseModel
     const ARCHIVE_TYPE = 'archive';
     const PRODUCT_TYPE = 'product';
     const PRODUCT_THUMB_TYPE = 'thumb';
+    const GALLERY_TYPE = 'gallery';
     const BANNER_TYPE = 'banner';
     const ARTICLE_TYPE = 'article';
 
@@ -45,7 +47,7 @@ class Medias extends BaseModel
             [['path'], 'string'],
             [['created_at', 'updated_at', 'obj_id', 'status'], 'integer'],
             [['type'], 'string', 'max' => 50],
-            [['media_type'], 'string', 'max' => 255],
+            [['media_type', 'name'], 'string', 'max' => 255],
         ];
     }
 
@@ -70,7 +72,7 @@ class Medias extends BaseModel
     {
         $this->path = $uploadForm->url;
         $this->type = $uploadForm->type;
-        # $this->media_type = $uploadForm->fileType;
+        $this->name = $uploadForm->fileName;
         $this->status = self::STATUS_TRASH;
     }
 

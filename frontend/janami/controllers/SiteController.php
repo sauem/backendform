@@ -9,6 +9,7 @@ use common\models\Articles;
 use common\models\ArticlesSearch;
 use common\models\Banners;
 use common\models\Contact;
+use common\models\Galleries;
 use common\models\Member;
 use common\models\Products;
 use common\models\ProductsSearch;
@@ -310,13 +311,16 @@ class SiteController extends BaseController
             ->where(['type' => 'kols'])->all();
         $partnerComment = Testimonials::find()
             ->where(['type' => 'partner'])->all();
+
+        $galleries = Galleries::find()->all();
         return $this->render($template, [
             'model' => $model,
             'categories' => $categories,
             'latestBlog' => $latestBlog,
             'related' => $related,
             'kolsComment' => $kolsComment,
-            'partnerComment' => $partnerComment
+            'partnerComment' => $partnerComment,
+            'galleries' => $galleries
         ]);
     }
 

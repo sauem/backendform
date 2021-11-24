@@ -19,7 +19,7 @@ class UploadForm extends Model
     public $url;
     public $alt;
     public $type;
-
+    public $fileName;
     const TYPE_IMAGE = 'image';
     const TYPE_VIDEO = 'video';
     const TYPE_IMAGE_BASE64 = 'base64';
@@ -33,7 +33,7 @@ class UploadForm extends Model
     {
         return [
             [['fileType'], 'required'],
-            [['url', 'alt', 'type', 'fileType'], 'safe'],
+            [['url', 'alt', 'type', 'fileType', 'fileName'], 'safe'],
             # ['fileType', 'validateFileType'],
             [['imageFile'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpeg, jpg, svg, mp4'],
         ];
@@ -72,9 +72,11 @@ class UploadForm extends Model
                     throw new BadRequestHttpException("Can't make dir $uploadFolder");
                 }
             }
-            $fileName = $this->imageFile->getBaseName() . "_" . \Yii::$app->security->generateRandomString(10);
-            $this->url = $basePath . $fileName . "." . $this->imageFile->getExtension();
-            if (!$this->imageFile->saveAs($uploadFolder . $fileName . "." . $this->imageFile->getExtension())) {
+
+            $filePath = $this->imageFile->getBaseName() . "_" . \Yii::$app->security->generateRandomString(10);
+            $this->url = $basePath . $filePath . "." . $this->imageFile->getExtension();
+            $this->fileName = $this->imageFile->getBaseName();
+            if (!$this->imageFile->saveAs($uploadFolder . $filePath . "." . $this->imageFile->getExtension())) {
                 throw new BadRequestHttpException("Upload error!!");
             }
         }

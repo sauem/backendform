@@ -836,6 +836,15 @@ nav {
 
 }
 
+.gallery-carousel {
+  .blog-post {
+    .gallery-name {
+      padding: 10px;
+    }
+  }
+
+}
+
 .contact-bg {
   padding-bottom: 50px;
   background-position: center;
@@ -848,7 +857,8 @@ nav {
   h1 {
     font-size: 40px;
   }
-  p{
+
+  p {
     font-size: 16px;
   }
 }

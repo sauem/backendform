@@ -8,11 +8,6 @@ Yii::$app->params['header_style'] = true;
 
 ?>
 
-
-<?= $this->render('../parts/page-title', [
-    'title' => Yii::t('app', 'search'),
-    'description' => Yii::t('app','search_for') . Yii::$app->request->get('s')
-]) ?>
 <div class="sidebar-page-container pt-5">
     <div class="auto-container">
 

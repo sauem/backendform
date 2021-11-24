@@ -532,6 +532,9 @@ nav a {
       margin-left: -100px;
       text-align: left; }
 
+.gallery-carousel .blog-post .gallery-name {
+  padding: 10px; }
+
 .contact-bg {
   padding-bottom: 50px;
   background-position: center;

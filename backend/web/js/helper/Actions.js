@@ -209,6 +209,55 @@ const Banners = {
         }
     }
 }
+const Galleries = {
+    create: async (gallery) => {
+        try {
+            const {data} = await Server.post(ROUTE.GALLERY.CREATE, gallery).catch(axiosCatch);
+            return data;
+        } catch (e) {
+            message.error(e.message);
+        }
+    },
+    update: async (gallery) => {
+        try {
+            const {data} = await Server.put(ROUTE.GALLERY.UPDATE + `?id=${gallery.id}`, gallery).catch(axiosCatch);
+            return data;
+        } catch (e) {
+            message.error(e.message);
+        }
+    },
+    delete: async (id) => {
+        try {
+            const {data} = await Server.delete(`${ROUTE.GALLERY.DELETE}?id=${id}`).catch(axiosCatch);
+            return data;
+        } catch (e) {
+            message.error(e.message);
+        }
+    },
+    fetch: async (params) => {
+        try {
+            const res = await Server.get(ROUTE.GALLERY.INDEX, {
+                params: {
+                    ...params,
+                    sort: '-created_at',
+                    expand: 'avatar,thumbs',
+                    "per-page": 6
+                }
+            }).catch(axiosCatch);
+            const {data, headers} = res;
+            const current = headers['x-pagination-current-page'],
+                totalPage = headers['x-pagination-page-count'],
+                pageSize = headers['x-pagination-per-page'],
+                total = headers['x-pagination-total-count'],
+                pagination = {
+                    total, current, pageSize, totalPage
+                };
+            return {data, pagination};
+        } catch (e) {
+            message.error(e.message);
+        }
+    }
+}
 const Contacts = {
     update: async (contact) => {
         try {

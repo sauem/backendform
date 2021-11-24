@@ -3,12 +3,14 @@ const FILE_TYPE_VIDEO = 'video';
 const FILE_TYPE_BASE64 = 'base64';
 const MEDIA_TYPE_ARCHIVE = 'archive';
 const MEDIA_TYPE_PRODUCT = 'product';
+const MEDIA_TYPE_GALLERY = 'gallery';
 const MEDIA_TYPE_LOGO = 'logo';
 const MEDIA_TYPE_BANNER = 'banner';
 const MEDIA_TYPE_BLOG = 'article';
 const MEDIA_TYPE_TESTIMONIAL = 'testimonial';
 // Loại danh mục
 const ARCHIVE_TYPE_BLOG = 'article';
+const ARCHIVE_TYPE_GALLERY = 'gallery';
 const ARCHIVE_TYPE_PRODUCT = 'product';
 // Ngôn ngữ
 const LANG_VI = 'vi';
@@ -161,6 +163,12 @@ const ROUTE = {
         CREATE: 'banner/create',
         UPDATE: 'banner/update',
         DELETE: 'banner/delete'
+    },
+    GALLERY: {
+        INDEX: 'gallery/index',
+        CREATE: 'gallery/create',
+        UPDATE: 'gallery/update',
+        DELETE: 'gallery/delete'
     },
     CONTACT: {
         INDEX: 'contact/index',

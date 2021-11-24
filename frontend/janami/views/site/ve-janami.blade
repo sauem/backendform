@@ -198,43 +198,72 @@
         <section id="blog-1" class="bg-xam wide-10 blog-section division">
             <div class="container">
 
+                @if(!empty($galleries))
 
-                <!-- SECTION TITLE -->
-                <div class="row">
-                    <div class="col-12">
-                        <h2 class="do">HỘI THẢO CHĂM DA KHOA HỌC 2019 </h2>
 
-                    </div>
-                </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <h2 class="do">Hoạt động hội thảo</h2>
+                        </div>
+                        <div class="col-12">
+                            <div class="owl-carousel gallery-carousel owl-theme">
+                                @if(!empty($galleries))
+                                    @foreach($galleries as $gallery)
+                                        <?php
+                                        $img = $gallery->avatar ? "/static/{$gallery->avatar->path}" : "/static/{$gallery->thumbs[0]->path}";
+                                        ?>
+                                        <div class="blog-post">
+                                            <div class="blog-post-img" style="max-height: 220px">
+                                                <a href="{{$img}}" class="img-pop">
+                                                    <img alt="{{$gallery->name}}" class="img-fluid" src="{{$img}}"/>
+                                                </a>
+                                                @foreach($gallery->thumbs as $thumb)
+                                                    <a href="{{"/static$thumb->path"}}" class="img-pop">
+                                                        <img alt="{{$thumb->name}}" class="img-fluid" src="{{"/static$thumb->path"}}"/>
+                                                    </a>
+                                                @endforeach
+                                            </div>
+                                            <p class="gallery-name">{{$gallery->name}}</p>
+                                        </div>
+                                    @endforeach
+                                @endif
 
-                <?php
-                $posts = [
-                    '/img/story/h1.jpg',
-                    '/img/story/h2.jpg',
-                    '/img/story/h3.jpg',
-                    '/img/story/h4.jpg',
-                    '/img/story/h5.jpg',
-                    '/img/story/h6.jpg',
-                    '/img/story/h7.jpg',
-                    '/img/story/h8.jpg',
-                ];
-                ?>
-                <div class="owl-carousel post-carousel owl-theme">
-                    @if(!empty($posts))
-                        @foreach($posts as $post)
-                            <div class="blog-post">
-                                <div class="blog-post-img" style="max-height: 200px">
-                                    <img class="img-fluid" src="{{$post}}"/>
-                                </div>
                             </div>
-                        @endforeach
-                    @endif
-
-                </div>    <!-- END BLOG POSTS HOLDER -->
+                        </div>
+                    </div>
+            @endif
+            <!-- END BLOG POSTS HOLDER -->
             </div>       <!-- End container -->
         </section>
     </section>
-
-    <?= $view->render('../parts/logo.blade')?>
-
+@stop
+@section("js_end")
+    <script>
+        $(".gallery-carousel").owlCarousel({
+            items: 4,
+            margin: 20,
+            animateOut: 'fadeOut',
+            autoplay: true,
+            loop: true,
+            nav: false,
+            dots: true,
+            responsive: {
+                0: {
+                    items: 1,
+                    autoHeight: true
+                },
+                960: {
+                    items: 3
+                }
+            }
+        })
+        $('.img-pop').magnificPopup({
+            gallery: {enabled: true},
+            type: 'image',
+            image: {
+                titleSrc: 'title'
+                // this tells the script which attribute has your caption
+            }
+        });
+    </script>
 @stop
