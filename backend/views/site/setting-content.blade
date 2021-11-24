@@ -67,7 +67,7 @@
                         setting: res
                     });
                     let defaultList = defaultFileList;
-                    ['partner_img', 'janami_story_img', 'procedure_img'].map((key, index) => {
+                    ['partner_img', 'janami_story_img', 'about_thumb', 'procedure_img'].map((key, index) => {
                         defaultList[key].push({
                             uid: index,
                             name: key.replace('_', '').toUpperCase(),
@@ -232,6 +232,13 @@
                                 >
                                     <Input.TextArea rows={5}/>
                                 </Form.Item>
+
+                                <Form.Item
+                                    label="Youtube ID - Về Janami"
+                                    name="about_janami_video_id"
+                                >
+                                    <Input/>
+                                </Form.Item>
                             </Col>
                             <Col sm={6}>
 
@@ -254,6 +261,7 @@
                                             <Button><i className="icon-upload mr-2"/> Chọn ảnh</Button>}
                                     </Upload>
                                 </Form.Item>
+
                             </Col>
                         </Row>
                     </Form>

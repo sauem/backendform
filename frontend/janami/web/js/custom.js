@@ -229,6 +229,20 @@ $(document).ready(function () {
         }
     });
 
+    const videoId3 = $('.video-popup-about').attr('href');
+
+    $('.video-popup-about').magnificPopup({
+        type: 'iframe',
+        iframe: {
+            patterns: {
+                youtube: {
+                    index: 'youtube.com',
+                    src: videoId3 ? videoId3 : 'https://www.youtube.com/embed/11mVSlEK9m4'
+                }
+            }
+        }
+    });
+
 
     /*----------------------------------------------------*/
     /*	Video Link #3 Lightbox

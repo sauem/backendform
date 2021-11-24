@@ -1,3 +1,6 @@
+<?php
+use common\helper\HelperFunction;
+?>
 @php
     /*
      * Template Name: Về Janami
@@ -28,13 +31,7 @@
             <div class="col-12">
                 <h1 class="do"><?= $view->title ?></h1>
             </div>
-            <div class="col-md-5">
-                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/11mVSlEK9m4?controls=0"
-                        title="YouTube video player" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen></iframe>
-            </div>
-            <div class="col-md-7 content">
+            <div style="max-height: 300px;overflow: scroll" class="col-md-7 content">
                 <p>Hơn một thập kỷ học tập và làm việc cho các tập đoàn tại Tokyo (Nhật Bản), Mrs. Ann Pham dần khám phá
                     ra sự giản đơn không cầu kỳ mà thực chất trong cuộc sống cũng như các giá trị về vẻ đẹp của con
                     người và văn hóa đất nước Phù Tang. Sau một thời gian cất công tìm hiểu về các thành phần, công thức
@@ -66,6 +63,28 @@
                     tin tưởng và đồng hành quý giá từ phía khách hàng, tạo nên một hệ sinh thái làm đẹp văn minh và tiến
                     bộ tại Việt Nam, và cho người Việt Nam.</p>
             </div>
+
+            <div class="col-md-5">
+                <div data-aos="fade-up"
+                     data-aos-duration="1000"
+                     class="video-box">
+                    <img class="img-fluid w-100"
+                         src="<?= HelperFunction::getMediaSetting('about_thumb')?>"/>
+
+                    <div class="video-1-preview">
+                        <a class="video-popup-about"
+                           href="https://www.youtube.com/embed/<?= HelperFunction::setting('about_janami_video_id') ?>">
+                            <!-- Change the link HERE!!! -->
+                            <div class="video-btn bg-white">
+                                <div class="video-block-wrapper">
+                                    <i class="fas fa-play"></i>
+                                </div>
+                            </div>
+
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
     <section id="services-18" class="bg-color-01 list-logo bg-img03 wide-20 services-section division">
@@ -75,9 +94,7 @@
                     <div class="section-title mb-20 text-center">
                         <h3 class="h3-xl do">Đối tác</h3>
                         <p class="p-lg txt-color-05">
-                            Janami có quan hệ hợp tác lâu năm với các bác sĩ trong và ngoài nước, các bệnh viện và phòng
-                            khám chuyên khoa da liễu uy tín trên cả nước, cùng với hơn 500 thẩm mỹ viện/spa trên toàn
-                            quốc
+                            {!! \common\helper\HelperFunction::setting('partner_desc') !!}
                         </p>
                     </div>
                 </div>
@@ -90,44 +107,44 @@
                     <div class="row">
                         <div class="col">
                             <div class="img">
-                                <img src="/img/logo/boyte.jpg" class="img-fluid"/>
+                                <img src="/img/about/logo1.png" class="img-fluid"/>
                             </div>
                         </div>
                         <div class="col">
                             <div class="img">
-                                <img src="/img/logo/dalieuhcm.png" class="img-fluid"/>
+                                <img src="/img/about/logo2.png" class="img-fluid"/>
                             </div>
                         </div>
                         <div class="col">
                             <div class="img">
-                                <img src="/img/logo/benhviendalieudanang.jpg" class="img-fluid"/>
+                                <img src="/img/about/logo3.png" class="img-fluid"/>
                             </div>
                         </div>
                         <div class="col">
                             <div class="img">
-                                <img src="/img/logo/trunguong.gif" class="img-fluid"/>
+                                <img src="/img/about/logo4.png" class="img-fluid"/>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col">
                             <div class="img">
-                                <img src="/img/logo/benhvien103.jpg" class="img-fluid"/>
+                                <img src="/img/about/logo5.png" class="img-fluid"/>
                             </div>
                         </div>
                         <div class="col">
                             <div class="img">
-                                <img src="/img/logo/maya.jpg" class="img-fluid"/>
+                                <img src="/img/about/logo6.png" class="img-fluid"/>
                             </div>
                         </div>
                         <div class="col">
                             <div class="img">
-                                <img src="/img/logo/venus.jpg" class="img-fluid"/>
+                                <img src="/img/about/logo7.png" class="img-fluid"/>
                             </div>
                         </div>
                         <div class="col">
                             <div class="img">
-                                <img src="/img/logo/ht.png" class="img-fluid"/>
+                                <img src="/img/about/logo8.png" class="img-fluid"/>
                             </div>
                         </div>
                     </div>
@@ -140,16 +157,13 @@
                     <div class="section-title mb-20 text-center">
                         <h3 class="h3-xl do">Đối tác quốc tế</h3>
                         <p class="p-lg txt-color-05">
-                            Janami với hơn 10 năm kinh nghiệm trong thương mại quốc tế, hợp tác nghiên cứu sản phẩm mới
-                            với các nhà sản xuất dược mỹ phẩm, TPCN nước ngoài để phát triển những sản phẩm chất lượng
-                            cao và phù hợp với người tiêu dùng Việt Nam.
-
+                            {!! \common\helper\HelperFunction::setting('partner_international_desc') !!}
                         </p>
                     </div>
                     <div class="row align-items-center">
                         <div class="col-md-3">
                             <div class="img">
-                                <img src="/img/logo/seun.jpg" class="img-fluid"/>
+                                <img src="/img/about/logo9.png" class="img-fluid"/>
                             </div>
                         </div>
                         <div class="col-md-9">
@@ -165,7 +179,7 @@
                     <div class="row">
                         <div class="col-md-3">
                             <div class="img">
-                                <img src="/img/logo/afc.png" class="img-fluid"/>
+                                <img src="/img/about/logo10.png" class="img-fluid"/>
                             </div>
                         </div>
                         <div class="col-md-9">
@@ -180,7 +194,7 @@
                     <div class="row">
                         <div class="col-md-3">
                             <div class="img">
-                                <img src="/img/logo/uh.png" class="img-fluid"/>
+                                <img src="/img/about/logo11.png" class="img-fluid"/>
                             </div>
                         </div>
                         <div class="col-md-9">
@@ -219,7 +233,8 @@
                                                 </a>
                                                 @foreach($gallery->thumbs as $thumb)
                                                     <a href="{{"/static$thumb->path"}}" class="img-pop">
-                                                        <img alt="{{$thumb->name}}" class="img-fluid" src="{{"/static$thumb->path"}}"/>
+                                                        <img alt="{{$thumb->name}}" class="img-fluid"
+                                                             src="{{"/static$thumb->path"}}"/>
                                                     </a>
                                                 @endforeach
                                             </div>
