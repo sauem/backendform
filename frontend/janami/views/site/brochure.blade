@@ -26,127 +26,44 @@ use http\Url;
         </div>
     </div>
 
-    <section id="services-18" class="pt-0 bg-color-01 mb-20 wide-20 services-section division">
+    <section class="section-license no-bg">
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <?= \yii2assets\pdfjs\PdfJs::widget([
-                        'url' => '',
-                        'buttons' => [
-                            'presentationMode' => false,
-                            'openFile' => false,
-                            'print' => true,
-                            'download' => true,
-                            'viewBookmark' => false,
-                            'secondaryToolbarToggle' => false
-                        ]
-                    ]);
-                    //                    ?>
-                    {{--                    <div class="pdf-viewer">--}}
-                    {{--                        <canvas id="the-canvas"></canvas>--}}
-                    {{--                        <div class="pdf-action">--}}
-                    {{--                            <button id="prev"><i class="fa fa-angle-left"></i></button>--}}
-                    {{--                            <button id="next"><i class="fa fa-angle-right"></i></button>--}}
-                    {{--                            <span class="page">Trang: <span id="page_num"></span> / <span id="page_count"></span></span>--}}
-                    {{--                        </div>--}}
-                    {{--                    </div>--}}
+                    <div class="owl-carousel owl-theme invention-carousel">
+                        @for($i = 1 ;$i < 20; $i++)
+                            <img class="img-fluid" src="/img/pdf/pdf-{{$i < 10 ? '0' . $i : $i}}.jpg"/>
+                        @endfor
+                    </div>
                 </div>
             </div>
         </div>
     </section>
     <?= $view->render('../parts/logo.blade')?>
 @stop
-
 @section("js_end")
-    <script src="//mozilla.github.io/pdf.js/build/pdf.js"></script>
-
     <script>
-        let url = '/img/pdf.pdf';
-        let pdfjsLib = window['pdfjs-dist/build/pdf'];
-        pdfjsLib.GlobalWorkerOptions.workerSrc = '//mozilla.github.io/pdf.js/build/pdf.worker.js';
-        let pdfDoc = null,
-            pageNum = 1,
-            pageRendering = false,
-            pageNumPending = null,
-            scale = 1.04,
-            canvas = document.getElementById('the-canvas'),
-            ctx = canvas.getContext('2d');
-
-        function renderPage(num) {
-            pageRendering = true;
-            // Using promise to fetch the page
-            pdfDoc.getPage(num).then(function (page) {
-                var viewport = page.getViewport({scale: scale});
-                canvas.height = viewport.height;
-                canvas.width = viewport.width;
-
-                // Render PDF page into canvas context
-                var renderContext = {
-                    canvasContext: ctx,
-                    viewport: viewport
-                };
-                var renderTask = page.render(renderContext);
-
-                // Wait for rendering to finish
-                renderTask.promise.then(function () {
-                    pageRendering = false;
-                    if (pageNumPending !== null) {
-                        // New page rendering is pending
-                        renderPage(pageNumPending);
-                        pageNumPending = null;
-                    }
-                });
-            });
-
-            // Update page counters
-            document.getElementById('page_num').textContent = num;
-        }
-
-        function queueRenderPage(num) {
-            if (pageRendering) {
-                pageNumPending = num;
-            } else {
-                renderPage(num);
+        $('.brouchure-carousel').owlCarousel({
+            items: 1,
+            margin: 20,
+            animateOut: 'fadeOut',
+            autoplay: true,
+            loop: true,
+            dots: false,
+            nav: true,
+            navText: [
+                `<i class="fas fa-arrow-left"></i>`,
+                `<i class="fas fa-arrow-right"></i>`,
+            ],
+            responsive: {
+                0: {
+                    items: 1,
+                    autoHeight: true
+                },
+                720: {
+                    items: 1
+                }
             }
-        }
-
-        /**
-         * Displays previous page.
-         */
-        function onPrevPage() {
-            if (pageNum <= 1) {
-                return;
-            }
-            pageNum--;
-            queueRenderPage(pageNum);
-        }
-
-        document.getElementById('prev').addEventListener('click', onPrevPage);
-
-        /**
-         * Displays next page.
-         */
-        function onNextPage() {
-            if (pageNum >= pdfDoc.numPages) {
-                return;
-            }
-            pageNum++;
-            queueRenderPage(pageNum);
-        }
-
-        document.getElementById('next').addEventListener('click', onNextPage);
-
-        /**
-         * Asynchronously downloads PDF.
-         */
-        pdfjsLib.getDocument(url).promise.then(function (pdfDoc_) {
-            pdfDoc = pdfDoc_;
-            document.getElementById('page_count').textContent = pdfDoc.numPages;
-
-            // Initial/first page rendering
-            renderPage(pageNum);
-        });
-
-
+        })
     </script>
 @stop

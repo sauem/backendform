@@ -181,30 +181,30 @@ html, body, h1, h2, h3, h4, h5, h6 {
   font-family: 'Red Rose', cursive;
 }
 
-.wsmenucontainer {
-  position: relative;
-
-  &:before {
-    position: absolute;
-    content: "";
-    width: 30%;
-    height: 12%;
-    background-image: url("../img/lahint.png");
-    background-size: 100%;
-    background-repeat: no-repeat;
-  }
-
-  &:before {
-    top: 500px;
-    right: 0;
-    z-index: 2;
-    background-position-x: left;
-    background-position-y: bottom;
-    -webkit-transform: rotate(-180deg);
-    -moz-transform: rotate(-180deg);
-    transform: rotate(-180deg);
-  }
-}
+//.section-about {
+//  position: relative;
+//
+//  &:before {
+//    position: absolute;
+//    content: "";
+//    width: 30%;
+//    height: 12%;
+//    background-image: url("../img/lahint.png");
+//    background-size: 100%;
+//    background-repeat: no-repeat;
+//  }
+//
+//  &:before {
+//    top: 500px;
+//    right: 0;
+//    z-index: 2;
+//    background-position-x: left;
+//    background-position-y: bottom;
+//    -webkit-transform: rotate(-180deg);
+//    -moz-transform: rotate(-180deg);
+//    transform: rotate(-180deg);
+//  }
+//}
 
 .footer {
   z-index: 3;
@@ -1965,6 +1965,12 @@ nav {
   padding-bottom: 100px;
   z-index: 1;
 
+  &.no-bg {
+    background: none;
+    padding-top: 0;
+    padding-bottom: 50px;
+  }
+
   .invention-carousel {
     .owl-nav {
       position: absolute;
@@ -2226,11 +2232,13 @@ nav {
     }
   }
 }
-.single-post-txt{
-  img{
+
+.single-post-txt {
+  img {
     max-width: 100% !important;
   }
 }
+
 .video-box {
   position: relative;
   width: 100%;
@@ -2280,6 +2288,27 @@ nav {
   padding-top: 120px;
   padding-bottom: 120px;
   position: relative;
+
+  &:after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-image: url("../img/lahint.png");
+    background-size: 20%;
+    background-repeat: no-repeat;
+  }
+
+  &:after {
+    top: -30px;
+    right: 0;
+    z-index: -1;
+    background-position-x: left;
+    background-position-y: bottom;
+    -webkit-transform: rotate(-180deg);
+    -moz-transform: rotate(-180deg);
+    transform: rotate(-180deg);
+  }
 
   &:before {
     position: absolute;
