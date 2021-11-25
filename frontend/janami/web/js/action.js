@@ -18,7 +18,7 @@ const dateTime = (time) => {
 
 const renderPrice = (product) => {
     const {default_sale_price, default_price, default_sale_type} = product;
-    if (default_sale_price > 0) {
+    if (parseInt(default_sale_price) > 0) {
         return <span><del><small className={`text-muted`}><b>{formatNum(default_price)}đ</b></small></del> <ins>{formatNum(default_sale_price)}đ</ins></span>;
     }
     return '';
