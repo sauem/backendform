@@ -105,48 +105,18 @@ use common\helper\HelperFunction;
 
                 <div class="col-md-8 offset-md-2">
                     <div class="row">
-                        <div class="col">
-                            <div class="img">
-                                <img src="/img/about/logo1.png" class="img-fluid"/>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="img">
-                                <img src="/img/about/logo2.png" class="img-fluid"/>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="img">
-                                <img src="/img/about/logo3.png" class="img-fluid"/>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="img">
-                                <img src="/img/about/logo4.png" class="img-fluid"/>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <div class="img">
-                                <img src="/img/about/logo5.png" class="img-fluid"/>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="img">
-                                <img src="/img/about/logo6.png" class="img-fluid"/>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="img">
-                                <img src="/img/about/logo7.png" class="img-fluid"/>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="img">
-                                <img src="/img/about/logo8.png" class="img-fluid"/>
-                            </div>
-                        </div>
+                        <?php
+                        $logos = $sliders = \Yii::$app->params['logos'];
+                        ?>
+                        @if(!empty($logos))
+                            @foreach($logos as $logo)
+                                <div class="col">
+                                    <div class="img">
+                                        <img src="{{$logo->avatar}}" class="img-fluid"/>
+                                    </div>
+                                </div>
+                            @endforeach
+                        @endif
                     </div>
                 </div>
             </div>
