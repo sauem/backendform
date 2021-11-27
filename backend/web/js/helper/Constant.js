@@ -18,6 +18,7 @@ const LANG_EN = 'en';
 const DEVICE_DESKTOP = 'desktop';
 const DEVICE_MOBILE = 'mobile';
 const POSITION_HOME_SLIDER = 'home_slider';
+const POSITION_LOGO_BRAND = 'logo_brand';
 const POSITION_LOGO_PARTNER = 'logo_partner';
 const POSITION_LOGO_INTER_PARTNER = 'logo_inter_partner';
 const POSITION_TOP_HEADER = 'top_header';
@@ -85,6 +86,10 @@ const BANNER_POSITIONS = [
     {
         name: 'Trên footer',
         slug: POSITION_TOP_FOOTER
+    },
+    {
+        name: 'Logo thương hiệu',
+        slug: POSITION_LOGO_BRAND
     },
     {
         name: 'Logo đối tác',
