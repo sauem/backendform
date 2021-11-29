@@ -185,7 +185,14 @@ class SiteController extends BaseController
 
     public function actionBrochure()
     {
-        return $this->render('brochure.blade');
+        $brochure = $sliderBottoms = Banners::findAll([
+            'active' => Banners::BANNER_ACTIVE,
+            'position' => 'brochure',
+            'language' => HelperFunction::getLanguage()
+        ]);
+        return $this->render('brochure.blade',[
+            'brochure' => $brochure
+        ]);
     }
 
     public function actionArchive($archive)

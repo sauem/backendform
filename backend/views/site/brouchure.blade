@@ -114,7 +114,7 @@
             }, []);
             return (
                 <div>
-                    <Card title={`Slider/Banner`}
+                    <Card title={`Brochure`}
                           extra={<Button onClick={onCreate} size="small" type="primary">
                               <i className="icon-add"/> Thêm mới</Button>}>
                         <Spin spinning={state.loading}>
@@ -198,9 +198,7 @@
                         <Form form={form} onFinish={onFinish} id={`bannerForm`} layout="vertical">
                             <Row gutter={[8, 0]}>
                                 <Col sm={24}>
-                                    <small className="text-danger">Kích thước slider : 1920x789</small><br/>
-                                    <small className="text-danger">Kích thước logo : 1200x504</small><br/>
-                                    <small className="text-danger">Kích thước brochure : 3150 x 1575px</small><br/>
+                                    <small className="text-danger">Kích thước ảnh brochure : 3150 x 1575px</small><br/>
                                     <Form.Item
                                         name="avatar"
                                         label="Ảnh"
@@ -234,118 +232,20 @@
                                     >
                                         <Input/>
                                     </Form.Item>
-                                    <Form.Item
-                                        label="Tiêu đề"
-                                        name="name"
-                                    >
-                                        <Input/>
-                                    </Form.Item>
-                                    <Form.Item
-                                        label="Tiêu đề phụ"
-                                        name="sub_title"
-                                    >
-                                        <Input/>
-                                    </Form.Item>
-                                    <Form.Item
-                                        label="Mô tả (Alt)"
-                                        name="description"
-                                    >
-                                        <Input.TextArea/>
-                                    </Form.Item>
-                                    <Form.Item
-                                        label="Trang hiển thị"
-                                        name="page_show"
-                                        rules={[{required: true, type: 'array', message: 'Trang hiển thị trống!'}]}
-                                    >
-                                        <Select
-                                            mode="multiple"
-                                            placeholder="Chọn trang hiển thị..."
-                                        >
-                                            {BANNER_PAGES.map(item => {
-                                                return <Select.Option value={item.slug}>{item.name}</Select.Option>;
-                                            })}
-                                        </Select>
-                                    </Form.Item>
                                 </Col>
-                                <Col md={12}>
+                                <Col md={24}>
                                     <Form.Item
-                                        label="Link đến"
-                                        name="href"
-                                    >
-                                        <Input/>
-                                    </Form.Item>
-                                    <Form.Item
-                                        label="Loại banner"
-                                        name="type"
-                                        initialValue={FILE_TYPE_IMAGE}
-                                    >
-                                        <Select>
-                                            {BANNER_TYPES.map(item => {
-                                                return <Select.Option value={item.slug}>{item.name}</Select.Option>;
-                                            })}
-                                        </Select>
-                                    </Form.Item>
-                                    <Form.Item
-                                        label="Trạng thái"
-                                        name="satus"
-                                        initialValue={`active`}
-                                    >
-                                        <Select>
-                                            <Select.Option value={`active`}>Hiển thị</Select.Option>
-                                            <Select.Option value={`deactive`}>Ẩn</Select.Option>
-                                        </Select>
-                                    </Form.Item>
-                                </Col>
-                                <Col md={12}>
-                                    <Form.Item
-                                        label="Ngôn ngữ"
-                                        name="language"
-                                        initialValue={LANG_VI}
-                                    >
-                                        <Select>
-                                            {LANGUAGES.map(item => {
-                                                return <Select.Option value={item.lang}>{item.name}</Select.Option>;
-                                            })}
-                                        </Select>
-                                    </Form.Item>
-                                    <Form.Item
-                                        label="Vị trí"
-                                        name="position"
-                                        initialValue={POSITION_HOME_SLIDER}
-                                    >
-                                        <Select>
-                                            {BANNER_POSITIONS.map(item => {
-                                                return <Select.Option value={item.slug}>{item.name}</Select.Option>;
-                                            })}
-                                        </Select>
-                                    </Form.Item>
-                                    <Form.Item
-                                        label="Thiết bị"
-                                        name="device"
-                                        initialValue={DEVICE_DESKTOP}
-                                    >
-                                        <Select>
-                                            {BANNER_DEVICES.map(item => {
-                                                return <Select.Option value={item.slug}>{item.name}</Select.Option>;
-                                            })}
-                                        </Select>
-                                    </Form.Item>
-                                </Col>
-                                <Col sm={24}>
-                                    <Form.Item
-                                        initialValue={50}
                                         label="Vị trí"
                                         name="sort_order"
                                     >
-                                        <InputNumber className="w-100"/>
+                                        <InputNumber/>
                                     </Form.Item>
                                 </Col>
                             </Row>
                         </Form>
                     </Modal>
                 </div>
-
-            );
-        }
+            )
+        };
     </script>
 @stop

@@ -31,9 +31,16 @@ use http\Url;
             <div class="row">
                 <div class="col-12">
                     <div class="owl-carousel owl-theme invention-carousel">
-                        @for($i = 1 ;$i < 20; $i++)
-                            <img class="img-fluid" src="/img/pdf/pdf-{{$i < 10 ? '0' . $i : $i}}.jpg"/>
-                        @endfor
+                        @if(!empty($brochure))
+                            @foreach($brochure as $item)
+                                <img class="img-fluid" src="{{$item->avatar}}"/>
+                            @endforeach
+                        @else
+                            @for($i = 1 ;$i < 20; $i++)
+                                <img class="img-fluid" src="/img/pdf/pdf-{{$i < 10 ? '0' . $i : $i}}.jpg"/>
+                            @endfor
+                        @endif
+
                     </div>
                 </div>
             </div>

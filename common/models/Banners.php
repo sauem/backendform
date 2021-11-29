@@ -18,6 +18,7 @@ use yii\helpers\Json;
  * @property int|null $updated_at
  * @property string|null $language
  * @property int|null $media_id
+ * @property int|null $sort_order
  * @property string|null $page_show
  * @property string|null $type
  * @property string|null $position
@@ -48,7 +49,7 @@ class Banners extends BaseModel
         return [
             [['page_show'],'safe'],
             [['href'], 'string'],
-            [['created_at', 'updated_at', 'media_id'], 'integer'],
+            [['created_at', 'updated_at', 'media_id','sort_order'], 'integer'],
             [['name'], 'string', 'max' => 100],
             [['description', 'sub_title'], 'string', 'max' => 255],
             [['active', 'language', 'type', 'position', 'device'], 'string', 'max' => 50],
