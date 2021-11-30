@@ -47,14 +47,16 @@ class Banners extends BaseModel
     public function rules()
     {
         return [
-            [['page_show'],'safe'],
+            [['page_show'], 'safe'],
             [['href'], 'string'],
-            [['created_at', 'updated_at', 'media_id','sort_order'], 'integer'],
+            [['created_at', 'updated_at', 'media_id', 'sort_order'], 'integer'],
             [['name'], 'string', 'max' => 100],
-            [['description', 'sub_title'], 'string', 'max' => 255],
+            [['sub_title'], 'string', 'max' => 255],
+            [['description'], 'string'],
             [['active', 'language', 'type', 'position', 'device'], 'string', 'max' => 50],
         ];
     }
+
     /**
      * {@inheritdoc}
      */
