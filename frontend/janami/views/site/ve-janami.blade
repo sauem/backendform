@@ -101,51 +101,80 @@ use common\helper\HelperFunction;
                             {!! \common\helper\HelperFunction::setting('partner_international_desc') !!}
                         </p>
                     </div>
-                    <div class="row align-items-center">
-                        <div class="col-md-3">
-                            <div class="img">
-                                <img src="/img/about/logo9.png" class="img-fluid"/>
+
+                    <?php
+                    $logoInter = Yii::$app->params['logoInter'];
+                    ?>
+                    @if(!empty($logoInter))
+                        @foreach($logoInter as $inter)
+                            <div class="row align-items-center">
+                                <div class="col-md-3">
+                                    <div class="img">
+                                        <img src="{{$inter->avatar}}" class="img-fluid"/>
+                                    </div>
+                                </div>
+                                <div class="col-md-9">
+                                    <p>
+                                        {!! $inter->description !!}
+                                    </p>
+                                </div>
+                            </div>
+                        @endforeach
+                    @else
+                        <div class="row align-items-center">
+                            <div class="col-md-3">
+                                <div class="img">
+                                    <img src="/img/about/logo9.png" class="img-fluid"/>
+                                </div>
+                            </div>
+                            <div class="col-md-9">
+                                <p>
+                                    Bệnh viện đại học Quốc gia Seoul: Dưới sự hợp tác với GS.BS Park Kyong Chan - Bệnh
+                                    viện
+                                    da liễu Bundang - Bệnh viện ĐHQG Seoul, đây là nơi nghiên cứu lâm sàng dòng sản phẩm
+                                    trị
+                                    nám, làm trắng da SkinMD trong hơn 5 năm. Janami cũng tổ chức nhiều buổi hội thảo,
+                                    giao
+                                    lưu giữa các bác sĩ Việt Nam và bác sĩ của bệnh viện ĐHQG Seoul tại cả Việt Nam &
+                                    Hàn
+                                    Quốc
+                                </p>
                             </div>
                         </div>
-                        <div class="col-md-9">
-                            <p>
-                                Bệnh viện đại học Quốc gia Seoul: Dưới sự hợp tác với GS.BS Park Kyong Chan - Bệnh viện
-                                da liễu Bundang - Bệnh viện ĐHQG Seoul, đây là nơi nghiên cứu lâm sàng dòng sản phẩm trị
-                                nám, làm trắng da SkinMD trong hơn 5 năm. Janami cũng tổ chức nhiều buổi hội thảo, giao
-                                lưu giữa các bác sĩ Việt Nam và bác sĩ của bệnh viện ĐHQG Seoul tại cả Việt Nam & Hàn
-                                Quốc
-                            </p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-3">
-                            <div class="img">
-                                <img src="/img/about/logo10.png" class="img-fluid"/>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="img">
+                                    <img src="/img/about/logo10.png" class="img-fluid"/>
+                                </div>
+                            </div>
+                            <div class="col-md-9">
+                                <p>
+                                    AFC-HD AMS Life Science Co., Ltd (gọi tắt AMS-AFC) là nhà sản xuất Dược phẩm &
+                                    TPCN
+                                    hàng đầu đóng vai trò quan trọng trong lĩnh vực nghiên cứu và sản xuất các loại
+                                    thực
+                                    phẩm bổ dưỡng, chăm sóc sức khỏe và làm đẹp tại Nhật Bản. Đây là đối tác của Janami
+                                    trong việc nghiên cứu và phát triển các viên uống chăm sóc sức khỏe & sắc đep
+                                </p>
                             </div>
                         </div>
-                        <div class="col-md-9">
-                            <p>
-                                AFC-HD AMS Life Science Co., Ltd (gọi tắt AMS-AFC) là nhà sản xuất Dược phẩm & TPCN
-                                hàng đầu đóng vai trò quan trọng trong lĩnh vực nghiên cứu và sản xuất các loại thực
-                                phẩm bổ dưỡng, chăm sóc sức khỏe và làm đẹp tại Nhật Bản. Đây là đối tác của Janami
-                                trong việc nghiên cứu và phát triển các viên uống chăm sóc sức khỏe & sắc đep
-                            </p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-3">
-                            <div class="img">
-                                <img src="/img/about/logo11.png" class="img-fluid"/>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="img">
+                                    <img src="/img/about/logo11.png" class="img-fluid"/>
+                                </div>
+                            </div>
+                            <div class="col-md-9">
+                                <p>Viện nghiên cứu Hamburg (CHLB Đức) là một trong những cơ sở nghiên cứu lớn nhất châu
+                                    Âu,
+                                    nơi các nhà khoa học của hãng dược mỹ phẩm Ocean Pharma nghiên cứu ra chiết xuất vi
+                                    tảo
+                                    Spiralin. Viện nghiên cứu Hamburg cũng là nơi nghiên cứu lâm sàng của dòng sản phẩm
+                                    Skinicer và Spirularin
+                                </p>
                             </div>
                         </div>
-                        <div class="col-md-9">
-                            <p>Viện nghiên cứu Hamburg (CHLB Đức) là một trong những cơ sở nghiên cứu lớn nhất châu Âu,
-                                nơi các nhà khoa học của hãng dược mỹ phẩm Ocean Pharma nghiên cứu ra chiết xuất vi tảo
-                                Spiralin. Viện nghiên cứu Hamburg cũng là nơi nghiên cứu lâm sàng của dòng sản phẩm
-                                Skinicer và Spirularin
-                            </p>
-                        </div>
-                    </div>
+                    @endif
                 </div>
             </div>
         </div>
