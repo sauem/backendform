@@ -167,10 +167,8 @@ Yii::$app->params['header_style'] = true;
                                     <p className="xam">Giá: {renderPrice(product)}</p>
                                     <div className="description">
                                         <p className="xam">{product.excerpt}</p>
-                                        <Divider/>
                                         <div dangerouslySetInnerHTML=@{{__html: product.attr_text}}/>
                                     </div>
-                                    <Divider/>
                                     <div className="cart">
                                         <p className="xam mb-0"><strong className={`bold`}>SKU</strong>: {product.sku}
                                         </p>
