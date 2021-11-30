@@ -186,6 +186,7 @@ const Banners = {
         }
     },
     fetch: async (params) => {
+        console.log("Search", params)
         try {
             const res = await Server.get(ROUTE.BANNER.INDEX, {
                 params: {

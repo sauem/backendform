@@ -14,7 +14,8 @@
             const [progress, setProgress] = useState(0);
             const [paginate, setPaginate] = useState(null);
             const [form] = Form.useForm();
-
+            const [searchForm] = Form.useForm();
+            const {Text} = Typography;
             const onCancel = () => {
                 setState({
                     ...state,
@@ -79,19 +80,16 @@
             const updateSate = async (obj = {}, page = 1) => {
                 setState({
                     ...state,
-                    ...{
-                        loading: true,
-                    }
+                    loading: true,
                 });
-                const {data, pagination} = await Banners.fetch(Object.assign({page}, obj));
+                const {data, pagination} = await Banners.fetch({page, ...obj});
                 setState({
                     ...state,
-                    ...Object.assign({
-                        pagination,
-                        loading: false,
-                        modalVisible: false,
-                        banners: data,
-                    }, obj)
+                    pagination,
+                    loading: false,
+                    modalVisible: false,
+                    banners: data,
+                    ...obj
                 });
                 form.resetFields();
                 data.avatar ? setDefaultFileList([{
@@ -112,11 +110,35 @@
             useEffect(() => {
                 updateSate();
             }, []);
+
+            const EllipsisMiddle = ({suffixCount, children}) => {
+                if (children === null) {
+                    return '';
+                }
+                const start = children.slice(0, children.length - suffixCount).trim();
+                const suffix = children.slice(-suffixCount).trim();
+                return (
+                    <Text className={`w-100`} ellipsis=@{{suffix}} >
+                    {start}
+            </Text>
+            );
+            };
+
+
             return (
                 <div>
                     <Card title={`Slider/Banner`}
-                          extra={<Button onClick={onCreate} size="small" type="primary">
-                              <i className="icon-add"/> Thêm mới</Button>}>
+                          extra={<Space>
+                              <Select onChange={val => updateSate({position: val})} allowClear
+                                      placeholder="Vị trí hiển thị">
+                                  <Select.Option style=@{{ width:`200px`}} value="">Tất cả</Select.Option>
+                                  {BANNER_POSITIONS && BANNER_POSITIONS.map(position => {
+                                      return <Select.Option value={position.slug}>{position.name}</Select.Option>
+                                  })}
+                              </Select>
+                              <Button onClick={onCreate} size="small" type="primary">
+                                  <i className="icon-add"/> Thêm mới</Button>
+                          </Space>}>
                         <Spin spinning={state.loading}>
                             <Table
                                 onChange={({current, pageSize}) => updateSate({}, current)}
@@ -134,7 +156,9 @@
                                                 <div>
                                                     <p>{name}</p>
                                                     <p>{raw.sub_title}</p>
-                                                    <p>{raw.description}</p>
+                                                    <EllipsisMiddle suffixCount={12}>
+                                                        {raw.description}
+                                                    </EllipsisMiddle>
                                                 </div>
                                             )
                                         }
@@ -144,7 +168,13 @@
                                         title: 'Vị trí',
                                         dataIndex: 'position',
                                         key: 'position',
-                                        render: raw => getObjectValue(raw.name, BANNER_POSITIONS).name
+                                        render: position => {
+                                            const positionIndex = BANNER_POSITIONS.findIndex(item => item.slug === position);
+                                            if (positionIndex > 0) {
+                                                return BANNER_POSITIONS[positionIndex].name;
+                                            }
+                                            return position;
+                                        }
                                     },
                                     {
                                         title: 'Trang hiển thị', dataIndex: 'page_show', render: raw => {
