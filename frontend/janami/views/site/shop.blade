@@ -11,6 +11,7 @@ $isLisProduct = $model && $model->layout !== 'default' && $model->layout_show ==
     'url' => HelperFunction::currentURL()
 ])?>
 <?php $view->endBlock()?>
+<?= $view->render('../parts/react-asset.blade')?>
 
 @section('content')
 

@@ -1,0 +1,23 @@
+
+<?php
+$view->registerJsFile(
+    '@web/js/react.production.js',
+    ['depends' => [\yii\web\JqueryAsset::class]]
+);
+$view->registerJsFile(
+    '@web/js/react.dom.js',
+    ['depends' => [\yii\web\JqueryAsset::class]]
+);
+$view->registerJsFile(
+    '@web/js/antd.js',
+    ['depends' => [\yii\web\JqueryAsset::class]]
+);
+$view->registerJsFile(
+    '@web/js/babel.min.js',
+    ['depends' => [\yii\web\JqueryAsset::class]]
+);
+$view->registerCssFile("@web/css/antd.css", [
+    'depends' => [\yii\bootstrap\BootstrapAsset::class],
+    'async' => 'true',
+]);
+?>

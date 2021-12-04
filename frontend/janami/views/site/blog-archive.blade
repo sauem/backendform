@@ -15,6 +15,7 @@ $bannerBottom = HelperFunction::getBanner('sidebar_right_bottom', ['archive']);
     'url' => HelperFunction::currentURL()
 ])?>
 <?php $view->endBlock()?>
+<?= $view->render('../parts/react-asset.blade')?>
 
 @section("content")
     <?= $view->render('../parts/slider.blade')?>

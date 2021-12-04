@@ -13,6 +13,7 @@ Yii::$app->params['header_style'] = true;
     'url' => HelperFunction::currentURL()
 ])?>
 <?php $view->endBlock()?>
+<?= $view->render('../parts/react-asset.blade')?>
 
 @section('content')
     <?= $view->render('../parts/slider.blade') ?>
