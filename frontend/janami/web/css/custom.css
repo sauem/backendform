@@ -1604,14 +1604,14 @@ nav a {
       -moz-column-count: 1;
       column-count: 1; } }
 .scrollbar-macos::-webkit-scrollbar {
-  background-color: #fff;
+  background-color: transparent;
   width: 16px; }
 .scrollbar-macos::-webkit-scrollbar-track {
-  background-color: #fff; }
+  background-color: transparent; }
 .scrollbar-macos::-webkit-scrollbar-thumb {
   background-color: #babac0;
   border-radius: 16px;
-  border: 4px solid #fff; }
+  border: 4px solid transparent; }
 .scrollbar-macos::-webkit-scrollbar-button {
   display: none; }
 
