@@ -1219,7 +1219,8 @@ nav a {
         object-fit: cover;
         align-items: center; }
     .section-seeding .item-newspaper .content {
-      padding: 10px 15px; }
+      padding: 10px 15px;
+      min-height: 220px; }
 
 .section-why {
   background-color: rgba(228, 65, 38, 0.5);
@@ -1517,7 +1518,7 @@ nav a {
     .section-seeding .item-newspaper {
       width: 100%; }
     .section-seeding .owl-dots {
-      bottom: 25px; }
+      bottom: -20px; }
     .section-seeding .guest {
       margin-top: 50px; }
 

@@ -2050,6 +2050,7 @@ nav {
 
     .content {
       padding: 10px 15px;
+      min-height: 220px;
     }
   }
 }
@@ -2588,7 +2589,7 @@ nav {
     }
 
     .owl-dots {
-      bottom: 25px;
+      bottom: -20px;
     }
 
     .guest {

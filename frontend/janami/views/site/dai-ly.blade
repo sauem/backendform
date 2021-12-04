@@ -7,9 +7,16 @@ use common\helper\HelperFunction;
      */
         $view->title = 'Đại lý';
 @endphp
+@section("css_head")
+    <style>
+        .section-seeding .item-newspaper .content {
+            min-height: 250px;
+        }
+
+    </style>
+@stop
 @section("content")
     <?= $view->render('../parts/slider.blade')?>
-
     <div class="container">
         <div id="breadcrumb">
             <div class="row">
@@ -42,7 +49,8 @@ use common\helper\HelperFunction;
                                             <?= HelperFunction::setting('partner_content')?>
                                         </div>
                                         <div class="col-md-4">
-                                            <img height="350px" src="<?= HelperFunction::getMedia(HelperFunction::setting('partner_img'))?>"
+                                            <img height="350px"
+                                                 src="<?= HelperFunction::getMedia(HelperFunction::setting('partner_img'))?>"
                                                  class=""/>
                                         </div>
                                     </div>
