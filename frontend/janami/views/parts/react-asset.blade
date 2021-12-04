@@ -17,7 +17,7 @@ $view->registerJsFile(
     ['depends' => [\yii\web\JqueryAsset::class]]
 );
 $view->registerCssFile("@web/css/antd.css", [
-    'depends' => [\yii\bootstrap\BootstrapAsset::class],
+    'depends' => [\janami\assets\AppAsset::class],
     'async' => 'true',
 ]);
 ?>
