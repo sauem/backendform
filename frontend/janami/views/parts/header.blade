@@ -49,7 +49,12 @@ if ($menu) {
                 <!-- MAIN MENU -->
                 <nav class="wsmenu clearfix">
                     <ul class="wsmenu-list">
-
+                        <li>
+                            <a href="tel:<?= HelperFunction::setting('hotline_1')?>">
+                                <img src="/img/icons/phone.svg">
+                                <b class="txt-brand"><?= HelperFunction::setting('hotline_1')?></b>
+                            </a>
+                        </li>
                         @if(!empty($menuItems))
                             @foreach($menuItems as $menuItem)
                                 @php
