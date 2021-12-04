@@ -21,8 +21,6 @@ AppAsset::register($view);
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta property="og:locale" content="en_US"/>
     <meta property="og:type" content="website"/>
-    <meta property="og:title" content="<?= $view->title ?>"/>
-    <meta property="og:url" content="<?= \Yii::$app->homeUrl; ?>"/>
     <meta property="og:site_name" content="<?= HelperFunction::setting('site_name', true)?>"/>
     <link rel="shortcut icon" href="<?= HelperFunction::Favicon() ?>" type="image/x-icon">
     <link rel="icon" href="<?= HelperFunction::Favicon() ?>" type="image/x-icon">
@@ -30,9 +28,18 @@ AppAsset::register($view);
     <link rel="apple-touch-icon" sizes="120x120" href="<?= HelperFunction::Favicon() ?>">
     <link rel="apple-touch-icon" sizes="76x76" href="<?= HelperFunction::Favicon() ?>">
     <link rel="apple-touch-icon" href="<?= HelperFunction::Favicon() ?> ">
-    <!-- For the og:image content, replace the # with a link of an image -->
-    <meta property="og:image" content="<?= HelperFunction::getLogo('header') ?>"/>
+
+    <?php if (isset($view->blocks['meta'])) {
+        ?>
+        <?= $view->blocks['meta'] ?>
+    <?php } else {?>
+    <meta name="title" content="<?= $view->title ?>"/>
+    <meta property="og:title" content="<?= $view->title ?>"/>
+    <meta property="og:url" content="<?= Yii::$app->request->getHostInfo() . \Yii::$app->homeUrl; ?>"/>
+    <meta property="og:image" content="<?= Yii::$app->request->getHostInfo() . HelperFunction::getLogo() ?>"/>
     <meta property="og:description" content="<?= HelperFunction::setting('site_description', true) ?>"/>
+    <meta name="description" content="<?= HelperFunction::setting('site_description', true) ?>">
+    <?php }?>
     <?php if (isset($view->blocks['schema'])) {
         ?>
         <?= $view->blocks['schema'] ?>
@@ -42,8 +49,18 @@ AppAsset::register($view);
             "@context": "http://schema.org",
             "@type": "WebSite",
             "name": "<?= $view->title ?>",
-            "url": "<?= \Yii::$app->homeUrl; ?>"
+            "url": "<?= Yii::$app->request->getHostInfo() . \Yii::$app->homeUrl; ?>"
         }
+
+
+
+
+
+
+
+
+
+
 
     </script>
     <?php }?>

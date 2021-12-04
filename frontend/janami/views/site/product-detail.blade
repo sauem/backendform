@@ -3,13 +3,21 @@
 use common\helper\HelperFunction;
 
 $view->title = $model->name;
-
 Yii::$app->params['header_style'] = true;
 ?>
 <?php $view->beginBlock('schema') ?>
 <?= $view->render('/structure/schema.blade', [
     'type' => 'Product',
     'name' => $model->name ?? 'Product',
+    'url' => HelperFunction::currentURL()
+]) ?>
+<?php $view->endBlock() ?>
+
+<?php $view->beginBlock('meta') ?>
+<?= $view->render('/structure/meta.blade', [
+    'title' => $model->meta ? $model->meta->meta_title : $model->name,
+    'image' => $model->avatar,
+    'description' => $model->meta ? $model->meta->meta_description : $model->excerpt,
     'url' => HelperFunction::currentURL()
 ])?>
 <?php $view->endBlock()?>

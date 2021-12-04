@@ -1,0 +1,6 @@
+<meta name="title" content="<?= isset($title) ? $title : '' ?>"/>
+<meta property="og:title" content="<?= $title ?>"/>
+<meta property="og:url" content="<?= Yii::$app->request->getHostInfo() . \Yii::$app->request->getUrl(); ?>"/>
+<meta property="og:image" content="<?= Yii::$app->request->getHostInfo() . $image?>"/>
+<meta property="og:description" content="<?= $description?>"/>
+<meta name="description" content="<?= $description?>">

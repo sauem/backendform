@@ -7,6 +7,13 @@ use common\helper\HelperFunction;
      */
         $view->title = 'Về Janami';
 @endphp
+<?php $view->beginBlock('schema') ?>
+<?= $view->render('/structure/schema.blade', [
+    'type' => 'Article',
+    'name' => 'Về janami',
+    'url' => HelperFunction::currentURL()
+]) ?>
+<?php $view->endBlock() ?>
 @section("content")
     <?= $view->render('../parts/slider.blade')?>
 
