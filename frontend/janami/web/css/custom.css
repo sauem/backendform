@@ -1451,6 +1451,9 @@ nav a {
   100% {
     transform: scale(1); } }
 @media (max-width: 467px) {
+  .owl-dot-green .owl-dots {
+    bottom: 0; }
+
   .item-product-home .img {
     max-height: 100%;
     height: 100%; }
@@ -1485,7 +1488,10 @@ nav a {
       margin-top: 30px; }
 
   .section-products .block-products {
-    padding-top: 20px; }
+    padding-top: 20px;
+    padding-bottom: 180px; }
+    .section-products .block-products .owl-dots {
+      bottom: 0%; }
     .section-products .block-products h4 {
       font-size: 25px; }
     .section-products .block-products .archive-home nav {

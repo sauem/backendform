@@ -2462,6 +2462,11 @@ nav {
 }
 
 @media (max-width: 467px) {
+  .owl-dot-green {
+    .owl-dots {
+      bottom: 0;
+    }
+  }
   .item-product-home {
     .img {
       max-height: 100%;
@@ -2523,6 +2528,11 @@ nav {
   .section-products {
     .block-products {
       padding-top: 20px;
+      padding-bottom: 180px;
+
+      .owl-dots {
+        bottom: 0%;
+      }
 
       h4 {
         font-size: 25px;
