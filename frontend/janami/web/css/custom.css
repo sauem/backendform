@@ -1367,7 +1367,7 @@ nav a {
     top: 0;
     background: #F7F7F7;
     z-index: -1; }
-  .section-about h4 {
+  .section-about h1 {
     font-size: 36px; }
   .section-about p {
     font-family: arial, sans-serif;
@@ -1482,7 +1482,7 @@ nav a {
     text-align: center; }
     .section-about:before {
       display: none; }
-    .section-about h4 {
+    .section-about h1 {
       font-size: 25px; }
     .section-about .video-box {
       margin-top: 30px; }
@@ -1492,7 +1492,7 @@ nav a {
     padding-bottom: 180px; }
     .section-products .block-products .owl-dots {
       bottom: 0%; }
-    .section-products .block-products h4 {
+    .section-products .block-products h1 {
       font-size: 25px; }
     .section-products .block-products .archive-home nav {
       margin-bottom: 20px; }
@@ -1508,12 +1508,12 @@ nav a {
         margin: 5px; }
   .section-products .block-box .box-technology {
     padding: 15px; }
-    .section-products .block-box .box-technology h4 {
+    .section-products .block-box .box-technology h1 {
       font-size: 25px; }
 
   .section-license {
     padding-bottom: 50px; }
-    .section-license h4 {
+    .section-license h1 {
       font-size: 18px; }
     .section-license .license-item {
       margin-top: 50px; }
@@ -1535,14 +1535,14 @@ nav a {
   .section-why {
     padding: 50px 0;
     text-align: left !important; }
-    .section-why h4 {
+    .section-why h1 {
       font-size: 23px;
       margin: 20px 0;
       text-align: left; }
     .section-why .item-why {
       margin-bottom: 20px; }
 
-  .section-blog h4 {
+  .section-blog h1 {
     font-size: 25px; }
   .section-blog .owl-nav {
     top: -80px !important; }
