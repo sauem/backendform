@@ -1492,7 +1492,7 @@ nav a {
     padding-bottom: 180px; }
     .section-products .block-products .owl-dots {
       bottom: 0%; }
-    .section-products .block-products h1 {
+    .section-products .block-products h4 {
       font-size: 25px; }
     .section-products .block-products .archive-home nav {
       margin-bottom: 20px; }
@@ -1508,12 +1508,12 @@ nav a {
         margin: 5px; }
   .section-products .block-box .box-technology {
     padding: 15px; }
-    .section-products .block-box .box-technology h1 {
+    .section-products .block-box .box-technology h4 {
       font-size: 25px; }
 
   .section-license {
     padding-bottom: 50px; }
-    .section-license h1 {
+    .section-license h4 {
       font-size: 18px; }
     .section-license .license-item {
       margin-top: 50px; }
@@ -1535,14 +1535,14 @@ nav a {
   .section-why {
     padding: 50px 0;
     text-align: left !important; }
-    .section-why h1 {
+    .section-why h4 {
       font-size: 23px;
       margin: 20px 0;
       text-align: left; }
     .section-why .item-why {
       margin-bottom: 20px; }
 
-  .section-blog h1 {
+  .section-blog h4 {
     font-size: 25px; }
   .section-blog .owl-nav {
     top: -80px !important; }
