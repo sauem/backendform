@@ -93,8 +93,8 @@ if ($menu) {
                         </li>
                         <li>
                             <p>
-                                <a href="<?= HelperFunction::setting('twitter') ?>">
-                                    <i class="fab fa-twitter"></i>
+                                <a href="<?= HelperFunction::setting('youtube') ?>">
+                                    <i class="fab fa-youtube"></i>
                                 </a>
                             </p>
                         </li>
