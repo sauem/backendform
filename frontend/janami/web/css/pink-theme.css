@@ -1261,11 +1261,11 @@ ol.digit-list p {
   margin-left: -40px;
   width: 50px;
   height: 50px;
-  animation: cssload-invert 2.3s infinite steps(2, end);
-  -o-animation: cssload-invert 2.3s infinite steps(2, end);
-  -ms-animation: cssload-invert 2.3s infinite steps(2, end);
-  -webkit-animation: cssload-invert 2.3s infinite steps(2, end);
-  -moz-animation: cssload-invert 2.3s infinite steps(2, end);
+  animation: cssload-invert 1.3s infinite steps(1, end);
+  -o-animation: cssload-invert 1.3s infinite steps(1, end);
+  -ms-animation: cssload-invert 1.3s infinite steps(1, end);
+  -webkit-animation: cssload-invert 1.3s infinite steps(1, end);
+  -moz-animation: cssload-invert 1.3s infinite steps(1, end);
 }
 
 .fancy-spinner {
@@ -1290,8 +1290,8 @@ ol.digit-list p {
   border-width: 0.25rem;
   border-style: solid;
   border-color: transparent;
-  -webkit-animation: 2s fancy infinite alternate;
-          animation: 2s fancy infinite alternate;
+  -webkit-animation: 1s fancy infinite alternate;
+          animation: 1s fancy infinite alternate;
 }
 
 .fancy-spinner div.ring:nth-child(1) {
@@ -1302,8 +1302,8 @@ ol.digit-list p {
 .fancy-spinner div.ring:nth-child(2) {
   border-top-color: #efa697;
   border-bottom-color: #efa697;
-  -webkit-animation-delay: 1s;
-          animation-delay: 1s;
+  -webkit-animation-delay: 0.5s;
+          animation-delay: 0.5s;
 }
 
 .fancy-spinner div.dot {
