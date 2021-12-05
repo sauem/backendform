@@ -13,7 +13,7 @@ $(window).on('load', function () {
     var preloader = $('#loader-wrapper'),
         loader = preloader.find('.cssload-loader');
     loader.fadeOut();
-    preloader.delay(400).fadeOut('slow');
+    preloader.delay(200).fadeOut('slow');
 
 });
 

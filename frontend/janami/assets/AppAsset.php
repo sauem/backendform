@@ -66,6 +66,7 @@ class AppAsset extends AssetBundle
 //        '/js/booking-form.js',
         '/js/jquery.validate.min.js',
         '/js/jquery.desoslide.min.js',
+        '/js/lazyload.min.js',
         '/js/custom.js?v=1.2',
         '/js/site.js?v=2.4',
         ['/js/action.js?v=1.6', 'type' => 'text/babel'],

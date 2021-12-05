@@ -62,6 +62,7 @@ AppAsset::register($view);
 
 
 
+
     </script>
     <?php }?>
 
@@ -203,6 +204,12 @@ AppAsset::register($view);
             }
         }
     });
+    $(function () {
+        $("img.lazyload").lazyload({
+            effect: "fadeIn"
+        });
+    });
 </script>
+
 <?php $view->endPage() ?>
 

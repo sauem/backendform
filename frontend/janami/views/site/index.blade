@@ -32,8 +32,8 @@ Yii::$app->params['footer_type'] = 'light';
                             <div data-aos="fade-up"
                                  data-aos-duration="1000"
                                  class="video-box">
-                                <img class="img-fluid w-100"
-                                     src="<?= HelperFunction::getMediaSetting('janami_story_img')?>"/>
+                                <img class="img-fluid w-100 lazyload"
+                                     data-original="<?= HelperFunction::getMediaSetting('janami_story_img')?>"/>
 
                                 <div class="video-1-preview">
                                     <a class="video-popup1"
@@ -259,8 +259,8 @@ Yii::$app->params['footer_type'] = 'light';
                                                     <div class="item-product-home hvr-shadow">
                                                         <div class="img">
                                                             <a href="/san-pham/<?= $product->defaultArchive->slug ?>/<?= $product->slug?>">
-                                                                <img src="<?= HelperFunction::checkImage($product->avatar)?>"
-                                                                     class="w-100 img-fluid"/>
+                                                                <img data-original="<?= HelperFunction::checkImage($product->avatar)?>"
+                                                                     class="w-100 img-fluid lazyload"/>
                                                             </a>
                                                         </div>
                                                         <div class="product-info">
@@ -281,8 +281,8 @@ Yii::$app->params['footer_type'] = 'light';
                                                                 <div class="item-product-home hvr-shadow">
                                                                     <div class="img">
                                                                         <a href="/san-pham/<?= $productChild->defaultArchive->slug ?>/<?= $productChild->slug?>">
-                                                                            <img src="<?= HelperFunction::checkImage($productChild->avatar)?>"
-                                                                                 class="w-100 img-fluid"/>
+                                                                            <img data-original="<?= HelperFunction::checkImage($productChild->avatar)?>"
+                                                                                 class="w-100 img-fluid lazyload"/>
                                                                         </a>
                                                                     </div>
                                                                     <div class="product-info">
@@ -312,8 +312,8 @@ Yii::$app->params['footer_type'] = 'light';
                                                     <div class="item-product-home hvr-shadow">
                                                         <div class="img">
                                                             <a href="/san-pham/<?= $product->defaultArchive->slug ?>/<?= $product->slug?>">
-                                                                <img src="<?= HelperFunction::checkImage($product->avatar)?>"
-                                                                     class="w-100 img-fluid"/>
+                                                                <img data-original="<?= HelperFunction::checkImage($product->avatar)?>"
+                                                                     class="w-100 img-fluid lazyload"/>
                                                             </a>
                                                         </div>
                                                         <div class="product-info">
@@ -334,8 +334,8 @@ Yii::$app->params['footer_type'] = 'light';
                                                                 <div class="item-product-home hvr-shadow">
                                                                     <div class="img">
                                                                         <a href="/san-pham/<?= $productChild->defaultArchive->slug ?>/<?= $productChild->slug?>">
-                                                                            <img src="<?= HelperFunction::checkImage($productChild->avatar)?>"
-                                                                                 class="w-100 img-fluid"/>
+                                                                            <img data-original="<?= HelperFunction::checkImage($productChild->avatar)?>"
+                                                                                 class="w-100 img-fluid lazyload"/>
                                                                         </a>
                                                                     </div>
                                                                     <div class="product-info">
@@ -373,8 +373,8 @@ Yii::$app->params['footer_type'] = 'light';
                                         @if(!empty($technology))
                                             @foreach($technology as $item)
                                                 <div class="tech-img">
-                                                    <img alt="{{$item->name}}" src="{{$item->avatar}}"
-                                                         class="img-fluid w-100"/>
+                                                    <img alt="{{$item->name}}" data-original="{{$item->avatar}}"
+                                                         class="img-fluid w-100 lazyload"/>
                                                 </div>
                                             @endforeach
                                         @endif
@@ -454,8 +454,8 @@ Yii::$app->params['footer_type'] = 'light';
                         <img src="/img/item-license.svg" class="ml-1"/>
                     </div>
                     <div class="owl-carousel owl-theme invention-carousel mb-2">
-                        <img src="/img/invent/bang1.jpg"/>
-                        <img src="/img/invent/bang2.jpg"/>
+                        <img class="lazyload" data-original="/img/invent/bang1.jpg"/>
+                        <img class="lazyload" data-original="/img/invent/bang2.jpg"/>
                     </div>
                 </div>
             </div>
