@@ -48,8 +48,8 @@ class AppAsset extends AssetBundle
         //'https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js',
         '/js/axios.min.js',
         '/js/bootstrap.min.js',
-        '/js/moment/moment.js',
-        '/js/modernizr.custom.js',
+        // '/js/moment/moment.js',
+        // '/js/modernizr.custom.js',
         '/js/jquery.easing.js',
         '/js/jquery.appear.js',
         '/js/jquery.scrollto.js',
@@ -76,4 +76,5 @@ class AppAsset extends AssetBundle
         //'yii\web\YiiAsset',
         //'yii\bootstrap\BootstrapAsset',
     ];
+    public $cssOptions = ['async' => 'async'];
 }
