@@ -75,8 +75,8 @@ Yii::$app->params['header_style'] = true;
                     if (!empty($articles)) {
                     foreach ($articles as $post) {
                     ?>
-                    <div class="col-md-4">
-                        <div class="blog-post mx-md-3">
+                    <div class="col-md-3">
+                        <div class="blog-post">
                             <div class="blog-post-img">
                                 <a href="<?=HelperFunction::Link(BLOG, $post->slug, $post->archive->slug) ?>">
                                     <img class="img-fluid" src="<?= HelperFunction::checkImage($post->avatar)?>"
