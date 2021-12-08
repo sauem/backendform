@@ -12,7 +12,7 @@ Yii::$app->params['header_style'] = true;
     <?= $view->render('../parts/slider.blade') ?>
 
     <div class="container">
-        <div id="breadcrumb">
+        <div id="breadcrumb" style="margin-bottom: 50px">
             <div class="row">
                 <div class="col-12">
                     <div class="breadcrumb-nav">
@@ -20,7 +20,7 @@ Yii::$app->params['header_style'] = true;
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="/">Trang chủ</a></li>
                                 <li class="breadcrumb-item">Tìm kiếm</li>
-                                <li class="breadcrumb-item active" aria-current="page"><?= $_GET['s']?></li>
+                                <li class="breadcrumb-item active" aria-current="page">Từ khóa: <?= $_GET['s']?></li>
                             </ol>
                         </nav>
                     </div>
