@@ -2060,9 +2060,16 @@ nav {
   }
 }
 
+.wsmainwp {
+  margin: 0 auto;
+  max-width: 1140px;
+  padding: 0 15px;
+  position: relative;
+}
+
 .section-why {
   background-color: rgba(228, 65, 38, 0.5);
- // background-image: url("../img/bg-why.png");
+  // background-image: url("../img/bg-why.png");
   background-blend-mode: hard-light;
   background-size: cover;
   background-repeat: no-repeat;
@@ -2437,9 +2444,12 @@ nav {
     align-items: center;
 
     .wsmainwp {
+      margin: 0 auto;
+      max-width: 1140px;
+      padding: 0 15px;
+      position: relative;
       width: 100%;
       display: flex;
-      max-width: 100%;
       justify-content: space-between;
       align-items: center;
 
@@ -2486,8 +2496,31 @@ nav {
   }
 }
 
-@media (max-width: 467px) {
+.wsmobileheader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
+  .social-icons {
+    display: none;
+
+    a {
+      margin-right: 10px;
+    }
+
+    i {
+      color: #615f5f;
+      font-size: 32px;
+    }
+  }
+}
+
+@media (max-width: 467px) {
+  .wsmobileheader {
+    .social-icons {
+      display: block;
+    }
+  }
   .list-thumb {
     display: flex;
     margin-top: 10px;

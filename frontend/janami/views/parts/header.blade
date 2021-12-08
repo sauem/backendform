@@ -19,13 +19,15 @@ if ($menu) {
         <div class="wsmobileheader clearfix">
             <span class="smllogo">
                <a href="/">
-                    <img src="<?= HelperFunction::getLogo('header')?>" width="170" height="50"
+                    <img src="<?= HelperFunction::getLogo('header')?>" width="120" height="50"
                          alt="<?= HelperFunction::setting('site_name')?>"/>
                </a>
             </span>
-            <i class="fa fa-facebook-square"></i>
-            <i class="fa fa-youtube-square"></i>
-            <i class="fa fa-instagram"></i>
+            <div class="social-icons">
+                <a target="_blank" href="<?= HelperFunction::setting('facebook')?>"><i class="fab fa-facebook-square"></i></a>
+                <a target="_blank" href="<?= HelperFunction::setting('youtube')?>"> <i class="fab fa-youtube-square"></i></a>
+                <a target="_blank" href="<?= HelperFunction::setting('instagram')?>"> <i class="fab fa-instagram"></i></a>
+            </div>
             <a id="wsnavtoggle" class="wsanimated-arrow"><span></span></a>
         </div>
 
