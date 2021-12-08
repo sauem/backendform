@@ -51,13 +51,14 @@ AppAsset::register($view);
             "name": "<?= $view->title ?>",
             "url": "<?= Yii::$app->request->getHostInfo() . \Yii::$app->homeUrl; ?>"
         }
+
     </script>
     <?php }?>
 
     <?php $view->registerCsrfMetaTags() ?>
     <title><?= Html::encode($view->title) ?></title>
     @yield('link_meta')
-<?php $view->head() ?>
+    <?php $view->head() ?>
     <script type="text/babel">
         const {useState, useEffect, useRef, useForceUpdate} = React;
         const {
@@ -102,6 +103,11 @@ AppAsset::register($view);
 </body>
 </html>
 <script>
+    jQuery(function($) {
+        console.log($, 'jquery works');
+        console.log($("img.lazyload").length);
+        $("img.lazyload").lazyload();
+    });
     $('.search-head img').click(function () {
         if (!$(this).prev().hasClass('is_show')) {
             $(this).prev().addClass('is_show');

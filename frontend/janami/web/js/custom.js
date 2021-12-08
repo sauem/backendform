@@ -390,39 +390,39 @@ $(document).ready(function () {
     /*	Masonry Grid
     /*----------------------------------------------------*/
 
-    $('.grid-loaded').imagesLoaded(function () {
-
-        // filter items on button click
-        $('.masonry-filter').on('click', 'button', function () {
-            var filterValue = $(this).attr('data-filter');
-            $grid.isotope({
-                filter: filterValue
-            });
-        });
-
-        // change is-checked class on buttons
-        $('.masonry-filter button').on('click', function () {
-            $('.masonry-filter button').removeClass('is-checked');
-            $(this).addClass('is-checked');
-            var selector = $(this).attr('data-filter');
-            $grid.isotope({
-                filter: selector
-            });
-            return false;
-        });
-
-        // init Isotope
-        var $grid = $('.masonry-wrap').isotope({
-            itemSelector: '.masonry-item',
-            percentPosition: true,
-            transitionDuration: '0.7s',
-            masonry: {
-                // use outer width of grid-sizer for columnWidth
-                columnWidth: '.masonry-item',
-            }
-        });
-
-    });
+    // $('.grid-loaded').imagesLoaded(function () {
+    //
+    //     // filter items on button click
+    //     $('.masonry-filter').on('click', 'button', function () {
+    //         var filterValue = $(this).attr('data-filter');
+    //         $grid.isotope({
+    //             filter: filterValue
+    //         });
+    //     });
+    //
+    //     // change is-checked class on buttons
+    //     $('.masonry-filter button').on('click', function () {
+    //         $('.masonry-filter button').removeClass('is-checked');
+    //         $(this).addClass('is-checked');
+    //         var selector = $(this).attr('data-filter');
+    //         $grid.isotope({
+    //             filter: selector
+    //         });
+    //         return false;
+    //     });
+    //
+    //     // init Isotope
+    //     var $grid = $('.masonry-wrap').isotope({
+    //         itemSelector: '.masonry-item',
+    //         percentPosition: true,
+    //         transitionDuration: '0.7s',
+    //         masonry: {
+    //             // use outer width of grid-sizer for columnWidth
+    //             columnWidth: '.masonry-item',
+    //         }
+    //     });
+    //
+    // });
 
 
     /*----------------------------------------------------*/
