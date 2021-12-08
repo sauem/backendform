@@ -29,7 +29,7 @@ Yii::$app->params['header_style'] = true;
         </div>
         <div class="row mt-5">
             <div class="col-12">
-                <h4>Sản phẩm phù hợp:</h4>
+                <h5>Sản phẩm phù hợp:</h5>
             </div>
             <div class="col-12">
                 <div class="row">
@@ -57,14 +57,17 @@ Yii::$app->params['header_style'] = true;
                     </div>
                     <?php
                     }
+                    }else {
+                        echo "";
                     }
                     ?>
                 </div>
             </div>
         </div>
         <div class="row mt-5">
+            <hr>
             <div class="col-12">
-                <h4>Tin tức:</h4>
+                <h5>Tin tức:</h5>
             </div>
             <div class="col-12">
                 <div class="row">
@@ -72,7 +75,7 @@ Yii::$app->params['header_style'] = true;
                     if (!empty($articles)) {
                     foreach ($articles as $post) {
                     ?>
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                         <div class="blog-post mx-md-3">
                             <div class="blog-post-img">
                                 <a href="<?=HelperFunction::Link(BLOG, $post->slug, $post->archive->slug) ?>">
