@@ -139,26 +139,20 @@ class SiteController extends BaseController
             ->filterWhere(['language' => HelperFunction::getLanguage()])
             ->andFilterWhere(['IS', 'parent_id', new Expression('NULL')])
             ->all();
-        $productSearch = new ProductsSearch();
-        $productProvider = $productSearch->search([
-            'ProductsSearch' => [
-                'name' => $key
-            ]
-        ]);
-
-        $articleSearch = new ArticlesSearch();
-        $articleProvider = $articleSearch->search([
-            'ArticlesSearch' => [
-                'name' => $key
-            ]
-        ]);
+        $products = Products::find()
+            ->where(['like', 'name', $key])
+            ->orFilterWhere(['like', 'sub_name', $key])
+            ->limit(12)->all();
+        $articles = Articles::find()
+            ->where(['like', 'name', $key])
+            ->limit(12)->all();
         $relatedPosts = Articles::find()->filterWhere(['language' => HelperFunction::getLanguage()])
             ->orderBy('created_at DESC')
             ->limit(6)->all();
-        return $this->render('search', [
+        return $this->render('search.blade', [
             'categories' => $categories,
-            'productProvider' => $productProvider,
-            'articleProvider' => $articleProvider,
+            'products' =>$products,
+            'articles' => $articles,
             'relatedPosts' => $relatedPosts
         ]);
     }

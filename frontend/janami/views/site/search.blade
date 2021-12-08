@@ -1,0 +1,107 @@
+<?php
+
+$view->title = Yii::t('app', 'search');
+
+use common\helper\HelperFunction;use yii\widgets\ListView;
+
+Yii::$app->params['header_style'] = true;
+
+?>
+@section("content")
+
+    <?= $view->render('../parts/slider.blade') ?>
+
+    <div class="container">
+        <div id="breadcrumb">
+            <div class="row">
+                <div class="col-12">
+                    <div class="breadcrumb-nav">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="/">Trang chủ</a></li>
+                                <li class="breadcrumb-item">Tìm kiếm</li>
+                                <li class="breadcrumb-item active" aria-current="page"><?= $_GET['s']?></li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-12">
+                <h4>Sản phẩm phù hợp:</h4>
+            </div>
+            <div class="col-12">
+                <div class="row">
+                    <?php
+                    if (!empty($products)) {
+                    foreach ($products as $product) {
+                    ?>
+                    <div key={key} class="col-md-3 col-12">
+                        <div class="block-product">
+                            <div class="img">
+                                <img class="img-fluid" src="<?= $product->avatar?>"/>
+                                <div class="action">
+                                    <a href="/san-pha/<?= $product->defaultArchive->slug?>/<?= $product->slug?>"
+                                       class="btn-action"><i class="fas xam fa-plus"></i>
+                                        <span class="tool-tip">Xem chi tiết</span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="text">
+                                <a href="/san-pha/<?= $product->defaultArchive->slug?>/<?= $product->slug?>" }
+                                   class="title"><?= $product->name?></a>
+                                <p><?= $product->sub_name?></p>
+                            </div>
+                        </div>
+                    </div>
+                    <?php
+                    }
+                    }
+                    ?>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-12">
+                <h4>Tin tức:</h4>
+            </div>
+            <div class="col-12">
+                <div class="row">
+                    <?php
+                    if (!empty($articles)) {
+                    foreach ($articles as $post) {
+                    ?>
+                    <div class="blog-post mx-md-3">
+                        <div class="blog-post-img">
+                            <a href="<?=HelperFunction::Link(BLOG, $post->slug, $post->archive->slug) ?>">
+                                <img class="img-fluid" src="<?= HelperFunction::checkImage($post->avatar)?>"
+                                     alt="{{$post->name}}"/>
+                            </a>
+                        </div>
+                        <div class="blog-post-txt">
+                            <p class="do mb-0">{{date('d/m/Y', $post->created_at)}}</p>
+                            <h5 class="h5-sm text-2">
+                                <a href="<?= HelperFunction::Link(BLOG, $post->slug, $post->archive->slug)?>">
+                                    {{$post->name}}
+                                </a>
+                            </h5>
+                            <p class="excerpt text-3">
+                                {{substr_replace($post->excerpt,'...',100)}}
+                            </p>
+                            <a href="<?=HelperFunction::Link(BLOG, $post->slug, $post->archive->slug) ?>">
+                                Đọc thêm
+                                <i class="fas ml-2 fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <?php
+                    }
+                    }
+                    ?>
+                </div>
+            </div>
+        </div>
+    </div>
+
+@stop
