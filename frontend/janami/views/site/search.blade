@@ -72,27 +72,29 @@ Yii::$app->params['header_style'] = true;
                     if (!empty($articles)) {
                     foreach ($articles as $post) {
                     ?>
-                    <div class="blog-post mx-md-3">
-                        <div class="blog-post-img">
-                            <a href="<?=HelperFunction::Link(BLOG, $post->slug, $post->archive->slug) ?>">
-                                <img class="img-fluid" src="<?= HelperFunction::checkImage($post->avatar)?>"
-                                     alt="{{$post->name}}"/>
-                            </a>
-                        </div>
-                        <div class="blog-post-txt">
-                            <p class="do mb-0">{{date('d/m/Y', $post->created_at)}}</p>
-                            <h5 class="h5-sm text-2">
-                                <a href="<?= HelperFunction::Link(BLOG, $post->slug, $post->archive->slug)?>">
-                                    {{$post->name}}
+                    <div class="col-md-3">
+                        <div class="blog-post mx-md-3">
+                            <div class="blog-post-img">
+                                <a href="<?=HelperFunction::Link(BLOG, $post->slug, $post->archive->slug) ?>">
+                                    <img class="img-fluid" src="<?= HelperFunction::checkImage($post->avatar)?>"
+                                         alt="{{$post->name}}"/>
                                 </a>
-                            </h5>
-                            <p class="excerpt text-3">
-                                {{substr_replace($post->excerpt,'...',100)}}
-                            </p>
-                            <a href="<?=HelperFunction::Link(BLOG, $post->slug, $post->archive->slug) ?>">
-                                Đọc thêm
-                                <i class="fas ml-2 fa-arrow-right"></i>
-                            </a>
+                            </div>
+                            <div class="blog-post-txt">
+                                <p class="do mb-0">{{date('d/m/Y', $post->created_at)}}</p>
+                                <h5 class="h5-sm text-2">
+                                    <a href="<?= HelperFunction::Link(BLOG, $post->slug, $post->archive->slug)?>">
+                                        {{$post->name}}
+                                    </a>
+                                </h5>
+                                <p class="excerpt text-3">
+                                    {{substr_replace($post->excerpt,'...',100)}}
+                                </p>
+                                <a href="<?=HelperFunction::Link(BLOG, $post->slug, $post->archive->slug) ?>">
+                                    Đọc thêm
+                                    <i class="fas ml-2 fa-arrow-right"></i>
+                                </a>
+                            </div>
                         </div>
                     </div>
                     <?php
