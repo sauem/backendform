@@ -205,6 +205,16 @@
                                             </Select>
                                         </Form.Item>
                                         <Form.Item
+                                            name={`is_top`}
+                                            label="Bài viết nổi bật"
+                                            initialValue={1}
+                                        >
+                                            <Select>
+                                                <Select.Option value={1}>Hiển thị</Select.Option>
+                                                <Select.Option value={0}>Ẩn</Select.Option>
+                                            </Select>
+                                        </Form.Item>
+                                        <Form.Item
                                             name={`show_cat`}
                                             label="Hiển thị trên danh mục"
                                             initialValue={1}

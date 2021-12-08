@@ -47,13 +47,13 @@ $(document).ready(function () {
     /*	Hero Slider
     /*----------------------------------------------------*/
 
-    $('.slider').slider({
-        full_width: false,
-        interval: 6000,
-        transition: 1000,
-        draggable: false,
-        indicators: true,
-    });
+    // $('.slider').slider({
+    //     full_width: false,
+    //     interval: 6000,
+    //     transition: 1000,
+    //     draggable: false,
+    //     indicators: true,
+    // });
 
     $('.slide-next').click(function () {
         $('.slider').slider('next');
@@ -67,18 +67,18 @@ $(document).ready(function () {
     /*----------------------------------------------------*/
     /*	Hero Text Rotator
     /*----------------------------------------------------*/
-
-    $('.hero-txt-rotator').flexslider({
-        animation: "fade",
-        controlNav: true,
-        directionNav: false,
-        slideshowSpeed: 6000,
-        animationSpeed: 700,
-        start: function (slider) {
-            $('body').removeClass('loading');
-        }
-    });
-
+    //
+    // $('.hero-txt-rotator').flexslider({
+    //     animation: "fade",
+    //     controlNav: true,
+    //     directionNav: false,
+    //     slideshowSpeed: 6000,
+    //     animationSpeed: 700,
+    //     start: function (slider) {
+    //         $('body').removeClass('loading');
+    //     }
+    // });
+    //
 
     /*----------------------------------------------------*/
     /*	Animated Scroll To Anchor
@@ -429,7 +429,7 @@ $(document).ready(function () {
     /*	DateTimePicker
     /*----------------------------------------------------*/
 
-    $('#datetimepicker').datetimepicker();
+   // $('#datetimepicker').datetimepicker();
 
 
     /*----------------------------------------------------*/

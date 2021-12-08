@@ -37,8 +37,8 @@ if ($menu) {
                              <span class="icon-bx">
                                     <img src="/img/icons/phone.svg">
                                 </span>
-                            <a href="tel:<?= HelperFunction::setting('hotline_1') ?>">
-                                <?= HelperFunction::setting('hotline_1') ?>
+                            <a href="tel:<?= HelperFunction::setting('hotline_2') ?>">
+                                <?= HelperFunction::setting('hotline_2') ?>
                             </a>
                         </p>
                         <p class="email" href="mailto:<?= HelperFunction::setting('email') ?>">

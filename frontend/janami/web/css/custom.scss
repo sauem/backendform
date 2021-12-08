@@ -2595,8 +2595,13 @@ nav {
       .box-technology {
         padding: 15px;
 
+        .top-icon {
+          text-align: center;
+        }
+
         h4 {
           font-size: 25px;
+          text-align: center;
         }
       }
     }
