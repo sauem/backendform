@@ -103,11 +103,7 @@ AppAsset::register($view);
 </body>
 </html>
 <script>
-    jQuery(function($) {
-        console.log($, 'jquery works');
-        console.log($("img.lazyload").length);
-        $("img.lazyload").lazyload();
-    });
+    $("img.lazyload").lazyload();
     $('.search-head img').click(function () {
         if (!$(this).prev().hasClass('is_show')) {
             $(this).prev().addClass('is_show');
@@ -135,6 +131,7 @@ AppAsset::register($view);
         margin: 20,
         animateOut: 'fadeOut',
         autoplay: true,
+        lazyLoad: true,
         loop: true,
         nav: false,
         dots: true,
@@ -152,6 +149,7 @@ AppAsset::register($view);
         items: 1,
         animateOut: 'fadeOut',
         autoplay: true,
+        lazyLoad: true,
         //loop: true,
         nav: false,
         dots: true,
@@ -176,6 +174,7 @@ AppAsset::register($view);
         animateOut: 'fadeOut',
         autoplay: true,
         loop: true,
+        lazyLoad: true,
         dots: true,
         nav: false,
     })
@@ -186,6 +185,7 @@ AppAsset::register($view);
         autoplay: true,
         loop: true,
         dots: false,
+        lazyLoad: true,
         nav: true,
         navText: [
             `<i class="fas fa-arrow-left"></i>`,
