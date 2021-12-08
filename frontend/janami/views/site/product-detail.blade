@@ -45,7 +45,70 @@ Yii::$app->params['header_style'] = true;
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <div id="product-detail"></div>
+                    <div id="product-detail">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-9">
+                                        <div class="thumb-big">
+                                            <img class="img-fluid" src="<?= $model->avatar?>"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <ul style="max-height: 430px;" class="scrollbar-macos list-thumb">
+                                            <li class="mb-2">
+                                                <a href="javascript:;" class="active thumb-item"
+                                                   data-src="<?= $model->avatar ?>">
+                                                    <img class="img-fluid" src="<?=  $model->avatar?>"/>
+                                                </a>
+                                            </li>
+                                            @if(!empty($model->thumbs))
+                                                @foreach($model->thumbs as $k => $thumb)
+                                                    <li class="mb-2">
+                                                        <a href="javascript:;"
+                                                           class="thumb-item"
+                                                           data-src="/static/<?= $thumb->path ?>">
+                                                            <img class="img-fluid" src="/static/<?= $thumb->path ?>"/>
+                                                        </a>
+                                                    </li>
+                                                @endforeach
+                                            @endif
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+
+                                <h2 class="m-0 tim"><?= $model->name ?></h2>
+                                <div class="txt-block-rating">
+                                    <div class="stars-rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                    </div>
+                                </div>
+                                <div class="description">
+                                    <p class="xam">
+                                        {!! $model->excerpt !!}
+                                    </p>
+                                    <div>
+                                        {!! $model->attr_text !!}
+                                    </div>
+                                </div>
+                                <div class="cart">
+                                    <p class="xam">
+                                        <strong class="bold">Danh mục</strong>:
+                                        <a href="/san-pham/{{$model->defaultArchive->slug}}">
+                                            {{$model->defaultArchive->name}}
+                                        </a>
+                                    </p>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <ul class="nav tab-custom nav-tabs mt-4" role="tablist">
                         <li class="nav-item">
                             <h5 style="padding: 0; color: #50254A;border-bottom: 2px solid #50254A"
@@ -98,6 +161,20 @@ Yii::$app->params['header_style'] = true;
     </section>
 @stop
 @section("js_end")
+    <script>
+        $('.thumb-item').click(function () {
+            $('.thumb-item').removeClass('active');
+            const src = $(this).data('src');
+            $(this).addClass('active');
+            $('.thumb-big').find('img').attr('src', src);
+        });
+        setInterval(() => {
+            const defaultActive = $('.thumb-item.active');
+            defaultActive.next('.thumb-item').trigger('click');
+        }, 3000);
+    </script>
+@stop
+@section("js_off")
     <script type="text/babel">
         const ProductDetail = () => {
             const productId = "{{$model->id}}";

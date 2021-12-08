@@ -13,6 +13,7 @@ return [
     SHOP . '/<archive:[0-9a-zA-Z\-]+>' => 'site/archive',
     SHOP . '/<archive:[0-9a-zA-Z\-]+>/<slug:[0-9a-zA-Z\-]+>' => 'site/detail',
     // page(9
+    'ajax/create-brief' => 'ajax/create-brief',
     'product-filter' => 'product-filter',
     'product-filter/view' => 'product-filter/view',
     'blog-filter' => 'blog-filter',

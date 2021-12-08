@@ -16,8 +16,8 @@ $view->registerJsFile(
     '@web/js/babel.min.js',
     ['depends' => [\yii\web\JqueryAsset::class]]
 );
-//$view->registerCssFile("@web/css/antd.css", [
-//    'depends' => [\janami\assets\AppAsset::class],
-//    'async' => 'true',
-//]);
+$view->registerCssFile("https://cdnjs.cloudflare.com/ajax/libs/antd/4.17.2/antd.min.css", [
+    'depends' => [\janami\assets\AppAsset::class],
+    'async' => 'async',
+]);
 ?>
