@@ -5528,7 +5528,7 @@ ul.blog-category-list > li a:before {
   color: #fe6d70;
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
-  content: "\f105";
+  content: ">";
   font-size: 1.05rem;
   -webkit-transition: all 400ms ease-in-out;
   -moz-transition: all 400ms ease-in-out;
