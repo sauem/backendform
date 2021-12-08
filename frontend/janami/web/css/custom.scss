@@ -2776,6 +2776,14 @@ nav {
     display: none;
   }
 }
-.hvr-sweep-to-right:before{
+
+.hvr-sweep-to-right:before {
   background-color: #E44126;;
+}
+
+.tab-content {
+  p {
+    font-size: 16px;
+    min-font-size: 16px !important;
+  }
 }
