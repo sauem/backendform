@@ -46,11 +46,11 @@ $bannerBottom = HelperFunction::getBanner('sidebar_right_bottom', ['article']);
                     <div class="single-blog-post pr-30">
 
                         <!-- BLOG POST IMAGE -->
-{{--                        <div class="blog-post-img">--}}
-{{--                            <img width="100%" class="img-fluid" src="{{$model->avatar}}" alt="blog-post-image"/>--}}
-{{--                        </div>--}}
+                    {{--                        <div class="blog-post-img">--}}
+                    {{--                            <img width="100%" class="img-fluid" src="{{$model->avatar}}" alt="blog-post-image"/>--}}
+                    {{--                        </div>--}}
 
-                        <!-- SINGLE POST TITLE -->
+                    <!-- SINGLE POST TITLE -->
                         <div class="single-post-title">
 
                             <!-- Post Data -->
@@ -83,7 +83,8 @@ $bannerBottom = HelperFunction::getBanner('sidebar_right_bottom', ['article']);
                     <div id="search-field" class="sidebar-div mb-50">
                         <form method="GET" action="/<?= SEARCH?>">
                             <div class="input-group mb-3">
-                                <input name="s" type="text" class="form-control" placeholder="Tìm kiếm..." aria-label="Search"
+                                <input name="s" type="text" class="form-control" placeholder="Tìm kiếm..."
+                                       aria-label="Search"
                                        aria-describedby="search-field">
                                 <div class="input-group-append">
                                     <button class="btn" type="button"><i class="fa fa-search" aria-hidden="true"></i>
@@ -104,12 +105,19 @@ $bannerBottom = HelperFunction::getBanner('sidebar_right_bottom', ['article']);
                         <ul class="blog-category-list clearfix">
                             @if(isset($categories) && !empty($categories))
                                 @foreach($categories as $category)
-
+                                    <?php
+                                    $countPost = count($category->articles);
+                                    $countProduct = count($category->products);
+                                    if(($category->type === 'product' && $countProduct === 0) || ($category->type === 'article' && $countPost === 0) ){
+                                        continue;
+                                    }
+                                    ?>
                                     <li>
                                         <a href="<?= HelperFunction::Link($category->type, $category->slug)?>">
                                             {{$category->name}}
                                         </a>
-                                        <span>({{count($category->articles)}})</span></li>
+                                        <span>({{$category->type == 'product' ? $countProduct : $countPost}})</span>
+                                    </li>
                                 @endforeach
                             @endif
                         </ul>
@@ -119,7 +127,8 @@ $bannerBottom = HelperFunction::getBanner('sidebar_right_bottom', ['article']);
                     <div class="image-widget sidebar-div mb-50">
                         @if(!empty($bannerTop))
                             @foreach($bannerTop as $top)
-                                <a href="{{$top->href}}"><img class="img-fluid" src="{{$top->avatar}}" alt="{{$top->name}}"/></a>
+                                <a href="{{$top->href}}"><img class="img-fluid" src="{{$top->avatar}}"
+                                                              alt="{{$top->name}}"/></a>
                             @endforeach
                         @endif
                     </div>
@@ -153,7 +162,8 @@ $bannerBottom = HelperFunction::getBanner('sidebar_right_bottom', ['article']);
                     <div class="image-widget sidebar-div mb-50">
                         @if(!empty($bannerBottom))
                             @foreach($bannerBottom as $bottom)
-                                <a href="{{$bottom->href}}"><img class="img-fluid" src="{{$bottom->avatar}}" alt="{{$bottom->name}}"/></a>
+                                <a href="{{$bottom->href}}"><img class="img-fluid" src="{{$bottom->avatar}}"
+                                                                 alt="{{$bottom->name}}"/></a>
                             @endforeach
                         @endif
                     </div>
