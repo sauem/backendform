@@ -52,6 +52,7 @@ AppAsset::register($view);
             "url": "<?= Yii::$app->request->getHostInfo() . \Yii::$app->homeUrl; ?>"
         }
 
+
     </script>
     <?php }?>
 
@@ -103,7 +104,9 @@ AppAsset::register($view);
 </body>
 </html>
 <script>
-    $("img.lazyload").lazyload();
+    $("img.lazyload").lazyload({
+        effect : "fadeIn"
+    });
     $('.search-head img').click(function () {
         if (!$(this).prev().hasClass('is_show')) {
             $(this).prev().addClass('is_show');
