@@ -32,7 +32,7 @@ class AppAsset extends AssetBundle
     ];
     public $js = [
         'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js',
-        ['https://use.fontawesome.com/releases/v5.0.1/js/all.js', 'defer'],
+        ['https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.0/js/all.min.js', 'defer'],
         ['https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js', 'defer' ],
         ['https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js', 'defer'],
         'https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/js/bootstrap.min.js',
@@ -41,6 +41,7 @@ class AppAsset extends AssetBundle
         ['https://cdnjs.cloudflare.com/ajax/libs/jquery-scrollto/1.4.6/jquery-scrollto.min.js', 'defer'],
         ['https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js', 'defer'],
         '/js/menu.js',
+        '/js/moment.js',
         'https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js',
         'https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js',
         'https://cdnjs.cloudflare.com/ajax/libs/flexslider/2.7.2/flexslider.min.css',

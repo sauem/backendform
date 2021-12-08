@@ -1,4 +1,3 @@
-
 <?php
 $view->registerJsFile(
     '@web/js/react.production.js',
@@ -16,8 +15,7 @@ $view->registerJsFile(
     '@web/js/babel.min.js',
     ['depends' => [\yii\web\JqueryAsset::class]]
 );
-$view->registerCssFile("https://cdnjs.cloudflare.com/ajax/libs/antd/4.17.2/antd.min.css", [
-    'depends' => [\janami\assets\AppAsset::class],
-    'async' => 'async',
-]);
 ?>
+@section("link_meta")
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/antd/4.17.2/antd.min.css" rel="stylesheet" async>
+@stop

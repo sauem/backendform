@@ -51,24 +51,13 @@ AppAsset::register($view);
             "name": "<?= $view->title ?>",
             "url": "<?= Yii::$app->request->getHostInfo() . \Yii::$app->homeUrl; ?>"
         }
-
-
-
-
-
-
-
-
-
-
-
-
     </script>
     <?php }?>
 
     <?php $view->registerCsrfMetaTags() ?>
     <title><?= Html::encode($view->title) ?></title>
-    <?php $view->head() ?>
+    @yield('link_meta')
+<?php $view->head() ?>
     <script type="text/babel">
         const {useState, useEffect, useRef, useForceUpdate} = React;
         const {
@@ -81,6 +70,7 @@ AppAsset::register($view);
     </script>
     @yield('js_head')
     @yield('css_head')
+
 </head>
 <body>
 <?php $view->beginBody() ?>

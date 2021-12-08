@@ -1536,9 +1536,8 @@ ol.digit-list p {
   left: 0;
   top: 8px;
   color: #efa697;
-  font-family: "Font Awesome 5 Free";
   font-weight: 900;
-  content: "\f105";
+  content: ">";
   font-size: 0.9rem;
   -webkit-transition: all 400ms ease-in-out;
   -moz-transition: all 400ms ease-in-out;
