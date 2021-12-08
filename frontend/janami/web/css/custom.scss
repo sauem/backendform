@@ -2497,7 +2497,7 @@ nav {
 }
 
 .wsmobileheader {
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: space-between;
 
@@ -2517,6 +2517,8 @@ nav {
 
 @media (max-width: 467px) {
   .wsmobileheader {
+    display: flex;
+
     .social-icons {
       display: block;
     }
