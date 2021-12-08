@@ -15,6 +15,10 @@ $view->registerJsFile(
     '@web/js/babel.min.js',
     ['depends' => [\yii\web\JqueryAsset::class]]
 );
+$view->registerJsFile(
+    '@web/js/moment/moment.js',
+    ['depends' => [\yii\web\JqueryAsset::class]]
+);
 ?>
 @section("link_meta")
     <link href="https://cdnjs.cloudflare.com/ajax/libs/antd/4.17.2/antd.min.css" rel="stylesheet" async>

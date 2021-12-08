@@ -42,7 +42,6 @@ class AppAsset extends AssetBundle
         ['https://cdnjs.cloudflare.com/ajax/libs/jquery-scrollto/1.4.6/jquery-scrollto.min.js', 'defer'],
         ['https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js', 'defer'],
         '/js/menu.js',
-        '/js/moment/moment.js',
         //'https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js',
         //'https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js',
         // 'https://cdnjs.cloudflare.com/ajax/libs/flexslider/2.7.2/flexslider.min.css',
