@@ -80,7 +80,9 @@
                                                 <div className={`number ${icon}  txt-${offset} `}>
                                                     <h1 className={`mb-0`}>{key < 10 && '0'}{number}.</h1>
                                                     <h4>{product.name}</h4>
-                                                    <p className={`xam`}>{product.attr_text ? product.attr_text : product.excerpt}</p>
+                                                    <p className={`xam`}>
+                                                        <div dangerouslySetInnerHTML=@{{ __html: product.attr_text ? product.attr_text : product.excerpt}}/>
+                                                    </p>
                                                     <a href={`/san-pham/${defaultArchive.slug}/${product.slug}`}
                                                        className={`btn-action`}>Xem chi tiết <i
                                                         className="fas ml-2 fa-arrow-right"/></a>
