@@ -31,13 +31,13 @@ Yii::$app->params['header_style'] = true;
             <div class="col-12">
                 <h5>Sản phẩm phù hợp:</h5>
             </div>
-            <div class="col-12">
+            <div class="col-12 other-product">
                 <div class="row">
                     <?php
                     if (!empty($products)) {
                     foreach ($products as $product) {
                     ?>
-                    <div key={key} class="col-md-3 col-12">
+                    <div class="col-md-3 col-12">
                         <div class="block-product">
                             <div class="img">
                                 <img class="img-fluid" src="<?= $product->avatar?>"/>
