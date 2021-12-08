@@ -53,10 +53,10 @@ class AppAsset extends AssetBundle
         ['https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js', 'defer'],
         ['/js/jquery.desoslide.min.js'],
         'https://cdnjs.cloudflare.com/ajax/libs/lazyloadjs/3.2.2/lazyload.min.js',
-        '/js/custom.js?v=1.2',
+        '/js/custom.js?v=1.4',
         '/js/site.js?v=2.4',
         ['/js/action.js?v=1.6', 'type' => 'text/babel'],
-        ['/js/cart.js', 'type' => 'text/babel']
+       // ['/js/cart.js', 'type' => 'text/babel']
     ];
 
     public $depends = [
