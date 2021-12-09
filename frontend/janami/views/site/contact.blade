@@ -47,10 +47,12 @@ $view->title = 'Liên hệ';
                                                 <?= HelperFunction::setting('hotline_1')?></a>
                                         </p>
                                         <p class="xam"><span>Email :</span>
-                                            <a class="xam" href="mailto:<?= HelperFunction::setting('email')?>"><?= HelperFunction::setting('email')?></a>
+                                            <a class="xam"
+                                               href="mailto:<?= HelperFunction::setting('email')?>"><?= HelperFunction::setting('email')?></a>
                                         </p>
                                         <p class="xam"><span>Facebook :</span>
-                                            <a class="xam" href="<?= HelperFunction::setting('facebook')?>"><?= HelperFunction::setting('facebook')?></a>
+                                            <a class="xam"
+                                               href="<?= HelperFunction::setting('facebook')?>"><?= HelperFunction::setting('facebook')?></a>
                                         </p>
                                     </div>
                                 </div>
@@ -91,7 +93,8 @@ $view->title = 'Liên hệ';
         </div>
     </Section>
     <?= $view->render("../parts/logo.blade"); ?>
-
+    <iframe src="<?= HelperFunction::setting('map_iframe')?>"
+            width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
 
 
 @stop
