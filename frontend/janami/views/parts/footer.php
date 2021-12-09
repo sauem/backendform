@@ -30,7 +30,7 @@ if ($menu) {
                                 <img src="/img/icons/map.svg">
                             </span>
                             <span>
-                                <?= HelperFunction::setting('address_1', true) ?>
+                                <?= nl2br(HelperFunction::setting('address_1', true)) ?>
                             </span>
                         </p>
                         <p>
