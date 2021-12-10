@@ -2516,6 +2516,9 @@ nav {
 }
 
 @media (max-width: 467px) {
+  .sm-center{
+    text-align: center;
+  }
   .wsmobileheader {
     display: flex;
 
@@ -2691,7 +2694,7 @@ nav {
     h4 {
       font-size: 23px;
       margin: 20px 0;
-      text-align: left;
+      text-align: center;
     }
 
     .item-why {
