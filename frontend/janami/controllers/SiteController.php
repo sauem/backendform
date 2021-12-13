@@ -350,8 +350,25 @@ class SiteController extends BaseController
         $model = Articles::find()->where([
             'archive_id' => $archive ? $archive->id : null
         ])->orderBy(['created_at' => 'DESC'])->one();
+
+        $categories = Archives::find()
+            ->where([
+                'language' => HelperFunction::getLanguage()
+            ])->limit(6)
+            ->orderBy('id DESC')
+            ->all();
+        $latestBlog = Articles::find()
+            ->where([
+                'language' => HelperFunction::getLanguage(),
+            ])
+            ->andFilterWhere(['!=', 'id', $model->id])
+            ->limit(5)
+            ->orderBy('id DESC')
+            ->all();
         return $this->render('verify.blade', [
-            'model' => $model
+            'model' => $model,
+            'categories' => $categories,
+            'latestBlog' => $latestBlog
         ]);
     }
 }

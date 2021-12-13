@@ -50,22 +50,6 @@ $bannerBottom = HelperFunction::getBanner('sidebar_right_bottom', ['article']);
                     {{--                            <img width="100%" class="img-fluid" src="{{$model->avatar}}" alt="blog-post-image"/>--}}
                     {{--                        </div>--}}
 
-                    <!-- SINGLE POST TITLE -->
-                        <div class="single-post-title">
-
-                            <!-- Post Data -->
-                            <span class="txt-brand">{{$model->archive->name}}</span>
-
-                            <!-- Post Title -->
-                            <h5 class="h5-xl txt-brand">{{$model->name}}</h5>
-
-                            <!-- Post Author -->
-                            <p class="post-author txt-brand">
-                                {{date('d/m/Y', $model->created_at)}}
-                            </p>
-
-                        </div>
-
                         <!-- POST TEXT -->
                         <div class="single-post-txt">
                             {!! $model->content !!}
