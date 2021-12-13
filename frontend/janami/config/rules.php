@@ -10,6 +10,7 @@ return [
     CHECKOUT => 'site/checkout',
     BUYING_GUIDE => 'site/buying-guide',
     BROUCHURE => 'site/brochure',
+    VERIFY => 'site/verify',
     SHOP . '/<archive:[0-9a-zA-Z\-]+>' => 'site/archive',
     SHOP . '/<archive:[0-9a-zA-Z\-]+>/<slug:[0-9a-zA-Z\-]+>' => 'site/detail',
     // page(9

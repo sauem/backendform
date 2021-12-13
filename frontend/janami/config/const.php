@@ -17,4 +17,5 @@ define('CHECKOUT', 'checkout');
 define('CATEGORY', 'category');
 define('BUYING_GUIDE', 'huong-dan-mua-hang');
 define('BROUCHURE', 'brochure');
+define('VERIFY', 'verify');
 

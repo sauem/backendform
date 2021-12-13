@@ -151,7 +151,7 @@ class SiteController extends BaseController
             ->limit(6)->all();
         return $this->render('search.blade', [
             'categories' => $categories,
-            'products' =>$products,
+            'products' => $products,
             'articles' => $articles,
             'relatedPosts' => $relatedPosts
         ]);
@@ -344,4 +344,14 @@ class SiteController extends BaseController
         return '/';
     }
 
+    public function actionVerify()
+    {
+        $archive = Archives::findOne(['slug' => 'verify']);
+        $model = Articles::find()->where([
+            'archive' => $archive ? $archive->id : null
+        ])->orderBy(['created_at' => 'DESC'])->one();
+        return $this->render('verify.blade', [
+            'model' => $model
+        ]);
+    }
 }
