@@ -348,7 +348,7 @@ class SiteController extends BaseController
     {
         $archive = Archives::findOne(['slug' => 'verify']);
         $model = Articles::find()->where([
-            'archive' => $archive ? $archive->id : null
+            'archive_id' => $archive ? $archive->id : null
         ])->orderBy(['created_at' => 'DESC'])->one();
         return $this->render('verify.blade', [
             'model' => $model
