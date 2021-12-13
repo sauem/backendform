@@ -309,7 +309,8 @@ class SiteController extends BaseController
 
         $categories = Archives::find()
             ->where([
-                'language' => HelperFunction::getLanguage()
+                'language' => HelperFunction::getLanguage(),
+                'active' => 1
             ])->limit(6)
             ->orderBy('id DESC')
             ->all();
@@ -353,7 +354,8 @@ class SiteController extends BaseController
 
         $categories = Archives::find()
             ->where([
-                'language' => HelperFunction::getLanguage()
+                'language' => HelperFunction::getLanguage(),
+                'active' => 1
             ])->limit(6)
             ->orderBy('id DESC')
             ->all();
