@@ -2516,6 +2516,26 @@ nav {
 }
 
 @media (max-width: 467px) {
+
+  .nl-simple {
+    .wsmenu-click {
+      //position: relative !important;
+      float: right !important;
+      width: 50px !important;
+     // border: 1px solid #ccc;
+      z-index: 10;
+    }
+
+    > a {
+      z-index: 9;
+      // width: 80%;
+    }
+
+    .sub-menu {
+      box-shadow: unset !important;
+    }
+  }
+
   .sm-center {
     text-align: center;
   }
@@ -2942,3 +2962,4 @@ nav {
     height: 100%;
   }
 }
+
