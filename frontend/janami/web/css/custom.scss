@@ -2516,7 +2516,7 @@ nav {
 }
 
 @media (max-width: 467px) {
-  .sm-center{
+  .sm-center {
     text-align: center;
   }
   .wsmobileheader {
@@ -2932,5 +2932,12 @@ nav {
   #prev-button.unactive .fa {
     color: rgba(200, 200, 200, 0.8);
     text-shadow: 3px 3px 3px rgba(100, 100, 100, 0.4);
+  }
+}
+
+.single-blog-post {
+  img {
+    max-width: 100% !important;
+    max-height: 100% !important;
   }
 }
