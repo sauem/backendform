@@ -190,13 +190,14 @@ const getFrontLink = (type = 'article', archive = '', slug = '') => {
     host = host.replace('admin.', '', host);
     switch (type) {
         case 'archive-product':
-            return `${host}/shop/${archive}`;
+            return `${host}/san-pham/${archive}`;
         case 'archive-article':
             return `${host}/article/${archive}`;
         case 'article':
-            return `${host}/article/${archive}/${slug}`;
+        case 'NULL':
+            return `${host}/${archive}/${slug}`;
         case 'product':
-            return `${host}/shop/${archive}/${slug}`;
+            return `${host}/san-pham/${archive}/${slug}`;
         default:
             return host;
     }
