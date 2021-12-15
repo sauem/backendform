@@ -192,7 +192,7 @@ const getFrontLink = (type = 'article', archive = '', slug = '') => {
         case 'archive-product':
             return `${host}/san-pham/${archive}`;
         case 'archive-article':
-            return `${host}/article/${archive}`;
+            return `${host}/${archive}`;
         case 'article':
         case 'NULL':
             return `${host}/${archive}/${slug}`;
