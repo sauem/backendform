@@ -11,7 +11,6 @@ $this->title = $name;
 ?>
 
 <section class="page-404 mt--100 py-0 bg-overlay">
-    <div class="bg-img"><img src="/usvn/images/banners/2.jpg" alt="background"></div>
     <div class="container">
         <div class="row">
             <div class="col-sm-12 col-md-12 col-lg-12 d-flex justify-content-center align-items-center vh-100">
