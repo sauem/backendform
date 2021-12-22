@@ -133,8 +133,38 @@ function initTinymce(callback, editorClass = 'editor', defaultContent = null, he
 
             input.click();
         },
-        file_browser_callback: function (field_name, url, type, win) {
-            win.document.getElementById(field_name).value = 'my browser value';
+        images_upload_handler: function (blobInfo, success, failure) {
+
+            var xhr, formData;
+
+            xhr = new XMLHttpRequest();
+            xhr.withCredentials = false;
+            xhr.open('POST', '/' + ROUTE.UPLOAD);
+
+            xhr.onload = function () {
+                var json;
+
+                if (xhr.status != 200) {
+                    failure('HTTP Error: ' + xhr.status);
+                    return;
+                }
+
+                json = JSON.parse(xhr.responseText);
+
+                if (!json || typeof json.path != 'string') {
+                    failure('Invalid JSON: ' + xhr.responseText);
+                    return;
+                }
+
+                success(`/static${json.path.replace("..", "")}`, {width: '100%', height: 'auto'});
+            };
+
+            formData = new FormData();
+            formData.append('imageFile', blobInfo.blob(), blobInfo.filename());
+            formData.append('fileType', `image`);
+            formData.append('type', `post-detail`);
+
+            xhr.send(formData);
         },
         menubar: 'file edit view insert format tools table tc help',
         toolbar: 'filemanager code undo redo | bold italic code underline strikethrough | fontselect fontsizeselect formatselect | alignleft aligncenter alignright alignjustify | outdent indent |  numlist bullist checklist | forecolor backcolor casechange permanentpen formatpainter removeformat | pagebreak | charmap emoticons | fullscreen  preview print |  image media pageembed link anchor | a11ycheck ltr rtl | showcomments addcomment',
@@ -142,7 +172,6 @@ function initTinymce(callback, editorClass = 'editor', defaultContent = null, he
         autosave_interval: '30s',
         autosave_prefix: '{path}{query}-{id}-',
         autosave_restore_when_empty: false,
-        autosave_retention: '2m',
         image_advtab: true,
         importcss_append: true,
         height: height,
@@ -168,7 +197,6 @@ function initTinymce(callback, editorClass = 'editor', defaultContent = null, he
             });
         }
     });
-
 }
 
 function initSortable() {
