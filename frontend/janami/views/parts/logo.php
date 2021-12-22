@@ -1,4 +1,8 @@
 <?php
+
+use yii\helpers\ArrayHelper;
+
+$logos = ArrayHelper::getValue(Yii::$app->params, 'brands');
 ?>
 <?php if (!empty($logos)) { ?>
     <div class="sponsors-section">
