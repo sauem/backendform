@@ -80,6 +80,7 @@
             const saveEdit = (edit) => {
                 const items = state.items.slice();
                 const newItems = editItem(items, edit);
+                console.log("New items:", newItems)
                 setState({
                     items: newItems
                 })
