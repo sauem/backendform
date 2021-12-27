@@ -12,14 +12,19 @@
                     <div className="dd3-content">
                         <i className="icon-menu dd-handle"/>
                         {props.title}
-                        <a className="btn" onClick={props.removeItem}><i
-                            className="icon-trash"/></a>
+                        <div>
+                            <a className="btn" onClick={() => props.editItem(props)}><i
+                                className="icon-edit"/></a>
+                            <a className="btn" onClick={props.removeItem}><i
+                                className="icon-trash"/></a>
+                        </div>
                     </div>
                     {
                         props.children ? props.children.map((item, index) => {
                             return (
                                 <ol className="dd-list">
                                     <ItemMenu key={index}
+                                              editItem={() => props.editItem(item)}
                                               removeItem={props.removeItem} {...item}/>
                                 </ol>
                             )
@@ -36,28 +41,67 @@
                 type: null,
                 currentItem: {}
             });
+            const [modalEdit, setModalEdit] = useState(false);
 
             const [form] = Form.useForm();
+            const [formEdit] = Form.useForm();
 
             const onRemoveItem = (evt) => {
                 $(evt.target).closest('.dd-item').remove();
             }
+
+            const findItem = (items = [], object) => {
+                for (let i = 0; i < items.length; i++) {
+                    if (typeof items[i] !== "undefined") {
+                        items[i].children = findItem(items[i].children, object);
+                    } else if (items[i].id === object.id) {
+                        delete items[i];
+                    }
+                }
+                return items;
+            }
+            const editItem = (array = [], object) => {
+                for (let i = 0; i < array.length; i++) {
+                    if (typeof array[i].children !== "undefined") {
+                        array[i].children = editItem(array[i], object);
+                    } else if (array[i].id === object.id) {
+                        array[i] = {
+                            ...array[i],
+                            ...object
+                        }
+                    }
+                }
+                return array;
+            }
+            const onEditItem = (raw) => {
+                formEdit.setFieldsValue(raw);
+                setModalEdit(true);
+            }
+            const saveEdit = (edit) => {
+                const items = state.items.slice();
+                const newItems = editItem(items, edit);
+                setState({
+                    items: newItems
+                })
+                setModalEdit(false)
+            }
             const submitForm = async (data) => {
                 let items = state.items;
                 if (data.link === 'outer_link' || typeof data.link === 'string') {
+                    const slug = state.currentItem.type === 'custom' ? data.outer_link : state.currentItem.slug;
                     let item = {
                         title: data.title,
-                        id: state.currentItem.key,
+                        id: `${slug}-${state.currentItem.key}`,
                         type: state.currentItem.type,
                         key: state.currentItem.key,
-                        slug: state.currentItem.type === 'custom' ? data.outer_link : state.currentItem.slug
+                        slug: slug
                     };
                     items.push(item);
                 } else {
                     let item = await Archives.view(data.link);
                     items.push({
                         title: data.title,
-                        id: item.id,
+                        id: `${item.slug}-${item.id}`,
                         type: item.type,
                         key: item.id,
                         slug: item.slug
@@ -65,9 +109,7 @@
                 }
                 setState({
                     ...state,
-                    ...{
-                        items
-                    }
+                    items
                 });
             }
             const changeLink = e => {
@@ -79,18 +121,14 @@
                     }
                     setState({
                         ...state,
-                        ...{
-                            outerLink: outerLink,
-                            currentItem: itemKey
-                        }
+                        outerLink: outerLink,
+                        currentItem: itemKey
                     });
                 } else {
                     setState({
                         ...state,
-                        ...{
-                            outerLink: false,
-                            currentItem: {}
-                        }
+                        outerLink: false,
+                        currentItem: {}
                     });
                 }
             }
@@ -130,128 +168,161 @@
                 await getMenu(name, lang);
             }
             useEffect(async () => {
-                const {data} = await Archives.fetch({page: -1, "per-page" : 99});
+                const {data} = await Archives.fetch({page: -1, "per-page": 99});
                 let categories = convertTreeSelect(data);
                 categories = categories.concat(customPages(categories));
-                console.log('category: ', categories);
                 setState({
                     ...state,
-                    ...{
-                        categories: categories,
-                    }
+                    categories: categories,
                 });
                 await getMenu(form.getFieldValue('name'), form.getFieldValue('language'));
             }, []);
             return (
-                <Form form={form} onFinish={submitForm} layout="vertical">
-                    <Row gutter={[8, 0]}>
-                        <Col md={8}>
-                            <Card title="Thêm item menu" extra={
-                                <Form.Item
-                                    initialValue="header"
-                                    style={getStyles({marginBottom: 0})}
-                                    name="name">
-                                    <Select onChange={onChangeMenu}>
-                                        <Select.Option value={`header`}>Header</Select.Option>
-                                        <Select.Option value={`footer`}>Footer</Select.Option>
-                                    </Select>
-                                </Form.Item>
-                            }>
-                                <Form.Item
-                                    label="Tên hiển thị"
-                                    name="title"
-                                    rules={[{required: true, message: 'Nhập tên hiển thị'}]}
-                                >
-                                    <Input/>
-                                </Form.Item>
-                                <Form.Item
-                                    initialValue={LANG_VI}
-                                    label="Ngôn ngữ"
-                                    name="language"
-                                >
-                                    <Select onChange={onChangeMenu} style={getStyles({width: '100%'})}>
-                                        <Select.Option value={LANG_VI}>Tiếng Việt</Select.Option>
-                                        <Select.Option value={LANG_EN}>Tiếng Anh</Select.Option>
-                                    </Select>
-                                </Form.Item>
-                                <Form.Item
-                                    hidden
-                                    name="type"
-                                >
-                                    <Input/>
-                                </Form.Item>
-                                <Form.Item
-                                    label="Đường dẫn"
-                                    name="link"
-                                    rules={[{required: true, message: 'Chọn đường dẫn'}]}
-                                >
-                                    <TreeSelect
-                                        showSearch
-                                        onChange={changeLink}
-                                        showArrow={false}
-                                        treeData={state.categories}
-                                        style={styleTreeSelect}
-                                        dropdownStyle={dropdownStyleTreeSelect}
-                                        placeholder="Please select"
-                                        treeDefaultExpandAll
-                                    />
-                                </Form.Item>
-                                {state.outerLink ? <Form.Item
-                                    initialValue="/"
-                                    label="Link tùy chỉnh"
-                                    name="outer_link"
-                                    rules={[{required: true, message: 'Nhập đường dẫn'}]}
-                                >
-                                    <Input/>
-                                </Form.Item> : null}
-
-                                <div className="pull-right">
-                                    <Button htmlType="submit" type="primary">
-                                        Thêm menu
-                                    </Button>
-                                </div>
-                            </Card>
-                        </Col>
-                        <Col md={16}>
-                            <Card title="Menu list" extra={
-                                <div className="d-flex justify-content-between">
+                <div>
+                    <Form form={form} onFinish={submitForm} layout="vertical">
+                        <Row gutter={[8, 0]}>
+                            <Col md={8}>
+                                <Card title="Thêm item menu" extra={
                                     <Form.Item
+                                        initialValue="header"
+                                        style={getStyles({marginBottom: 0})}
+                                        name="name">
+                                        <Select onChange={onChangeMenu}>
+                                            <Select.Option value={`header`}>Header</Select.Option>
+                                            <Select.Option value={`footer`}>Footer</Select.Option>
+                                        </Select>
+                                    </Form.Item>
+                                }>
+                                    <Form.Item
+                                        label="Tên hiển thị"
+                                        name="title"
+                                        rules={[{required: true, message: 'Nhập tên hiển thị'}]}
+                                    >
+                                        <Input/>
+                                    </Form.Item>
+                                    <Form.Item
+                                        initialValue={LANG_VI}
+                                        label="Ngôn ngữ"
                                         name="language"
                                     >
-                                        <Select onChange={onChangeMenu} defaultValue={LANG_VI}
-                                                style={getStyles({width: '100%'})}>
+                                        <Select onChange={onChangeMenu} style={getStyles({width: '100%'})}>
                                             <Select.Option value={LANG_VI}>Tiếng Việt</Select.Option>
                                             <Select.Option value={LANG_EN}>Tiếng Anh</Select.Option>
                                         </Select>
                                     </Form.Item>
                                     <Form.Item
-                                        name={'name'}
+                                        hidden
+                                        name="type"
                                     >
-                                        <Select onChange={onChangeMenu} defaultValue={`header`}
-                                                style={getStyles({width: '100%'})}>
-                                            <Select.Option value={`header`}>Header</Select.Option>
-                                            <Select.Option value={`footer`}>Footer</Select.Option>
-                                        </Select>
+                                        <Input/>
                                     </Form.Item>
-                                    <Button onClick={saveMenu} type="primary" htmlType="button"
-                                            className="ml-2">Lưu</Button>
-                                </div>
-                            }>
-                                <div id="menu-sortable" className="custom-dd dd">
-                                    <ol className="dd-list">
-                                        {state.items.length > 0 ?
-                                            state.items.map((item, index) =>
-                                                <ItemMenu key={index}
-                                                          removeItem={onRemoveItem}
-                                                          {...item}/>) :
-                                            null
-                                        }
-                                    </ol>
-                                </div>
-                            </Card>
-                        </Col>
-                    </Row>
-                </Form>
+                                    <Form.Item
+                                        label="Đường dẫn"
+                                        name="link"
+                                        rules={[{required: true, message: 'Chọn đường dẫn'}]}
+                                    >
+                                        <TreeSelect
+                                            showSearch
+                                            onChange={changeLink}
+                                            showArrow={false}
+                                            treeData={state.categories}
+                                            style={styleTreeSelect}
+                                            dropdownStyle={dropdownStyleTreeSelect}
+                                            placeholder="Please select"
+                                            treeDefaultExpandAll
+                                        />
+                                    </Form.Item>
+                                    {state.outerLink ? <Form.Item
+                                        initialValue="/"
+                                        label="Link tùy chỉnh"
+                                        name="outer_link"
+                                        rules={[{required: true, message: 'Nhập đường dẫn'}]}
+                                    >
+                                        <Input/>
+                                    </Form.Item> : null}
+
+                                    <div className="pull-right">
+                                        <Button htmlType="submit" type="primary">
+                                            Thêm menu
+                                        </Button>
+                                    </div>
+                                </Card>
+                            </Col>
+                            <Col md={16}>
+                                <Card title="Menu list" extra={
+                                    <div className="d-flex justify-content-between">
+                                        <Form.Item
+                                            name="language"
+                                        >
+                                            <Select onChange={onChangeMenu} defaultValue={LANG_VI}
+                                                    style={getStyles({width: '100%'})}>
+                                                <Select.Option value={LANG_VI}>Tiếng Việt</Select.Option>
+                                                <Select.Option value={LANG_EN}>Tiếng Anh</Select.Option>
+                                            </Select>
+                                        </Form.Item>
+                                        <Form.Item
+                                            name={'name'}
+                                        >
+                                            <Select onChange={onChangeMenu} defaultValue={`header`}
+                                                    style={getStyles({width: '100%'})}>
+                                                <Select.Option value={`header`}>Header</Select.Option>
+                                                <Select.Option value={`footer`}>Footer</Select.Option>
+                                            </Select>
+                                        </Form.Item>
+                                        <Button onClick={saveMenu} type="primary" htmlType="button"
+                                                className="ml-2">Lưu</Button>
+                                    </div>
+                                }>
+                                    <div id="menu-sortable" className="custom-dd dd">
+                                        <ol className="dd-list">
+                                            {state.items.length > 0 ?
+                                                state.items.map((item, index) =>
+                                                    <ItemMenu key={index}
+                                                              editItem={onEditItem}
+                                                              removeItem={onRemoveItem}
+                                                              {...item}/>) :
+                                                null
+                                            }
+                                        </ol>
+                                    </div>
+                                </Card>
+                            </Col>
+                        </Row>
+                    </Form>
+                    <Modal
+                        {...{labelCol: {sm: 8}}}
+                        visible={modalEdit}
+                        onCancel={() => setModalEdit(true)}
+                        footer={[
+                            <Button onClick={() => setModalEdit(false)}>Huỷ</Button>,
+                            <Button form="form-edit" htmlType="submit">Lưu</Button>,
+                        ]}
+                        title="Sửa menu">
+                        <Form id={`form-edit`} onFinish={saveEdit} form={formEdit}>
+                            <Form.Item
+                                name="title"
+                                label="Tên menu">
+                                <Input/>
+                            </Form.Item>
+                            <Form.Item
+                                name="id"
+                                hidden>
+                                <Input/>
+                            </Form.Item>
+                            <Form.Item
+                                name="type"
+                                hidden>
+                                <Input/>
+                            </Form.Item>
+
+                            <Form.Item
+                                name="slug"
+                                label="Đường dẫn">
+                                <Input/>
+                            </Form.Item>
+                        </Form>
+                    </Modal>
+                </div>
             )
         }
     </script>
