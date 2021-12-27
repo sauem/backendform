@@ -152,16 +152,18 @@ $bannerBottom = HelperFunction::getBanner('sidebar_right_bottom', ['article']);
                             @if(isset($latestBlog) && !empty($latestBlog))
                                 @foreach($latestBlog as $blog)
                                     <li class="clearfix d-flex align-items-center">
-                                      <div class="img">
-                                          <img class="img-fluid" src="{{$blog->avatar}}" alt="{{$blog->name}}"/>
+                                      <div class="row">
+                                          <div class="col-md-3">
+                                              <img class="img-fluid w-100 h-auto" src="{{$blog->avatar}}" alt="{{$blog->name}}"/>
+                                          </div>
+                                          <div class="post-summary col-md-9">
+                                              <a href="<?= HelperFunction::Link(ARTICLE, $blog->slug, $blog->archive->slug)?>"
+                                                 class="">
+                                                  {{$blog->name}}
+                                              </a>
+                                              <p class="text-muted">{{date('d/m/Y', $blog->created_at)}}</p>
+                                          </div>
                                       </div>
-                                        <div class="post-summary">
-                                            <a href="<?= HelperFunction::Link(ARTICLE, $blog->slug, $blog->archive->slug)?>"
-                                               class="">
-                                                {{$blog->name}}
-                                            </a>
-                                            <p class="text-muted">{{date('d/m/Y', $blog->created_at)}}</p>
-                                        </div>
 
                                     </li>
 
