@@ -53,6 +53,8 @@ AppAsset::register($view);
         }
 
 
+
+
     </script>
     <?php }?>
 
@@ -70,17 +72,27 @@ AppAsset::register($view);
         } = antd;
         const {TabPane} = Tabs;
     </script>
-    @yield('js_head')
-    @yield('css_head')
+@yield('js_head')
+@yield('css_head')
 <!-- Facebook Pixel Code -->
     <script>
-        !function(f,b,e,v,n,t,s)
-        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-            n.queue=[];t=b.createElement(e);t.async=!0;
-            t.src=v;s=b.getElementsByTagName(e)[0];
-            s.parentNode.insertBefore(t,s)}(window, document,'script',
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return;
+            n = f.fbq = function () {
+                n.callMethod ?
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n;
+            n.push = n;
+            n.loaded = !0;
+            n.version = '2.0';
+            n.queue = [];
+            t = b.createElement(e);
+            t.async = !0;
+            t.src = v;
+            s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
             'https://connect.facebook.net/en_US/fbevents.js');
         fbq('init', '1766299166947383');
         fbq('track', 'PageView');
@@ -121,15 +133,14 @@ AppAsset::register($view);
 </html>
 <script>
     $("img.lazyload").lazyload({
-        effect : "fadeIn"
+        effect: "fadeIn"
     });
-    $('.search-head img').click(function () {
-        if (!$(this).prev().hasClass('is_show')) {
-            $(this).prev().addClass('is_show');
-            $(this).addClass('is_show');
+    $('.search-head').click(function () {
+        if (!$('.form-search').hasClass('is_show')) {
+            $('.form-search').addClass('is_show');
+            //   $(this).addClass('is_show');
         } else {
-            $(this).prev().removeClass('is_show');
-            $(this).removeClass('is_show');
+            $('.form-search').removeClass('is_show');
         }
     });
 

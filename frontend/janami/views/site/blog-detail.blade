@@ -15,6 +15,15 @@ $bannerBottom = HelperFunction::getBanner('sidebar_right_bottom', ['article']);
 ])?>
 <?php $view->endBlock()?>
 
+<?php $view->beginBlock('meta') ?>
+<?= $view->render('/structure/meta.blade', [
+    'title' => $model->meta ? $model->meta->meta_title : $model->name,
+    'image' => $model->avatar,
+    'description' => $model->meta ? $model->meta->meta_description : $model->excerpt,
+    'url' => HelperFunction::currentURL()
+])?>
+<?php $view->endBlock()?>
+
 @section('content')
     <?= $view->render('../parts/slider.blade')?>
 
@@ -143,7 +152,9 @@ $bannerBottom = HelperFunction::getBanner('sidebar_right_bottom', ['article']);
                             @if(isset($latestBlog) && !empty($latestBlog))
                                 @foreach($latestBlog as $blog)
                                     <li class="clearfix d-flex align-items-center">
-                                        <img class="img-fluid" src="{{$blog->avatar}}" alt="{{$blog->name}}"/>
+                                      <div class="img">
+                                          <img class="img-fluid" src="{{$blog->avatar}}" alt="{{$blog->name}}"/>
+                                      </div>
                                         <div class="post-summary">
                                             <a href="<?= HelperFunction::Link(ARTICLE, $blog->slug, $blog->archive->slug)?>"
                                                class="">

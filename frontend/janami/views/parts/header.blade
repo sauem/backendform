@@ -24,9 +24,12 @@ if ($menu) {
                </a>
             </span>
             <div class="social-icons">
-                <a target="_blank" href="<?= HelperFunction::setting('facebook')?>"><i class="fab fa-facebook-square"></i></a>
-                <a target="_blank" href="<?= HelperFunction::setting('youtube')?>"> <i class="fab fa-youtube-square"></i></a>
-                <a target="_blank" href="<?= HelperFunction::setting('instagram')?>"> <i class="fab fa-instagram"></i></a>
+                <a target="_blank" href="<?= HelperFunction::setting('facebook')?>"><i
+                            class="fab fa-facebook-square"></i></a>
+                <a target="_blank" href="<?= HelperFunction::setting('youtube')?>"> <i
+                            class="fab fa-youtube-square"></i></a>
+                <a target="_blank" href="<?= HelperFunction::setting('instagram')?>"> <i
+                            class="fab fa-instagram"></i></a>
             </div>
             <a id="wsnavtoggle" class="wsanimated-arrow"><span></span></a>
         </div>
@@ -105,7 +108,14 @@ if ($menu) {
                             @endforeach
                         @endif
 
+                        <li class="nl-simple header-phone search-head" aria-haspopup="true">
+                            <a class="text-decoration-none" href="javascript:;">
+                                <span class="bg-brand white-color"><i class="fas fa-search"></i></span></a>
+                        </li>
                     </ul>
+                    <form action="/<?= SEARCH?>" class="form-search">
+                        <input name="s" class="form-control" placeholder="Tìm sản phẩm...">
+                    </form>
                 </nav>    <!-- END MAIN MENU -->
 
             </div>
