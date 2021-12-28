@@ -1,0 +1,65 @@
+<?php
+
+use common\helper\HelperFunction;
+
+$view->title = $model->name;
+?>
+
+<?php $view->beginBlock('schema') ?>
+<?= $view->render('/structure/schema.blade', [
+    'type' => 'Article',
+    'name' => $model->name ?? 'Article',
+    'url' => HelperFunction::currentURL()
+])?>
+<?php $view->endBlock()?>
+
+<?php $view->beginBlock('meta') ?>
+<?= $view->render('/structure/meta.blade', [
+    'title' => $model->name,
+    'image' => $model->avatar,
+    'description' => $model->description,
+    'url' => HelperFunction::currentURL()
+])?>
+<?php $view->endBlock()?>
+
+@section('content')
+    <?= $view->render('../parts/slider.blade')?>
+
+    <div class="container">
+        <div id="breadcrumb">
+            <div class="row">
+                <div class="col-12">
+                    <div class="breadcrumb-nav">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="/">Trang chủ</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">{!! $view->title !!}</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <section id="single-post" class="bg-color-01 mb-4 blog-page-section division">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="single-blog-post pr-30">
+                        <div class="single-post-title">
+                            <h5 class="h5-xl txt-brand">{{$model->name}}</h5>
+                        </div>
+                        <div class="single-post-txt">
+                            {!! $model->content !!}
+                        </div>    <!-- END POST TEXT -->
+                    </div>
+                </div>    <!-- END POST CONTENT -->
+            </div>
+        </div>
+    </section>
+
+    <?= $view->render("../parts/logo.blade"); ?>
+
+@stop

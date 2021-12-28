@@ -204,7 +204,6 @@ const Pages = {
             const res = await Server.get(ROUTE.PAGE.INDEX, {
                 params: {
                     ...params,
-                    expand: 'archive',
                     sort: '-created_at'
                 }
             }).catch(axiosCatch);

@@ -12,6 +12,7 @@ use common\models\Contact;
 use common\models\Galleries;
 use common\models\Medias;
 use common\models\Member;
+use common\models\Pages;
 use common\models\Products;
 use common\models\ProductsSearch;
 use common\models\Technology;
@@ -204,10 +205,17 @@ class SiteController extends BaseController
 
     public function actionArchive($archive)
     {
+        $pages = Pages::findOne(['slug' => $archive]);
+        $model = Archives::findOne(['slug' => $archive]);
+
+        if ($pages && !$model) {
+            return $this->render('page.blade', [
+                'model' => $pages
+            ]);
+        }
         if (!$archive) {
             return $this->actionShop();
         }
-        $model = Archives::findOne(['slug' => $archive]);
         if (!$model) {
             throw new BadRequestHttpException('Không tồn tại danh mục!');
         }
