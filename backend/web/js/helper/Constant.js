@@ -7,6 +7,7 @@ const MEDIA_TYPE_GALLERY = 'gallery';
 const MEDIA_TYPE_LOGO = 'logo';
 const MEDIA_TYPE_BANNER = 'banner';
 const MEDIA_TYPE_BLOG = 'article';
+const MEDIA_TYPE_PAGE = 'page';
 const MEDIA_TYPE_TESTIMONIAL = 'testimonial';
 // Loại danh mục
 const ARCHIVE_TYPE_BLOG = 'article';
@@ -201,6 +202,13 @@ const ROUTE = {
         UPDATE: 'article/update',
         DELETE: 'article/delete',
         VIEW: 'article/view'
+    },
+    PAGE: {
+        INDEX: 'page/index',
+        CREATE: 'page/create',
+        UPDATE: 'page/update',
+        DELETE: 'page/delete',
+        VIEW: 'page/view'
     },
     ATTRIBUTE: {
         INDEX: 'attribute/index',

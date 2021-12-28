@@ -63,12 +63,14 @@
             const editItem = (array = [], object) => {
                 for (let i = 0; i < array.length; i++) {
                     if (typeof array[i].children !== "undefined") {
-                        array[i].children = editItem(array[i], object);
-                    } else if (array[i].id === object.id) {
+                        array[i].children = editItem(array[i].children, object);
+                    }
+                    if (array[i].id === object.id) {
                         array[i] = {
                             ...array[i],
                             ...object
                         }
+                        break;
                     }
                 }
                 return array;
@@ -80,7 +82,6 @@
             const saveEdit = (edit) => {
                 const items = state.items.slice();
                 const newItems = editItem(items, edit);
-                console.log("New items:", newItems)
                 setState({
                     items: newItems
                 })
@@ -92,7 +93,7 @@
                     const slug = state.currentItem.type === 'custom' ? data.outer_link : state.currentItem.slug;
                     let item = {
                         title: data.title,
-                        id: `${slug}-${state.currentItem.key}`,
+                        id: Math.floor(Math.random() * 10000) + `_${state.currentItem.key}`,
                         type: state.currentItem.type,
                         key: state.currentItem.key,
                         slug: slug
@@ -102,7 +103,7 @@
                     let item = await Archives.view(data.link);
                     items.push({
                         title: data.title,
-                        id: `${item.slug}-${item.id}`,
+                        id: Math.floor(Math.random() * 5000) + `_${item.id}`,
                         type: item.type,
                         key: item.id,
                         slug: item.slug
