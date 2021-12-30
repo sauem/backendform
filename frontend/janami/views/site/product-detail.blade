@@ -104,7 +104,11 @@ Yii::$app->params['header_style'] = true;
                                             {{$model->defaultArchive->name}}
                                         </a>
                                     </p>
-
+                                    @if($model->buy_link)
+                                        <a target="_blank" href="<?= $model->buy_link ?>" class="btn btn-brand button hvr-sweep-to-right">
+                                            Mua hàng <i class="fa fa-shopping-cart"></i>
+                                        </a>
+                                    @endif
                                 </div>
                             </div>
                         </div>
