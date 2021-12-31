@@ -446,34 +446,34 @@ a:focus {
 /*  LISTS
 /*------------------------------------------*/
 
-ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
+/*ul {*/
+/*  margin: 0;*/
+/*  padding: 0;*/
+/*  list-style: none;*/
+/*}*/
 
 /*------------------------------------------*/
 /*  TEXT LIST
 /*------------------------------------------*/
 
-.txt-list li i {
-  position: relative;
-  font-size: 1.05rem;
-  line-height: 1.5rem;
-  float: left;
-  margin-right: 10px;
-  top: 2px;
-}
+/*.txt-list li i {*/
+/*  position: relative;*/
+/*  font-size: 1.05rem;*/
+/*  line-height: 1.5rem;*/
+/*  float: left;*/
+/*  margin-right: 10px;*/
+/*  top: 2px;*/
+/*}*/
 
-.txt-list li p {
-  overflow: hidden;
-  margin-bottom: 10px;
-}
+/*.txt-list li p {*/
+/*  overflow: hidden;*/
+/*  margin-bottom: 10px;*/
+/*}*/
 
-ul.simple-list {
-  list-style: disc;
-  margin-left: 15px;
-}
+/*ul.simple-list {*/
+/*  list-style: disc;*/
+/*  margin-left: 15px;*/
+/*}*/
 
 /*------------------------------------------*/
 /*  NUMBER LIST

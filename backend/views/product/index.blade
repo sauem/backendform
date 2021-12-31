@@ -47,7 +47,8 @@
                         columns={[
                             {
                                 title: 'Sản phẩm', dataIndex: 'name', render: (name, raw) => {
-                                    const preLink = getFrontLink('product', raw.defaultArchive.slug, raw.slug);
+                                    const archiveSlug = raw.defaultArchive ? raw.defaultArchive.slug : '';
+                                    const preLink = getFrontLink('product', archiveSlug, raw.slug);
                                     return (
                                         <p className={`text-1`}>{name}
                                             <a target="_blank" href={`http://${preLink}`}><small>Xem</small></a>
