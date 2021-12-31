@@ -2492,7 +2492,10 @@ nav {
   }
 
 }
-
+.list-thumb{
+  list-style: none;
+  padding: 0;
+}
 @keyframes slide {
   10% {
     opacity: 1;
