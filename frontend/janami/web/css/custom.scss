@@ -3001,6 +3001,9 @@ nav {
 }
 
 .popular-posts {
+  &.pl-0{
+    padding-left: 0;
+  }
   .pr-0 {
     padding-right: 0;
   }
