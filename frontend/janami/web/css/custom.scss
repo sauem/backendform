@@ -2250,6 +2250,10 @@ nav {
       max-height: 200px;
       height: 200px;
       overflow: hidden;
+
+      a {
+        display: flex;
+      }
     }
 
     a:hover {
@@ -2492,10 +2496,12 @@ nav {
   }
 
 }
-.list-thumb{
+
+.list-thumb {
   list-style: none;
   padding: 0;
 }
+
 @keyframes slide {
   10% {
     opacity: 1;
@@ -2984,7 +2990,6 @@ nav {
 .single-blog-post, #blog-page {
   img {
     max-width: 100% !important;
-    max-height: 100% !important;
     height: auto;
   }
 
