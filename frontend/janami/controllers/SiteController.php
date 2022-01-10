@@ -337,8 +337,20 @@ class SiteController extends BaseController
             ->where(['type' => 'partner'])->all();
 
         $galleries = Galleries::find()->all();
+
+        $articles = Articles::find()
+            ->where([
+                'show_cat' => 1,
+                'language' => HelperFunction::getLanguage(),
+                'status' => Articles::STATUS_ACTIVE,
+                'archive_id' => $model->archive_id,
+            ])
+            ->andFilterWhere(['!=', 'id', $model->id])
+            ->limit(12)->orderBy('created_at DESC')->all();
+
         return $this->render($template, [
             'model' => $model,
+            'posts' => $articles,
             'categories' => $categories,
             'latestBlog' => $latestBlog,
             'related' => $related,

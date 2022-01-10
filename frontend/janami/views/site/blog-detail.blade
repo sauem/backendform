@@ -186,7 +186,69 @@ $bannerBottom = HelperFunction::getBanner('sidebar_right_bottom', ['article']);
             </div>
         </div>
     </section>
+    <section data-aos="fade-up"
+             data-aos-duration="1500" id="blog-1" class="section-blog wide-10 blog-section division">
+        <div class="container">
+            <!-- SECTION TITLE -->
+            <div class="row">
+                <div class="col-12">
+                    <h4 class="txt-brand">Bài viết liên quan</h4>
+                </div>
+            </div>
 
+            <div class="owl-carousel post-carousel-auto owl-theme">
+                @if(!empty($posts))
+                    @foreach($posts as $post)
+                        <div class="blog-post mx-md-3">
+                            <div class="blog-post-img">
+                                <a href="<?=HelperFunction::Link(BLOG, $post->slug, $post->archive->slug) ?>">
+                                    <img class="img-fluid owl-lazy" data-src="<?= HelperFunction::checkImage($post->avatar)?>"
+                                         alt="{{$post->name}}"/>
+                                </a>
+                            </div>
+                            <div class="blog-post-txt">
+                                <p class="do mb-0">{{date('d/m/Y', $post->created_at)}}</p>
+                                <h5 class="h5-sm text-2">
+                                    <a href="<?= HelperFunction::Link(BLOG, $post->slug, $post->archive->slug)?>">
+                                        {{$post->name}}
+                                    </a>
+                                </h5>
+                                <p class="excerpt text-3">
+                                    {{substr_replace($post->excerpt,'...',100)}}
+                                </p>
+                                <a href="<?=HelperFunction::Link(BLOG, $post->slug, $post->archive->slug) ?>">
+                                    Đọc thêm
+                                    <i class="fas ml-2 fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    @endforeach
+                @endif
+
+            </div>    <!-- END BLOG POSTS HOLDER -->
+        </div>       <!-- End container -->
+    </section>
+    <Section data-aos="fade-up"
+             data-aos-duration="1200" class="section-register mt-50">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-9">
+                    <div class="row justify-content-center ">
+                        <div class="col-md-8 text-center size-18">
+                            <img src="/img/icon-do.svg">
+                            <p class="call-txt">
+                                Bạn là chủ Spa/TMV, Kinh doanh online<br>
+                                Xin vui lòng <span class="txt-brand bold">Đăng ký</span> và nhận thông tin Chính sách
+                                đại lý
+                                <span class="txt-brand bold">tại đây</span>.
+                            </p>
+                        </div>
+                    </div>
+                    <?= $view->render('/parts/form-req.blade') ?>
+                </div>
+            </div>
+        </div>
+    </Section>
     <?= $view->render("../parts/logo.blade"); ?>
 
 @stop

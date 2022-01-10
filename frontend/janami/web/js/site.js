@@ -105,3 +105,29 @@ const initThumbnailCarousel = (element) => {
     });
 
 }
+
+
+$('.post-carousel-auto').owlCarousel({
+    items: 3,
+    // margin: 20,
+    animateOut: 'fadeOut',
+    autoPlay: true,
+    lazyLoad: true,
+    loop: true,
+    nav: true,
+    dots: false,
+    navText: ['<i class="fas fa-arrow-left"></i>', '<i class="fas fa-arrow-right"></i>'],
+    responsive: {
+        //  loop: true,
+        0: {
+            items: 1,
+            autoHeight: true
+        },
+        720: {
+            items: 2
+        },
+        960: {
+            items: 3
+        }
+    }
+})
