@@ -12,6 +12,16 @@ $view->title = $model->name;
     'url' => HelperFunction::currentURL()
 ])?>
 <?php $view->endBlock()?>
+
+
+<?php $view->beginBlock('meta') ?>
+<?= $view->render('/structure/meta.blade', [
+    'title' => $model->name,
+    'image' => $model->avatar,
+    'description' => $model->meta ? $model->meta->meta_description : $model->excerpt,
+    'url' => HelperFunction::currentURL()
+])?>
+
 <?= $view->render('../parts/react-asset.blade')?>
 
 @section('content')

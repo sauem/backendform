@@ -9,7 +9,7 @@ if (!empty($db)) {
             'dsn' => 'mysql:host=127.0.0.1;dbname=' . $item['database'],
             'username' => $item['username'],
             'password' => $item['password'],
-            'charset' => 'utf8',
+            'charset' => 'utf8mb4',
             'enableSchemaCache' => true,
             // Duration of schema cache.
             'schemaCacheDuration' => 3600,

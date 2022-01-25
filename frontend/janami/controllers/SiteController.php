@@ -343,7 +343,6 @@ class SiteController extends BaseController
                 'show_cat' => 1,
                 'language' => HelperFunction::getLanguage(),
                 'status' => Articles::STATUS_ACTIVE,
-                'archive_id' => $model->archive_id,
             ])
             ->andFilterWhere(['!=', 'id', $model->id])
             ->limit(12)->orderBy('created_at DESC')->all();
