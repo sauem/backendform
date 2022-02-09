@@ -258,14 +258,14 @@ Yii::$app->params['footer_type'] = 'light';
                                                 @foreach($archive->products as $product)
                                                     <div class="item-product-home hvr-shadow">
                                                         <div class="img">
-                                                            <a href="/san-pham/<?= $product->defaultArchive->slug ?>/<?= $product->slug?>">
+                                                            <a href="<?= HelperFunction::productLink($product) ?>">
                                                                 <img data-src="<?= HelperFunction::checkImage($product->avatar)?>"
                                                                      class="w-100 owl-lazy img-fluid"/>
                                                             </a>
                                                         </div>
                                                         <div class="product-info">
                                                             <p class="product-name text-1">
-                                                                <a href="/san-pham/<?= $product->defaultArchive->slug ?>/<?= $product->slug?>">{{$product->name}}</a>
+                                                                <a href="<?= HelperFunction::productLink($product) ?>">{{$product->name}}</a>
                                                             <p style="max-height: 50px"
                                                                class="text-2">{{$product->sub_name}}</p>
                                                             </p>
@@ -280,14 +280,14 @@ Yii::$app->params['footer_type'] = 'light';
                                                             @foreach($children->products as $productChild)
                                                                 <div class="item-product-home hvr-shadow">
                                                                     <div class="img">
-                                                                        <a href="/san-pham/<?= $productChild->defaultArchive->slug ?>/<?= $productChild->slug?>">
+                                                                        <a href="<?= HelperFunction::productLink($productChild) ?>">
                                                                             <img data-src="<?= HelperFunction::checkImage($productChild->avatar)?>"
                                                                                  class="w-100 owl-lazy img-fluid"/>
                                                                         </a>
                                                                     </div>
                                                                     <div class="product-info">
                                                                         <p class="product-name text-1">
-                                                                            <a href="/san-pham/<?= $productChild->defaultArchive->slug ?>/<?= $productChild->slug?>">{{$productChild->name}}</a>
+                                                                            <a href="<?= HelperFunction::productLink($productChild) ?>">{{$productChild->name}}</a>
                                                                         </p>
                                                                         <p>{{$productChild->sub_name}}</p>
                                                                         <p class="product-price"><?= HelperFunction::htmlPrice($productChild)?></p>
@@ -311,14 +311,14 @@ Yii::$app->params['footer_type'] = 'light';
                                                 @foreach($archive->products as $product)
                                                     <div class="item-product-home hvr-shadow">
                                                         <div class="img">
-                                                            <a href="/san-pham/<?= $product->defaultArchive->slug ?>/<?= $product->slug?>">
+                                                            <a href="<?= HelperFunction::productLink($product) ?>">
                                                                 <img data-src="<?= HelperFunction::checkImage($product->avatar)?>"
                                                                      class="w-100 owl-lazy img-fluid"/>
                                                             </a>
                                                         </div>
                                                         <div class="product-info">
                                                             <p class="product-name text-1">
-                                                                <a href="/san-pham/<?= $product->defaultArchive->slug ?>/<?= $product->slug?>">{{$product->name}}</a>
+                                                                <a href="<?= HelperFunction::productLink($product) ?>">{{$product->name}}</a>
                                                             </p>
                                                             <p>{{$product->sub_name}}</p>
                                                             <p class="product-price"><?= HelperFunction::htmlPrice($product)?></p>
@@ -333,14 +333,14 @@ Yii::$app->params['footer_type'] = 'light';
                                                             @foreach($children->products as $productChild)
                                                                 <div class="item-product-home hvr-shadow">
                                                                     <div class="img">
-                                                                        <a href="/san-pham/<?= $productChild->defaultArchive->slug ?>/<?= $productChild->slug?>">
+                                                                        <a href="<?= HelperFunction::productLink($productChild) ?>">
                                                                             <img data-src="<?= HelperFunction::checkImage($productChild->avatar)?>"
                                                                                  class="w-100 owl-lazy img-fluid"/>
                                                                         </a>
                                                                     </div>
                                                                     <div class="product-info">
                                                                         <p class="product-name text-1">
-                                                                            <a href="/san-pham/<?= $productChild->defaultArchive->slug ?>/<?= $productChild->slug?>">{{$productChild->name}}</a>
+                                                                            <a href="<?= HelperFunction::productLink($productChild) ?>">{{$productChild->name}}</a>
                                                                         </p>
                                                                         <p>{{$productChild->sub_name}}</p>
                                                                         <p class="product-price"><?= HelperFunction::htmlPrice($productChild)?></p>
@@ -400,7 +400,8 @@ Yii::$app->params['footer_type'] = 'light';
                                                     <li class="{{$k === 0 ? 'active' : ''}}" data-aos="fade-down"
                                                         data-aos-duration={{$duration}}>
                                                         <a data-toggle="collapse" href="#content_{{$k}}">
-                                                            <img class="lazyload" data-src="/img/item-tech.svg"/> {{$item->name}}
+                                                            <img class="lazyload"
+                                                                 data-src="/img/item-tech.svg"/> {{$item->name}}
                                                         </a>
                                                         <div aria-labelledby="headingOne" data-parent="#accordion"
                                                              id="content_{{$k}}" class="collapse">
@@ -458,7 +459,7 @@ Yii::$app->params['footer_type'] = 'light';
                         <img src="/img/item-license.svg" class="ml-1"/>
                     </div>
                     <div class="owl-carousel  owl-theme invention-carousel mb-2">
-                        <img class="owl-lazy"  data-src="/img/invent/bang1.jpg"/>
+                        <img class="owl-lazy" data-src="/img/invent/bang1.jpg"/>
                         <img class="owl-lazy" data-src="/img/invent/bang2.jpg"/>
                     </div>
                 </div>
@@ -480,13 +481,13 @@ Yii::$app->params['footer_type'] = 'light';
                                         <div class="item-newspaper">
                                             <div class="img">
                                                 <a class="txt-green paper-title mb-0 mt-2 bold" target="_blank"
-                                                   href={{$new->read_type === 1 ? $new->direct_url : "/article/{$new->archive->slug}/$new->slug"}}>
+                                                   href={{$new->read_type === 1 ? $new->direct_url : HelperFunction::blogLink($new)}}>
                                                     <img data-src="{{$new->avatar}}" class="w-100 owl-lazy img-fluid"/>
                                                 </a>
                                             </div>
                                             <div class="content">
                                                 <a class="txt-green paper-title mb-0 mt-2 bold" target="_blank"
-                                                   href={{$new->read_type === 1 ? $new->direct_url : "/article/{$new->archive->slug}/$new->slug"}}>
+                                                   href={{$new->read_type === 1 ? $new->direct_url : HelperFunction::blogLink($new)}}>
                                                     <p class="txt-green paper-title mb-0 mt-2 bold">
                                                         {{$new->name}}
                                                     </p>
@@ -507,7 +508,8 @@ Yii::$app->params['footer_type'] = 'light';
                                         @foreach($guestComment as $guest)
                                             <div class="item-newspaper">
                                                 <div class="img">
-                                                    <img data-src="{{$guest->avatar}}" class="w-100 owl-lazy img-fluid"/>
+                                                    <img data-src="{{$guest->avatar}}"
+                                                         class="w-100 owl-lazy img-fluid"/>
                                                 </div>
                                                 <div class="content">
                                                     <p class="paper-title mb-0 mt-2">
@@ -543,7 +545,8 @@ Yii::$app->params['footer_type'] = 'light';
             </div>
         </div>
     </section>
-    <section class="section-why lazyload" data-original="/img/bg-why.png"  style="background-image: url(/img/bg-why.png)">
+    <section class="section-why lazyload" data-original="/img/bg-why.png"
+             style="background-image: url(/img/bg-why.png)">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-10">
@@ -632,22 +635,23 @@ Yii::$app->params['footer_type'] = 'light';
                     @foreach($posts as $post)
                         <div class="blog-post mx-md-3">
                             <div class="blog-post-img">
-                                <a href="<?=HelperFunction::Link(BLOG, $post->slug, $post->archive->slug) ?>">
-                                    <img class="img-fluid owl-lazy" data-src="<?= HelperFunction::checkImage($post->avatar)?>"
+                                <a href="<?=HelperFunction::blogLink($post) ?>">
+                                    <img class="img-fluid owl-lazy"
+                                         data-src="<?= HelperFunction::checkImage($post->avatar)?>"
                                          alt="{{$post->name}}"/>
                                 </a>
                             </div>
                             <div class="blog-post-txt">
                                 <p class="do mb-0">{{date('d/m/Y', $post->created_at)}}</p>
                                 <h5 class="h5-sm text-2">
-                                    <a href="<?= HelperFunction::Link(BLOG, $post->slug, $post->archive->slug)?>">
+                                    <a href="<?= HelperFunction::blogLink($post)?>">
                                         {{$post->name}}
                                     </a>
                                 </h5>
                                 <p class="excerpt text-3">
                                     {{substr_replace($post->excerpt,'...',100)}}
                                 </p>
-                                <a href="<?=HelperFunction::Link(BLOG, $post->slug, $post->archive->slug) ?>">
+                                <a href="<?=HelperFunction::blogLink($post) ?>">
                                     Đọc thêm
                                     <i class="fas ml-2 fa-arrow-right"></i>
                                 </a>

@@ -3,6 +3,7 @@
 /* @var $this yii\web\View */
 /* @var $name string */
 /* @var $message string */
+
 /* @var $exception Exception */
 
 use yii\helpers\Html;
@@ -16,8 +17,8 @@ $this->title = $name;
             <div class="col-sm-12 col-md-12 col-lg-12 d-flex justify-content-center align-items-center vh-100">
                 <div class="error-wrapper text-center">
                     <h1 class="error-code">404</h1>
-                    <p class="error__desc">The page requested couldn't be found. This could be a spelling error in the
-                        URL or a removed page.
+                    <p class="error__desc">
+                        <?= $exception->getMessage() ?>
                     </p>
                     <a href="/" class="btn btn__primary btn__icon">
                         <span>Back To Home</span> <i class="icon-arrow-right"></i>

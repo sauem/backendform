@@ -100,12 +100,13 @@ Yii::$app->params['header_style'] = true;
                                 <div class="cart">
                                     <p class="xam">
                                         <strong class="bold">Danh mục</strong>:
-                                        <a href="/san-pham/{{$model->defaultArchive->slug}}">
-                                            {{$model->defaultArchive->name}}
+                                        <a href="<?= HelperFunction::productLink($model, true)?>">
+                                            {{$model->defaultArchive->name ?? ''}}
                                         </a>
                                     </p>
                                     @if($model->buy_link)
-                                        <a target="_blank" href="<?= $model->buy_link ?>" class="btn btn-brand button hvr-sweep-to-right">
+                                        <a target="_blank" href="<?= $model->buy_link ?>"
+                                           class="btn btn-brand button hvr-sweep-to-right">
                                             Mua hàng <i class="fa fa-shopping-cart"></i>
                                         </a>
                                     @endif
@@ -132,13 +133,13 @@ Yii::$app->params['header_style'] = true;
                         @if(isset($related) && !empty($related))
                             <div class="row">
 
-                                @foreach($related as  $post)
+                                @foreach($related as  $product)
                                     <div class="col-md-3 col-12">
                                         <div class="block-product">
                                             <div class="img">
-                                                <img class="img-fluid" src="{{$post->avatar}}"/>
+                                                <img class="img-fluid" src="{{$product->avatar}}"/>
                                                 <div class="action">
-                                                    <a href="/san-pham/{{$post->defaultArchive->slug}}/{{$post->slug}}"
+                                                    <a href="<?= HelperFunction::productLink($product)?>"
                                                        class="btn-action">
                                                         <i class="fas xam fa-plus"></i>
                                                         <span class="tool-tip">Xem chi tiết</span>
@@ -146,10 +147,10 @@ Yii::$app->params['header_style'] = true;
                                                 </div>
                                             </div>
                                             <div class="text">
-                                                <a href="/san-pham/{{$post->defaultArchive->slug}}/{{$post->slug}}"
-                                                   class="title">{{$post->name}}</a>
-                                                <p>{{$post->sub_name}}</p>
-                                                <p class="price"><?= HelperFunction::htmlPrice($post)?></p>
+                                                <a href="<?= HelperFunction::productLink($product)?>"
+                                                   class="title">{{$product->name}}</a>
+                                                <p>{{$product->sub_name}}</p>
+                                                <p class="price"><?= HelperFunction::htmlPrice($product)?></p>
                                             </div>
                                         </div>
                                     </div>
@@ -262,7 +263,7 @@ Yii::$app->params['header_style'] = true;
                                         <p className="xam mb-0"><strong className={`bold`}>SKU</strong>: {product.sku}
                                         </p>
                                         <p className="xam"><strong className={`bold`}>Danh mục</strong>: <a
-                                            href={`/product/${product.defaultArchive.slug}`}>{product.defaultArchive.name}</a>
+                                            href={`/product/${product.defaultArchive?.slug}`}>{product.defaultArchive?.name}</a>
                                         </p>
 
                                     </div>

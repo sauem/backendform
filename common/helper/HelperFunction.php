@@ -2,6 +2,7 @@
 
 namespace common\helper;
 
+use common\models\Archives;
 use common\models\Medias;
 use yii\console\Application;
 use yii\helpers\ArrayHelper;
@@ -159,10 +160,31 @@ class HelperFunction
         return \Yii::$app->language === 'vi-VN' ? 'vi' : 'en';
     }
 
-    public static function gotTo($type, $object)
+    public static function archiveLink($archive)
     {
-        $slug = $object->slug;
+        if ($archive->type === Archives::STYLE_PRODUCT) {
+            return "/san-pham/$archive->slug";
+        }
+        return $archive->slug;
+    }
 
+    public static function blogLink($blog)
+    {
+        if ($blog->archive) {
+            return "{$blog->archive->slug}/{$blog->slug}";
+        }
+        return "$blog->slug";
+    }
+
+    public static function productLink($product, $goArchive = false)
+    {
+        if ($product->defaultArchive) {
+            if ($goArchive) {
+                return "/san-pham/{$product->defaultArchive->slug}";
+            }
+            return "/san-pham/{$product->defaultArchive->slug}/{$product->slug}";
+        }
+        return "$product->slug";
     }
 
     public static function Link($type = BLOG, $slug = '', $archive = '')

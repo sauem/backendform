@@ -95,7 +95,7 @@ $view->title = $model->name;
                                             <div className="sbox-18 bg-white text-center">
                                                 <div className="sbox-10-img">
                                                     <div className="hover-overlay">
-                                                        <a href={`/shop/${product.defaultArchive.slug}/${product.slug}`}>
+                                                        <a href={`/san-pham/${product.defaultArchive?.slug}/${product.slug}`}>
                                                             <img className="img-fluid" src={`${product.avatar}`}
                                                                  alt={product.name}/>
                                                         </a>
@@ -103,7 +103,7 @@ $view->title = $model->name;
                                                 </div>
                                                 <div className="sbox-18-txt">
                                                     <h5 className="h5-sm txt-color-01">
-                                                        <a href={`/shop/${product.defaultArchive.slug}/${product.slug}`}>{product.name}</a>
+                                                        <a href={`/san-pham/${product.defaultArchive?.slug}/${product.slug}`}>{product.name}</a>
                                                     </h5>
                                                     <p className="p-md txt-color-05">{product.excerpt}</p>
                                                     <div className="txt-block-rating">
@@ -116,7 +116,7 @@ $view->title = $model->name;
                                                             <p className="txt-color-01">{renderPrice(product)}</p>
                                                         </div>
                                                     </div>
-                                                    <a href={`/shop/${product.defaultArchive.slug}/${product.slug}`}
+                                                    <a href={`/san-pham/${product.defaultArchive?.slug}/${product.slug}`}
                                                        className="btn p-sm btn-tra-01 color-02-hover mt-20 mr-2">Chi
                                                         tiết</a>
                                                     <a onClick={() => setCart(product, 1)}

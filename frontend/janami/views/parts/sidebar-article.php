@@ -27,7 +27,7 @@ use common\helper\HelperFunction;
                 <ul>
                     <?php foreach ($categories as $category) { ?>
                         <li>
-                            <a href="<?= HelperFunction::Link(ARCHIVE, $category->slug) ?>">
+                            <a href="<?= HelperFunction::archiveLink($category) ?>">
                                 <?= $category->name ?>
                             </a>
                         </li>
@@ -47,14 +47,14 @@ use common\helper\HelperFunction;
                                    as $relatedPost) { ?>
                         <div class="post">
                             <figure class="post-thumb">
-                                <a href="<?= HelperFunction::Link(BLOG, $relatedPost->slug, $relatedPost->archive->slug) ?>">
+                                <a href="<?= HelperFunction::blogLink($relatedPost) ?>">
                                     <img height="55" src="<?= $relatedPost->avatar ?>"
                                          alt="<?= $relatedPost->name ?>">
                                 </a>
                             </figure>
                             <div class="text">
                                 <a class="text-2"
-                                   href="<?= HelperFunction::Link(BLOG, $relatedPost->slug, $relatedPost->archive->slug) ?>">
+                                   href="<?= HelperFunction::blogLink($relatedPost) ?>">
                                     <?= $relatedPost->name ?>
                                 </a>
                             </div>

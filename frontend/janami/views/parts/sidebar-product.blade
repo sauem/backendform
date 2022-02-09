@@ -34,7 +34,7 @@ use common\helper\HelperFunction;
             @foreach($categories as $category)
 
             <li>
-                <a href="<?= HelperFunction::Link($category->type, $category->slug)?>">
+                <a href="<?= HelperFunction::archiveLink($category)?>">
                     {{$category->name}}
                 </a>
                 <span>({{count($category->articles)}})</span></li>
@@ -65,7 +65,7 @@ use common\helper\HelperFunction;
             <li class="clearfix d-flex align-items-center">
                 <img class="img-fluid" src="{{$blog->avatar}}" alt="{{$blog->name}}"/>
                 <div class="post-summary">
-                    <a href="<?= HelperFunction::Link(ARTICLE, $blog->slug, $blog->archive->slug)?>"
+                    <a href="<?= HelperFunction::blogLink($blog)?>"
                        class="txt-color-05">
                         {{$blog->name}}
                     </a>
