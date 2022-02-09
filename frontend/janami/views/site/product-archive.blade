@@ -18,7 +18,7 @@ $view->title = $model->name;
 <?= $view->render('/structure/meta.blade', [
     'title' => $model->name,
     'image' => $model->avatar,
-    'description' => $model->meta ? $model->meta->meta_description : $model->excerpt,
+    'description' => $model->meta ? $model->meta->meta_description : $model->description,
     'url' => HelperFunction::currentURL()
 ])?>
 

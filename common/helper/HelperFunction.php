@@ -159,6 +159,12 @@ class HelperFunction
         return \Yii::$app->language === 'vi-VN' ? 'vi' : 'en';
     }
 
+    public static function gotTo($type, $object)
+    {
+        $slug = $object->slug;
+
+    }
+
     public static function Link($type = BLOG, $slug = '', $archive = '')
     {
         if (is_array($slug)) {
