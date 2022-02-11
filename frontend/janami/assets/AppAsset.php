@@ -29,7 +29,7 @@ class AppAsset extends AssetBundle
         //['/css/fontawesome.min.css', 'async' => 'async'],
         ['/css/pink-theme.min.css?v=1.7', 'async' => 'async'],
         ['/css/responsive.css', 'async' => 'async'],
-        ['/css/custom.css?v=1.3', 'async' => 'async'],
+        ['/css/custom.css?v=1.4', 'async' => 'async'],
     ];
     public $js = [
         'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js',

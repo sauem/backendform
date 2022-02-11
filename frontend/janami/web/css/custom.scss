@@ -2880,12 +2880,12 @@ nav {
 
 .tab-content, .single-blog-post {
   h1, h2, h3, h4, h5, h6 {
-    p, span {
+    p, span, li, a {
       font-size: inherit;
     }
   }
 
-  p, span, small, strong, a, b {
+  p, span, small, strong, a, b, li {
     font-size: 16px;
     font-family: arial, sans-serif !important;
   }
@@ -3001,9 +3001,10 @@ nav {
 }
 
 .popular-posts {
-  &.pl-0{
+  &.pl-0 {
     padding-left: 0;
   }
+
   .pr-0 {
     padding-right: 0;
   }
