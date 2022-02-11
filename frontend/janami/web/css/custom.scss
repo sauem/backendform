@@ -2879,13 +2879,31 @@ nav {
 }
 
 .tab-content, .single-blog-post {
+  table {
+    width: auto;
+
+    td {
+      padding-left: 10px;
+    }
+
+    tbody, td, tfoot, th, thead, tr {
+      border-width: initial;
+      border-style: initial;
+      border-color: initial;
+    }
+  }
+
   h1, h2, h3, h4, h5, h6 {
-    p, span, li, a {
+    p, span, li, a, figcaption {
       font-size: inherit;
     }
   }
 
-  p, span, small, strong, a, b, li {
+  .tbody {
+    padding: 10px;
+  }
+
+  p, span, small, strong, a, b, li, figcaption {
     font-size: 16px;
     font-family: arial, sans-serif !important;
   }
