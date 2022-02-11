@@ -2878,6 +2878,10 @@ nav {
   background-color: #E44126;;
 }
 
+strong {
+  font-weight: bold;
+}
+
 .tab-content, .single-blog-post {
   table {
     width: auto;
@@ -2887,8 +2891,8 @@ nav {
     }
 
     tbody, td, tfoot, th, thead, tr {
-      border-width: initial;
-      border-style: initial;
+      border-width: 1px;
+      border-style: solid;
       border-color: initial;
     }
   }

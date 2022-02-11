@@ -27,7 +27,7 @@ class AppAsset extends AssetBundle
         ['https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/assets/owl.theme.default.min.css', 'async' => 'async'],
         // ['https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.min.css', 'async' => 'async'],
         //['/css/fontawesome.min.css', 'async' => 'async'],
-        ['/css/pink-theme.min.css?v=1.7', 'async' => 'async'],
+        ['/css/pink-theme.min.css?v=1.4', 'async' => 'async'],
         ['/css/responsive.css', 'async' => 'async'],
         ['/css/custom.css?v=1.5', 'async' => 'async'],
     ];
