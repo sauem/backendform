@@ -250,7 +250,7 @@ Yii::$app->params['footer_type'] = 'light';
                             @endif
                         </nav>
                         <div class="tab-content mt-4">
-                            <div id="archive-all" class="tab-pane fade active show">
+                            <div data-loop="true" id="archive-all" class="tab-pane fade active show">
                                 @if(isset($archiveHome) && !empty($archiveHome))
                                     <div class="home-product-carousel owl-carousel owl-dot-brand owl-theme">
                                         @foreach($archiveHome as $k =>  $archive)
