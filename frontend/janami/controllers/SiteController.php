@@ -44,10 +44,7 @@ class SiteController extends BaseController
         $directUrl = explode("\n", $directUrl);
         $toLinks = HelperFunction::setting("direct_to_links");
         $toLinks = explode(",", $toLinks);
-        if ($_SERVER['REMOTE_ADDR'] === '42.117.19.121') {
-            var_dump($toLinks);
-            die;
-        }
+
         foreach ($toLinks as $link) {
             $links = explode("=>", $link);
             if (isset($links[0]) && trim($links[0]) == $currentUrl) {

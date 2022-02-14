@@ -55,6 +55,18 @@ AppAsset::register($view);
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
     </script>
     <?php }?>
 
@@ -106,7 +118,11 @@ AppAsset::register($view);
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-V86HMGTYVP"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
         gtag('js', new Date());
 
         gtag('config', 'G-V86HMGTYVP');
@@ -166,7 +182,7 @@ AppAsset::register($view);
 
 </script>
 <script>
-    $(".home-product-carousel").owlCarousel({
+    var homeCarousel = $(".home-product-carousel").owlCarousel({
         items: 4,
         margin: 20,
         animateOut: 'fadeOut',
@@ -175,6 +191,10 @@ AppAsset::register($view);
         loop: true,
         nav: false,
         dots: true,
+        onInitialize: event => {
+            console.log("Event: ", event)
+            event.relatedTarget.options.loop = $(event.target).data('loop') | false;
+        },
         responsive: {
             0: {
                 items: 1,
@@ -184,6 +204,9 @@ AppAsset::register($view);
                 items: 4
             }
         }
+    });
+    homeCarousel.on('initialized.owl.carousel', function (event) {
+        console.log("Init ", event);
     })
     let techItem = $(".box-technology-carousel").owlCarousel({
         items: 1,
