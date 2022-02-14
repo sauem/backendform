@@ -39,9 +39,9 @@ class SiteController extends BaseController
 
     public function beforeAction($action)
     {
+        $currentUrl = Yii::$app->request->absoluteUrl;
         $directUrl = HelperFunction::setting('direct_links');
         $directUrl = explode("\n", $directUrl);
-        $currentUrl = Yii::$app->request->absoluteUrl;
         $toLinks = HelperFunction::setting("direct_to_links");
         $toLinks = explode(",", $toLinks);
         foreach ($toLinks as $link) {
@@ -50,6 +50,10 @@ class SiteController extends BaseController
                 Yii::$app->response->redirect(trim($links[1]) ?? '/', trim($links[2]) ?? 301);
                 Yii::$app->end();
             }
+        }
+        if ($_SERVER['REMOTE_ADDR'] === '42.117.19.121') {
+            var_dump($toLinks);
+            die;
         }
         if (in_array($currentUrl, $directUrl)) {
             Yii::$app->response->redirect('/', 301);
@@ -289,7 +293,7 @@ class SiteController extends BaseController
                 $template = 'product-detail.blade';
                 $model = Products::findOne(['slug' => $slug]);
                 if (!$model) {
-                    throw new BadRequestHttpException('Không tồn tại sản phẩm!');
+                    throw new BadRequestHttpException('Không tồn tại bài viết!');
                 }
                 $related = Products::find()
                     ->where(['default_archive' => $archive->id])
