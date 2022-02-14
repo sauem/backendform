@@ -42,6 +42,15 @@ class SiteController extends BaseController
         $directUrl = HelperFunction::setting('direct_links');
         $directUrl = explode("\n", $directUrl);
         $currentUrl = Yii::$app->request->absoluteUrl;
+        $toLinks = HelperFunction::setting("direct_to_links");
+        $toLinks = explode(",", $toLinks);
+        foreach ($toLinks as $link) {
+            $links = explode("=>", $link);
+            if (isset($links[0]) && trim($links[0]) == $currentUrl) {
+                Yii::$app->response->redirect(trim($links[1]) ?? '/', trim($links[2]) ?? 301);
+                Yii::$app->end();
+            }
+        }
         if (in_array($currentUrl, $directUrl)) {
             Yii::$app->response->redirect('/', 301);
             Yii::$app->end();
