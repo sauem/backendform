@@ -40,14 +40,23 @@ class SiteController extends BaseController
     public function beforeAction($action)
     {
         $currentUrl = Yii::$app->request->absoluteUrl;
+        if (!strpos($currentUrl, "https")) {
+            $currentUrl = str_replace("http://", "https://", $currentUrl);
+        }
         $directUrl = HelperFunction::setting('direct_links');
         $directUrl = explode("\n", $directUrl);
         $toLinks = HelperFunction::setting("direct_to_links");
         $toLinks = explode(",", $toLinks);
-
         foreach ($toLinks as $link) {
             $links = explode("=>", $link);
-            if (isset($links[0]) && trim($links[0]) == $currentUrl) {
+            if (!isset($links[0])) {
+                continue;
+            }
+            $findLink = trim($links[0]);
+            if (!strpos($findLink, "https")) {
+                $findLink = str_replace("http://", "https://", $findLink);
+            }
+            if ($findLink == $currentUrl) {
                 Yii::$app->response->redirect(trim($links[1]) ?? '/', trim($links[2]) ?? 301);
                 Yii::$app->end();
             }
