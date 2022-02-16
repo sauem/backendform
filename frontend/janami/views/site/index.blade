@@ -326,32 +326,30 @@ Yii::$app->params['footer_type'] = 'light';
                                                         </div>
                                                     </div>
                                                 @endforeach
-
-                                            @else
-                                                @if(!empty($archive->children))
-                                                    @foreach($archive->children as $children)
-                                                        @if(!empty($children->products))
-                                                            @foreach($children->products as $productChild)
-                                                                <div class="item-product-home hvr-shadow">
-                                                                    <div class="img">
-                                                                        <a href="<?= HelperFunction::productLink($productChild) ?>">
-                                                                            <img data-src="<?= HelperFunction::checkImage($productChild->avatar)?>"
-                                                                                 class="w-100 owl-lazy img-fluid"/>
-                                                                        </a>
-                                                                    </div>
-                                                                    <div class="product-info">
-                                                                        <p class="product-name text-1">
-                                                                            <a href="<?= HelperFunction::productLink($productChild) ?>">{{$productChild->name}}</a>
-                                                                        </p>
-                                                                        <p>{{$productChild->sub_name}}</p>
-                                                                        <p class="product-price"><?= HelperFunction::htmlPrice($productChild)?></p>
-
-                                                                    </div>
+                                            @endif
+                                            @if(!empty($archive->children))
+                                                @foreach($archive->children as $children)
+                                                    @if(!empty($children->products))
+                                                        @foreach($children->products as $productChild)
+                                                            <div class="item-product-home hvr-shadow">
+                                                                <div class="img">
+                                                                    <a href="<?= HelperFunction::productLink($productChild) ?>">
+                                                                        <img data-src="<?= HelperFunction::checkImage($productChild->avatar)?>"
+                                                                             class="w-100 owl-lazy img-fluid"/>
+                                                                    </a>
                                                                 </div>
-                                                            @endforeach
-                                                        @endif
-                                                    @endforeach
-                                                @endif
+                                                                <div class="product-info">
+                                                                    <p class="product-name text-1">
+                                                                        <a href="<?= HelperFunction::productLink($productChild) ?>">{{$productChild->name}}</a>
+                                                                    </p>
+                                                                    <p>{{$productChild->sub_name}}</p>
+                                                                    <p class="product-price"><?= HelperFunction::htmlPrice($productChild)?></p>
+
+                                                                </div>
+                                                            </div>
+                                                        @endforeach
+                                                    @endif
+                                                @endforeach
                                             @endif
                                         </div>
                                     </div>

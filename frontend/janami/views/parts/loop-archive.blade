@@ -1,0 +1,24 @@
+<?php
+use common\helper\HelperFunction;
+?>
+@isset($category)
+    @if(!empty($category->products))
+        @foreach($category->products as $product)
+            <div class="item-product-home hvr-shadow">
+                <div class="img">
+                    <a href="<?= HelperFunction::productLink($product) ?>">
+                        <img data-src="<?= HelperFunction::checkImage($product->avatar)?>"
+                             class="w-100 owl-lazy img-fluid"/>
+                    </a>
+                </div>
+                <div class="product-info">
+                    <p class="product-name text-1">
+                        <a href="<?= HelperFunction::productLink($product) ?>">{{$product->name}}</a>
+                    </p>
+                    <p>{{$product->sub_name}}</p>
+                    <p class="product-price"><?= HelperFunction::htmlPrice($product)?></p>
+                </div>
+            </div>
+        @endforeach
+    @endif
+@endisset
