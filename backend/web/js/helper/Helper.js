@@ -113,6 +113,7 @@ function initTinymce(callback, editorClass = 'editor', defaultContent = null, he
 
     tinymce.init({
         selector: `textarea.${editorClass}`,
+        fontsize_formats: "8pt 10pt 12pt 14pt 16pt 18pt 20pt 22pt 24pt 26pt 28pt 30pt",
         plugins: 'code print preview importcss tinydrive searchreplace' +
             ' autolink autosave save directionality  visualblocks visualchars fullscreen' +
             ' image link media table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists  wordcount textpattern noneditable help charmap quickbars emoticons',

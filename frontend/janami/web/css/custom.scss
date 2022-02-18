@@ -3059,3 +3059,13 @@ strong {
     display: block;
   }
 }
+
+figure {
+  &.align-center {
+    text-align: center;
+
+    figcaption {
+      text-align: center;
+    }
+  }
+}

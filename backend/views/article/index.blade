@@ -39,6 +39,9 @@
                                 {
                                     title: 'Tên bài viết', dataIndex: 'name', key: 'name',
                                     render: (name, raw) => {
+                                        if (!raw.archive) {
+                                            return '';
+                                        }
                                         return <p className={`text-1`}>{name} <a
                                             target="_blank"
                                             href={`http:\/\/${getFrontLink('article', raw.archive.slug, raw.slug)}`}><small>Xem</small></a>
