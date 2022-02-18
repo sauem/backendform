@@ -13,8 +13,8 @@ class AppAsset extends AssetBundle
     public $baseUrl = '@web';
 
     public $css = [
-        //['https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/css/bootstrap.min.css', 'async' => 'async'],
-        ['https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.1/css/bootstrap.min.css', 'async' => 'async'],
+        ['https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/css/bootstrap.min.css', 'async' => 'async'],
+        //['https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.1/css/bootstrap.min.css', 'async' => 'async'],
         ['https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css', 'async' => 'async'],
         ['https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css', 'async' => 'async'],
         ['/css/fontawesome.all.css', 'async' => 'async'],
