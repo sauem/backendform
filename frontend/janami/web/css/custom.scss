@@ -3059,9 +3059,11 @@ strong {
     display: block;
   }
 }
-.mce-visual-caret{
+
+.mce-visual-care, .mce-offscreen-selection {
   display: none;
 }
+
 figure {
   &.align-center {
     text-align: center;
