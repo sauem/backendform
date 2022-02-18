@@ -3059,7 +3059,9 @@ strong {
     display: block;
   }
 }
-
+.mce-visual-caret{
+  display: none;
+}
 figure {
   &.align-center {
     text-align: center;
