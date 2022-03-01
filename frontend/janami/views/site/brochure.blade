@@ -1,11 +1,20 @@
 <?php
 use http\Url;
+$view->registerJsFile(
+    '@web/js/flip/three.min.js',
+    ['depends' => [\janami\assets\AppAsset::class]]
+);
+$view->registerJsFile(
+    '@web/js/flip/pdf.min.js',
+    ['depends' => [\janami\assets\AppAsset::class]]
+);
+$view->registerJsFile(
+    '@web/js/flip/3dflipbook.min.js',
+    ['depends' => [\janami\assets\AppAsset::class]]
+);
 ?>
-@php
-    /*
-     * Template Name: Brochure
-     */
-        $view->title = 'Brochure';
+@php($view->title = 'Brochure';)
+
 @endphp
 @section("content")
 
@@ -36,11 +45,10 @@ use http\Url;
                                 <img class="img-fluid" src="{{$item->avatar}}"/>
                             @endforeach
                         @else
-                            @for($i = 1 ;$i < 20; $i++)
-                                <img class="img-fluid" src="/img/pdf/pdf-{{$i < 10 ? '0' . $i : $i}}.jpg"/>
+                            @for($i = 1 ;$i <= 20; $i++)
+                                <img class="img-fluid" src="/img/pdf/{{$i < 10 ? '000' . $i : '00'.$i}}.jpg"/>
                             @endfor
                         @endif
-
                     </div>
                 </div>
             </div>
@@ -49,6 +57,7 @@ use http\Url;
     <?= $view->render('../parts/logo.blade')?>
 @stop
 @section("js_end")
+
     <script>
         $('.brouchure-carousel').owlCarousel({
             items: 1,
@@ -73,4 +82,6 @@ use http\Url;
             }
         })
     </script>
+
+
 @stop
