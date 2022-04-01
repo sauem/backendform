@@ -6,7 +6,7 @@ if (!empty($db)) {
     foreach ($db as $key => $item) {
         $databases[$key] = [
             'class' => 'yii\db\Connection',
-            'dsn' => 'mysql:host=127.0.0.1;dbname=' . $item['database'],
+            'dsn' => 'mysql:host=' . $item['database_host'] . ';dbname=' . $item['database'],
             'username' => $item['username'],
             'password' => $item['password'],
             'charset' => 'utf8mb4',
