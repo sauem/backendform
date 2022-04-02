@@ -68,6 +68,7 @@ class BaseController extends Controller
 
     public function init()
     {
+        \Yii::$app->set('db', HelperFunction::getDb(true));
         \Yii::$app->language = 'vi-VN'; //\Yii::$app->cache->get('language');
 
         $globalBanners = Banners::find()
