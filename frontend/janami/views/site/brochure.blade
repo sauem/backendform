@@ -1,5 +1,4 @@
 <?php
-use http\Url;
 $view->registerJsFile(
     '@web/js/flip/three.min.js',
     ['depends' => [\janami\assets\AppAsset::class]]
@@ -12,10 +11,9 @@ $view->registerJsFile(
     '@web/js/flip/3dflipbook.min.js',
     ['depends' => [\janami\assets\AppAsset::class]]
 );
+$view->title = 'Brochure'
 ?>
-@php($view->title = 'Brochure')
 
-@endphp
 @section("content")
 
     <div class="container wide-20">

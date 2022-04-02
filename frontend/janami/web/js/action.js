@@ -123,7 +123,7 @@ const renderPaginate = (pagination, callback) => {
                         <nav aria-label="Page navigation">
                             <Pagination
                                 className={`pagination justify-content-center`}
-                                onChange={page => callback({page})}
+                                onChange={({current, pageSize}) => callback({page: current})}
                                 current={current}
                                 pageSize={pageSize}
                                 responsive

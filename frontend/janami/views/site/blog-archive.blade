@@ -56,30 +56,23 @@ $bannerBottom = HelperFunction::getBanner('sidebar_right_bottom', ['archive']);
 
         const ArchiveBlog = () => {
             const archiveId = "<?= $model->id?>";
+            const [posts, setPost] = useState([]);
+            const [paginate, setPage] = useState(null);
+            const [fetching, setFetching] = useState(false);
 
-            const [state, setState] = useState({
-                articles: [],
-                pagination: null,
-                loading: false
-            });
 
             const fetchPost = async (params = {}) => {
                 try {
-                    setState({
-                        ...state,
-                        loading: true
-                    })
+                    setFetching(true)
                     const {data, pagination} = await getPost({
                         archive_id: archiveId,
                         show_cat: 1,
                         ...params
                     });
-                    setState({
-                        ...state,
-                        articles: data,
-                        pagination: pagination,
-                        loading: false
-                    });
+                    setFetching(false);
+                    setPage(pagination);
+                    setPost(data);
+                    console.log("Page: ", pagination)
                 } catch (e) {
                     message.error(e.message);
                 }
@@ -89,39 +82,38 @@ $bannerBottom = HelperFunction::getBanner('sidebar_right_bottom', ['archive']);
             }, []);
 
             return (
-                <Spin spinning={state.loading}>
+                <Spin spinning={fetching}>
                     <div className="row">
-                        {state.articles.length > 0 ?
-                            state.articles.map((item, index) => {
-                                return (
-                                    <div className="col-md-4">
-                                        <div className="blog-post">
-                                            <div className="blog-post-img">
+                        {posts.length > 0 ? posts.map((item, index) => {
+                            return (
+                                <div key={index} className="col-md-4">
+                                    <div className="blog-post">
+                                        <div className="blog-post-img">
+                                            <a href={`/${item.archive.slug}/${item.slug}`}>
+                                                <img className="img-fluid" src={item.avatar} alt={item.name}/>
+                                            </a>
+                                        </div>
+                                        <div className="blog-post-txt">
+                                            <p className="do mb-0">{moment.unix(item.created_at).format('DD/MM/YYYY')}</p>
+                                            <h5 className="h5-sm text-2">
                                                 <a href={`/${item.archive.slug}/${item.slug}`}>
-                                                    <img className="img-fluid" src={item.avatar} alt={item.name}/>
+                                                    {item.name}
                                                 </a>
-                                            </div>
-                                            <div className="blog-post-txt">
-                                                <p className="do mb-0">{moment.unix(item.created_at).format('DD/MM/YYYY')}</p>
-                                                <h5 className="h5-sm text-2">
-                                                    <a href={`/${item.archive.slug}/${item.slug}`}>
-                                                        {item.name}
-                                                    </a>
-                                                </h5>
-                                                <p className="excerpt text-3">
-                                                    {item.excerpt}
-                                                </p>
-                                                <a href={`/${item.archive.slug}/${item.slug}`}>
-                                                    Đọc thêm
-                                                    <i className="fas ml-2 fa-arrow-right"/>
-                                                </a>
-                                            </div>
+                                            </h5>
+                                            <p className="excerpt text-3">
+                                                {item.excerpt}
+                                            </p>
+                                            <a href={`/${item.archive.slug}/${item.slug}`}>
+                                                Đọc thêm
+                                                <i className="fas ml-2 fa-arrow-right"/>
+                                            </a>
                                         </div>
                                     </div>
-                                )
-                            }) : <h1>Không có bài viết....</h1>}
+                                </div>
+                            )
+                        }) : <h1>Không có bài viết....</h1>}
                         <div className="col-12">
-                            {state.articles.length > 1 ? renderPaginate(state.pagination, fetchPost) : null}
+                            {posts.length > 1 ? renderPaginate(paginate, fetchPost) : null}
                         </div>
                     </div>
                 </Spin>
