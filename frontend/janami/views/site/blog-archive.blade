@@ -1,6 +1,5 @@
 <?php
 $view->title = $model->name ? $model->name : 'Archive';
-
 use common\helper\HelperFunction;
 
 $bannerTop = HelperFunction::getBanner('sidebar_right_top', ['archive']);
@@ -57,24 +56,25 @@ $bannerBottom = HelperFunction::getBanner('sidebar_right_bottom', ['archive']);
         const ArchiveBlog = () => {
             const archiveId = "<?= $model->id?>";
             const [posts, setPost] = useState([]);
-            const [paginate, setPage] = useState(null);
+            const [paginate, setPaginate] = useState(null);
             const [fetching, setFetching] = useState(false);
 
 
             const fetchPost = async (params = {}) => {
                 try {
                     setFetching(true)
-                    const {data, pagination} = await getPost({
+                    const response = await getPost({
                         archive_id: archiveId,
                         show_cat: 1,
                         ...params
                     });
-                    setFetching(false);
-                    setPage(pagination);
-                    setPost(data);
-                    console.log("Page: ", pagination)
+                    console.log(response.pagination)
+                    setPost(response.data);
+                    setPaginate(response.pagination);
                 } catch (e) {
                     message.error(e.message);
+                }finally {
+                    setFetching(false);
                 }
             }
             useEffect(() => {
@@ -113,7 +113,7 @@ $bannerBottom = HelperFunction::getBanner('sidebar_right_bottom', ['archive']);
                             )
                         }) : <h1>Không có bài viết....</h1>}
                         <div className="col-12">
-                            {posts.length > 1 ? renderPaginate(paginate, fetchPost) : null}
+                            {paginate && renderPaginate(paginate, fetchPost)}
                         </div>
                     </div>
                 </Spin>

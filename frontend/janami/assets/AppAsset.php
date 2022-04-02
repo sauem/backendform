@@ -56,7 +56,7 @@ class AppAsset extends AssetBundle
         //'https://cdnjs.cloudflare.com/ajax/libs/lazyloadjs/3.2.2/lazyload.min.js',
         '/js/custom.js?v=1.6',
         '/js/site.js?v=1.3',
-        ['/js/action.js?v=1.8', 'type' => 'text/babel'],
+        ['/js/action.js?v=2.0', 'type' => 'text/babel'],
         // ['/js/cart.js', 'type' => 'text/babel']
     ];
 

@@ -95,26 +95,22 @@ const getPost = async (params = {}) => {
                 ...params,
                 sort: '-created_at',
                 expand: 'avatar,archive',
-                "per-page": 12
+                "per-page": 4
             }
         });
 
-        const {data, headers} = res;
-        const current = headers['x-pagination-current-page'],
-            totalPage = headers['x-pagination-page-count'],
-            pageSize = headers['x-pagination-per-page'],
-            total = headers['x-pagination-total-count'],
-            pagination = {
-                total, current, pageSize, totalPage
-            };
-        return {data, pagination};
+
+        const current = parseInt(res.headers['x-pagination-current-page']),
+            pageSize = parseInt(res.headers['x-pagination-per-page']),
+            total = parseInt(res.headers['x-pagination-total-count']);
+
+        return {data: res.data, pagination: {current, pageSize, total}};
     } catch (e) {
         message.error(e.message);
     }
 }
 
 const renderPaginate = (pagination, callback) => {
-    const {totalPage, pageSize, current} = pagination;
     return (
         <div className="bg-color-01 page-pagination division">
             <div className="container">
@@ -123,11 +119,13 @@ const renderPaginate = (pagination, callback) => {
                         <nav aria-label="Page navigation">
                             <Pagination
                                 className={`pagination justify-content-center`}
-                                onChange={({current, pageSize}) => callback({page: current})}
-                                current={current}
-                                pageSize={pageSize}
+                                onChange={(page) => {
+                                    callback({page});
+                                }}
+                                current={pagination?.current}
+                                pageSize={pagination?.pageSize}
                                 responsive
-                                total={totalPage}/>
+                                total={pagination?.total}/>
                         </nav>
                     </div>
                 </div>
