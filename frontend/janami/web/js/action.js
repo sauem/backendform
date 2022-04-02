@@ -95,7 +95,7 @@ const getPost = async (params = {}) => {
                 ...params,
                 sort: '-created_at',
                 expand: 'avatar,archive',
-                "per-page": 4
+                "per-page": 12
             }
         });
 
