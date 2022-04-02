@@ -12,11 +12,11 @@ class HelperFunction
 
     static function checkImage($image)
     {
-        $url = str_replace("/static", "", $image);
-        $exist = file_exists(UPLOAD_PATH . $url);
-        if (!$image || !$exist) {
-            return "/img/default.png";
-        }
+//        $url = str_replace("/static", "", $image);
+//        $exist = file_exists(UPLOAD_PATH . $url);
+//        if (!$image || !$exist) {
+//            return "/img/default.png";
+//        }
         return $image;
     }
 
