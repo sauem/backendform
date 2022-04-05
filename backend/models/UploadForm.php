@@ -61,7 +61,7 @@ class UploadForm extends Model
 
         if ($this->fileType !== self::TYPE_IMAGE_BASE64) {
             // $domain = HelperFunction::getDomain();
-            $basePath = '/';
+            $basePath = '/' . date("Ydm") . "/";
 
             $uploadFolder = UPLOAD_PATH . $basePath;
             if (!is_dir($uploadFolder)) {
