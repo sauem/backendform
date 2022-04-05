@@ -171,9 +171,9 @@ class HelperFunction
     public static function blogLink($blog)
     {
         if ($blog->archive) {
-            return "{$blog->archive->slug}/{$blog->slug}";
+            return "/{$blog->archive->slug}/{$blog->slug}";
         }
-        return "$blog->slug";
+        return "/$blog->slug";
     }
 
     public static function productLink($product, $goArchive = false)
@@ -184,7 +184,7 @@ class HelperFunction
             }
             return "/san-pham/{$product->defaultArchive->slug}/{$product->slug}";
         }
-        return "$product->slug";
+        return "/$product->slug";
     }
 
     public static function Link($type = BLOG, $slug = '', $archive = '')
