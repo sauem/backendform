@@ -2,14 +2,20 @@
     <script type="text/babel">
 
         const App = () => {
+
             const initalState = {
                 articles: [],
                 loading: false,
                 pagination: {}
             }
             const [state, setState] = useState(initalState);
+            const [formSearch] = Form.useForm();
             const updateState = async (params = {}) => {
-                const {data, pagination} = await Articles.fetch(params);
+                const searchValue = formSearch.getFieldsValue();
+                const {data, pagination} = await Articles.fetch({
+                    ...searchValue,
+                    ...params
+                });
                 setState({
                     ...state,
                     ...{
@@ -29,6 +35,12 @@
                 <Card title={`Bài viết`}
                       extra={<a href={URLS.ARTICLE_CREATE} className="btn btn-xs btn-primary">
                           <i className="icon-add"/> Thêm bài viết</a>}>
+                    <Form form={formSearch} layout="inline">
+                        <From.Item label={`Tìm bài viết`} name={`name`}>
+                            <Input />
+                        </From.Item>
+                        <Button htmlType="submit">Tìm kiếm</Button>
+                    </Form>
                     <Spin spinning={state.loading}>
                         <Table
                             onChange={({current, pageSize}) => updateState({page: current})}

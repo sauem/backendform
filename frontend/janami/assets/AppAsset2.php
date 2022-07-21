@@ -32,7 +32,7 @@ class AppAsset extends AssetBundle
         ['/css/jquery.desoslide.min.css', 'async' => 'async'],
         ['/css/owl.theme.default.min.css', 'async' => 'async'],
         ['/css/jquery.datetimepicker.min.css', 'async' => 'async'],
-        ['/css/pink-theme.min.css?v=1.5', 'async' => 'async'],
+        ['/css/pink-theme.min.css?v=1.6', 'async' => 'async'],
 //         '/css/rose-theme.css',
 //         '/css/silk-theme.css',
 //         '/css/gold-theme.css',

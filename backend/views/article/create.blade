@@ -25,12 +25,11 @@
                 if (typeof article.id === "undefined") {
                     res = await Articles.create(article);
                     message.success('Thêm bài viết thành công!');
+                    updateState();
                 } else {
                     res = await Articles.update(article);
                     message.success('Cập nhật bài viết thành công!');
-                }
-                if (res) {
-                    updateState();
+                    setTimeout(() => window.location.reload(), 1000);
                 }
             }
             const updateState = () => {
