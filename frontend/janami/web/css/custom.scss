@@ -3009,6 +3009,14 @@ strong {
     text-shadow: 3px 3px 3px rgba(100, 100, 100, 0.4);
   }
 }
+.owl-carousel .owl-stage {
+  display: flex;
+}
+
+.owl-carousel .owl-item .blog-post {
+  width: auto;
+  height: 100%;
+}
 
 .single-blog-post, #blog-page {
   img {
