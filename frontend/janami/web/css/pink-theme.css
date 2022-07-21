@@ -4160,7 +4160,7 @@ h5.statistic-number {
 
 #blog-page .blog-post {
   margin-bottom: 50px;
-  height: 100%;
+  height: calc(100% - 50px);
 }
 
 .blog-post-txt {

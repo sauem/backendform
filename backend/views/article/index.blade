@@ -35,7 +35,7 @@
                 <Card title={`Bài viết`}
                       extra={<a href={URLS.ARTICLE_CREATE} className="btn btn-xs btn-primary">
                           <i className="icon-add"/> Thêm bài viết</a>}>
-                    <Form form={formSearch} layout="inline">
+                    <Form onFinish={updateState} form={formSearch} layout="inline">
                         <Form.Item label={`Tìm bài viết`} name={`name`}>
                             <Input />
                         </Form.Item>
