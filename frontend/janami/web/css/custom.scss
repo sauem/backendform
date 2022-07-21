@@ -2899,6 +2899,7 @@ strong {
 
   h1, h2, h3, h4, h5, h6 {
     font-family: arial, sans-serif;
+
     p, span, li, a, figcaption {
       font-size: inherit;
     }
@@ -3009,13 +3010,14 @@ strong {
     text-shadow: 3px 3px 3px rgba(100, 100, 100, 0.4);
   }
 }
+
 .owl-carousel .owl-stage {
   display: flex;
 }
 
 .owl-carousel .owl-item .blog-post {
   width: auto;
-  height: 100%;
+  height: calc(100% - 50px)
 }
 
 .single-blog-post, #blog-page {

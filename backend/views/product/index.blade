@@ -8,6 +8,8 @@
                 pagination: {},
                 loading: false
             });
+            const [formSearch] = Form.useForm();
+
             const onDelete = async (id) => {
                 try {
                     await Products.delete(id);
@@ -16,8 +18,12 @@
                     message.error(e.message);
                 }
             }
-            const updateState = async (page) => {
-                const {data, pagination} = await Products.fetch(page);
+            const updateState = async (params = {}) => {
+                const searchValue = formSearch.getFieldsValue();
+                const {data, pagination} = await Products.fetch({
+                    ...searchValue,
+                    ...params,
+                });
                 const categories = await Archives.fetch({page: -1});
                 setState({
                     ...state,
@@ -41,6 +47,12 @@
                 <Card title={`Sản phẩm`}
                       extra={<a href={URLS.PRODUCT_CREATE} className="btn btn-xs btn-primary">
                           <i className="icon-add"/> Tạo sản phẩm</a>}>
+                    <Form onFinish={updateState} form={formSearch} layout="inline">
+                        <Form.Item label={`Tìm bài viết`} name={`name`}>
+                            <Input />
+                        </Form.Item>
+                        <Button htmlType="submit">Tìm kiếm</Button>
+                    </Form>
                     <Table
                         dataSource={state.products}
                         rowKey={'id'}
