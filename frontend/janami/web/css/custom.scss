@@ -3014,7 +3014,12 @@ strong {
 .owl-carousel .owl-stage {
   display: flex;
 }
-
+.mce-visual-caret{
+  display: none;
+}
+[data-mce-bogus="all"] {
+  display:none;
+}
 .owl-carousel .owl-item .blog-post {
   width: auto;
   height: calc(100% - 10px)
