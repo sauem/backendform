@@ -136,9 +136,12 @@
                                     >
                                         <Input.TextArea/>
                                     </Form.Item>
+                                    <p>#Ghi chú:<br/> - Nếu chữ đã được đổi size thì áp dụng heading sẽ có size bằng với
+                                        size đã được thay đổi<br/> - Xuống dòng ở cuối bài viết nếu hiển thị khoảng
+                                        trắng lớn ở giao diện</p>
                                     <Form.Item
                                         onChange={handleChangeContent}
-                                        label="Nội dung bài viết (Xuống dòng ở cuối bài viết nếu hiển thị khoảng trắng lớn ở giao diện)"
+                                        label="Nội dung bài viết"
                                         rules={[{required: true, message: 'Nội dung bắt buộc!'}]}
                                         name={`content`}>
                                         <Input.TextArea className="editor"/>
