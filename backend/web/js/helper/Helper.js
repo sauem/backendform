@@ -108,7 +108,7 @@ function getParams(name) {
     return url.get(name);
 }
 
-function initTinymce(callback, editorClass = 'editor', defaultContent = null, height = 600) {
+function initTinymce(callback, editorClass = 'editor', defaultContent = 'Nội dung bài viết', height = 600) {
     // let useDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
     tinymce.init({
@@ -118,8 +118,7 @@ function initTinymce(callback, editorClass = 'editor', defaultContent = null, he
             ' autolink autosave save directionality  visualblocks visualchars fullscreen' +
             ' image link media table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists  wordcount textpattern noneditable help charmap quickbars emoticons',
         images_upload_url: '/' + ROUTE.UPLOAD,
-        forced_root_block : "",
-        force_p_newlines : true,
+
         file_picker_callback: function (cb, value, meta) {
             let input = document.createElement('input');
             input.setAttribute('type', 'file');
