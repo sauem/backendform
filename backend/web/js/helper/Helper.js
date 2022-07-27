@@ -178,7 +178,7 @@ function initTinymce(callback, editorClass = 'editor', defaultContent = 'Nội d
         importcss_append: true,
         height: height,
         image_caption: true,
-        quickbars_selection_toolbar: 'bold italic | quicklink h2 h3 blockquote quicktable',
+        // quickbars_selection_toolbar: 'bold italic | quicklink h2 h3 blockquote quicktable',
         // noneditable_noneditable_class: 'mceNonEditable',
         toolbar_mode: 'inline',
         mode: "textareas",
