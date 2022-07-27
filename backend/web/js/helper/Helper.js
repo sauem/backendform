@@ -108,13 +108,13 @@ function getParams(name) {
     return url.get(name);
 }
 
-function initTinymce(callback, editorClass = 'editor', defaultContent = 'Nội dung bài viết', height = 600) {
+function initTinymce(callback, editorClass = 'editor', defaultContent = null, height = 600) {
     // let useDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
     tinymce.init({
         selector: `textarea.${editorClass}`,
         fontsize_formats: "8pt 10pt 12pt 14pt 16pt 18pt 20pt 22pt 24pt 26pt 28pt 30pt",
-        plugins: 'code print preview importcss tinydrive searchreplace' +
+        plugins: 'code preview importcss tinydrive searchreplace' +
             ' autolink autosave save directionality  visualblocks visualchars fullscreen' +
             ' image link media table charmap pagebreak nonbreaking anchor insertdatetime advlist lists  wordcount  help charmap quickbars emoticons',
         images_upload_url: '/' + ROUTE.UPLOAD,
