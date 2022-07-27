@@ -114,9 +114,15 @@ function initTinymce(callback, editorClass = 'editor', defaultContent = null, he
     tinymce.init({
         selector: `textarea.${editorClass}`,
         fontsize_formats: "8pt 10pt 12pt 14pt 16pt 18pt 20pt 22pt 24pt 26pt 28pt 30pt",
-        plugins: 'code preview importcss tinydrive searchreplace' +
-            ' autolink autosave save directionality  visualblocks visualchars fullscreen' +
-            ' image link media table charmap pagebreak nonbreaking anchor insertdatetime advlist lists  wordcount  help charmap quickbars emoticons',
+        // plugins: 'code preview importcss tinydrive searchreplace' +
+        //     ' autolink autosave save directionality  visualblocks visualchars fullscreen' +
+        //     ' image link media table charmap pagebreak nonbreaking anchor insertdatetime advlist lists  wordcount  help charmap quickbars emoticons',
+        plugins: [
+            'advlist', 'autolink', 'lists', 'link', 'image', 'charmap', 'preview',
+            'anchor', 'searchreplace', 'visualblocks', 'code', 'fullscreen',
+            'insertdatetime', 'media', 'table', 'help', 'wordcount'
+        ],
+        toolbar: 'undo redo | bold italic underline strikethrough | fontfamily fontsize blocks | bold italic backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent |removeformat | help',
         images_upload_url: '/' + ROUTE.UPLOAD,
 
         file_picker_callback: function (cb, value, meta) {
@@ -169,7 +175,6 @@ function initTinymce(callback, editorClass = 'editor', defaultContent = null, he
             xhr.send(formData);
         },
         menubar: 'file edit view insert format tools table tc help',
-        toolbar: 'filemanager code undo redo | bold italic code underline strikethrough | fontselect fontsizeselect formatselect | alignleft aligncenter alignright alignjustify | outdent indent |  numlist bullist checklist | forecolor backcolor casechange permanentpen formatpainter removeformat | pagebreak | charmap emoticons | fullscreen  preview |  image media pageembed link anchor | a11ycheck ltr rtl | showcomments addcomment',
         autosave_ask_before_unload: true,
         autosave_interval: '30s',
         autosave_prefix: '{path}{query}-{id}-',
@@ -180,7 +185,6 @@ function initTinymce(callback, editorClass = 'editor', defaultContent = null, he
         image_caption: true,
         quickbars_selection_toolbar: 'bold italic | quicklink h1 h2 h3 blockquote quicktable',
         // noneditable_noneditable_class: 'mceNonEditable',
-        toolbar_mode: 'inline',
         mode: "textareas",
         // spellchecker_ignore_list: ['Ephox', 'Moxiecode'],
         // content_style: '.mymention{ color: gray; }',
