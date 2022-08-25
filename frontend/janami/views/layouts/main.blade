@@ -32,18 +32,18 @@ AppAsset::register($view);
     <?php if (isset($view->blocks['meta'])) {
         ?>
         <?= $view->blocks['meta'] ?>
-    <?php } else {?>
+    <?php } else { ?>
     <meta name="title" content="<?= $view->title ?>"/>
     <meta property="og:title" content="<?= $view->title ?>"/>
     <meta property="og:url" content="<?= Yii::$app->request->getHostInfo() . \Yii::$app->homeUrl; ?>"/>
     <meta property="og:image" content="<?= Yii::$app->request->getHostInfo() . HelperFunction::getLogo() ?>"/>
     <meta property="og:description" content="<?= HelperFunction::setting('site_description', true) ?>"/>
     <meta name="description" content="<?= HelperFunction::setting('site_description', true) ?>">
-    <?php }?>
+    <?php } ?>
     <?php if (isset($view->blocks['schema'])) {
         ?>
         <?= $view->blocks['schema'] ?>
-    <?php } else {?>
+    <?php } else { ?>
     <script type="application/ld+json">
         {
             "@context": "http://schema.org",
@@ -67,8 +67,12 @@ AppAsset::register($view);
 
 
 
+
+
+
+
     </script>
-    <?php }?>
+    <?php } ?>
 
     <?php $view->registerCsrfMetaTags() ?>
     <title><?= Html::encode($view->title) ?></title>
@@ -84,9 +88,9 @@ AppAsset::register($view);
         } = antd;
         const {TabPane} = Tabs;
     </script>
-@yield('js_head')
-@yield('css_head')
-<!-- Facebook Pixel Code -->
+    @yield('js_head')
+    @yield('css_head')
+    <!-- Facebook Pixel Code -->
     <script>
         !function (f, b, e, v, n, t, s) {
             if (f.fbq) return;
@@ -119,12 +123,18 @@ AppAsset::register($view);
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-1JH1Y2TKTL"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
         gtag('js', new Date());
 
         gtag('config', 'G-1JH1Y2TKTL');
     </script>
-    
+    <?php if ($_SERVER['REQUEST_URI'] === '/hoat-dong/trien-lam-dong-my-pham-skinmd-giam-nam-hang-dau-han-quoc') {
+        echo "<meta name='googlebot' content='noindex'>";
+    } ?>
 </head>
 <body>
 <?php $view->beginBody() ?>
@@ -147,7 +157,7 @@ AppAsset::register($view);
 
     @yield('content')
 
-    <?= isset($content) ? $content : ''?>
+    <?= isset($content) ? $content : '' ?>
     <?= $view->render('../parts/footer') ?>
 </div>
 
