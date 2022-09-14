@@ -16,6 +16,11 @@ AppAsset::register($view);
 <head>
     <meta charset="<?= Yii::$app->charset ?>">
 
+    <?php if (isset($view->blocks['robot'])) {
+        ?>
+        <?= $view->blocks['robot'] ?>
+    <?php } ?>
+
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -51,6 +56,7 @@ AppAsset::register($view);
             "name": "<?= $view->title ?>",
             "url": "<?= Yii::$app->request->getHostInfo() . \Yii::$app->homeUrl; ?>"
         }
+
 
 
 
@@ -132,6 +138,7 @@ AppAsset::register($view);
 
         gtag('config', 'G-1JH1Y2TKTL');
     </script>
+
     <?php if ($_SERVER['REQUEST_URI'] === '/hoat-dong/trien-lam-dong-my-pham-skinmd-giam-nam-hang-dau-han-quoc') {
         echo "<meta name='googlebot' content='noindex'>";
     } ?>

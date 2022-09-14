@@ -7,6 +7,11 @@ $bannerTop = HelperFunction::getBanner('sidebar_right_top', 'article');
 $bannerBottom = HelperFunction::getBanner('sidebar_right_bottom', ['article']);
 ?>
 
+<?php $view->beginBlock('robot') ?>
+<meta name='googlebot' content='<?= $model->is_index ?>'>
+<meta name='robots' content='<?= $model->is_index ?>'>
+<?php $view->endBlock()?>
+
 <?php $view->beginBlock('schema') ?>
 <?= $view->render('/structure/schema.blade', [
     'type' => 'Article',
