@@ -227,6 +227,16 @@
                                             </Select>
                                         </Form.Item>
                                         <Form.Item
+                                            name={`is_index`}
+                                            label="Index"
+                                            initialValue={1}
+                                        >
+                                            <Select>
+                                                <Select.Option value={1}>Index</Select.Option>
+                                                <Select.Option value={0}>No index</Select.Option>
+                                            </Select>
+                                        </Form.Item>
+                                        <Form.Item
                                             name={`is_new`}
                                             label="Nhận xét báo chí"
                                             initialValue={0}
