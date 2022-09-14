@@ -229,13 +229,14 @@
                                         <Form.Item
                                             name={`is_index`}
                                             label="Index"
-                                            initialValue={1}
+                                            initialValue={index}
                                         >
                                             <Select>
                                                 <Select.Option value={`index`}>Index</Select.Option>
-                                                <Select.Option value={`noindex`}>No index</Select.Option>
-                                                <Select.Option value={`follow`}>No index</Select.Option>
-                                                <Select.Option value={`dofollow`}>No index</Select.Option>
+                                                <Select.Option value={`noindex`}>No Index</Select.Option>
+                                                <Select.Option value={`follow`}>Follow</Select.Option>
+                                                <Select.Option value={`dofollow`}>Do Follow</Select.Option>
+                                                <Select.Option value={`nofollow`}>No Follow</Select.Option>
                                             </Select>
                                         </Form.Item>
                                         <Form.Item
