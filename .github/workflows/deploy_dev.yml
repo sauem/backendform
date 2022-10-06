@@ -1,0 +1,33 @@
+name: Deploy development
+on:
+  workflow_run:
+    workflows:
+      - build
+    types:
+      - completed
+    branches:
+      - development
+env:
+  PROJECT_REPONAME: rnikkei-paper-viewer
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  deploy-development:
+    name: Deploy application to development
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    defaults:
+      run:
+        shell: bash
+        working-directory: ${{ github.workspace }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: echo two
+        run: echo "Xin chao development"
+        
