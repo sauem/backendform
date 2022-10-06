@@ -16,3 +16,11 @@ jobs:
      - name: echo first
        run:  echo "Build success"
      
+     - name: create artifacts
+       run: mkdir -p ./tmp/artifact
+       
+     # Create artifacts for file size reporting
+     - name: Create artifacts for file size reporting
+       uses: actions/upload-artifact@v3
+       with:
+         path: ./tmp/artifact
