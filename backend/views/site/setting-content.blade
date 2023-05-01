@@ -266,10 +266,20 @@
                                     </Col>
                                     <Col sm={24}>
                                         <Form.Item
-                                            label="Link brochure"
-                                            name="link_brochure"
+                                            name={`link_brochure_context`}
+                                            label="Link Brochure"
                                         >
-                                            <Input/>
+                                            <Upload
+                                                customRequest={opts => onUpload(opts, 'link_brochure')}
+                                                onChange={evt => handleOnChange('link_brochure', evt)}
+                                                onRemove={() =>
+                                                    onRemoveMedia(form.getFieldValue('link_brochure'))
+                                                }
+                                                fileList={defaultFileList.link_brochure}
+                                            >
+                                                {defaultFileList.link_brochure.length > 0 ? null :
+                                                    <Button><i className="icon-upload mr-2"/> Chọn file</Button>}
+                                            </Upload>
                                         </Form.Item>
                                     </Col>
                                 </Row>
