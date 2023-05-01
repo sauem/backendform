@@ -20,6 +20,8 @@ return [
     ],
     'layout' => 'main.blade',
     'components' => [
+        'maxFileSize' => 10 * 1024 * 1024,
+        'maxPostSize' => 10 * 1024 * 1024,
         'jwt' => [
             'class' => \sizeg\jwt\Jwt::class,
             'key' => 'secret',
@@ -40,9 +42,7 @@ return [
             'csrfParam' => '_csrf-backend',
             'parsers' => [
                 'application/json' => 'yii\web\JsonParser',
-            ],
-            'maxFileSize' => 10 * 1024 * 1024,
-            'maxPostSize' => 10 * 1024 * 1024,
+            ]
         ],
         'user' => [
             'identityClass' => 'common\models\User',
