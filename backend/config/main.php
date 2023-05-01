@@ -20,8 +20,6 @@ return [
     ],
     'layout' => 'main.blade',
     'components' => [
-        'maxFileSize' => 10 * 1024 * 1024,
-        'maxPostSize' => 10 * 1024 * 1024,
         'jwt' => [
             'class' => \sizeg\jwt\Jwt::class,
             'key' => 'secret',
