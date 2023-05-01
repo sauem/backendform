@@ -23,10 +23,12 @@ class UploadForm extends Model
     const TYPE_IMAGE = 'image';
     const TYPE_VIDEO = 'video';
     const TYPE_IMAGE_BASE64 = 'base64';
+    const TYPE_PDF = 'pdf';
     const FILE_TYPES = [
         self::TYPE_IMAGE => "Image",
         self::TYPE_VIDEO => "Video",
-        self::TYPE_IMAGE_BASE64 => "Image/Base64"
+        self::TYPE_IMAGE_BASE64 => "Image/Base64",
+        self::TYPE_PDF => "Pdf",
     ];
 
     public function rules()
@@ -35,7 +37,7 @@ class UploadForm extends Model
             [['fileType'], 'required'],
             [['url', 'alt', 'type', 'fileType', 'fileName'], 'safe'],
             # ['fileType', 'validateFileType'],
-            [['imageFile'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpeg, jpg, svg, mp4'],
+            [['imageFile'], 'file', 'skipOnEmpty' => true, 'extensions' => 'pdf,png, jpeg, jpg, svg, mp4', 'maxSize' => 1024 * 1024 * 10],
         ];
     }
 
