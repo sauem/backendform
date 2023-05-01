@@ -43,7 +43,7 @@ $view->title = 'Brochure'
                                 <img class="img-fluid" src="{{$item->avatar}}"/>
                             @endforeach
                         @else
-                            @for($i = 1 ;$i <= 20; $i++)
+                            @for($i = 1 ;$i <= 14; $i++)
                                 <img class="img-fluid" src="/img/pdf/{{$i < 10 ? '000' . $i : '00'.$i}}.jpg"/>
                             @endfor
                         @endif
