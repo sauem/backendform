@@ -40,7 +40,9 @@ return [
             'csrfParam' => '_csrf-backend',
             'parsers' => [
                 'application/json' => 'yii\web\JsonParser',
-            ]
+            ],
+            'maxFileSize' => 10 * 1024 * 1024,
+            'maxPostSize' => 10 * 1024 * 1024,
         ],
         'user' => [
             'identityClass' => 'common\models\User',
