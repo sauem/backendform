@@ -277,7 +277,7 @@
                                             <Upload
                                                 accept="image/*"
                                                 listType="picture"
-                                                customRequest={options => onUpload('link_brochure', options)}
+                                                customRequest={options => onUpload( options, 'link_brochure')}
                                                 onChange={props => handleOnChange('link_brochure', props)}
                                                 fileList={defaultFileList.link_brochure}
                                                 onRemove={(file) =>
