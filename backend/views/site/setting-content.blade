@@ -267,19 +267,25 @@
                                     </Col>
                                     <Col sm={24}>
                                         <Form.Item
-                                            name={`link_brochure_context`}
-                                            label="Link Brochure"
+                                            name="link_brochure_context"
+                                            label="Ảnh thumbnail"
+                                            extra={<Space direction="vertical">
+                                                <span>* Chuyển đổi ảnh sang jpeg tại <a target='_blank' href='https://smallpdf.com/pdf-to-jpg'>https://smallpdf.com/pdf-to-jpg</a></span>
+                                                <span>* Tối ưu dung lượng ảnh tại <a target='_blank' href='https://tinypng.com'>https://tinypng.com</a></span>
+                                            </Space>}
                                         >
                                             <Upload
-                                                customRequest={opts => onUpload(opts, 'link_brochure')}
-                                                onChange={evt => handleOnChange('link_brochure', evt)}
-                                                onRemove={() =>
-                                                    onRemoveMedia(form.getFieldValue('link_brochure'))
-                                                }
+                                                accept="image/*"
+                                                listType="picture"
+                                                customRequest={options => onUpload('link_brochure', options)}
+                                                onChange={props => handleOnChange('link_brochure', props)}
                                                 fileList={defaultFileList.link_brochure}
+                                                onRemove={(file) =>
+                                                    onRemoveMedia(file.uid)
+                                                }
+                                                multiple
                                             >
-                                                {defaultFileList.link_brochure.length > 0 ? null :
-                                                    <Button><i className="icon-upload mr-2"/> Chọn file</Button>}
+                                                <Button><i className="icon-upload mr-2"/> Chọn ảnh</Button>
                                             </Upload>
                                         </Form.Item>
                                     </Col>
