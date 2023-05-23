@@ -40,7 +40,7 @@ $view->title = 'Brochure'
                     <div class="owl-carousel owl-theme invention-carousel">
                         @if(!empty($brochure))
                             @foreach($brochure as $item)
-                                <img class="img-fluid" src="{{$item->avatar}}"/>
+                                <img class="img-fluid" src="/static{{$item->path}}"/>
                             @endforeach
                         @else
                             @for($i = 1 ;$i <= 14; $i++)
