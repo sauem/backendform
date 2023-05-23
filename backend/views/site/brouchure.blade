@@ -57,6 +57,11 @@
 
 
             return <div>
+                <Space direction="vertical">
+                    <small>#Trước khi upload ảnh Brochure thực hiện 2 bước sau để tối ưu tốc độ website</small>
+                    <small>* Chuyển đổi PDF sang dạng JPG tại : <a target="_blank" href="https://smallpdf.com/vi/pdf-to-jpg">smallpdf</a></small>
+                    <small>* Tối ưu hình ảnh làm nhẹ website tại  : <a target="_blank" href="https://tinypng.com/">tinypng.com</a></small>
+                </Space>
                 <Upload
                     customRequest={async ({file, onSuccess}) => onSuccess('ok')}
                     listType="picture-card"
