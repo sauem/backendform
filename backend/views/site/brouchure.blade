@@ -2,250 +2,72 @@
     <script type="text/babel">
 
         const App = () => {
-            const initalState = {
-                modalTitle: '',
-                modalVisible: '',
-                loading: false,
-                banners: [],
-                uploading: false
-            };
-            const [state, setState] = useState(initalState);
-            const [defaultFileList, setDefaultFileList] = useState([]);
-            const [progress, setProgress] = useState(0);
-            const [paginate, setPaginate] = useState(null);
-            const [form] = Form.useForm();
 
-            const onCancel = () => {
-                setState({
-                    ...state,
-                    ...{
-                        modalTitle: '',
-                        modalVisible: '',
-                        loading: false,
-                        uploading: false
-                    }
-                });
-                form.resetFields();
-            }
-            const onCreate = () => {
-                setState({
-                    ...state,
-                    ...{modalVisible: true, modalTitle: 'Tạo banner/slider'}
-                });
-                form.resetFields();
-            }
-            const onUpdate = banner => {
-                setState({
-                    ...state,
-                    ...{modalVisible: true, modalTitle: 'Cập nhật banner/slider'}
-                });
-                form.setFieldsValue(banner);
-                banner.avatar ? setDefaultFileList([{
-                    uid: '-1',
-                    name: banner.name,
-                    status: 'done',
-                    url: banner.avatar
-                }]) : setDefaultFileList([]);
-            }
-            const onDelete = async (id) => {
-                await Banners.delete(id);
-                await updateSate();
-            }
-            const onUpload = options => {
-                const {onSuccess, onError, file, onProgress} = options;
-                setState({
-                    ...state,
-                    ...{
-                        uploading: true
-                    }
-                });
-                onUploadMedia(file, data => {
-                    form.setFieldsValue({
-                        media_id: data.id
-                    });
-                    onSuccess();
-                }, onError, (event) => {
-                    const percent = Math.floor((event.loaded / event.total) * 100);
-                    setProgress(percent);
-                    if (percent === 100) {
-                        setTimeout(() => setProgress(0), 1000);
-                    }
-                    onProgress({percent: (event.loaded / event.total) * 100});
-                }, MEDIA_TYPE_BANNER);
-            }
-            const handleOnChange = ({file, fileList, event}) => {
-                setDefaultFileList(fileList);
-            };
-            const updateSate = async (obj = {}, page = 1) => {
-                setState({
-                    ...state,
-                    ...{
-                        loading: true,
-                    }
-                });
-                const {data, pagination} = await Banners.fetch(Object.assign({page}, obj));
-                setState({
-                    ...state,
-                    ...Object.assign({
-                        pagination,
-                        loading: false,
-                        modalVisible: false,
-                        banners: data,
-                    }, obj)
-                });
-                form.resetFields();
-                data.avatar ? setDefaultFileList([{
-                    uid: '-1',
-                    name: data.name,
-                    status: 'done',
-                    url: data.avatar
-                }]) : setDefaultFileList([]);
-            }
-            const onFinish = async (data) => {
-                if (typeof data.id === "undefined") {
-                    await Banners.create(data);
-                } else {
-                    await Banners.update(data);
+            const [fileList, setFileList] = useState([]);
+
+            const handleChange = (file) => {
+                try {
+                    onUploadMedia(file, (response) => {
+                        if (response.name !== "Exception") {
+                            const file = {
+                                uid: response.id,
+                                percent: 50,
+                                name: response.name,
+                                status: 'done',
+                                url: `/static${response.path}`
+                            }
+                            setFileList([...fileList, file]);
+                        }
+
+                    }, null, null, 'brochure');
+                    return true;
+                } catch (e) {
+                    console.log("e", e)
                 }
-                await updateSate();
+            };
+            const onRemove = async (image) => {
+                try {
+                    await Server.delete(`/brochure/delete?id=${image.uid}`);
+                } catch (e) {
+                    console.log("E", e)
+                }
+                await getFileList();
+            }
+            const getFileList = async () => {
+                try {
+                    const response = await Server.get('/brochure');
+                    const items = response.data.map((item) => {
+                        return {
+                            uid: item.id,
+                            percent: 100,
+                            name: item.name,
+                            status: 'done',
+                            url: `/static${item.path}`
+                        }
+                    });
+                    console.log("ITEM", items)
+                    setFileList(items);
+                } catch (e) {
+                    console.log("E", e)
+                }
             }
             useEffect(() => {
-                updateSate();
+                getFileList();
             }, []);
-            return (
-                <div>
-                    <Card title={`Brochure`}
-                          extra={<Button onClick={onCreate} size="small" type="primary">
-                              <i className="icon-add"/> Thêm mới</Button>}>
-                        <Spin spinning={state.loading}>
-                            <Table
-                                onChange={({current, pageSize}) => updateSate({}, current)}
-                                pagination={state.pagination}
-                                dataSource={state.banners}
-                                rowKey={'id'}
-                                columns={[
-                                    {
-                                        title: 'Ảnh', dataIndex: 'avatar', key: 'avatar', render: raw =>
-                                            <img className={`img-fluid img-thumbnail`} width="100" src={raw}/>
-                                    },
-                                    {
-                                        title: 'Tiêu đề', dataIndex: 'name', render: (name, raw) => {
-                                            return (
-                                                <div>
-                                                    <p>{name}</p>
-                                                    <p>{raw.sub_title}</p>
-                                                    <p>{raw.description}</p>
-                                                </div>
-                                            )
-                                        }
-                                    },
-                                    {title: 'Loại banner', dataIndex: 'type'},
-                                    {
-                                        title: 'Vị trí',
-                                        dataIndex: 'position',
-                                        key: 'position',
-                                        render: raw => getObjectValue(raw.name, BANNER_POSITIONS).name
-                                    },
-                                    {
-                                        title: 'Trang hiển thị', dataIndex: 'page_show', render: raw => {
-                                            return raw.map(item => {
-                                                return <span
-                                                    className={`badge badge-pill mr-1 badge-sm`}>{getObjectValue(item, BANNER_PAGES).name}</span>
-                                            })
-                                        }
-                                    },
-                                    {
-                                        title: 'Thiết bị',
-                                        dataIndex: 'device',
-                                        key: 'device',
-                                        render: raw => getObjectValue(raw.name, BANNER_DEVICES).name
-                                    },
-                                    {title: 'Trạng thái', dataIndex: 'status'},
-                                    {
-                                        title: 'Hành động', key: 'action', render: raw => {
-                                            return (
-                                                <div>
-                                                    <Button onClick={() => onUpdate(raw)} type="primary"
-                                                            className={`mr-1`} size={`small`}><i
-                                                        className="icon icon-edit"/></Button>
-                                                    <Popconfirm
-                                                        title="Xóa danh mục hiện tại"
-                                                        onConfirm={() => onDelete(raw.id)}
-                                                        okText="Xóa"
-                                                        cancelText="Hủy"
-                                                    >
-                                                        <Button type="dashed" danger size={`small`}><i
-                                                            className="icon icon-trash"/></Button>
-                                                    </Popconfirm>
-                                                </div>
-                                            );
-                                        }
-                                    },
-                                ]}
-                            />
-                        </Spin>
-                    </Card>
-                    <Modal
-                        visible={state.modalVisible}
-                        title={state.modalTitle}
-                        onCancel={onCancel}
-                        footer={[
-                            <small className="text-danger mr-2">* Thông tin bắt buộc!</small>,
-                            <Button htmlType="submit" form={`bannerForm`} type="primary">Save</Button>,
-                            <Button onClick={onCancel}>Cancel</Button>
-                        ]}
-                    >
-                        <Form form={form} onFinish={onFinish} id={`bannerForm`} layout="vertical">
-                            <Row gutter={[8, 0]}>
-                                <Col sm={24}>
-                                    <small className="text-danger">Kích thước ảnh brochure : 3150 x 1575px</small><br/>
-                                    <Form.Item
-                                        name="avatar"
-                                        label="Ảnh"
-                                    >
-                                        <Upload
-                                            accept="image/*"
-                                            customRequest={onUpload}
-                                            onChange={handleOnChange}
-                                            listType="picture"
-                                            onRemove={() =>
-                                                onRemoveMedia(form.getFieldValue('media_id'))
-                                            }
-                                            fileList={defaultFileList}
-                                            className="avatar-uploader single"
-                                        >
-                                            {defaultFileList.length >= 1 ? null :
-                                                <Button><i className="icon-upload mr-2"/> Chọn ảnh</Button>}
-                                        </Upload>
-                                        {progress > 0 ? <Progress percent={progress}/> : null}
-                                    </Form.Item>
-                                    <Form.Item
-                                        hidden
-                                        name="id"
-                                    >
-                                        <Input/>
-                                    </Form.Item>
-                                    <Form.Item
-                                        hidden
-                                        rules={[{required: true, message: 'Ảnh trống!'}]}
-                                        name="media_id"
-                                    >
-                                        <Input/>
-                                    </Form.Item>
-                                </Col>
-                                <Col md={24}>
-                                    <Form.Item
-                                        label="Vị trí"
-                                        name="sort_order"
-                                    >
-                                        <InputNumber/>
-                                    </Form.Item>
-                                </Col>
-                            </Row>
-                        </Form>
-                    </Modal>
-                </div>
-            )
+
+
+            return <div>
+                <Upload
+                    customRequest={async ({file, onSuccess}) => onSuccess('ok')}
+                    listType="picture-card"
+                    fileList={fileList}
+                    onRemove={onRemove}
+                    beforeUpload={handleChange}
+                        //  onChange={(props) => handleChange(props)}
+                >
+                    {fileList.length >= 8 ? null : 'Upload'}
+                </Upload>
+            </div>
         };
     </script>
 @stop

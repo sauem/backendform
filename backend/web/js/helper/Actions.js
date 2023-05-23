@@ -17,7 +17,7 @@ const onUploadMedia = (file, successCallback, errorCallBack, onUploadProgress, t
         headers: {
             'Content-Type': 'multipart/form-data',
         },
-        onUploadProgress: event => onUploadProgress(event)
+        onUploadProgress: event => onUploadProgress && onUploadProgress(event)
     }).post(ROUTE.UPLOAD, formData)
         .then((res) => {
             if (successCallback) {

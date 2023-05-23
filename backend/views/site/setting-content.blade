@@ -13,7 +13,6 @@
                 janami_story_img: [],
                 procedure_img: [],
                 about_thumb: [],
-                link_brochure: []
             });
             const [form] = Form.useForm();
             const [progress, setProgress] = useState(0);
@@ -56,6 +55,7 @@
             const submitSetting = async data => {
                 try {
                     const res = await Setting(data);
+
                     message.success('Lưu cài đặt thành công!');
                 } catch (e) {
                     message.error(e.message);
@@ -263,30 +263,6 @@
                                             name="outer_link_3"
                                         >
                                             <Input/>
-                                        </Form.Item>
-                                    </Col>
-                                    <Col sm={24}>
-                                        <Form.Item
-                                            name="link_brochure_context"
-                                            label="Ảnh thumbnail"
-                                            extra={<Space direction="vertical">
-                                                <span>* Chuyển đổi ảnh sang jpeg tại <a target='_blank' href='https://smallpdf.com/pdf-to-jpg'>https://smallpdf.com/pdf-to-jpg</a></span>
-                                                <span>* Tối ưu dung lượng ảnh tại <a target='_blank' href='https://tinypng.com'>https://tinypng.com</a></span>
-                                            </Space>}
-                                        >
-                                            <Upload
-                                                accept="image/*"
-                                                listType="picture"
-                                                customRequest={options => onUpload( options, 'link_brochure')}
-                                                onChange={props => handleOnChange('link_brochure', props)}
-                                                fileList={defaultFileList.link_brochure}
-                                                onRemove={(file) =>
-                                                    onRemoveMedia(file.uid)
-                                                }
-                                                multiple
-                                            >
-                                                <Button><i className="icon-upload mr-2"/> Chọn ảnh</Button>
-                                            </Upload>
                                         </Form.Item>
                                     </Col>
                                 </Row>
