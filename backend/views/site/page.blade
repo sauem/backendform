@@ -20,10 +20,10 @@
                 let res = true;
                 if (typeof article.id === "undefined") {
                     res = await Pages.create(article);
-                    message.success('Thêm bài viết thành công!');
+                    message.success('Thêm trang thành công!');
                 } else {
                     res = await Pages.update(article);
-                    message.success('Cập nhật bài viết thành công!');
+                    message.success('Cập nhật trang thành công!');
                 }
                 if (res) {
                     updateState();
@@ -90,7 +90,7 @@
             return (
                 <div className="mb-5">
                     <Button type="dashed" className="mb-2"><a href="/site/page">
-                        <i className="icon icon-arrow-left"/> Danh sách bài viết</a>
+                        <i className="icon icon-arrow-left"/> Danh sách trang</a>
                     </Button>
                     <Form onFinish={onSubmit} form={form} layout="vertical">
                         <Row gutter={[8, 0]}>
@@ -102,9 +102,9 @@
                                     </Form.Item>
                                     <Form.Item
                                         onChange={onChangeSlug}
-                                        label={`Tên bài viết`}
+                                        label={`Tên trang`}
                                         name={`name`}
-                                        rules={[{required: true, message: 'Tên bài viết bắt buộc!'}]}
+                                        rules={[{required: true, message: 'Tên trang bắt buộc!'}]}
                                     >
                                         <Input/>
                                     </Form.Item>
@@ -123,7 +123,7 @@
                                     </Form.Item>
                                     <Form.Item
                                         onChange={handleChangeContent}
-                                        label="Nội dung bài viết"
+                                        label="Nội dung trang"
                                         rules={[{required: true, message: 'Nội dung bắt buộc!'}]}
                                         name={`content`}>
                                         <Input.TextArea className="editor"/>

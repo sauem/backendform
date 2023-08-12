@@ -24,9 +24,9 @@
                 updateState();
             }, []);
             return (
-                <Card title={`Bài viết`}
+                <Card title={`Trang`}
                       extra={<a href={`/site/page-create`} className="btn btn-xs btn-primary">
-                          <i className="icon-add"/> Thêm bài viết</a>}>
+                          <i className="icon-add"/> Thêm trang</a>}>
                     <Spin spinning={state.loading}>
                         <Table
                             onChange={({current, pageSize}) => updateState({page: current})}
@@ -35,7 +35,7 @@
                             pagination={state.pagination}
                             columns={[
                                 {
-                                    title: 'Tên bài viết', dataIndex: 'name', key: 'name',
+                                    title: 'Trên trang', dataIndex: 'name', key: 'name',
                                     render: (name, raw) => {
                                         return <p className={`text-1`}>{name}</p>
                                     }
