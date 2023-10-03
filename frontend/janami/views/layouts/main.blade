@@ -41,7 +41,7 @@ AppAsset::register($view);
     <meta name="title" content="<?= $view->title ?>"/>
     <meta property="og:title" content="<?= $view->title ?>"/>
     <meta property="og:url" content="<?= Yii::$app->request->getHostInfo() . \Yii::$app->homeUrl; ?>"/>
-    <meta property="og:image" content="<?= Yii::$app->request->getHostInfo() . HelperFunction::getLogo() ?>"/>
+    <meta property="og:image" content="<?= Yii::$app->request->getHostInfo() . HelperFunction::getMetaImg() ?>"/>
     <meta property="og:description" content="<?= HelperFunction::setting('site_description', true) ?>"/>
     <meta name="description" content="<?= HelperFunction::setting('site_description', true) ?>">
     <?php } ?>

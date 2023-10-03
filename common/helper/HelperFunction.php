@@ -127,6 +127,16 @@ class HelperFunction
         return \Yii::$app->settings->get('Common', $key);
     }
 
+    public static function getMetaImg()
+    {
+        $meta = \Yii::$app->settings->get('Common', "event_image");
+        if ($meta) {
+            return "/static$meta->path";
+        }
+        return self::getLogo();
+
+    }
+
     public static function getLogo($key = 'header')
     {
         $logo = \Yii::$app->settings->get('Common', "logo_$key");
