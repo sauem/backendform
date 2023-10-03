@@ -131,7 +131,9 @@ class HelperFunction
     {
         $meta = \Yii::$app->settings->get('Common', "event_image");
         if ($meta) {
-            return "/static$meta->path";
+            $model = Medias::findOne($meta);
+
+            return "/static$model->path";
         }
         return self::getLogo();
 
